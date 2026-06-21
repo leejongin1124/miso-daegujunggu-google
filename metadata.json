@@ -1,8 +1,5 @@
 {
-  "name": "Remix: Remix: 미소금융 대구중구법인",
-  "description": "서민금융진흥원 공식 사업수행기관인 (사)미소금융대구중구법인 홈페이지입니다. 저소득·저신용 소상공인과 취약계층을 위한 무담보 저금리 대출 정보와 신청 자격 가가진단, 이자 계산기 및 맞춤형 상담 기능을 제공합니다.",
-  "requestFramePermissions": [],
-  "majorCapabilities": [
-    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
-  ]
+  "name": "미소금융 대구중구법인",
+  "description": "서민금융진흥원 공식 사업수행기관인 (사)미소금융대구중구법인 홈페이지입니다. 저소득·저신용 소상공인과 취약계층을 위한 무담보 저금리 대출 정보와 이자 계산기를 제공합니다.",
+  "requestFramePermissions": []
 }
