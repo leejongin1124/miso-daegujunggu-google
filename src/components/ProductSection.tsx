@@ -216,7 +216,7 @@ export default function ProductSection({ onOpenCalculator }: ProductSectionProps
                   </h4>
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-3 mt-3.5 text-xs text-slate-600">
                     <a 
-                      href="https://www.niceodm.co.kr" 
+                      href="https://m.one-click.co.kr/#/kinfa_miso" 
                       target="_blank" 
                       rel="noopener noreferrer"
                       className="bg-white hover:bg-slate-50 p-3.5 rounded-xl border border-slate-200 flex items-center justify-between font-bold shadow-sm transition-all"

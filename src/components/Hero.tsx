@@ -77,9 +77,8 @@ export default function Hero({ onScrollToSection }: HeroProps) {
               transition={{ duration: 0.6, delay: 0.1 }}
               className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-slate-900 leading-[1.12]"
             >
-              은행 문턱에 <br className="sm:hidden" />막히셨나요? <br />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-miso-blue-600 to-miso-navy-600">
-                여기, 또 다른 길이 있습니다.
+                은행 문턱에 막히셨나요? 여기, 또 다른 길이 있습니다.
               </span>
             </motion.h1>
 

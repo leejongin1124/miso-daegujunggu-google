@@ -5,7 +5,7 @@
 
 import { useState, useRef, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { Menu, X, Phone, Heart, ChevronDown } from 'lucide-react';
+import { Menu, X, Phone, ChevronDown } from 'lucide-react';
 import { TabType } from '../types';
 
 interface HeaderProps {
@@ -145,8 +145,8 @@ export default function Header({ activeTab, setActiveTab, onScrollToSection, onO
           
           {/* 로고 */}
           <div className="flex items-center space-x-2.5 cursor-pointer" onClick={() => handleSublinkClick('hero-section', TabType.ABOUT)}>
-            <div className="w-10 h-10 bg-miso-blue-600 rounded-xl flex items-center justify-center text-white shadow-md shadow-miso-blue-100">
-              <Heart className="w-5 h-5 fill-white" />
+            <div className="w-10 h-10 flex items-center justify-center">
+              <img src="/miso_symbol.png" alt="미소금융 심볼" className="w-10 h-10 object-contain" />
             </div>
             <div>
               <div className="flex items-center space-x-1.5">
