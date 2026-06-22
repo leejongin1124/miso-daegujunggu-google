@@ -11,7 +11,6 @@ import AboutSection from './components/AboutSection';
 import ProductSection from './components/ProductSection';
 import GuideSection from './components/GuideSection';
 import CaseSection from './components/CaseSection';
-import ContactForm from './components/ContactForm';
 import NoticeSection from './components/NoticeSection';
 import Footer from './components/Footer';
 import FloatingWidget from './components/FloatingWidget';
@@ -26,7 +25,7 @@ export default function App() {
       
       const aboutEl = document.getElementById('history');
       const productsEl = document.getElementById('social-finance');
-      const guideEl = document.getElementById('self-diagnosis');
+      const guideEl = document.getElementById('loan-calc-intro');
       const casesEl = document.getElementById('case-social');
       const noticeEl = document.getElementById('notice');
 
@@ -66,9 +65,9 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen bg-slate-50 text-slate-800 antialiased selection:bg-teal-500 selection:text-white">
+    <div className="min-h-screen bg-slate-50 text-slate-800 antialiased selection:bg-miso-blue-500 selection:text-white">
       
-      {/* 글로벌 신한은행풍 메가 픽업 헤더 */}
+      {/* 상단 고정 헤더 */}
       <Header 
         activeTab={activeTab}
         setActiveTab={setActiveTab}
@@ -89,39 +88,32 @@ export default function App() {
         {/* 2. 대구중구법인 4대 대표자금 상품 상세안내 */}
         <div>
           <ProductSection 
-            onScrollToSection={handleScrollToSection}
             onOpenCalculator={handleOpenCalculator}
           />
         </div>
 
-        {/* 3. 자격 자가진단 및 거치 분리 스마트계산기 */}
+        {/* 3. 거치 분리 스마트계산기 */}
         <div className="bg-white">
           <GuideSection />
         </div>
 
-        {/* 4. 자활 감동 극복사례 수기 */}
+        {/* 4. 지원 사례 */}
         <div>
           <CaseSection />
         </div>
 
-        {/* 5. 로컬스토리지 대시보드 연동 간편상담 및 AI 대화 가이드 */}
+        {/* 5. 공지사항 및 불법 사금융 예방 안내 */}
         <div className="bg-white">
-          <ContactForm />
-        </div>
-
-        {/* 6. 공지사항 및 유한 단속 피싱방지 숏바 */}
-        <div>
           <NoticeSection />
         </div>
 
       </main>
 
-      {/* 7. 필수 법률 고지 및 대표자 기입 하단 */}
+      {/* 6. 법인 정보 및 안내 하단 */}
       <Footer />
 
-      {/* 8. 도우미 퀵 숏컷 패널 플로팅 */}
+      {/* 7. 플로팅 퀵메뉴 */}
       <FloatingWidget 
-        onScrollToSection={handleScrollToSection}
         onOpenCalculator={handleOpenCalculator}
       />
 

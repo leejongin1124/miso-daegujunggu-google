@@ -29,18 +29,6 @@ export interface Milestone {
   }[];
 }
 
-export interface ConsultationForm {
-  name: string;
-  phone: string;
-  birthDate: string;
-  productType: string;
-  incomeType: 'individual' | 'corporate' | 'youth' | 'vulnerable';
-  hasActiveArrears: boolean;
-  message: string;
-  isAgreed: boolean;
-  monthlyIncome: number;
-}
-
 export interface CaseStudy {
   id: string;
   category: string;

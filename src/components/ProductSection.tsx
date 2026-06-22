@@ -9,11 +9,10 @@ import { BadgePercent, ShieldCheck, CheckCircle2, ChevronRight, Calculator, File
 import { Product } from '../types';
 
 interface ProductSectionProps {
-  onScrollToSection: (sectionId: string) => void;
   onOpenCalculator: () => void;
 }
 
-export default function ProductSection({ onScrollToSection, onOpenCalculator }: ProductSectionProps) {
+export default function ProductSection({ onOpenCalculator }: ProductSectionProps) {
   const [activeTab, setActiveTab] = useState<string>('social');
 
   const products: Product[] = [
@@ -21,7 +20,7 @@ export default function ProductSection({ onScrollToSection, onOpenCalculator }: 
       id: 'social',
       name: '사회적연대금융',
       subtitle: '전국 최초 미소법인 취급 · 최다 지원 실적 (누적 37건 / 15억 원)',
-      description: '사회적기업, 협동조합, 자활기업, 마을기업 등 사회 구조의 빈틈에서 취약계층의 고용 안정을 도모하는 단체 전용 특별 정책 무담보 운영 자금입니다.',
+      description: '사회적기업, 협동조합, 자활기업, 마을기업 등 취약계층의 고용 안정을 위해 활동하는 단체를 위한 무담보 운영 자금입니다.',
       limit: '최대 1억 원',
       interestRate: '연 4.5% (우수 단체 및 기업 선정 시 최저 연 4.0% 우대)',
       repaymentPeriod: '거치 최대 2년 + 균등분할상환 4년 (최대 6년) 또는 2년 만기 일시상환',
@@ -33,17 +32,17 @@ export default function ProductSection({ onScrollToSection, onOpenCalculator }: 
         '최근 3개년 평균 연매출 10억 원 이하 법인 (3년 미만은 설립 후 연평균 적용)'
       ],
       suitability: [
-        '실제 활동 및 가치 증빙 서류가 완전한 대구지역 사회적 단체',
-        '정부 지원금 교부 전 발생한 기한부 임시 운영자금 공백을 채우고자 하는 곳',
-        '취약계층의 지속 가능한 근로계약과 사회 안정을 수호하고자 하는 기업'
+        '활동 및 가치 증빙 서류가 갖춰진 대구지역 사회적 단체',
+        '정부 지원금 교부 전 발생하는 운영자금 공백을 메우고자 하는 곳',
+        '취약계층의 안정적인 근로계약 유지를 원하는 기업'
       ],
-      effect: '일회성 보조금 공백에 따른 급격한 조직 운영 균열을 방지하고, 직원의 근로 영속성을 안전하게 유지합니다.'
+      effect: '지원금 공백으로 인한 조직 운영의 어려움을 줄이고, 직원의 고용 안정성을 유지하는 데 도움이 됩니다.'
     },
     {
       id: 'business',
       name: '사업자 운영자금',
       subtitle: '소상공인·개인 가입 가능 / 사업자등록 후 3개월 필수',
-      description: '골목의 동네 미용실, 전통시장 안 작은 상회, 1인 배달업 등 사업 실적이 충분히 존재함에도 담보가 부족해 대출을 기각당한 자영업자를 보살피는 긴급 수혈 자금입니다.',
+      description: '동네 미용실, 전통시장 작은 상회, 1인 배달업처럼 사업 실적은 있지만 담보가 부족해 대출이 어려운 자영업자를 위한 자금입니다.',
       limit: '최대 2,000만원 (청년 사업가는 우대 최대 3,000만원)',
       interestRate: '연 4.5% (고정 이율)',
       repaymentPeriod: '거치 6개월 + 매달 균등분할상환 5년 (총 5.5년) / 청년 우수 시 거치 2년',
@@ -55,17 +54,17 @@ export default function ProductSection({ onScrollToSection, onOpenCalculator }: 
         '사업자등록증 보유 및 실제 가동 3개월 이상 확인 가능 대표자'
       ],
       suitability: [
-        '카드 거래 승인 내역이나 종합 통장 입출금 매출 증빙이 명료한 분',
-        '높은 대부업 자가 자금의 이율 구조(연 20%)를 합법적이고 투명하게 대수선할 자',
-        '매출 채널을 소폭 확보해 나가며 성실하게 분할 부채를 상환할 의지가 강한 소상공인'
+        '카드 거래 승인 내역이나 통장 입출금으로 매출 증빙이 가능한 분',
+        '높은 금리의 대부업 자금을 낮은 금리로 전환하고자 하는 분',
+        '매출 기반을 다지며 성실하게 상환할 의지가 있는 소상공인'
       ],
-      effect: '제3금융권 사금융의 올가미 고리 구조에서 영속적으로 비켜가 성실 자립을 추진하는 디딤돌이 됩니다.'
+      effect: '높은 금리의 사금융 대신 합리적인 금리로 운영자금을 마련해 자립을 준비하는 데 도움이 됩니다.'
     },
     {
       id: 'youth',
       name: '청년 미래이음',
       subtitle: '만 19세 ~ 34세 청년 / 미취업자 및 신규 취·창업 1년차',
-      description: '아직 신용등급이 쌓이지 않아 카드 발급마저 주저하는 대학생, 구직자 층에게 올바른 금융 지식과 함께 사회 진출의 발판을 기입해주는 청년 독점 보장 기금입니다.',
+      description: '아직 신용등급이 쌓이지 않은 대학생, 구직자에게 사회 진출의 발판이 되어주는 청년 전용 자금입니다.',
       limit: '최대 500만 원 (개인 한도)',
       interestRate: '연 4.5% (고정 이율)',
       repaymentPeriod: '거치 최대 6년 + 매달 분할 상환 5년 (총 11년 상환 설계)',
@@ -76,17 +75,17 @@ export default function ProductSection({ onScrollToSection, onOpenCalculator }: 
         '미취업 상태의 고용 지원 대상자 또는 취·창업 이력 1년 미만의 초기 도전자'
       ],
       suitability: [
-        '일시적 보육 수당이나 알바 소득 등으로 소액의 이자 상환 능력을 갖춘 청년',
-        '필수 교육 과정인 「청년 모두를 위한 스마트 재무상담」 이수를 수월히 마칠 청년',
-        '대부 광고의 늪에 빠지기 전 첫 금융 설계를 공공적 든든함으로 안심 출발할 청년'
+        '일시적 보육 수당이나 아르바이트 소득으로 소액의 이자 상환이 가능한 청년',
+        '필수 교육 과정인 「청년 모두를 위한 스마트 재무상담」을 이수할 청년',
+        '제도권 금융으로 첫 신용 거래를 시작하고자 하는 청년'
       ],
-      effect: '안정적인 구직 기간을 확보하여, 부결 걱정 없는 첫 신용의 합법적 기틀과 저금리 자금을 지원받게 됩니다.'
+      effect: '안정적인 구직 기간을 확보하면서 낮은 금리로 첫 신용 거래를 시작하는 데 도움이 됩니다.'
     },
     {
       id: 'vulnerable',
       name: '금융취약계층 생계자금',
       subtitle: '기초수급자 · 차상위 · 다문화 · 보이스피싱 피해자 긴급의료',
-      description: '가족 중 급작스러운 사고나 질병, 전세 사기 등 우발적 사회재난 속에서 당장 병원비나 최소 생계 월세를 메워낼 길이 만무한 가구를 감싸 안는 긴급 금융 지원책입니다.',
+      description: '가족의 갑작스러운 사고나 질병, 전세 사기 등으로 당장 병원비나 생계비가 필요한 가구를 위한 긴급 금융 지원입니다.',
       limit: '최대 500만 원 (생계 한도)',
       interestRate: '연 4.5%',
       repaymentPeriod: '거치 1년 + 매월 분할 상환 5년 (총 6년 상환)',
@@ -98,11 +97,11 @@ export default function ProductSection({ onScrollToSection, onOpenCalculator }: 
         '정부 지정 특별재난지역 거주자 및 전세 사기 / 보이스피싱 피해 신고 완료 자'
       ],
       suitability: [
-        '생계비 용도(치료 영수증, 주거 전세 월세 연체 계좌 송금 내역) 소명이 온전한 경우',
-        '일시적인 수급비나 일용 소득으로 매월 최소의 이자를 기한 내 이행 가능한 서민',
-        '악질 사채 이용의 위협에서 벗어나 생명을 부지하고 생활을 복원시킬 강력한 자'
+        '생계비 용도(치료 영수증, 주거 전세·월세 연체 계좌 송금 내역) 소명이 가능한 경우',
+        '일시적인 수급비나 일용 소득으로 매월 최소한의 이자 납부가 가능한 분',
+        '고금리 사채 대신 제도권 금융으로 생활을 안정시키고자 하는 분'
       ],
-      effect: '사금융 유인책에 걸리지 않고 급한 생활 장벽을 국가 보조 지원으로 우수하게 극복해 생활 리듬을 사수합니다.'
+      effect: '고금리 사금융에 의존하지 않고 정부 지원 자금으로 급한 생활 위기를 넘기는 데 도움이 됩니다.'
     }
   ];
 
@@ -112,16 +111,16 @@ export default function ProductSection({ onScrollToSection, onOpenCalculator }: 
     <section className="py-20 bg-slate-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
         
-        {/* 상단 타이들 */}
+        {/* 상단 타이틀 */}
         <div id="social-finance" className="text-center space-y-4 max-w-4xl mx-auto">
-          <span className="text-xs font-black text-teal-600 tracking-widest uppercase">Miso Finance Products</span>
+          <span className="text-xs font-black text-miso-blue-600 tracking-widest uppercase">Miso Finance Products</span>
           <h2 className="text-3xl md:text-4.5xl font-black text-slate-900 tracking-tight leading-none">
             미소금융대구중구법인 4대 대표상품
           </h2>
-          <div className="h-1.5 w-16 bg-teal-600 rounded-full mx-auto" />
+          <div className="h-1.5 w-16 bg-miso-blue-600 rounded-full mx-auto" />
           <p className="text-slate-600 font-medium text-base md:text-lg max-w-2xl mx-auto leading-relaxed">
-            성실한 상환의지와 고귀한 자립 의지만 마음에 가득 차 계시다면, <br className="hidden sm:inline" />
-            무담보·무이율 마진 연 4.5% 원가 그대로 서민의 길을 든든하게 받쳐 드립니다.
+            성실한 상환 의지와 자립 의지가 있으시다면, <br className="hidden sm:inline" />
+            무담보·연 4.5% 고정금리로 서민의 길을 든든하게 받쳐 드립니다.
           </p>
         </div>
 
@@ -133,8 +132,8 @@ export default function ProductSection({ onScrollToSection, onOpenCalculator }: 
               onClick={() => setActiveTab(p.id)}
               className={`flex-1 min-w-[130px] py-4 px-4 rounded-xl text-xs md:text-sm font-extrabold tracking-tight transition-all duration-200 ${
                 activeTab === p.id 
-                  ? 'bg-gradient-to-r from-teal-600 to-emerald-600 text-white shadow-md' 
-                  : 'text-slate-600 hover:text-teal-600 hover:bg-slate-50'
+                  ? 'bg-gradient-to-r from-miso-blue-600 to-miso-navy-600 text-white shadow-md' 
+                  : 'text-slate-600 hover:text-miso-blue-600 hover:bg-slate-50'
               }`}
             >
               <div className="flex flex-col items-center gap-1">
@@ -162,13 +161,13 @@ export default function ProductSection({ onScrollToSection, onOpenCalculator }: 
             {/* 좌측 메인 스펙 카드 */}
             <div id="business-fund" className="lg:col-span-7 bg-white p-8 md:p-10 rounded-3xl shadow-md border border-slate-100 text-left space-y-6">
               <div className="space-y-2">
-                <span className="inline-flex items-center text-teal-700 bg-teal-50 px-3 py-1 rounded-full text-xs font-bold ring-1 ring-teal-200/50">
+                <span className="inline-flex items-center text-miso-blue-700 bg-miso-blue-50 px-3 py-1 rounded-full text-xs font-bold ring-1 ring-miso-blue-200/50">
                   {activeProduct.id === 'social' ? '🔥 최우수 핵심보급' : '📋 맞춤 서민지원'}
                 </span>
                 <h3 className="text-2xl md:text-3.5xl font-black text-slate-900 tracking-tight">
                   {activeProduct.name}
                 </h3>
-                <p className="text-teal-600 font-bold text-xs md:text-sm">
+                <p className="text-miso-blue-600 font-bold text-xs md:text-sm">
                   {activeProduct.subtitle}
                 </p>
                 <p className="text-slate-500 font-medium text-xs md:text-sm leading-relaxed pt-2">
@@ -186,7 +185,7 @@ export default function ProductSection({ onScrollToSection, onOpenCalculator }: 
                 </div>
                 <div className="bg-slate-50 p-4 rounded-xl text-center border border-slate-100">
                   <span className="block text-slate-400 text-[10px] font-bold uppercase tracking-wider">실질 금리 수준</span>
-                  <span className="block text-teal-700 font-black text-sm md:text-base mt-1.5">{activeProduct.interestRate}</span>
+                  <span className="block text-miso-blue-700 font-black text-sm md:text-base mt-1.5">{activeProduct.interestRate}</span>
                 </div>
                 <div className="bg-slate-50 p-4 rounded-xl text-center border border-slate-100">
                   <span className="block text-slate-400 text-[10px] font-bold uppercase tracking-wider">상환·거치 기간</span>
@@ -200,7 +199,7 @@ export default function ProductSection({ onScrollToSection, onOpenCalculator }: 
 
               <div className="space-y-4">
                 <div className="flex items-center space-x-2 text-slate-800 font-bold text-sm">
-                  <CheckCircle2 className="w-5 h-5 text-teal-600" />
+                  <CheckCircle2 className="w-5 h-5 text-miso-blue-600" />
                   <span>지원 자격 요건 (하나라도 해당 시 상담 가능)</span>
                 </div>
                 <ul className="space-y-2.5 pl-6 list-disc text-xs md:text-sm text-slate-600 font-medium leading-relaxed">
@@ -220,7 +219,7 @@ export default function ProductSection({ onScrollToSection, onOpenCalculator }: 
                       href="https://www.niceodm.co.kr" 
                       target="_blank" 
                       rel="noopener noreferrer"
-                      className="bg-white hover:bg-slate-50 p-3.5 rounded-xl border border-slate-150 flex items-center justify-between font-bold shadow-sm transition-all"
+                      className="bg-white hover:bg-slate-50 p-3.5 rounded-xl border border-slate-200 flex items-center justify-between font-bold shadow-sm transition-all"
                     >
                       <span>1단계. NICE 원클릭 서류 제출</span>
                       <ArrowUpRight className="w-4 h-4 text-slate-400" />
@@ -229,7 +228,7 @@ export default function ProductSection({ onScrollToSection, onOpenCalculator }: 
                       href="http://www.kodit.co.kr" 
                       target="_blank" 
                       rel="noopener noreferrer"
-                      className="bg-white hover:bg-slate-50 p-3.5 rounded-xl border border-slate-150 flex items-center justify-between font-bold shadow-sm transition-all"
+                      className="bg-white hover:bg-slate-50 p-3.5 rounded-xl border border-slate-200 flex items-center justify-between font-bold shadow-sm transition-all"
                     >
                       <span>2단계. 신용보증기금 평가 업로드</span>
                       <ArrowUpRight className="w-4 h-4 text-slate-400" />
@@ -242,12 +241,12 @@ export default function ProductSection({ onScrollToSection, onOpenCalculator }: 
               )}
 
               <div className="flex flex-col sm:flex-row gap-3 pt-4">
-                <button
-                  onClick={() => onScrollToSection('consultation-form')}
-                  className="flex-1 bg-teal-600 text-white font-bold py-4 rounded-xl text-center text-sm shadow-md hover:bg-teal-700 transition"
+                <a
+                  href="tel:053-252-6408"
+                  className="flex-1 bg-miso-blue-600 text-white font-bold py-4 rounded-xl text-center text-sm shadow-md hover:bg-miso-blue-700 transition flex items-center justify-center"
                 >
-                  📞 {activeProduct.name} 상담 신청하기
-                </button>
+                  📞 {activeProduct.name} 전화 상담하기
+                </a>
                 <button
                   onClick={onOpenCalculator}
                   className="bg-slate-100 text-slate-800 hover:bg-slate-200 font-bold px-6 py-4 rounded-xl text-sm transition flex items-center justify-center space-x-1"
@@ -271,7 +270,7 @@ export default function ProductSection({ onScrollToSection, onOpenCalculator }: 
                 <div className="space-y-4">
                   {activeProduct.suitability.map((suit, index) => (
                     <div key={index} className="flex gap-3 text-sm">
-                      <div className="w-6 h-6 rounded-full bg-teal-50 text-teal-700 font-bold text-xs flex items-center justify-center shrink-0 mt-0.5">
+                      <div className="w-6 h-6 rounded-full bg-miso-blue-50 text-miso-blue-700 font-bold text-xs flex items-center justify-center shrink-0 mt-0.5">
                         {index + 1}
                       </div>
                       <p className="text-slate-600 font-medium leading-relaxed">{suit}</p>
@@ -280,15 +279,15 @@ export default function ProductSection({ onScrollToSection, onOpenCalculator }: 
                 </div>
               </div>
 
-              <div className="bg-gradient-to-tr from-teal-600 to-emerald-600 p-8 rounded-3xl text-white shadow-lg shadow-teal-100 space-y-4">
-                <span className="text-[10px] font-bold text-teal-100 bg-white/20 px-2.5 py-1 rounded-md uppercase">Expected Effect</span>
+              <div className="bg-gradient-to-tr from-miso-blue-600 to-miso-navy-600 p-8 rounded-3xl text-white shadow-lg shadow-miso-blue-100 space-y-4">
+                <span className="text-[10px] font-bold text-miso-blue-100 bg-white/20 px-2.5 py-1 rounded-md uppercase">Expected Effect</span>
                 <h4 className="font-extrabold text-lg">기대 효과</h4>
-                <p className="text-teal-50 text-xs md:text-sm leading-relaxed font-medium">
+                <p className="text-miso-blue-50 text-xs md:text-sm leading-relaxed font-medium">
                   &ldquo;{activeProduct.effect}&rdquo;
                 </p>
                 <div className="pt-2">
-                  <p className="text-[10px] text-teal-200 leading-normal">
-                    ※ 모든 대출 심사는 본인명의 신용 및 증빙을 바탕으로 미소금융대구중구법인 융자심의위원회 규칙에 의거해 단독 처리되며, 법령을 정직하게 수호합니다.
+                  <p className="text-[10px] text-miso-blue-200 leading-normal">
+                    ※ 모든 대출 심사는 본인명의 신용 및 증빙을 바탕으로 미소금융대구중구법인 융자심의위원회 규칙에 따라 공정하게 처리됩니다.
                   </p>
                 </div>
               </div>
@@ -317,27 +316,27 @@ export default function ProductSection({ onScrollToSection, onOpenCalculator }: 
               </thead>
               <tbody className="divide-y divide-slate-100 font-semibold text-slate-700">
                 <tr className="hover:bg-slate-50 transition-colors">
-                  <td className="px-4 py-4.5 text-teal-700 font-extrabold text-slate-900 text-[13px] md:text-sm">사회적연대금융</td>
+                  <td className="px-4 py-4.5 text-miso-blue-700 font-extrabold text-slate-900 text-[13px] md:text-sm">사회적연대금융</td>
                   <td className="px-4 py-4.5 font-bold">법인 최대 1억 원</td>
-                  <td className="px-4 py-4.5 text-teal-600">연 4.5% (우대 4.0%)</td>
+                  <td className="px-4 py-4.5 text-miso-blue-600">연 4.5% (우대 4.0%)</td>
                   <td className="px-4 py-4.5 text-slate-500">거치 2년 + 분할 4년 (최대 6년)</td>
                 </tr>
                 <tr className="hover:bg-slate-50 transition-colors">
-                  <td className="px-4 py-4.5 text-teal-700 font-extrabold text-slate-900 text-[13px] md:text-sm">사업자 운영자금</td>
+                  <td className="px-4 py-4.5 text-miso-blue-700 font-extrabold text-slate-900 text-[13px] md:text-sm">사업자 운영자금</td>
                   <td className="px-4 py-4.5 font-bold">최대 2,000만 원 (청년 3천)</td>
-                  <td className="px-4 py-4.5 text-teal-600">연 4.5% 수준</td>
+                  <td className="px-4 py-4.5 text-miso-blue-600">연 4.5% 수준</td>
                   <td className="px-4 py-4.5 text-slate-500">거치 6개월 + 분할 5년</td>
                 </tr>
                 <tr className="hover:bg-slate-50 transition-colors">
-                  <td className="px-4 py-4.5 text-teal-700 font-extrabold text-slate-900 text-[13px] md:text-sm">청년 미래이음 자금</td>
+                  <td className="px-4 py-4.5 text-miso-blue-700 font-extrabold text-slate-900 text-[13px] md:text-sm">청년 미래이음 자금</td>
                   <td className="px-4 py-4.5 font-bold">최대 500만 원</td>
-                  <td className="px-4 py-4.5 text-teal-600">연 4.5%수준</td>
+                  <td className="px-4 py-4.5 text-miso-blue-600">연 4.5%수준</td>
                   <td className="px-4 py-4.5 text-slate-500">거치 6년 + 분할 5년 (총 11년)</td>
                 </tr>
                 <tr className="hover:bg-slate-50 transition-colors">
-                  <td className="px-4 py-4.5 text-teal-700 font-extrabold text-slate-900 text-[13px] md:text-sm">금융취약계층 생계자금</td>
+                  <td className="px-4 py-4.5 text-miso-blue-700 font-extrabold text-slate-900 text-[13px] md:text-sm">금융취약계층 생계자금</td>
                   <td className="px-4 py-4.5 font-bold">최대 500만 원</td>
-                  <td className="px-4 py-4.5 text-teal-600">연 4.5%수준</td>
+                  <td className="px-4 py-4.5 text-miso-blue-600">연 4.5%수준</td>
                   <td className="px-4 py-4.5 text-slate-500">거치 1년 + 분할 5년 (총 6년)</td>
                 </tr>
               </tbody>

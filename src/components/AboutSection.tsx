@@ -77,10 +77,10 @@ export default function AboutSection() {
         <div id="ceo-greeting" className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center bg-slate-50 p-8 md:p-14 rounded-3xl border border-slate-100">
           <div className="lg:col-span-4 text-center space-y-4">
             <div className="relative inline-block">
-              <div className="w-52 h-52 bg-slate-200 rounded-2xl mx-auto overflow-hidden shadow-md border-4 border-white flex items-center justify-center text-teal-700 bg-gradient-to-tr from-teal-50 to-teal-100">
+              <div className="w-52 h-52 bg-slate-200 rounded-2xl mx-auto overflow-hidden shadow-md border-4 border-white flex items-center justify-center text-miso-blue-700 bg-gradient-to-tr from-miso-blue-50 to-miso-blue-100">
                 <span className="text-4xl font-extrabold font-mono">김 석 동</span>
               </div>
-              <div className="absolute -bottom-3 left-1/2 transform -translate-x-1/2 bg-teal-600 text-white text-xs font-bold px-4 py-1.5 rounded-full shadow-sm">
+              <div className="absolute -bottom-3 left-1/2 transform -translate-x-1/2 bg-miso-blue-600 text-white text-xs font-bold px-4 py-1.5 rounded-full shadow-sm">
                 법인 대표이사
               </div>
             </div>
@@ -92,30 +92,30 @@ export default function AboutSection() {
           </div>
 
           <div className="lg:col-span-8 text-left space-y-6">
-            <span className="text-xs font-black tracking-widest text-teal-600 uppercase">Ceo Greeting</span>
+            <span className="text-xs font-black tracking-widest text-miso-blue-600 uppercase">Ceo Greeting</span>
             <h3 className="text-2xl md:text-3xl font-extrabold text-slate-900 tracking-tight leading-snug">
               &ldquo;대구 지역 소상공인의 든든한 버팀목이 되겠습니다.&rdquo;
             </h3>
-            <div className="h-1 w-20 bg-teal-600 rounded-full" />
+            <div className="h-1 w-20 bg-miso-blue-600 rounded-full" />
             
             <div className="text-slate-600 text-sm md:text-base leading-relaxed space-y-4">
               <p>안녕하십니까, <strong>(사)미소금융대구중구법인</strong> 대표 <strong>김석동</strong>입니다.</p>
               <p>
-                쉼 없는 노력에도 불구하고, 현실의 높은 금융 문턱과 상업 제도의 가로막힘 속에서 차갑게 좌절을 경험하시는 대구지역 수많은 자영업자, 영세상인, 소상공인 여러분이 계십니다.
+                열심히 노력하시는데도 은행 문턱이 높아 어려움을 겪는 대구지역 자영업자, 영세상인, 소상공인 여러분이 많습니다.
               </p>
               <p>
-                저희 법인은 제도권 1금융 내지 2금융의 가입 기준을 넘기 어려운 소외된 이웃분들에게 경제적 독립과 자립의 확실한 초석을 마련해 드리기 위해 설립된 <strong>금융위원회 산하 서민금융진흥원 사업수행기관</strong>입니다.
+                저희 법인은 제도권 1금융이나 2금융 이용이 어려운 분들에게 경제적 자립의 발판을 마련해 드리기 위해 설립된 <strong>금융위원회 산하 서민금융진흥원 사업수행기관</strong>입니다.
               </p>
               <p>
-                단순히 일정한 한도의 자금 대지급이라는 일방향적이고 단편적인 역할을 넘어, 여러분이 마주한 고단한 삶의 영업 현장을 깊이 이해하고 실질적인 자활과 극복의 자양분을 함께 보살피는 것이 저희 대구중구법인의 핵심 사명이자 가치입니다.
+                단순히 자금을 빌려드리는 것을 넘어, 여러분이 마주한 어려움을 이해하고 실질적인 자립을 함께 고민하는 것이 저희 대구중구법인의 사명입니다.
               </p>
               <p className="font-semibold text-slate-800">
-                다시 당당히 일어서고자 하는 확고한 의지와 자활 희망만 풍부하게 지니셨다면, 조건 없이 대구중구법인의 따뜻한 문을 똑똑히 두드려 주십시오.
+                다시 일어서고자 하는 의지가 있으시다면, 부담 없이 대구중구법인의 문을 두드려 주십시오.
               </p>
             </div>
 
-            <p className="text-right text-slate-800 font-extrabold text-base pt-4 decoration-teal-600 decoration-2">
-              (사)미소금융대구중구법인 대표 <span className="text-teal-600 font-black text-lg">김 석 동</span> 拜上
+            <p className="text-right text-slate-800 font-extrabold text-base pt-4 decoration-miso-blue-600 decoration-2">
+              (사)미소금융대구중구법인 대표 <span className="text-miso-blue-600 font-black text-lg">김 석 동</span>
             </p>
           </div>
         </div>
@@ -123,7 +123,7 @@ export default function AboutSection() {
         {/* 법인 조직도 (공공기관 형식 CSS/SVG 다이어그램) */}
         <div id="organization" className="text-center space-y-8 bg-white p-8 md:p-12 rounded-3xl border border-slate-100 shadow-sm">
           <div className="space-y-2">
-            <span className="text-xs font-bold text-teal-600 tracking-widest uppercase">Organization Chart</span>
+            <span className="text-xs font-bold text-miso-blue-600 tracking-widest uppercase">Organization Chart</span>
             <h3 className="text-2xl md:text-3xl font-extrabold text-slate-950 tracking-tight">공공수행기관 정식 조직도</h3>
             <p className="text-slate-500 text-xs">비영리 사단법인의 체계적이고 법제화된 의사결정 체계</p>
           </div>
@@ -169,7 +169,7 @@ export default function AboutSection() {
               <div className="flex gap-20 items-center -mt-3 relative -ml-10">
                 
                 {/* 이사장 */}
-                <div className="bg-teal-600 text-white px-10 py-4 rounded-xl font-extrabold text-base shadow-md">
+                <div className="bg-miso-blue-600 text-white px-10 py-4 rounded-xl font-extrabold text-base shadow-md">
                   이 사 장 (대표)
                 </div>
 
@@ -190,19 +190,19 @@ export default function AboutSection() {
               {/* 하부 실무팀 가로 나열 */}
               <div className="grid grid-cols-5 gap-3 w-[780px] mt-4 -ml-28 text-center text-xs">
                 
-                <div className="bg-teal-50 border border-teal-200 text-teal-800 p-3 rounded-lg shadow-sm">
+                <div className="bg-miso-blue-50 border border-miso-blue-200 text-miso-blue-800 p-3 rounded-lg shadow-sm">
                   <span className="block font-bold">전문위원</span>
-                  <span className="block text-[10px] text-teal-600 mt-1">여신심사 1팀</span>
+                  <span className="block text-[10px] text-miso-blue-600 mt-1">여신심사 1팀</span>
                 </div>
 
-                <div className="bg-teal-50 border border-teal-200 text-teal-800 p-3 rounded-lg shadow-sm">
+                <div className="bg-miso-blue-50 border border-miso-blue-200 text-miso-blue-800 p-3 rounded-lg shadow-sm">
                   <span className="block font-bold">전문위원</span>
-                  <span className="block text-[10px] text-teal-600 mt-1">여신심사 2팀</span>
+                  <span className="block text-[10px] text-miso-blue-600 mt-1">여신심사 2팀</span>
                 </div>
 
                 <div className="bg-slate-50 border border-slate-200 text-slate-800 p-3 rounded-lg shadow-sm">
                   <span className="block font-bold">전문위원</span>
-                  <span className="block text-[10px] text-slate-500 mt-1">확실 채권관리</span>
+                  <span className="block text-[10px] text-slate-500 mt-1">채권관리</span>
                 </div>
 
                 <div className="bg-slate-50 border border-slate-200 text-slate-800 p-3 rounded-lg shadow-sm">
@@ -210,9 +210,9 @@ export default function AboutSection() {
                   <span className="block text-[10px] text-slate-500 mt-1">사업 행정기획</span>
                 </div>
 
-                <div className="bg-emerald-50 border border-emerald-200 text-emerald-800 p-2.5 rounded-lg shadow-sm">
-                  <span className="block font-bold text-emerald-900">신중년</span>
-                  <span className="block text-[9px] text-emerald-600 mt-0.5 font-bold">사회공헌단 (서포터)</span>
+                <div className="bg-miso-navy-50 border border-miso-navy-200 text-miso-navy-800 p-2.5 rounded-lg shadow-sm">
+                  <span className="block font-bold text-miso-navy-900">신중년</span>
+                  <span className="block text-[9px] text-miso-navy-600 mt-0.5 font-bold">사회공헌단 (서포터)</span>
                 </div>
 
               </div>
@@ -225,14 +225,14 @@ export default function AboutSection() {
         <div id="history" className="space-y-12">
           
           <div className="text-center space-y-3">
-            <span className="text-teal-600 font-bold text-sm tracking-widest uppercase">History Timeline</span>
+            <span className="text-miso-blue-600 font-bold text-sm tracking-widest uppercase">History Timeline</span>
             <h3 className="text-3xl font-extrabold text-slate-900 tracking-tight">대구 미소금융의 15년 발자취</h3>
             <p className="text-slate-500 text-sm max-w-2xl mx-auto">
-              2010년 설립 이래 오직 자영업자와 서민의 재기를 위해 걸어온 영광스러운 순간입니다.
+              2010년 설립 이래 자영업자와 서민의 재기를 위해 걸어온 15년입니다.
             </p>
           </div>
 
-          <div className="relative border-l-2 border-slate-150 ml-6 md:ml-32 py-4">
+          <div className="relative border-l-2 border-slate-200 ml-6 md:ml-32 py-4">
             {historyData.map((milestone, idx) => (
               <div key={idx} className="mb-14 last:mb-0 relative">
                 
@@ -242,10 +242,10 @@ export default function AboutSection() {
                 </div>
 
                 {/* 타임라인 원형 동그라미 데코 */}
-                <div className="absolute -left-[39px] top-2.5 w-4 h-4 rounded-full bg-white border-4 border-teal-600 shadow-md transform -translate-x-1/2" />
+                <div className="absolute -left-[39px] top-2.5 w-4 h-4 rounded-full bg-white border-4 border-miso-blue-600 shadow-md transform -translate-x-1/2" />
 
                 <div className="bg-white p-6 rounded-2xl border border-slate-100 shadow-sm md:ml-6 hover:shadow-md transition-shadow">
-                  <span className="inline-block md:hidden text-lg font-extrabold text-teal-600 font-mono mb-2">
+                  <span className="inline-block md:hidden text-lg font-extrabold text-miso-blue-600 font-mono mb-2">
                     {milestone.year} 년
                   </span>
                   
@@ -258,7 +258,7 @@ export default function AboutSection() {
                         <div className="flex-1 font-medium text-slate-700">
                           {item.emphasis ? (
                             <span className="inline-flex flex-wrap items-center">
-                              <span className="text-teal-600 font-bold bg-teal-50 px-2 py-0.5 rounded text-xs mr-2 font-mono">핵심성과</span>
+                              <span className="text-miso-blue-600 font-bold bg-miso-blue-50 px-2 py-0.5 rounded text-xs mr-2 font-mono">핵심성과</span>
                               <strong className="text-slate-900 font-bold">{item.text}</strong>
                             </span>
                           ) : (
@@ -282,18 +282,18 @@ export default function AboutSection() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-start">
             
             <div className="space-y-6">
-              <span className="text-xs font-black tracking-widest text-teal-600 uppercase">Way to Come</span>
+              <span className="text-xs font-black tracking-widest text-miso-blue-600 uppercase">Way to Come</span>
               <h3 className="text-2xl md:text-3xl font-extrabold text-slate-900">대구중구법인 오시는 길</h3>
               <p className="text-slate-600 font-medium text-sm md:text-base leading-relaxed">
                 (사)미소금융대구중구법인은 대구광역시 남구에 위치하고 있습니다. <br />
-                남구 소재의 하나은행 건물 4층으로 오시면 정성을 다해 직접 상담을 진행해 드립니다. <br />
-                지하철 및 버스 노선이 편리하게 마련되어 있어 교통이 수월합니다.
+                남구 소재의 하나은행 건물 4층으로 오시면 직접 상담을 도와드립니다. <br />
+                지하철 및 버스 노선이 가까워 방문이 편리합니다.
               </p>
 
               <div className="space-y-4 pt-2">
                 
                 <div className="flex items-start space-x-3 text-sm">
-                  <div className="p-1.5 bg-teal-50 rounded text-teal-700 mt-0.5">
+                  <div className="p-1.5 bg-miso-blue-50 rounded text-miso-blue-700 mt-0.5">
                     <MapPin className="w-4 h-4" />
                   </div>
                   <div>
@@ -316,7 +316,7 @@ export default function AboutSection() {
                 </div>
 
                 <div className="flex items-start space-x-3 text-sm">
-                  <div className="p-1.5 bg-emerald-50 rounded text-emerald-700 mt-0.5">
+                  <div className="p-1.5 bg-miso-navy-50 rounded text-miso-navy-700 mt-0.5">
                     <Bus className="w-4 h-4" />
                   </div>
                   <div>
@@ -336,7 +336,7 @@ export default function AboutSection() {
                   href="https://map.naver.com/v5/search/%EB%AF%B8%EC%86%8C%EA%B8%88%EC%9C%B5%EB%8C%80%EA%B5%AC%EC%A4%91%EA%B5%AC%EB%B2%95%EC%9D%B8" 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="bg-emerald-600 text-white hover:bg-emerald-700 px-5 py-3 rounded-xl text-xs font-bold transition-all shadow-sm flex items-center space-x-1.5"
+                  className="bg-miso-navy-600 text-white hover:bg-miso-navy-700 px-5 py-3 rounded-xl text-xs font-bold transition-all shadow-sm flex items-center space-x-1.5"
                 >
                   <span>🗺 네이버 지도로 길찾기</span>
                   <ExternalLink className="w-3.5 h-3.5" />
@@ -356,9 +356,9 @@ export default function AboutSection() {
             <div className="bg-white p-3 rounded-2xl border border-slate-200 shadow-md">
               <div className="w-full h-80 bg-slate-100 rounded-xl relative overflow-hidden flex items-center justify-center text-center">
                 
-                {/* 수려하게 디자인된 가짜 지도 및 버튼 레이아웃 */}
+                {/* 정적 지도 안내 레이아웃 (실제 지도 API 미연동, 외부 링크로 연결) */}
                 <div className="absolute inset-0 bg-[radial-gradient(#cbd5e1_1px,transparent_1px)] [background-size:16px_16px] flex flex-col items-center justify-center text-center p-6 bg-slate-50">
-                  <div className="w-10 h-10 bg-teal-600 text-white rounded-full flex items-center justify-center shadow-lg animate-bounce mb-3">
+                  <div className="w-10 h-10 bg-miso-blue-600 text-white rounded-full flex items-center justify-center shadow-lg animate-bounce mb-3">
                     📍
                   </div>
                   <h4 className="font-bold text-slate-800 text-sm">미소금융 대구중구법인</h4>
@@ -370,7 +370,7 @@ export default function AboutSection() {
                     href="https://map.naver.com/v5/entry/place/20485984" 
                     target="_blank" 
                     rel="noopener noreferrer"
-                    className="mt-5 bg-teal-600 text-white hover:bg-teal-700 px-4 py-2.5 rounded-lg text-xs font-bold transition-all flex items-center space-x-1"
+                    className="mt-5 bg-miso-blue-600 text-white hover:bg-miso-blue-700 px-4 py-2.5 rounded-lg text-xs font-bold transition-all flex items-center space-x-1"
                   >
                     <span>실시간 위성지도 열기</span>
                     <ExternalLink className="w-3 h-3" />

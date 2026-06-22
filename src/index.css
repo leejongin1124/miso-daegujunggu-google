@@ -1,1 +1,26 @@
 @import "tailwindcss";
+
+@theme {
+  /* 서민금융진흥원 CI 색상 기반 팔레트 */
+  --color-miso-blue-50: #EDF8FD;
+  --color-miso-blue-100: #DBF0FA;
+  --color-miso-blue-200: #B2E0F5;
+  --color-miso-blue-300: #80CCEF;
+  --color-miso-blue-400: #4AB6E8;
+  --color-miso-blue-500: #51B9E9;
+  --color-miso-blue-600: #2DAAE4;
+  --color-miso-blue-700: #198FC5;
+  --color-miso-blue-800: #136E98;
+  --color-miso-blue-900: #0D4D6B;
+
+  --color-miso-navy-50: #F0F1FA;
+  --color-miso-navy-100: #E1E3F4;
+  --color-miso-navy-200: #BFC4E9;
+  --color-miso-navy-300: #959EDA;
+  --color-miso-navy-400: #6875CA;
+  --color-miso-navy-500: #232C65;
+  --color-miso-navy-600: #181F47;
+  --color-miso-navy-700: #10142D;
+  --color-miso-navy-800: #0D1026;
+  --color-miso-navy-900: #0A0D1E;
+}

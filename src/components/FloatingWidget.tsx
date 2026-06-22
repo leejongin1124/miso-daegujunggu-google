@@ -4,14 +4,13 @@
  */
 
 import { useState, useEffect } from 'react';
-import { Phone, ArrowUp, Calculator, HelpCircle, X, CheckSquare } from 'lucide-react';
+import { Phone, ArrowUp, Calculator, HelpCircle, X } from 'lucide-react';
 
 interface FloatingWidgetProps {
   onOpenCalculator: () => void;
-  onScrollToSection: (sectionId: string) => void;
 }
 
-export default function FloatingWidget({ onOpenCalculator, onScrollToSection }: FloatingWidgetProps) {
+export default function FloatingWidget({ onOpenCalculator }: FloatingWidgetProps) {
   const [showTop, setShowTop] = useState(false);
   const [panelOpen, setPanelOpen] = useState(false);
 
@@ -54,25 +53,20 @@ export default function FloatingWidget({ onOpenCalculator, onScrollToSection }: 
 
             <div className="space-y-2 text-xs leading-normal font-semibold text-slate-600">
               <button 
-                onClick={() => { onScrollToSection('self-diagnosis'); setPanelOpen(false); }}
-                className="w-full text-left py-1.5 px-2 hover:bg-slate-50 rounded flex items-center gap-1.5 text-slate-800 hover:text-teal-600 transition"
-              >
-                <CheckSquare className="w-4 h-4 text-teal-600 inline" />
-                <span>1초 만에 자격 진단하기</span>
-              </button>
-              <button 
                 onClick={() => { onOpenCalculator(); setPanelOpen(false); }}
-                className="w-full text-left py-1.5 px-2 hover:bg-slate-50 rounded flex items-center gap-1.5 text-slate-800 hover:text-teal-600 transition"
+                className="w-full text-left py-1.5 px-2 hover:bg-slate-50 rounded flex items-center gap-1.5 text-slate-800 hover:text-miso-blue-600 transition"
               >
-                <Calculator className="w-4 h-4 text-teal-600 inline" />
+                <Calculator className="w-4 h-4 text-miso-blue-600 inline" />
                 <span>스마트 이자 계산기 열기</span>
               </button>
-              <button 
-                onClick={() => { onScrollToSection('consultation-form'); setPanelOpen(false); }}
-                className="w-full text-left py-1.5 px-2 hover:bg-slate-50 rounded flex items-center gap-1.5 text-slate-800 hover:text-teal-600 transition"
+              <a 
+                href="tel:053-252-6408"
+                onClick={() => setPanelOpen(false)}
+                className="w-full text-left py-1.5 px-2 hover:bg-slate-50 rounded flex items-center gap-1.5 text-slate-800 hover:text-miso-blue-600 transition"
               >
-                <span>📝 온라인 상담신청서 전송</span>
-              </button>
+                <Phone className="w-4 h-4 text-miso-blue-600 inline" />
+                <span>📞 전화로 상담하기</span>
+              </a>
             </div>
 
             <div className="pt-2 border-t border-slate-100 text-[10px] text-slate-400 font-bold leading-normal">
@@ -91,19 +85,19 @@ export default function FloatingWidget({ onOpenCalculator, onScrollToSection }: 
         <HelpCircle className="w-5.5 h-5.5" />
       </button>
 
-      {/* 대출 계산기 즉석 팝 */ }
+      {/* 대출 계산기 바로가기 */}
       <button 
         onClick={onOpenCalculator}
-        className="w-12 h-12 bg-teal-600 text-white rounded-full flex items-center justify-center shadow-lg hover:bg-teal-700 transition cursor-pointer"
+        className="w-12 h-12 bg-miso-blue-600 text-white rounded-full flex items-center justify-center shadow-lg hover:bg-miso-blue-700 transition cursor-pointer"
         title="스마트 대출계산기"
       >
         <Calculator className="w-5.5 h-5.5" />
       </button>
 
-      {/* 유선 통화 기법 */}
+      {/* 유선 통화 버튼 */}
       <a 
         href="tel:053-252-6408"
-        className="w-12 h-12 bg-gradient-to-tr from-emerald-500 to-teal-600 text-white rounded-full flex items-center justify-center shadow-lg hover:brightness-105 transition cursor-pointer"
+        className="w-12 h-12 bg-gradient-to-tr from-miso-navy-500 to-miso-blue-600 text-white rounded-full flex items-center justify-center shadow-lg hover:brightness-105 transition cursor-pointer"
         title="대표전화 바로 걸기"
       >
         <Phone className="w-5.5 h-5.5" />

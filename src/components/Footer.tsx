@@ -15,7 +15,7 @@ export default function Footer() {
           
           <div className="space-y-2">
             <div className="flex items-center space-x-2 text-white font-extrabold text-lg">
-              <div className="w-8 h-8 bg-teal-600 rounded-lg flex items-center justify-center">
+              <div className="w-8 h-8 bg-miso-blue-600 rounded-lg flex items-center justify-center">
                 <Heart className="w-4 h-4 fill-white text-white" />
               </div>
               <span>(사)미소금융대구중구법인</span>
@@ -25,9 +25,9 @@ export default function Footer() {
             </p>
           </div>
 
-          <div className="flex items-center space-x-1.5 text-xs text-slate-500 font-bold bg-slate-950 p-3 rounded-lg border border-slate-850">
-            <ShieldAlert className="w-4 h-4 text-emerald-500 shrink-0" />
-            <span>본 사이트는 상담 안내 공식 사이트이며 수수료 수취 혹은 가입 보장 호객 브로커 계약을 완전히 처단합니다.</span>
+          <div className="flex items-center space-x-1.5 text-xs text-slate-500 font-bold bg-slate-950 p-3 rounded-lg border border-slate-800">
+            <ShieldAlert className="w-4 h-4 text-miso-navy-500 shrink-0" />
+            <span>본 사이트는 공식 상담 안내 사이트이며, 수수료를 요구하거나 가입을 보장하는 브로커와는 일절 거래하지 않습니다.</span>
           </div>
 
         </div>
@@ -44,7 +44,7 @@ export default function Footer() {
             
             <div className="flex flex-wrap gap-x-6 gap-y-2 text-slate-500 font-medium">
               <span><strong>대표 문의:</strong> 053-252-6408</span>
-              <span><strong>FAX 전용 팩스:</strong> 053-252-8877</span>
+              <span><strong>팩스:</strong> 053-252-8877</span>
               <span><strong>서민금융 콜 통합:</strong> 1397 (국번없이)</span>
             </div>
 
@@ -59,17 +59,17 @@ export default function Footer() {
             </span>
             <ul className="space-y-1.5 text-slate-600 font-semibold leading-normal">
               <li>※ 모든 대출은 신용 등급 및 본인 점수에 따른 융자위원 개별 심사 결과에 근거합니다.</li>
-              <li>※ 금리 연 4.5% 수준(고정 정책 이율)이며 취득 선수금, 보험료, 자문 갈취 일절 금지됩니다.</li>
-              <li>※ 대출 연체 시 고유 등급 징벌 조향 및 이자 증가, 사후 경영 제약이 등입됩니다.</li>
+              <li>※ 금리는 연 4.5% 수준(고정 정책 이율)이며, 선수금·보험료·자문료 등 부당한 비용은 일절 요구하지 않습니다.</li>
+              <li>※ 대출 연체 시 신용등급 하락 및 이자 증가 등 불이익이 발생할 수 있습니다.</li>
             </ul>
           </div>
 
         </div>
 
-        {/* 최하단 준수 광고 확인 라벨 */}
+        {/* 최하단 안내 라벨 */}
         <div className="p-4 bg-slate-950 rounded-lg text-[10px] text-slate-600 font-bold flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2">
-          <span>※ 본 광고물은 서민금융 동반 가치 촉진을 위해 서금원 심의 가이드라인을 완전 준수해 작성되었습니다.</span>
-          <span>공인 심의 일자: 2026년 06월 20일 기준 정비 완료</span>
+          <span>※ 본 웹사이트의 모든 대출 정보는 안내용이며, 실제 조건은 상담 및 심사 결과에 따라 달라질 수 있습니다.</span>
+          <span>최종 업데이트: 2026년 06월</span>
         </div>
 
       </div>

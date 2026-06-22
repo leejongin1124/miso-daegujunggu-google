@@ -13,14 +13,14 @@ interface HeroProps {
 export default function Hero({ onScrollToSection }: HeroProps) {
   const quickCards = [
     {
-      icon: <Phone className="w-6 h-6 text-teal-600" />,
+      icon: <Phone className="w-6 h-6 text-miso-blue-600" />,
       title: '대표번호 즉시상담',
       value: '053-252-6408',
       desc: '평일 09시 ~ 18시 운영',
       action: () => window.open('tel:053-252-6408')
     },
     {
-      icon: <Users className="w-6 h-6 text-emerald-600" />,
+      icon: <Users className="w-6 h-6 text-miso-navy-600" />,
       title: '누적 지원 인원',
       value: '3,800 여명',
       desc: '대구 소상공인의 든든한 동반자'
@@ -41,11 +41,19 @@ export default function Hero({ onScrollToSection }: HeroProps) {
   ];
 
   return (
-    <section id="hero-section" className="relative pt-28 md:pt-36 bg-gradient-to-b from-teal-50/40 via-white to-white pb-16 md:pb-24 overflow-hidden">
+    <section id="hero-section" className="relative pt-28 md:pt-36 pb-16 md:pb-24 overflow-hidden">
       
-      {/* 우장한 백그라운드 구체 데코 */}
-      <div className="absolute top-0 right-0 -mr-64 -mt-64 w-[600px] h-[600px] bg-teal-100/30 rounded-full blur-3xl pointer-events-none" />
-      <div className="absolute top-1/2 left-0 -ml-48 w-96 h-96 bg-emerald-50/50 rounded-full blur-2xl pointer-events-none" />
+      {/* 배경 이미지 */}
+      <div 
+        className="absolute inset-0 bg-cover bg-center"
+        style={{ backgroundImage: "url('/hero-bg.jpg')" }}
+      />
+      {/* 가독성을 위한 그라데이션 오버레이 */}
+      <div className="absolute inset-0 bg-gradient-to-b from-white/95 via-white/90 to-white" />
+
+      {/* 큼직한 백그라운드 구체 데코 */}
+      <div className="absolute top-0 right-0 -mr-64 -mt-64 w-[600px] h-[600px] bg-miso-blue-100/30 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute top-1/2 left-0 -ml-48 w-96 h-96 bg-miso-navy-50/50 rounded-full blur-2xl pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
@@ -57,9 +65,9 @@ export default function Hero({ onScrollToSection }: HeroProps) {
               initial={{ opacity: 0, y: 15 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
-              className="inline-flex items-center space-x-2 bg-teal-50 border border-teal-100 px-3.5 py-1.5 rounded-full text-xs font-semibold text-teal-700 shadow-sm"
+              className="inline-flex items-center space-x-2 bg-miso-blue-50 border border-miso-blue-100 px-3.5 py-1.5 rounded-full text-xs font-semibold text-miso-blue-700 shadow-sm"
             >
-              <ShieldCheck className="w-4 h-4 text-teal-600" />
+              <ShieldCheck className="w-4 h-4 text-miso-blue-600" />
               <span>대구 전역 15년 지킴이 · 정부(서민금융진흥원) 사업수행기관</span>
             </motion.div>
 
@@ -70,7 +78,7 @@ export default function Hero({ onScrollToSection }: HeroProps) {
               className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-slate-900 leading-[1.12]"
             >
               은행 문턱에 <br className="sm:hidden" />막히셨나요? <br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-teal-600 to-emerald-600">
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-miso-blue-600 to-miso-navy-600">
                 여기, 또 다른 길이 있습니다.
               </span>
             </motion.h1>
@@ -84,7 +92,7 @@ export default function Hero({ onScrollToSection }: HeroProps) {
               (사)미소금융대구중구법인은 금융위원회 허가 비영리 공익법인이자 
               서민금융진흥원 공식 사업수행기관입니다. <br className="hidden md:inline" />
               저소득·저신용 소상공인과 취약계층 대구 시민의 곁에서 
-              합법적이고 품격 있는 서민금융의 문을 솜씨 좋게 열어드립니다.
+              정직하고 투명한 절차로 서민금융의 문을 열어드립니다.
             </motion.p>
 
             <motion.div 
@@ -95,14 +103,14 @@ export default function Hero({ onScrollToSection }: HeroProps) {
             >
               <a 
                 href="tel:053-252-6408"
-                className="inline-flex justify-center items-center space-x-2 bg-gradient-to-r from-teal-600 to-emerald-600 text-white font-bold px-8 py-4 rounded-2xl hover:brightness-105 transition-all shadow-lg hover:shadow-teal-100 text-base"
+                className="inline-flex justify-center items-center space-x-2 bg-gradient-to-r from-miso-blue-600 to-miso-navy-600 text-white font-bold px-8 py-4 rounded-2xl hover:brightness-105 transition-all shadow-lg hover:shadow-miso-blue-100 text-base"
               >
                 <Phone className="w-5 h-5" />
                 <span>📞 전화 상담 053-252-6408</span>
               </a>
               <button 
                 onClick={() => onScrollToSection('social-finance')}
-                className="inline-flex justify-center items-center space-x-2 bg-white text-slate-800 border-2 border-slate-200 hover:border-teal-500 hover:text-teal-600 font-bold px-7 py-4 rounded-2xl transition-all shadow-sm text-base"
+                className="inline-flex justify-center items-center space-x-2 bg-white text-slate-800 border-2 border-slate-200 hover:border-miso-blue-500 hover:text-miso-blue-600 font-bold px-7 py-4 rounded-2xl transition-all shadow-sm text-base"
               >
                 <span>🔍 지원상품 전체보기</span>
                 <ArrowRight className="w-4 h-4" />
@@ -119,8 +127,8 @@ export default function Hero({ onScrollToSection }: HeroProps) {
           >
             <div className="relative mx-auto max-w-md lg:max-w-none">
               {/* 장식용 테두리 카드 */}
-              <div className="absolute inset-0 bg-gradient-to-tr from-teal-100 to-indigo-100 rounded-3xl transform rotate-3 scale-102 blur-lg opacity-40 -z-10" />
-              <div className="absolute -top-3 -left-3 w-12 h-12 bg-emerald-100 rounded-full flex items-center justify-center text-teal-700 font-bold shadow-sm z-20">
+              <div className="absolute inset-0 bg-gradient-to-tr from-miso-blue-100 to-indigo-100 rounded-3xl transform rotate-3 scale-102 blur-lg opacity-40 -z-10" />
+              <div className="absolute -top-3 -left-3 w-12 h-12 bg-miso-navy-100 rounded-full flex items-center justify-center text-miso-blue-700 font-bold shadow-sm z-20">
                 15th
               </div>
               <div className="bg-white p-4 rounded-3xl shadow-2xl border border-slate-100 overflow-hidden relative">
@@ -135,10 +143,10 @@ export default function Hero({ onScrollToSection }: HeroProps) {
                     const parent = e.currentTarget.parentElement;
                     if(parent) {
                       const placeholder = document.createElement('div');
-                      placeholder.className = 'w-full h-80 bg-gradient-to-br from-teal-500 to-emerald-600 rounded-2xl flex flex-col items-center justify-center text-white px-6 text-center';
+                      placeholder.className = 'w-full h-80 bg-gradient-to-br from-miso-blue-500 to-miso-navy-600 rounded-2xl flex flex-col items-center justify-center text-white px-6 text-center';
                       placeholder.innerHTML = `
                         <p class="font-bold text-lg mb-2">대구 금융 버팀목</p>
-                        <p class="text-sm opacity-90">희망을 다시 새우는 따뜻한 비금융 지원동반자</p>
+                        <p class="text-sm opacity-90">희망을 다시 세우는 따뜻한 금융 지원 동반자</p>
                       `;
                       parent.appendChild(placeholder);
                     }
@@ -147,7 +155,7 @@ export default function Hero({ onScrollToSection }: HeroProps) {
                 
                 {/* 오버레이 배너 */}
                 <div className="mt-4 p-4.5 bg-slate-50 rounded-2xl border border-slate-100 flex items-center space-x-3 text-left">
-                  <div className="p-2 bg-teal-100 text-teal-700 rounded-xl">
+                  <div className="p-2 bg-miso-blue-100 text-miso-blue-700 rounded-xl">
                     <HeartHandshake className="w-5 h-5" />
                   </div>
                   <div>
@@ -171,14 +179,14 @@ export default function Hero({ onScrollToSection }: HeroProps) {
               viewport={{ once: true }}
               transition={{ duration: 0.4, delay: i * 0.1 }}
               onClick={card.action}
-              className={`bg-white hover:bg-slate-50 p-6 rounded-2xl border border-slate-100 shadow-sm transition-all text-left group ${card.action ? 'cursor-pointer hover:border-teal-300 hover:shadow-md' : ''}`}
+              className={`bg-white hover:bg-slate-50 p-6 rounded-2xl border border-slate-100 shadow-sm transition-all text-left group ${card.action ? 'cursor-pointer hover:border-miso-blue-300 hover:shadow-md' : ''}`}
             >
               <div className="flex justify-between items-start">
                 <div className="p-3 bg-slate-50 rounded-xl group-hover:bg-white transition-all shadow-inner">
                   {card.icon}
                 </div>
                 {card.action && (
-                  <span className="text-[10px] text-teal-600 font-bold bg-teal-50 px-2 py-0.5 rounded-full group-hover:bg-teal-600 group-hover:text-white transition-colors">
+                  <span className="text-[10px] text-miso-blue-600 font-bold bg-miso-blue-50 px-2 py-0.5 rounded-full group-hover:bg-miso-blue-600 group-hover:text-white transition-colors">
                     이동
                   </span>
                 )}
@@ -198,11 +206,11 @@ export default function Hero({ onScrollToSection }: HeroProps) {
             viewport={{ once: true }}
             className="space-y-4"
           >
-            <span className="text-teal-600 font-bold text-sm tracking-widest uppercase">What is Miso Finance?</span>
+            <span className="text-miso-blue-600 font-bold text-sm tracking-widest uppercase">What is Miso Finance?</span>
             <h2 className="text-3xl md:text-4xl font-extrabold text-slate-900 tracking-tight">
               미소금융은 무엇이 다른가요?
             </h2>
-            <div className="h-1.5 w-16 bg-gradient-to-r from-teal-500 to-emerald-500 mx-auto rounded-full mt-3" />
+            <div className="h-1.5 w-16 bg-gradient-to-r from-miso-blue-500 to-miso-navy-500 mx-auto rounded-full mt-3" />
             <p className="text-slate-600 text-base md:text-lg mt-4 max-w-2xl mx-auto leading-relaxed">
               정부(서민금융진흥원)의 재원으로 서민의 자립을 돕는 <br className="hidden sm:inline" />
               제도권 공익 금융 지원 프로그램입니다. 고금리 사채 대안책으로 작용합니다.
@@ -211,28 +219,28 @@ export default function Hero({ onScrollToSection }: HeroProps) {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12 text-left">
             
-            <div className="bg-white p-8 rounded-2xl border-b-4 border-b-teal-500 shadow-sm border border-slate-100">
-              <div className="w-12 h-12 bg-teal-50 rounded-xl flex items-center justify-center text-teal-600 mb-6 font-bold text-xl">
+            <div className="bg-white p-8 rounded-2xl border-b-4 border-b-miso-blue-500 shadow-sm border border-slate-100">
+              <div className="w-12 h-12 bg-miso-blue-50 rounded-xl flex items-center justify-center text-miso-blue-600 mb-6 font-bold text-xl">
                 🏛
               </div>
               <h3 className="font-bold text-lg text-slate-900">투명한 공익적 재원</h3>
               <p className="text-slate-500 text-sm mt-3 leading-relaxed">
-                국내 대기업들의 자발적 기부금과 금융권 휴면예금을 바탕으로 국가에서 공식 조성한 제도적인 정책 자금입니다. 기만 수수료가 일체 없습니다.
+                국내 대기업들의 자발적 기부금과 금융권 휴면예금을 바탕으로 국가에서 공식 조성한 제도적인 정책 자금입니다. 부당한 수수료는 일절 없습니다.
               </p>
-              <span className="inline-block bg-teal-50 text-teal-700 text-[11px] font-bold px-2.5 py-1 rounded-md mt-6">
+              <span className="inline-block bg-miso-blue-50 text-miso-blue-700 text-[11px] font-bold px-2.5 py-1 rounded-md mt-6">
                 서민금융진흥원 운영
               </span>
             </div>
 
-            <div className="bg-white p-8 rounded-2xl border-b-4 border-b-emerald-500 shadow-sm border border-slate-100">
-              <div className="w-12 h-12 bg-emerald-50 rounded-xl flex items-center justify-center text-emerald-600 mb-6 font-bold text-xl">
+            <div className="bg-white p-8 rounded-2xl border-b-4 border-b-miso-navy-500 shadow-sm border border-slate-100">
+              <div className="w-12 h-12 bg-miso-navy-50 rounded-xl flex items-center justify-center text-miso-navy-600 mb-6 font-bold text-xl">
                 📋
               </div>
               <h3 className="font-bold text-lg text-slate-900">제도권 비영리 법인</h3>
               <p className="text-slate-500 text-sm mt-3 leading-relaxed">
-                금융위원회의 정식 설립 허가를 받아 운영하는 신뢰할 수 있는 공공 서민금융 조직이며, 대중을 착취하는 대부업과는 절대 다른 자활 전용 공인 채널입니다.
+                금융위원회의 정식 설립 허가를 받아 운영하는 신뢰할 수 있는 공공 서민금융 조직이며, 일반 대부업과는 운영 목적부터 다른 자활 전용 공인 채널입니다.
               </p>
-              <span className="inline-block bg-emerald-50 text-emerald-700 text-[11px] font-bold px-2.5 py-1 rounded-md mt-6">
+              <span className="inline-block bg-miso-navy-50 text-miso-navy-700 text-[11px] font-bold px-2.5 py-1 rounded-md mt-6">
                 공익법인(사단법인)
               </span>
             </div>
@@ -266,29 +274,29 @@ export default function Hero({ onScrollToSection }: HeroProps) {
               <thead className="text-xs text-slate-700 uppercase bg-slate-100 rounded-lg">
                 <tr>
                   <th scope="col" className="px-6 py-4 rounded-l-xl font-bold">구분</th>
-                  <th scope="col" className="px-6 py-4 font-bold text-teal-700">미소금융 (대구중구법인)</th>
+                  <th scope="col" className="px-6 py-4 font-bold text-miso-blue-700">미소금융 (대구중구법인)</th>
                   <th scope="col" className="px-6 py-4 rounded-r-xl font-bold">일반 상업 금융 (영리 목적)</th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-slate-100">
                 <tr className="bg-white hover:bg-slate-50 transition-colors">
                   <td className="px-6 py-4 font-bold text-slate-900">운영 목적</td>
-                  <td className="px-6 py-4 font-semibold text-teal-600">소상공인 및 서민 취약계층의 경제적 자립 (비영리 공공수행)</td>
+                  <td className="px-6 py-4 font-semibold text-miso-blue-600">소상공인 및 서민 취약계층의 경제적 자립 (비영리 공공수행)</td>
                   <td className="px-6 py-4 text-slate-500">금융회사 주주 및 기업 이윤 극대화 상업 영업</td>
                 </tr>
                 <tr className="bg-white hover:bg-slate-50 transition-colors">
                   <td className="px-6 py-4 font-bold text-slate-900">대표 이자율</td>
-                  <td className="px-6 py-4 font-extrabold text-teal-600">연 4.5% 수준 내외 (고정 정책 금리)</td>
+                  <td className="px-6 py-4 font-extrabold text-miso-blue-600">연 4.5% 수준 내외 (고정 정책 금리)</td>
                   <td className="px-6 py-4 text-slate-500">시장 변동금리 가산 및 자영업 신용에 따른 급격한 증가</td>
                 </tr>
                 <tr className="bg-white hover:bg-slate-50 transition-colors">
                   <td className="px-6 py-4 font-bold text-slate-900">담보 및 보증</td>
-                  <td className="px-6 py-4 font-semibold text-teal-600">무담보 무보증 (성실 분할 상환 의지만 증명)</td>
+                  <td className="px-6 py-4 font-semibold text-miso-blue-600">무담보 무보증 (성실 분할 상환 의지만 증명)</td>
                   <td className="px-6 py-4 text-slate-500">부동산 담보 요구, 신용보증보험 발급 필요 및 차등</td>
                 </tr>
                 <tr className="bg-white hover:bg-slate-50 transition-colors">
                   <td className="px-6 py-4 font-bold text-slate-900">핵심 자금 출처</td>
-                  <td className="px-6 py-4 font-semibold text-teal-600">서민금융진흥원 정책 재원 (대기업 자발 기금 등 상장재원)</td>
+                  <td className="px-6 py-4 font-semibold text-miso-blue-600">서민금융진흥원 정책 재원 (대기업 자발 기금 등 상장재원)</td>
                   <td className="px-6 py-4 text-slate-500">예금 및 적금 수수자금, 고금리 양방향 채권 조달</td>
                 </tr>
               </tbody>
