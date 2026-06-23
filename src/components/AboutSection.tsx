@@ -360,32 +360,28 @@ export default function AboutSection() {
 
             {/* 지도 박스 */}
             <div className="bg-white p-3 rounded-2xl border border-slate-200 shadow-md">
-              <div className="w-full h-80 bg-slate-100 rounded-xl relative overflow-hidden flex items-center justify-center text-center">
-                
-                {/* 수려하게 디자인된 가짜 지도 및 버튼 레이아웃 */}
-                <div className="absolute inset-0 bg-[radial-gradient(#cbd5e1_1px,transparent_1px)] [background-size:16px_16px] flex flex-col items-center justify-center text-center p-6 bg-slate-50">
-                  <div className="w-10 h-10 bg-teal-600 text-white rounded-full flex items-center justify-center shadow-lg animate-bounce mb-3">
-                    📍
-                  </div>
-                  <h4 className="font-bold text-slate-800 text-sm">미소금융 대구중구법인</h4>
-                  <p className="text-slate-500 text-xs mt-1">하나은행 봉덕지점 건물 4층</p>
-                  
-                  <div className="mt-5 w-44 h-0.5 bg-slate-200" />
-                  
-                  <a 
-                    href="https://map.naver.com/v5/entry/place/20485984" 
-                    target="_blank" 
-                    rel="noopener noreferrer"
-                    className="mt-5 bg-teal-600 text-white hover:bg-teal-700 px-4 py-2.5 rounded-lg text-xs font-bold transition-all flex items-center space-x-1"
-                  >
-                    <span>실시간 위성지도 열기</span>
-                    <ExternalLink className="w-3 h-3" />
-                  </a>
-                </div>
-
+              <div className="w-full h-80 rounded-xl overflow-hidden">
+                <iframe
+                  src="https://map.naver.com/v5/entry/place/20485984"
+                  width="100%"
+                  height="100%"
+                  style={{ border: 0 }}
+                  allowFullScreen
+                  loading="lazy"
+                  title="미소금융대구중구법인 위치"
+                />
               </div>
-              <div className="p-3 bg-slate-50 rounded-xl border border-slate-100 mt-2 text-center">
+              <div className="flex items-center justify-between mt-2 px-1">
                 <p className="text-slate-400 text-[10px] font-bold">하나은행 건물 뒤편 주차 공간 보유 (방문 전 유선 확인 요망)</p>
+                <a
+                  href="https://naver.me/xCBo2dto"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="bg-teal-600 text-white hover:bg-teal-700 px-3 py-1.5 rounded-lg text-[10px] font-bold transition-all flex items-center space-x-1"
+                >
+                  <span>📍 네이버 지도 열기</span>
+                  <ExternalLink className="w-3 h-3" />
+                </a>
               </div>
             </div>
 
