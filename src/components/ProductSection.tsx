@@ -311,7 +311,6 @@ export default function ProductSection({ onScrollToSection, onOpenCalculator }: 
         <div className="bg-white p-6.5 md:p-10 rounded-3xl border border-slate-100 shadow-sm text-left">
           <div className="mb-6">
             <h4 className="font-extrabold text-slate-900 text-lg">한눈에 비교하는 미소금융 스펙 요약</h4>
-            <p className="text-slate-400 text-xs">자격 요건 충족 시 즉각 무담보 접수가 가능합니다.</p>
           </div>
 
           <div className="overflow-x-auto">
