@@ -53,17 +53,7 @@ export default function Hero({ onScrollToSection }: HeroProps) {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
           
           <div className="lg:col-span-7 space-y-6 text-left">
-            <motion.div 
-              initial={{ opacity: 0, y: 15 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5 }}
-              className="inline-flex items-center space-x-2 bg-teal-50 border border-teal-100 px-3.5 py-1.5 rounded-full text-xs font-semibold text-teal-700 shadow-sm"
-            >
-              <ShieldCheck className="w-4 h-4 text-teal-600" />
-              <span>대구 전역 15년 지킴이 · 정부(서민금융진흥원) 사업수행기관</span>
-            </motion.div>
-
-            <motion.h1 
+            <motion.h1
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.1 }}
