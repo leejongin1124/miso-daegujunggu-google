@@ -86,22 +86,6 @@ export default function Header({ activeTab, setActiveTab, onScrollToSection, onO
       className="fixed top-0 left-0 w-full z-50 bg-white/95 backdrop-blur-md border-b border-slate-100 shadow-sm transition-all duration-300"
       onMouseLeave={() => setIsHovered(false)}
     >
-      {/* 최상단 마이크로 띠링 */}
-      <div className="bg-slate-50 border-b border-slate-100 py-1.5 px-4 hidden md:block">
-        <div className="max-w-7xl mx-auto flex justify-between items-center text-xs text-slate-500 font-medium">
-          <div className="flex items-center space-x-3">
-            <span className="inline-flex items-center text-teal-600 bg-teal-50 px-2 py-0.5 rounded text-[10px] font-bold">공식 기관</span>
-            <span>서민금융진흥원 사업수행기관 · 대구지역 15년 경제적 자립 파트너</span>
-          </div>
-          <div className="flex items-center space-x-4">
-            <span className="text-slate-400">대표전화:</span>
-            <a href="tel:053-252-6408" className="hover:text-teal-600 font-semibold text-slate-700 transition-colors">053-252-6408</a>
-            <span className="text-slate-200">|</span>
-            <span>평일 09:00 - 18:00</span>
-          </div>
-        </div>
-      </div>
-
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-20">
           
