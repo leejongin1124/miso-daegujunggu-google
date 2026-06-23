@@ -251,11 +251,11 @@ export default function CaseSection() {
               A Warm Promise of Co-prosperity
             </span>
             <h4 className="text-xl md:text-2xl font-black tracking-tight leading-snug">
-              &ldquo;여러분이 쓰신 성실 상역의 이자는, <br className="sm:hidden" />다음 자영업자의 생명 줄이 됩니다.&rdquo;
+              &ldquo;여러분이 갚으신 원금은 다음 자영업자에게 큰 도움이 됩니다&rdquo;
             </h4>
             <p className="text-slate-400 text-xs md:text-sm leading-relaxed font-medium">
               (사)미소금융대구중구법인의 운용자금은 금융사들의 영리적 회수기금이 아닙니다. <br />
-              한 분이 성실하게 갚아내시는 원금과 연 4.5% 수준의 최소 이자는 오롯이 서민금융진흥원 창고로 유입되어, <br />
+              성실하게 상환해 주시는 원금은 오롯이 서민금융진흥원 창고로 유입되어, <br />
               내일 당장 부도 위기에 처할 대구 소상공인을 다시 살려내는 고귀한 순환 자금으로 100% 보존됩니다.
             </p>
           </div>
