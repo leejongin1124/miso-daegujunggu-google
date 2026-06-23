@@ -36,7 +36,7 @@ export default function Header({ activeTab, setActiveTab, onScrollToSection, onO
       type: TabType.PRODUCTS,
       label: '지원상품',
       sublinks: [
-        { name: '사회적연대금융 (핵심)', id: 'social-finance' },
+        { name: '사회적연대금융', id: 'social-finance' },
         { name: '사업자 운영자금', id: 'business-fund' },
         { name: '청년 미래이음 자금', id: 'youth-fund' },
         { name: '금융취약계층 생계자금', id: 'vulnerable-fund' }
