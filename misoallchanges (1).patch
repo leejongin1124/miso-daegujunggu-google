@@ -1,0 +1,733 @@
+From 391d250d10637e81e217d30a21aac8dce5225482 Mon Sep 17 00:00:00 2001
+From: Claude <noreply@anthropic.com>
+Date: Tue, 23 Jun 2026 13:31:06 +0000
+Subject: [PATCH 01/16] =?UTF-8?q?=EC=A7=80=EC=9B=90=EC=83=81=ED=92=88=20?=
+ =?UTF-8?q?=EB=A9=94=EB=89=B4=20'=EC=82=AC=ED=9A=8C=EC=A0=81=EC=97=B0?=
+ =?UTF-8?q?=EB=8C=80=EA=B8=88=EC=9C=B5=20(=ED=95=B5=EC=8B=AC)'=EC=97=90?=
+ =?UTF-8?q?=EC=84=9C=20(=ED=95=B5=EC=8B=AC)=20=EC=A0=9C=EA=B1=B0?=
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+
+---
+ src/components/Header.tsx | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/src/components/Header.tsx b/src/components/Header.tsx
+index 80617c6..53f1a9c 100644
+--- a/src/components/Header.tsx
++++ b/src/components/Header.tsx
+@@ -36,7 +36,7 @@ export default function Header({ activeTab, setActiveTab, onScrollToSection, onO
+       type: TabType.PRODUCTS,
+       label: '지원상품',
+       sublinks: [
+-        { name: '사회적연대금융 (핵심)', id: 'social-finance' },
++        { name: '사회적연대금융', id: 'social-finance' },
+         { name: '사업자 운영자금', id: 'business-fund' },
+         { name: '청년 미래이음 자금', id: 'youth-fund' },
+         { name: '금융취약계층 생계자금', id: 'vulnerable-fund' }
+-- 
+2.43.0
+
+
+From f3cc077692d665941a8e1a69146f5359820f5048 Mon Sep 17 00:00:00 2001
+From: Claude <noreply@anthropic.com>
+Date: Tue, 23 Jun 2026 13:31:06 +0000
+Subject: [PATCH 02/16] =?UTF-8?q?=EC=A7=80=EC=9B=90=EC=83=81=ED=92=88=20?=
+ =?UTF-8?q?=EB=A9=94=EB=89=B4=20(=ED=95=B5=EC=8B=AC)=20=EC=A0=9C=EA=B1=B0?=
+ =?UTF-8?q?=20=EB=B0=8F=20=EC=B5=9C=EC=83=81=EB=8B=A8=20=EC=A0=95=EB=B3=B4?=
+ =?UTF-8?q?=20=EC=A4=84=20=EC=82=AD=EC=A0=9C?=
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+
+---
+ src/components/Header.tsx | 16 ----------------
+ 1 file changed, 16 deletions(-)
+
+diff --git a/src/components/Header.tsx b/src/components/Header.tsx
+index 53f1a9c..3798fb5 100644
+--- a/src/components/Header.tsx
++++ b/src/components/Header.tsx
+@@ -86,22 +86,6 @@ export default function Header({ activeTab, setActiveTab, onScrollToSection, onO
+       className="fixed top-0 left-0 w-full z-50 bg-white/95 backdrop-blur-md border-b border-slate-100 shadow-sm transition-all duration-300"
+       onMouseLeave={() => setIsHovered(false)}
+     >
+-      {/* 최상단 마이크로 띠링 */}
+-      <div className="bg-slate-50 border-b border-slate-100 py-1.5 px-4 hidden md:block">
+-        <div className="max-w-7xl mx-auto flex justify-between items-center text-xs text-slate-500 font-medium">
+-          <div className="flex items-center space-x-3">
+-            <span className="inline-flex items-center text-teal-600 bg-teal-50 px-2 py-0.5 rounded text-[10px] font-bold">공식 기관</span>
+-            <span>서민금융진흥원 사업수행기관 · 대구지역 15년 경제적 자립 파트너</span>
+-          </div>
+-          <div className="flex items-center space-x-4">
+-            <span className="text-slate-400">대표전화:</span>
+-            <a href="tel:053-252-6408" className="hover:text-teal-600 font-semibold text-slate-700 transition-colors">053-252-6408</a>
+-            <span className="text-slate-200">|</span>
+-            <span>평일 09:00 - 18:00</span>
+-          </div>
+-        </div>
+-      </div>
+-
+       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+         <div className="flex justify-between items-center h-20">
+           
+-- 
+2.43.0
+
+
+From a4897762aa0e60308c49810ea1e642cc5df658d5 Mon Sep 17 00:00:00 2001
+From: Claude <noreply@anthropic.com>
+Date: Tue, 23 Jun 2026 13:31:06 +0000
+Subject: [PATCH 03/16] =?UTF-8?q?Hero=20=EC=84=B9=EC=85=98=20=EC=83=81?=
+ =?UTF-8?q?=EB=8B=A8=20=EA=B8=B0=EA=B4=80=20=EC=86=8C=EA=B0=9C=20=EB=AC=B8?=
+ =?UTF-8?q?=EA=B5=AC=20=EC=82=AD=EC=A0=9C?=
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+
+---
+ src/components/Hero.tsx | 12 +-----------
+ 1 file changed, 1 insertion(+), 11 deletions(-)
+
+diff --git a/src/components/Hero.tsx b/src/components/Hero.tsx
+index 9048d62..015e281 100644
+--- a/src/components/Hero.tsx
++++ b/src/components/Hero.tsx
+@@ -53,17 +53,7 @@ export default function Hero({ onScrollToSection }: HeroProps) {
+         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+           
+           <div className="lg:col-span-7 space-y-6 text-left">
+-            <motion.div 
+-              initial={{ opacity: 0, y: 15 }}
+-              animate={{ opacity: 1, y: 0 }}
+-              transition={{ duration: 0.5 }}
+-              className="inline-flex items-center space-x-2 bg-teal-50 border border-teal-100 px-3.5 py-1.5 rounded-full text-xs font-semibold text-teal-700 shadow-sm"
+-            >
+-              <ShieldCheck className="w-4 h-4 text-teal-600" />
+-              <span>대구 전역 15년 지킴이 · 정부(서민금융진흥원) 사업수행기관</span>
+-            </motion.div>
+-
+-            <motion.h1 
++            <motion.h1
+               initial={{ opacity: 0, y: 20 }}
+               animate={{ opacity: 1, y: 0 }}
+               transition={{ duration: 0.6, delay: 0.1 }}
+-- 
+2.43.0
+
+
+From 94cbdff5608ae20b4d832c40571f84328243e63c Mon Sep 17 00:00:00 2001
+From: Claude <noreply@anthropic.com>
+Date: Tue, 23 Jun 2026 13:31:07 +0000
+Subject: [PATCH 04/16] =?UTF-8?q?Hero=20=EC=84=B9=EC=85=98=20=EC=8B=AC?=
+ =?UTF-8?q?=EC=9D=98=EC=9C=84=EC=9B=90=ED=9A=8C=20=EC=8A=B9=EC=9D=B8=20?=
+ =?UTF-8?q?=EC=99=84=EB=A3=8C=20=EB=AC=B8=EA=B5=AC=20=EC=82=AD=EC=A0=9C?=
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+
+---
+ src/components/Hero.tsx | 1 -
+ 1 file changed, 1 deletion(-)
+
+diff --git a/src/components/Hero.tsx b/src/components/Hero.tsx
+index 015e281..1241969 100644
+--- a/src/components/Hero.tsx
++++ b/src/components/Hero.tsx
+@@ -142,7 +142,6 @@ export default function Hero({ onScrollToSection }: HeroProps) {
+                   </div>
+                   <div>
+                     <h5 className="font-bold text-slate-800 text-sm">금융 취약계층 자립 돕는 미소자금</h5>
+-                    <p className="text-slate-500 text-xs mt-0.5">서민금융진흥원 심의위원회 승인 완료</p>
+                   </div>
+                 </div>
+               </div>
+-- 
+2.43.0
+
+
+From 441a7a95803b4543115f667b2fa9de502ba3e1da Mon Sep 17 00:00:00 2001
+From: Claude <noreply@anthropic.com>
+Date: Tue, 23 Jun 2026 13:31:07 +0000
+Subject: [PATCH 05/16] =?UTF-8?q?=EC=97=B0=ED=98=81=EC=97=90=202026?=
+ =?UTF-8?q?=EB=85=84=207=EC=9B=94=20=ED=99=88=ED=8E=98=EC=9D=B4=EC=A7=80?=
+ =?UTF-8?q?=20=EA=B0=9C=EC=84=A4=20=ED=95=AD=EB=AA=A9=20=EC=B6=94=EA=B0=80?=
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+
+---
+ src/components/AboutSection.tsx | 6 ++++++
+ 1 file changed, 6 insertions(+)
+
+diff --git a/src/components/AboutSection.tsx b/src/components/AboutSection.tsx
+index 790e01f..a6c71ed 100644
+--- a/src/components/AboutSection.tsx
++++ b/src/components/AboutSection.tsx
+@@ -8,6 +8,12 @@ import { Award, Briefcase, Calendar, MapPin, Bus, Train, Phone, Share2, Printer,
+ 
+ export default function AboutSection() {
+   const historyData = [
++    {
++      year: '2026',
++      items: [
++        { date: '07.00', text: '미소금융대구중구법인 홈페이지 개설', emphasis: true }
++      ]
++    },
+     {
+       year: '2025',
+       items: [
+-- 
+2.43.0
+
+
+From 77aea25dd3ab702ead749bfeff51c565a8328464 Mon Sep 17 00:00:00 2001
+From: Claude <noreply@anthropic.com>
+Date: Tue, 23 Jun 2026 13:31:07 +0000
+Subject: [PATCH 06/16] =?UTF-8?q?=EC=98=A4=EC=8B=9C=EB=8A=94=20=EA=B8=B8?=
+ =?UTF-8?q?=20=EB=B2=84=EC=8A=A4=20=EB=85=B8=EC=84=A0=20=EB=82=B4=EC=9A=A9?=
+ =?UTF-8?q?=20=EB=B3=80=EA=B2=BD?=
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+
+---
+ src/components/AboutSection.tsx | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/src/components/AboutSection.tsx b/src/components/AboutSection.tsx
+index a6c71ed..b45ddc7 100644
+--- a/src/components/AboutSection.tsx
++++ b/src/components/AboutSection.tsx
+@@ -328,8 +328,8 @@ export default function AboutSection() {
+                   <div>
+                     <h5 className="font-extrabold text-slate-800">일반 버스 노선</h5>
+                     <p className="text-slate-500 font-medium mt-0.5">
+-                      경북예고 앞 정류장 하차: 349, 410-1, 503, 649, 남구1, 남구1-1 <br />
+-                      남구청 건너 정류장 하차: 651, 730
++                      대구고등학교 건너 정류장에 내리시면 바로 근처입니다 <br />
++                      오는 버스: 349, 405, 410, 503, 649
+                     </p>
+                   </div>
+                 </div>
+-- 
+2.43.0
+
+
+From 11a05e6b344996fa3fc8f09d8a82f58e155246f5 Mon Sep 17 00:00:00 2001
+From: Claude <noreply@anthropic.com>
+Date: Tue, 23 Jun 2026 13:31:07 +0000
+Subject: [PATCH 07/16] =?UTF-8?q?=EC=98=A4=EC=8B=9C=EB=8A=94=20=EA=B8=B8?=
+ =?UTF-8?q?=20=EC=A7=80=EB=8F=84=EB=A5=BC=20=EB=84=A4=EC=9D=B4=EB=B2=84=20?=
+ =?UTF-8?q?=EC=A7=80=EB=8F=84=20iframe=EC=9C=BC=EB=A1=9C=20=EA=B5=90?=
+ =?UTF-8?q?=EC=B2=B4?=
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+
+---
+ src/components/AboutSection.tsx | 44 +++++++++++++++------------------
+ 1 file changed, 20 insertions(+), 24 deletions(-)
+
+diff --git a/src/components/AboutSection.tsx b/src/components/AboutSection.tsx
+index b45ddc7..7df8b29 100644
+--- a/src/components/AboutSection.tsx
++++ b/src/components/AboutSection.tsx
+@@ -360,32 +360,28 @@ export default function AboutSection() {
+ 
+             {/* 지도 박스 */}
+             <div className="bg-white p-3 rounded-2xl border border-slate-200 shadow-md">
+-              <div className="w-full h-80 bg-slate-100 rounded-xl relative overflow-hidden flex items-center justify-center text-center">
+-                
+-                {/* 수려하게 디자인된 가짜 지도 및 버튼 레이아웃 */}
+-                <div className="absolute inset-0 bg-[radial-gradient(#cbd5e1_1px,transparent_1px)] [background-size:16px_16px] flex flex-col items-center justify-center text-center p-6 bg-slate-50">
+-                  <div className="w-10 h-10 bg-teal-600 text-white rounded-full flex items-center justify-center shadow-lg animate-bounce mb-3">
+-                    📍
+-                  </div>
+-                  <h4 className="font-bold text-slate-800 text-sm">미소금융 대구중구법인</h4>
+-                  <p className="text-slate-500 text-xs mt-1">하나은행 봉덕지점 건물 4층</p>
+-                  
+-                  <div className="mt-5 w-44 h-0.5 bg-slate-200" />
+-                  
+-                  <a 
+-                    href="https://map.naver.com/v5/entry/place/20485984" 
+-                    target="_blank" 
+-                    rel="noopener noreferrer"
+-                    className="mt-5 bg-teal-600 text-white hover:bg-teal-700 px-4 py-2.5 rounded-lg text-xs font-bold transition-all flex items-center space-x-1"
+-                  >
+-                    <span>실시간 위성지도 열기</span>
+-                    <ExternalLink className="w-3 h-3" />
+-                  </a>
+-                </div>
+-
++              <div className="w-full h-80 rounded-xl overflow-hidden">
++                <iframe
++                  src="https://map.naver.com/v5/entry/place/20485984"
++                  width="100%"
++                  height="100%"
++                  style={{ border: 0 }}
++                  allowFullScreen
++                  loading="lazy"
++                  title="미소금융대구중구법인 위치"
++                />
+               </div>
+-              <div className="p-3 bg-slate-50 rounded-xl border border-slate-100 mt-2 text-center">
++              <div className="flex items-center justify-between mt-2 px-1">
+                 <p className="text-slate-400 text-[10px] font-bold">하나은행 건물 뒤편 주차 공간 보유 (방문 전 유선 확인 요망)</p>
++                <a
++                  href="https://naver.me/xCBo2dto"
++                  target="_blank"
++                  rel="noopener noreferrer"
++                  className="bg-teal-600 text-white hover:bg-teal-700 px-3 py-1.5 rounded-lg text-[10px] font-bold transition-all flex items-center space-x-1"
++                >
++                  <span>📍 네이버 지도 열기</span>
++                  <ExternalLink className="w-3 h-3" />
++                </a>
+               </div>
+             </div>
+ 
+-- 
+2.43.0
+
+
+From 904af172ee4d42438d4a7bfbbf0a0c5ede70e860 Mon Sep 17 00:00:00 2001
+From: Claude <noreply@anthropic.com>
+Date: Tue, 23 Jun 2026 13:31:08 +0000
+Subject: [PATCH 08/16] =?UTF-8?q?=EC=A7=80=EC=9B=90=EC=83=81=ED=92=88=20?=
+ =?UTF-8?q?=EC=A0=9C=EB=AA=A9=EC=97=90=EC=84=9C=20'4=EB=8C=80'=20=EC=82=AD?=
+ =?UTF-8?q?=EC=A0=9C?=
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+
+---
+ src/components/ProductSection.tsx | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/src/components/ProductSection.tsx b/src/components/ProductSection.tsx
+index f6b39e4..db0b10d 100644
+--- a/src/components/ProductSection.tsx
++++ b/src/components/ProductSection.tsx
+@@ -116,7 +116,7 @@ export default function ProductSection({ onScrollToSection, onOpenCalculator }:
+         <div id="social-finance" className="text-center space-y-4 max-w-4xl mx-auto">
+           <span className="text-xs font-black text-teal-600 tracking-widest uppercase">Miso Finance Products</span>
+           <h2 className="text-3xl md:text-4.5xl font-black text-slate-900 tracking-tight leading-none">
+-            미소금융대구중구법인 4대 대표상품
++            미소금융대구중구법인 대표상품
+           </h2>
+           <div className="h-1.5 w-16 bg-teal-600 rounded-full mx-auto" />
+           <p className="text-slate-600 font-medium text-base md:text-lg max-w-2xl mx-auto leading-relaxed">
+-- 
+2.43.0
+
+
+From 3d7da1b5175f61ef10ff8656ee4ad45cbd1d1693 Mon Sep 17 00:00:00 2001
+From: Claude <noreply@anthropic.com>
+Date: Tue, 23 Jun 2026 13:31:08 +0000
+Subject: [PATCH 09/16] =?UTF-8?q?=EC=82=AC=ED=9A=8C=EC=A0=81=EC=97=B0?=
+ =?UTF-8?q?=EB=8C=80=EA=B8=88=EC=9C=B5=20=EC=83=81=EB=8B=B4=20=EB=B2=84?=
+ =?UTF-8?q?=ED=8A=BC=20=EC=A0=84=ED=99=94=EB=B2=88=ED=98=B8=20053-252-6480?=
+ =?UTF-8?q?=EC=9C=BC=EB=A1=9C=20=EB=B3=80=EA=B2=BD?=
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+
+---
+ src/components/ProductSection.tsx | 21 +++++++++++++++------
+ 1 file changed, 15 insertions(+), 6 deletions(-)
+
+diff --git a/src/components/ProductSection.tsx b/src/components/ProductSection.tsx
+index db0b10d..7b194f4 100644
+--- a/src/components/ProductSection.tsx
++++ b/src/components/ProductSection.tsx
+@@ -242,12 +242,21 @@ export default function ProductSection({ onScrollToSection, onOpenCalculator }:
+               )}
+ 
+               <div className="flex flex-col sm:flex-row gap-3 pt-4">
+-                <button
+-                  onClick={() => onScrollToSection('consultation-form')}
+-                  className="flex-1 bg-teal-600 text-white font-bold py-4 rounded-xl text-center text-sm shadow-md hover:bg-teal-700 transition"
+-                >
+-                  📞 {activeProduct.name} 상담 신청하기
+-                </button>
++                {activeProduct.id === 'social' ? (
++                  <a
++                    href="tel:053-252-6480"
++                    className="flex-1 bg-teal-600 text-white font-bold py-4 rounded-xl text-center text-sm shadow-md hover:bg-teal-700 transition"
++                  >
++                    📞 사회적연대금융 전화 상담하기 (053-252-6480)
++                  </a>
++                ) : (
++                  <button
++                    onClick={() => onScrollToSection('consultation-form')}
++                    className="flex-1 bg-teal-600 text-white font-bold py-4 rounded-xl text-center text-sm shadow-md hover:bg-teal-700 transition"
++                  >
++                    📞 {activeProduct.name} 상담 신청하기
++                  </button>
++                )}
+                 <button
+                   onClick={onOpenCalculator}
+                   className="bg-slate-100 text-slate-800 hover:bg-slate-200 font-bold px-6 py-4 rounded-xl text-sm transition flex items-center justify-center space-x-1"
+-- 
+2.43.0
+
+
+From 00c4bb31c4355b8f35878825df29481258e3bff9 Mon Sep 17 00:00:00 2001
+From: Claude <noreply@anthropic.com>
+Date: Tue, 23 Jun 2026 13:31:08 +0000
+Subject: [PATCH 10/16] =?UTF-8?q?=EC=83=81=ED=92=88=20=EB=B9=84=EA=B5=90?=
+ =?UTF-8?q?=ED=91=9C=20=ED=95=98=EB=8B=A8=20=EB=AC=B4=EB=8B=B4=EB=B3=B4=20?=
+ =?UTF-8?q?=EC=95=88=EB=82=B4=20=EB=AC=B8=EA=B5=AC=20=EC=82=AD=EC=A0=9C?=
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+
+---
+ src/components/ProductSection.tsx | 1 -
+ 1 file changed, 1 deletion(-)
+
+diff --git a/src/components/ProductSection.tsx b/src/components/ProductSection.tsx
+index 7b194f4..a249bcb 100644
+--- a/src/components/ProductSection.tsx
++++ b/src/components/ProductSection.tsx
+@@ -311,7 +311,6 @@ export default function ProductSection({ onScrollToSection, onOpenCalculator }:
+         <div className="bg-white p-6.5 md:p-10 rounded-3xl border border-slate-100 shadow-sm text-left">
+           <div className="mb-6">
+             <h4 className="font-extrabold text-slate-900 text-lg">한눈에 비교하는 미소금융 스펙 요약</h4>
+-            <p className="text-slate-400 text-xs">자격 요건 충족 시 즉각 무담보 접수가 가능합니다.</p>
+           </div>
+ 
+           <div className="overflow-x-auto">
+-- 
+2.43.0
+
+
+From 11e9fc9ed438d874c5c5641b29c409d962b2361a Mon Sep 17 00:00:00 2001
+From: Claude <noreply@anthropic.com>
+Date: Tue, 23 Jun 2026 13:31:08 +0000
+Subject: [PATCH 11/16] =?UTF-8?q?FAQ=20=EC=8B=A0=EC=9A=A9=EA=B8=B0?=
+ =?UTF-8?q?=EC=A4=80=20=EB=AC=B8=EA=B5=AC=20=EB=B3=80=EA=B2=BD=20=EB=B0=8F?=
+ =?UTF-8?q?=20=EC=B0=BD=EC=97=85=EC=98=88=EC=A0=95=EC=9E=90=20=EC=82=AD?=
+ =?UTF-8?q?=EC=A0=9C?=
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+
+---
+ src/components/GuideSection.tsx | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/src/components/GuideSection.tsx b/src/components/GuideSection.tsx
+index f193c96..83ef8cd 100644
+--- a/src/components/GuideSection.tsx
++++ b/src/components/GuideSection.tsx
+@@ -26,7 +26,7 @@ export default function GuideSection() {
+     {
+       id: 1,
+       question: "미소금융 대출의 신청 자격 기준은 구체적으로 어떻게 되나요?",
+-      answer: "개인신용평점 하위 20%(기존 신용등급 6~10등급 상당)에 해당하시거나, 기초생활수급자 및 차상위계층, 혹은 근로장려금 수급 사실이 증빙되는 소상공인, 자영업자, 또는 창업 예정자 분들이 주요 지원 대상입니다. 담보나 보증 없이 순수 신용과 자활 의지로 지원하기 때문에 기준에 해당하시면 적극 검토해 드립니다."
++      answer: "개인신용평점 하위 20%(KCB 700점, NICE 749점)에 해당하시거나, 기초생활수급자 및 차상위계층, 혹은 근로장려금 수급 사실이 증빙되는 소상공인, 자영업자 분들이 주요 지원 대상입니다. 담보나 보증 없이 순수 신용과 자활 의지로 지원하기 때문에 기준에 해당하시면 적극 검토해 드립니다."
+     },
+     {
+       id: 2,
+-- 
+2.43.0
+
+
+From 3b6b9cefa4433246968df92e2eded39ee2b1f1aa Mon Sep 17 00:00:00 2001
+From: Claude <noreply@anthropic.com>
+Date: Tue, 23 Jun 2026 13:31:09 +0000
+Subject: [PATCH 12/16] =?UTF-8?q?=EC=A7=80=EC=9B=90=EC=82=AC=EB=A1=80=20?=
+ =?UTF-8?q?=EB=AC=B8=EA=B5=AC=20=EC=88=98=EC=A0=95=20-=20=EC=9D=B4?=
+ =?UTF-8?q?=EC=9E=90=E2=86=92=EC=9B=90=EA=B8=88,=20=EC=83=81=ED=99=98=20?=
+ =?UTF-8?q?=EB=AC=B8=EA=B5=AC=20=EB=B3=80=EA=B2=BD?=
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+
+---
+ src/components/CaseSection.tsx | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/src/components/CaseSection.tsx b/src/components/CaseSection.tsx
+index fdb4091..a7705e7 100644
+--- a/src/components/CaseSection.tsx
++++ b/src/components/CaseSection.tsx
+@@ -251,11 +251,11 @@ export default function CaseSection() {
+               A Warm Promise of Co-prosperity
+             </span>
+             <h4 className="text-xl md:text-2xl font-black tracking-tight leading-snug">
+-              &ldquo;여러분이 쓰신 성실 상역의 이자는, <br className="sm:hidden" />다음 자영업자의 생명 줄이 됩니다.&rdquo;
++              &ldquo;여러분이 갚으신 원금은 다음 자영업자에게 큰 도움이 됩니다&rdquo;
+             </h4>
+             <p className="text-slate-400 text-xs md:text-sm leading-relaxed font-medium">
+               (사)미소금융대구중구법인의 운용자금은 금융사들의 영리적 회수기금이 아닙니다. <br />
+-              한 분이 성실하게 갚아내시는 원금과 연 4.5% 수준의 최소 이자는 오롯이 서민금융진흥원 창고로 유입되어, <br />
++              성실하게 상환해 주시는 원금은 오롯이 서민금융진흥원 창고로 유입되어, <br />
+               내일 당장 부도 위기에 처할 대구 소상공인을 다시 살려내는 고귀한 순환 자금으로 100% 보존됩니다.
+             </p>
+           </div>
+-- 
+2.43.0
+
+
+From 5369a5d2043d754b0cd6c1e68a0b88d51b6673e6 Mon Sep 17 00:00:00 2001
+From: Claude <noreply@anthropic.com>
+Date: Tue, 23 Jun 2026 13:31:09 +0000
+Subject: [PATCH 13/16] =?UTF-8?q?=EC=95=8C=EB=A6=BC=EB=A7=88=EB=8B=B9=20?=
+ =?UTF-8?q?=EC=9E=84=EB=8C=80=EC=B0=A8=20=EC=97=B0=EC=9E=A5=20=EC=95=88?=
+ =?UTF-8?q?=EB=82=B4=20=EA=B3=B5=EC=A7=80=20=EC=82=AD=EC=A0=9C?=
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+
+---
+ src/components/NoticeSection.tsx | 7 -------
+ 1 file changed, 7 deletions(-)
+
+diff --git a/src/components/NoticeSection.tsx b/src/components/NoticeSection.tsx
+index f903d90..cd10e7e 100644
+--- a/src/components/NoticeSection.tsx
++++ b/src/components/NoticeSection.tsx
+@@ -22,13 +22,6 @@ export default function NoticeSection() {
+       date: '2026-04-18',
+       desc: '미소금융대구중구법인은 대출 중개 수수료나 선수금을 요구하는 일체의 브로커를 두지 않습니다. 본 법인 사칭 브로커의 위조 문자를 받을 시 즉각 접수해주십시오.'
+     },
+-    {
+-      id: 3,
+-      badge: '안내',
+-      title: '법인 남구 봉덕동 하나은행 건물 사무실 임대차 만기 연장 체결 안내',
+-      date: '2025-07-02',
+-      desc: '서민금융진흥원과의 법률 인가 갱신 하에 현 남구 중앙대로 146, 4층 하나은행 봉덕지점 사무실 계약을 원만히 3년 추가 연장 완료해 정상 대면 상담을 보장합니다.'
+-    }
+   ];
+ 
+   const antiFrauds = [
+-- 
+2.43.0
+
+
+From 4bc70e25cd3d4182813eeb0b6601d76b2b803eba Mon Sep 17 00:00:00 2001
+From: Claude <noreply@anthropic.com>
+Date: Tue, 23 Jun 2026 13:31:09 +0000
+Subject: [PATCH 14/16] =?UTF-8?q?Footer=20=EB=A1=9C=EA=B3=A0=20=EC=9D=B4?=
+ =?UTF-8?q?=EB=AF=B8=EC=A7=80=20=EC=B6=94=EA=B0=80=20=EB=B0=8F=20=EA=B8=88?=
+ =?UTF-8?q?=EC=9C=B5=EC=86=8C=EB=B9=84=EC=9E=90=20=EB=B3=B4=ED=98=B8=20?=
+ =?UTF-8?q?=EC=95=88=EB=82=B4=EC=A1=B0=ED=95=AD=20=EC=82=AD=EC=A0=9C?=
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+
+---
+ src/components/Footer.tsx | 16 ++--------------
+ 1 file changed, 2 insertions(+), 14 deletions(-)
+
+diff --git a/src/components/Footer.tsx b/src/components/Footer.tsx
+index 2f5d6f6..0456340 100644
+--- a/src/components/Footer.tsx
++++ b/src/components/Footer.tsx
+@@ -3,7 +3,7 @@
+  * SPDX-License-Identifier: Apache-2.0
+  */
+ 
+-import { Heart, Landmark, ShieldAlert, BadgeInfo } from 'lucide-react';
++import { ShieldAlert } from 'lucide-react';
+ 
+ export default function Footer() {
+   return (
+@@ -15,9 +15,7 @@ export default function Footer() {
+           
+           <div className="space-y-2">
+             <div className="flex items-center space-x-2 text-white font-extrabold text-lg">
+-              <div className="w-8 h-8 bg-teal-600 rounded-lg flex items-center justify-center">
+-                <Heart className="w-4 h-4 fill-white text-white" />
+-              </div>
++              <img src="/miso_symbol.png" alt="미소금융 로고" className="w-8 h-8 object-contain" />
+               <span>(사)미소금융대구중구법인</span>
+             </div>
+             <p className="text-xs text-slate-500 font-semibold">
+@@ -53,16 +51,6 @@ export default function Footer() {
+             </p>
+           </div>
+ 
+-          <div className="md:col-span-4 space-y-3.5 border-t border-slate-800 pt-6 md:border-t-0 md:pt-0">
+-            <span className="text-[10px] font-bold text-slate-500 block uppercase tracking-wider">
+-              금융 소비자 보호 특별 안내조항
+-            </span>
+-            <ul className="space-y-1.5 text-slate-600 font-semibold leading-normal">
+-              <li>※ 모든 대출은 신용 등급 및 본인 점수에 따른 융자위원 개별 심사 결과에 근거합니다.</li>
+-              <li>※ 금리 연 4.5% 수준(고정 정책 이율)이며 취득 선수금, 보험료, 자문 갈취 일절 금지됩니다.</li>
+-              <li>※ 대출 연체 시 고유 등급 징벌 조향 및 이자 증가, 사후 경영 제약이 등입됩니다.</li>
+-            </ul>
+-          </div>
+ 
+         </div>
+ 
+-- 
+2.43.0
+
+
+From 9327a92e0d8e671895b41f9340318d5ea4938fae Mon Sep 17 00:00:00 2001
+From: Claude <noreply@anthropic.com>
+Date: Tue, 23 Jun 2026 13:31:09 +0000
+Subject: [PATCH 15/16] =?UTF-8?q?=EC=9C=A0=EA=B4=80=EA=B8=B0=EA=B4=80=20?=
+ =?UTF-8?q?=EB=B0=94=EB=A1=9C=EA=B0=80=EA=B8=B0=20=ED=98=B8=EB=B2=84/?=
+ =?UTF-8?q?=ED=81=B4=EB=A6=AD=20=EC=95=A0=EB=8B=88=EB=A9=94=EC=9D=B4?=
+ =?UTF-8?q?=EC=85=98=20=EB=B0=8F=20=EC=83=89=EC=83=81=20=ED=9A=A8=EA=B3=BC?=
+ =?UTF-8?q?=20=EC=B6=94=EA=B0=80?=
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+
+---
+ src/components/NoticeSection.tsx | 46 +++++++++++++++-----------------
+ 1 file changed, 22 insertions(+), 24 deletions(-)
+
+diff --git a/src/components/NoticeSection.tsx b/src/components/NoticeSection.tsx
+index cd10e7e..367208e 100644
+--- a/src/components/NoticeSection.tsx
++++ b/src/components/NoticeSection.tsx
+@@ -164,30 +164,28 @@ export default function NoticeSection() {
+           </span>
+ 
+           <div className="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-6 gap-3 text-xs font-extrabold text-slate-600">
+-            <a href="https://www.kinfa.or.kr" target="_blank" rel="noopener noreferrer" className="bg-white hover:bg-slate-100 p-3 rounded-lg border border-slate-200 text-center flex items-center justify-between shadow-sm transition">
+-              <span>서민금융진흥원</span>
+-              <ExternalLink className="w-3.5 h-3.5 text-slate-350" />
+-            </a>
+-            <a href="https://www.fsc.go.kr" target="_blank" rel="noopener noreferrer" className="bg-white hover:bg-slate-100 p-3 rounded-lg border border-slate-200 text-center flex items-center justify-between shadow-sm transition">
+-              <span>금융위원회</span>
+-              <ExternalLink className="w-3.5 h-3.5 text-slate-350" />
+-            </a>
+-            <a href="https://www.fss.or.kr" target="_blank" rel="noopener noreferrer" className="bg-white hover:bg-slate-100 p-3 rounded-lg border border-slate-200 text-center flex items-center justify-between shadow-sm transition">
+-              <span>금융감독원</span>
+-              <ExternalLink className="w-3.5 h-3.5 text-slate-350" />
+-            </a>
+-            <a href="https://www.daegu.go.kr" target="_blank" rel="noopener noreferrer" className="bg-white hover:bg-slate-100 p-3 rounded-lg border border-slate-200 text-center flex items-center justify-between shadow-sm transition">
+-              <span>대구광역시청</span>
+-              <ExternalLink className="w-3.5 h-3.5 text-slate-350" />
+-            </a>
+-            <a href="https://www.socialenterprise.or.kr" target="_blank" rel="noopener noreferrer" className="bg-white hover:bg-slate-100 p-3 rounded-lg border border-slate-200 text-center flex items-center justify-between shadow-sm transition">
+-              <span>사회적기업진흥원</span>
+-              <ExternalLink className="w-3.5 h-3.5 text-slate-350" />
+-            </a>
+-            <a href="https://blog.naver.com" target="_blank" rel="noopener noreferrer" className="bg-white hover:bg-slate-100 p-3 rounded-lg border border-slate-200 text-center flex items-center justify-between shadow-sm transition">
+-              <span>법인 네이버블로그</span>
+-              <ExternalLink className="w-3.5 h-3.5 text-slate-350" />
+-            </a>
++            {[
++              { label: '서민금융진흥원', href: 'https://www.kinfa.or.kr', color: 'hover:bg-teal-50 hover:border-teal-400 hover:text-teal-700' },
++              { label: '금융위원회', href: 'https://www.fsc.go.kr', color: 'hover:bg-blue-50 hover:border-blue-400 hover:text-blue-700' },
++              { label: '금융감독원', href: 'https://www.fss.or.kr', color: 'hover:bg-indigo-50 hover:border-indigo-400 hover:text-indigo-700' },
++              { label: '대구광역시청', href: 'https://www.daegu.go.kr', color: 'hover:bg-emerald-50 hover:border-emerald-400 hover:text-emerald-700' },
++              { label: '사회적기업진흥원', href: 'https://www.socialenterprise.or.kr', color: 'hover:bg-violet-50 hover:border-violet-400 hover:text-violet-700' },
++              { label: '법인 네이버블로그', href: 'https://blog.naver.com', color: 'hover:bg-green-50 hover:border-green-400 hover:text-green-700' },
++            ].map((item, idx) => (
++              <motion.a
++                key={idx}
++                href={item.href}
++                target="_blank"
++                rel="noopener noreferrer"
++                whileHover={{ y: -4, scale: 1.04 }}
++                whileTap={{ scale: 0.93, y: 0 }}
++                transition={{ type: 'spring', stiffness: 350, damping: 18 }}
++                className={`bg-white p-3 rounded-lg border border-slate-200 text-center flex items-center justify-between shadow-sm cursor-pointer transition-colors duration-200 ${item.color}`}
++              >
++                <span>{item.label}</span>
++                <ExternalLink className="w-3.5 h-3.5 opacity-60" />
++              </motion.a>
++            ))}
+           </div>
+         </div>
+ 
+-- 
+2.43.0
+
+
+From 963498c99e44875900a71c2f1ac86c118646b35f Mon Sep 17 00:00:00 2001
+From: Claude <noreply@anthropic.com>
+Date: Tue, 23 Jun 2026 13:43:29 +0000
+Subject: [PATCH 16/16] =?UTF-8?q?=EA=B4=80=EB=A0=A8=EA=B8=B0=EA=B4=80=20?=
+ =?UTF-8?q?=EB=B2=84=ED=8A=BC=20=ED=81=B4=EB=A6=AD=20=EC=83=89=EC=83=81=20?=
+ =?UTF-8?q?=EB=B3=80=EA=B2=BD=20=EB=B0=8F=20=EC=95=A0=EB=8B=88=EB=A9=94?=
+ =?UTF-8?q?=EC=9D=B4=EC=85=98=20=ED=9A=A8=EA=B3=BC=20=EC=B6=94=EA=B0=80?=
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+
+---
+ src/components/NoticeSection.tsx | 38 +++++++++++++++++++++++---------
+ 1 file changed, 27 insertions(+), 11 deletions(-)
+
+diff --git a/src/components/NoticeSection.tsx b/src/components/NoticeSection.tsx
+index 367208e..5f75cd9 100644
+--- a/src/components/NoticeSection.tsx
++++ b/src/components/NoticeSection.tsx
+@@ -3,10 +3,12 @@
+  * SPDX-License-Identifier: Apache-2.0
+  */
+ 
++import { useState } from 'react';
+ import { motion } from 'motion/react';
+ import { FileText, ChevronRight, AlertTriangle, ShieldCheck, HelpCircle, Phone, Landmark, Scale, Share2, ExternalLink } from 'lucide-react';
+ 
+ export default function NoticeSection() {
++  const [clickedIdx, setClickedIdx] = useState<number | null>(null);
+   const notices = [
+     {
+       id: 1,
+@@ -165,25 +167,39 @@ export default function NoticeSection() {
+ 
+           <div className="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-6 gap-3 text-xs font-extrabold text-slate-600">
+             {[
+-              { label: '서민금융진흥원', href: 'https://www.kinfa.or.kr', color: 'hover:bg-teal-50 hover:border-teal-400 hover:text-teal-700' },
+-              { label: '금융위원회', href: 'https://www.fsc.go.kr', color: 'hover:bg-blue-50 hover:border-blue-400 hover:text-blue-700' },
+-              { label: '금융감독원', href: 'https://www.fss.or.kr', color: 'hover:bg-indigo-50 hover:border-indigo-400 hover:text-indigo-700' },
+-              { label: '대구광역시청', href: 'https://www.daegu.go.kr', color: 'hover:bg-emerald-50 hover:border-emerald-400 hover:text-emerald-700' },
+-              { label: '사회적기업진흥원', href: 'https://www.socialenterprise.or.kr', color: 'hover:bg-violet-50 hover:border-violet-400 hover:text-violet-700' },
+-              { label: '법인 네이버블로그', href: 'https://blog.naver.com', color: 'hover:bg-green-50 hover:border-green-400 hover:text-green-700' },
++              { label: '서민금융진흥원', href: 'https://www.kinfa.or.kr', active: 'bg-teal-500 border-teal-500 text-white', hover: 'hover:bg-teal-50 hover:border-teal-400 hover:text-teal-700' },
++              { label: '금융위원회', href: 'https://www.fsc.go.kr', active: 'bg-blue-500 border-blue-500 text-white', hover: 'hover:bg-blue-50 hover:border-blue-400 hover:text-blue-700' },
++              { label: '금융감독원', href: 'https://www.fss.or.kr', active: 'bg-indigo-500 border-indigo-500 text-white', hover: 'hover:bg-indigo-50 hover:border-indigo-400 hover:text-indigo-700' },
++              { label: '대구광역시청', href: 'https://www.daegu.go.kr', active: 'bg-emerald-500 border-emerald-500 text-white', hover: 'hover:bg-emerald-50 hover:border-emerald-400 hover:text-emerald-700' },
++              { label: '사회적기업진흥원', href: 'https://www.socialenterprise.or.kr', active: 'bg-violet-500 border-violet-500 text-white', hover: 'hover:bg-violet-50 hover:border-violet-400 hover:text-violet-700' },
++              { label: '법인 네이버블로그', href: 'https://blog.naver.com', active: 'bg-green-500 border-green-500 text-white', hover: 'hover:bg-green-50 hover:border-green-400 hover:text-green-700' },
+             ].map((item, idx) => (
+               <motion.a
+                 key={idx}
+                 href={item.href}
+                 target="_blank"
+                 rel="noopener noreferrer"
+-                whileHover={{ y: -4, scale: 1.04 }}
+-                whileTap={{ scale: 0.93, y: 0 }}
+-                transition={{ type: 'spring', stiffness: 350, damping: 18 }}
+-                className={`bg-white p-3 rounded-lg border border-slate-200 text-center flex items-center justify-between shadow-sm cursor-pointer transition-colors duration-200 ${item.color}`}
++                onClick={() => {
++                  setClickedIdx(idx);
++                  setTimeout(() => setClickedIdx(null), 600);
++                }}
++                animate={clickedIdx === idx ? { scale: [1, 1.12, 0.96, 1.04, 1], rotate: [0, -3, 3, -1, 0] } : {}}
++                whileHover={{ y: -5, scale: 1.05 }}
++                whileTap={{ scale: 0.9 }}
++                transition={{ type: 'spring', stiffness: 400, damping: 15 }}
++                className={`p-3 rounded-lg border text-center flex items-center justify-between shadow-sm cursor-pointer transition-all duration-300 ${
++                  clickedIdx === idx
++                    ? item.active
++                    : `bg-white border-slate-200 ${item.hover}`
++                }`}
+               >
+                 <span>{item.label}</span>
+-                <ExternalLink className="w-3.5 h-3.5 opacity-60" />
++                <motion.div
++                  animate={clickedIdx === idx ? { rotate: 360 } : { rotate: 0 }}
++                  transition={{ duration: 0.4 }}
++                >
++                  <ExternalLink className="w-3.5 h-3.5 opacity-60" />
++                </motion.div>
+               </motion.a>
+             ))}
+           </div>
+-- 
+2.43.0
+
