@@ -142,7 +142,6 @@ export default function Hero({ onScrollToSection }: HeroProps) {
                   </div>
                   <div>
                     <h5 className="font-bold text-slate-800 text-sm">금융 취약계층 자립 돕는 미소자금</h5>
-                    <p className="text-slate-500 text-xs mt-0.5">서민금융진흥원 심의위원회 승인 완료</p>
                   </div>
                 </div>
               </div>
