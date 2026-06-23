@@ -328,8 +328,8 @@ export default function AboutSection() {
                   <div>
                     <h5 className="font-extrabold text-slate-800">일반 버스 노선</h5>
                     <p className="text-slate-500 font-medium mt-0.5">
-                      경북예고 앞 정류장 하차: 349, 410-1, 503, 649, 남구1, 남구1-1 <br />
-                      남구청 건너 정류장 하차: 651, 730
+                      대구고등학교 건너 정류장에 내리시면 바로 근처입니다 <br />
+                      오는 버스: 349, 405, 410, 503, 649
                     </p>
                   </div>
                 </div>
