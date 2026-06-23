@@ -242,12 +242,21 @@ export default function ProductSection({ onScrollToSection, onOpenCalculator }: 
               )}
 
               <div className="flex flex-col sm:flex-row gap-3 pt-4">
-                <button
-                  onClick={() => onScrollToSection('consultation-form')}
-                  className="flex-1 bg-teal-600 text-white font-bold py-4 rounded-xl text-center text-sm shadow-md hover:bg-teal-700 transition"
-                >
-                  📞 {activeProduct.name} 상담 신청하기
-                </button>
+                {activeProduct.id === 'social' ? (
+                  <a
+                    href="tel:053-252-6480"
+                    className="flex-1 bg-teal-600 text-white font-bold py-4 rounded-xl text-center text-sm shadow-md hover:bg-teal-700 transition"
+                  >
+                    📞 사회적연대금융 전화 상담하기 (053-252-6480)
+                  </a>
+                ) : (
+                  <button
+                    onClick={() => onScrollToSection('consultation-form')}
+                    className="flex-1 bg-teal-600 text-white font-bold py-4 rounded-xl text-center text-sm shadow-md hover:bg-teal-700 transition"
+                  >
+                    📞 {activeProduct.name} 상담 신청하기
+                  </button>
+                )}
                 <button
                   onClick={onOpenCalculator}
                   className="bg-slate-100 text-slate-800 hover:bg-slate-200 font-bold px-6 py-4 rounded-xl text-sm transition flex items-center justify-center space-x-1"
