@@ -15,80 +15,80 @@ export default function CaseSection() {
     {
       id: 'social-1',
       category: 'social',
-      title: '발달장애인 10명의 일자리를 지켜낸 사례',
-      problem: '대구 남산동에서 발달장애인 10명과 함께 제과제빵 업체를 운영하고 있습니다. 정부 보조금 정산 분기 전 일시적 자금 공백이 생길 때마다 급여일이 다가오면 걱정이 컸습니다. 부동산 담보가 없다는 이유로 은행 대출은 거절당했습니다.',
-      solution: '미소금융의 사회연대금융 상담을 받고 신용보증기금 가치평가 등록을 통해 무보증으로 운전자금을 지원받았습니다.',
-      effect: '거치 유예기간 2년을 활용해 제품 품질에 집중할 수 있었고, 안정적으로 운영을 이어가고 있습니다.',
+      title: '발달장애인 10명의 근로 영속성을 지켜낸 비결',
+      problem: '대구 남산동에서 발달장애인 10명을 품어 제과제빵 가치 실현 업체를 하고 있습니다. 정부 보조금 정산 분기 전 일시적 자금 공백으로 급여일이 오면 한숨이 가득했습니다. 부동산 담보가 없다는 이유로 은행들은 눈을 감았어요.',
+      solution: '미소금융의 사회연대금융 상담 과정에서 공동인증 제출 및 신보 가치평가 시스템을 등록해 무보증으로 운전자금을 기꺼이 조달 받았습니다.',
+      effect: '거치유예기 2년을 활용해 제품 품질에 완전히 집중하며 성장가도로 안착했습니다. 이제 더이상 월급날을 두려워하지 않습니다.',
       author: '김○○ 대표 (인증 사회적기업 운영)',
       location: '대구 남구'
     },
     {
       id: 'social-2',
       category: 'social',
-      title: '신규 사회적협동조합의 첫걸음',
-      problem: '돌봄 서비스를 제공하고자 사회적협동조합을 막 설립했지만, 신규 단체라는 이유로 거래 이력이 없어 1금융권 대출이 어려웠습니다.',
-      solution: '사회연대금융 취급 실적이 많은 대구중구법인을 찾아 조합 서류와 가치평가를 기반으로 무담보 자금을 지원받았습니다.',
-      effect: '초기 시설 구비와 인건비를 충당했고, 조합원이 늘어나며 지역 돌봄 복지의 한 축으로 자리 잡았습니다.',
+      title: '신규 사회적협동조합을 일궈낸 따뜻한 한걸음',
+      problem: '돌봄 서비스를 제공하고자 사회적협동조합을 막 설립했으나 신규 단체라는 꼬리표와 무이력에 1금융권의 문은 굳게 걸어잠겨 있어 설립 멤버들의 의지가 꺾이고 있었습니다.',
+      solution: '전국 미소법인 최초 사회연대금융 개척지인 대구중구법인을 찾아 조합 서류와 가치평가를 기반으로 무담보 자금을 융통 받았습니다.',
+      effect: '초기 시설 구비 및 인건비 조달을 메우고, 조합원이 대폭 증대되어 남구 시민 돌봄 복지의 어엿한 중심축이 되었습니다.',
       author: '이○○ 이사장 (50대 대표 조합원)',
       location: '대구 남구'
     },
     {
       id: 'business-1',
       category: 'business',
-      title: '사채 대신 선택한 미소금융',
-      problem: '반찬가게를 10년째 운영하고 있었으나 코로나 이후 식자재 값 폭등과 매출 하락으로 재료비조차 감당하기 어려웠습니다. 고금리 사채 광고를 보며 전화를 걸까 고민하던 날이 많았습니다.',
-      solution: '지인의 권유로 통장 명세와 사업자등록증을 지참해 상담받았고, 카드 매출 이력을 바탕으로 운영자금을 승인받았습니다.',
-      effect: '연 4.5% 고정금리로 재료를 안정적으로 조달할 수 있게 되어 단골손님도 다시 늘었습니다.',
+      title: '사금융 유혹 전날 밤, 미소자금 극적 수혈기',
+      problem: '반찬가게를 10년 째 이행하였으나 코로나 이후 식자재 값 폭등과 매출 하락으로 부가가치 재료마저 절반만 매입해 매장이 고사직전이었습니다. 매일 밤 고이율 사채광고를 보며 전화를 걸까 번뇌했습니다.',
+      solution: '지인의 간곡한 권유로 통장 명세와 사업증을 지참해 내방하였고 카드 매출과 이력을 바탕으로 운영 대여금을 대폭 승인받았습니다.',
+      effect: '대부업 덫에 걸리기 전 정직한 연 4.5% 수준 자금으로 재료를 충분히 순환시켜 단골이 다시 줄이어 안정을 찾았습니다.',
       author: '이○○ 사장 (60대, ○○반찬)',
       location: '대구 중구 남산동'
     },
     {
       id: 'business-2',
       category: 'business',
-      title: '청년 창업자의 사업자금 우대 사례',
-      problem: '동성로 골목에 수제버거 가게를 개업하자마자 인테리어 비용과 초기 재료비 부담이 겹쳤습니다. 개업 1개월 차 신생 사업자라 일반 대출은 받기 어려웠습니다.',
-      solution: '미소금융 청년 사업자 우대 한도(최대 3,000만원) 제도를 확인하고, 카드 정산 계좌 거래이력을 준비해 상담받았습니다.',
-      effect: '여유 있는 사업자금으로 안정적인 재료 수급이 가능해졌고, 매달 꾸준히 상환하며 지역 맛집으로 자리 잡고 있습니다.',
+      title: '청년 초보 자영업자의 한도 우대 성장수기',
+      problem: '동성로 뒷골목에 정성껏 수제버거 가게를 개업하자마자 인테리어 부채 독촉과 긴급 재료비 누적으로 금전 줄이 고사했습니다. 개업 1개월 차 신생사라 상업 대안책이 모두 무산되었습니다.',
+      solution: '미소금융 청년 자영업자 우대 한도(최대 3,000만원) 제도가 있음을 확인하고, 카드 정산 계좌 거래이력을 준비해 상담받았습니다.',
+      effect: '넉넉한 사업비로 우량 패티 원료 수급을 안정화하여, 매달 건전하게 상각 배제하며 대구 명물 브랜드로 착륙해 내고 있습니다.',
       author: '박○○ 사장 (35세, ○○버거)',
       location: '대구 중구'
     },
     {
       id: 'youth-1',
       category: 'youth',
-      title: '청년 재무상담을 통한 브랜드 창업',
-      problem: '디자이너 자체 브랜드 출시를 꿈꿨지만 아르바이트 소득과 거래 이력 부족으로 은행과 카드사 신용 평가에서 어려움을 겪었습니다.',
-      solution: '청년 미래이음 자금을 신청하면서 「청년 스마트 재무상담」 과정을 함께 수강해 소득·보증 소명을 안내받았습니다.',
-      effect: '6년의 거치 기간 덕분에 초기 부채 부담 없이 브랜드 운영에 집중할 수 있었고, 독립에 성공했습니다.',
+      title: '체계적인 스마트 재무클리닉과 브랜드 입도',
+      problem: '꿈꿔오던 디자이너 자체 브랜딩 런칭을 도모했으나 아지 아르바이트생 신분과 무거래 상태로 은행과 카드사 신용도 평가에서 완전히 격리당해 구직 수당 마련도 어려웠습니다.',
+      solution: '청년 미래이음 자금 신청과 더불어 「청년 스마트 재무 상담 과정」을 수강했고, 수입/보증 소명을 친절히 지도 받았습니다.',
+      effect: '거치 기간 6년 이라는 독보적인 정책 기간을 사수받아 초창기 부채 압박 없이 브랜드 정렬에 전념하여 드디어 독립했습니다.',
       author: '최○○ 작가 (20대 디자이너)',
       location: '대구 중구'
     },
     {
       id: 'youth-2',
       category: 'youth',
-      title: '구직 비용 부담을 덜어낸 사례',
-      problem: '대학 마지막 학기, 면접 비용과 시험 응시료로 카드 한도가 바닥났고 단기 대부업 광고에 손이 갈까 걱정될 만큼 자금 압박이 컸습니다.',
-      solution: '청년 미래이음 자금을 알아보고 구직 계획서와 아르바이트 소득 이력을 소명해 지원받았습니다.',
-      effect: '면접 준비와 시험 응시료 부담을 덜고 지역 기업에 최종 합격해 안정적으로 상환하고 있습니다.',
+      title: '구직 비용 구렁텅이에서 청년을 구속해 낸 비결',
+      problem: '대학 마지막 학기, 면접 이행비와 각종 시험비용 등으로 카드 한도가 바닥났고 단기 사채나 내구제 대출의 악마 광고에 손을 댈까 고민하며 숨이 탁탁 막혔습니다.',
+      solution: '안전 장치인 청년 미래이음을 접해 성실 구직 계획서와 소액 아르바이트 이력 소명을 완수하여 긴급 청년 미래 자금을 보장 받았습니다.',
+      effect: '면접 복장 장만 및 영어 토익 점수 원서비 고민을 가뿐히 덜고 당당히 지역 중견 가치 회사에 최종 합격해 상환을 가동 중입니다.',
       author: '김○○ 사원 (20대 취업인)',
       location: '대구 남구'
     },
     {
       id: 'vulnerable-1',
       category: 'vulnerable',
-      title: '아이의 수술비를 마련한 사례',
-      problem: '편의점 아르바이트 소득으로 홀로 두 자녀를 키우던 중, 큰아이의 갑작스러운 수술 통보를 받았지만 수백만 원의 의료비를 마련할 방법이 없었습니다.',
-      solution: '사회복지센터의 안내로 미소금융 생계자금을 알게 되었고, 금융취약계층 요건을 소명해 긴급 의료비를 지원받았습니다.',
-      effect: '아이는 무사히 퇴원해 통학하고 있으며, 연 4.5% 저금리(월 1만원 미만 이자)로 부담 없이 상환하고 있습니다.',
+      title: '싱글맘 아이 수술비의 거룩한 공공 구제기',
+      problem: '편의점 알바 소득으로 홀로 두 자녀를 키우며 주택 월세에 시달리던 도중, 큰 아이의 원인 불명 장 질환 급수술 통보를 받아 의료비 수백만 원 대책이 소멸했습니다.',
+      solution: '사회복지센터 선생님의 눈물겨운 인도로 미소금융 생계자금을 확인, 금융소외계층 배려 대상자 요건 소명으로 긴급의료 전세자 성격을 대지급 승인받았습니다.',
+      effect: '아이는 안전히 퇴원해 통학 중이며 이자 연 4.5% 수준(월 1만원 미만 이자)으로 삶의 큰 파도를 안전히 우회했습니다.',
       author: '이○○ 회원 (40대, 한부모가정)',
       location: '대구 중구'
     },
     {
       id: 'vulnerable-2',
       category: 'vulnerable',
-      title: '전세 사기 피해를 딛고 일상을 회복한 사례',
-      problem: '보이스피싱 피해로 신용이 무너지고 임차료가 수개월 연체되어 퇴거 통지를 받는 어려운 상황이었습니다.',
-      solution: '통합지원센터에서 미소금융의 불법사금융 피해 구제 자금을 소개받아 피해 증빙 서류를 준비해 접수했습니다.',
-      effect: '연체된 주거비를 정리했고, 연 4.5% 원리금 균등 상환으로 안정적으로 일상을 회복했습니다.',
+      title: '전세 사기 피해자의 든든한 주거 임대 복구수기',
+      problem: '보이스피싱 범죄 지진 해일 피해로 신용망이 완전히 소멸했고 주택 임차료마저 수 개월 동반 연체돼 퇴거 통지서를 받아 극단적 충동까지 발생하였습니다.',
+      solution: '통합지원센터에서 미소의 불법사금융 피해 구제 대지급 카드를 소개 받아 전반적인 범죄 연소 피해자 서류를 증해 접수했습니다.',
+      effect: '체납된 주거비를 정직하게 변제 변상했으며 연 4.5% 원리금 균등 상각으로 돌아와 일상 궤도를 사수해 안구 정화를 누리고 있습니다.',
       author: '한○○ 고객 (50대, 피해 극복인)',
       location: '대구 수성구'
     }
@@ -102,14 +102,14 @@ export default function CaseSection() {
         
         {/* 타이틀 */}
         <div id="case-social" className="text-center space-y-4 max-w-4xl mx-auto">
-          <span className="text-xs font-black text-miso-blue-600 tracking-widest uppercase">Miso Miracle Stories</span>
+          <span className="text-xs font-black text-teal-600 tracking-widest uppercase">Miso Miracle Stories</span>
           <h2 className="text-3xl md:text-4.5xl font-black text-slate-900 tracking-tight leading-none">
             다시 일어선 대구의 실제 감동사례
           </h2>
-          <div className="h-1.5 w-16 bg-miso-blue-600 rounded-full mx-auto" />
+          <div className="h-1.5 w-16 bg-teal-600 rounded-full mx-auto" />
           <p className="text-slate-600 font-medium text-base md:text-lg max-w-2xl mx-auto leading-relaxed">
-            미소금융대구중구법인을 통해 고금리 사금융 대신 <br className="hidden sm:inline" />
-            성실한 상환과 신뢰로 재기에 성공한 이웃들의 이야기입니다.
+            미소금융대구중구법인을 통해 차가운 사금융 광고의 덫을 사전에 차단하고 <br className="hidden sm:inline" />
+            성실한 상환과 신뢰로 소생한 진짜 동네 이웃들의 목소리입니다.
           </p>
         </div>
 
@@ -129,7 +129,7 @@ export default function CaseSection() {
             onClick={() => setFilter('social')}
             className={`px-5 py-2.5 rounded-full text-xs font-black tracking-tight transition-all duration-200 ${
               filter === 'social' 
-                ? 'bg-miso-blue-600 text-white shadow' 
+                ? 'bg-teal-600 text-white shadow' 
                 : 'bg-white border border-slate-200 text-slate-600 hover:border-slate-300'
             }`}
           >
@@ -139,7 +139,7 @@ export default function CaseSection() {
             onClick={() => setFilter('business')}
             className={`px-5 py-2.5 rounded-full text-xs font-black tracking-tight transition-all duration-200 ${
               filter === 'business' 
-                ? 'bg-miso-navy-600 text-white shadow' 
+                ? 'bg-emerald-600 text-white shadow' 
                 : 'bg-white border border-slate-200 text-slate-600 hover:border-slate-300'
             }`}
           >
@@ -163,7 +163,7 @@ export default function CaseSection() {
                 : 'bg-white border border-slate-200 text-slate-600 hover:border-slate-300'
             }`}
           >
-            🤝 금융취약계층 지원 사례
+            🤝 금융배려계층 구제 사례
           </button>
         </div>
 
@@ -180,14 +180,14 @@ export default function CaseSection() {
                 transition={{ duration: 0.3 }}
                 className="bg-white p-8 rounded-3xl border border-slate-100 shadow-sm hover:shadow-lg transition-all relative flex flex-col justify-between"
               >
-                {/* 카드 본문 */}
+                {/* 물밑에 비실용적인 기하학적 요소 제거, 정갈하게 카드 형태로만 처리 */}
                 <div id="case-business" className="space-y-6">
                   
                   {/* 카테고리 태그 */}
                   <div id="case-youth" className="flex justify-between items-center text-xs">
                     <span className={`font-black px-3 py-1 rounded-md text-[10px] uppercase ${
-                      c.category === 'social' ? 'bg-miso-blue-50 text-miso-blue-700 border border-miso-blue-100' :
-                      c.category === 'business' ? 'bg-miso-navy-50 text-miso-navy-700 border border-miso-navy-100' :
+                      c.category === 'social' ? 'bg-teal-50 text-teal-700 border border-teal-100' :
+                      c.category === 'business' ? 'bg-emerald-50 text-emerald-700 border border-emerald-100' :
                       c.category === 'youth' ? 'bg-indigo-50 text-indigo-700 border border-indigo-100' :
                       'bg-rose-50 text-rose-700 border border-rose-100'
                     }`}>
@@ -216,7 +216,7 @@ export default function CaseSection() {
                       <p className="text-slate-500 mt-1">{c.problem}</p>
                     </div>
                     <div>
-                      <span className="text-miso-blue-600 block font-bold">💡 미소금융대구중구법인의 손길</span>
+                      <span className="text-teal-600 block font-bold">💡 미소금융대구중구법인의 손길</span>
                       <p className="text-slate-600 mt-1">{c.solution}</p>
                     </div>
                   </div>
@@ -226,10 +226,10 @@ export default function CaseSection() {
                 {/* 하단 화자 사인 */}
                 <div className="flex justify-between items-center pt-6 border-t border-slate-100/70 mt-6">
                   <div>
-                    <span className="block font-black text-slate-800 text-sm">{c.author}</span>
-                    <p className="text-miso-blue-600 font-bold text-[10px] mt-0.5 flex items-center gap-1 uppercase">
+                    <span className="block font-black text-slate-850 text-sm">{c.author}</span>
+                    <p className="text-teal-600 font-bold text-[10px] mt-0.5 flex items-center gap-1 uppercase">
                       <Sparkles className="w-3.5 h-3.5" />
-                      <span>성실 상환 진행 중</span>
+                      <span>의지와 성실로서 변탈 완료 및 상각이행</span>
                     </p>
                   </div>
                   <div className="w-9 h-9 bg-slate-50 border border-slate-100 rounded-full flex items-center justify-center text-rose-500 shadow-inner">
@@ -244,19 +244,19 @@ export default function CaseSection() {
 
         {/* 하단 기부 및 희망 고취 문구 배너 */}
         <div className="bg-slate-900 text-white p-8 md:p-12 rounded-3xl relative overflow-hidden text-left shadow-xl">
-          <div className="absolute top-0 right-0 -mr-20 -mt-20 w-80 h-80 bg-miso-blue-500/10 rounded-full blur-3xl pointer-events-none" />
+          <div className="absolute top-0 right-0 -mr-20 -mt-20 w-80 h-80 bg-teal-500/10 rounded-full blur-3xl pointer-events-none" />
           
           <div className="max-w-2xl space-y-4">
-            <span className="inline-flex items-center text-[10px] font-black tracking-widest text-miso-blue-300 bg-white/10 px-2.5 py-1 rounded">
+            <span className="inline-flex items-center text-[10px] font-black tracking-widest text-teal-300 bg-white/10 px-2.5 py-1 rounded">
               A Warm Promise of Co-prosperity
             </span>
             <h4 className="text-xl md:text-2xl font-black tracking-tight leading-snug">
-              &ldquo;여러분이 갚으신 이자는, <br className="sm:hidden" />다음 자영업자에게 도움이 됩니다.&rdquo;
+              &ldquo;여러분이 갚으신 원금은 다음 자영업자에게 큰 도움이 됩니다&rdquo;
             </h4>
             <p className="text-slate-400 text-xs md:text-sm leading-relaxed font-medium">
-              (사)미소금융대구중구법인의 운용자금은 영리 목적의 회수기금이 아닙니다. <br />
-              성실하게 갚아주시는 원금과 연 4.5% 수준의 이자는 서민금융진흥원 재원으로 다시 모여, <br />
-              어려움을 겪는 다른 대구 소상공인을 지원하는 자금으로 순환됩니다.
+              (사)미소금융대구중구법인의 운용자금은 금융사들의 영리적 회수기금이 아닙니다. <br />
+              성실하게 상환해 주시는 원금은 오롯이 서민금융진흥원 창고로 유입되어, <br />
+              내일 당장 부도 위기에 처할 대구 소상공인을 다시 살려내는 고귀한 순환 자금으로 100% 보존됩니다.
             </p>
           </div>
         </div>
