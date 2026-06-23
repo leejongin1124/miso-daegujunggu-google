@@ -164,30 +164,28 @@ export default function NoticeSection() {
           </span>
 
           <div className="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-6 gap-3 text-xs font-extrabold text-slate-600">
-            <a href="https://www.kinfa.or.kr" target="_blank" rel="noopener noreferrer" className="bg-white hover:bg-slate-100 p-3 rounded-lg border border-slate-200 text-center flex items-center justify-between shadow-sm transition">
-              <span>서민금융진흥원</span>
-              <ExternalLink className="w-3.5 h-3.5 text-slate-350" />
-            </a>
-            <a href="https://www.fsc.go.kr" target="_blank" rel="noopener noreferrer" className="bg-white hover:bg-slate-100 p-3 rounded-lg border border-slate-200 text-center flex items-center justify-between shadow-sm transition">
-              <span>금융위원회</span>
-              <ExternalLink className="w-3.5 h-3.5 text-slate-350" />
-            </a>
-            <a href="https://www.fss.or.kr" target="_blank" rel="noopener noreferrer" className="bg-white hover:bg-slate-100 p-3 rounded-lg border border-slate-200 text-center flex items-center justify-between shadow-sm transition">
-              <span>금융감독원</span>
-              <ExternalLink className="w-3.5 h-3.5 text-slate-350" />
-            </a>
-            <a href="https://www.daegu.go.kr" target="_blank" rel="noopener noreferrer" className="bg-white hover:bg-slate-100 p-3 rounded-lg border border-slate-200 text-center flex items-center justify-between shadow-sm transition">
-              <span>대구광역시청</span>
-              <ExternalLink className="w-3.5 h-3.5 text-slate-350" />
-            </a>
-            <a href="https://www.socialenterprise.or.kr" target="_blank" rel="noopener noreferrer" className="bg-white hover:bg-slate-100 p-3 rounded-lg border border-slate-200 text-center flex items-center justify-between shadow-sm transition">
-              <span>사회적기업진흥원</span>
-              <ExternalLink className="w-3.5 h-3.5 text-slate-350" />
-            </a>
-            <a href="https://blog.naver.com" target="_blank" rel="noopener noreferrer" className="bg-white hover:bg-slate-100 p-3 rounded-lg border border-slate-200 text-center flex items-center justify-between shadow-sm transition">
-              <span>법인 네이버블로그</span>
-              <ExternalLink className="w-3.5 h-3.5 text-slate-350" />
-            </a>
+            {[
+              { label: '서민금융진흥원', href: 'https://www.kinfa.or.kr', color: 'hover:bg-teal-50 hover:border-teal-400 hover:text-teal-700' },
+              { label: '금융위원회', href: 'https://www.fsc.go.kr', color: 'hover:bg-blue-50 hover:border-blue-400 hover:text-blue-700' },
+              { label: '금융감독원', href: 'https://www.fss.or.kr', color: 'hover:bg-indigo-50 hover:border-indigo-400 hover:text-indigo-700' },
+              { label: '대구광역시청', href: 'https://www.daegu.go.kr', color: 'hover:bg-emerald-50 hover:border-emerald-400 hover:text-emerald-700' },
+              { label: '사회적기업진흥원', href: 'https://www.socialenterprise.or.kr', color: 'hover:bg-violet-50 hover:border-violet-400 hover:text-violet-700' },
+              { label: '법인 네이버블로그', href: 'https://blog.naver.com', color: 'hover:bg-green-50 hover:border-green-400 hover:text-green-700' },
+            ].map((item, idx) => (
+              <motion.a
+                key={idx}
+                href={item.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                whileHover={{ y: -4, scale: 1.04 }}
+                whileTap={{ scale: 0.93, y: 0 }}
+                transition={{ type: 'spring', stiffness: 350, damping: 18 }}
+                className={`bg-white p-3 rounded-lg border border-slate-200 text-center flex items-center justify-between shadow-sm cursor-pointer transition-colors duration-200 ${item.color}`}
+              >
+                <span>{item.label}</span>
+                <ExternalLink className="w-3.5 h-3.5 opacity-60" />
+              </motion.a>
+            ))}
           </div>
         </div>
 
