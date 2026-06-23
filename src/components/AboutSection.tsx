@@ -9,6 +9,12 @@ import { Award, Briefcase, Calendar, MapPin, Bus, Train, Phone, Share2, Printer,
 export default function AboutSection() {
   const historyData = [
     {
+      year: '2026',
+      items: [
+        { date: '07.00', text: '미소금융대구중구법인 홈페이지 개설', emphasis: true }
+      ]
+    },
+    {
       year: '2025',
       items: [
         { date: '07.02', text: '사무실 임대차계약 연장 (3년) 체결', emphasis: false }
