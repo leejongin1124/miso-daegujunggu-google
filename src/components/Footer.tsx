@@ -3,7 +3,7 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-import { Heart, Landmark, ShieldAlert, BadgeInfo } from 'lucide-react';
+import { ShieldAlert } from 'lucide-react';
 
 export default function Footer() {
   return (
@@ -15,9 +15,7 @@ export default function Footer() {
           
           <div className="space-y-2">
             <div className="flex items-center space-x-2 text-white font-extrabold text-lg">
-              <div className="w-8 h-8 bg-teal-600 rounded-lg flex items-center justify-center">
-                <Heart className="w-4 h-4 fill-white text-white" />
-              </div>
+              <img src="/miso_symbol.png" alt="미소금융 로고" className="w-8 h-8 object-contain" />
               <span>(사)미소금융대구중구법인</span>
             </div>
             <p className="text-xs text-slate-500 font-semibold">
@@ -53,16 +51,6 @@ export default function Footer() {
             </p>
           </div>
 
-          <div className="md:col-span-4 space-y-3.5 border-t border-slate-800 pt-6 md:border-t-0 md:pt-0">
-            <span className="text-[10px] font-bold text-slate-500 block uppercase tracking-wider">
-              금융 소비자 보호 특별 안내조항
-            </span>
-            <ul className="space-y-1.5 text-slate-600 font-semibold leading-normal">
-              <li>※ 모든 대출은 신용 등급 및 본인 점수에 따른 융자위원 개별 심사 결과에 근거합니다.</li>
-              <li>※ 금리 연 4.5% 수준(고정 정책 이율)이며 취득 선수금, 보험료, 자문 갈취 일절 금지됩니다.</li>
-              <li>※ 대출 연체 시 고유 등급 징벌 조향 및 이자 증가, 사후 경영 제약이 등입됩니다.</li>
-            </ul>
-          </div>
 
         </div>
 
