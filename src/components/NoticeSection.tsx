@@ -3,10 +3,12 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
+import { useState } from 'react';
 import { motion } from 'motion/react';
 import { FileText, ChevronRight, AlertTriangle, ShieldCheck, HelpCircle, Phone, Landmark, Scale, Share2, ExternalLink } from 'lucide-react';
 
 export default function NoticeSection() {
+  const [clickedIdx, setClickedIdx] = useState<number | null>(null);
   const notices = [
     {
       id: 1,
@@ -165,25 +167,39 @@ export default function NoticeSection() {
 
           <div className="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-6 gap-3 text-xs font-extrabold text-slate-600">
             {[
-              { label: '서민금융진흥원', href: 'https://www.kinfa.or.kr', color: 'hover:bg-teal-50 hover:border-teal-400 hover:text-teal-700' },
-              { label: '금융위원회', href: 'https://www.fsc.go.kr', color: 'hover:bg-blue-50 hover:border-blue-400 hover:text-blue-700' },
-              { label: '금융감독원', href: 'https://www.fss.or.kr', color: 'hover:bg-indigo-50 hover:border-indigo-400 hover:text-indigo-700' },
-              { label: '대구광역시청', href: 'https://www.daegu.go.kr', color: 'hover:bg-emerald-50 hover:border-emerald-400 hover:text-emerald-700' },
-              { label: '사회적기업진흥원', href: 'https://www.socialenterprise.or.kr', color: 'hover:bg-violet-50 hover:border-violet-400 hover:text-violet-700' },
-              { label: '법인 네이버블로그', href: 'https://blog.naver.com', color: 'hover:bg-green-50 hover:border-green-400 hover:text-green-700' },
+              { label: '서민금융진흥원', href: 'https://www.kinfa.or.kr', active: 'bg-teal-500 border-teal-500 text-white', hover: 'hover:bg-teal-50 hover:border-teal-400 hover:text-teal-700' },
+              { label: '금융위원회', href: 'https://www.fsc.go.kr', active: 'bg-blue-500 border-blue-500 text-white', hover: 'hover:bg-blue-50 hover:border-blue-400 hover:text-blue-700' },
+              { label: '금융감독원', href: 'https://www.fss.or.kr', active: 'bg-indigo-500 border-indigo-500 text-white', hover: 'hover:bg-indigo-50 hover:border-indigo-400 hover:text-indigo-700' },
+              { label: '대구광역시청', href: 'https://www.daegu.go.kr', active: 'bg-emerald-500 border-emerald-500 text-white', hover: 'hover:bg-emerald-50 hover:border-emerald-400 hover:text-emerald-700' },
+              { label: '사회적기업진흥원', href: 'https://www.socialenterprise.or.kr', active: 'bg-violet-500 border-violet-500 text-white', hover: 'hover:bg-violet-50 hover:border-violet-400 hover:text-violet-700' },
+              { label: '법인 네이버블로그', href: 'https://blog.naver.com', active: 'bg-green-500 border-green-500 text-white', hover: 'hover:bg-green-50 hover:border-green-400 hover:text-green-700' },
             ].map((item, idx) => (
               <motion.a
                 key={idx}
                 href={item.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                whileHover={{ y: -4, scale: 1.04 }}
-                whileTap={{ scale: 0.93, y: 0 }}
-                transition={{ type: 'spring', stiffness: 350, damping: 18 }}
-                className={`bg-white p-3 rounded-lg border border-slate-200 text-center flex items-center justify-between shadow-sm cursor-pointer transition-colors duration-200 ${item.color}`}
+                onClick={() => {
+                  setClickedIdx(idx);
+                  setTimeout(() => setClickedIdx(null), 600);
+                }}
+                animate={clickedIdx === idx ? { scale: [1, 1.12, 0.96, 1.04, 1], rotate: [0, -3, 3, -1, 0] } : {}}
+                whileHover={{ y: -5, scale: 1.05 }}
+                whileTap={{ scale: 0.9 }}
+                transition={{ type: 'spring', stiffness: 400, damping: 15 }}
+                className={`p-3 rounded-lg border text-center flex items-center justify-between shadow-sm cursor-pointer transition-all duration-300 ${
+                  clickedIdx === idx
+                    ? item.active
+                    : `bg-white border-slate-200 ${item.hover}`
+                }`}
               >
                 <span>{item.label}</span>
-                <ExternalLink className="w-3.5 h-3.5 opacity-60" />
+                <motion.div
+                  animate={clickedIdx === idx ? { rotate: 360 } : { rotate: 0 }}
+                  transition={{ duration: 0.4 }}
+                >
+                  <ExternalLink className="w-3.5 h-3.5 opacity-60" />
+                </motion.div>
               </motion.a>
             ))}
           </div>
