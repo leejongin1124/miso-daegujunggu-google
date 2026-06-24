@@ -374,7 +374,7 @@ export default function AboutSection() {
               <div className="flex items-center justify-between mt-2 px-1">
                 <p className="text-slate-400 text-[10px] font-bold">하나은행 건물 뒤편 주차 공간 보유 (방문 전 유선 확인 요망)</p>
                 <a
-                  href="https://naver.me/xCBo2dto"
+                  href="https://naver.me/GSQLkTiM"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="bg-teal-600 text-white hover:bg-teal-700 px-3 py-1.5 rounded-lg text-[10px] font-bold transition-all flex items-center space-x-1"
