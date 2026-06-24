@@ -4,7 +4,7 @@
  */
 
 import { motion } from 'motion/react';
-import { Phone, ArrowRight, ShieldCheck, HeartHandshake, BadgePercent, TrendingUp, Users, PiggyBank, MapPin } from 'lucide-react';
+import { Phone, ArrowRight, ShieldCheck, BadgePercent, TrendingUp, Users, PiggyBank, MapPin } from 'lucide-react';
 
 interface HeroProps {
   onScrollToSection: (sectionId: string) => void;
@@ -108,41 +108,12 @@ export default function Hero({ onScrollToSection }: HeroProps) {
             className="lg:col-span-5 relative"
           >
             <div className="relative mx-auto max-w-md lg:max-w-none">
-              {/* 장식용 테두리 카드 */}
-              <div className="absolute inset-0 bg-gradient-to-tr from-teal-100 to-indigo-100 rounded-3xl transform rotate-3 scale-102 blur-lg opacity-40 -z-10" />
-              <div className="absolute -top-3 -left-3 w-12 h-12 bg-emerald-100 rounded-full flex items-center justify-center text-teal-700 font-bold shadow-sm z-20">
-                15th
-              </div>
-              <div className="bg-white p-4 rounded-3xl shadow-2xl border border-slate-100 overflow-hidden relative">
-                {/* 첨부된 메인 이미지 적용 */}
+              <div className="rounded-2xl overflow-hidden shadow-2xl">
                 <img
                   src="/hero-bg.jpg.png"
                   alt="미소금융의 따뜻한 자금 지원 일러스트"
-                  className="w-full h-auto object-cover rounded-2xl filter hover:brightness-102 transition-all duration-500 max-h-[360px]"
-                  onError={(e) => {
-                    e.currentTarget.style.display = 'none';
-                    const parent = e.currentTarget.parentElement;
-                    if(parent) {
-                      const placeholder = document.createElement('div');
-                      placeholder.className = 'w-full h-80 bg-gradient-to-br from-teal-500 to-emerald-600 rounded-2xl flex flex-col items-center justify-center text-white px-6 text-center';
-                      placeholder.innerHTML = `
-                        <p class="font-bold text-lg mb-2">대구 금융 버팀목</p>
-                        <p class="text-sm opacity-90">희망을 다시 새우는 따뜻한 비금융 지원동반자</p>
-                      `;
-                      parent.appendChild(placeholder);
-                    }
-                  }}
+                  className="w-full h-auto object-cover"
                 />
-                
-                {/* 오버레이 배너 */}
-                <div className="mt-4 p-4.5 bg-slate-50 rounded-2xl border border-slate-100 flex items-center space-x-3 text-left">
-                  <div className="p-2 bg-teal-100 text-teal-700 rounded-xl">
-                    <HeartHandshake className="w-5 h-5" />
-                  </div>
-                  <div>
-                    <h5 className="font-bold text-slate-800 text-sm">금융 취약계층 자립 돕는 미소자금</h5>
-                  </div>
-                </div>
               </div>
             </div>
           </motion.div>
