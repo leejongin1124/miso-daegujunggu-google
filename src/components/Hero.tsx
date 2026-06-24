@@ -115,12 +115,11 @@ export default function Hero({ onScrollToSection }: HeroProps) {
               </div>
               <div className="bg-white p-4 rounded-3xl shadow-2xl border border-slate-100 overflow-hidden relative">
                 {/* 첨부된 메인 이미지 적용 */}
-                <img 
-                  src="/input_file_0.png" 
-                  alt="미소금융의 따뜻한 자금 지원 일러스트" 
+                <img
+                  src="/hero-bg.jpg.png"
+                  alt="미소금융의 따뜻한 자금 지원 일러스트"
                   className="w-full h-auto object-cover rounded-2xl filter hover:brightness-102 transition-all duration-500 max-h-[360px]"
                   onError={(e) => {
-                    // 이미지 로드 시 에러 날 시 백업용 세련된 플레이스홀더 렌더
                     e.currentTarget.style.display = 'none';
                     const parent = e.currentTarget.parentElement;
                     if(parent) {
