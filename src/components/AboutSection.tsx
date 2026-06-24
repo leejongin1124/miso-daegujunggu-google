@@ -362,7 +362,7 @@ export default function AboutSection() {
             <div className="bg-white p-3 rounded-2xl border border-slate-200 shadow-md">
               <div className="w-full h-80 rounded-xl overflow-hidden">
                 <iframe
-                  src="https://map.naver.com/v5/entry/place/20485984"
+                  src="https://map.naver.com/p/entry/place/13476718?c=15.00,0,0,0,dh&placePath=/home?from=map&fromPanelNum=1&additionalHeight=76&timestamp=202606241709&locale=ko&svcName=map_pcv5"
                   width="100%"
                   height="100%"
                   style={{ border: 0 }}
