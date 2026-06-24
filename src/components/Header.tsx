@@ -38,7 +38,7 @@ export default function Header({ activeTab, setActiveTab, onScrollToSection, onO
       label: '법인소개',
       sublinks: [
         { name: '이사장 인사말', id: 'ceo-greeting' },
-        { name: '설립 및 미소금융 목적', id: 'about-miso' },
+        { name: '설립목적', id: 'about-miso' },
         { name: '법인 연혁', id: 'history' },
         { name: '조직도', id: 'organization' },
         { name: '오시는 길', id: 'location' }
