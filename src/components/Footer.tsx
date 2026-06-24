@@ -29,7 +29,7 @@ export default function Footer() {
           <div className="md:col-span-8 space-y-4">
             <div className="flex flex-wrap gap-x-6 gap-y-2 text-slate-400 font-semibold">
               <span><strong>대표자:</strong> 김석동</span>
-              <span><strong>법인 등록번호:</strong> 504-82-13565</span>
+              <span><strong>사업자번호:</strong> 504-82-13565</span>
               <span><strong>주소:</strong> 대구광역시 남구 중앙대로 146, 4층 (봉덕동, 하나은행 봉덕지점 건물)</span>
             </div>
             
