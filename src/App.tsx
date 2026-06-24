@@ -17,6 +17,22 @@ import FloatingWidget from './components/FloatingWidget';
 
 export default function App() {
   const [activeTab, setActiveTab] = useState<TabType>(TabType.ABOUT);
+  const [productTab, setProductTab] = useState<string>('social');
+  const [caseFilter, setCaseFilter] = useState<string>('all');
+
+  const sectionToProductTab: Record<string, string> = {
+    'social-finance': 'social',
+    'business-fund': 'business',
+    'youth-fund': 'youth',
+    'vulnerable-fund': 'vulnerable',
+  };
+
+  const sectionToCaseFilter: Record<string, string> = {
+    'case-social': 'social',
+    'case-business': 'business',
+    'case-youth': 'youth',
+    'case-vulnerable': 'vulnerable',
+  };
 
   // 스크롤 이벤트 기반 액티브 탭 동적 트래킹
   useEffect(() => {
@@ -47,16 +63,37 @@ export default function App() {
   }, []);
 
   const handleScrollToSection = (sectionId: string) => {
+    // 지원상품 탭 전환
+    if (sectionToProductTab[sectionId]) {
+      setProductTab(sectionToProductTab[sectionId]);
+      setTimeout(() => {
+        const el = document.getElementById('social-finance');
+        if (el) {
+          const offset = el.getBoundingClientRect().top + window.pageYOffset - 110;
+          window.scrollTo({ top: offset, behavior: 'smooth' });
+        }
+      }, 50);
+      return;
+    }
+    // 지원사례 필터 전환
+    if (sectionToCaseFilter[sectionId]) {
+      setCaseFilter(sectionToCaseFilter[sectionId]);
+      setTimeout(() => {
+        const el = document.getElementById('case-social');
+        if (el) {
+          const offset = el.getBoundingClientRect().top + window.pageYOffset - 110;
+          window.scrollTo({ top: offset, behavior: 'smooth' });
+        }
+      }, 50);
+      return;
+    }
+
     const element = document.getElementById(sectionId);
     if (element) {
-      const headerOffset = 110; // 메인 헤더 고려 최적 오프셋
+      const headerOffset = 110;
       const elementPosition = element.getBoundingClientRect().top;
       const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
-
-      window.scrollTo({
-        top: offsetPosition,
-        behavior: 'smooth'
-      });
+      window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
     }
   };
 
@@ -87,8 +124,10 @@ export default function App() {
 
         {/* 2. 대구중구법인 4대 대표자금 상품 상세안내 */}
         <div>
-          <ProductSection 
+          <ProductSection
+            onScrollToSection={handleScrollToSection}
             onOpenCalculator={handleOpenCalculator}
+            initialTab={productTab}
           />
         </div>
 
@@ -99,7 +138,7 @@ export default function App() {
 
         {/* 4. 지원 사례 */}
         <div>
-          <CaseSection />
+          <CaseSection initialFilter={caseFilter} />
         </div>
 
         {/* 5. 공지사항 및 불법 사금융 예방 안내 */}

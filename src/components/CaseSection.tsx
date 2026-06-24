@@ -3,13 +3,21 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { Quote, Sparkles, Star, MapPin, Heart, ChevronRight } from 'lucide-react';
 import { CaseStudy } from '../types';
 
-export default function CaseSection() {
-  const [filter, setFilter] = useState<string>('all');
+interface CaseSectionProps {
+  initialFilter?: string;
+}
+
+export default function CaseSection({ initialFilter }: CaseSectionProps) {
+  const [filter, setFilter] = useState<string>(initialFilter || 'all');
+
+  useEffect(() => {
+    if (initialFilter) setFilter(initialFilter);
+  }, [initialFilter]);
 
   const cases: CaseStudy[] = [
     {

@@ -3,7 +3,7 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { BadgePercent, ShieldCheck, CheckCircle2, ChevronRight, Calculator, FileText, ArrowUpRight, HelpCircle, FileCheck, Star, Users } from 'lucide-react';
 import { Product } from '../types';
@@ -11,10 +11,15 @@ import { Product } from '../types';
 interface ProductSectionProps {
   onScrollToSection: (sectionId: string) => void;
   onOpenCalculator: () => void;
+  initialTab?: string;
 }
 
-export default function ProductSection({ onScrollToSection, onOpenCalculator }: ProductSectionProps) {
-  const [activeTab, setActiveTab] = useState<string>('social');
+export default function ProductSection({ onScrollToSection, onOpenCalculator, initialTab }: ProductSectionProps) {
+  const [activeTab, setActiveTab] = useState<string>(initialTab || 'social');
+
+  useEffect(() => {
+    if (initialTab) setActiveTab(initialTab);
+  }, [initialTab]);
 
   const products: Product[] = [
     {
