@@ -208,7 +208,7 @@ export default function AboutSection() {
 
                 <div className="bg-slate-50 border border-slate-200 text-slate-800 p-3 rounded-lg shadow-sm">
                   <span className="block font-bold">전문위원</span>
-                  <span className="block text-[10px] text-slate-500 mt-1">확실 채권관리</span>
+                  <span className="block text-[10px] text-slate-500 mt-1">여신심사 3팀</span>
                 </div>
 
                 <div className="bg-slate-50 border border-slate-200 text-slate-800 p-3 rounded-lg shadow-sm">
