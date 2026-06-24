@@ -3,16 +3,14 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-import { ShieldAlert } from 'lucide-react';
-
 export default function Footer() {
   return (
     <footer className="bg-slate-900 text-slate-400 py-16 border-t border-slate-800 text-left">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
-        
+
         {/* 상단 띠 */}
         <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-6 border-b border-slate-800 pb-8">
-          
+
           <div className="space-y-2">
             <div className="flex items-center space-x-2 text-white font-extrabold text-lg">
               <img src="/miso_symbol.png" alt="미소금융 로고" className="w-8 h-8 object-contain" />
@@ -21,11 +19,6 @@ export default function Footer() {
             <p className="text-xs text-slate-500 font-semibold">
               본 법인은 금융위원회 법령 인가 설립 서민금융진흥원 공식 정책 사업수행기관입니다.
             </p>
-          </div>
-
-          <div className="flex items-center space-x-1.5 text-xs text-slate-500 font-bold bg-slate-950 p-3 rounded-lg border border-slate-850">
-            <ShieldAlert className="w-4 h-4 text-emerald-500 shrink-0" />
-            <span>본 사이트는 상담 안내 공식 사이트이며 수수료 수취 혹은 가입 보장 호객 브로커 계약을 완전히 처단합니다.</span>
           </div>
 
         </div>
