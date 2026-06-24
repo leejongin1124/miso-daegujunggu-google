@@ -88,7 +88,7 @@ export default function Hero({ onScrollToSection }: HeroProps) {
                 className="inline-flex justify-center items-center space-x-2 bg-gradient-to-r from-teal-600 to-emerald-600 text-white font-bold px-8 py-4 rounded-2xl hover:brightness-105 transition-all shadow-lg hover:shadow-teal-100 text-base"
               >
                 <Phone className="w-5 h-5" />
-                <span>📞 전화 상담 053-252-6408</span>
+                <span>전화 상담 053-252-6408</span>
               </a>
               <button 
                 onClick={() => onScrollToSection('social-finance')}
