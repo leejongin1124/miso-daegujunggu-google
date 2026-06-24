@@ -73,8 +73,8 @@ export default function Hero({ onScrollToSection }: HeroProps) {
             >
               (사)미소금융대구중구법인은 금융위원회 허가 비영리 공익법인이자 
               서민금융진흥원 공식 사업수행기관입니다. <br className="hidden md:inline" />
-              저소득·저신용 소상공인과 취약계층 대구 시민의 곁에서 
-              합법적이고 품격 있는 서민금융의 문을 솜씨 좋게 열어드립니다.
+              저소득·저신용 소상공인과 취약계층 대구 시민의 곁에서
+              합법적이고 공정한 서민금융 지원의 문을 열어드립니다.
             </motion.p>
 
             <motion.div 
@@ -218,7 +218,7 @@ export default function Hero({ onScrollToSection }: HeroProps) {
               </div>
               <h3 className="font-bold text-lg text-slate-900">제도권 비영리 법인</h3>
               <p className="text-slate-500 text-sm mt-3 leading-relaxed">
-                금융위원회의 정식 설립 허가를 받아 운영하는 신뢰할 수 있는 공공 서민금융 조직이며, 대중을 착취하는 대부업과는 절대 다른 자활 전용 공인 채널입니다.
+                금융위원회의 정식 설립 허가를 받아 운영하는 신뢰할 수 있는 공공 서민금융 조직이며, 고금리 대부업과는 전혀 다른 자립 지원 전용 공인 채널입니다.
               </p>
               <span className="inline-block bg-emerald-50 text-emerald-700 text-[11px] font-bold px-2.5 py-1 rounded-md mt-6">
                 공익법인(사단법인)
@@ -276,8 +276,8 @@ export default function Hero({ onScrollToSection }: HeroProps) {
                 </tr>
                 <tr className="bg-white hover:bg-slate-50 transition-colors">
                   <td className="px-6 py-4 font-bold text-slate-900">핵심 자금 출처</td>
-                  <td className="px-6 py-4 font-semibold text-teal-600">서민금융진흥원 정책 재원 (대기업 자발 기금 등 상장재원)</td>
-                  <td className="px-6 py-4 text-slate-500">예금 및 적금 수수자금, 고금리 양방향 채권 조달</td>
+                  <td className="px-6 py-4 font-semibold text-teal-600">서민금융진흥원 정책 재원 (대기업 자발 출연금 및 금융권 휴면예금)</td>
+                  <td className="px-6 py-4 text-slate-500">고객 예·적금 및 시장 금리 연동 채권 조달</td>
                 </tr>
               </tbody>
             </table>
