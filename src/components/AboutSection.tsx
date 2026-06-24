@@ -29,7 +29,7 @@ export default function AboutSection() {
     {
       year: '2022',
       items: [
-        { date: '08.01', text: '현 사무소 이전 (남구 중앙대로 146, 하나은행 봉덕지점 4층)', emphasis: true }
+        { date: '08.01', text: '현 사무소 이전 (남구 중앙대로 146, 하나은행 봉덕지점 4층)', emphasis: false }
       ]
     },
     {
