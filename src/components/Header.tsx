@@ -3,7 +3,7 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-import { useState } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { Menu, X, Phone, Heart, ChevronDown } from 'lucide-react';
 import { TabType } from '../types';
@@ -16,9 +16,21 @@ interface HeaderProps {
 }
 
 export default function Header({ activeTab, setActiveTab, onScrollToSection, onOpenCalculator }: HeaderProps) {
-  const [hoveredMenu, setHoveredMenu] = useState<string | null>(null);
+  const [openMenu, setOpenMenu] = useState<string | null>(null);
+  const [clickedSublink, setClickedSublink] = useState<string | null>(null);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [mobileAccordion, setMobileAccordion] = useState<string | null>(null);
+  const navRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const handleClickOutside = (e: MouseEvent) => {
+      if (navRef.current && !navRef.current.contains(e.target as Node)) {
+        setOpenMenu(null);
+      }
+    };
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, []);
 
   const menuItems = [
     {
@@ -46,8 +58,8 @@ export default function Header({ activeTab, setActiveTab, onScrollToSection, onO
       type: TabType.GUIDE,
       label: '대출안내',
       sublinks: [
-        { name: '대출 자격 자가진단', id: 'self-diagnosis' },
-        { name: '스마트 대출계산기', id: 'loan-calc' },
+        { name: '대출 자격 자가진단', id: 'faq-section' },
+        { name: '스마트 대출계산기', id: 'loan-calc-intro' },
         { name: '이용 절차 및 서류', id: 'process-guide' }
       ]
     },
@@ -73,22 +85,24 @@ export default function Header({ activeTab, setActiveTab, onScrollToSection, onO
   ];
 
   const handleSublinkClick = (sectionId: string, tab: TabType) => {
+    setClickedSublink(sectionId);
     setActiveTab(tab);
     setMobileMenuOpen(false);
+    setOpenMenu(null);
     setTimeout(() => {
       onScrollToSection(sectionId);
-    }, 100);
+      setClickedSublink(null);
+    }, 400);
   };
 
   return (
     <header
       id="main-header"
       className="fixed top-0 left-0 w-full z-50 bg-white/95 backdrop-blur-md border-b border-slate-100 shadow-sm transition-all duration-300"
-      onMouseLeave={() => setHoveredMenu(null)}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-20">
-          
+
           {/* 로고 */}
           <div className="flex items-center space-x-2.5 cursor-pointer" onClick={() => handleSublinkClick('hero-section', TabType.ABOUT)}>
             <div className="w-10 h-10 bg-teal-600 rounded-xl flex items-center justify-center text-white shadow-md shadow-teal-100">
@@ -102,38 +116,73 @@ export default function Header({ activeTab, setActiveTab, onScrollToSection, onO
             </div>
           </div>
 
-          {/* GNB (데스크톱) — 마우스 호버 시 전체 메가 드롭다운 */}
-          <nav className="hidden lg:flex space-x-1 xl:space-x-4 h-full items-center">
+          {/* GNB (데스크톱) — 클릭 시 해당 메뉴 아래로 드롭다운 */}
+          <nav ref={navRef} className="hidden lg:flex space-x-1 xl:space-x-2 h-full items-center relative">
             {menuItems.map((item) => (
-              <div
-                key={item.type}
-                className="h-full flex items-center"
-                onMouseEnter={() => setHoveredMenu(item.type)}
-              >
+              <div key={item.type} className="relative h-full flex items-center">
                 <button
-                  onClick={() => handleSublinkClick(item.sublinks[0].id, item.type)}
+                  onClick={() => setOpenMenu(openMenu === item.type ? null : item.type)}
                   className={`px-4 py-2 font-semibold text-base tracking-tight transition-all duration-200 rounded-lg flex items-center space-x-1 ${
-                    activeTab === item.type
+                    activeTab === item.type || openMenu === item.type
                       ? 'text-teal-600 bg-teal-50/50'
                       : 'text-slate-600 hover:text-teal-600 hover:bg-slate-50'
                   }`}
                 >
                   <span>{item.label}</span>
-                  <ChevronDown className={`w-4 h-4 transition-transform duration-200 ${hoveredMenu === item.type ? 'rotate-180 text-teal-600' : 'text-slate-400'}`} />
+                  <ChevronDown className={`w-4 h-4 transition-transform duration-200 ${openMenu === item.type ? 'rotate-180 text-teal-600' : 'text-slate-400'}`} />
                 </button>
+
+                {/* 개별 드롭다운: 버튼 바로 아래 */}
+                <AnimatePresence>
+                  {openMenu === item.type && (
+                    <motion.div
+                      initial={{ opacity: 0, y: -6, scale: 0.97 }}
+                      animate={{ opacity: 1, y: 0, scale: 1 }}
+                      exit={{ opacity: 0, y: -6, scale: 0.97 }}
+                      transition={{ duration: 0.18, ease: 'easeOut' }}
+                      className="absolute top-full left-0 mt-1 min-w-[180px] bg-white rounded-xl shadow-xl border border-slate-100 overflow-hidden z-50"
+                    >
+                      <div className="px-3 py-2 border-b border-slate-50">
+                        <span className="text-[10px] font-bold text-teal-600 tracking-widest uppercase">{item.label}</span>
+                      </div>
+                      <ul className="py-1">
+                        {item.sublinks.map((sublink, idx) => (
+                          <motion.li
+                            key={sublink.id}
+                            initial={{ opacity: 0, x: -8 }}
+                            animate={{ opacity: 1, x: 0 }}
+                            transition={{ delay: idx * 0.04, duration: 0.15 }}
+                          >
+                            <button
+                              onClick={() => handleSublinkClick(sublink.id, item.type)}
+                              className={`w-full text-left px-4 py-2.5 text-sm font-medium transition-all duration-150 flex items-center space-x-2 group ${
+                                clickedSublink === sublink.id
+                                  ? 'bg-teal-600 text-white'
+                                  : 'text-slate-600 hover:bg-teal-50 hover:text-teal-700'
+                              }`}
+                            >
+                              <span className={`w-1.5 h-1.5 rounded-full transition-all ${clickedSublink === sublink.id ? 'bg-white' : 'bg-slate-300 group-hover:bg-teal-500'}`} />
+                              <span className="group-hover:translate-x-0.5 transition-transform duration-150">{sublink.name}</span>
+                            </button>
+                          </motion.li>
+                        ))}
+                      </ul>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
               </div>
             ))}
           </nav>
 
           {/* 우측 퀵 액션 (데스크톱) */}
           <div className="hidden lg:flex items-center space-x-3">
-            <button 
+            <button
               onClick={onOpenCalculator}
               className="bg-slate-50 text-slate-700 border border-slate-200 hover:bg-teal-50 hover:border-teal-200 hover:text-teal-700 px-4 py-2 rounded-xl text-sm font-semibold transition-all shadow-sm"
             >
               📊 대출계산기
             </button>
-            <a 
+            <a
               href="tel:053-252-6408"
               className="bg-teal-600 text-white hover:bg-teal-700 px-4.5 py-2.5 rounded-xl text-sm font-bold transition-all shadow-md shadow-teal-100 flex items-center space-x-1.5"
             >
@@ -161,43 +210,6 @@ export default function Header({ activeTab, setActiveTab, onScrollToSection, onO
 
         </div>
       </div>
-
-      {/* 데스크톱 개별 드롭다운 */}
-      <AnimatePresence>
-        {hoveredMenu && (
-          <motion.div
-            key={hoveredMenu}
-            initial={{ opacity: 0, y: -8 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -8 }}
-            transition={{ duration: 0.2, ease: 'easeOut' }}
-            className="absolute left-0 w-full bg-white border-b border-slate-200 shadow-lg hidden lg:block overflow-hidden"
-            onMouseEnter={() => setHoveredMenu(hoveredMenu)}
-            onMouseLeave={() => setHoveredMenu(null)}
-          >
-            {menuItems.filter(item => item.type === hoveredMenu).map((item) => (
-              <div key={item.type} className="max-w-7xl mx-auto px-8 py-6">
-                <span className="block text-xs font-bold text-slate-400 tracking-widest uppercase mb-4">
-                  {item.label}
-                </span>
-                <ul className="flex flex-wrap gap-x-8 gap-y-2">
-                  {item.sublinks.map((sublink) => (
-                    <li key={sublink.id}>
-                      <button
-                        onClick={() => handleSublinkClick(sublink.id, item.type)}
-                        className="text-sm font-medium text-slate-600 hover:text-teal-600 text-left transition-colors flex items-center space-x-1 group"
-                      >
-                        <span className="w-1 h-1 bg-slate-300 rounded-full group-hover:bg-teal-500 transition-colors"></span>
-                        <span className="pl-1 group-hover:translate-x-0.5 transition-transform duration-200">{sublink.name}</span>
-                      </button>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            ))}
-          </motion.div>
-        )}
-      </AnimatePresence>
 
       {/* 모바일 전체 메뉴 패널 */}
       <AnimatePresence>
