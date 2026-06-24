@@ -5,7 +5,7 @@
 
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { Menu, X, Phone, Heart, ChevronDown, CheckCircle2 } from 'lucide-react';
+import { Menu, X, Phone, Heart, ChevronDown } from 'lucide-react';
 import { TabType } from '../types';
 
 interface HeaderProps {
@@ -16,7 +16,7 @@ interface HeaderProps {
 }
 
 export default function Header({ activeTab, setActiveTab, onScrollToSection, onOpenCalculator }: HeaderProps) {
-  const [isHovered, setIsHovered] = useState(false);
+  const [hoveredMenu, setHoveredMenu] = useState<string | null>(null);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [mobileAccordion, setMobileAccordion] = useState<string | null>(null);
 
@@ -81,10 +81,10 @@ export default function Header({ activeTab, setActiveTab, onScrollToSection, onO
   };
 
   return (
-    <header 
+    <header
       id="main-header"
       className="fixed top-0 left-0 w-full z-50 bg-white/95 backdrop-blur-md border-b border-slate-100 shadow-sm transition-all duration-300"
-      onMouseLeave={() => setIsHovered(false)}
+      onMouseLeave={() => setHoveredMenu(null)}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-20">
@@ -105,21 +105,21 @@ export default function Header({ activeTab, setActiveTab, onScrollToSection, onO
           {/* GNB (데스크톱) — 마우스 호버 시 전체 메가 드롭다운 */}
           <nav className="hidden lg:flex space-x-1 xl:space-x-4 h-full items-center">
             {menuItems.map((item) => (
-              <div 
+              <div
                 key={item.type}
                 className="h-full flex items-center"
-                onMouseEnter={() => setIsHovered(true)}
+                onMouseEnter={() => setHoveredMenu(item.type)}
               >
                 <button
                   onClick={() => handleSublinkClick(item.sublinks[0].id, item.type)}
                   className={`px-4 py-2 font-semibold text-base tracking-tight transition-all duration-200 rounded-lg flex items-center space-x-1 ${
-                    activeTab === item.type 
-                      ? 'text-teal-600 bg-teal-50/50' 
+                    activeTab === item.type
+                      ? 'text-teal-600 bg-teal-50/50'
                       : 'text-slate-600 hover:text-teal-600 hover:bg-slate-50'
                   }`}
                 >
                   <span>{item.label}</span>
-                  <ChevronDown className={`w-4 h-4 transition-transform duration-200 ${isHovered ? 'rotate-180 text-teal-600' : 'text-slate-400'}`} />
+                  <ChevronDown className={`w-4 h-4 transition-transform duration-200 ${hoveredMenu === item.type ? 'rotate-180 text-teal-600' : 'text-slate-400'}`} />
                 </button>
               </div>
             ))}
@@ -162,54 +162,39 @@ export default function Header({ activeTab, setActiveTab, onScrollToSection, onO
         </div>
       </div>
 
-      {/* 데스크톱 메가 드롭다운 패널 (신한 스타일로 상단 전체에 광활하게 드롭다운) */}
+      {/* 데스크톱 개별 드롭다운 */}
       <AnimatePresence>
-        {isHovered && (
+        {hoveredMenu && (
           <motion.div
-            initial={{ opacity: 0, y: -10 }}
+            key={hoveredMenu}
+            initial={{ opacity: 0, y: -8 }}
             animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -10 }}
-            transition={{ duration: 0.25, ease: 'easeOut' }}
-            className="absolute left-0 w-full bg-white border-b border-slate-200 shadow-xl hidden lg:block overflow-hidden"
-            onMouseEnter={() => setIsHovered(true)}
-            onMouseLeave={() => setIsHovered(false)}
+            exit={{ opacity: 0, y: -8 }}
+            transition={{ duration: 0.2, ease: 'easeOut' }}
+            className="absolute left-0 w-full bg-white border-b border-slate-200 shadow-lg hidden lg:block overflow-hidden"
+            onMouseEnter={() => setHoveredMenu(hoveredMenu)}
+            onMouseLeave={() => setHoveredMenu(null)}
           >
-            <div className="max-w-7xl mx-auto px-8 py-8 grid grid-cols-5 gap-8">
-              {menuItems.map((item) => (
-                <div key={item.type} className="space-y-4 border-r border-slate-50 last:border-none pr-4">
-                  <span className="block text-xs font-bold text-slate-400 tracking-widest uppercase">
-                    {item.label}
-                  </span>
-                  <ul className="space-y-2.5">
-                    {item.sublinks.map((sublink) => (
-                      <li key={sublink.id}>
-                        <button
-                          onClick={() => handleSublinkClick(sublink.id, item.type)}
-                          className="text-sm font-medium text-slate-600 hover:text-teal-600 text-left w-full transition-colors flex items-center space-x-1 group"
-                        >
-                          <span className="w-1 h-1 bg-slate-300 rounded-full group-hover:bg-teal-500 transition-colors"></span>
-                          <span className="pl-1 group-hover:translate-x-0.5 transition-transform duration-200">{sublink.name}</span>
-                        </button>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              ))}
-            </div>
-            
-            {/* 정책 광고 조항 가이드 숏컷 배너 */}
-            <div className="bg-slate-50 px-8 py-4 border-t border-slate-100">
-              <div className="max-w-7xl mx-auto flex justify-between items-center text-xs text-slate-500">
-                <p className="flex items-center space-x-1 text-[11px]">
-                  <CheckCircle2 className="w-3.5 h-3.5 text-teal-600 mr-1 inline" />
-                  <span>본 법인은 <strong>서민금융진흥원</strong> 공식 수행기관이며, 일체의 대출 가입 유도 수수료나 보증 수수료를 받지 않습니다.</span>
-                </p>
-                <div className="flex gap-4 text-slate-400 font-semibold">
-                  <span>금리: 연 4.5% 수준</span>
-                  <span>담보: 무담보 정책 자금</span>
-                </div>
+            {menuItems.filter(item => item.type === hoveredMenu).map((item) => (
+              <div key={item.type} className="max-w-7xl mx-auto px-8 py-6">
+                <span className="block text-xs font-bold text-slate-400 tracking-widest uppercase mb-4">
+                  {item.label}
+                </span>
+                <ul className="flex flex-wrap gap-x-8 gap-y-2">
+                  {item.sublinks.map((sublink) => (
+                    <li key={sublink.id}>
+                      <button
+                        onClick={() => handleSublinkClick(sublink.id, item.type)}
+                        className="text-sm font-medium text-slate-600 hover:text-teal-600 text-left transition-colors flex items-center space-x-1 group"
+                      >
+                        <span className="w-1 h-1 bg-slate-300 rounded-full group-hover:bg-teal-500 transition-colors"></span>
+                        <span className="pl-1 group-hover:translate-x-0.5 transition-transform duration-200">{sublink.name}</span>
+                      </button>
+                    </li>
+                  ))}
+                </ul>
               </div>
-            </div>
+            ))}
           </motion.div>
         )}
       </AnimatePresence>
