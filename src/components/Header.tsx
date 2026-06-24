@@ -5,7 +5,7 @@
 
 import { useState, useRef, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { Menu, X, Phone, ChevronDown } from 'lucide-react';
+import { Menu, X, ChevronDown } from 'lucide-react';
 import { TabType } from '../types';
 
 interface HeaderProps {
@@ -50,7 +50,7 @@ export default function Header({ activeTab, setActiveTab, onScrollToSection, onO
       sublinks: [
         { name: '사회적연대금융', id: 'social-finance' },
         { name: '사업자 운영자금', id: 'business-fund' },
-        { name: '청년 미래이음 자금', id: 'youth-fund' },
+        { name: '청년미래이음대출', id: 'youth-fund' },
         { name: '금융취약계층 생계자금', id: 'vulnerable-fund' }
       ]
     },
@@ -172,22 +172,6 @@ export default function Header({ activeTab, setActiveTab, onScrollToSection, onO
             ))}
           </nav>
 
-          {/* 우측 퀵 액션 (데스크톱) */}
-          <div className="hidden lg:flex items-center space-x-3">
-            <button
-              onClick={onOpenCalculator}
-              className="bg-slate-50 text-slate-700 border border-slate-200 hover:bg-teal-50 hover:border-teal-200 hover:text-teal-700 px-4 py-2 rounded-xl text-sm font-semibold transition-all shadow-sm"
-            >
-              📊 대출계산기
-            </button>
-            <a
-              href="tel:053-252-6408"
-              className="bg-teal-600 text-white hover:bg-teal-700 px-4.5 py-2.5 rounded-xl text-sm font-bold transition-all shadow-md shadow-teal-100 flex items-center space-x-1.5"
-            >
-              <Phone className="w-4 h-4" />
-              <span>전화문의</span>
-            </a>
-          </div>
 
           {/* 모바일 햄버거 토글 */}
           <div className="lg:hidden flex items-center space-x-2">
