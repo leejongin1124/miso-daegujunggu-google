@@ -50,16 +50,16 @@ export default function Hero({ onScrollToSection }: HeroProps) {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* 상단 문구 배너와 텍스트 그리드 */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-          
-          <div className="lg:col-span-7 space-y-6 text-left">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
+
+          <div className="space-y-6 text-left">
             <motion.h1
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.1 }}
-              className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-slate-900 leading-[1.12]"
+              className="text-3xl sm:text-4xl lg:text-4xl font-extrabold tracking-tight text-slate-900 leading-[1.2]"
             >
-              은행 문턱에 <br className="sm:hidden" />막히셨나요? <br />
+              은행 문턱에 막히셨나요?<br />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-teal-600 to-emerald-600">
                 여기, 또 다른 길이 있습니다.
               </span>
@@ -105,7 +105,7 @@ export default function Hero({ onScrollToSection }: HeroProps) {
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.7 }}
-            className="lg:col-span-5 relative"
+            className="relative"
           >
             <div className="relative mx-auto max-w-md lg:max-w-none">
               <div className="rounded-2xl overflow-hidden shadow-2xl">
