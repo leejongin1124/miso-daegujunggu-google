@@ -120,8 +120,8 @@ export default function ProductSection({ onScrollToSection, onOpenCalculator }: 
           </h2>
           <div className="h-1.5 w-16 bg-teal-600 rounded-full mx-auto" />
           <p className="text-slate-600 font-medium text-base md:text-lg max-w-2xl mx-auto leading-relaxed">
-            성실한 상환의지와 고귀한 자립 의지만 마음에 가득 차 계시다면, <br className="hidden sm:inline" />
-            무담보·무이율 마진 연 4.5% 원가 그대로 서민의 길을 든든하게 받쳐 드립니다.
+            상환 의지와 자립의 꿈, 그것으로 충분합니다. <br className="hidden sm:inline" />
+            담보·보증 없이, 연 4.5% 저금리 대출로 여러분의 새 출발을 함께합니다.
           </p>
         </div>
 
