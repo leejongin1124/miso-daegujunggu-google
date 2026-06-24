@@ -58,7 +58,7 @@ export default function Header({ activeTab, setActiveTab, onScrollToSection, onO
       type: TabType.GUIDE,
       label: '대출안내',
       sublinks: [
-        { name: '대출 자격 자가진단', id: 'faq-section' },
+        { name: '자주 묻는 질문', id: 'faq-section' },
         { name: '스마트 대출계산기', id: 'loan-calc-intro' },
         { name: '이용 절차 및 서류', id: 'process-guide' }
       ]
