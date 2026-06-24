@@ -17,7 +17,7 @@ export default function ContactForm() {
           href="tel:053-252-6408"
           className="inline-flex items-center bg-teal-600 text-white font-bold px-8 py-4 rounded-xl text-lg shadow-md hover:bg-teal-700 transition"
         >
-          📞 053-252-6408 전화 상담
+          전화 상담  053-252-6408
         </a>
         <p className="text-slate-400 text-sm">평일 09:00 - 18:00 / 주말·공휴일 휴무</p>
       </div>
