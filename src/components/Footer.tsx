@@ -47,11 +47,6 @@ export default function Footer() {
 
         </div>
 
-        {/* 최하단 준수 광고 확인 라벨 */}
-        <div className="p-4 bg-slate-950 rounded-lg text-[10px] text-slate-600 font-bold flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2">
-          <span>※ 본 광고물은 서민금융 동반 가치 촉진을 위해 서금원 심의 가이드라인을 완전 준수해 작성되었습니다.</span>
-          <span>공인 심의 일자: 2026년 06월 20일 기준 정비 완료</span>
-        </div>
 
       </div>
     </footer>
