@@ -360,17 +360,18 @@ export default function AboutSection() {
 
             {/* 지도 박스 */}
             <div className="bg-white p-3 rounded-2xl border border-slate-200 shadow-md">
-              <div className="w-full h-80 rounded-xl overflow-hidden">
-                <iframe
-                  src="https://map.naver.com/p/entry/place/13476718?c=15.00,0,0,0,dh&placePath=/home?from=map&fromPanelNum=1&additionalHeight=76&timestamp=202606241709&locale=ko&svcName=map_pcv5"
-                  width="100%"
-                  height="100%"
-                  style={{ border: 0 }}
-                  allowFullScreen
-                  loading="lazy"
-                  title="미소금융대구중구법인 위치"
+              <a
+                href="https://naver.me/GSQLkTiM"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block w-full rounded-xl overflow-hidden cursor-pointer hover:opacity-90 transition-opacity"
+              >
+                <img
+                  src="/map-location.png"
+                  alt="미소금융대구중구법인 위치 지도"
+                  className="w-full h-80 object-cover"
                 />
-              </div>
+              </a>
               <div className="flex items-center justify-between mt-2 px-1">
                 <p className="text-slate-400 text-[10px] font-bold">하나은행 건물 뒤편 주차 공간 보유 (방문 전 유선 확인 요망)</p>
                 <a
