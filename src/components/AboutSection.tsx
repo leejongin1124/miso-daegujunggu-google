@@ -4,29 +4,8 @@
  */
 
 import { motion } from 'motion/react';
-import { useState, useEffect } from 'react';
 import { Award, Briefcase, Calendar, MapPin, Bus, Train, Phone, Share2, Printer, ExternalLink } from 'lucide-react';
 
-const BLOG_TEXT = '법인 네이버 블로그 — 상품 상세 정보 보기';
-
-function TypewriterText() {
-  const [displayed, setDisplayed] = useState('');
-  useEffect(() => {
-    let i = 0;
-    setDisplayed('');
-    const interval = setInterval(() => {
-      if (i < BLOG_TEXT.length) {
-        setDisplayed(BLOG_TEXT.slice(0, i + 1));
-        i++;
-      } else {
-        clearInterval(interval);
-        setTimeout(() => { i = 0; setDisplayed(''); }, 2000);
-      }
-    }, 80);
-    return () => clearInterval(interval);
-  }, []);
-  return <span>{displayed}<span className="animate-pulse">|</span></span>;
-}
 
 export default function AboutSection() {
   const historyData = [
@@ -365,32 +344,6 @@ export default function AboutSection() {
                 </a>
               </div>
 
-              {/* 블로그 배너 */}
-              <div className="mt-4">
-                <p className="text-slate-400 text-[11px] font-semibold mb-2">
-                  대출 상품별 자세한 내용과 실제 사례는 공식 블로그에서 확인하실 수 있습니다.
-                </p>
-                <motion.a
-                  href="https://blog.naver.com/eornwndrn1"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  animate={{ boxShadow: ['0 0 0 0 rgba(34,197,94,0.5)', '0 0 0 8px rgba(34,197,94,0)', '0 0 0 0 rgba(34,197,94,0)'] }}
-                  transition={{ duration: 1.8, repeat: Infinity, ease: 'easeOut' }}
-                  className="w-full bg-[#03C75A] hover:bg-[#02b050] text-white font-bold px-5 py-3.5 rounded-xl text-sm transition-all flex items-center justify-between group"
-                >
-                  <span className="flex items-center space-x-2">
-                    <span className="text-base">📝</span>
-                    <TypewriterText />
-                  </span>
-                  <motion.span
-                    animate={{ x: [0, 5, 0] }}
-                    transition={{ duration: 1.2, repeat: Infinity, ease: 'easeInOut' }}
-                    className="text-white font-black text-base"
-                  >
-                    →
-                  </motion.span>
-                </motion.a>
-              </div>
 
             </div>
 
