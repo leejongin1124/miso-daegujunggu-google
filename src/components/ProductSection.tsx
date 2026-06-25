@@ -205,10 +205,31 @@ export default function ProductSection({ onScrollToSection, onOpenCalculator, in
               <div className="space-y-4">
                 <div className="flex items-center space-x-2 text-slate-800 font-bold text-sm">
                   <CheckCircle2 className="w-5 h-5 text-teal-600" />
-                  <span>신청 자격 요건 (하나라도 해당 시 상담 가능)</span>
+                  <span>
+                    {activeProduct.id === 'youth'
+                      ? '신청 자격 요건 (청년요건과 기본요건 충족 시 상담 가능)'
+                      : '신청 자격 요건 (하나라도 해당 시 상담 가능)'}
+                  </span>
                 </div>
 
-                {activeProduct.id === 'vulnerable' ? (
+                {activeProduct.id === 'youth' ? (
+                  <div className="space-y-4 text-xs">
+                    <div className="bg-indigo-50 border border-indigo-100 rounded-xl p-4 space-y-1.5">
+                      <p className="font-extrabold text-slate-800">① 청년 요건</p>
+                      <ul className="pl-4 space-y-1 text-slate-600 font-medium">
+                        <li>• 만 19세 이상 34세 이하 청년이면서, 미취업 상태이거나 취업·창업 이력 1년 미만인 분</li>
+                      </ul>
+                    </div>
+                    <div className="bg-teal-50 border border-teal-100 rounded-xl p-4 space-y-1.5">
+                      <p className="font-extrabold text-slate-800">② 기본 미소금융 대상 (다음 중 하나 해당)</p>
+                      <ul className="pl-4 space-y-1.5 text-slate-600 font-medium">
+                        <li>• 신용점수 하위 20% 이하 (NICE 749점 이하 또는 KCB 700점 이하)</li>
+                        <li>• 기초생활수급자 또는 차상위계층</li>
+                        <li>• 최근 1년 이내 근로장려금 수급 이력이 있는 분</li>
+                      </ul>
+                    </div>
+                  </div>
+                ) : activeProduct.id === 'vulnerable' ? (
                   <div className="space-y-4 text-xs">
                     <p className="text-rose-600 font-bold text-[11px]">※ 2026. 7. 1. 개편 기준</p>
 
