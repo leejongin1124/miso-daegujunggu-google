@@ -206,8 +206,6 @@ export default function Hero({ onScrollToSection }: HeroProps) {
                 <span className="bg-indigo-50 px-2.5 py-1 rounded-md">무담보</span>
                 <span className="text-indigo-300">·</span>
                 <span className="bg-indigo-50 px-2.5 py-1 rounded-md">무보증</span>
-                <span className="text-indigo-300">·</span>
-                <span className="bg-indigo-50 px-2.5 py-1 rounded-md">중도상환 수수료 없음</span>
               </div>
             </div>
 
