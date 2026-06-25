@@ -13,13 +13,6 @@ interface HeroProps {
 export default function Hero({ onScrollToSection }: HeroProps) {
   const quickCards = [
     {
-      icon: <Phone className="w-6 h-6 text-teal-600" />,
-      title: '대표번호 즉시상담',
-      value: '053-252-6408',
-      desc: '평일 09시 ~ 18시 운영',
-      action: () => window.open('tel:053-252-6408')
-    },
-    {
       icon: <Users className="w-6 h-6 text-emerald-600" />,
       title: '누적 지원 인원',
       value: '3,800 여명',
@@ -37,6 +30,13 @@ export default function Hero({ onScrollToSection }: HeroProps) {
       value: '하나은행 봉덕지점 4층',
       desc: '남구 중앙대로 146',
       action: () => onScrollToSection('location')
+    },
+    {
+      icon: <Phone className="w-6 h-6 text-teal-600" />,
+      title: '대표번호 즉시상담',
+      value: '053-252-6408',
+      desc: '평일 09시 ~ 18시 운영',
+      action: () => window.open('tel:053-252-6408')
     }
   ];
 
