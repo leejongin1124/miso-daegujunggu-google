@@ -316,9 +316,9 @@ export default function AboutSection() {
 
               {/* 길찾기 버튼 모음 */}
               <div className="flex flex-wrap gap-3 pt-4">
-                <a 
-                  href="https://map.naver.com/v5/search/%EB%AF%B8%EC%86%8C%EA%B8%88%EC%9C%B5%EB%8C%80%EA%B5%AC%EC%A4%91%EA%B5%AC%EB%B2%95%EC%9D%B8" 
-                  target="_blank" 
+                <a
+                  href="https://map.naver.com/v5/search/%EB%AF%B8%EC%86%8C%EA%B8%88%EC%9C%B5%EB%8C%80%EA%B5%AC%EC%A4%91%EA%B5%AC%EB%B2%95%EC%9D%B8"
+                  target="_blank"
                   rel="noopener noreferrer"
                   className="bg-emerald-600 text-white hover:bg-emerald-700 px-5 py-3 rounded-xl text-xs font-bold transition-all shadow-sm flex items-center space-x-1.5"
                 >
@@ -333,6 +333,37 @@ export default function AboutSection() {
                   <span>전화문의: 053-252-6408</span>
                 </a>
               </div>
+
+              {/* 법인 블로그 배너 */}
+              <motion.a
+                href="https://blog.naver.com/eornwndrn1"
+                target="_blank"
+                rel="noopener noreferrer"
+                initial={{ opacity: 0, y: 8 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
+                transition={{ duration: 0.3 }}
+                className="mt-4 flex items-center justify-between bg-gradient-to-r from-teal-500 to-emerald-500 rounded-2xl px-5 py-4 shadow-md cursor-pointer group"
+              >
+                <div className="flex items-center space-x-3">
+                  <div className="w-10 h-10 bg-white/20 rounded-xl flex items-center justify-center text-xl flex-shrink-0">
+                    📝
+                  </div>
+                  <div>
+                    <p className="text-white font-extrabold text-sm leading-tight">법인 공식 블로그</p>
+                    <p className="text-white/80 text-[11px] mt-0.5 leading-tight">상세 방문 안내 및 대출 상품 정보를 확인하실 수 있습니다</p>
+                  </div>
+                </div>
+                <div className="flex items-center space-x-1.5 bg-white text-teal-700 font-bold text-xs px-3.5 py-2 rounded-xl shadow-sm group-hover:bg-teal-50 transition-colors flex-shrink-0 ml-3">
+                  <span>블로그 방문</span>
+                  <motion.span
+                    animate={{ x: [0, 4, 0] }}
+                    transition={{ duration: 1.2, repeat: Infinity, ease: 'easeInOut' }}
+                  >→</motion.span>
+                </div>
+              </motion.a>
 
 
             </div>
