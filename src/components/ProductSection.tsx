@@ -96,7 +96,7 @@ export default function ProductSection({ onScrollToSection, onOpenCalculator, in
       repaymentPeriod: '거치 1년 + 매월 분할 상환 5년 (총 6년 상환)',
       repaymentMethod: '원금 균등분할 상환',
       target: [
-        '① 기본 요건 (다음 중 하나 해당) — 신용점수 하위 50% 이하 & 연소득 3,500만원 이하 / 기초생활수급자 또는 차상위계층 / 근로장려금 신청자격 대상자',
+        '① 기본 요건 (다음 중 하나 해당) — 개인신용평점 하위 20% 이하 또는 하위 50% 이하 & 연소득 3,500만원 이하 / 기초생활수급자 또는 차상위계층 / 근로장려금 신청자격 대상자',
         '② 추가 요건 — 성실상환: 불법사금융예방대출 완제자 또는 미소금융 12회차 이상 성실상환자',
         '② 추가 요건 — 사회적배려대상자: 한부모·조손·다문화가족, 북한이탈주민, 등록장애인, 국민기초생활수급자, 차상위계층, 자활근로자, 근로장려금 수급자',
         '② 추가 요건 — 특별취약계층: 불법사금융 피해자 / 보이스피싱 피해자 / 전세사기 피해자 / 특별재난지역 거주자'
@@ -225,7 +225,7 @@ export default function ProductSection({ onScrollToSection, onOpenCalculator, in
                         <tbody className="text-slate-600 font-medium">
                           <tr className="bg-white">
                             <td className="border border-slate-100 px-3 py-2 font-bold text-slate-700">신용점수</td>
-                            <td className="border border-slate-100 px-3 py-2">하위 50% 이하 & 연소득 3,500만원 이하</td>
+                            <td className="border border-slate-100 px-3 py-2">개인신용평점 하위 20% 이하 또는 하위 50% 이하 & 연소득 3,500만원 이하</td>
                           </tr>
                           <tr className="bg-slate-50">
                             <td className="border border-slate-100 px-3 py-2 font-bold text-slate-700">수급자</td>
