@@ -63,7 +63,7 @@ export default function AboutSection() {
       items: [
         { date: '01.25', text: '대구광역시 예비사회적기업 정식 지정', emphasis: false },
         { date: '05.10', text: '대구광역시 서민금융지원 다자간 업무 협약(MOU) 체결', emphasis: false },
-        { date: '12.12', text: '서민금융 활성화 유공 대통령 표창 수상', emphasis: true }
+        { date: '12.12', text: '서민금융 활성화 유공 대통령 표창 수상', emphasis: true, newsUrl: 'https://www.imaeil.com/page/view/2013010507401495165' }
       ]
     },
     {
