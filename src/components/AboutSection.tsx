@@ -216,46 +216,46 @@ export default function AboutSection() {
             </p>
           </div>
 
-          <div className="relative border-l-2 border-slate-150 ml-6 md:ml-32 py-4">
-            {historyData.map((milestone, idx) => (
-              <div key={idx} className="mb-14 last:mb-0 relative">
-                
-                {/* 좌측 연도 벳지 */}
-                <div className="absolute -left-[54px] md:-left-[152px] top-0 w-24 text-right hidden md:block">
-                  <span className="text-2xl font-black text-slate-800 tracking-tight font-mono">{milestone.year}</span>
-                </div>
+          <div className="overflow-x-auto pb-4">
+            <div style={{ minWidth: '600px' }}>
+              <div className="relative border-l-2 border-slate-200 ml-28 py-4">
+                {historyData.map((milestone, idx) => (
+                  <div key={idx} className="mb-14 last:mb-0 relative">
 
-                {/* 타임라인 원형 동그라미 데코 */}
-                <div className="absolute -left-[39px] top-2.5 w-4 h-4 rounded-full bg-white border-4 border-teal-600 shadow-md transform -translate-x-1/2" />
+                    {/* 좌측 연도 표시 */}
+                    <div className="absolute -left-[152px] top-0 w-36 text-right">
+                      <span className="text-2xl font-black text-slate-800 tracking-tight font-mono">{milestone.year}</span>
+                    </div>
 
-                <div className="bg-white p-6 rounded-2xl border border-slate-100 shadow-sm md:ml-6 hover:shadow-md transition-shadow">
-                  <span className="inline-block md:hidden text-lg font-extrabold text-teal-600 font-mono mb-2">
-                    {milestone.year} 년
-                  </span>
-                  
-                  <ul className="space-y-3.5">
-                    {milestone.items.map((item, id) => (
-                      <li key={id} className="flex flex-col sm:flex-row sm:items-start space-y-1 sm:space-y-0 text-left">
-                        <span className="text-xs font-bold text-slate-400 font-mono tracking-wider w-14 pt-1">
-                          {item.date}
-                        </span>
-                        <div className="flex-1 font-medium text-slate-700">
-                          {item.emphasis ? (
-                            <span className="inline-flex flex-wrap items-center">
-                              <span className="text-teal-600 font-bold bg-teal-50 px-2 py-0.5 rounded text-xs mr-2 font-mono">핵심성과</span>
-                              <strong className="text-slate-900 font-bold">{item.text}</strong>
+                    {/* 타임라인 원형 동그라미 */}
+                    <div className="absolute -left-[9px] top-2.5 w-4 h-4 rounded-full bg-white border-4 border-teal-600 shadow-md" />
+
+                    <div className="bg-white p-6 rounded-2xl border border-slate-100 shadow-sm ml-6 hover:shadow-md transition-shadow">
+                      <ul className="space-y-3.5">
+                        {milestone.items.map((item, id) => (
+                          <li key={id} className="flex items-start space-x-3 text-left">
+                            <span className="text-xs font-bold text-slate-400 font-mono tracking-wider w-14 pt-1 flex-shrink-0">
+                              {item.date}
                             </span>
-                          ) : (
-                            <span className="text-slate-600 text-sm md:text-base">{item.text}</span>
-                          )}
-                        </div>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
+                            <div className="flex-1 font-medium text-slate-700">
+                              {item.emphasis ? (
+                                <span className="inline-flex flex-wrap items-center gap-2">
+                                  <span className="text-teal-600 font-bold bg-teal-50 px-2 py-0.5 rounded text-xs font-mono">핵심성과</span>
+                                  <strong className="text-slate-900 font-bold">{item.text}</strong>
+                                </span>
+                              ) : (
+                                <span className="text-slate-600 text-sm">{item.text}</span>
+                              )}
+                            </div>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
 
+                  </div>
+                ))}
               </div>
-            ))}
+            </div>
           </div>
 
         </div>
