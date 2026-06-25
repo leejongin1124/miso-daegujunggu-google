@@ -400,7 +400,7 @@ export default function AboutSection() {
                 />
               </a>
               <div className="flex items-center justify-between mt-2 px-1">
-                <p className="text-slate-400 text-[10px] font-bold">하나은행 건물 뒤편 주차 공간 보유 (방문 전 유선 확인 요망)</p>
+                <p className="text-slate-400 text-[10px] font-bold">하나은행 건물 뒤편 주차 공간 보유</p>
                 <a
                   href="https://naver.me/GSQLkTiM"
                   target="_blank"
