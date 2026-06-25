@@ -336,7 +336,7 @@ export default function AboutSection() {
 
               {/* 법인 블로그 배너 */}
               <motion.a
-                href="https://blog.naver.com/eornwndrn1"
+                href="https://blog.naver.com/PostView.naver?blogId=eornwndrn1&logNo=224112219401&categoryNo=6&parentCategoryNo=&from=thumbnailList"
                 target="_blank"
                 rel="noopener noreferrer"
                 initial={{ opacity: 0, y: 8 }}
