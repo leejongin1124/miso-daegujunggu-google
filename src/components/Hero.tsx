@@ -228,29 +228,29 @@ export default function Hero({ onScrollToSection }: HeroProps) {
                 <tr>
                   <th scope="col" className="px-6 py-4 rounded-l-xl font-bold">구분</th>
                   <th scope="col" className="px-6 py-4 font-bold text-teal-700">미소금융 (대구중구법인)</th>
-                  <th scope="col" className="px-6 py-4 rounded-r-xl font-bold">일반 상업 금융 (영리 목적)</th>
+                  <th scope="col" className="px-6 py-4 rounded-r-xl font-bold">일반 금융 (은행·카드·대부업)</th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-slate-100">
                 <tr className="bg-white hover:bg-slate-50 transition-colors">
                   <td className="px-6 py-4 font-bold text-slate-900">운영 목적</td>
-                  <td className="px-6 py-4 font-semibold text-teal-600">소상공인 및 서민 취약계층의 경제적 자립 (비영리 공공수행)</td>
-                  <td className="px-6 py-4 text-slate-500">금융회사 주주 및 기업 이윤 극대화 상업 영업</td>
+                  <td className="px-6 py-4 font-semibold text-teal-600">소상공인과 서민의 경제적 자립 지원 (비영리)</td>
+                  <td className="px-6 py-4 text-slate-500">금융회사의 수익 창출 (영리)</td>
                 </tr>
                 <tr className="bg-white hover:bg-slate-50 transition-colors">
                   <td className="px-6 py-4 font-bold text-slate-900">대표 이자율</td>
-                  <td className="px-6 py-4 font-extrabold text-teal-600">연 4.5% 수준 내외 (고정 정책 금리)</td>
-                  <td className="px-6 py-4 text-slate-500">시장 변동금리 가산 및 자영업 신용에 따른 급격한 증가</td>
+                  <td className="px-6 py-4 font-extrabold text-teal-600">연 4.5% 수준</td>
+                  <td className="px-6 py-4 text-slate-500">신용도에 따라 고금리 적용</td>
                 </tr>
                 <tr className="bg-white hover:bg-slate-50 transition-colors">
                   <td className="px-6 py-4 font-bold text-slate-900">담보 및 보증</td>
-                  <td className="px-6 py-4 font-semibold text-teal-600">무담보 무보증 (성실 분할 상환 의지만 증명)</td>
-                  <td className="px-6 py-4 text-slate-500">부동산 담보 요구, 신용보증보험 발급 필요 및 차등</td>
+                  <td className="px-6 py-4 font-semibold text-teal-600">무담보·무보증</td>
+                  <td className="px-6 py-4 text-slate-500">부동산 담보 또는 보증 필요</td>
                 </tr>
                 <tr className="bg-white hover:bg-slate-50 transition-colors">
-                  <td className="px-6 py-4 font-bold text-slate-900">핵심 자금 출처</td>
-                  <td className="px-6 py-4 font-semibold text-teal-600">서민금융진흥원 정책 재원 (대기업 자발 출연금 및 금융권 휴면예금)</td>
-                  <td className="px-6 py-4 text-slate-500">고객 예·적금 및 시장 금리 연동 채권 조달</td>
+                  <td className="px-6 py-4 font-bold text-slate-900">자금 출처</td>
+                  <td className="px-6 py-4 font-semibold text-teal-600">정부(서민금융진흥원) 정책 재원</td>
+                  <td className="px-6 py-4 text-slate-500">고객 예·적금 및 금융시장 조달</td>
                 </tr>
               </tbody>
             </table>
