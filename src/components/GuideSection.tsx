@@ -128,7 +128,7 @@ export default function GuideSection() {
           </h2>
           <div className="h-1.5 w-16 bg-miso-blue-600 rounded-full mx-auto" />
           <p className="text-slate-600 font-medium text-base md:text-lg max-w-2xl mx-auto leading-relaxed">
-            월 납입 상환금 계획을 미리 가이드 해보실 수 있습니다.
+            월 상환 예정액을 미리 확인하실 수 있습니다.
           </p>
         </div>
 

@@ -130,8 +130,8 @@ export default function AboutSection() {
         <div id="organization" className="text-center space-y-8 bg-white p-8 md:p-12 rounded-3xl border border-slate-100 shadow-sm">
           <div className="space-y-2">
             <span className="text-xs font-bold text-teal-600 tracking-widest uppercase">Organization Chart</span>
-            <h3 className="text-2xl md:text-3xl font-extrabold text-slate-950 tracking-tight">공공수행기관 정식 조직도</h3>
-            <p className="text-slate-500 text-xs">비영리 사단법인의 체계적이고 법제화된 의사결정 체계</p>
+            <h3 className="text-2xl md:text-3xl font-extrabold text-slate-950 tracking-tight">조직도</h3>
+            <p className="text-slate-500 text-xs">법인 운영 조직 및 업무 분장</p>
           </div>
 
           <div className="overflow-x-auto py-6">

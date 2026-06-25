@@ -116,8 +116,8 @@ export default function CaseSection({ initialFilter }: CaseSectionProps) {
           </h2>
           <div className="h-1.5 w-16 bg-teal-600 rounded-full mx-auto" />
           <p className="text-slate-600 font-medium text-base md:text-lg max-w-2xl mx-auto leading-relaxed">
-            미소금융대구중구법인을 통해 차가운 사금융 광고의 덫을 사전에 차단하고 <br className="hidden sm:inline" />
-            성실한 상환과 신뢰로 소생한 진짜 동네 이웃들의 목소리입니다.
+            (사)미소금융대구중구법인의 지원을 통해 경제적 어려움을 극복하고 <br className="hidden sm:inline" />
+            성실한 상환으로 자립의 발판을 마련한 대구 시민들의 실제 사례입니다.
           </p>
         </div>
 
@@ -259,12 +259,12 @@ export default function CaseSection({ initialFilter }: CaseSectionProps) {
               A Warm Promise of Co-prosperity
             </span>
             <h4 className="text-xl md:text-2xl font-black tracking-tight leading-snug">
-              &ldquo;여러분이 갚으신 원금은 다음 자영업자에게 큰 도움이 됩니다&rdquo;
+              &ldquo;상환해 주신 원금은 다음 서민금융 지원 재원으로 이어집니다&rdquo;
             </h4>
             <p className="text-slate-400 text-xs md:text-sm leading-relaxed font-medium">
-              (사)미소금융대구중구법인의 운용자금은 금융사들의 영리적 회수기금이 아닙니다. <br />
-              성실하게 상환해 주시는 원금은 오롯이 서민금융진흥원 창고로 유입되어, <br />
-              내일 당장 부도 위기에 처할 대구 소상공인을 다시 살려내는 고귀한 순환 자금으로 100% 보존됩니다.
+              (사)미소금융대구중구법인의 운용자금은 서민금융진흥원의 정책 재원으로 조성된 비영리 공익 자금입니다. <br />
+              성실히 상환해 주신 원금은 서민금융진흥원에 반환되어, <br />
+              경제적 어려움에 처한 다른 대구 시민의 자립을 위한 재원으로 재활용됩니다.
             </p>
           </div>
         </div>
