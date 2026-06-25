@@ -172,7 +172,7 @@ export default function NoticeSection() {
               { label: '금융감독원', href: 'https://www.fss.or.kr', active: 'bg-indigo-500 border-indigo-500 text-white', hover: 'hover:bg-indigo-50 hover:border-indigo-400 hover:text-indigo-700' },
               { label: '대구광역시청', href: 'https://www.daegu.go.kr', active: 'bg-emerald-500 border-emerald-500 text-white', hover: 'hover:bg-emerald-50 hover:border-emerald-400 hover:text-emerald-700' },
               { label: '사회적기업진흥원', href: 'https://www.socialenterprise.or.kr', active: 'bg-violet-500 border-violet-500 text-white', hover: 'hover:bg-violet-50 hover:border-violet-400 hover:text-violet-700' },
-              { label: '법인 네이버블로그', href: 'https://blog.naver.com', active: 'bg-green-500 border-green-500 text-white', hover: 'hover:bg-green-50 hover:border-green-400 hover:text-green-700' },
+              { label: '법인 네이버블로그', href: 'https://blog.naver.com/eornwndrn1', active: 'bg-green-500 border-green-500 text-white', hover: 'hover:bg-green-50 hover:border-green-400 hover:text-green-700' },
             ].map((item, idx) => (
               <motion.a
                 key={idx}
