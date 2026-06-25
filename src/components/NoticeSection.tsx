@@ -29,18 +29,18 @@ export default function NoticeSection() {
   const antiFrauds = [
     {
       icon: <AlertTriangle className="w-5.5 h-5.5 text-rose-600" />,
-      title: '합법 고금리 가입 한제 위반 수사',
-      desc: '법인 대출 이율을 허위 조작하거나 카드 부금을 강권하여 법정 최고이율(연 20%)을 전면 초과하는 불법 사채 광고물을 전격 차단하고 형사 고발조치 하였습니다.'
+      title: '법정 최고금리 초과 불법 대출 주의',
+      desc: '대출 이율을 허위로 안내하거나 법정 최고금리(연 20%)를 초과하는 불법 대출 광고를 접하신 경우, 즉시 금융감독원(1332) 또는 경찰청(112)에 신고해 주시기 바랍니다.'
     },
     {
       icon: <Scale className="w-5.5 h-5.5 text-indigo-600" />,
-      title: '중개 수수료/보증 선수금 갈취 피해 구제',
-      desc: '미소정책자금은 무상으로 조율되는 국가 보장 금융입니다. 승인을 빌미로 일정 마진이나 사례금, 서류 조작 선수수료를 기입하도록 권하는 것은 100% 사기입니다.'
+      title: '대출 수수료 및 선납금 요구 사기 주의',
+      desc: '미소금융 정책자금은 중개 수수료, 보증 선납금, 서류 처리비 등 어떠한 명목의 비용도 요구하지 않습니다. 승인을 조건으로 금전을 요구하는 경우 100% 사기이므로 즉시 신고하시기 바랍니다.'
     },
     {
       icon: <ShieldCheck className="w-5.5 h-5.5 text-emerald-600" />,
-      title: '휴대폰 문자 대환 및 정부 사칭 기만 대출',
-      desc: '신한미소재단이나 서민금융진흥원을 사칭해 010 전화번호로 가입 유도 링크를 전송하는 보이스피싱을 무조건 격리하고 일체의 어플 다운로드를 불허하십시오.'
+      title: '정부기관 사칭 문자·전화 보이스피싱 주의',
+      desc: '서민금융진흥원 또는 미소금융 관련 기관을 사칭해 휴대폰 문자나 링크를 발송하는 경우가 있습니다. 출처가 불분명한 링크 클릭이나 앱 설치는 하지 마시고, 반드시 공식 번호(1397)로 확인하시기 바랍니다.'
     }
   ];
 
@@ -105,10 +105,10 @@ export default function NoticeSection() {
             <div className="space-y-1.5">
               <h3 className="font-extrabold text-slate-950 text-lg flex items-center gap-1.5">
                 <AlertTriangle className="w-6 h-6 text-rose-600 shrink-0" />
-                <span>🚨 불법 사금융 광고 및 보이스피싱 처단 수칙</span>
+                <span>불법 사금융 및 보이스피싱 피해 예방 안내</span>
               </h3>
               <p className="text-rose-600/80 text-xs font-bold leading-normal">
-                연 20% 이상의 불법 고리에 빠지기 전, 반드시 정부 공식 무료 상담전화를 활용하십시오.
+                불법 사금융 피해를 입으셨거나 의심스러운 연락을 받으셨다면, 아래 정부 공식 상담번호를 이용해 주시기 바랍니다.
               </p>
             </div>
             
