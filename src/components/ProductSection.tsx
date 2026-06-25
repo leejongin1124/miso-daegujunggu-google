@@ -302,7 +302,7 @@ export default function ProductSection({ onScrollToSection, onOpenCalculator, in
                 </p>
                 <div className="pt-2">
                   <p className="text-[10px] text-teal-200 leading-normal">
-                    ※ 모든 대출 심사는 본인명의 신용 및 증빙을 바탕으로 미소금융대구중구법인 융자심의위원회 규칙에 의거해 단독 처리되며, 법령을 정직하게 수호합니다.
+                    ※ 모든 대출 심사는 신청인 본인의 신용 및 증빙 서류를 기준으로 융자심의위원회 규정에 따라 처리됩니다.
                   </p>
                 </div>
               </div>
