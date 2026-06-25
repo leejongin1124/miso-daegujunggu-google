@@ -14,6 +14,32 @@ interface ProductSectionProps {
   initialTab?: string;
 }
 
+const BLOG_TEXT = '법인 네이버 블로그 — 상품 상세 정보 보기';
+
+function TypewriterBlog() {
+  const [displayed, setDisplayed] = useState('');
+  useEffect(() => {
+    let i = 0;
+    setDisplayed('');
+    const tick = () => {
+      if (i < BLOG_TEXT.length) {
+        setDisplayed(BLOG_TEXT.slice(0, i + 1));
+        i++;
+        setTimeout(tick, 80);
+      } else {
+        setTimeout(() => {
+          i = 0;
+          setDisplayed('');
+          setTimeout(tick, 300);
+        }, 2000);
+      }
+    };
+    const timer = setTimeout(tick, 500);
+    return () => clearTimeout(timer);
+  }, []);
+  return <span>{displayed}<span className="animate-pulse">|</span></span>;
+}
+
 export default function ProductSection({ onScrollToSection, onOpenCalculator, initialTab }: ProductSectionProps) {
   const [activeTab, setActiveTab] = useState<string>(initialTab || 'social');
 
@@ -310,6 +336,23 @@ export default function ProductSection({ onScrollToSection, onOpenCalculator, in
 
           </motion.div>
         </AnimatePresence>
+
+        {/* 블로그 배너 */}
+        <div className="bg-gradient-to-r from-teal-50 to-emerald-50 border border-teal-100 rounded-2xl px-6 py-5 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+          <p className="text-slate-600 text-sm font-semibold">
+            대출 상품별 자세한 내용과 실제 사례는 공식 블로그에서 확인하실 수 있습니다.
+          </p>
+          <a
+            href="https://blog.naver.com/eornwndrn1"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="shrink-0 inline-flex items-center gap-2 bg-white border border-teal-300 hover:border-teal-500 text-teal-700 font-bold px-5 py-3 rounded-xl text-sm shadow-sm transition-all hover:shadow-md whitespace-nowrap"
+          >
+            <span>📝</span>
+            <TypewriterBlog />
+            <span className="ml-1">→</span>
+          </a>
+        </div>
 
         {/* 한눈에 보는 상품 비교표 */}
         <div className="bg-white p-6.5 md:p-10 rounded-3xl border border-slate-100 shadow-sm text-left">
