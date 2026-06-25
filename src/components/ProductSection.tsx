@@ -205,7 +205,7 @@ export default function ProductSection({ onScrollToSection, onOpenCalculator, in
               <div className="space-y-4">
                 <div className="flex items-center space-x-2 text-slate-800 font-bold text-sm">
                   <CheckCircle2 className="w-5 h-5 text-teal-600" />
-                  <span>지원 자격 요건 (하나라도 해당 시 상담 가능)</span>
+                  <span>신청 자격 요건 (하나라도 해당 시 상담 가능)</span>
                 </div>
 
                 {activeProduct.id === 'vulnerable' ? (
