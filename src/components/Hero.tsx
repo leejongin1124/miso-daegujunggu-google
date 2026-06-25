@@ -71,10 +71,8 @@ export default function Hero({ onScrollToSection }: HeroProps) {
               transition={{ duration: 0.6, delay: 0.2 }}
               className="text-slate-600 text-lg md:text-xl font-medium leading-relaxed max-w-2xl"
             >
-              (사)미소금융대구중구법인은 금융위원회 허가 비영리 공익법인이자 
-              서민금융진흥원 공식 사업수행기관입니다. <br className="hidden md:inline" />
-              저소득·저신용 소상공인과 취약계층 대구 시민의 곁에서
-              합법적이고 공정한 서민금융 지원의 문을 열어드립니다.
+              금융위원회 허가 비영리 공익법인이자 서민금융진흥원 공식 사업수행기관입니다. <br className="hidden md:inline" />
+              대구·경북 지역 소상공인과 자영업자의 경제적 자립을 위한 서민금융 지원을 제공합니다.
             </motion.p>
 
             <motion.div 
