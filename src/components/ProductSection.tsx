@@ -109,7 +109,7 @@ export default function ProductSection({ onScrollToSection, onOpenCalculator, in
         '신용카드나 금융 거래 이력이 부족해 일반 은행 대출이 어려운 청년',
         '고금리 대부업 이용 전 공공 정책자금을 먼저 알아보고자 하는 청년'
       ],
-      effect: '안정적인 구직 기간을 확보하고, 건전한 첫 신용 형성의 기틀과 저금리 자금 지원을 받을 수 있습니다.'
+      effect: '취업 준비 기간 동안 생활 자금을 마련하고, 처음으로 건전한 신용을 쌓을 수 있는 기회가 됩니다.'
     },
     {
       id: 'vulnerable',
