@@ -135,94 +135,82 @@ export default function AboutSection() {
           </div>
 
           <div className="overflow-x-auto py-6">
-            <div className="min-w-[800px] flex flex-col items-center">
-              
-              {/* 사원 총회 */}
-              <div className="bg-slate-800 text-white px-8 py-3.5 rounded-xl font-bold text-sm shadow">
-                사 원 총 회
-              </div>
-              
-              {/* 커넥트 라인 */}
-              <div className="w-0.5 h-6 bg-slate-300 relative">
-                {/* 우측 감사 커넥트 */}
-                <div className="absolute top-1/2 left-0 w-32 h-0.5 bg-slate-300 transform -translate-y-1/2"></div>
-                <div className="absolute top-1/2 left-32 w-0.5 h-12 bg-slate-300 transform -translate-y-1/2"></div>
-              </div>
+            <div style={{minWidth: '820px'}}>
+              <svg viewBox="0 0 820 360" width="820" height="360" xmlns="http://www.w3.org/2000/svg" style={{display:'block', margin:'0 auto', fontFamily:'inherit'}}>
 
-              {/* 감사와 이사회의 중간 가로 정렬 */}
-              <div className="flex gap-40 items-start -mt-3.5 pl-40">
-                
+                {/* ── 연결선 ── */}
+
+                {/* 사원총회(center=310) → T → 이사회(310) & 감사(600) */}
+                <line x1="310" y1="48" x2="310" y2="78" stroke="#CBD5E1" strokeWidth="2"/>
+                <line x1="310" y1="78" x2="600" y2="78" stroke="#CBD5E1" strokeWidth="2"/>
+                <line x1="310" y1="78" x2="310" y2="105" stroke="#CBD5E1" strokeWidth="2"/>
+                <line x1="600" y1="78" x2="600" y2="105" stroke="#CBD5E1" strokeWidth="2"/>
+
+                {/* 이사회(310) → 이사장(310) */}
+                <line x1="310" y1="145" x2="310" y2="180" stroke="#CBD5E1" strokeWidth="2"/>
+
+                {/* 이사장(310) 하단 수직 → 우측 수평 → 융자위원회(560) */}
+                <line x1="310" y1="228" x2="310" y2="252" stroke="#CBD5E1" strokeWidth="2"/>
+                <line x1="310" y1="240" x2="560" y2="240" stroke="#CBD5E1" strokeWidth="2"/>
+                <line x1="560" y1="240" x2="560" y2="255" stroke="#CBD5E1" strokeWidth="2"/>
+
+                {/* 이사장(310) 하단 → 수평바 → 5팀 */}
+                <line x1="310" y1="252" x2="310" y2="272" stroke="#CBD5E1" strokeWidth="2"/>
+                <line x1="60"  y1="272" x2="560" y2="272" stroke="#CBD5E1" strokeWidth="2"/>
+                <line x1="60"  y1="272" x2="60"  y2="288" stroke="#CBD5E1" strokeWidth="2"/>
+                <line x1="185" y1="272" x2="185" y2="288" stroke="#CBD5E1" strokeWidth="2"/>
+                <line x1="310" y1="272" x2="310" y2="288" stroke="#CBD5E1" strokeWidth="2"/>
+                <line x1="435" y1="272" x2="435" y2="288" stroke="#CBD5E1" strokeWidth="2"/>
+                <line x1="560" y1="272" x2="560" y2="288" stroke="#CBD5E1" strokeWidth="2"/>
+
+                {/* ── 박스 ── */}
+
+                {/* 사원총회 */}
+                <rect x="210" y="8" width="200" height="40" rx="10" fill="#1E293B"/>
+                <text x="310" y="33" textAnchor="middle" fill="white" fontSize="13" fontWeight="bold">사 원 총 회</text>
+
                 {/* 이사회 */}
-                <div className="bg-slate-700 text-white px-8 py-3 rounded-lg font-bold text-sm shadow">
-                  이 사 회
-                </div>
+                <rect x="230" y="105" width="160" height="40" rx="8" fill="#334155"/>
+                <text x="310" y="130" textAnchor="middle" fill="white" fontSize="13" fontWeight="bold">이 사 회</text>
 
                 {/* 감사 */}
-                <div className="bg-amber-500 text-white px-6 py-3 rounded-lg font-bold text-sm shadow z-10">
-                  감   사
-                </div>
+                <rect x="545" y="105" width="110" height="40" rx="8" fill="#F59E0B"/>
+                <text x="600" y="130" textAnchor="middle" fill="white" fontSize="13" fontWeight="bold">감   사</text>
 
-              </div>
-
-              {/* 이사회 아래 라인 */}
-              <div className="w-0.5 h-6 bg-slate-300 relative -ml-20">
-                {/* 융자위원회 가로 연결 */}
-                <div className="absolute top-1/2 left-0 w-36 h-0.5 bg-slate-300 transform -translate-y-1/2"></div>
-                <div className="absolute top-1/2 left-36 w-0.5 h-10 bg-slate-300 transform -translate-y-1/2"></div>
-              </div>
-
-              {/* 이사장 및 융자위원회 지선 */}
-              <div className="flex gap-20 items-center -mt-3 relative -ml-10">
-                
                 {/* 이사장 */}
-                <div className="bg-teal-600 text-white px-10 py-4 rounded-xl font-extrabold text-base shadow-md">
-                  이 사 장 (대표)
-                </div>
+                <rect x="210" y="180" width="200" height="48" rx="10" fill="#0D9488"/>
+                <text x="310" y="209" textAnchor="middle" fill="white" fontSize="14" fontWeight="bold">이 사 장 (대표)</text>
 
                 {/* 융자위원회 */}
-                <div className="bg-indigo-600 text-white px-5 py-3 rounded-lg font-bold text-xs shadow">
-                  융 자 위 원 회
-                </div>
+                <rect x="480" y="255" width="160" height="40" rx="8" fill="#4F46E5"/>
+                <text x="560" y="280" textAnchor="middle" fill="white" fontSize="12" fontWeight="bold">융 자 위 원 회</text>
 
-              </div>
+                {/* 전문위원 여신심사 1팀 */}
+                <rect x="5"   y="288" width="110" height="58" rx="8" fill="#F0FDFA" stroke="#5EEAD4" strokeWidth="1.5"/>
+                <text x="60"  y="310" textAnchor="middle" fill="#0F766E" fontSize="11" fontWeight="bold">전문위원</text>
+                <text x="60"  y="330" textAnchor="middle" fill="#0D9488" fontSize="10">(여신심사 1팀)</text>
 
-              {/* 부서 연결 라인 */}
-              <div className="w-0.5 h-8 bg-slate-300 -ml-28"></div>
-              
-              <div className="w-[720px] h-0.5 bg-slate-300 -ml-28 relative">
-                {/* 하부 5개 기둥 화살표 */}
-              </div>
+                {/* 전문위원 여신심사 2팀 */}
+                <rect x="130" y="288" width="110" height="58" rx="8" fill="#F0FDFA" stroke="#5EEAD4" strokeWidth="1.5"/>
+                <text x="185" y="310" textAnchor="middle" fill="#0F766E" fontSize="11" fontWeight="bold">전문위원</text>
+                <text x="185" y="330" textAnchor="middle" fill="#0D9488" fontSize="10">(여신심사 2팀)</text>
 
-              {/* 하부 실무팀 가로 나열 */}
-              <div className="grid grid-cols-5 gap-3 w-[780px] mt-4 -ml-28 text-center text-xs">
-                
-                <div className="bg-teal-50 border border-teal-200 text-teal-800 p-3 rounded-lg shadow-sm">
-                  <span className="block font-bold">전문위원</span>
-                  <span className="block text-[10px] text-teal-600 mt-1">여신심사 1팀</span>
-                </div>
+                {/* 전문위원 여신심사 3팀 */}
+                <rect x="255" y="288" width="110" height="58" rx="8" fill="#F8FAFC" stroke="#CBD5E1" strokeWidth="1.5"/>
+                <text x="310" y="310" textAnchor="middle" fill="#475569" fontSize="11" fontWeight="bold">전문위원</text>
+                <text x="310" y="330" textAnchor="middle" fill="#64748B" fontSize="10">(여신심사 3팀)</text>
 
-                <div className="bg-teal-50 border border-teal-200 text-teal-800 p-3 rounded-lg shadow-sm">
-                  <span className="block font-bold">전문위원</span>
-                  <span className="block text-[10px] text-teal-600 mt-1">여신심사 2팀</span>
-                </div>
+                {/* 전문위원 사업 행정기획 */}
+                <rect x="380" y="288" width="110" height="58" rx="8" fill="#F8FAFC" stroke="#CBD5E1" strokeWidth="1.5"/>
+                <text x="435" y="310" textAnchor="middle" fill="#475569" fontSize="11" fontWeight="bold">전문위원</text>
+                <text x="435" y="330" textAnchor="middle" fill="#64748B" fontSize="10">(사업 행정기획)</text>
 
-                <div className="bg-slate-50 border border-slate-200 text-slate-800 p-3 rounded-lg shadow-sm">
-                  <span className="block font-bold">전문위원</span>
-                  <span className="block text-[10px] text-slate-500 mt-1">여신심사 3팀</span>
-                </div>
+                {/* 신중년 사회공헌단 */}
+                <rect x="505" y="288" width="110" height="58" rx="8" fill="#ECFDF5" stroke="#6EE7B7" strokeWidth="1.5"/>
+                <text x="560" y="310" textAnchor="middle" fill="#065F46" fontSize="11" fontWeight="bold">신중년</text>
+                <text x="560" y="330" textAnchor="middle" fill="#059669" fontSize="10">(사회공헌단)</text>
 
-                <div className="bg-slate-50 border border-slate-200 text-slate-800 p-3 rounded-lg shadow-sm">
-                  <span className="block font-bold">전문위원</span>
-                  <span className="block text-[10px] text-slate-500 mt-1">사업 행정기획</span>
-                </div>
-
-                <div className="bg-emerald-50 border border-emerald-200 text-emerald-800 p-2.5 rounded-lg shadow-sm">
-                  <span className="block font-bold text-emerald-900">신중년</span>
-                  <span className="block text-[9px] text-emerald-600 mt-0.5 font-bold">사회공헌단 (서포터)</span>
-                </div>
-
-              </div>
-
+              </svg>
             </div>
           </div>
         </div>
