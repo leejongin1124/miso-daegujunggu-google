@@ -163,8 +163,8 @@ export default function Hero({ onScrollToSection }: HeroProps) {
             </h2>
             <div className="h-1.5 w-16 bg-gradient-to-r from-teal-500 to-emerald-500 mx-auto rounded-full mt-3" />
             <p className="text-slate-600 text-base md:text-lg mt-4 max-w-2xl mx-auto leading-relaxed">
-              정부(서민금융진흥원)의 재원으로 서민의 자립을 돕는 <br className="hidden sm:inline" />
-              제도권 공익 금융 지원 프로그램입니다. 고금리 사채 대안책으로 작용합니다.
+              서민금융진흥원의 정책 재원으로 운영되는 <br className="hidden sm:inline" />
+              저소득·저신용 계층을 위한 제도권 공익 금융 지원 프로그램입니다.
             </p>
           </motion.div>
 
