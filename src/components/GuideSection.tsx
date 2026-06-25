@@ -382,32 +382,46 @@ export default function GuideSection() {
         </div>
 
         {/* 대출 서류 가이드 보완 팝카드 */}
-        <div className="bg-gradient-to-tr from-slate-50 to-slate-100/30 p-8 rounded-3xl border border-slate-200 grid grid-cols-1 md:grid-cols-2 gap-8 items-center text-left">
-          <div className="space-y-3">
+        <div className="bg-gradient-to-tr from-teal-50 to-slate-50 p-8 rounded-3xl border border-teal-100 text-left space-y-6">
+          <div className="space-y-2">
             <span className="inline-flex items-center text-[10px] font-bold bg-indigo-50 text-indigo-700 px-2 rounded">
               Required Documents
             </span>
-            <h4 className="font-extrabold text-slate-900 text-lg">기본 제출 필수 소명서류 안내</h4>
-            <p className="text-slate-500 text-xs leading-relaxed font-semibold">
-              사무실 방문 전 대구중구법인 전문여신 심사관의 대기 시간을 줄이고 빠른 접수를 위해 아래 공인 서류를 지참해 가시면 원활합니다.
+            <h4 className="font-extrabold text-slate-900 text-xl">두 번 발걸음 안 하시게 "서류"를 챙겨주세요</h4>
+            <p className="text-slate-500 text-sm leading-relaxed">
+              귀한 시간 내서 오셨는데, 서류가 빠져서 다시 댁으로 돌아가시는 일이 없어야겠지요?<br />
+              아래 적힌 서류들을 챙겨오시면, <strong className="text-teal-700">"대출이 되는지, 얼마나 되는지"</strong> 신속하게 알려드릴 수 있습니다.
             </p>
           </div>
-          
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 text-xs text-slate-600">
-            <div className="bg-white p-4.5 rounded-xl border border-slate-200 relative shadow-sm">
-              <span className="font-bold text-slate-800 block">🏪 자영업 부류</span>
-              <ul className="list-disc pl-4 mt-1.5 space-y-1 text-slate-400 font-bold text-[11px]">
-                <li>사업자등록증 원본</li>
-                <li>최근 1년 부가세 영수증</li>
-                <li>카드/종합 거래 통장 사본</li>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-sm">
+            {/* 신분 확인 */}
+            <div className="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm space-y-2">
+              <span className="font-extrabold text-slate-800 block text-base">📝 신분 확인</span>
+              <ul className="space-y-1.5 text-slate-600 text-[13px]">
+                <li className="flex items-start gap-2"><span className="text-teal-500 mt-0.5">✓</span><span>주민등록증 또는 운전면허증 <span className="text-rose-500 font-bold">(필수)</span></span></li>
+                <li className="flex items-start gap-2"><span className="text-teal-500 mt-0.5">✓</span><span>주민등록 등본·초본 <span className="text-slate-400 text-[11px]">(주민센터 발급)</span></span></li>
               </ul>
             </div>
-            <div className="bg-white p-4.5 rounded-xl border border-slate-200 relative shadow-sm">
-              <span className="font-bold text-slate-800 block">👥 사회적 기업 / 가치단체</span>
-              <ul className="list-disc pl-4 mt-1.5 space-y-1 text-slate-400 font-bold text-[11px]">
-                <li>법인등기부 및 정관 사본</li>
-                <li>최근 3개년 매출 재무제표</li>
-                <li>사회가치센터 업로드용 서류</li>
+
+            {/* 사업 서류 */}
+            <div className="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm space-y-2">
+              <span className="font-extrabold text-slate-800 block text-base">🏪 사업 관련 서류</span>
+              <ul className="space-y-1.5 text-slate-600 text-[13px]">
+                <li className="flex items-start gap-2"><span className="text-teal-500 mt-0.5">✓</span><span>사업자등록증</span></li>
+                <li className="flex items-start gap-2"><span className="text-teal-500 mt-0.5">✓</span><span>임대차 계약서 <span className="text-slate-400 text-[11px]">(가게 계약서)</span></span></li>
+                <li className="flex items-start gap-2"><span className="text-teal-500 mt-0.5">✓</span><span>주거래 통장 <span className="text-slate-400 text-[11px]">(최근 3개월 입출금내역)</span></span></li>
+                <li className="flex items-start gap-2"><span className="text-teal-500 mt-0.5">✓</span><span>소득금액증명원 또는 부가세 과세표준증명원</span></li>
+              </ul>
+            </div>
+
+            {/* 해당자 추가 서류 */}
+            <div className="bg-white p-5 rounded-2xl border border-amber-100 shadow-sm space-y-2">
+              <span className="font-extrabold text-slate-800 block text-base">📋 해당되시는 분만</span>
+              <ul className="space-y-1.5 text-slate-600 text-[13px]">
+                <li className="flex items-start gap-2"><span className="text-amber-500 mt-0.5">✓</span><span>근로장려금 수급사실 증명서</span></li>
+                <li className="flex items-start gap-2"><span className="text-amber-500 mt-0.5">✓</span><span>국민기초생활수급자 증명서</span></li>
+                <li className="flex items-start gap-2"><span className="text-amber-500 mt-0.5">✓</span><span>차상위계층 확인서</span></li>
               </ul>
             </div>
           </div>
