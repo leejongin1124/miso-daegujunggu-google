@@ -53,6 +53,15 @@ export default function Hero({ onScrollToSection }: HeroProps) {
   const countPeople = useCountUp(3800, 2200, statsInView);
   const countMoney = useCountUp(600, 2200, statsInView);
 
+  // 타이틀 순차 애니메이션 phase: 0→숨김 1→1번등장 2→2번등장 3→둘다깜박
+  const [titlePhase, setTitlePhase] = useState(0);
+  useEffect(() => {
+    const t1 = setTimeout(() => setTitlePhase(1), 300);
+    const t2 = setTimeout(() => setTitlePhase(2), 1100);
+    const t3 = setTimeout(() => setTitlePhase(3), 2000);
+    return () => { clearTimeout(t1); clearTimeout(t2); clearTimeout(t3); };
+  }, []);
+
   const quickCards = [
     {
       icon: <Users className="w-6 h-6 text-emerald-600" />,
@@ -95,17 +104,43 @@ export default function Hero({ onScrollToSection }: HeroProps) {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
 
           <div className="space-y-6 text-left">
-            <motion.h1
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.1 }}
-              className="text-3xl sm:text-4xl lg:text-4xl font-extrabold tracking-tight text-slate-900 leading-[1.2]"
-            >
-              은행 문턱에 막히셨나요?<br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-teal-600 to-emerald-600">
+            <h1 className="text-3xl sm:text-4xl lg:text-4xl font-extrabold tracking-tight text-slate-900 leading-[1.3] space-y-1 overflow-hidden">
+              {/* 1번: 좌→우 슬라이드 후 고정, phase3에서 깜박 */}
+              <motion.div
+                initial={{ x: -80, opacity: 0 }}
+                animate={
+                  titlePhase === 0 ? { x: -80, opacity: 0 } :
+                  titlePhase >= 3 ? { x: 0, opacity: [1, 0.15, 1] } :
+                  { x: 0, opacity: 1 }
+                }
+                transition={
+                  titlePhase >= 3
+                    ? { x: { duration: 0 }, opacity: { duration: 1.1, repeat: Infinity, ease: 'easeInOut' } }
+                    : { duration: 0.55, ease: 'easeOut' }
+                }
+              >
+                은행 문턱에 막히셨나요?
+              </motion.div>
+
+              {/* 2번: 1번 이후 좌→우 슬라이드, phase3에서 깜박 */}
+              <motion.div
+                initial={{ x: -80, opacity: 0 }}
+                animate={
+                  titlePhase < 2 ? { x: -80, opacity: 0 } :
+                  titlePhase >= 3 ? { x: 0, opacity: [1, 0.15, 1] } :
+                  { x: 0, opacity: 1 }
+                }
+                transition={
+                  titlePhase >= 3
+                    ? { x: { duration: 0 }, opacity: { duration: 1.1, repeat: Infinity, ease: 'easeInOut', delay: 0.15 } }
+                    : titlePhase === 2 ? { duration: 0.55, ease: 'easeOut' }
+                    : { duration: 0 }
+                }
+                className="text-transparent bg-clip-text bg-gradient-to-r from-teal-600 to-emerald-600"
+              >
                 여기, 또 다른 길이 있습니다.
-              </span>
-            </motion.h1>
+              </motion.div>
+            </h1>
 
             <motion.p 
               initial={{ opacity: 0, y: 20 }}
