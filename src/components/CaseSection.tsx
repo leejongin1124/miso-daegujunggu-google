@@ -23,10 +23,10 @@ export default function CaseSection({ initialFilter }: CaseSectionProps) {
     {
       id: 'social-1',
       category: 'social',
-      title: '발달장애인 10명의 근로 영속성을 지켜낸 비결',
-      problem: '대구 남산동에서 발달장애인 10명을 품어 제과제빵 가치 실현 업체를 하고 있습니다. 정부 보조금 정산 분기 전 일시적 자금 공백으로 급여일이 오면 한숨이 가득했습니다. 부동산 담보가 없다는 이유로 은행들은 눈을 감았어요.',
-      solution: '미소금융의 사회연대금융 상담 과정에서 공동인증 제출 및 신보 가치평가 시스템을 등록해 무보증으로 운전자금을 기꺼이 조달 받았습니다.',
-      effect: '거치유예기 2년을 활용해 제품 품질에 완전히 집중하며 성장가도로 안착했습니다. 이제 더이상 월급날을 두려워하지 않습니다.',
+      title: '발달장애인 10명의 월급날, 더 이상 한숨이 없습니다',
+      problem: '대구 남산동에서 발달장애인 10명과 함께 제과제빵 사회적기업을 운영하고 있습니다. 보조금이 들어오기 전 급여일마다 통장을 보며 한숨만 나왔어요. 담보가 없다고 하니 은행에서는 상담도 제대로 안 해주더라고요.',
+      solution: '미소금융에 전화했더니 사회적기업 서류와 신보 가치평가만으로 심사가 된다고 했습니다. 공동인증서 챙겨서 방문했는데, 무보증으로 운영자금을 받을 수 있었어요. 생각보다 절차가 복잡하지 않았습니다.',
+      effect: '거치 기간 2년 동안 제품 품질에만 집중할 수 있었습니다. 이제는 월급날이 두렵지 않아요.',
       author: '김○○ 대표 (인증 사회적기업 운영)',
       location: '대구 남구'
     },
@@ -237,7 +237,7 @@ export default function CaseSection({ initialFilter }: CaseSectionProps) {
                     <span className="block font-black text-slate-850 text-sm">{c.author}</span>
                     <p className="text-teal-600 font-bold text-[10px] mt-0.5 flex items-center gap-1 uppercase">
                       <Sparkles className="w-3.5 h-3.5" />
-                      <span>의지와 성실로서 변탈 완료 및 상각이행</span>
+                      <span>성실 상환 중 · 현재 정상 운영</span>
                     </p>
                   </div>
                   <div className="w-9 h-9 bg-slate-50 border border-slate-100 rounded-full flex items-center justify-center text-rose-500 shadow-inner">
