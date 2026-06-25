@@ -182,12 +182,12 @@ export default function Hero({ onScrollToSection }: HeroProps) {
             </div>
 
             <div className="bg-white p-8 rounded-2xl border-b-4 border-b-emerald-500 shadow-sm border border-slate-100">
-              <div className="w-12 h-12 bg-emerald-50 rounded-xl flex items-center justify-center text-emerald-600 mb-6 font-bold text-xl">
+              <div className="w-12 h-12 bg-emerald-50 rounded-xl flex items-center justify-center text-emerald-600 mb-6 font-bold text-xl mx-auto">
                 📋
               </div>
               <h3 className="font-bold text-lg text-slate-900">제도권 비영리 법인</h3>
               <p className="text-slate-500 text-sm mt-3 leading-relaxed">
-                금융위원회의 정식 설립 허가를 받아 운영하는 신뢰할 수 있는 공공 서민금융 조직이며, 고금리 대부업과는 전혀 다른 자립 지원 전용 공인 채널입니다.
+                금융위원회로부터 설립 허가를 받은 비영리 공익법인으로, 이윤을 추구하지 않고 서민의 경제적 자립을 목적으로 운영됩니다.
               </p>
               <span className="inline-block bg-emerald-50 text-emerald-700 text-[11px] font-bold px-2.5 py-1 rounded-md mt-6">
                 공익법인(사단법인)
