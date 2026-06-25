@@ -239,6 +239,28 @@ export default function ProductSection({ onScrollToSection, onOpenCalculator, in
                 </ul>
               </div>
 
+              {activeProduct.id === 'youth' && (
+                <div className="bg-rose-50 border-2 border-rose-300 p-5 rounded-2xl">
+                  <h4 className="font-black text-sm text-rose-700 flex items-center gap-2">
+                    <span className="animate-bounce inline-block">🔔</span>
+                    <span className="animate-pulse">신청 전 필수 절차 — 반드시 확인하세요</span>
+                  </h4>
+                  <p className="text-slate-700 text-xs font-semibold mt-3 leading-relaxed">
+                    청년미래이음대출 신청 전, 서민금융진흥원 홈페이지에서<br />
+                    <span className="text-rose-600 font-black">「청년 모두를 위한 재무상담」</span>을 먼저 이수하셔야 합니다.
+                  </p>
+                  <a
+                    href="https://www.kinfa.or.kr/financialLife/youthFinancialCounseling.do"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="mt-4 inline-flex items-center gap-2 bg-rose-600 hover:bg-rose-700 text-white font-bold text-xs px-4 py-2.5 rounded-xl transition shadow-sm"
+                  >
+                    <span>서민금융진흥원 홈페이지 바로가기</span>
+                    <ArrowUpRight className="w-3.5 h-3.5" />
+                  </a>
+                </div>
+              )}
+
               {activeProduct.id === 'social' && (
                 <div className="bg-gradient-to-tr from-slate-50 to-slate-100/30 p-5 rounded-2xl border border-slate-200">
                   <h4 className="font-bold text-xs text-indigo-700 flex items-center gap-1 tracking-tight">
