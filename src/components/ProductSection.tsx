@@ -42,7 +42,7 @@ export default function ProductSection({ onScrollToSection, onOpenCalculator, in
         '정부 보조금 지급 전 발생하는 일시적 운영자금 부족을 해소하고자 하는 단체',
         '취약계층 고용 유지 및 사회적 서비스 제공을 목적으로 운영되는 기업'
       ],
-      effect: '일회성 보조금 공백에 따른 급격한 조직 운영 균열을 방지하고, 직원의 근로 영속성을 안전하게 유지합니다.'
+      effect: '보조금 지급 공백기에도 조직 운영을 안정적으로 유지하고, 직원의 고용을 지속할 수 있도록 지원합니다.'
     },
     {
       id: 'business',
