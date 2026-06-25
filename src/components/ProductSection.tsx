@@ -105,9 +105,9 @@ export default function ProductSection({ onScrollToSection, onOpenCalculator, in
         '② 기본 미소금융 대상 (다음 중 하나 해당) — 신용점수 하위 20% 이하 (NICE 749점 이하 또는 KCB 700점 이하) / 기초생활수급자 또는 차상위계층 / 최근 1년 이내 근로장려금 수급 이력이 있는 분'
       ],
       suitability: [
-        '일시적 보육 수당이나 알바 소득 등으로 소액의 이자 상환 능력을 갖춘 청년',
-        '필수 교육 과정인 「청년 모두를 위한 스마트 재무상담」 이수를 수월히 마칠 청년',
-        '대부 광고의 늪에 빠지기 전 첫 금융 설계를 공공적 든든함으로 안심 출발할 청년'
+        '아르바이트나 소득이 있어 매월 소액 이자를 납부할 수 있는 청년',
+        '신용카드나 금융 거래 이력이 부족해 일반 은행 대출이 어려운 청년',
+        '고금리 대부업 이용 전 공공 정책자금을 먼저 알아보고자 하는 청년'
       ],
       effect: '안정적인 구직 기간을 확보하고, 건전한 첫 신용 형성의 기틀과 저금리 자금 지원을 받을 수 있습니다.'
     },
@@ -303,7 +303,7 @@ export default function ProductSection({ onScrollToSection, onOpenCalculator, in
               <div id="vulnerable-fund" className="bg-white p-6.5 md:p-8 rounded-3xl shadow-sm border border-slate-100 space-y-6">
                 <h4 className="font-extrabold text-slate-900 text-lg flex items-center gap-1 tracking-tight">
                   <Star className="w-5 h-5 text-indigo-500 fill-indigo-500" />
-                  <span>이런 분/기업에 적극 추천합니다</span>
+                  <span>이런 분에게 적극 추천합니다</span>
                 </h4>
                 
                 <div className="space-y-4">
