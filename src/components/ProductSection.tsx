@@ -129,27 +129,46 @@ export default function ProductSection({ onScrollToSection, onOpenCalculator, in
           </p>
         </div>
 
-        {/* 탭 가로 셀렉터 (신한은행 스타일의 입체감 있는 탭) */}
-        <div className="flex flex-wrap justify-center gap-2 p-1.5 bg-white border border-slate-200 rounded-2xl max-w-3xl mx-auto shadow-sm">
-          {products.map((p) => (
-            <button
-              key={p.id}
-              onClick={() => setActiveTab(p.id)}
-              className={`flex-1 min-w-[130px] py-4 px-4 rounded-xl text-xs md:text-sm font-extrabold tracking-tight transition-all duration-200 ${
-                activeTab === p.id 
-                  ? 'bg-gradient-to-r from-teal-600 to-emerald-600 text-white shadow-md' 
-                  : 'text-slate-600 hover:text-teal-600 hover:bg-slate-50'
-              }`}
-            >
-              <div className="flex flex-col items-center gap-1">
-                {p.id === 'social' && <Star className="w-4 h-4" />}
-                {p.id === 'business' && <BadgePercent className="w-4 h-4" />}
-                {p.id === 'youth' && <Users className="w-4 h-4" />}
-                {p.id === 'vulnerable' && <ShieldCheck className="w-4 h-4" />}
-                <span>{p.name}</span>
-              </div>
-            </button>
-          ))}
+        {/* 탭 가로 셀렉터 */}
+        <div className="flex flex-wrap justify-center gap-3 max-w-3xl mx-auto">
+          {products.map((p) => {
+            const tabStyles: Record<string, { active: string; inactive: string; glow: string; icon: JSX.Element }> = {
+              social:     { active: 'from-teal-500 to-emerald-500 shadow-teal-200',     inactive: 'border-teal-200 text-teal-700 hover:bg-teal-50',     glow: 'shadow-teal-300',    icon: <Star className="w-4 h-4" /> },
+              business:   { active: 'from-emerald-500 to-green-500 shadow-emerald-200', inactive: 'border-emerald-200 text-emerald-700 hover:bg-emerald-50', glow: 'shadow-emerald-300', icon: <BadgePercent className="w-4 h-4" /> },
+              youth:      { active: 'from-indigo-500 to-violet-500 shadow-indigo-200',  inactive: 'border-indigo-200 text-indigo-700 hover:bg-indigo-50',  glow: 'shadow-indigo-300',  icon: <Users className="w-4 h-4" /> },
+              vulnerable: { active: 'from-rose-500 to-pink-500 shadow-rose-200',        inactive: 'border-rose-200 text-rose-700 hover:bg-rose-50',        glow: 'shadow-rose-300',    icon: <ShieldCheck className="w-4 h-4" /> },
+            };
+            const s = tabStyles[p.id];
+            const isActive = activeTab === p.id;
+            return (
+              <motion.button
+                key={p.id}
+                onClick={() => setActiveTab(p.id)}
+                whileTap={{ scale: 0.93 }}
+                animate={isActive ? { scale: 1.05 } : { scale: 1 }}
+                transition={{ type: 'spring', stiffness: 400, damping: 20 }}
+                className={`relative flex-1 min-w-[130px] py-4 px-4 rounded-2xl text-xs md:text-sm font-extrabold tracking-tight transition-all duration-300 overflow-hidden ${
+                  isActive
+                    ? `bg-gradient-to-r ${s.active} text-white shadow-lg`
+                    : `bg-white border-2 ${s.inactive}`
+                }`}
+              >
+                {/* 구슬 굴러가는 효과 */}
+                {isActive && (
+                  <motion.div
+                    initial={{ x: -80, opacity: 0.6 }}
+                    animate={{ x: 120, opacity: 0 }}
+                    transition={{ duration: 0.6, ease: 'easeOut' }}
+                    className="absolute top-1/2 -translate-y-1/2 w-8 h-8 bg-white/40 rounded-full blur-sm pointer-events-none"
+                  />
+                )}
+                <div className="relative z-10 flex flex-col items-center gap-1">
+                  {s.icon}
+                  <span>{p.name}</span>
+                </div>
+              </motion.button>
+            );
+          })}
         </div>
 
         {/* 탭 콘텐츠 본문 (정밀 상세카드) */}
