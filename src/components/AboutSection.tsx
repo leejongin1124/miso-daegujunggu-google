@@ -334,13 +334,40 @@ export default function AboutSection() {
                   <span>🗺 네이버 지도로 길찾기</span>
                   <ExternalLink className="w-3.5 h-3.5" />
                 </a>
-                <a 
-                  href="tel:053-252-6408" 
+                <a
+                  href="tel:053-252-6408"
                   className="bg-white text-slate-800 border border-slate-200 hover:border-slate-300 px-5 py-3 rounded-xl text-xs font-bold transition-all flex items-center space-x-1.5"
                 >
                   <Phone className="w-3.5 h-3.5" />
                   <span>전화문의: 053-252-6408</span>
                 </a>
+              </div>
+
+              {/* 블로그 배너 */}
+              <div className="mt-4">
+                <p className="text-slate-400 text-[11px] font-semibold mb-2">
+                  대출 상품별 자세한 내용과 실제 사례는 공식 블로그에서 확인하실 수 있습니다.
+                </p>
+                <motion.a
+                  href="https://blog.naver.com/eornwndrn1"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  animate={{ boxShadow: ['0 0 0 0 rgba(34,197,94,0.5)', '0 0 0 8px rgba(34,197,94,0)', '0 0 0 0 rgba(34,197,94,0)'] }}
+                  transition={{ duration: 1.8, repeat: Infinity, ease: 'easeOut' }}
+                  className="w-full bg-[#03C75A] hover:bg-[#02b050] text-white font-bold px-5 py-3.5 rounded-xl text-sm transition-all flex items-center justify-between group"
+                >
+                  <span className="flex items-center space-x-2">
+                    <span className="text-base">📝</span>
+                    <span>법인 네이버 블로그 — 상품 상세 정보 보기</span>
+                  </span>
+                  <motion.span
+                    animate={{ x: [0, 5, 0] }}
+                    transition={{ duration: 1.2, repeat: Infinity, ease: 'easeInOut' }}
+                    className="text-white font-black text-base"
+                  >
+                    →
+                  </motion.span>
+                </motion.a>
               </div>
 
             </div>
