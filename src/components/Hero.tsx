@@ -4,8 +4,26 @@
  */
 
 import { motion } from 'motion/react';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { Phone, ArrowRight, ShieldCheck, BadgePercent, TrendingUp, Users, PiggyBank, MapPin } from 'lucide-react';
+
+function useCountUp(target: number, duration: number, trigger: boolean) {
+  const [count, setCount] = useState(0);
+  useEffect(() => {
+    if (!trigger) return;
+    let startTime: number | null = null;
+    const step = (timestamp: number) => {
+      if (!startTime) startTime = timestamp;
+      const progress = Math.min((timestamp - startTime) / duration, 1);
+      const eased = 1 - Math.pow(1 - progress, 3);
+      setCount(Math.floor(eased * target));
+      if (progress < 1) requestAnimationFrame(step);
+      else setCount(target);
+    };
+    requestAnimationFrame(step);
+  }, [trigger, target, duration]);
+  return count;
+}
 
 interface HeroProps {
   onScrollToSection: (sectionId: string) => void;
@@ -13,6 +31,8 @@ interface HeroProps {
 
 export default function Hero({ onScrollToSection }: HeroProps) {
   const [spotlightIdx, setSpotlightIdx] = useState(0);
+  const [statsInView, setStatsInView] = useState(false);
+  const statsRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -20,17 +40,30 @@ export default function Hero({ onScrollToSection }: HeroProps) {
     }, 1800);
     return () => clearInterval(interval);
   }, []);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => { if (entry.isIntersecting) setStatsInView(true); },
+      { threshold: 0.3 }
+    );
+    if (statsRef.current) observer.observe(statsRef.current);
+    return () => observer.disconnect();
+  }, []);
+
+  const countPeople = useCountUp(3800, 2200, statsInView);
+  const countMoney = useCountUp(600, 2200, statsInView);
+
   const quickCards = [
     {
       icon: <Users className="w-6 h-6 text-emerald-600" />,
       title: '누적 지원 인원',
-      value: '3,800 여명',
+      value: statsInView ? `${countPeople.toLocaleString()} 여명` : '0 여명',
       desc: '대구 소상공인의 든든한 동반자'
     },
     {
       icon: <PiggyBank className="w-6 h-6 text-indigo-600" />,
       title: '누적 지원 금액',
-      value: '600억 원 돌파',
+      value: statsInView ? `${countMoney}억 원 돌파` : '0억 원 돌파',
       desc: '2026년 5월 누적 기준'
     },
     {
@@ -128,7 +161,7 @@ export default function Hero({ onScrollToSection }: HeroProps) {
         </div>
 
         {/* 4종 모바일 퀵 카드 */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 mt-16 md:mt-20">
+        <div ref={statsRef} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 mt-16 md:mt-20">
           {quickCards.map((card, i) => (
             <motion.div
               key={i}
