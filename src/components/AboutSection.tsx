@@ -314,15 +314,41 @@ export default function AboutSection() {
 
               </div>
 
-              {/* 길찾기 버튼 모음 */}
-              <div className="flex flex-wrap gap-3 pt-4">
-                <a
+              {/* 전화문의 버튼 */}
+              <div className="pt-4 flex justify-center">
+                <motion.a
                   href="tel:053-252-6408"
-                  className="bg-white text-slate-800 border border-slate-200 hover:border-slate-300 px-5 py-3 rounded-xl text-xs font-bold transition-all flex items-center space-x-1.5"
+                  whileHover={{ scale: 1.04 }}
+                  whileTap={{ scale: 0.97 }}
+                  className="relative w-full flex items-center justify-center space-x-3 bg-gradient-to-r from-orange-500 to-rose-500 text-white font-extrabold py-4 px-6 rounded-2xl shadow-lg overflow-hidden group cursor-pointer"
                 >
-                  <Phone className="w-3.5 h-3.5" />
-                  <span>전화문의: 053-252-6408</span>
-                </a>
+                  {/* 배경 펄스 */}
+                  <motion.div
+                    className="absolute inset-0 bg-white/10 rounded-2xl"
+                    animate={{ opacity: [0, 0.2, 0] }}
+                    transition={{ duration: 1.6, repeat: Infinity }}
+                  />
+                  {/* 튀어오르는 손가락 아이콘 */}
+                  <motion.span
+                    className="text-2xl relative z-10"
+                    animate={{ y: [0, -6, 0] }}
+                    transition={{ duration: 0.9, repeat: Infinity, ease: 'easeInOut' }}
+                  >
+                    ☎️
+                  </motion.span>
+                  <div className="relative z-10 text-center">
+                    <div className="text-[11px] font-bold text-white/80 tracking-widest uppercase mb-0.5">지금 바로 전화상담</div>
+                    <div className="text-xl font-black tracking-tight">053-252-6408</div>
+                  </div>
+                  {/* 우측 클릭 유도 화살표 */}
+                  <motion.span
+                    className="text-lg relative z-10"
+                    animate={{ x: [0, 5, 0] }}
+                    transition={{ duration: 0.9, repeat: Infinity, ease: 'easeInOut' }}
+                  >
+                    👆
+                  </motion.span>
+                </motion.a>
               </div>
 
               {/* 법인 블로그 배너 */}
