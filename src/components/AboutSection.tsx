@@ -317,15 +317,6 @@ export default function AboutSection() {
               {/* 길찾기 버튼 모음 */}
               <div className="flex flex-wrap gap-3 pt-4">
                 <a
-                  href="https://map.naver.com/v5/search/%EB%AF%B8%EC%86%8C%EA%B8%88%EC%9C%B5%EB%8C%80%EA%B5%AC%EC%A4%91%EA%B5%AC%EB%B2%95%EC%9D%B8"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="bg-emerald-600 text-white hover:bg-emerald-700 px-5 py-3 rounded-xl text-xs font-bold transition-all shadow-sm flex items-center space-x-1.5"
-                >
-                  <span>🗺 네이버 지도로 길찾기</span>
-                  <ExternalLink className="w-3.5 h-3.5" />
-                </a>
-                <a
                   href="tel:053-252-6408"
                   className="bg-white text-slate-800 border border-slate-200 hover:border-slate-300 px-5 py-3 rounded-xl text-xs font-bold transition-all flex items-center space-x-1.5"
                 >
