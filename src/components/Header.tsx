@@ -104,12 +104,10 @@ export default function Header({ activeTab, setActiveTab, onScrollToSection, onO
 
           {/* 로고 */}
           <div className="flex items-center space-x-2.5 cursor-pointer" onClick={() => handleSublinkClick('hero-section', TabType.ABOUT)}>
-            <img src="/miso_symbol.png" alt="미소금융 로고" className="w-10 h-10 object-contain" />
-            <div>
-              <div className="flex items-center space-x-1.5">
-                <span className="text-slate-900 font-bold text-lg tracking-tight leading-none">(사)미소금융대구중구법인</span>
-              </div>
-              <span className="text-[10px] font-semibold text-slate-400 tracking-wider uppercase block">서민금융진흥원 공식 사업수행기관</span>
+            <img src="/miso_symbol.png" alt="미소금융 로고" className="w-8 h-8 lg:w-10 lg:h-10 object-contain flex-shrink-0" />
+            <div className="text-left">
+              <span className="text-slate-900 font-bold text-sm lg:text-lg tracking-tight leading-none whitespace-nowrap block">(사)미소금융대구중구법인</span>
+              <span className="text-[9px] lg:text-[10px] font-semibold text-slate-400 tracking-wider uppercase block whitespace-nowrap">서민금융진흥원 공식 사업수행기관</span>
             </div>
           </div>
 
