@@ -64,7 +64,7 @@ export default function ProductSection({ onScrollToSection, onOpenCalculator, in
         '고금리 대출을 저금리 정책자금으로 전환하고자 하는 분',
         '분할 상환 의지가 있는 소상공인·개인 사업자 (법인기업 제외)'
       ],
-      effect: '고금리 사금융 의존에서 벗어나 성실한 자립을 이어갈 수 있는 든든한 디딤돌이 됩니다.'
+      effect: '고금리 대출 대신 저금리로 사업을 유지하면서, 성실하게 상환하다 보면 신용도 함께 좋아집니다.'
     },
     {
       id: 'youth',
