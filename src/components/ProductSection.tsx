@@ -385,13 +385,28 @@ export default function ProductSection({ onScrollToSection, onOpenCalculator, in
                     📞 {activeProduct.name} 상담 신청하기
                   </button>
                 )}
-                <button
-                  onClick={onOpenCalculator}
-                  className="bg-slate-100 text-slate-800 hover:bg-slate-200 font-bold px-6 py-4 rounded-xl text-sm transition flex items-center justify-center space-x-1"
+                <motion.a
+                  href="https://blog.naver.com/PostView.naver?blogId=eornwndrn1&logNo=223850000058&categoryNo=7&parentCategoryNo=7&from=thumbnailList"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.97 }}
+                  className="relative overflow-hidden bg-gradient-to-r from-amber-400 to-orange-500 text-white font-bold px-5 py-4 rounded-xl text-sm flex items-center justify-center space-x-2 shadow-md cursor-pointer"
                 >
-                  <Calculator className="w-4 h-4" />
-                  <span>대출 계산기 돌리기</span>
-                </button>
+                  <motion.div
+                    className="absolute inset-0 bg-white/20"
+                    animate={{ opacity: [0, 0.4, 0] }}
+                    transition={{ duration: 1.4, repeat: Infinity }}
+                  />
+                  <motion.span
+                    animate={{ rotate: [0, -10, 10, -10, 0] }}
+                    transition={{ duration: 1.2, repeat: Infinity, repeatDelay: 1.5 }}
+                    className="relative z-10 text-base"
+                  >
+                    📝
+                  </motion.span>
+                  <span className="relative z-10 whitespace-nowrap">블로그에서 상품 자세히 보기</span>
+                </motion.a>
               </div>
 
             </div>
