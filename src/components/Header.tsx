@@ -252,15 +252,16 @@ export default function Header({ activeTab, setActiveTab, onScrollToSection, onO
               </div>
 
               <div className="pt-4 flex flex-col space-y-2">
-                <button
-                  onClick={() => {
-                    setMobileMenuOpen(false);
-                    onOpenCalculator();
-                  }}
-                  className="w-full bg-slate-100 hover:bg-slate-200 text-slate-800 font-bold py-3 rounded-xl text-center text-sm transition-all"
+                <a
+                  href="https://blog.naver.com/eornwndrn1"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={() => setMobileMenuOpen(false)}
+                  className="w-full bg-gradient-to-r from-teal-500 to-emerald-500 text-white font-bold py-3 rounded-xl text-center text-sm transition-all flex items-center justify-center space-x-2 shadow-sm"
                 >
-                  📊 대출 계산기 실행하기
-                </button>
+                  <span>📝</span>
+                  <span>법인 블로그 방문</span>
+                </a>
                 <div className="text-center text-[10px] text-slate-400 font-medium py-2">
                   대표자: 김석동 | 대표번호: 053-252-6408
                 </div>
