@@ -202,10 +202,12 @@ export default function Hero({ onScrollToSection }: HeroProps) {
               <p className="text-slate-500 text-sm mt-3 leading-relaxed">
                 연 4.5% 금리로 운영되며, 3회 이상 납입하시면 금리가 1% 낮아집니다. 카드론이나 대부업 이용 전에 미소금융을 먼저 알아보시기 바랍니다.
               </p>
-              <div className="flex flex-wrap gap-2 mt-6">
-                <span className="bg-indigo-50 text-indigo-700 text-[11px] font-bold px-2.5 py-1 rounded-md">무담보</span>
-                <span className="bg-indigo-50 text-indigo-700 text-[11px] font-bold px-2.5 py-1 rounded-md">무보증</span>
-                <span className="bg-indigo-50 text-indigo-700 text-[11px] font-bold px-2.5 py-1 rounded-md">중도상환 수수료 없음</span>
+              <div className="flex items-center gap-1.5 mt-6 text-[11px] font-bold text-indigo-700">
+                <span className="bg-indigo-50 px-2.5 py-1 rounded-md">무담보</span>
+                <span className="text-indigo-300">·</span>
+                <span className="bg-indigo-50 px-2.5 py-1 rounded-md">무보증</span>
+                <span className="text-indigo-300">·</span>
+                <span className="bg-indigo-50 px-2.5 py-1 rounded-md">중도상환 수수료 없음</span>
               </div>
             </div>
 
