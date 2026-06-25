@@ -169,12 +169,12 @@ export default function Hero({ onScrollToSection }: HeroProps) {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12 text-left">
             
             <div className="bg-white p-8 rounded-2xl border-b-4 border-b-teal-500 shadow-sm border border-slate-100">
-              <div className="w-12 h-12 bg-teal-50 rounded-xl flex items-center justify-center text-teal-600 mb-6 font-bold text-xl">
+              <div className="w-12 h-12 bg-teal-50 rounded-xl flex items-center justify-center text-teal-600 mb-6 font-bold text-xl mx-auto">
                 🏛
               </div>
-              <h3 className="font-bold text-lg text-slate-900">투명한 공익적 재원</h3>
+              <h3 className="font-bold text-lg text-slate-900">투명한 공익 재원</h3>
               <p className="text-slate-500 text-sm mt-3 leading-relaxed">
-                국내 대기업들의 자발적 기부금과 금융권 휴면예금을 바탕으로 국가에서 공식 조성한 제도적인 정책 자금입니다. 기만 수수료가 일체 없습니다.
+                대기업 출연금과 금융권 휴면예금을 재원으로 정부가 조성한 공익 정책 자금입니다. 별도의 수수료나 부대비용은 없습니다.
               </p>
               <span className="inline-block bg-teal-50 text-teal-700 text-[11px] font-bold px-2.5 py-1 rounded-md mt-6">
                 서민금융진흥원 운영
