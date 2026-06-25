@@ -4,6 +4,7 @@
  */
 
 import { motion } from 'motion/react';
+import { useState, useEffect } from 'react';
 import { Phone, ArrowRight, ShieldCheck, BadgePercent, TrendingUp, Users, PiggyBank, MapPin } from 'lucide-react';
 
 interface HeroProps {
@@ -11,6 +12,14 @@ interface HeroProps {
 }
 
 export default function Hero({ onScrollToSection }: HeroProps) {
+  const [spotlightIdx, setSpotlightIdx] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setSpotlightIdx(prev => (prev + 1) % 4);
+    }, 1800);
+    return () => clearInterval(interval);
+  }, []);
   const quickCards = [
     {
       icon: <Users className="w-6 h-6 text-emerald-600" />,
@@ -123,26 +132,41 @@ export default function Hero({ onScrollToSection }: HeroProps) {
           {quickCards.map((card, i) => (
             <motion.div
               key={i}
-              initial={{ opacity: 0, y: 15 }}
-              whileInView={{ opacity: 1, y: 0 }}
+              initial={{ opacity: 0, y: 30, scale: 0.95 }}
+              whileInView={{ opacity: 1, y: 0, scale: 1 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.4, delay: i * 0.1 }}
+              transition={{ duration: 0.5, delay: i * 0.12, type: 'spring', stiffness: 200, damping: 18 }}
+              animate={spotlightIdx === i ? { y: -6, scale: 1.03 } : { y: 0, scale: 1 }}
               onClick={card.action}
-              className={`bg-white hover:bg-slate-50 p-6 rounded-2xl border border-slate-100 shadow-sm transition-all text-left group ${card.action ? 'cursor-pointer hover:border-teal-300 hover:shadow-md' : ''}`}
+              className={`relative bg-white p-6 rounded-2xl shadow-sm transition-colors duration-500 text-left group overflow-hidden ${
+                card.action ? 'cursor-pointer' : ''
+              } ${
+                spotlightIdx === i
+                  ? 'border-2 border-teal-400 shadow-lg shadow-teal-100'
+                  : 'border border-slate-100 hover:border-teal-200 hover:shadow-md'
+              }`}
             >
-              <div className="flex justify-between items-start">
-                <div className="p-3 bg-slate-50 rounded-xl group-hover:bg-white transition-all shadow-inner">
+              {spotlightIdx === i && (
+                <motion.div
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: [0, 0.15, 0] }}
+                  transition={{ duration: 1.8, repeat: Infinity }}
+                  className="absolute inset-0 bg-gradient-to-br from-teal-400 to-emerald-400 pointer-events-none rounded-2xl"
+                />
+              )}
+              <div className="flex justify-between items-start relative z-10">
+                <div className={`p-3 rounded-xl transition-all shadow-inner ${spotlightIdx === i ? 'bg-teal-50' : 'bg-slate-50 group-hover:bg-white'}`}>
                   {card.icon}
                 </div>
                 {card.action && (
-                  <span className="text-[10px] text-teal-600 font-bold bg-teal-50 px-2 py-0.5 rounded-full group-hover:bg-teal-600 group-hover:text-white transition-colors">
+                  <span className={`text-[10px] font-bold px-2 py-0.5 rounded-full transition-colors ${spotlightIdx === i ? 'bg-teal-600 text-white' : 'text-teal-600 bg-teal-50 group-hover:bg-teal-600 group-hover:text-white'}`}>
                     이동
                   </span>
                 )}
               </div>
-              <h3 className="text-slate-500 text-xs font-bold uppercase tracking-wider mt-5">{card.title}</h3>
-              <p className="text-slate-800 font-extrabold text-xl mt-1 tracking-tight">{card.value}</p>
-              <p className="text-slate-400 text-xs mt-1 font-semibold">{card.desc}</p>
+              <h3 className="text-slate-500 text-xs font-bold uppercase tracking-wider mt-5 relative z-10">{card.title}</h3>
+              <p className="text-slate-800 font-extrabold text-xl mt-1 tracking-tight relative z-10">{card.value}</p>
+              <p className="text-slate-400 text-xs mt-1 font-semibold relative z-10">{card.desc}</p>
             </motion.div>
           ))}
         </div>
