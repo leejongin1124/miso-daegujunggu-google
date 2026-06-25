@@ -207,11 +207,72 @@ export default function ProductSection({ onScrollToSection, onOpenCalculator, in
                   <CheckCircle2 className="w-5 h-5 text-teal-600" />
                   <span>지원 자격 요건 (하나라도 해당 시 상담 가능)</span>
                 </div>
-                <ul className="space-y-2.5 pl-6 list-disc text-xs md:text-sm text-slate-600 font-medium leading-relaxed">
-                  {activeProduct.target.map((t, i) => (
-                    <li key={i}>{t}</li>
-                  ))}
-                </ul>
+
+                {activeProduct.id === 'vulnerable' ? (
+                  <div className="space-y-4 text-xs">
+                    <p className="text-rose-600 font-bold text-[11px]">※ 2026. 7. 1. 개편 기준</p>
+
+                    {/* 기본 요건 표 */}
+                    <div>
+                      <p className="font-extrabold text-slate-800 mb-1.5">① 기본 요건 (다음 중 하나 해당)</p>
+                      <table className="w-full text-left border-collapse">
+                        <thead>
+                          <tr className="bg-teal-50">
+                            <th className="border border-teal-100 px-3 py-2 text-teal-700 font-bold w-28">구분</th>
+                            <th className="border border-teal-100 px-3 py-2 text-teal-700 font-bold">요건</th>
+                          </tr>
+                        </thead>
+                        <tbody className="text-slate-600 font-medium">
+                          <tr className="bg-white">
+                            <td className="border border-slate-100 px-3 py-2 font-bold text-slate-700">신용점수</td>
+                            <td className="border border-slate-100 px-3 py-2">하위 50% 이하 & 연소득 3,500만원 이하</td>
+                          </tr>
+                          <tr className="bg-slate-50">
+                            <td className="border border-slate-100 px-3 py-2 font-bold text-slate-700">수급자</td>
+                            <td className="border border-slate-100 px-3 py-2">기초생활수급자 또는 차상위계층</td>
+                          </tr>
+                          <tr className="bg-white">
+                            <td className="border border-slate-100 px-3 py-2 font-bold text-slate-700">근로장려금</td>
+                            <td className="border border-slate-100 px-3 py-2">근로장려금 신청자격 대상자</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+
+                    {/* 추가 요건 표 */}
+                    <div>
+                      <p className="font-extrabold text-slate-800 mb-1.5">② 추가 요건 (다음 중 하나 해당)</p>
+                      <table className="w-full text-left border-collapse">
+                        <thead>
+                          <tr className="bg-teal-50">
+                            <th className="border border-teal-100 px-3 py-2 text-teal-700 font-bold w-28">구분</th>
+                            <th className="border border-teal-100 px-3 py-2 text-teal-700 font-bold">해당자</th>
+                          </tr>
+                        </thead>
+                        <tbody className="text-slate-600 font-medium">
+                          <tr className="bg-white">
+                            <td className="border border-slate-100 px-3 py-2 font-bold text-slate-700">성실상환</td>
+                            <td className="border border-slate-100 px-3 py-2">불법사금융예방대출 완제자 / 미소금융 12회차 이상 성실상환자</td>
+                          </tr>
+                          <tr className="bg-slate-50">
+                            <td className="border border-slate-100 px-3 py-2 font-bold text-slate-700">사회적배려<br/>대상자</td>
+                            <td className="border border-slate-100 px-3 py-2">한부모·조손·다문화가족, 북한이탈주민, 등록장애인, 국민기초생활수급자, 차상위계층, 자활근로자, 근로장려금 수급자</td>
+                          </tr>
+                          <tr className="bg-white">
+                            <td className="border border-slate-100 px-3 py-2 font-bold text-slate-700">특별취약<br/>계층</td>
+                            <td className="border border-slate-100 px-3 py-2">불법사금융 피해자 / 보이스피싱 피해자 / 전세사기 피해자 / 특별재난지역 거주자</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                ) : (
+                  <ul className="space-y-2.5 pl-6 list-disc text-xs md:text-sm text-slate-600 font-medium leading-relaxed">
+                    {activeProduct.target.map((t, i) => (
+                      <li key={i}>{t}</li>
+                    ))}
+                  </ul>
+                )}
               </div>
 
               {activeProduct.id === 'youth' && (
