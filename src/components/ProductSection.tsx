@@ -298,9 +298,10 @@ export default function ProductSection({ onScrollToSection, onOpenCalculator, in
               )}
 
               {activeProduct.id === 'social' && (
-                <div className="bg-gradient-to-tr from-slate-50 to-slate-100/30 p-5 rounded-2xl border border-slate-200">
-                  <h4 className="font-bold text-xs text-indigo-700 flex items-center gap-1 tracking-tight">
-                    <span>💡 사회연대금융 온라인 사전검토 2단계 필수</span>
+                <div className="bg-indigo-50 border-2 border-indigo-300 p-5 rounded-2xl">
+                  <h4 className="font-black text-sm text-indigo-700 flex items-center gap-2">
+                    <span className="animate-bounce inline-block">📋</span>
+                    <span className="animate-pulse">신청 전 필수 절차 — 온라인 사전검토 2단계</span>
                   </h4>
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-3 mt-3.5 text-xs text-slate-600">
                     <a 
