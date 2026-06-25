@@ -133,8 +133,8 @@ export default function ProductSection({ onScrollToSection, onOpenCalculator, in
         <div className="flex flex-wrap justify-center gap-3 max-w-3xl mx-auto">
           {products.map((p) => {
             const tabStyles: Record<string, { active: string; inactive: string; glow: string; icon: JSX.Element }> = {
-              social:     { active: 'from-teal-500 to-emerald-500 shadow-teal-200',     inactive: 'border-teal-200 text-teal-700 hover:bg-teal-50',     glow: 'shadow-teal-300',    icon: <Star className="w-4 h-4" /> },
-              business:   { active: 'from-emerald-500 to-green-500 shadow-emerald-200', inactive: 'border-emerald-200 text-emerald-700 hover:bg-emerald-50', glow: 'shadow-emerald-300', icon: <BadgePercent className="w-4 h-4" /> },
+              social:     { active: 'from-teal-500 to-cyan-500 shadow-teal-200',        inactive: 'border-teal-200 text-teal-700 hover:bg-teal-50',       glow: 'shadow-teal-300',    icon: <Star className="w-4 h-4" /> },
+              business:   { active: 'from-orange-500 to-amber-500 shadow-orange-200',  inactive: 'border-orange-200 text-orange-700 hover:bg-orange-50',  glow: 'shadow-orange-300',  icon: <BadgePercent className="w-4 h-4" /> },
               youth:      { active: 'from-indigo-500 to-violet-500 shadow-indigo-200',  inactive: 'border-indigo-200 text-indigo-700 hover:bg-indigo-50',  glow: 'shadow-indigo-300',  icon: <Users className="w-4 h-4" /> },
               vulnerable: { active: 'from-rose-500 to-pink-500 shadow-rose-200',        inactive: 'border-rose-200 text-rose-700 hover:bg-rose-50',        glow: 'shadow-rose-300',    icon: <ShieldCheck className="w-4 h-4" /> },
             };
