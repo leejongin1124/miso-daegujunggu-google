@@ -106,7 +106,7 @@ export default function ProductSection({ onScrollToSection, onOpenCalculator, in
         '수급비나 일용직 소득으로 매월 소액 이자를 납부할 수 있는 분',
         '고금리 사금융 대신 정부 지원 자금으로 생활을 안정시키고자 하는 분'
       ],
-      effect: '불법 사금융에 의존하지 않고 급한 생활 위기를 정책 지원으로 극복하여 안정적인 생활을 회복할 수 있습니다.'
+      effect: '급하게 돈이 필요할 때, 고금리 사금융 대신 저금리 정책대출로 생활의 위기를 넘길 수 있습니다.'
     }
   ];
 
