@@ -195,16 +195,18 @@ export default function Hero({ onScrollToSection }: HeroProps) {
             </div>
 
             <div className="bg-white p-8 rounded-2xl border-b-4 border-b-indigo-500 shadow-sm border border-slate-100">
-              <div className="w-12 h-12 bg-indigo-50 rounded-xl flex items-center justify-center text-indigo-600 mb-6 font-bold text-xl">
+              <div className="w-12 h-12 bg-indigo-50 rounded-xl flex items-center justify-center text-indigo-600 mb-6 font-bold text-xl mx-auto">
                 💰
               </div>
               <h3 className="font-bold text-lg text-slate-900">연 4.5% 수준의 저금리</h3>
               <p className="text-slate-500 text-sm mt-3 leading-relaxed">
-                영리적 장벽 없이 소상공인의 생존과 저이율 지원을 목표로 설계된 정부 금리 기준 4.5%를 성실히 준수하며 대출 상환을 돕습니다.
+                연 4.5% 금리로 운영되며, 3회 이상 납입하시면 금리가 1% 낮아집니다. 카드론이나 대부업 이용 전에 미소금융을 먼저 알아보시기 바랍니다.
               </p>
-              <span className="inline-block bg-indigo-50 text-indigo-700 text-[11px] font-bold px-2.5 py-1 rounded-md mt-6">
-                무담보 정책자금
-              </span>
+              <div className="flex flex-wrap gap-2 mt-6">
+                <span className="bg-indigo-50 text-indigo-700 text-[11px] font-bold px-2.5 py-1 rounded-md">무담보</span>
+                <span className="bg-indigo-50 text-indigo-700 text-[11px] font-bold px-2.5 py-1 rounded-md">무보증</span>
+                <span className="bg-indigo-50 text-indigo-700 text-[11px] font-bold px-2.5 py-1 rounded-md">중도상환 수수료 없음</span>
+              </div>
             </div>
 
           </div>
