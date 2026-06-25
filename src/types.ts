@@ -18,6 +18,7 @@ export interface Product {
   steps?: { step: string; desc: string }[];
   suitability: string[];
   effect: string;
+  blogUrl?: string;
 }
 
 export interface Milestone {

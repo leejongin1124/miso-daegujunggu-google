@@ -43,7 +43,8 @@ export default function ProductSection({ onScrollToSection, onOpenCalculator, in
         '정부 보조금 지급 전 발생하는 일시적 운영자금 부족을 해소하고자 하는 단체',
         '취약계층 고용 유지 및 사회적 서비스 제공을 목적으로 운영되는 기업'
       ],
-      effect: '보조금 지급 공백기에도 조직 운영을 안정적으로 유지하고, 직원의 고용을 지속할 수 있도록 지원합니다.'
+      effect: '보조금 지급 공백기에도 조직 운영을 안정적으로 유지하고, 직원의 고용을 지속할 수 있도록 지원합니다.',
+      blogUrl: 'https://blog.naver.com/PostView.naver?blogId=eornwndrn1&logNo=223850000058&categoryNo=7&parentCategoryNo=7&from=thumbnailList'
     },
     {
       id: 'business',
@@ -64,7 +65,8 @@ export default function ProductSection({ onScrollToSection, onOpenCalculator, in
         '고금리 대출을 저금리 정책자금으로 전환하고자 하는 분',
         '분할 상환 의지가 있는 소상공인·개인 사업자 (법인기업 제외)'
       ],
-      effect: '고금리 대출 대신 저금리로 사업을 유지하면서, 성실하게 상환하다 보면 신용도 함께 좋아집니다.'
+      effect: '고금리 대출 대신 저금리로 사업을 유지하면서, 성실하게 상환하다 보면 신용도 함께 좋아집니다.',
+      blogUrl: ''
     },
     {
       id: 'youth',
@@ -84,7 +86,8 @@ export default function ProductSection({ onScrollToSection, onOpenCalculator, in
         '신용카드나 금융 거래 이력이 부족해 일반 은행 대출이 어려운 청년',
         '고금리 대부업 이용 전 공공 정책자금을 먼저 알아보고자 하는 청년'
       ],
-      effect: '취업 준비 기간 동안 생활 자금을 마련하고, 처음으로 건전한 신용을 쌓을 수 있는 기회가 됩니다.'
+      effect: '취업 준비 기간 동안 생활 자금을 마련하고, 처음으로 건전한 신용을 쌓을 수 있는 기회가 됩니다.',
+      blogUrl: 'https://blog.naver.com/PostView.naver?blogId=eornwndrn1&logNo=224274876397&categoryNo=7&parentCategoryNo=7&from=thumbnailList'
     },
     {
       id: 'vulnerable',
@@ -385,28 +388,30 @@ export default function ProductSection({ onScrollToSection, onOpenCalculator, in
                     📞 {activeProduct.name} 상담 신청하기
                   </button>
                 )}
-                <motion.a
-                  href="https://blog.naver.com/PostView.naver?blogId=eornwndrn1&logNo=223850000058&categoryNo=7&parentCategoryNo=7&from=thumbnailList"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.97 }}
-                  className="relative overflow-hidden bg-gradient-to-r from-amber-400 to-orange-500 text-white font-bold px-5 py-4 rounded-xl text-sm flex items-center justify-center space-x-2 shadow-md cursor-pointer"
-                >
-                  <motion.div
-                    className="absolute inset-0 bg-white/20"
-                    animate={{ opacity: [0, 0.4, 0] }}
-                    transition={{ duration: 1.4, repeat: Infinity }}
-                  />
-                  <motion.span
-                    animate={{ rotate: [0, -10, 10, -10, 0] }}
-                    transition={{ duration: 1.2, repeat: Infinity, repeatDelay: 1.5 }}
-                    className="relative z-10 text-base"
+                {activeProduct.blogUrl ? (
+                  <motion.a
+                    href={activeProduct.blogUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.97 }}
+                    className="relative overflow-hidden bg-gradient-to-r from-amber-400 to-orange-500 text-white font-bold px-5 py-4 rounded-xl text-sm flex items-center justify-center space-x-2 shadow-md cursor-pointer"
                   >
-                    📝
-                  </motion.span>
-                  <span className="relative z-10 whitespace-nowrap">블로그에서 상품 자세히 보기</span>
-                </motion.a>
+                    <motion.div
+                      className="absolute inset-0 bg-white/20"
+                      animate={{ opacity: [0, 0.4, 0] }}
+                      transition={{ duration: 1.4, repeat: Infinity }}
+                    />
+                    <motion.span
+                      animate={{ rotate: [0, -10, 10, -10, 0] }}
+                      transition={{ duration: 1.2, repeat: Infinity, repeatDelay: 1.5 }}
+                      className="relative z-10 text-base"
+                    >
+                      📝
+                    </motion.span>
+                    <span className="relative z-10 whitespace-nowrap">블로그에서 상품 자세히 보기</span>
+                  </motion.a>
+                ) : null}
               </div>
 
             </div>
