@@ -123,11 +123,11 @@ export default function ProductSection({ onScrollToSection, onOpenCalculator, in
         {/* 상단 타이들 */}
         <div id="social-finance" className="text-center space-y-4 max-w-4xl mx-auto">
           <span className="text-xs font-black text-teal-600 tracking-widest uppercase">Miso Finance Products</span>
-          <h2 className="text-3xl md:text-4.5xl font-black text-slate-900 tracking-tight leading-none">
+          <h2 className="text-2xl md:text-3xl font-black text-slate-900 tracking-tight leading-tight whitespace-nowrap overflow-hidden text-ellipsis">
             미소금융대구중구법인 대표상품
           </h2>
           <div className="h-1.5 w-16 bg-teal-600 rounded-full mx-auto" />
-          <p className="text-slate-600 font-medium text-base md:text-lg max-w-2xl mx-auto leading-relaxed">
+          <p className="text-slate-600 font-medium text-base md:text-lg max-w-2xl mx-auto leading-relaxed text-left md:text-center">
             상환 의지와 자립의 꿈, 그것으로 충분합니다. <br className="hidden sm:inline" />
             담보·보증 없이, 연 4.5% 저금리 대출로 여러분의 새 출발을 함께합니다.
           </p>
