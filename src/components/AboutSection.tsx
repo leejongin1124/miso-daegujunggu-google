@@ -4,7 +4,29 @@
  */
 
 import { motion } from 'motion/react';
+import { useState, useEffect } from 'react';
 import { Award, Briefcase, Calendar, MapPin, Bus, Train, Phone, Share2, Printer, ExternalLink } from 'lucide-react';
+
+const BLOG_TEXT = '법인 네이버 블로그 — 상품 상세 정보 보기';
+
+function TypewriterText() {
+  const [displayed, setDisplayed] = useState('');
+  useEffect(() => {
+    let i = 0;
+    setDisplayed('');
+    const interval = setInterval(() => {
+      if (i < BLOG_TEXT.length) {
+        setDisplayed(BLOG_TEXT.slice(0, i + 1));
+        i++;
+      } else {
+        clearInterval(interval);
+        setTimeout(() => { i = 0; setDisplayed(''); }, 2000);
+      }
+    }, 80);
+    return () => clearInterval(interval);
+  }, []);
+  return <span>{displayed}<span className="animate-pulse">|</span></span>;
+}
 
 export default function AboutSection() {
   const historyData = [
@@ -358,7 +380,7 @@ export default function AboutSection() {
                 >
                   <span className="flex items-center space-x-2">
                     <span className="text-base">📝</span>
-                    <span>법인 네이버 블로그 — 상품 상세 정보 보기</span>
+                    <TypewriterText />
                   </span>
                   <motion.span
                     animate={{ x: [0, 5, 0] }}
