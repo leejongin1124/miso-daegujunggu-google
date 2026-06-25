@@ -78,8 +78,7 @@ export default function Header({ activeTab, setActiveTab, onScrollToSection, onO
       label: '알림마당',
       sublinks: [
         { name: '법인 공지사항', id: 'notice' },
-        { name: '불법 사금융 가이드', id: 'anti-fraud' },
-        { name: '자활 연계 유관기관', id: 'partners' }
+        { name: '불법 사금융 가이드', id: 'anti-fraud' }
       ]
     }
   ];
