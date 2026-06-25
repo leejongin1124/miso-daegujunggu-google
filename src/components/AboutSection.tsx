@@ -112,7 +112,7 @@ export default function AboutSection() {
             </div>
 
             <p className="text-right text-slate-800 font-extrabold text-base pt-4 decoration-teal-600 decoration-2">
-              (사)미소금융대구중구법인 대표 <span className="text-teal-600 font-black text-lg">김 석 동</span> 拜上
+              (사)미소금융대구중구법인 대표 <span className="text-teal-600 font-black text-lg">김 석 동</span>
             </p>
           </div>
         </div>
