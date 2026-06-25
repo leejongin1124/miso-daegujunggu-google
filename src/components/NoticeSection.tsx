@@ -56,8 +56,8 @@ export default function NoticeSection() {
           </h2>
           <div className="h-1.5 w-16 bg-teal-600 rounded-full mx-auto" />
           <p className="text-slate-600 font-medium text-base md:text-lg max-w-2xl mx-auto leading-relaxed">
-            미소금융대구중구법인을 이용하시는 고객님들의 권익을 보호하고, <br className="hidden sm:inline" />
-            안전하게 서민의 자금을 지켜드리기 위한 투명한 정보 제공망입니다.
+            (사)미소금융대구중구법인은 지원 대상자의 권익 보호와 <br className="hidden sm:inline" />
+            공정하고 투명한 금융 정보 제공을 위해 운영됩니다.
           </p>
         </div>
 
