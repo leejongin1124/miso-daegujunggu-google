@@ -66,7 +66,7 @@ export default function ProductSection({ onScrollToSection, onOpenCalculator, in
         '분할 상환 의지가 있는 소상공인·개인 사업자 (법인기업 제외)'
       ],
       effect: '고금리 대출 대신 저금리로 사업을 유지하면서, 성실하게 상환하다 보면 신용도 함께 좋아집니다.',
-      blogUrl: ''
+      blogUrl: 'https://blog.naver.com/PostView.naver?blogId=eornwndrn1&logNo=224289610439&categoryNo=7&parentCategoryNo=7&from=thumbnailList'
     },
     {
       id: 'youth',
