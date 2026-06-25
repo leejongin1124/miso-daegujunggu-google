@@ -42,7 +42,7 @@ export default function AboutSection() {
     {
       year: '2018',
       items: [
-        { date: '08.31', text: '전국 미소금융 법인 최초 사회적경제기업 1호 대출 지원', emphasis: true }
+        { date: '08.31', text: '전국 미소금융 법인 최초 사회적경제기업 1호 대출 지원', emphasis: true, newsUrl: 'https://www.yna.co.kr/view/AKR20180831135900002' }
       ]
     },
     {
@@ -242,6 +242,17 @@ export default function AboutSection() {
                                 <span className="inline-flex flex-wrap items-center gap-2">
                                   <span className="text-teal-600 font-bold bg-teal-50 px-2 py-0.5 rounded text-xs font-mono">핵심성과</span>
                                   <strong className="text-slate-900 font-bold">{item.text}</strong>
+                                  {(item as any).newsUrl && (
+                                    <a
+                                      href={(item as any).newsUrl}
+                                      target="_blank"
+                                      rel="noopener noreferrer"
+                                      className="inline-flex items-center space-x-1 bg-amber-50 border border-amber-200 text-amber-700 hover:bg-amber-100 text-[10px] font-bold px-2 py-0.5 rounded-full transition-colors"
+                                    >
+                                      <span>📰</span>
+                                      <span>신문기사 보기</span>
+                                    </a>
+                                  )}
                                 </span>
                               ) : (
                                 <span className="text-slate-600 text-sm">{item.text}</span>
