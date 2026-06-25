@@ -82,19 +82,9 @@ export default function AboutSection() {
         
         {/* 이사장 인사말 */}
         <div id="ceo-greeting" className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center bg-slate-50 p-8 md:p-14 rounded-3xl border border-slate-100">
-          <div className="lg:col-span-4 text-center space-y-4">
-            <div className="relative inline-block">
-              <div className="w-52 h-52 bg-slate-200 rounded-2xl mx-auto overflow-hidden shadow-md border-4 border-white flex items-center justify-center text-teal-700 bg-gradient-to-tr from-teal-50 to-teal-100">
-                <span className="text-4xl font-extrabold font-mono">김 석 동</span>
-              </div>
-              <div className="absolute -bottom-3 left-1/2 transform -translate-x-1/2 bg-teal-600 text-white text-xs font-bold px-4 py-1.5 rounded-full shadow-sm">
-                법인 대표이사
-              </div>
-            </div>
-            
-            <div className="pt-2">
-              <h4 className="text-slate-800 font-extrabold text-lg">김석동 대표</h4>
-              <p className="text-slate-500 text-xs mt-1 font-semibold">(사)미소금융대구중구법인</p>
+          <div className="lg:col-span-4 text-center">
+            <div className="w-52 h-52 bg-slate-100 rounded-2xl mx-auto overflow-hidden shadow-md border-4 border-white">
+              <img src="/ceo-photo.jpg" alt="대표이사" className="w-full h-full object-cover" onError={(e) => { (e.target as HTMLImageElement).style.display = 'none'; }} />
             </div>
           </div>
 
