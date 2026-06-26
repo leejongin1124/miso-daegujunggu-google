@@ -15,11 +15,13 @@ import NoticeSection from './components/NoticeSection';
 import Footer from './components/Footer';
 import FloatingWidget from './components/FloatingWidget';
 import LandingSummary from './components/LandingSummary';
+import MisoIntroSection from './components/MisoIntroSection';
 
 // 섹션 ID → 어느 컴포넌트에 속하는지 매핑
 const SECTION_MAP: Record<string, string> = {
   'ceo-greeting': 'about', 'about-miso': 'about', 'history': 'about',
   'organization': 'about', 'location': 'about',
+  'miso-intro': 'miso-intro',
   'social-finance': 'products', 'business-fund': 'products',
   'youth-fund': 'products', 'vulnerable-fund': 'products',
   'loan-target': 'guide', 'faq-section': 'guide',
@@ -142,6 +144,13 @@ export default function App() {
 
         {/* 항상 표시: 퀵 네비게이션 카드 */}
         <LandingSummary onScrollToSection={handleScrollToSection} />
+
+        {/* 클릭 시 표시: 미소금융이란 */}
+        {openSections.has('miso-intro') && (
+          <div className="bg-white">
+            <MisoIntroSection />
+          </div>
+        )}
 
         {/* 클릭 시 표시: 법인소개 */}
         {openSections.has('about') && (

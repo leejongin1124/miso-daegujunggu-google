@@ -48,6 +48,7 @@ export default function Header({ activeTab, setActiveTab, onScrollToSection, onO
       type: TabType.PRODUCTS,
       label: '지원상품',
       sublinks: [
+        { name: '미소금융이란', id: 'miso-intro' },
         { name: '사회적연대금융', id: 'social-finance' },
         { name: '사업자 운영자금', id: 'business-fund' },
         { name: '청년미래이음대출', id: 'youth-fund' },
