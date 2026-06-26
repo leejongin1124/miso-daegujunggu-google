@@ -36,8 +36,8 @@ export default function App() {
   const [productTab, setProductTab] = useState<string>('social');
   const [caseFilter, setCaseFilter] = useState<string>('all');
 
-  // 초기에는 아무 섹션도 열려있지 않음
-  const [openSections, setOpenSections] = useState<Set<string>>(new Set());
+  // null = 랜딩페이지, 문자열 = 해당 컴포넌트만 표시
+  const [activeSection, setActiveSection] = useState<string | null>(null);
 
   const pendingScrollRef = useRef<string | null>(null);
 
@@ -50,7 +50,7 @@ export default function App() {
     'case-youth': 'youth', 'case-vulnerable': 'vulnerable',
   };
 
-  // 섹션이 열린 뒤 대기 중인 스크롤 실행
+  // 섹션이 바뀐 뒤 대기 중인 스크롤 실행
   useEffect(() => {
     if (pendingScrollRef.current) {
       const target = pendingScrollRef.current;
@@ -60,56 +60,41 @@ export default function App() {
         if (el) {
           const offset = el.getBoundingClientRect().top + window.pageYOffset - 110;
           window.scrollTo({ top: offset, behavior: 'smooth' });
+        } else {
+          window.scrollTo({ top: 0, behavior: 'smooth' });
         }
       }, 80);
     }
-  }, [openSections]);
-
-  // 스크롤 기반 액티브 탭 트래킹
-  useEffect(() => {
-    const handleScroll = () => {
-      const scrollPos = window.scrollY + 250;
-      const aboutEl = document.getElementById('history');
-      const productsEl = document.getElementById('social-finance');
-      const guideEl = document.getElementById('loan-calc-intro');
-      const casesEl = document.getElementById('case-social');
-      const noticeEl = document.getElementById('notice');
-
-      if (noticeEl && scrollPos >= noticeEl.offsetTop) setActiveTab(TabType.NOTICE);
-      else if (casesEl && scrollPos >= casesEl.offsetTop) setActiveTab(TabType.CASES);
-      else if (guideEl && scrollPos >= guideEl.offsetTop) setActiveTab(TabType.GUIDE);
-      else if (productsEl && scrollPos >= productsEl.offsetTop) setActiveTab(TabType.PRODUCTS);
-      else setActiveTab(TabType.ABOUT);
-    };
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  }, [activeSection]);
 
   const revealAndScroll = (sectionId: string) => {
     const component = SECTION_MAP[sectionId];
-    if (component) {
-      setOpenSections(prev => {
-        if (prev.has(component)) return prev;
-        pendingScrollRef.current = sectionId;
-        return new Set([...prev, component]);
-      });
-      // 이미 열려있으면 바로 스크롤
-      setOpenSections(prev => {
-        if (prev.has(component)) {
-          setTimeout(() => {
-            const el = document.getElementById(sectionId);
-            if (el) {
-              const offset = el.getBoundingClientRect().top + window.pageYOffset - 110;
-              window.scrollTo({ top: offset, behavior: 'smooth' });
-            }
-          }, 80);
+    if (!component) return;
+
+    if (activeSection === component) {
+      // 이미 같은 섹션 → 해당 anchor로 스크롤만
+      setTimeout(() => {
+        const el = document.getElementById(sectionId);
+        if (el) {
+          const offset = el.getBoundingClientRect().top + window.pageYOffset - 110;
+          window.scrollTo({ top: offset, behavior: 'smooth' });
         }
-        return prev;
-      });
+      }, 80);
+    } else {
+      // 다른 섹션 → 교체 후 스크롤
+      pendingScrollRef.current = sectionId;
+      setActiveSection(component);
+      window.scrollTo({ top: 0, behavior: 'instant' });
     }
   };
 
   const handleScrollToSection = (sectionId: string) => {
+    // 로고 클릭 등 랜딩페이지 복귀
+    if (sectionId === 'hero-section') {
+      setActiveSection(null);
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      return;
+    }
     if (sectionToProductTab[sectionId]) {
       setProductTab(sectionToProductTab[sectionId]);
       revealAndScroll('social-finance');
@@ -127,6 +112,8 @@ export default function App() {
     handleScrollToSection('loan-calc');
   };
 
+  const isLanding = activeSection === null;
+
   return (
     <div className="min-h-screen bg-slate-50 text-slate-800 antialiased selection:bg-miso-blue-500 selection:text-white">
 
@@ -139,29 +126,31 @@ export default function App() {
 
       <main className="relative">
 
-        {/* 항상 표시: Hero */}
-        <Hero onScrollToSection={handleScrollToSection} />
+        {/* 랜딩페이지: Hero + 퀵 네비게이션 */}
+        {isLanding && (
+          <>
+            <Hero onScrollToSection={handleScrollToSection} />
+            <LandingSummary onScrollToSection={handleScrollToSection} />
+          </>
+        )}
 
-        {/* 항상 표시: 퀵 네비게이션 카드 */}
-        <LandingSummary onScrollToSection={handleScrollToSection} />
-
-        {/* 클릭 시 표시: 미소금융이란 */}
-        {openSections.has('miso-intro') && (
-          <div className="bg-white">
+        {/* 미소금융이란 */}
+        {activeSection === 'miso-intro' && (
+          <div className="bg-white pt-20">
             <MisoIntroSection />
           </div>
         )}
 
-        {/* 클릭 시 표시: 법인소개 */}
-        {openSections.has('about') && (
-          <div className="bg-white">
+        {/* 법인소개 */}
+        {activeSection === 'about' && (
+          <div className="bg-white pt-20">
             <AboutSection />
           </div>
         )}
 
-        {/* 클릭 시 표시: 지원상품 */}
-        {openSections.has('products') && (
-          <div>
+        {/* 지원상품 */}
+        {activeSection === 'products' && (
+          <div className="pt-20">
             <ProductSection
               onScrollToSection={handleScrollToSection}
               onOpenCalculator={handleOpenCalculator}
@@ -170,23 +159,23 @@ export default function App() {
           </div>
         )}
 
-        {/* 클릭 시 표시: 대출안내 */}
-        {openSections.has('guide') && (
-          <div className="bg-white">
+        {/* 대출안내 */}
+        {activeSection === 'guide' && (
+          <div className="bg-white pt-20">
             <GuideSection />
           </div>
         )}
 
-        {/* 클릭 시 표시: 지원사례 */}
-        {openSections.has('cases') && (
-          <div>
+        {/* 지원사례 */}
+        {activeSection === 'cases' && (
+          <div className="pt-20">
             <CaseSection initialFilter={caseFilter} />
           </div>
         )}
 
-        {/* 클릭 시 표시: 알림마당 */}
-        {openSections.has('notice') && (
-          <div className="bg-white">
+        {/* 알림마당 */}
+        {activeSection === 'notice' && (
+          <div className="bg-white pt-20">
             <NoticeSection />
           </div>
         )}
