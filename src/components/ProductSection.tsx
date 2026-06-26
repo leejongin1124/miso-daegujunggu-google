@@ -110,7 +110,7 @@ export default function ProductSection({ onScrollToSection, onOpenCalculator, in
         '고금리 사금융 대신 정부 지원 자금으로 생활을 안정시키고자 하는 분'
       ],
       effect: '급하게 돈이 필요할 때, 고금리 사금융 대신 저금리 정책대출로 생활의 위기를 넘길 수 있습니다.',
-      blogUrl: 'https://blog.naver.com/eornwndrn1'
+      blogUrl: 'https://blog.naver.com/eornwndrn1/224328452218'
     }
   ];
 
