@@ -65,7 +65,7 @@ const cards = [
 
 export default function LandingSummary({ onScrollToSection }: LandingSummaryProps) {
   return (
-    <section className="bg-white py-14 md:py-20 px-4 sm:px-6 lg:px-8 border-t border-slate-100">
+    <section className="lg:hidden bg-white py-14 px-4 sm:px-6 border-t border-slate-100">
       <div className="max-w-7xl mx-auto">
 
         <motion.div
