@@ -456,57 +456,6 @@ export default function ProductSection({ onScrollToSection, onOpenCalculator, in
           </motion.div>
         </AnimatePresence>
 
-        {/* 한눈에 보는 상품 비교표 */}
-        <div className="bg-white p-6.5 md:p-10 rounded-3xl border border-slate-100 shadow-sm text-left">
-          <div className="mb-6">
-            <h4 className="font-extrabold text-slate-900 text-lg">한눈에 보는 대출상품 비교</h4>
-          </div>
-
-          <div className="overflow-x-auto">
-            <table className="w-full text-xs md:text-sm text-left text-slate-500 divide-y divide-slate-100">
-              <thead>
-                <tr className="text-slate-400 font-bold text-[10px] uppercase tracking-wider bg-slate-50/50">
-                  <th className="px-4 py-3">상품명</th>
-                  <th className="px-4 py-3">자금용도</th>
-                  <th className="px-4 py-3">대출한도</th>
-                  <th className="px-4 py-3">대출금리</th>
-                  <th className="px-4 py-3 text-slate-700">상환기간</th>
-                </tr>
-              </thead>
-              <tbody className="divide-y divide-slate-100 font-semibold text-slate-700">
-                <tr className="hover:bg-slate-50 transition-colors">
-                  <td className="px-4 py-4.5 font-extrabold text-slate-900 text-[13px] md:text-sm">사회적연대금융</td>
-                  <td className="px-4 py-4.5 text-slate-500">사회적경제기업 운영·시설·임차보증금</td>
-                  <td className="px-4 py-4.5 font-bold">최대 1억원</td>
-                  <td className="px-4 py-4.5 text-teal-600">연 4.5% (우수기업 4.0%)</td>
-                  <td className="px-4 py-4.5 text-slate-500">최대 6년 (거치 2년 포함)</td>
-                </tr>
-                <tr className="hover:bg-slate-50 transition-colors">
-                  <td className="px-4 py-4.5 font-extrabold text-slate-900 text-[13px] md:text-sm">사업자 운영자금</td>
-                  <td className="px-4 py-4.5 text-slate-500">원재료 구입, 사업장 운영비용</td>
-                  <td className="px-4 py-4.5 font-bold">최대 2,000만원 (청년 최대 3,000만원)</td>
-                  <td className="px-4 py-4.5 text-teal-600">연 4.5%</td>
-                  <td className="px-4 py-4.5 text-slate-500">최대 5.5년 (거치 6개월 포함)</td>
-                </tr>
-                <tr className="hover:bg-slate-50 transition-colors">
-                  <td className="px-4 py-4.5 font-extrabold text-slate-900 text-[13px] md:text-sm">청년미래이음대출</td>
-                  <td className="px-4 py-4.5 text-slate-500">만 19~34세 청년 취·창업 자금</td>
-                  <td className="px-4 py-4.5 font-bold">최대 500만원</td>
-                  <td className="px-4 py-4.5 text-teal-600">연 4.5%</td>
-                  <td className="px-4 py-4.5 text-slate-500">최대 11년 (거치 6년 포함)</td>
-                </tr>
-                <tr className="hover:bg-slate-50 transition-colors">
-                  <td className="px-4 py-4.5 font-extrabold text-slate-900 text-[13px] md:text-sm">금융취약계층 생계자금</td>
-                  <td className="px-4 py-4.5 text-slate-500">취약계층 생계안정 자금</td>
-                  <td className="px-4 py-4.5 font-bold">최대 500만원</td>
-                  <td className="px-4 py-4.5 text-teal-600">연 4.5%</td>
-                  <td className="px-4 py-4.5 text-slate-500">거치 1년 + 분할 5년 (총 6년)</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
-
       </div>
     </section>
   );
