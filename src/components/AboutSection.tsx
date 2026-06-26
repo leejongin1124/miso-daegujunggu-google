@@ -7,7 +7,9 @@ import { motion } from 'motion/react';
 import { Award, Briefcase, Calendar, MapPin, Bus, Train, Phone, Share2, Printer, ExternalLink } from 'lucide-react';
 
 
-export default function AboutSection() {
+export default function AboutSection({ sectionId }: { sectionId?: string }) {
+  const show = (ids: string | string[]) =>
+    !sectionId || (Array.isArray(ids) ? ids.includes(sectionId) : sectionId === ids);
   const historyData = [
     {
       year: '2026',
@@ -79,9 +81,9 @@ export default function AboutSection() {
   return (
     <section className="py-20 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-24">
-        
+
         {/* 이사장 인사말 */}
-        <div id="ceo-greeting" className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center bg-slate-50 p-8 md:p-14 rounded-3xl border border-slate-100">
+        {show(['ceo-greeting', 'about-miso']) && <div id="ceo-greeting" className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center bg-slate-50 p-8 md:p-14 rounded-3xl border border-slate-100">
           <div className="lg:col-span-4 text-center">
             <div className="w-52 h-52 bg-slate-100 rounded-2xl mx-auto overflow-hidden shadow-md border-4 border-white">
               <img src="/ceo-photo.jpg" alt="대표이사" className="w-full h-full object-cover" onError={(e) => { (e.target as HTMLImageElement).style.display = 'none'; }} />
@@ -115,10 +117,10 @@ export default function AboutSection() {
               (사)미소금융대구중구법인 대표 <span className="text-teal-600 font-black text-lg">김 석 동</span>
             </p>
           </div>
-        </div>
+        </div>}
 
         {/* 법인 조직도 (공공기관 형식 CSS/SVG 다이어그램) */}
-        <div id="organization" className="text-center space-y-8 bg-white p-8 md:p-12 rounded-3xl border border-slate-100 shadow-sm">
+        {show('organization') && <div id="organization" className="text-center space-y-8 bg-white p-8 md:p-12 rounded-3xl border border-slate-100 shadow-sm">
           <div className="space-y-2">
             <span className="text-xs font-bold text-teal-600 tracking-widest uppercase">Organization Chart</span>
             <h3 className="text-2xl md:text-3xl font-extrabold text-slate-950 tracking-tight">조직도</h3>
@@ -203,10 +205,10 @@ export default function AboutSection() {
               </svg>
             </div>
           </div>
-        </div>
+        </div>}
 
         {/* 법인 연혁 (스마트 타임라인 카드) */}
-        <div id="history" className="space-y-12">
+        {show('history') && <div id="history" className="space-y-12">
           
           <div className="text-center space-y-3">
             <span className="text-teal-600 font-bold text-sm tracking-widest uppercase">History Timeline</span>
@@ -269,10 +271,10 @@ export default function AboutSection() {
             </div>
           </div>
 
-        </div>
+        </div>}
 
         {/* 오시는 길 지도 서비스 및 역 안내 */}
-        <div id="location" className="space-y-8 bg-slate-50 p-8 md:p-14 rounded-3xl border border-slate-100 text-left">
+        {show('location') && <div id="location" className="space-y-8 bg-slate-50 p-8 md:p-14 rounded-3xl border border-slate-100 text-left">
           
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-start">
             
@@ -426,7 +428,7 @@ export default function AboutSection() {
 
           </div>
 
-        </div>
+        </div>}
 
       </div>
     </section>

@@ -38,6 +38,8 @@ export default function App() {
 
   // null = 랜딩페이지, 문자열 = 해당 컴포넌트만 표시
   const [activeSection, setActiveSection] = useState<string | null>(null);
+  // 클릭된 서브섹션 ID (컴포넌트 내부에서 해당 항목만 표시)
+  const [activeSectionId, setActiveSectionId] = useState<string | null>(null);
 
   const pendingScrollRef = useRef<string | null>(null);
 
@@ -71,8 +73,8 @@ export default function App() {
     const component = SECTION_MAP[sectionId];
     if (!component) return;
 
-    if (activeSection === component) {
-      // 이미 같은 섹션 → 해당 anchor로 스크롤만
+    if (activeSection === component && activeSectionId === sectionId) {
+      // 동일 서브섹션 → 스크롤만
       setTimeout(() => {
         const el = document.getElementById(sectionId);
         if (el) {
@@ -81,8 +83,9 @@ export default function App() {
         }
       }, 80);
     } else {
-      // 다른 섹션 → 교체 후 스크롤
+      // 다른 섹션/서브섹션 → 교체 후 상단으로
       pendingScrollRef.current = sectionId;
+      setActiveSectionId(sectionId);
       setActiveSection(component);
       window.scrollTo({ top: 0, behavior: 'instant' });
     }
@@ -92,6 +95,7 @@ export default function App() {
     // 로고 클릭 등 랜딩페이지 복귀
     if (sectionId === 'hero-section') {
       setActiveSection(null);
+      setActiveSectionId(null);
       window.scrollTo({ top: 0, behavior: 'smooth' });
       return;
     }
@@ -144,7 +148,7 @@ export default function App() {
         {/* 법인소개 */}
         {activeSection === 'about' && (
           <div className="bg-white pt-20">
-            <AboutSection />
+            <AboutSection sectionId={activeSectionId ?? undefined} />
           </div>
         )}
 
@@ -162,7 +166,7 @@ export default function App() {
         {/* 대출안내 */}
         {activeSection === 'guide' && (
           <div className="bg-white pt-20">
-            <GuideSection />
+            <GuideSection sectionId={activeSectionId ?? undefined} />
           </div>
         )}
 
@@ -176,7 +180,7 @@ export default function App() {
         {/* 알림마당 */}
         {activeSection === 'notice' && (
           <div className="bg-white pt-20">
-            <NoticeSection />
+            <NoticeSection sectionId={activeSectionId ?? undefined} />
           </div>
         )}
 

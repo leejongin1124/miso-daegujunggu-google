@@ -131,6 +131,84 @@ export default function MisoIntroSection() {
           </div>
         </motion.div>
 
+        {/* 한눈에 보는 대출상품 안내 */}
+        <motion.div
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, delay: 0.1 }}
+          className="bg-white border border-slate-100 rounded-3xl shadow-sm overflow-hidden"
+        >
+          <div className="bg-gradient-to-r from-indigo-600 to-violet-600 px-8 py-6 text-white">
+            <h3 className="font-extrabold text-xl">한눈에 보는 대출상품 안내</h3>
+            <p className="text-white/80 text-sm mt-1">4가지 정책 대출 상품의 주요 조건을 한 번에 확인하세요</p>
+          </div>
+
+          <div className="overflow-x-auto">
+            <table className="w-full text-sm" style={{ minWidth: '640px' }}>
+              <thead>
+                <tr className="bg-slate-50 border-b border-slate-100">
+                  <th className="text-left px-5 py-4 font-extrabold text-slate-500 text-xs uppercase tracking-wider">상품명</th>
+                  <th className="text-left px-5 py-4 font-extrabold text-slate-500 text-xs uppercase tracking-wider">자금용도</th>
+                  <th className="text-center px-5 py-4 font-extrabold text-slate-500 text-xs uppercase tracking-wider">대출한도</th>
+                  <th className="text-center px-5 py-4 font-extrabold text-slate-500 text-xs uppercase tracking-wider">대출금리</th>
+                  <th className="text-center px-5 py-4 font-extrabold text-slate-500 text-xs uppercase tracking-wider">상환기간</th>
+                </tr>
+              </thead>
+              <tbody>
+                {[
+                  {
+                    name: '사회적연대금융',
+                    purpose: '사회적경제기업 운영·시설·임차보증금',
+                    limit: '최대 1억원',
+                    rate: '연 4.5% (우수기업 4.0%)',
+                    period: '최대 6년 (거치 2년 포함)',
+                    highlight: true
+                  },
+                  {
+                    name: '사업자 운영자금',
+                    purpose: '원재료 구입, 사업장 운영비용',
+                    limit: '최대 2,000만원 (청년 최대 3,000만원)',
+                    rate: '연 4.5%',
+                    period: '최대 5.5년 (거치 6개월 포함)',
+                    highlight: false
+                  },
+                  {
+                    name: '청년미래이음대출',
+                    purpose: '만 19~34세 청년 취·창업 자금',
+                    limit: '최대 500만원',
+                    rate: '연 4.5%',
+                    period: '최대 11년 (거치 6년 포함)',
+                    highlight: false
+                  },
+                  {
+                    name: '금융취약계층 생계자금',
+                    purpose: '취약계층 생계안정 자금',
+                    limit: '최대 500만원',
+                    rate: '연 4.5%',
+                    period: '거치 1년 + 분할 5년 (총 6년)',
+                    highlight: false
+                  }
+                ].map((row, i) => (
+                  <tr key={i} className={`border-b border-slate-50 ${i % 2 === 0 ? 'bg-white' : 'bg-slate-50/30'}`}>
+                    <td className={`px-5 py-4 font-extrabold text-sm ${row.highlight ? 'text-teal-700' : 'text-slate-800'}`}>{row.name}</td>
+                    <td className="px-5 py-4 text-slate-600 text-xs font-medium leading-relaxed">{row.purpose}</td>
+                    <td className="px-5 py-4 text-center font-bold text-slate-800 text-xs">{row.limit}</td>
+                    <td className="px-5 py-4 text-center font-bold text-teal-700 text-xs">{row.rate}</td>
+                    <td className="px-5 py-4 text-center text-slate-600 text-xs">{row.period}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+
+          <div className="px-8 py-5 bg-indigo-50/50 border-t border-indigo-100">
+            <p className="text-indigo-700 text-xs font-bold text-center">
+              ※ 모든 상품 금리는 연 4.5% 고정이며, 4회 이상 성실 납입 시 연 3.5%로 우대 적용됩니다.
+            </p>
+          </div>
+        </motion.div>
+
       </div>
     </section>
   );

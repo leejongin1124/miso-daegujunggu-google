@@ -7,7 +7,9 @@ import { useState } from 'react';
 import { motion } from 'motion/react';
 import { FileText, ChevronRight, AlertTriangle, ShieldCheck, HelpCircle, Phone, Landmark, Scale, Share2, ExternalLink } from 'lucide-react';
 
-export default function NoticeSection() {
+export default function NoticeSection({ sectionId }: { sectionId?: string }) {
+  const show = (ids: string | string[]) =>
+    !sectionId || (Array.isArray(ids) ? ids.includes(sectionId) : sectionId === ids);
   const [clickedIdx, setClickedIdx] = useState<number | null>(null);
   const notices = [
     {
@@ -48,8 +50,8 @@ export default function NoticeSection() {
     <section className="py-20 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-20">
         
-        {/* 타이틀 */}
-        <div id="notice" className="text-center space-y-4 max-w-4xl mx-auto">
+        {/* 공지사항 */}
+        {show('notice') && <><div id="notice" className="text-center space-y-4 max-w-4xl mx-auto">
           <span className="text-xs font-black text-teal-600 tracking-widest uppercase">Miso Notice Board</span>
           <h2 className="text-3xl md:text-4.5xl font-black text-slate-900 tracking-tight leading-none">
             알림마당 & 사금융 안심 센터
@@ -96,10 +98,10 @@ export default function NoticeSection() {
               </div>
             ))}
           </div>
-        </div>
+        </div></>}
 
         {/* 불법 사금융 예방 배너 및 단속 카드 (안심 보호) */}
-        <div id="anti-fraud" className="bg-rose-50/50 border border-rose-100 p-8 md:p-12 rounded-3xl text-left space-y-8">
+        {show('anti-fraud') && <div id="anti-fraud" className="bg-rose-50/50 border border-rose-100 p-8 md:p-12 rounded-3xl text-left space-y-8">
           
           <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 border-b border-rose-100 pb-5">
             <div className="space-y-1.5">
@@ -157,7 +159,7 @@ export default function NoticeSection() {
               </a>
             </div>
           </div>
-        </div>
+        </div>}
 
         {/* 유관 기관 바로가기 */}
         <div className="p-8 bg-slate-50 rounded-3xl border border-slate-100 text-center">

@@ -7,7 +7,9 @@ import { useState, useEffect } from 'react';
 import { motion } from 'motion/react';
 import { CheckCircle2, AlertTriangle, Calculator, FileText, Info, HelpCircle, CornerDownRight, Landmark, FileCheck, ChevronDown } from 'lucide-react';
 
-export default function GuideSection() {
+export default function GuideSection({ sectionId }: { sectionId?: string }) {
+  const show = (ids: string | string[]) =>
+    !sectionId || (Array.isArray(ids) ? ids.includes(sectionId) : sectionId === ids);
   // FAQ 아코디언 상태 변수
   const [openFaqId, setOpenFaqId] = useState<number | null>(null);
 
@@ -120,7 +122,8 @@ export default function GuideSection() {
     <section className="py-20 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-20">
         
-        {/* 대출안내 타이틀 */}
+        {/* 대출 계산기 */}
+        {show(['loan-calc-intro', 'loan-calc']) && <>
         <div id="loan-calc-intro" className="text-center space-y-4 max-w-4xl mx-auto">
           <span className="text-xs font-black text-miso-blue-600 tracking-widest uppercase">Smart Loan Calculator</span>
           <h2 className="text-3xl md:text-4.5xl font-black text-slate-900 tracking-tight leading-none">
@@ -348,10 +351,10 @@ export default function GuideSection() {
 
           </div>
 
-        </div>
+        </div></>}
 
         {/* 대출 지원대상 및 제외대상 */}
-        <div id="loan-target" className="space-y-8">
+        {show('loan-target') && <div id="loan-target" className="space-y-8">
 
           <div className="text-center space-y-3">
             <span className="text-teal-600 font-bold text-sm tracking-widest uppercase">Eligibility</span>
@@ -424,10 +427,10 @@ export default function GuideSection() {
             </ul>
           </div>
 
-        </div>
+        </div>}
 
         {/* 이용 절차 타임라인 가이드 */}
-        <div id="process-guide" className="space-y-12">
+        {show('process-guide') && <><div id="process-guide" className="space-y-12">
           
           <div className="text-center space-y-3">
             <span className="text-miso-blue-600 font-bold text-sm tracking-widest uppercase">Process Flow</span>
@@ -501,10 +504,10 @@ export default function GuideSection() {
               </ul>
             </div>
           </div>
-        </div>
+        </div></>}
 
         {/* 아코디언 스타일 FAQ 섹션 */}
-        <div id="faq-section" className="space-y-10 pt-8 border-t border-slate-100">
+        {show('faq-section') && <div id="faq-section" className="space-y-10 pt-8 border-t border-slate-100">
           
           <div className="text-center space-y-3">
             <span className="text-xs font-black text-miso-blue-600 tracking-widest uppercase">Frequently Asked Questions</span>
@@ -586,7 +589,7 @@ export default function GuideSection() {
             </a>
           </div>
 
-        </div>
+        </div>}
 
       </div>
     </section>
