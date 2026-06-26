@@ -14,6 +14,7 @@ import CaseSection from './components/CaseSection';
 import NoticeSection from './components/NoticeSection';
 import Footer from './components/Footer';
 import FloatingWidget from './components/FloatingWidget';
+import LandingSummary from './components/LandingSummary';
 
 export default function App() {
   const [activeTab, setActiveTab] = useState<TabType>(TabType.ABOUT);
@@ -116,6 +117,9 @@ export default function App() {
         
         {/* 메인 히어로 배너 & 기초 비교표 */}
         <Hero onScrollToSection={handleScrollToSection} />
+
+        {/* 퀵 네비게이션 랜딩 요약 카드 */}
+        <LandingSummary onScrollToSection={handleScrollToSection} />
 
         {/* 1. 사단법인 및 미소금융 소개 */}
         <div className="bg-white">
