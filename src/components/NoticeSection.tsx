@@ -159,47 +159,78 @@ export default function NoticeSection() {
           </div>
         </div>
 
-        {/* 유관 기관 바로가기 유연 바 (Footer 전 단계) */}
-        <div className="p-8 bg-slate-50 rounded-3xl border border-slate-100 text-left">
-          <span className="text-[10px] text-slate-400 font-extrabold block mb-4 tracking-wider uppercase">
-            정부 및 공익 유관 네트워크 포털 바로 가기
+        {/* 유관 기관 바로가기 */}
+        <div className="p-8 bg-slate-50 rounded-3xl border border-slate-100 text-center">
+          <span className="text-[10px] text-slate-400 font-extrabold block mb-6 tracking-wider uppercase">
+            관련기관 바로가기
           </span>
 
-          <div className="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-6 gap-3 text-xs font-extrabold text-slate-600">
+          <div className="grid grid-cols-3 sm:grid-cols-5 gap-4 md:gap-6">
             {[
-              { label: '서민금융진흥원', href: 'https://www.kinfa.or.kr', active: 'bg-teal-500 border-teal-500 text-white', hover: 'hover:bg-teal-50 hover:border-teal-400 hover:text-teal-700' },
-              { label: '금융위원회', href: 'https://www.fsc.go.kr', active: 'bg-blue-500 border-blue-500 text-white', hover: 'hover:bg-blue-50 hover:border-blue-400 hover:text-blue-700' },
-              { label: '금융감독원', href: 'https://www.fss.or.kr', active: 'bg-indigo-500 border-indigo-500 text-white', hover: 'hover:bg-indigo-50 hover:border-indigo-400 hover:text-indigo-700' },
-              { label: '대구광역시청', href: 'https://www.daegu.go.kr', active: 'bg-emerald-500 border-emerald-500 text-white', hover: 'hover:bg-emerald-50 hover:border-emerald-400 hover:text-emerald-700' },
-              { label: '사회적기업진흥원', href: 'https://www.socialenterprise.or.kr', active: 'bg-violet-500 border-violet-500 text-white', hover: 'hover:bg-violet-50 hover:border-violet-400 hover:text-violet-700' },
-              { label: '법인 네이버블로그', href: 'https://blog.naver.com/eornwndrn1', active: 'bg-green-500 border-green-500 text-white', hover: 'hover:bg-green-50 hover:border-green-400 hover:text-green-700' },
+              {
+                label: '서민금융진흥원',
+                href: 'https://www.kinfa.or.kr',
+                logo: '/logos/kinfa.png',
+                symbol: '진흥원',
+                color: 'bg-teal-600',
+                textColor: 'text-teal-700',
+                borderHover: 'hover:border-teal-300'
+              },
+              {
+                label: '신용회복위원회',
+                href: 'https://www.ccrs.or.kr',
+                logo: '/logos/ccrs.png',
+                symbol: '신복위',
+                color: 'bg-blue-600',
+                textColor: 'text-blue-700',
+                borderHover: 'hover:border-blue-300'
+              },
+              {
+                label: '소상공인시장진흥공단',
+                href: 'https://www.semas.or.kr',
+                logo: '/logos/semas.png',
+                symbol: '소진공',
+                color: 'bg-orange-500',
+                textColor: 'text-orange-700',
+                borderHover: 'hover:border-orange-300'
+              },
+              {
+                label: '국세청',
+                href: 'https://www.nts.go.kr',
+                logo: '/logos/nts.png',
+                symbol: '국세청',
+                color: 'bg-indigo-600',
+                textColor: 'text-indigo-700',
+                borderHover: 'hover:border-indigo-300'
+              },
+              {
+                label: '사회적기업진흥원',
+                href: 'https://www.socialenterprise.or.kr',
+                logo: '/logos/kase.png',
+                symbol: '진흥원',
+                color: 'bg-emerald-600',
+                textColor: 'text-emerald-700',
+                borderHover: 'hover:border-emerald-300'
+              },
             ].map((item, idx) => (
               <motion.a
                 key={idx}
                 href={item.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                onClick={() => {
-                  setClickedIdx(idx);
-                  setTimeout(() => setClickedIdx(null), 600);
-                }}
-                animate={clickedIdx === idx ? { scale: [1, 1.12, 0.96, 1.04, 1], rotate: [0, -3, 3, -1, 0] } : {}}
-                whileHover={{ y: -5, scale: 1.05 }}
-                whileTap={{ scale: 0.9 }}
+                whileHover={{ y: -4, scale: 1.04 }}
+                whileTap={{ scale: 0.95 }}
                 transition={{ type: 'spring', stiffness: 400, damping: 15 }}
-                className={`p-3 rounded-lg border text-center flex items-center justify-between shadow-sm cursor-pointer transition-all duration-300 ${
-                  clickedIdx === idx
-                    ? item.active
-                    : `bg-white border-slate-200 ${item.hover}`
-                }`}
+                className={`flex flex-col items-center space-y-2 bg-white border border-slate-200 ${item.borderHover} rounded-2xl py-5 px-3 shadow-sm hover:shadow-md transition-all duration-200 cursor-pointer group`}
               >
-                <span>{item.label}</span>
-                <motion.div
-                  animate={clickedIdx === idx ? { rotate: 360 } : { rotate: 0 }}
-                  transition={{ duration: 0.4 }}
-                >
-                  <ExternalLink className="w-3.5 h-3.5 opacity-60" />
-                </motion.div>
+                {/* 심볼 아이콘 */}
+                <div className={`w-12 h-12 rounded-xl ${item.color} flex items-center justify-center text-white font-black text-[11px] shadow-sm tracking-tight`}>
+                  {item.symbol}
+                </div>
+                {/* 기관명 */}
+                <span className={`text-[10px] font-bold text-slate-500 group-hover:${item.textColor} transition-colors text-center leading-tight`}>
+                  {item.label}
+                </span>
               </motion.a>
             ))}
           </div>
