@@ -350,6 +350,82 @@ export default function GuideSection() {
 
         </div>
 
+        {/* 대출 지원대상 및 제외대상 */}
+        <div id="loan-target" className="space-y-8">
+
+          <div className="text-center space-y-3">
+            <span className="text-teal-600 font-bold text-sm tracking-widest uppercase">Eligibility</span>
+            <h3 className="text-2xl md:text-3xl font-extrabold text-slate-900 tracking-tight">대출 지원대상 안내</h3>
+            <p className="text-slate-500 text-xs">개인 및 개인사업자 중 아래 세 가지 요건 중 하나에 해당하면 신청이 가능합니다.</p>
+          </div>
+
+          {/* 지원대상 3가지 */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+            <div className="bg-teal-50 border border-teal-200 rounded-2xl p-6 space-y-3">
+              <div className="w-9 h-9 bg-teal-600 text-white rounded-xl flex items-center justify-center font-black text-sm">1</div>
+              <h4 className="font-extrabold text-teal-800 text-sm">신용평점 하위 20% 해당자</h4>
+              <p className="text-slate-600 text-xs leading-relaxed">
+                신용정보회사(NICE 또는 KCB)의 개인신용평점이 하위 20%에 해당하는 고객
+              </p>
+              <div className="flex flex-wrap gap-2 pt-1">
+                <a href="https://www.niceinfo.co.kr" target="_blank" rel="noopener noreferrer"
+                  className="text-[10px] font-bold text-teal-700 bg-white border border-teal-200 px-2.5 py-1 rounded-full hover:bg-teal-100 transition">
+                  NICE신용평가정보 →
+                </a>
+                <a href="https://www.allcredit.co.kr" target="_blank" rel="noopener noreferrer"
+                  className="text-[10px] font-bold text-teal-700 bg-white border border-teal-200 px-2.5 py-1 rounded-full hover:bg-teal-100 transition">
+                  코리아크레딧뷰로 →
+                </a>
+              </div>
+            </div>
+
+            <div className="bg-teal-50 border border-teal-200 rounded-2xl p-6 space-y-3">
+              <div className="w-9 h-9 bg-teal-600 text-white rounded-xl flex items-center justify-center font-black text-sm">2</div>
+              <h4 className="font-extrabold text-teal-800 text-sm">취약계층 해당자</h4>
+              <p className="text-slate-600 text-xs leading-relaxed">
+                기초생활수급권자 또는 차상위계층에 해당하는 취약계층 고객
+              </p>
+            </div>
+
+            <div className="bg-teal-50 border border-teal-200 rounded-2xl p-6 space-y-3">
+              <div className="w-9 h-9 bg-teal-600 text-white rounded-xl flex items-center justify-center font-black text-sm">3</div>
+              <h4 className="font-extrabold text-teal-800 text-sm">근로장려금 신청 자격 해당자</h4>
+              <p className="text-slate-600 text-xs leading-relaxed">
+                근로장려금 신청 자격 요건에 해당하는 고객
+              </p>
+              <a href="https://www.hometax.go.kr" target="_blank" rel="noopener noreferrer"
+                className="inline-block text-[10px] font-bold text-teal-700 bg-white border border-teal-200 px-2.5 py-1 rounded-full hover:bg-teal-100 transition">
+                국세청 홈택스 근로·자녀장려금 안내 →
+              </a>
+            </div>
+          </div>
+
+          {/* 대출 제외대상 */}
+          <div className="bg-rose-50 border border-rose-200 rounded-2xl p-6 space-y-4">
+            <div className="flex items-center space-x-2">
+              <AlertTriangle className="w-5 h-5 text-rose-600 flex-shrink-0" />
+              <h4 className="font-extrabold text-rose-800 text-base">대출 제외대상</h4>
+            </div>
+            <p className="text-rose-700 text-xs font-semibold">다음의 경우에는 미소금융 대출 지원이 제한됩니다.</p>
+            <ul className="space-y-2.5">
+              {[
+                '한국신용정보원 신용 정보 전산망에 신용도 판단정보 및 공공정보가 등재되어 있는 자',
+                '채무이행을 회피하기 위해 책임재산의 도피, 은닉, 감소 행위를 초래한 경력이 있는 자',
+                '대출 신청인 재산에 가등기, (가)압류, 가처분, 경매 진행 등 법적 절차가 진행 중인 것으로 확인되는 자',
+                '재외국인, 외국인, 해외체류자',
+                '사회통념상 저소득, 저신용층으로 보기 어렵거나 미소금융 대출 취지에 부합하지 아니하다고 판단되는 자',
+                '중소벤처기업부가 공고하는 \'소상공인정책자금 융자 제외 대상 업종\'을 창업 예정이거나 운영 중인 경우'
+              ].map((item, i) => (
+                <li key={i} className="flex items-start space-x-2 text-xs text-rose-800">
+                  <span className="text-rose-400 font-bold mt-0.5 flex-shrink-0">✕</span>
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+        </div>
+
         {/* 이용 절차 타임라인 가이드 */}
         <div id="process-guide" className="space-y-12">
           
