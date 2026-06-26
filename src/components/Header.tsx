@@ -37,7 +37,7 @@ export default function Header({ activeTab, setActiveTab, onScrollToSection, onO
       type: TabType.ABOUT,
       label: '법인소개',
       sublinks: [
-        { name: '이사장 인사말', id: 'ceo-greeting' },
+        { name: '인사말', id: 'ceo-greeting' },
         { name: '법인 연혁', id: 'history' },
         { name: '조직도', id: 'organization' },
         { name: '오시는 길', id: 'location' }
