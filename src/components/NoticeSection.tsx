@@ -288,7 +288,9 @@ export default function NoticeSection({ sectionId }: { sectionId?: string }) {
                     animate={{ opacity: [0, 0.15, 0] }}
                     transition={{ duration: 2, repeat: Infinity, delay: 1.2 }}
                   />
-                  <div className="text-4xl mb-3">☎️</div>
+                  <div className="flex justify-center mb-3">
+                    <img src="/logos/kinfa_logo.png" alt="서민금융진흥원 로고" className="h-10 object-contain drop-shadow-md" />
+                  </div>
                   <div className="text-white/70 text-[11px] font-bold tracking-widest uppercase mb-1">서민금융진흥원</div>
                   <div className="text-5xl font-black tracking-tight text-white drop-shadow-lg">1397</div>
                   <div className="text-teal-200 text-[11px] font-semibold mt-1">(상환상담)</div>
