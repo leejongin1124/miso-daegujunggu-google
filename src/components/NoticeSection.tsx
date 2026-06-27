@@ -240,7 +240,9 @@ export default function NoticeSection({ sectionId }: { sectionId?: string }) {
                     animate={{ opacity: [0, 0.15, 0] }}
                     transition={{ duration: 2, repeat: Infinity, delay: 0.6 }}
                   />
-                  <div className="text-4xl mb-3">🏛</div>
+                  <div className="flex justify-center mb-3">
+                    <img src="/logos/fss_symbol.png" alt="금융감독원 로고" className="h-12 object-contain drop-shadow-md" />
+                  </div>
                   <div className="text-white/70 text-[11px] font-bold tracking-widest uppercase mb-1">금융감독원</div>
                   <div className="text-5xl font-black tracking-tight text-white drop-shadow-lg">1332</div>
                   <motion.div
