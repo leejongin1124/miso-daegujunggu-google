@@ -44,7 +44,8 @@ export default function AboutSection({ sectionId }: { sectionId?: string }) {
     {
       year: '2018',
       items: [
-        { date: '08.31', text: '전국 미소금융 법인 최초 사회적경제기업 1호 대출 지원', emphasis: true, newsUrl: 'https://www.yna.co.kr/view/AKR20180831135900002' }
+        { date: '08.31', text: '전국 미소금융 법인 최초 사회적경제기업 1호 대출 지원', emphasis: true, newsUrl: 'https://www.yna.co.kr/view/AKR20180831135900002' },
+        { date: '10.30', text: '제3회 금융의 날 기념식 서민금융부문 수상 (김석동 대표)', emphasis: true, newsUrl: 'https://www.skyedaily.com/news/news_view.html?ID=78486' }
       ]
     },
     {
