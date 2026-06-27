@@ -99,9 +99,6 @@ export default function LandingSummary({ onScrollToSection }: LandingSummaryProp
               </div>
 
               <div className="flex flex-col gap-2 flex-1">
-                <span className={`text-[11px] font-black tracking-widest uppercase ${card.accentColor}`}>
-                  {card.badge}
-                </span>
                 <h3 className="font-extrabold text-slate-900 text-xl leading-snug whitespace-pre-line">
                   {card.title}
                 </h3>
