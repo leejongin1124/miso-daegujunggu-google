@@ -140,7 +140,7 @@ export default function NoticeSection({ sectionId }: { sectionId?: string }) {
               불법 부당 행위 공식 자진 신고처
             </span>
             
-            <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 text-xs font-black">
+            <div className="grid grid-cols-3 gap-4 text-xs font-black">
               <a href="tel:112" className="bg-slate-50 border border-slate-100 p-4.5 rounded-lg text-slate-800 hover:text-teal-600 text-center transition">
                 <span>🚔 경찰청 신고</span>
                 <span className="text-teal-600 text-[11px] block mt-1 font-mono">112</span>
@@ -152,10 +152,6 @@ export default function NoticeSection({ sectionId }: { sectionId?: string }) {
               <a href="tel:1397" className="bg-slate-50 border border-slate-100 p-4.5 rounded-lg text-slate-800 hover:text-teal-600 text-center transition">
                 <span>☎ 서민금융진흥원</span>
                 <span className="text-teal-600 text-[11px] block mt-1 font-mono">1397 (상환상담)</span>
-              </a>
-              <a href="tel:053-252-6408" className="bg-slate-50 border border-slate-100 p-4.5 rounded-lg text-slate-800 hover:text-teal-600 text-center transition">
-                <span>📞 대구중구법인</span>
-                <span className="text-teal-600 text-[11px] block mt-1 font-mono">053-252-6408</span>
               </a>
             </div>
           </div>
