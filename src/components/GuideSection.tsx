@@ -396,7 +396,7 @@ export default function GuideSection({ sectionId }: { sectionId?: string }) {
               <p className="text-slate-600 text-xs leading-relaxed">
                 근로장려금 신청 자격 요건에 해당하는 고객
               </p>
-              <a href="https://www.hometax.go.kr" target="_blank" rel="noopener noreferrer"
+              <a href="https://hometax.go.kr/websquare/websquare.html?w2xPath=/ui/pp/index_pp.xml&tmIdx=45&tm2lIdx=4501000000&tm3lIdx=4501010000" target="_blank" rel="noopener noreferrer"
                 className="inline-block text-[10px] font-bold text-teal-700 bg-white border border-teal-200 px-2.5 py-1 rounded-full hover:bg-teal-100 transition">
                 국세청 홈택스 근로·자녀장려금 안내 →
               </a>
