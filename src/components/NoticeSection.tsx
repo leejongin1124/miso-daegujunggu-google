@@ -191,7 +191,7 @@ export default function NoticeSection({ sectionId }: { sectionId?: string }) {
                   />
                   <div className="flex justify-center mb-3">
                     <img
-                      src="https://www.police.go.kr/resources/common/images/logo.png"
+                      src="https://www.police.go.kr/resources/common/images/sub/txt_kcc.png"
                       alt="경찰청 로고"
                       className="h-12 object-contain drop-shadow-md"
                       onError={(e) => {
