@@ -379,13 +379,8 @@ export default function ProductSection({ onScrollToSection, onOpenCalculator, in
                     rel="noopener noreferrer"
                     className="flex-1 flex items-center justify-center gap-2 bg-green-700 hover:bg-green-600 text-white font-bold py-4 rounded-xl text-sm shadow-md transition"
                   >
-                    <svg viewBox="0 0 24 24" width="18" height="18" fill="none">
-                      <circle cx="12" cy="12" r="11" fill="#006633"/>
-                      <circle cx="12" cy="10" r="4" fill="white" opacity="0.95"/>
-                      <circle cx="12" cy="10" r="2.2" fill="#006633"/>
-                      <path d="M7 17 Q12 13 17 17" stroke="white" strokeWidth="1.5" fill="none" strokeLinecap="round"/>
-                    </svg>
-                    사회적기업진흥원 바로가기
+                    <img src="/logos/sejin_logo.png" alt="한국사회적기업진흥원" className="h-5 w-auto object-contain brightness-0 invert" />
+                    바로가기
                   </a>
                 )}
                 {activeProduct.blogUrl ? (
