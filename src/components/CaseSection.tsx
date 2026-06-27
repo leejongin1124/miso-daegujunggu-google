@@ -256,15 +256,15 @@ export default function CaseSection({ initialFilter }: CaseSectionProps) {
           
           <div className="max-w-2xl space-y-4">
             <span className="inline-flex items-center text-[10px] font-black tracking-widest text-teal-300 bg-white/10 px-2.5 py-1 rounded">
-              A Warm Promise of Co-prosperity
+              함께 성장하는 서민금융
             </span>
             <h4 className="text-xl md:text-2xl font-black tracking-tight leading-snug">
-              &ldquo;상환해 주신 원금은 다음 서민금융 지원 재원으로 이어집니다&rdquo;
+              &ldquo;갚아 주신 원금은 다음 분의 대출 재원이 됩니다&rdquo;
             </h4>
             <p className="text-slate-400 text-xs md:text-sm leading-relaxed font-medium">
-              (사)미소금융대구중구법인의 운용자금은 서민금융진흥원의 정책 재원으로 조성된 비영리 공익 자금입니다. <br />
-              성실히 상환해 주신 원금은 서민금융진흥원에 반환되어, <br />
-              경제적 어려움에 처한 다른 대구 시민의 자립을 위한 재원으로 재활용됩니다.
+              저희 법인의 대출 재원은 서민금융진흥원이 조성한 공익 자금입니다. <br />
+              성실히 갚아 주신 원금은 서민금융진흥원으로 돌아가, <br />
+              경제적으로 어려운 다른 대구 시민의 자립 지원을 위한 대출 재원으로 활용됩니다.
             </p>
           </div>
         </div>
