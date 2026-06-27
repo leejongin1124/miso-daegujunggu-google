@@ -263,7 +263,7 @@ export default function NoticeSection({ sectionId }: { sectionId?: string }) {
             관련기관 바로가기
           </span>
 
-          <div className="grid grid-cols-3 sm:grid-cols-5 gap-4 md:gap-6">
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 md:gap-6">
             {[
               {
                 label: '서민금융진흥원',
@@ -331,21 +331,6 @@ export default function NoticeSection({ sectionId }: { sectionId?: string }) {
                     <circle cx="24" cy="34" r="4" fill="#003087"/>
                     <circle cx="34" cy="24" r="3" fill="white" opacity="0.6"/>
                     <circle cx="14" cy="24" r="3" fill="white" opacity="0.6"/>
-                  </svg>
-                )
-              },
-              {
-                label: '사회적기업진흥원',
-                href: 'https://www.socialenterprise.or.kr',
-                borderHover: 'hover:border-green-300',
-                textColor: 'group-hover:text-green-700',
-                symbol: (
-                  <svg viewBox="0 0 48 48" width="48" height="48">
-                    <circle cx="24" cy="24" r="22" fill="#006633"/>
-                    <circle cx="24" cy="20" r="8" fill="white" opacity="0.95"/>
-                    <circle cx="24" cy="20" r="4.5" fill="#006633"/>
-                    <path d="M14 34 Q24 26 34 34" stroke="white" strokeWidth="3" fill="none" strokeLinecap="round"/>
-                    <path d="M18 38 Q24 33 30 38" stroke="white" strokeWidth="2.5" fill="none" strokeLinecap="round" opacity="0.7"/>
                   </svg>
                 )
               },

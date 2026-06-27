@@ -372,6 +372,22 @@ export default function ProductSection({ onScrollToSection, onOpenCalculator, in
               )}
 
               <div className="flex flex-col sm:flex-row gap-3 pt-4">
+                {activeProduct.id === 'social' && (
+                  <a
+                    href="https://www.socialenterprise.or.kr"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex-1 flex items-center justify-center gap-2 bg-green-700 hover:bg-green-600 text-white font-bold py-4 rounded-xl text-sm shadow-md transition"
+                  >
+                    <svg viewBox="0 0 24 24" width="18" height="18" fill="none">
+                      <circle cx="12" cy="12" r="11" fill="#006633"/>
+                      <circle cx="12" cy="10" r="4" fill="white" opacity="0.95"/>
+                      <circle cx="12" cy="10" r="2.2" fill="#006633"/>
+                      <path d="M7 17 Q12 13 17 17" stroke="white" strokeWidth="1.5" fill="none" strokeLinecap="round"/>
+                    </svg>
+                    사회적기업진흥원 바로가기
+                  </a>
+                )}
                 {activeProduct.blogUrl ? (
                   <motion.a
                     href={activeProduct.blogUrl}
