@@ -168,24 +168,27 @@ export default function NoticeSection({ sectionId }: { sectionId?: string }) {
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
 
                 {/* 경찰청 112 */}
-                <motion.a
-                  href="https://www.police.go.kr/index.do"
-                  target="_blank"
-                  rel="noopener noreferrer"
+                <motion.div
+                  onClick={() => {
+                    if (window.innerWidth < 768) {
+                      window.location.href = 'tel:112';
+                    } else {
+                      window.open('https://www.police.go.kr/index.do', '_blank');
+                    }
+                  }}
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.4, delay: 0.1 }}
                   whileHover={{ scale: 1.04, y: -4 }}
                   whileTap={{ scale: 0.97 }}
-                  className="relative bg-blue-600 hover:bg-blue-500 rounded-2xl p-6 text-white text-center overflow-hidden group cursor-pointer shadow-lg shadow-blue-900/40 transition-colors"
+                  className="relative bg-blue-600 hover:bg-blue-500 rounded-2xl p-6 text-white text-center overflow-hidden cursor-pointer shadow-lg shadow-blue-900/40 transition-colors"
                 >
                   <motion.div
                     className="absolute inset-0 bg-white/5 rounded-2xl"
                     animate={{ opacity: [0, 0.15, 0] }}
                     transition={{ duration: 2, repeat: Infinity }}
                   />
-                  {/* 경찰청 공식 로고 */}
                   <div className="flex justify-center mb-3">
                     <img
                       src="https://www.police.go.kr/resources/common/images/logo.png"
@@ -220,20 +223,27 @@ export default function NoticeSection({ sectionId }: { sectionId?: string }) {
                     animate={{ opacity: [0.6, 1, 0.6] }}
                     transition={{ duration: 1.5, repeat: Infinity }}
                   >
-                    사이트 방문 →
+                    <span className="hidden md:inline">사이트 방문 →</span>
+                    <span className="md:hidden">📞 전화 연결 →</span>
                   </motion.div>
-                </motion.a>
+                </motion.div>
 
                 {/* 금융감독원 1332 */}
-                <motion.a
-                  href="tel:1332"
+                <motion.div
+                  onClick={() => {
+                    if (window.innerWidth < 768) {
+                      window.location.href = 'tel:1332';
+                    } else {
+                      window.open('https://www.fss.or.kr', '_blank');
+                    }
+                  }}
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.4, delay: 0.2 }}
                   whileHover={{ scale: 1.04, y: -4 }}
                   whileTap={{ scale: 0.97 }}
-                  className="relative bg-emerald-700 hover:bg-emerald-600 rounded-2xl p-6 text-white text-center overflow-hidden group cursor-pointer shadow-lg shadow-emerald-900/40 transition-colors"
+                  className="relative bg-emerald-700 hover:bg-emerald-600 rounded-2xl p-6 text-white text-center overflow-hidden cursor-pointer shadow-lg shadow-emerald-900/40 transition-colors"
                 >
                   <motion.div
                     className="absolute inset-0 bg-white/5 rounded-2xl"
@@ -245,25 +255,33 @@ export default function NoticeSection({ sectionId }: { sectionId?: string }) {
                   </div>
                   <div className="text-white/70 text-[11px] font-bold tracking-widest uppercase mb-1">금융감독원</div>
                   <div className="text-5xl font-black tracking-tight text-white drop-shadow-lg">1332</div>
+                  <div className="mt-1 text-emerald-200 text-[10px] font-semibold">FINANCIAL SUPERVISORY SERVICE</div>
                   <motion.div
-                    className="mt-3 text-emerald-200 text-[11px] font-semibold"
+                    className="mt-2 text-emerald-200 text-[11px] font-semibold"
                     animate={{ opacity: [0.6, 1, 0.6] }}
                     transition={{ duration: 1.5, repeat: Infinity, delay: 0.5 }}
                   >
-                    전화하기 →
+                    <span className="hidden md:inline">사이트 방문 →</span>
+                    <span className="md:hidden">📞 전화 연결 →</span>
                   </motion.div>
-                </motion.a>
+                </motion.div>
 
                 {/* 서민금융진흥원 1397 */}
-                <motion.a
-                  href="tel:1397"
+                <motion.div
+                  onClick={() => {
+                    if (window.innerWidth < 768) {
+                      window.location.href = 'tel:1397';
+                    } else {
+                      window.open('https://www.kinfa.or.kr', '_blank');
+                    }
+                  }}
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.4, delay: 0.3 }}
                   whileHover={{ scale: 1.04, y: -4 }}
                   whileTap={{ scale: 0.97 }}
-                  className="relative bg-teal-700 hover:bg-teal-600 rounded-2xl p-6 text-white text-center overflow-hidden group cursor-pointer shadow-lg shadow-teal-900/40 transition-colors"
+                  className="relative bg-teal-700 hover:bg-teal-600 rounded-2xl p-6 text-white text-center overflow-hidden cursor-pointer shadow-lg shadow-teal-900/40 transition-colors"
                 >
                   <motion.div
                     className="absolute inset-0 bg-white/5 rounded-2xl"
@@ -279,9 +297,10 @@ export default function NoticeSection({ sectionId }: { sectionId?: string }) {
                     animate={{ opacity: [0.6, 1, 0.6] }}
                     transition={{ duration: 1.5, repeat: Infinity, delay: 1 }}
                   >
-                    전화하기 →
+                    <span className="hidden md:inline">사이트 방문 →</span>
+                    <span className="md:hidden">📞 전화 연결 →</span>
                   </motion.div>
-                </motion.a>
+                </motion.div>
 
               </div>
             </div>
