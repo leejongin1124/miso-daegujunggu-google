@@ -404,12 +404,12 @@ export default function GuideSection({ sectionId }: { sectionId?: string }) {
           </div>
 
           {/* 대출 제외대상 */}
-          <div className="bg-rose-50 border border-rose-200 rounded-2xl p-6 space-y-4">
+          <div className="bg-slate-50 border border-slate-200 rounded-2xl p-6 space-y-4">
             <div className="flex items-center space-x-2">
-              <AlertTriangle className="w-5 h-5 text-rose-600 flex-shrink-0" />
-              <h4 className="font-extrabold text-rose-800 text-base">대출 제외대상</h4>
+              <AlertTriangle className="w-5 h-5 text-slate-500 flex-shrink-0" />
+              <h4 className="font-extrabold text-slate-700 text-base">대출 제외대상</h4>
             </div>
-            <p className="text-rose-700 text-xs font-semibold">다음의 경우에는 미소금융 대출 지원이 제한됩니다.</p>
+            <p className="text-slate-500 text-xs font-semibold">다음의 경우에는 미소금융 대출 지원이 제한됩니다.</p>
             <ul className="space-y-2.5">
               {[
                 '한국신용정보원 신용 정보 전산망에 신용도 판단정보 및 공공정보가 등재되어 있는 자',
@@ -419,8 +419,8 @@ export default function GuideSection({ sectionId }: { sectionId?: string }) {
                 '사회통념상 저소득, 저신용층으로 보기 어렵거나 미소금융 대출 취지에 부합하지 아니하다고 판단되는 자',
                 '중소벤처기업부가 공고하는 \'소상공인정책자금 융자 제외 대상 업종\'을 창업 예정이거나 운영 중인 경우'
               ].map((item, i) => (
-                <li key={i} className="flex items-start space-x-2 text-xs text-rose-800">
-                  <span className="text-rose-400 font-bold mt-0.5 flex-shrink-0">✕</span>
+                <li key={i} className="flex items-start space-x-2 text-xs text-slate-600">
+                  <span className="text-slate-400 font-bold mt-0.5 flex-shrink-0">·</span>
                   <span>{item}</span>
                 </li>
               ))}
