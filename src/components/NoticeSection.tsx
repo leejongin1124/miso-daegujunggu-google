@@ -135,24 +135,124 @@ export default function NoticeSection({ sectionId }: { sectionId?: string }) {
           </div>
 
           {/* 피해 신고 기관 상세 테이블 */}
-          <div id="partners" className="bg-white p-6 rounded-2xl border border-rose-100 text-center ">
-            <span className="text-slate-400 font-bold text-[10px] uppercase block tracking-wider mb-4">
-              불법 부당 행위 공식 자진 신고처
-            </span>
-            
-            <div className="grid grid-cols-3 gap-4 text-xs font-black">
-              <a href="tel:112" className="bg-slate-50 border border-slate-100 p-4.5 rounded-lg text-slate-800 hover:text-teal-600 text-center transition">
-                <span>🚔 경찰청 신고</span>
-                <span className="text-teal-600 text-[11px] block mt-1 font-mono">112</span>
-              </a>
-              <a href="tel:1332" className="bg-slate-50 border border-slate-100 p-4.5 rounded-lg text-slate-800 hover:text-teal-600 text-center transition">
-                <span>🏛 금융감독원</span>
-                <span className="text-teal-600 text-[11px] block mt-1 font-mono">1332</span>
-              </a>
-              <a href="tel:1397" className="bg-slate-50 border border-slate-100 p-4.5 rounded-lg text-slate-800 hover:text-teal-600 text-center transition">
-                <span>☎ 서민금융진흥원</span>
-                <span className="text-teal-600 text-[11px] block mt-1 font-mono">1397 (상환상담)</span>
-              </a>
+          <div id="partners" className="bg-gradient-to-br from-slate-900 to-slate-800 p-7 rounded-2xl text-center relative overflow-hidden">
+            {/* 배경 광원 */}
+            <motion.div
+              className="absolute -top-10 -left-10 w-48 h-48 bg-blue-500/10 rounded-full blur-3xl pointer-events-none"
+              animate={{ scale: [1, 1.3, 1], opacity: [0.4, 0.7, 0.4] }}
+              transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut' }}
+            />
+            <motion.div
+              className="absolute -bottom-10 -right-10 w-48 h-48 bg-rose-500/10 rounded-full blur-3xl pointer-events-none"
+              animate={{ scale: [1.2, 1, 1.2], opacity: [0.3, 0.6, 0.3] }}
+              transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut', delay: 2 }}
+            />
+
+            <div className="relative z-10">
+              <motion.div
+                initial={{ opacity: 0, y: -8 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                className="mb-6"
+              >
+                <span className="inline-flex items-center gap-2 bg-rose-600/20 border border-rose-500/40 text-rose-300 text-[11px] font-black tracking-widest px-4 py-1.5 rounded-full uppercase mb-3">
+                  <motion.span
+                    animate={{ scale: [1, 1.3, 1] }}
+                    transition={{ duration: 1, repeat: Infinity }}
+                  >🚨</motion.span>
+                  불법 부당 행위 공식 자진 신고처
+                </span>
+                <p className="text-slate-400 text-xs mt-2">불법 사금융·사기 피해를 당하셨다면 즉시 신고하세요</p>
+              </motion.div>
+
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+
+                {/* 경찰청 112 */}
+                <motion.a
+                  href="tel:112"
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.4, delay: 0.1 }}
+                  whileHover={{ scale: 1.04, y: -4 }}
+                  whileTap={{ scale: 0.97 }}
+                  className="relative bg-blue-600 hover:bg-blue-500 rounded-2xl p-6 text-white text-center overflow-hidden group cursor-pointer shadow-lg shadow-blue-900/40 transition-colors"
+                >
+                  <motion.div
+                    className="absolute inset-0 bg-white/5 rounded-2xl"
+                    animate={{ opacity: [0, 0.15, 0] }}
+                    transition={{ duration: 2, repeat: Infinity }}
+                  />
+                  <div className="text-4xl mb-3">🚔</div>
+                  <div className="text-white/70 text-[11px] font-bold tracking-widest uppercase mb-1">경찰청 신고</div>
+                  <div className="text-5xl font-black tracking-tight text-white drop-shadow-lg">112</div>
+                  <motion.div
+                    className="mt-3 text-blue-200 text-[11px] font-semibold"
+                    animate={{ opacity: [0.6, 1, 0.6] }}
+                    transition={{ duration: 1.5, repeat: Infinity }}
+                  >
+                    전화하기 →
+                  </motion.div>
+                </motion.a>
+
+                {/* 금융감독원 1332 */}
+                <motion.a
+                  href="tel:1332"
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.4, delay: 0.2 }}
+                  whileHover={{ scale: 1.04, y: -4 }}
+                  whileTap={{ scale: 0.97 }}
+                  className="relative bg-emerald-700 hover:bg-emerald-600 rounded-2xl p-6 text-white text-center overflow-hidden group cursor-pointer shadow-lg shadow-emerald-900/40 transition-colors"
+                >
+                  <motion.div
+                    className="absolute inset-0 bg-white/5 rounded-2xl"
+                    animate={{ opacity: [0, 0.15, 0] }}
+                    transition={{ duration: 2, repeat: Infinity, delay: 0.6 }}
+                  />
+                  <div className="text-4xl mb-3">🏛</div>
+                  <div className="text-white/70 text-[11px] font-bold tracking-widest uppercase mb-1">금융감독원</div>
+                  <div className="text-5xl font-black tracking-tight text-white drop-shadow-lg">1332</div>
+                  <motion.div
+                    className="mt-3 text-emerald-200 text-[11px] font-semibold"
+                    animate={{ opacity: [0.6, 1, 0.6] }}
+                    transition={{ duration: 1.5, repeat: Infinity, delay: 0.5 }}
+                  >
+                    전화하기 →
+                  </motion.div>
+                </motion.a>
+
+                {/* 서민금융진흥원 1397 */}
+                <motion.a
+                  href="tel:1397"
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.4, delay: 0.3 }}
+                  whileHover={{ scale: 1.04, y: -4 }}
+                  whileTap={{ scale: 0.97 }}
+                  className="relative bg-teal-700 hover:bg-teal-600 rounded-2xl p-6 text-white text-center overflow-hidden group cursor-pointer shadow-lg shadow-teal-900/40 transition-colors"
+                >
+                  <motion.div
+                    className="absolute inset-0 bg-white/5 rounded-2xl"
+                    animate={{ opacity: [0, 0.15, 0] }}
+                    transition={{ duration: 2, repeat: Infinity, delay: 1.2 }}
+                  />
+                  <div className="text-4xl mb-3">☎️</div>
+                  <div className="text-white/70 text-[11px] font-bold tracking-widest uppercase mb-1">서민금융진흥원</div>
+                  <div className="text-5xl font-black tracking-tight text-white drop-shadow-lg">1397</div>
+                  <div className="text-teal-200 text-[11px] font-semibold mt-1">(상환상담)</div>
+                  <motion.div
+                    className="mt-2 text-teal-200 text-[11px] font-semibold"
+                    animate={{ opacity: [0.6, 1, 0.6] }}
+                    transition={{ duration: 1.5, repeat: Infinity, delay: 1 }}
+                  >
+                    전화하기 →
+                  </motion.div>
+                </motion.a>
+
+              </div>
             </div>
           </div>
         </div>}
