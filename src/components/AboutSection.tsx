@@ -197,10 +197,10 @@ export default function AboutSection({ sectionId }: { sectionId?: string }) {
                 <text x="435" y="323" textAnchor="middle" fill="#3730A3" fontSize="11" fontWeight="bold">전문위원</text>
                 <text x="435" y="344" textAnchor="middle" fill="#4F46E5" fontSize="10">(사업 행정기획)</text>
 
-                {/* 신중년 사회공헌단 — emerald */}
-                <rect x="505" y="300" width="110" height="60" rx="8" fill="#ECFDF5" stroke="#6EE7B7" strokeWidth="1.5"/>
-                <text x="560" y="323" textAnchor="middle" fill="#065F46" fontSize="11" fontWeight="bold">신중년</text>
-                <text x="560" y="344" textAnchor="middle" fill="#059669" fontSize="10">(사회공헌단)</text>
+                {/* 신중년 사회공헌단 — rose */}
+                <rect x="505" y="300" width="110" height="60" rx="8" fill="#FFF1F2" stroke="#FDA4AF" strokeWidth="1.5"/>
+                <text x="560" y="323" textAnchor="middle" fill="#9F1239" fontSize="11" fontWeight="bold">신중년</text>
+                <text x="560" y="344" textAnchor="middle" fill="#E11D48" fontSize="10">(사회공헌단)</text>
 
               </svg>
             </div>
