@@ -177,27 +177,27 @@ export default function AboutSection({ sectionId }: { sectionId?: string }) {
                 <rect x="635" y="260" width="160" height="42" rx="8" fill="#4F46E5"/>
                 <text x="715" y="286" textAnchor="middle" fill="white" fontSize="12" fontWeight="bold">융 자 위 원 회</text>
 
-                {/* 전문위원 여신심사 1팀 */}
+                {/* 전문위원 여신심사 1팀 — teal */}
                 <rect x="5"   y="300" width="110" height="60" rx="8" fill="#F0FDFA" stroke="#5EEAD4" strokeWidth="1.5"/>
                 <text x="60"  y="323" textAnchor="middle" fill="#0F766E" fontSize="11" fontWeight="bold">전문위원</text>
                 <text x="60"  y="344" textAnchor="middle" fill="#0D9488" fontSize="10">(여신심사 1팀)</text>
 
-                {/* 전문위원 여신심사 2팀 */}
+                {/* 전문위원 여신심사 2팀 — teal (동일) */}
                 <rect x="130" y="300" width="110" height="60" rx="8" fill="#F0FDFA" stroke="#5EEAD4" strokeWidth="1.5"/>
                 <text x="185" y="323" textAnchor="middle" fill="#0F766E" fontSize="11" fontWeight="bold">전문위원</text>
                 <text x="185" y="344" textAnchor="middle" fill="#0D9488" fontSize="10">(여신심사 2팀)</text>
 
-                {/* 전문위원 여신심사 3팀 */}
-                <rect x="255" y="300" width="110" height="60" rx="8" fill="#F8FAFC" stroke="#CBD5E1" strokeWidth="1.5"/>
-                <text x="310" y="323" textAnchor="middle" fill="#475569" fontSize="11" fontWeight="bold">전문위원</text>
-                <text x="310" y="344" textAnchor="middle" fill="#64748B" fontSize="10">(여신심사 3팀)</text>
+                {/* 전문위원 여신심사 3팀 — teal (동일) */}
+                <rect x="255" y="300" width="110" height="60" rx="8" fill="#F0FDFA" stroke="#5EEAD4" strokeWidth="1.5"/>
+                <text x="310" y="323" textAnchor="middle" fill="#0F766E" fontSize="11" fontWeight="bold">전문위원</text>
+                <text x="310" y="344" textAnchor="middle" fill="#0D9488" fontSize="10">(여신심사 3팀)</text>
 
-                {/* 전문위원 사업 행정기획 */}
-                <rect x="380" y="300" width="110" height="60" rx="8" fill="#F8FAFC" stroke="#CBD5E1" strokeWidth="1.5"/>
-                <text x="435" y="323" textAnchor="middle" fill="#475569" fontSize="11" fontWeight="bold">전문위원</text>
-                <text x="435" y="344" textAnchor="middle" fill="#64748B" fontSize="10">(사업 행정기획)</text>
+                {/* 전문위원 사업 행정기획 — indigo */}
+                <rect x="380" y="300" width="110" height="60" rx="8" fill="#EEF2FF" stroke="#A5B4FC" strokeWidth="1.5"/>
+                <text x="435" y="323" textAnchor="middle" fill="#3730A3" fontSize="11" fontWeight="bold">전문위원</text>
+                <text x="435" y="344" textAnchor="middle" fill="#4F46E5" fontSize="10">(사업 행정기획)</text>
 
-                {/* 신중년 사회공헌단 — right edge=615, 융자위원회 left=635, 간격 20px */}
+                {/* 신중년 사회공헌단 — emerald */}
                 <rect x="505" y="300" width="110" height="60" rx="8" fill="#ECFDF5" stroke="#6EE7B7" strokeWidth="1.5"/>
                 <text x="560" y="323" textAnchor="middle" fill="#065F46" fontSize="11" fontWeight="bold">신중년</text>
                 <text x="560" y="344" textAnchor="middle" fill="#059669" fontSize="10">(사회공헌단)</text>
