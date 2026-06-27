@@ -254,8 +254,6 @@ export default function ProductSection({ onScrollToSection, onOpenCalculator, in
                   </div>
                 ) : activeProduct.id === 'vulnerable' ? (
                   <div className="space-y-4 text-xs">
-                    <p className="text-rose-600 font-bold text-[11px]">※ 2026. 7. 1. 개편 기준</p>
-
                     {/* 기본 요건 표 */}
                     <div>
                       <p className="font-extrabold text-slate-800 mb-1.5">① 기본 요건 (다음 중 하나 해당)</p>
