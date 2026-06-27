@@ -158,20 +158,20 @@ export default function Hero({ onScrollToSection }: HeroProps) {
               transition={{ duration: 0.6, delay: 0.3 }}
               className="flex flex-col sm:flex-row gap-4 pt-2"
             >
-              <a 
-                href="tel:053-252-6408"
-                className="inline-flex justify-center items-center space-x-2 bg-gradient-to-r from-teal-600 to-emerald-600 text-white font-bold px-8 py-4 rounded-2xl hover:brightness-105 transition-all shadow-lg hover:shadow-teal-100 text-base"
-              >
-                <Phone className="w-5 h-5" />
-                <span>전화 상담 053-252-6408</span>
-              </a>
-              <button 
+              <button
                 onClick={() => onScrollToSection('social-finance')}
                 className="inline-flex justify-center items-center space-x-2 bg-white text-slate-800 border-2 border-slate-200 hover:border-teal-500 hover:text-teal-600 font-bold px-7 py-4 rounded-2xl transition-all shadow-sm text-base"
               >
                 <span>🔍 지원상품 전체보기</span>
                 <ArrowRight className="w-4 h-4" />
               </button>
+              <a
+                href="tel:053-252-6408"
+                className="inline-flex justify-center items-center space-x-2 bg-gradient-to-r from-teal-600 to-emerald-600 text-white font-bold px-8 py-4 rounded-2xl hover:brightness-105 transition-all shadow-lg hover:shadow-teal-100 text-base"
+              >
+                <Phone className="w-5 h-5" />
+                <span>전화 상담 053-252-6408</span>
+              </a>
             </motion.div>
           </div>
 
