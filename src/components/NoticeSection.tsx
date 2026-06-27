@@ -169,7 +169,9 @@ export default function NoticeSection({ sectionId }: { sectionId?: string }) {
 
                 {/* 경찰청 112 */}
                 <motion.a
-                  href="tel:112"
+                  href="https://www.police.go.kr/index.do"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
@@ -183,15 +185,38 @@ export default function NoticeSection({ sectionId }: { sectionId?: string }) {
                     animate={{ opacity: [0, 0.15, 0] }}
                     transition={{ duration: 2, repeat: Infinity }}
                   />
-                  <div className="text-4xl mb-3">🚔</div>
+                  {/* 경찰청 엠블럼 SVG */}
+                  <div className="flex justify-center mb-3">
+                    <svg viewBox="0 0 64 64" width="56" height="56">
+                      {/* 외곽 원 (진청) */}
+                      <circle cx="32" cy="32" r="30" fill="#003087" stroke="#FFD700" strokeWidth="2"/>
+                      {/* 월계수 잎 좌우 */}
+                      <ellipse cx="14" cy="32" rx="5" ry="12" fill="#FFD700" opacity="0.85" transform="rotate(-20 14 32)"/>
+                      <ellipse cx="10" cy="28" rx="4" ry="9" fill="#FFD700" opacity="0.6" transform="rotate(-35 10 28)"/>
+                      <ellipse cx="50" cy="32" rx="5" ry="12" fill="#FFD700" opacity="0.85" transform="rotate(20 50 32)"/>
+                      <ellipse cx="54" cy="28" rx="4" ry="9" fill="#FFD700" opacity="0.6" transform="rotate(35 54 28)"/>
+                      {/* 내부 원 (흰 배경) */}
+                      <circle cx="32" cy="32" r="17" fill="white" opacity="0.95"/>
+                      {/* 무궁화 5판 */}
+                      <ellipse cx="32" cy="18" rx="4" ry="7" fill="#C0392B"/>
+                      <ellipse cx="32" cy="18" rx="4" ry="7" fill="#E74C3C" transform="rotate(72 32 32)"/>
+                      <ellipse cx="32" cy="18" rx="4" ry="7" fill="#C0392B" transform="rotate(144 32 32)"/>
+                      <ellipse cx="32" cy="18" rx="4" ry="7" fill="#E74C3C" transform="rotate(216 32 32)"/>
+                      <ellipse cx="32" cy="18" rx="4" ry="7" fill="#C0392B" transform="rotate(288 32 32)"/>
+                      {/* 중심 */}
+                      <circle cx="32" cy="32" r="5" fill="#FFD700"/>
+                      <circle cx="32" cy="32" r="2.5" fill="#003087"/>
+                    </svg>
+                  </div>
                   <div className="text-white/70 text-[11px] font-bold tracking-widest uppercase mb-1">경찰청 신고</div>
                   <div className="text-5xl font-black tracking-tight text-white drop-shadow-lg">112</div>
+                  <div className="mt-1 text-blue-200 text-[10px] font-semibold">KOREAN NATIONAL POLICE AGENCY</div>
                   <motion.div
-                    className="mt-3 text-blue-200 text-[11px] font-semibold"
+                    className="mt-2 text-blue-200 text-[11px] font-semibold"
                     animate={{ opacity: [0.6, 1, 0.6] }}
                     transition={{ duration: 1.5, repeat: Infinity }}
                   >
-                    전화하기 →
+                    사이트 방문 →
                   </motion.div>
                 </motion.a>
 
