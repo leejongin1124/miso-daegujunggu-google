@@ -138,9 +138,6 @@ export default function Header({ activeTab, setActiveTab, onScrollToSection, onO
                       transition={{ duration: 0.18, ease: 'easeOut' }}
                       className="absolute top-full left-0 mt-1 min-w-[180px] bg-white rounded-xl shadow-xl border border-slate-100 overflow-hidden z-50"
                     >
-                      <div className="px-3 py-2 border-b border-slate-50">
-                        <span className="text-[10px] font-bold text-teal-600 tracking-widest uppercase">{item.label}</span>
-                      </div>
                       <ul className="py-1">
                         {item.sublinks.map((sublink, idx) => (
                           <motion.li
