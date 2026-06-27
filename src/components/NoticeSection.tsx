@@ -268,47 +268,86 @@ export default function NoticeSection({ sectionId }: { sectionId?: string }) {
               {
                 label: '서민금융진흥원',
                 href: 'https://www.kinfa.or.kr',
-                logo: '/logos/kinfa.png',
-                symbol: '진흥원',
-                color: 'bg-teal-600',
-                textColor: 'text-teal-700',
-                borderHover: 'hover:border-teal-300'
+                borderHover: 'hover:border-blue-300',
+                textColor: 'group-hover:text-blue-700',
+                symbol: (
+                  <svg viewBox="0 0 48 48" width="48" height="48">
+                    <circle cx="24" cy="24" r="22" fill="white"/>
+                    <path d="M24 24 L24 4 A20 20 0 0 1 44 24 Z" fill="#E8182C"/>
+                    <path d="M24 24 L44 24 A20 20 0 0 1 24 44 Z" fill="#0066B3"/>
+                    <path d="M24 24 L24 44 A20 20 0 0 1 4 24 Z" fill="#00A550"/>
+                    <path d="M24 24 L4 24 A20 20 0 0 1 24 4 Z" fill="#F5A800"/>
+                    <circle cx="24" cy="24" r="7" fill="white"/>
+                  </svg>
+                )
               },
               {
                 label: '신용회복위원회',
                 href: 'https://www.ccrs.or.kr',
-                logo: '/logos/ccrs.png',
-                symbol: '신복위',
-                color: 'bg-blue-600',
-                textColor: 'text-blue-700',
-                borderHover: 'hover:border-blue-300'
+                borderHover: 'hover:border-orange-300',
+                textColor: 'group-hover:text-orange-700',
+                symbol: (
+                  <svg viewBox="0 0 48 48" width="48" height="48">
+                    <circle cx="24" cy="24" r="22" fill="#FF6B00"/>
+                    <path d="M24 10 A14 14 0 0 1 38 24" stroke="white" strokeWidth="5" fill="none" strokeLinecap="round"/>
+                    <path d="M38 24 A14 14 0 0 1 24 38" stroke="white" strokeWidth="5" fill="none" strokeLinecap="round" opacity="0.7"/>
+                    <path d="M24 38 A14 14 0 0 1 10 24" stroke="white" strokeWidth="5" fill="none" strokeLinecap="round" opacity="0.4"/>
+                    <circle cx="24" cy="10" r="3.5" fill="white"/>
+                  </svg>
+                )
               },
               {
                 label: '소상공인시장진흥공단',
                 href: 'https://www.semas.or.kr',
-                logo: '/logos/semas.png',
-                symbol: '소진공',
-                color: 'bg-orange-500',
-                textColor: 'text-orange-700',
-                borderHover: 'hover:border-orange-300'
+                borderHover: 'hover:border-orange-300',
+                textColor: 'group-hover:text-orange-700',
+                symbol: (
+                  <svg viewBox="0 0 48 48" width="48" height="48">
+                    <circle cx="24" cy="24" r="22" fill="#F5F5F5"/>
+                    <circle cx="24" cy="24" r="14" fill="#FF6B00"/>
+                    <circle cx="24" cy="24" r="9" fill="#003A8C"/>
+                    <circle cx="24" cy="24" r="4" fill="white"/>
+                    <rect x="22" y="4" width="4" height="8" rx="2" fill="#FF6B00"/>
+                    <rect x="22" y="36" width="4" height="8" rx="2" fill="#003A8C"/>
+                    <rect x="4" y="22" width="8" height="4" rx="2" fill="#FF6B00"/>
+                    <rect x="36" y="22" width="8" height="4" rx="2" fill="#003A8C"/>
+                  </svg>
+                )
               },
               {
                 label: '국세청',
                 href: 'https://www.nts.go.kr',
-                logo: '/logos/nts.png',
-                symbol: '국세청',
-                color: 'bg-indigo-600',
-                textColor: 'text-indigo-700',
-                borderHover: 'hover:border-indigo-300'
+                borderHover: 'hover:border-blue-300',
+                textColor: 'group-hover:text-blue-700',
+                symbol: (
+                  <svg viewBox="0 0 48 48" width="48" height="48">
+                    <circle cx="24" cy="24" r="22" fill="#F5F5F5"/>
+                    <path d="M24 4 A20 20 0 0 1 24 44 A10 10 0 0 0 24 4 Z" fill="none"/>
+                    <path d="M24 4 A20 20 0 0 1 44 24 A20 20 0 0 0 24 4 Z" fill="#C0392B"/>
+                    <path d="M24 4 A20 20 0 0 0 4 24 A20 20 0 0 1 24 4 Z" fill="#C0392B" opacity="0.5"/>
+                    <path d="M44 24 A20 20 0 0 1 24 44 A20 20 0 0 0 44 24 Z" fill="#003087"/>
+                    <path d="M4 24 A20 20 0 0 0 24 44 A20 20 0 0 1 4 24 Z" fill="#003087" opacity="0.5"/>
+                    <circle cx="24" cy="14" r="4" fill="#C0392B"/>
+                    <circle cx="24" cy="34" r="4" fill="#003087"/>
+                    <circle cx="34" cy="24" r="3" fill="white" opacity="0.6"/>
+                    <circle cx="14" cy="24" r="3" fill="white" opacity="0.6"/>
+                  </svg>
+                )
               },
               {
                 label: '사회적기업진흥원',
                 href: 'https://www.socialenterprise.or.kr',
-                logo: '/logos/kase.png',
-                symbol: '진흥원',
-                color: 'bg-emerald-600',
-                textColor: 'text-emerald-700',
-                borderHover: 'hover:border-emerald-300'
+                borderHover: 'hover:border-green-300',
+                textColor: 'group-hover:text-green-700',
+                symbol: (
+                  <svg viewBox="0 0 48 48" width="48" height="48">
+                    <circle cx="24" cy="24" r="22" fill="#006633"/>
+                    <circle cx="24" cy="20" r="8" fill="white" opacity="0.95"/>
+                    <circle cx="24" cy="20" r="4.5" fill="#006633"/>
+                    <path d="M14 34 Q24 26 34 34" stroke="white" strokeWidth="3" fill="none" strokeLinecap="round"/>
+                    <path d="M18 38 Q24 33 30 38" stroke="white" strokeWidth="2.5" fill="none" strokeLinecap="round" opacity="0.7"/>
+                  </svg>
+                )
               },
             ].map((item, idx) => (
               <motion.a
@@ -316,17 +355,18 @@ export default function NoticeSection({ sectionId }: { sectionId?: string }) {
                 href={item.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                whileHover={{ y: -4, scale: 1.04 }}
+                initial={{ opacity: 0, y: 16 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4, delay: idx * 0.08 }}
+                whileHover={{ y: -5, scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                transition={{ type: 'spring', stiffness: 400, damping: 15 }}
-                className={`flex flex-col items-center space-y-2 bg-white border border-slate-200 ${item.borderHover} rounded-2xl py-5 px-3 shadow-sm hover:shadow-md transition-all duration-200 cursor-pointer group`}
+                className={`flex flex-col items-center gap-3 bg-white border-2 border-slate-100 ${item.borderHover} rounded-2xl py-6 px-3 shadow-sm hover:shadow-lg transition-all duration-200 cursor-pointer group`}
               >
-                {/* 심볼 아이콘 */}
-                <div className={`w-12 h-12 rounded-xl ${item.color} flex items-center justify-center text-white font-black text-[11px] shadow-sm tracking-tight`}>
+                <div className="w-12 h-12 flex items-center justify-center drop-shadow-sm">
                   {item.symbol}
                 </div>
-                {/* 기관명 */}
-                <span className={`text-[10px] font-bold text-slate-500 group-hover:${item.textColor} transition-colors text-center leading-tight`}>
+                <span className={`text-[11px] font-bold text-slate-500 ${item.textColor} transition-colors text-center leading-tight`}>
                   {item.label}
                 </span>
               </motion.a>
