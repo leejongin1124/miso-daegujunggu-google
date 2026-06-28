@@ -342,16 +342,22 @@ export default function AboutSection({ sectionId }: { sectionId?: string }) {
                 className="mt-4 flex items-center justify-between bg-gradient-to-r from-teal-500 to-emerald-500 rounded-2xl px-5 py-4 shadow-md cursor-pointer group"
               >
                 <div className="flex items-center space-x-3">
-                  <div className="w-10 h-10 bg-white/20 rounded-xl flex items-center justify-center text-xl flex-shrink-0">
-                    📝
+                  {/* 네이버 블로그 로고 */}
+                  <div className="w-14 h-14 bg-white rounded-xl flex items-center justify-center flex-shrink-0 shadow-sm p-1.5">
+                    <img
+                      src="https://ssl.pstatic.net/static/blog/img/blog_logo_s2.png"
+                      alt="네이버 블로그"
+                      className="w-full h-full object-contain"
+                      onError={(e) => { (e.target as HTMLImageElement).style.display='none'; }}
+                    />
                   </div>
                   <div>
-                    <p className="text-white font-extrabold text-sm leading-tight">법인 공식 블로그</p>
+                    <p className="text-white font-extrabold text-sm leading-tight">법인 공식 블로그 보기</p>
                     <p className="text-white/80 text-[11px] mt-0.5 leading-tight">상세 방문 안내 및 대출 상품 정보를 확인하실 수 있습니다</p>
                   </div>
                 </div>
                 <div className="flex items-center space-x-1.5 bg-white text-teal-700 font-bold text-xs px-3.5 py-2 rounded-xl shadow-sm group-hover:bg-teal-50 transition-colors flex-shrink-0 ml-3">
-                  <span>블로그 방문</span>
+                  <span>방문하기</span>
                   <motion.span
                     animate={{ x: [0, 4, 0] }}
                     transition={{ duration: 1.2, repeat: Infinity, ease: 'easeInOut' }}
