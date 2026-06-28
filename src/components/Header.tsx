@@ -59,9 +59,9 @@ export default function Header({ activeTab, setActiveTab, onScrollToSection, onO
       label: '대출안내',
       sublinks: [
         { name: '지원대상 안내', id: 'loan-target', icon: Target, color: 'text-red-500' },
+        { name: '이용 절차 및 서류', id: 'process-guide', icon: FileText, color: 'text-amber-600' },
         { name: '자주 묻는 질문', id: 'faq-section', icon: HelpCircle, color: 'text-blue-500' },
-        { name: '스마트 대출계산기', id: 'loan-calc-intro', icon: Calculator, color: 'text-green-500' },
-        { name: '이용 절차 및 서류', id: 'process-guide', icon: FileText, color: 'text-amber-600' }
+        { name: '스마트 대출계산기', id: 'loan-calc-intro', icon: Calculator, color: 'text-green-500' }
       ]
     },
     {
