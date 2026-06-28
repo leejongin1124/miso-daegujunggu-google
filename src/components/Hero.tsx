@@ -219,7 +219,12 @@ export default function Hero({ onScrollToSection }: HeroProps) {
                 rel="noopener noreferrer"
                 className="inline-flex justify-center items-center space-x-2 bg-gradient-to-r from-teal-600 to-emerald-600 text-white font-bold px-8 py-4 rounded-2xl hover:brightness-105 transition-all shadow-lg text-base"
               >
-                <span>📝</span>
+                <img
+                  src="https://ssl.pstatic.net/static/blog/img/blog_logo_s2.png"
+                  alt="블로그"
+                  className="w-6 h-6 object-contain brightness-0 invert"
+                  onError={(e) => { (e.target as HTMLImageElement).style.display='none'; }}
+                />
                 <span>법인 공식 블로그 보기</span>
               </a>
             </motion.div>
