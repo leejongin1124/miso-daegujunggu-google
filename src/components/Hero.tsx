@@ -122,8 +122,7 @@ export default function Hero({ onScrollToSection }: HeroProps) {
               transition={{ duration: 0.5 }}
               className="flex items-center gap-2"
             >
-              <span className="text-xs font-bold text-slate-400 tracking-widest uppercase">이런 분들께</span>
-              <div className="relative h-7 overflow-hidden">
+<div className="relative h-7 overflow-hidden">
                 {AUDIENCE.map((label, i) => (
                   <motion.span
                     key={label}
