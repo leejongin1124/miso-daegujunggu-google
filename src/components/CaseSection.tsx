@@ -112,12 +112,12 @@ export default function CaseSection({ initialFilter }: CaseSectionProps) {
         <div id="case-social" className="text-center space-y-4 max-w-4xl mx-auto">
           <span className="text-xs font-black text-teal-600 tracking-widest uppercase">Miso Miracle Stories</span>
           <h2 className="text-2xl md:text-4xl font-black text-slate-900 tracking-tight leading-tight whitespace-nowrap overflow-hidden text-ellipsis">
-            다시 일어선 대구의 실제 감동사례
+            대구 시민들의 실제 이야기
           </h2>
           <div className="h-1.5 w-16 bg-teal-600 rounded-full mx-auto" />
           <p className="text-slate-600 font-medium text-base md:text-lg max-w-2xl mx-auto leading-relaxed text-left md:text-center">
-            (사)미소금융대구중구법인의 지원을 통해 경제적 어려움을 극복하고 <br className="hidden sm:inline" />
-            성실한 상환으로 자립의 발판을 마련한 대구 시민들의 실제 사례입니다.
+            저희 법인의 대출을 받아 어려운 시기를 버텨내고, <br className="hidden sm:inline" />
+            지금은 스스로 일어선 대구 시민들의 이야기입니다.
           </p>
         </div>
 
