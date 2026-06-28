@@ -221,10 +221,9 @@ export default function Hero({ onScrollToSection }: HeroProps) {
                 className="inline-flex flex-1 md:flex-none justify-center items-center space-x-2 bg-gradient-to-r from-teal-600 to-emerald-600 text-white font-bold px-4 md:px-8 py-4 rounded-2xl hover:brightness-105 transition-all shadow-lg text-sm md:text-base"
               >
                 <img
-                  src="https://ssl.pstatic.net/static/blog/img/blog_logo_s2.png"
+                  src="/logos/naver_blog_logo.png"
                   alt="블로그"
-                  className="w-5 h-5 md:w-6 md:h-6 object-contain brightness-0 invert"
-                  onError={(e) => { (e.target as HTMLImageElement).style.display='none'; }}
+                  className="w-5 h-5 md:w-6 md:h-6 object-contain"
                 />
                 <span className="md:hidden">법인 블로그</span>
                 <span className="hidden md:inline">법인 공식 블로그 보기</span>
