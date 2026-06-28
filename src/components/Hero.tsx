@@ -102,35 +102,35 @@ export default function Hero({ onScrollToSection }: HeroProps) {
   ];
 
   return (
-    <section id="hero-section" className="relative overflow-hidden">
+    <section id="hero-section" className="relative overflow-hidden min-h-[100svh] flex flex-col">
 
-      {/* 배경 동영상 */}
+      {/* 배경 동영상 — 모바일: object-center, PC: object-cover */}
       <video
         autoPlay
         muted
         loop
         playsInline
-        className="absolute inset-0 w-full h-full object-cover"
+        className="absolute inset-0 w-full h-full object-cover object-center"
         src="/hero-bg.mp4"
       />
-      {/* 어두운 그라데이션 오버레이 — 텍스트 가독성 확보 */}
-      <div className="absolute inset-0 bg-gradient-to-r from-slate-900/80 via-slate-900/60 to-slate-900/30 pointer-events-none" />
-      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-slate-900/40 pointer-events-none" />
+      {/* 오버레이 — 모바일은 더 어둡게(텍스트 가독성) */}
+      <div className="absolute inset-0 bg-slate-900/60 md:bg-gradient-to-r md:from-slate-900/80 md:via-slate-900/60 md:to-slate-900/30 pointer-events-none" />
+      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-slate-900/50 pointer-events-none" />
 
-      <div className="relative z-10 pt-20 md:pt-24 pb-0">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="relative z-10 flex flex-col flex-1 pt-14 md:pt-24">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full flex flex-col flex-1">
 
-        {/* 텍스트 영역 — 좌측 정렬, 동영상 위 오버레이 */}
-        <div className="py-16 md:py-24">
+        {/* 텍스트 영역 — 모바일: 중앙, PC: 좌측 */}
+        <div className="flex-1 flex items-center py-10 md:py-20">
 
-          <div className="space-y-6 text-left max-w-2xl">
+          <div className="space-y-5 md:space-y-6 text-center md:text-left w-full md:max-w-2xl mx-auto md:mx-0">
 
             {/* 순환 대상 칩 */}
             <motion.div
               initial={{ opacity: 0, y: -10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
-              className="flex items-center gap-2"
+              className="flex items-center justify-center md:justify-start gap-2"
             >
 <div className="relative h-7 overflow-hidden">
                 {AUDIENCE.map((label, i) => (
@@ -151,7 +151,7 @@ export default function Hero({ onScrollToSection }: HeroProps) {
               </div>
             </motion.div>
 
-            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-white leading-[1.3] space-y-1 overflow-hidden drop-shadow-lg">
+            <h1 className="text-2xl sm:text-3xl lg:text-5xl font-extrabold tracking-tight text-white leading-[1.3] space-y-1 overflow-hidden drop-shadow-lg">
               {/* 1번: 좌→우 슬라이드 후 고정 */}
               <motion.div
                 initial={{ x: -80, opacity: 0 }}
@@ -168,7 +168,7 @@ export default function Hero({ onScrollToSection }: HeroProps) {
                 transition={{ duration: 0.55, ease: 'easeOut' }}
                 className="relative inline-block"
               >
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-teal-600 to-emerald-600">
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-teal-300 to-emerald-300">
                   여기, 또 다른 길이 있습니다.
                 </span>
                 {titlePhase >= 3 && (
@@ -176,7 +176,7 @@ export default function Hero({ onScrollToSection }: HeroProps) {
                     initial={{ scaleX: 0 }}
                     animate={{ scaleX: 1 }}
                     transition={{ duration: 0.6, ease: 'easeOut' }}
-                    className="absolute left-0 -bottom-1 h-1 w-full bg-gradient-to-r from-teal-400 to-emerald-400 rounded-full origin-left"
+                    className="absolute left-0 -bottom-1 h-1 w-full bg-gradient-to-r from-teal-300 to-emerald-300 rounded-full origin-left"
                   />
                 )}
               </motion.div>
@@ -204,7 +204,7 @@ export default function Hero({ onScrollToSection }: HeroProps) {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.3 }}
-              className="flex flex-col sm:flex-row gap-4 pt-2"
+              className="flex flex-col sm:flex-row gap-3 pt-2 items-center md:items-start"
             >
               <button
                 onClick={() => onScrollToSection('social-finance')}
@@ -225,7 +225,7 @@ export default function Hero({ onScrollToSection }: HeroProps) {
         </div>
 
         {/* 4종 퀵 카드 — 동영상 섹션 하단 */}
-        <div ref={statsRef} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 pb-8">
+        <div ref={statsRef} className="grid grid-cols-2 lg:grid-cols-4 gap-3 md:gap-4 pb-6 md:pb-8">
           {quickCards.map((card, i) => (
             <motion.div
               key={i}
@@ -235,7 +235,7 @@ export default function Hero({ onScrollToSection }: HeroProps) {
               transition={{ duration: 0.5, delay: i * 0.12, type: 'spring', stiffness: 200, damping: 18 }}
               animate={spotlightIdx === i ? { y: -6, scale: 1.03 } : { y: 0, scale: 1 }}
               onClick={card.action}
-              className={`relative bg-white/90 backdrop-blur-sm p-6 rounded-2xl shadow-sm transition-colors duration-500 text-left group overflow-hidden ${
+              className={`relative bg-white/90 backdrop-blur-sm p-4 md:p-6 rounded-2xl shadow-sm transition-colors duration-500 text-left group overflow-hidden ${
                 card.action ? 'cursor-pointer' : ''
               } ${
                 spotlightIdx === i
@@ -261,8 +261,8 @@ export default function Hero({ onScrollToSection }: HeroProps) {
                   </span>
                 )}
               </div>
-              <h3 className="text-slate-500 text-xs font-bold uppercase tracking-wider mt-5 relative z-10">{card.title}</h3>
-              <p className="text-slate-800 font-extrabold text-xl mt-1 tracking-tight relative z-10">{card.value}</p>
+              <h3 className="text-slate-500 text-[10px] md:text-xs font-bold uppercase tracking-wider mt-3 md:mt-5 relative z-10">{card.title}</h3>
+              <p className="text-slate-800 font-extrabold text-base md:text-xl mt-1 tracking-tight relative z-10">{card.value}</p>
               <p className="text-slate-400 text-xs mt-1 font-semibold relative z-10">{card.desc}</p>
             </motion.div>
           ))}
