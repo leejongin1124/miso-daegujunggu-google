@@ -39,6 +39,7 @@ export interface CaseStudy {
   effect: string;
   author: string;
   location: string;
+  image?: string;
 }
 
 export enum TabType {
