@@ -55,8 +55,8 @@ export default function MisoIntroSection() {
           </h2>
           <div className="h-1.5 w-16 bg-teal-600 rounded-full mx-auto" />
           <p className="text-slate-600 font-medium text-base md:text-lg leading-relaxed">
-            은행 대출이 어려우셨던 분들을 위해 정부가 만든 서민 전용 정책 금융입니다.<br className="hidden md:inline" />
-            수수료도, 담보도, 보증인도 필요 없습니다.
+            은행 문턱을 넘지 못한 분들을 위해 정부가 직접 만든 저금리 소액 대출입니다.<br className="hidden md:inline" />
+            수수료 없이, 담보 없이, 보증인 없이 빌리실 수 있습니다.
           </p>
         </motion.div>
 
