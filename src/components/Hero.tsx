@@ -31,10 +31,18 @@ interface HeroProps {
 
 const AUDIENCE = ['청년', '소상공인', '취약계층', '자영업자'];
 
+const PHONES = [
+  '053-252-6408',
+  '053-252-6409',
+  '053-252-6479',
+  '053-252-6480',
+];
+
 export default function Hero({ onScrollToSection }: HeroProps) {
   const [spotlightIdx, setSpotlightIdx] = useState(0);
   const [audienceIdx, setAudienceIdx] = useState(0);
   const [statsInView, setStatsInView] = useState(false);
+  const [phoneIdx, setPhoneIdx] = useState(0);
   const statsRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -48,6 +56,13 @@ export default function Hero({ onScrollToSection }: HeroProps) {
     const interval = setInterval(() => {
       setAudienceIdx(prev => (prev + 1) % AUDIENCE.length);
     }, 2000);
+    return () => clearInterval(interval);
+  }, []);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setPhoneIdx(prev => (prev + 1) % PHONES.length);
+    }, 2500);
     return () => clearInterval(interval);
   }, []);
 
@@ -72,13 +87,15 @@ export default function Hero({ onScrollToSection }: HeroProps) {
     return () => { clearTimeout(t1); clearTimeout(t2); clearTimeout(t3); };
   }, []);
 
+  const currentPhone = PHONES[phoneIdx];
+
   const quickCards = [
     {
       icon: <Phone className="w-6 h-6 text-teal-600" />,
       title: '대표번호 즉시상담',
-      value: '053-252-6408',
+      value: currentPhone,
       desc: '평일 09시 ~ 18시 운영',
-      action: () => window.open('tel:053-252-6408')
+      action: () => window.open(`tel:${currentPhone}`)
     },
     {
       icon: <MapPin className="w-6 h-6 text-rose-600" />,
@@ -270,7 +287,25 @@ export default function Hero({ onScrollToSection }: HeroProps) {
                 )}
               </div>
               <h3 className="text-slate-500 text-[10px] md:text-xs font-bold uppercase tracking-wider mt-3 md:mt-5 relative z-10">{card.title}</h3>
-              <p className="text-slate-800 font-extrabold text-base md:text-xl mt-1 tracking-tight relative z-10">{card.value}</p>
+              {i === 0 ? (
+                <div className="relative h-7 overflow-hidden mt-1">
+                  {PHONES.map((phone, pi) => (
+                    <motion.p
+                      key={phone}
+                      animate={{
+                        y: pi === phoneIdx ? 0 : pi === (phoneIdx - 1 + PHONES.length) % PHONES.length ? -28 : 28,
+                        opacity: pi === phoneIdx ? 1 : 0,
+                      }}
+                      transition={{ duration: 0.4, ease: 'easeInOut' }}
+                      className="absolute inset-0 flex items-center text-slate-800 font-extrabold text-base md:text-xl tracking-tight"
+                    >
+                      {phone}
+                    </motion.p>
+                  ))}
+                </div>
+              ) : (
+                <p className="text-slate-800 font-extrabold text-base md:text-xl mt-1 tracking-tight relative z-10">{card.value}</p>
+              )}
               <p className="text-slate-400 text-xs mt-1 font-semibold relative z-10">{card.desc}</p>
             </motion.div>
           ))}
