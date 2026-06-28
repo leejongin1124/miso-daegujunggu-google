@@ -170,13 +170,13 @@ export default function Header({ activeTab, setActiveTab, onScrollToSection, onO
 
           {/* 모바일 햄버거 토글 */}
           <div className="lg:hidden flex items-center space-x-2">
-            <button
-              onClick={onOpenCalculator}
-              className="p-2 text-slate-600 hover:text-teal-600 transition-colors"
-              title="대출 계산기"
+            <a
+              href="tel:053-252-6408"
+              className="flex items-center space-x-1 bg-teal-600 text-white text-xs font-bold px-3 py-1.5 rounded-full shadow-sm"
             >
-              📊
-            </button>
+              <Phone className="w-3.5 h-3.5" />
+              <span>전화상담</span>
+            </a>
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               className="p-2 rounded-lg text-slate-600 hover:text-slate-900 transition-colors focus:outline-none"
