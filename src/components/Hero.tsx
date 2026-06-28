@@ -102,18 +102,28 @@ export default function Hero({ onScrollToSection }: HeroProps) {
   ];
 
   return (
-    <section id="hero-section" className="relative pt-20 md:pt-24 bg-gradient-to-b from-teal-50/40 via-white to-white pb-12 md:pb-16 overflow-hidden">
-      
-      {/* 우장한 백그라운드 구체 데코 */}
-      <div className="absolute top-0 right-0 -mr-64 -mt-64 w-[600px] h-[600px] bg-teal-100/30 rounded-full blur-3xl pointer-events-none" />
-      <div className="absolute top-1/2 left-0 -ml-48 w-96 h-96 bg-emerald-50/50 rounded-full blur-2xl pointer-events-none" />
+    <section id="hero-section" className="relative overflow-hidden">
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        
-        {/* 상단 문구 배너와 텍스트 그리드 */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
+      {/* 배경 동영상 */}
+      <video
+        autoPlay
+        muted
+        loop
+        playsInline
+        className="absolute inset-0 w-full h-full object-cover"
+        src="/hero-bg.mp4"
+      />
+      {/* 어두운 그라데이션 오버레이 — 텍스트 가독성 확보 */}
+      <div className="absolute inset-0 bg-gradient-to-r from-slate-900/80 via-slate-900/60 to-slate-900/30 pointer-events-none" />
+      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-slate-900/40 pointer-events-none" />
 
-          <div className="space-y-6 text-left">
+      <div className="relative z-10 pt-20 md:pt-24 pb-0">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        {/* 텍스트 영역 — 좌측 정렬, 동영상 위 오버레이 */}
+        <div className="py-16 md:py-24">
+
+          <div className="space-y-6 text-left max-w-2xl">
 
             {/* 순환 대상 칩 */}
             <motion.div
@@ -141,7 +151,7 @@ export default function Hero({ onScrollToSection }: HeroProps) {
               </div>
             </motion.div>
 
-            <h1 className="text-3xl sm:text-4xl lg:text-4xl font-extrabold tracking-tight text-slate-900 leading-[1.3] space-y-1 overflow-hidden">
+            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-white leading-[1.3] space-y-1 overflow-hidden drop-shadow-lg">
               {/* 1번: 좌→우 슬라이드 후 고정 */}
               <motion.div
                 initial={{ x: -80, opacity: 0 }}
@@ -178,12 +188,12 @@ export default function Hero({ onScrollToSection }: HeroProps) {
               transition={{ duration: 0.6, delay: 0.5 }}
               className="space-y-2"
             >
-              <p className="text-slate-500 text-sm md:text-base font-medium leading-relaxed">
+              <p className="text-white/70 text-sm md:text-base font-medium leading-relaxed drop-shadow">
                 금융위원회 허가 비영리 공익법인이자 서민금융진흥원 공식 사업수행기관입니다.
               </p>
-              <p className="text-slate-700 text-base md:text-lg font-semibold leading-relaxed flex flex-wrap items-center gap-2">
+              <p className="text-white text-base md:text-lg font-semibold leading-relaxed flex flex-wrap items-center gap-2 drop-shadow">
                 대구·경북 청년·소상공인·취약계층의 자립을 위해
-                <span className="inline-flex items-center bg-emerald-50 border border-emerald-200 text-emerald-700 text-xs font-black px-2.5 py-1 rounded-lg whitespace-nowrap">
+                <span className="inline-flex items-center bg-emerald-500/90 text-white text-xs font-black px-2.5 py-1 rounded-lg whitespace-nowrap shadow">
                   연 4.5% 저금리
                 </span>
                 상담부터 대출까지 함께합니다.
@@ -198,7 +208,7 @@ export default function Hero({ onScrollToSection }: HeroProps) {
             >
               <button
                 onClick={() => onScrollToSection('social-finance')}
-                className="inline-flex justify-center items-center space-x-2 bg-white text-slate-800 border-2 border-slate-200 hover:border-teal-500 hover:text-teal-600 font-bold px-7 py-4 rounded-2xl transition-all shadow-sm text-base"
+                className="inline-flex justify-center items-center space-x-2 bg-white/20 backdrop-blur-sm text-white border-2 border-white/40 hover:bg-white hover:text-teal-700 font-bold px-7 py-4 rounded-2xl transition-all shadow text-base"
               >
                 <span>🔍 지원상품 전체보기</span>
                 <ArrowRight className="w-4 h-4" />
@@ -212,29 +222,10 @@ export default function Hero({ onScrollToSection }: HeroProps) {
               </a>
             </motion.div>
           </div>
-
-          {/* 오른쪽: 이미지 자산 배치 및 프레임 효과 (input_file_0.png) */}
-          <motion.div 
-            initial={{ opacity: 0, scale: 0.95 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.7 }}
-            className="relative"
-          >
-            <div className="relative mx-auto max-w-md lg:max-w-none">
-              <div className="rounded-2xl overflow-hidden shadow-2xl">
-                <img
-                  src="/hero-bg.jpg.png"
-                  alt="미소금융의 따뜻한 자금 지원 일러스트"
-                  className="w-full h-auto object-cover"
-                />
-              </div>
-            </div>
-          </motion.div>
-
         </div>
 
-        {/* 4종 모바일 퀵 카드 */}
-        <div ref={statsRef} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 mt-16 md:mt-20">
+        {/* 4종 퀵 카드 — 동영상 섹션 하단 */}
+        <div ref={statsRef} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 pb-8">
           {quickCards.map((card, i) => (
             <motion.div
               key={i}
@@ -244,7 +235,7 @@ export default function Hero({ onScrollToSection }: HeroProps) {
               transition={{ duration: 0.5, delay: i * 0.12, type: 'spring', stiffness: 200, damping: 18 }}
               animate={spotlightIdx === i ? { y: -6, scale: 1.03 } : { y: 0, scale: 1 }}
               onClick={card.action}
-              className={`relative bg-white p-6 rounded-2xl shadow-sm transition-colors duration-500 text-left group overflow-hidden ${
+              className={`relative bg-white/90 backdrop-blur-sm p-6 rounded-2xl shadow-sm transition-colors duration-500 text-left group overflow-hidden ${
                 card.action ? 'cursor-pointer' : ''
               } ${
                 spotlightIdx === i
@@ -277,6 +268,7 @@ export default function Hero({ onScrollToSection }: HeroProps) {
           ))}
         </div>
 
+      </div>
       </div>
     </section>
   );
