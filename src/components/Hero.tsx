@@ -110,7 +110,7 @@ export default function Hero({ onScrollToSection }: HeroProps) {
         muted
         loop
         playsInline
-        className="absolute inset-0 w-full h-full object-cover object-right-top md:object-center"
+        className="absolute inset-0 w-full h-full object-cover [object-position:80%_0%] md:[object-position:50%_50%]"
         src="/hero-bg.mp4"
       />
       {/* 오버레이 — 모바일은 더 어둡게(텍스트 가독성) */}
