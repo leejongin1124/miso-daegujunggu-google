@@ -117,13 +117,13 @@ export default function Hero({ onScrollToSection }: HeroProps) {
       <div className="absolute inset-0 bg-slate-900/10 md:bg-gradient-to-r md:from-slate-900/25 md:via-slate-900/10 md:to-transparent pointer-events-none" />
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-slate-900/10 pointer-events-none" />
 
-      <div className="relative z-10 flex flex-col flex-1 pt-14 md:pt-16">
+      <div className="relative z-10 flex flex-col flex-1 pt-12 md:pt-16">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full flex flex-col flex-1">
 
         {/* 텍스트 영역 — 모바일: 중앙, PC: 좌측 */}
-        <div className="flex-1 flex items-center py-8 md:py-12">
+        <div className="flex-1 flex items-center py-4 md:py-12">
 
-          <div className="space-y-5 md:space-y-6 text-left w-full md:max-w-2xl">
+          <div className="space-y-3 md:space-y-6 text-left w-full md:max-w-2xl">
 
             {/* 순환 대상 칩 */}
             <motion.div
@@ -233,7 +233,7 @@ export default function Hero({ onScrollToSection }: HeroProps) {
         </div>
 
         {/* 4종 퀵 카드 — 동영상 섹션 하단 */}
-        <div ref={statsRef} className="grid grid-cols-2 lg:grid-cols-4 gap-3 md:gap-4 pb-6 md:pb-8">
+        <div ref={statsRef} className="grid grid-cols-2 lg:grid-cols-4 gap-2 md:gap-4 pb-4 md:pb-8">
           {quickCards.map((card, i) => (
             <motion.div
               key={i}
