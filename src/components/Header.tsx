@@ -136,7 +136,7 @@ export default function Header({ activeTab, setActiveTab, onScrollToSection, onO
                       animate={{ opacity: 1, y: 0, scale: 1 }}
                       exit={{ opacity: 0, y: -6, scale: 0.97 }}
                       transition={{ duration: 0.18, ease: 'easeOut' }}
-                      className="absolute top-full left-0 mt-1 min-w-[180px] bg-white rounded-xl shadow-xl border border-slate-100 overflow-hidden z-50"
+                      className="absolute top-full left-0 mt-1 min-w-[200px] bg-white rounded-xl shadow-xl border border-slate-100 overflow-hidden z-50 whitespace-nowrap"
                     >
                       <ul className="py-1">
                         {item.sublinks.map((sublink, idx) => (
