@@ -345,10 +345,9 @@ export default function AboutSection({ sectionId }: { sectionId?: string }) {
                   {/* 네이버 블로그 로고 */}
                   <div className="w-14 h-14 bg-white rounded-xl flex items-center justify-center flex-shrink-0 shadow-sm p-1.5">
                     <img
-                      src="https://ssl.pstatic.net/static/blog/img/blog_logo_s2.png"
+                      src="/logos/naver_blog_logo.png"
                       alt="네이버 블로그"
                       className="w-full h-full object-contain"
-                      onError={(e) => { (e.target as HTMLImageElement).style.display='none'; }}
                     />
                   </div>
                   <div>
