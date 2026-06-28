@@ -236,9 +236,10 @@ export default function Header({ activeTab, setActiveTab, onScrollToSection, onO
                           <button
                             key={sublink.id}
                             onClick={() => handleSublinkClick(sublink.id, item.type)}
-                            className="block w-full text-left py-2 px-3 text-sm font-medium text-slate-600 hover:text-teal-600 hover:bg-white rounded transition-all"
+                            className="flex items-center space-x-2.5 w-full text-left py-2 px-3 text-sm font-medium text-slate-600 hover:text-teal-600 hover:bg-white rounded transition-all"
                           >
-                            {sublink.name}
+                            {sublink.icon && <sublink.icon className="w-3.5 h-3.5 flex-shrink-0 text-slate-400" />}
+                            <span>{sublink.name}</span>
                           </button>
                         ))}
                       </motion.div>
