@@ -204,28 +204,30 @@ export default function Hero({ onScrollToSection }: HeroProps) {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.3 }}
-              className="flex flex-col sm:flex-row gap-3 pt-2 items-start"
+              className="flex flex-row gap-3 pt-2 items-start w-full"
             >
               <button
                 onClick={() => onScrollToSection('social-finance')}
-                className="inline-flex justify-center items-center space-x-2 bg-white/20 backdrop-blur-sm text-white border-2 border-white/40 hover:bg-white hover:text-teal-700 font-bold px-7 py-4 rounded-2xl transition-all shadow text-base"
+                className="inline-flex flex-1 md:flex-none justify-center items-center space-x-2 bg-white/20 backdrop-blur-sm text-white border-2 border-white/40 hover:bg-white hover:text-teal-700 font-bold px-4 md:px-7 py-4 rounded-2xl transition-all shadow text-sm md:text-base"
               >
-                <span>🔍 지원상품 전체보기</span>
-                <ArrowRight className="w-4 h-4" />
+                <span className="md:hidden">🔍 상품안내</span>
+                <span className="hidden md:inline">🔍 지원상품 전체보기</span>
+                <ArrowRight className="w-4 h-4 hidden md:inline" />
               </button>
               <a
                 href="https://blog.naver.com/eornwndrn1"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex justify-center items-center space-x-2 bg-gradient-to-r from-teal-600 to-emerald-600 text-white font-bold px-8 py-4 rounded-2xl hover:brightness-105 transition-all shadow-lg text-base"
+                className="inline-flex flex-1 md:flex-none justify-center items-center space-x-2 bg-gradient-to-r from-teal-600 to-emerald-600 text-white font-bold px-4 md:px-8 py-4 rounded-2xl hover:brightness-105 transition-all shadow-lg text-sm md:text-base"
               >
                 <img
                   src="https://ssl.pstatic.net/static/blog/img/blog_logo_s2.png"
                   alt="블로그"
-                  className="w-6 h-6 object-contain brightness-0 invert"
+                  className="w-5 h-5 md:w-6 md:h-6 object-contain brightness-0 invert"
                   onError={(e) => { (e.target as HTMLImageElement).style.display='none'; }}
                 />
-                <span>법인 공식 블로그 보기</span>
+                <span className="md:hidden">법인 블로그</span>
+                <span className="hidden md:inline">법인 공식 블로그 보기</span>
               </a>
             </motion.div>
           </div>
