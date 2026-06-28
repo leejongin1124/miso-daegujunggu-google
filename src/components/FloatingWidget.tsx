@@ -46,9 +46,9 @@ export default function FloatingWidget({ onOpenCalculator }: FloatingWidgetProps
           <div className="space-y-4">
             <div>
               <span className="text-[9px] bg-slate-900 text-white font-black px-2 py-0.5 rounded tracking-wider uppercase font-mono">
-                QUICK SUMMARY
+                빠른 메뉴
               </span>
-              <h4 className="font-extrabold text-slate-900 text-sm mt-1.5 leading-tight">대구중구법인 안심 금융 가이드</h4>
+              <h4 className="font-extrabold text-slate-900 text-sm mt-1.5 leading-tight">미소금융 대구중구법인</h4>
             </div>
 
             <div className="space-y-2 text-xs leading-normal font-semibold text-slate-600">
@@ -57,7 +57,7 @@ export default function FloatingWidget({ onOpenCalculator }: FloatingWidgetProps
                 className="w-full text-left py-1.5 px-2 hover:bg-slate-50 rounded flex items-center gap-1.5 text-slate-800 hover:text-miso-blue-600 transition"
               >
                 <Calculator className="w-4 h-4 text-miso-blue-600 inline" />
-                <span>스마트 이자 계산기 열기</span>
+                <span>대출 이자 계산기</span>
               </button>
               <a 
                 href="tel:053-252-6408"
@@ -65,12 +65,12 @@ export default function FloatingWidget({ onOpenCalculator }: FloatingWidgetProps
                 className="w-full text-left py-1.5 px-2 hover:bg-slate-50 rounded flex items-center gap-1.5 text-slate-800 hover:text-miso-blue-600 transition"
               >
                 <Phone className="w-4 h-4 text-miso-blue-600 inline" />
-                <span>📞 전화로 상담하기</span>
+                <span>전화로 상담하기</span>
               </a>
             </div>
 
             <div className="pt-2 border-t border-slate-100 text-[10px] text-slate-400 font-bold leading-normal">
-              ※ 대구 남구 중앙대로 146, 4층 하나은행 건물에 위치해 있습니다. (대표 053-252-6408)
+              ※ 대구 남구 중앙대로 146 하나은행 봉덕지점 4층 / 053-252-6408
             </div>
           </div>
         </div>
