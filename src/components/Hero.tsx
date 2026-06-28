@@ -104,33 +104,33 @@ export default function Hero({ onScrollToSection }: HeroProps) {
   return (
     <section id="hero-section" className="relative overflow-hidden min-h-[100svh] flex flex-col">
 
-      {/* 배경 동영상 — 모바일: object-center, PC: object-cover */}
+      {/* 배경 동영상 — 모바일: object-top으로 상단 인물 중심 표시 */}
       <video
         autoPlay
         muted
         loop
         playsInline
-        className="absolute inset-0 w-full h-full object-cover object-center"
+        className="absolute inset-0 w-full h-full object-cover object-top md:object-center"
         src="/hero-bg.mp4"
       />
       {/* 오버레이 — 모바일은 더 어둡게(텍스트 가독성) */}
       <div className="absolute inset-0 bg-slate-900/60 md:bg-gradient-to-r md:from-slate-900/80 md:via-slate-900/60 md:to-slate-900/30 pointer-events-none" />
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-slate-900/50 pointer-events-none" />
 
-      <div className="relative z-10 flex flex-col flex-1 pt-14 md:pt-24">
+      <div className="relative z-10 flex flex-col flex-1 pt-14 md:pt-16">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full flex flex-col flex-1">
 
         {/* 텍스트 영역 — 모바일: 중앙, PC: 좌측 */}
-        <div className="flex-1 flex items-center py-10 md:py-20">
+        <div className="flex-1 flex items-center py-8 md:py-12">
 
-          <div className="space-y-5 md:space-y-6 text-center md:text-left w-full md:max-w-2xl mx-auto md:mx-0">
+          <div className="space-y-5 md:space-y-6 text-left w-full md:max-w-2xl">
 
             {/* 순환 대상 칩 */}
             <motion.div
               initial={{ opacity: 0, y: -10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
-              className="flex items-center justify-center md:justify-start gap-2"
+              className="flex items-center justify-start gap-2"
             >
 <div className="relative h-7 overflow-hidden">
                 {AUDIENCE.map((label, i) => (
@@ -204,7 +204,7 @@ export default function Hero({ onScrollToSection }: HeroProps) {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.3 }}
-              className="flex flex-col sm:flex-row gap-3 pt-2 items-center md:items-start"
+              className="flex flex-col sm:flex-row gap-3 pt-2 items-start"
             >
               <button
                 onClick={() => onScrollToSection('social-finance')}
