@@ -114,8 +114,8 @@ export default function Hero({ onScrollToSection }: HeroProps) {
         src="/hero-bg.mp4"
       />
       {/* 오버레이 — 모바일은 더 어둡게(텍스트 가독성) */}
-      <div className="absolute inset-0 bg-slate-900/20 md:bg-gradient-to-r md:from-slate-900/40 md:via-slate-900/20 md:to-transparent pointer-events-none" />
-      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-slate-900/20 pointer-events-none" />
+      <div className="absolute inset-0 bg-slate-900/10 md:bg-gradient-to-r md:from-slate-900/25 md:via-slate-900/10 md:to-transparent pointer-events-none" />
+      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-slate-900/10 pointer-events-none" />
 
       <div className="relative z-10 flex flex-col flex-1 pt-14 md:pt-16">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full flex flex-col flex-1">
