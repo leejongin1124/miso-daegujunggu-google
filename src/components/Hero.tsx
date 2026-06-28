@@ -102,7 +102,7 @@ export default function Hero({ onScrollToSection }: HeroProps) {
   ];
 
   return (
-    <section id="hero-section" className="relative pt-28 md:pt-36 bg-gradient-to-b from-teal-50/40 via-white to-white pb-16 md:pb-24 overflow-hidden">
+    <section id="hero-section" className="relative pt-20 md:pt-24 bg-gradient-to-b from-teal-50/40 via-white to-white pb-12 md:pb-16 overflow-hidden">
       
       {/* 우장한 백그라운드 구체 데코 */}
       <div className="absolute top-0 right-0 -mr-64 -mt-64 w-[600px] h-[600px] bg-teal-100/30 rounded-full blur-3xl pointer-events-none" />

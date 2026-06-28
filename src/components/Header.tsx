@@ -101,7 +101,7 @@ export default function Header({ activeTab, setActiveTab, onScrollToSection, onO
       className="fixed top-0 left-0 w-full z-50 bg-white/95 backdrop-blur-md border-b border-slate-100 shadow-sm transition-all duration-300"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-20">
+        <div className="flex justify-between items-center h-14">
 
           {/* 로고 */}
           <div className="flex items-center space-x-2 cursor-pointer min-w-0 flex-shrink" onClick={() => handleSublinkClick('hero-section', TabType.ABOUT)}>
@@ -195,7 +195,7 @@ export default function Header({ activeTab, setActiveTab, onScrollToSection, onO
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
-            className="lg:hidden border-t border-slate-100 bg-white overflow-y-auto max-h-[calc(100vh-80px)] shadow-lg"
+            className="lg:hidden border-t border-slate-100 bg-white overflow-y-auto max-h-[calc(100vh-56px)] shadow-lg"
           >
             <div className="px-4 py-6 space-y-4">
               
