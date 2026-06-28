@@ -29,8 +29,11 @@ interface HeroProps {
   onScrollToSection: (sectionId: string) => void;
 }
 
+const AUDIENCE = ['청년', '소상공인', '취약계층', '자영업자'];
+
 export default function Hero({ onScrollToSection }: HeroProps) {
   const [spotlightIdx, setSpotlightIdx] = useState(0);
+  const [audienceIdx, setAudienceIdx] = useState(0);
   const [statsInView, setStatsInView] = useState(false);
   const statsRef = useRef<HTMLDivElement>(null);
 
@@ -38,6 +41,13 @@ export default function Hero({ onScrollToSection }: HeroProps) {
     const interval = setInterval(() => {
       setSpotlightIdx(prev => (prev + 1) % 4);
     }, 1800);
+    return () => clearInterval(interval);
+  }, []);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setAudienceIdx(prev => (prev + 1) % AUDIENCE.length);
+    }, 2000);
     return () => clearInterval(interval);
   }, []);
 
@@ -53,12 +63,12 @@ export default function Hero({ onScrollToSection }: HeroProps) {
   const countPeople = useCountUp(3800, 2200, statsInView);
   const countMoney = useCountUp(600, 2200, statsInView);
 
-  // 타이틀 순차 애니메이션 phase: 0→숨김 1→1번등장 2→2번등장 3→둘다깜박
+  // 타이틀 순차 애니메이션 phase: 0→숨김 1→1번등장 2→2번등장 3→고정
   const [titlePhase, setTitlePhase] = useState(0);
   useEffect(() => {
     const t1 = setTimeout(() => setTitlePhase(1), 300);
     const t2 = setTimeout(() => setTitlePhase(2), 1100);
-    const t3 = setTimeout(() => setTitlePhase(3), 2000);
+    const t3 = setTimeout(() => setTitlePhase(3), 1900);
     return () => { clearTimeout(t1); clearTimeout(t2); clearTimeout(t3); };
   }, []);
 
@@ -104,53 +114,82 @@ export default function Hero({ onScrollToSection }: HeroProps) {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
 
           <div className="space-y-6 text-left">
+
+            {/* 순환 대상 칩 */}
+            <motion.div
+              initial={{ opacity: 0, y: -10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5 }}
+              className="flex items-center gap-2"
+            >
+              <span className="text-xs font-bold text-slate-400 tracking-widest uppercase">이런 분들께</span>
+              <div className="relative h-7 overflow-hidden">
+                {AUDIENCE.map((label, i) => (
+                  <motion.span
+                    key={label}
+                    animate={{
+                      y: i === audienceIdx ? 0 : i === (audienceIdx - 1 + AUDIENCE.length) % AUDIENCE.length ? -28 : 28,
+                      opacity: i === audienceIdx ? 1 : 0,
+                    }}
+                    transition={{ duration: 0.4, ease: 'easeInOut' }}
+                    className="absolute inset-0 flex items-center"
+                  >
+                    <span className="bg-teal-600 text-white text-xs font-black px-3 py-1 rounded-full whitespace-nowrap">
+                      {label}
+                    </span>
+                  </motion.span>
+                ))}
+              </div>
+            </motion.div>
+
             <h1 className="text-3xl sm:text-4xl lg:text-4xl font-extrabold tracking-tight text-slate-900 leading-[1.3] space-y-1 overflow-hidden">
-              {/* 1번: 좌→우 슬라이드 후 고정, phase3에서 깜박 */}
+              {/* 1번: 좌→우 슬라이드 후 고정 */}
               <motion.div
                 initial={{ x: -80, opacity: 0 }}
-                animate={
-                  titlePhase === 0 ? { x: -80, opacity: 0 } :
-                  titlePhase >= 3 ? { x: 0, opacity: [1, 0.15, 1] } :
-                  { x: 0, opacity: 1 }
-                }
-                transition={
-                  titlePhase >= 3
-                    ? { x: { duration: 0 }, opacity: { duration: 1.1, repeat: Infinity, ease: 'easeInOut' } }
-                    : { duration: 0.55, ease: 'easeOut' }
-                }
+                animate={titlePhase >= 1 ? { x: 0, opacity: 1 } : { x: -80, opacity: 0 }}
+                transition={{ duration: 0.55, ease: 'easeOut' }}
               >
                 은행 문턱에 막히셨나요?
               </motion.div>
 
-              {/* 2번: 1번 이후 좌→우 슬라이드, phase3에서 깜박 */}
+              {/* 2번: 슬라이드 + 밑줄 애니메이션 */}
               <motion.div
                 initial={{ x: -80, opacity: 0 }}
-                animate={
-                  titlePhase < 2 ? { x: -80, opacity: 0 } :
-                  titlePhase >= 3 ? { x: 0, opacity: [1, 0.15, 1] } :
-                  { x: 0, opacity: 1 }
-                }
-                transition={
-                  titlePhase >= 3
-                    ? { x: { duration: 0 }, opacity: { duration: 1.1, repeat: Infinity, ease: 'easeInOut', delay: 0.15 } }
-                    : titlePhase === 2 ? { duration: 0.55, ease: 'easeOut' }
-                    : { duration: 0 }
-                }
-                className="text-transparent bg-clip-text bg-gradient-to-r from-teal-600 to-emerald-600"
+                animate={titlePhase >= 2 ? { x: 0, opacity: 1 } : { x: -80, opacity: 0 }}
+                transition={{ duration: 0.55, ease: 'easeOut' }}
+                className="relative inline-block"
               >
-                여기, 또 다른 길이 있습니다.
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-teal-600 to-emerald-600">
+                  여기, 또 다른 길이 있습니다.
+                </span>
+                {titlePhase >= 3 && (
+                  <motion.span
+                    initial={{ scaleX: 0 }}
+                    animate={{ scaleX: 1 }}
+                    transition={{ duration: 0.6, ease: 'easeOut' }}
+                    className="absolute left-0 -bottom-1 h-1 w-full bg-gradient-to-r from-teal-400 to-emerald-400 rounded-full origin-left"
+                  />
+                )}
               </motion.div>
             </h1>
 
-            <motion.p 
+            <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              className="text-slate-600 text-lg md:text-xl font-medium leading-relaxed max-w-2xl"
+              transition={{ duration: 0.6, delay: 0.5 }}
+              className="space-y-2"
             >
-              금융위원회 허가 비영리 공익법인이자 서민금융진흥원 공식 사업수행기관입니다. <br className="hidden md:inline" />
-              대구·경북 지역 소상공인과 자영업자의 경제적 자립을 위한 서민금융 지원을 제공합니다.
-            </motion.p>
+              <p className="text-slate-500 text-sm md:text-base font-medium leading-relaxed">
+                금융위원회 허가 비영리 공익법인이자 서민금융진흥원 공식 사업수행기관입니다.
+              </p>
+              <p className="text-slate-700 text-base md:text-lg font-semibold leading-relaxed flex flex-wrap items-center gap-2">
+                대구·경북 청년·소상공인·취약계층의 자립을 위해
+                <span className="inline-flex items-center bg-emerald-50 border border-emerald-200 text-emerald-700 text-xs font-black px-2.5 py-1 rounded-lg whitespace-nowrap">
+                  연 4.5% 저금리
+                </span>
+                상담부터 대출까지 함께합니다.
+              </p>
+            </motion.div>
 
             <motion.div 
               initial={{ opacity: 0, y: 20 }}
