@@ -37,49 +37,49 @@ export default function Header({ activeTab, setActiveTab, onScrollToSection, onO
       type: TabType.ABOUT,
       label: '법인소개',
       sublinks: [
-        { name: '인사말', id: 'ceo-greeting', icon: User },
-        { name: '법인 연혁', id: 'history', icon: Clock },
-        { name: '조직도', id: 'organization', icon: Network },
-        { name: '오시는 길', id: 'location', icon: MapPin }
+        { name: '인사말', id: 'ceo-greeting', icon: User, color: 'text-blue-500' },
+        { name: '법인 연혁', id: 'history', icon: Clock, color: 'text-amber-500' },
+        { name: '조직도', id: 'organization', icon: Network, color: 'text-violet-500' },
+        { name: '오시는 길', id: 'location', icon: MapPin, color: 'text-rose-500' }
       ]
     },
     {
       type: TabType.PRODUCTS,
       label: '지원상품',
       sublinks: [
-        { name: '미소금융이란', id: 'miso-intro', icon: Info },
-        { name: '사회적연대금융', id: 'social-finance', icon: Users },
-        { name: '사업자 운영자금', id: 'business-fund', icon: Briefcase },
-        { name: '청년미래이음대출', id: 'youth-fund', icon: Rocket },
-        { name: '금융취약계층 생계자금', id: 'vulnerable-fund', icon: Shield }
+        { name: '미소금융이란', id: 'miso-intro', icon: Info, color: 'text-sky-500' },
+        { name: '사회적연대금융', id: 'social-finance', icon: Users, color: 'text-teal-500' },
+        { name: '사업자 운영자금', id: 'business-fund', icon: Briefcase, color: 'text-orange-500' },
+        { name: '청년미래이음대출', id: 'youth-fund', icon: Rocket, color: 'text-purple-500' },
+        { name: '금융취약계층 생계자금', id: 'vulnerable-fund', icon: Shield, color: 'text-emerald-500' }
       ]
     },
     {
       type: TabType.GUIDE,
       label: '대출안내',
       sublinks: [
-        { name: '지원대상 안내', id: 'loan-target', icon: Target },
-        { name: '자주 묻는 질문', id: 'faq-section', icon: HelpCircle },
-        { name: '스마트 대출계산기', id: 'loan-calc-intro', icon: Calculator },
-        { name: '이용 절차 및 서류', id: 'process-guide', icon: FileText }
+        { name: '지원대상 안내', id: 'loan-target', icon: Target, color: 'text-red-500' },
+        { name: '자주 묻는 질문', id: 'faq-section', icon: HelpCircle, color: 'text-blue-500' },
+        { name: '스마트 대출계산기', id: 'loan-calc-intro', icon: Calculator, color: 'text-green-500' },
+        { name: '이용 절차 및 서류', id: 'process-guide', icon: FileText, color: 'text-amber-600' }
       ]
     },
     {
       type: TabType.CASES,
       label: '지원사례',
       sublinks: [
-        { name: '사회연대 성공 수기', id: 'case-social', icon: Award },
-        { name: '소상공인 대출 사례', id: 'case-business', icon: Store },
-        { name: '청년 미래이음 사례', id: 'case-youth', icon: Zap },
-        { name: '생계 극복 스토리', id: 'case-vulnerable', icon: Heart }
+        { name: '사회연대 성공 수기', id: 'case-social', icon: Award, color: 'text-yellow-500' },
+        { name: '소상공인 대출 사례', id: 'case-business', icon: Store, color: 'text-indigo-500' },
+        { name: '청년 미래이음 사례', id: 'case-youth', icon: Zap, color: 'text-cyan-500' },
+        { name: '생계 극복 스토리', id: 'case-vulnerable', icon: Heart, color: 'text-pink-500' }
       ]
     },
     {
       type: TabType.NOTICE,
       label: '알림마당',
       sublinks: [
-        { name: '법인 공지사항', id: 'notice', icon: Bell },
-        { name: '불법 사금융 가이드', id: 'anti-fraud', icon: AlertTriangle }
+        { name: '법인 공지사항', id: 'notice', icon: Bell, color: 'text-amber-500' },
+        { name: '불법 사금융 가이드', id: 'anti-fraud', icon: AlertTriangle, color: 'text-red-500' }
       ]
     }
   ];
@@ -154,7 +154,7 @@ export default function Header({ activeTab, setActiveTab, onScrollToSection, onO
                                   : 'text-slate-600 hover:bg-teal-50 hover:text-teal-700'
                               }`}
                             >
-                              {sublink.icon && <sublink.icon className={`w-3.5 h-3.5 flex-shrink-0 transition-colors ${clickedSublink === sublink.id ? 'text-white' : 'text-slate-400 group-hover:text-teal-500'}`} />}
+                              {sublink.icon && <sublink.icon className={`w-3.5 h-3.5 flex-shrink-0 transition-colors ${clickedSublink === sublink.id ? 'text-white' : (sublink.color ?? 'text-slate-400')}`} />}
                               <span className="group-hover:translate-x-0.5 transition-transform duration-150">{sublink.name}</span>
                             </button>
                           </motion.li>
@@ -238,7 +238,7 @@ export default function Header({ activeTab, setActiveTab, onScrollToSection, onO
                             onClick={() => handleSublinkClick(sublink.id, item.type)}
                             className="flex items-center space-x-2.5 w-full text-left py-2 px-3 text-sm font-medium text-slate-600 hover:text-teal-600 hover:bg-white rounded transition-all"
                           >
-                            {sublink.icon && <sublink.icon className="w-3.5 h-3.5 flex-shrink-0 text-slate-400" />}
+                            {sublink.icon && <sublink.icon className={`w-3.5 h-3.5 flex-shrink-0 ${sublink.color ?? 'text-slate-400'}`} />}
                             <span>{sublink.name}</span>
                           </button>
                         ))}
