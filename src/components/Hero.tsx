@@ -74,6 +74,20 @@ export default function Hero({ onScrollToSection }: HeroProps) {
 
   const quickCards = [
     {
+      icon: <Phone className="w-6 h-6 text-teal-600" />,
+      title: '대표번호 즉시상담',
+      value: '053-252-6408',
+      desc: '평일 09시 ~ 18시 운영',
+      action: () => window.open('tel:053-252-6408')
+    },
+    {
+      icon: <MapPin className="w-6 h-6 text-rose-600" />,
+      title: '법인 방문 오시는 길',
+      value: '하나은행 봉덕지점 4층',
+      desc: '남구 중앙대로 146',
+      action: () => onScrollToSection('location')
+    },
+    {
       icon: <Users className="w-6 h-6 text-emerald-600" />,
       title: '누적 지원 인원',
       value: statsInView ? `${countPeople.toLocaleString()} 여명` : '0 여명',
@@ -84,20 +98,6 @@ export default function Hero({ onScrollToSection }: HeroProps) {
       title: '누적 지원 금액',
       value: statsInView ? `${countMoney}억 원 돌파` : '0억 원 돌파',
       desc: '2026년 5월 누적 기준'
-    },
-    {
-      icon: <MapPin className="w-6 h-6 text-rose-600" />,
-      title: '법인 방문 오시는 길',
-      value: '하나은행 봉덕지점 4층',
-      desc: '남구 중앙대로 146',
-      action: () => onScrollToSection('location')
-    },
-    {
-      icon: <Phone className="w-6 h-6 text-teal-600" />,
-      title: '대표번호 즉시상담',
-      value: '053-252-6408',
-      desc: '평일 09시 ~ 18시 운영',
-      action: () => window.open('tel:053-252-6408')
     }
   ];
 
