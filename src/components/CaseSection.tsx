@@ -72,7 +72,7 @@ export default function CaseSection({ initialFilter }: CaseSectionProps) {
       problem: '디자이너로 독립해서 내 브랜드를 만들고 싶었는데, 아르바이트생 신분에 금융 거래 이력도 없다 보니 은행이나 카드사에서는 아예 상담이 안 됐어요. 자금이 없으니 시작 자체가 막막했습니다.',
       solution: '청년미래이음 신청을 하면서 「청년 모두를 위한 재무상담」도 함께 이수했습니다. 담당자분이 소득 증빙 방법을 친절하게 안내해 주셔서 어렵지 않게 진행할 수 있었어요.',
       effect: '거치 기간 6년 이라는 독보적인 정책 기간을 사수받아 초창기 부채 압박 없이 브랜드 정렬에 전념하여 드디어 독립했습니다.',
-      author: '최○○ 작가 (20대 디자이너)',
+      author: '최○○ 디자이너 (20대 패션 디자이너)',
       location: '대구 중구'
     },
     {
@@ -105,7 +105,7 @@ export default function CaseSection({ initialFilter }: CaseSectionProps) {
       problem: '보이스피싱 피해를 당하고 나서 신용도 망가지고 월세도 몇 달째 못 내다가 퇴거 통지서까지 받았어요. 어디에도 기댈 곳이 없어서 정말 힘든 시간이었습니다.',
       solution: '통합지원센터에서 미소금융 생계자금을 안내해 주었습니다. 보이스피싱 피해 관련 서류를 챙겨서 접수했더니 심사가 진행됐어요. 그 자금으로 밀린 임차료를 해결하고 생활을 다시 시작할 수 있었습니다.',
       effect: '체납된 주거비를 정직하게 변제 변상했으며 연 4.5% 원리금 균등 상각으로 돌아와 일상 궤도를 사수해 안구 정화를 누리고 있습니다.',
-      author: '한○○ 고객 (50대, 피해 극복인)',
+      author: '한○○ 고객 (50대, 새 출발 중)',
       location: '대구 수성구'
     }
   ];
@@ -201,8 +201,8 @@ export default function CaseSection({ initialFilter }: CaseSectionProps) {
 
                   {/* 케이스 이미지 */}
                   {c.image && (
-                    <div className="w-full h-48 rounded-2xl overflow-hidden -mx-0">
-                      <img src={c.image} alt={c.title} className="w-full h-full object-cover" />
+                    <div className="w-full rounded-2xl overflow-hidden bg-slate-50">
+                      <img src={c.image} alt={c.title} className="w-full h-auto object-contain" />
                     </div>
                   )}
 
