@@ -14,7 +14,6 @@ import CaseSection from './components/CaseSection';
 import NoticeSection from './components/NoticeSection';
 import Footer from './components/Footer';
 import FloatingWidget from './components/FloatingWidget';
-import LandingSummary from './components/LandingSummary';
 import MisoIntroSection from './components/MisoIntroSection';
 
 // 섹션 ID → 어느 컴포넌트에 속하는지 매핑
@@ -132,10 +131,7 @@ export default function App() {
 
         {/* 랜딩페이지: Hero + 퀵 네비게이션 */}
         {isLanding && (
-          <>
-            <Hero onScrollToSection={handleScrollToSection} />
-            <LandingSummary onScrollToSection={handleScrollToSection} />
-          </>
+          <Hero onScrollToSection={handleScrollToSection} />
         )}
 
         {/* 미소금융이란 */}
