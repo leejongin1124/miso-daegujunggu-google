@@ -407,21 +407,12 @@ export default function ProductSection({ onScrollToSection, onOpenCalculator, in
                     <span className="relative z-10 whitespace-nowrap">블로그에서 상품 자세히 보기</span>
                   </motion.a>
                 ) : null}
-                {activeProduct.id === 'social' ? (
-                  <a
-                    href="tel:053-252-6480"
-                    className="flex-1 bg-teal-600 text-white font-bold py-4 rounded-xl text-center text-sm shadow-md hover:bg-teal-700 transition"
-                  >
-                    📞 사회적연대금융 전화 상담하기 (053-252-6480)
-                  </a>
-                ) : (
-                  <button
-                    onClick={() => onScrollToSection('consultation-form')}
-                    className="flex-1 bg-teal-600 text-white font-bold py-4 rounded-xl text-center text-sm shadow-md hover:bg-teal-700 transition"
-                  >
-                    📞 {activeProduct.name} 상담 신청하기
-                  </button>
-                )}
+                <a
+                  href="tel:053-252-6408"
+                  className="flex-1 bg-teal-600 text-white font-bold py-4 rounded-xl text-center text-sm shadow-md hover:bg-teal-700 transition"
+                >
+                  📞 {activeProduct.name} 상담 신청하기
+                </a>
               </div>
 
             </div>
