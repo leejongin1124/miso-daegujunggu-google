@@ -211,13 +211,12 @@ export default function MisoIntroSection() {
                   <span className={`font-extrabold text-sm leading-snug ${row.highlight ? 'text-teal-700' : 'text-slate-800'}`}>{row.name}</span>
                   <motion.a
                     href={row.blog} target="_blank" rel="noopener noreferrer"
-                    animate={{ scale: [1, 1.06, 1], boxShadow: ['0 1px 4px #03C75A55', '0 2px 12px #03C75Aaa', '0 1px 4px #03C75A55'] }}
-                    transition={{ duration: 1.8, repeat: Infinity, ease: 'easeInOut' }}
-                    whileHover={{ scale: 1.1, boxShadow: '0 4px 16px #03C75Acc' }}
-                    whileTap={{ scale: 0.93 }}
-                    className="flex-shrink-0 inline-flex items-center gap-1 bg-[#03C75A] text-white text-[10px] font-bold px-2 py-1 rounded-md cursor-pointer">
-                    <img src="/logos/naver_blog_logo.png" alt="블로그" className="w-3 h-3 object-contain brightness-0 invert flex-shrink-0" />
-                    <span>블로그 보기</span>
+                    animate={{ y: [0, -4, 0], scale: [1, 1.08, 1], boxShadow: ['0 1px 4px #03C75A55', '0 6px 16px #03C75Aaa', '0 1px 4px #03C75A55'] }}
+                    transition={{ duration: 1.6, repeat: Infinity, ease: 'easeInOut' }}
+                    whileHover={{ scale: 1.2, y: -6, boxShadow: '0 8px 20px #03C75Acc' }}
+                    whileTap={{ scale: 0.9 }}
+                    className="flex-shrink-0 inline-flex items-center justify-center bg-[#03C75A] p-1.5 rounded-md cursor-pointer">
+                    <img src="/logos/naver_blog_logo.png" alt="블로그" className="w-4 h-4 object-contain brightness-0 invert flex-shrink-0" />
                   </motion.a>
                 </div>
                 <p className="text-slate-500 text-xs font-medium mb-3 leading-relaxed">{row.purpose}</p>
@@ -300,9 +299,8 @@ export default function MisoIntroSection() {
                           transition={{ duration: 1.8, repeat: Infinity, ease: 'easeInOut' }}
                           whileHover={{ scale: 1.1, boxShadow: '0 4px 16px #03C75Acc' }}
                           whileTap={{ scale: 0.93 }}
-                          className="inline-flex items-center gap-1 bg-[#03C75A] text-white text-[10px] font-bold px-2 py-1 rounded-md cursor-pointer w-fit">
-                          <img src="/logos/naver_blog_logo.png" alt="블로그" className="w-3 h-3 object-contain brightness-0 invert flex-shrink-0" />
-                          <span>블로그 보기</span>
+                          className="inline-flex items-center justify-center bg-[#03C75A] p-1.5 rounded-md cursor-pointer w-fit">
+                          <img src="/logos/naver_blog_logo.png" alt="블로그" className="w-4 h-4 object-contain brightness-0 invert flex-shrink-0" />
                         </motion.a>
                       </div>
                     </td>
