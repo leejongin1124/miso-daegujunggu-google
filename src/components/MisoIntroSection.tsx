@@ -209,11 +209,16 @@ export default function MisoIntroSection() {
               <div key={i} className={`px-5 py-5 ${i % 2 === 0 ? 'bg-white' : 'bg-slate-50/40'}`}>
                 <div className="flex items-start justify-between gap-2 mb-3">
                   <span className={`font-extrabold text-sm leading-snug ${row.highlight ? 'text-teal-700' : 'text-slate-800'}`}>{row.name}</span>
-                  <a href={row.blog} target="_blank" rel="noopener noreferrer"
-                    className="flex-shrink-0 inline-flex items-center gap-1.5 bg-[#03C75A] hover:bg-[#02b050] active:scale-95 text-white text-[11px] font-bold px-2.5 py-1.5 rounded-lg shadow-sm transition-all duration-150">
+                  <motion.a
+                    href={row.blog} target="_blank" rel="noopener noreferrer"
+                    animate={{ scale: [1, 1.06, 1], boxShadow: ['0 1px 4px #03C75A55', '0 2px 12px #03C75Aaa', '0 1px 4px #03C75A55'] }}
+                    transition={{ duration: 1.8, repeat: Infinity, ease: 'easeInOut' }}
+                    whileHover={{ scale: 1.1, boxShadow: '0 4px 16px #03C75Acc' }}
+                    whileTap={{ scale: 0.93 }}
+                    className="flex-shrink-0 inline-flex items-center gap-1.5 bg-[#03C75A] text-white text-[11px] font-bold px-2.5 py-1.5 rounded-lg cursor-pointer">
                     <img src="/logos/naver_blog_logo.png" alt="블로그" className="w-3.5 h-3.5 object-contain brightness-0 invert flex-shrink-0" />
                     <span>블로그 보기</span>
-                  </a>
+                  </motion.a>
                 </div>
                 <p className="text-slate-500 text-xs font-medium mb-3 leading-relaxed">{row.purpose}</p>
                 <div className="flex gap-2 mb-2">
@@ -289,11 +294,16 @@ export default function MisoIntroSection() {
                     <td className={`px-5 py-4 font-extrabold text-sm ${row.highlight ? 'text-teal-700' : 'text-slate-800'}`}>
                       <div className="flex flex-col gap-2">
                         <span>{row.name}</span>
-                        <a href={row.blog} target="_blank" rel="noopener noreferrer"
-                          className="inline-flex items-center gap-1.5 bg-[#03C75A] hover:bg-[#02b050] active:scale-95 text-white text-[11px] font-bold px-2.5 py-1.5 rounded-lg shadow-sm transition-all duration-150 w-fit">
+                        <motion.a
+                          href={row.blog} target="_blank" rel="noopener noreferrer"
+                          animate={{ scale: [1, 1.06, 1], boxShadow: ['0 1px 4px #03C75A55', '0 2px 12px #03C75Aaa', '0 1px 4px #03C75A55'] }}
+                          transition={{ duration: 1.8, repeat: Infinity, ease: 'easeInOut' }}
+                          whileHover={{ scale: 1.1, boxShadow: '0 4px 16px #03C75Acc' }}
+                          whileTap={{ scale: 0.93 }}
+                          className="inline-flex items-center gap-1.5 bg-[#03C75A] text-white text-[11px] font-bold px-2.5 py-1.5 rounded-lg cursor-pointer w-fit">
                           <img src="/logos/naver_blog_logo.png" alt="블로그" className="w-3.5 h-3.5 object-contain brightness-0 invert flex-shrink-0" />
                           <span>블로그 보기</span>
-                        </a>
+                        </motion.a>
                       </div>
                     </td>
                     <td className="px-5 py-4 text-slate-600 text-xs font-medium leading-relaxed">{row.purpose}</td>
