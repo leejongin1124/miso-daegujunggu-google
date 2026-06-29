@@ -352,6 +352,33 @@ export default function ProductSection({ onScrollToSection, onOpenCalculator, in
               )}
 
               {activeProduct.id === 'social' && (
+                <div className="bg-amber-50 border-2 border-amber-400 p-5 rounded-2xl space-y-4">
+                  <div className="flex items-start gap-2">
+                    <span className="text-xl mt-0.5">⚠️</span>
+                    <h4 className="font-black text-sm text-amber-800 leading-snug">
+                      신청 전 반드시 유선 상담을 먼저 받아주세요
+                    </h4>
+                  </div>
+                  <p className="text-slate-700 text-xs font-semibold leading-relaxed">
+                    본 상품은 일반 금융 상품과 달리 <span className="text-amber-700 font-black">사회적가치등급 산정 절차</span>와{' '}
+                    <span className="text-amber-700 font-black">법인 관련 서류</span> 준비가 필요합니다.
+                    자격 요건 충족 여부를 전화 상담으로 먼저 확인하신 후 신청 절차를 진행하시면
+                    심사 지연을 예방하고 소중한 시간을 절약하실 수 있습니다.
+                  </p>
+                  <p className="text-amber-800 text-xs font-black">
+                    📞 전화 상담 먼저 → 서류 준비 → 대출 신청 순서로 진행해 주세요.
+                  </p>
+                  <a
+                    href="tel:053-252-6480"
+                    className="flex items-center justify-center gap-2 bg-amber-500 hover:bg-amber-600 text-white font-black text-sm py-3 rounded-xl transition shadow-md"
+                  >
+                    <span>📞</span>
+                    <span>지금 바로 전화 상담하기 · 053-252-6480</span>
+                  </a>
+                </div>
+              )}
+
+              {activeProduct.id === 'social' && (
                 <div className="bg-indigo-50 border-2 border-indigo-300 p-5 rounded-2xl">
                   <h4 className="font-black text-sm text-indigo-700 flex items-center gap-2">
                     <span className="animate-bounce inline-block">📋</span>
