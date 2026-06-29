@@ -244,7 +244,7 @@ export default function Hero({ onScrollToSection }: HeroProps) {
             >
               <button
                 onClick={() => onScrollToSection('social-finance')}
-                className="inline-flex flex-1 md:flex-none justify-center items-center space-x-2 bg-white/20 backdrop-blur-sm text-white border-2 border-white/40 hover:bg-white hover:text-teal-700 font-bold px-4 md:px-7 py-4 rounded-2xl transition-all shadow text-sm md:text-base"
+                className="inline-flex flex-1 md:flex-none justify-center items-center space-x-2 bg-white/15 backdrop-blur-md text-white border border-white/30 hover:bg-white/30 font-bold px-4 md:px-7 py-4 rounded-2xl transition-all shadow text-sm md:text-base"
               >
                 <span className="md:hidden">🔍 상품안내</span>
                 <span className="hidden md:inline">🔍 지원상품 전체보기</span>
@@ -254,7 +254,7 @@ export default function Hero({ onScrollToSection }: HeroProps) {
                 href="https://blog.naver.com/eornwndrn1"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex flex-1 md:flex-none justify-center items-center space-x-2 bg-gradient-to-r from-teal-600 to-emerald-600 text-white font-bold px-4 md:px-8 py-4 rounded-2xl hover:brightness-105 transition-all shadow-lg text-sm md:text-base"
+                className="inline-flex flex-1 md:flex-none justify-center items-center space-x-2 bg-teal-500/30 backdrop-blur-md text-white border border-teal-300/40 hover:bg-teal-500/50 font-bold px-4 md:px-8 py-4 rounded-2xl transition-all shadow-lg text-sm md:text-base"
               >
                 <img
                   src="/logos/naver_blog_logo.png"
