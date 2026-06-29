@@ -250,7 +250,7 @@ export default function Hero({ onScrollToSection }: HeroProps) {
         </div>
 
         {/* 4종 퀵 카드 — 동영상 섹션 하단 */}
-        <div ref={statsRef} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-2 md:gap-4 pb-4 md:pb-8">
+        <div ref={statsRef} className="grid grid-cols-2 lg:grid-cols-4 gap-2 md:gap-4 pb-4 md:pb-8">
           {quickCards.map((card, i) => (
             <motion.div
               key={i}
