@@ -277,44 +277,9 @@ export default function Hero({ onScrollToSection }: HeroProps) {
                 />
               )}
 
-              {/* 모바일: 가로 한 줄 레이아웃 */}
-              <div className="flex md:hidden items-center gap-3 px-3 py-2.5 relative z-10">
-                <div className={`p-2 rounded-xl flex-shrink-0 shadow-inner ${spotlightIdx === i ? 'bg-teal-50' : 'bg-slate-50'}`}>
-                  {card.icon}
-                </div>
-                <div className="flex-1 min-w-0">
-                  <p className="text-slate-500 text-[9px] font-bold uppercase tracking-wider leading-none">{card.title}</p>
-                  {i === 0 ? (
-                    <div className="relative h-5 overflow-hidden mt-0.5">
-                      {PHONES.map((phone, pi) => (
-                        <motion.span
-                          key={phone.number}
-                          animate={{
-                            y: pi === phoneIdx ? 0 : pi === (phoneIdx - 1 + PHONES.length) % PHONES.length ? -20 : 20,
-                            opacity: pi === phoneIdx ? 1 : 0,
-                          }}
-                          transition={{ duration: 0.4, ease: 'easeInOut' }}
-                          className={`absolute inset-0 flex items-center font-extrabold text-sm tracking-tight ${phone.color}`}
-                        >
-                          {phone.number}
-                        </motion.span>
-                      ))}
-                    </div>
-                  ) : (
-                    <p className="text-slate-800 font-extrabold text-sm tracking-tight mt-0.5">{card.value}</p>
-                  )}
-                </div>
-                {card.action && (
-                  <span className={`text-[9px] font-bold px-2 py-0.5 rounded-full flex-shrink-0 ${spotlightIdx === i ? 'bg-teal-600 text-white' : 'text-teal-600 bg-teal-50'}`}>
-                    이동
-                  </span>
-                )}
-              </div>
-
-              {/* PC: 기존 세로 레이아웃 */}
-              <div className="hidden md:block p-6 relative z-10">
+              <div className="p-3 md:p-6 relative z-10">
                 <div className="flex justify-between items-start">
-                  <div className={`p-3 rounded-xl transition-all shadow-inner ${spotlightIdx === i ? 'bg-teal-50' : 'bg-slate-50 group-hover:bg-white'}`}>
+                  <div className={`p-2 md:p-3 rounded-xl transition-all shadow-inner ${spotlightIdx === i ? 'bg-teal-50' : 'bg-slate-50 group-hover:bg-white'}`}>
                     {card.icon}
                   </div>
                   {card.action && (
@@ -323,9 +288,9 @@ export default function Hero({ onScrollToSection }: HeroProps) {
                     </span>
                   )}
                 </div>
-                <h3 className="text-slate-500 text-xs font-bold uppercase tracking-wider mt-5">{card.title}</h3>
+                <h3 className="text-slate-500 text-[10px] md:text-xs font-bold uppercase tracking-wider mt-3 md:mt-5">{card.title}</h3>
                 {i === 0 ? (
-                  <div className="relative h-7 overflow-hidden mt-1">
+                  <div className="relative h-6 md:h-7 overflow-hidden mt-1">
                     {PHONES.map((phone, pi) => (
                       <motion.p
                         key={phone.number}
@@ -334,16 +299,16 @@ export default function Hero({ onScrollToSection }: HeroProps) {
                           opacity: pi === phoneIdx ? 1 : 0,
                         }}
                         transition={{ duration: 0.4, ease: 'easeInOut' }}
-                        className={`absolute inset-0 flex items-center font-extrabold text-xl tracking-tight ${phone.color}`}
+                        className={`absolute inset-0 flex items-center font-extrabold text-sm md:text-xl tracking-tight ${phone.color}`}
                       >
                         {phone.number}
                       </motion.p>
                     ))}
                   </div>
                 ) : (
-                  <p className="text-slate-800 font-extrabold text-xl mt-1 tracking-tight">{card.value}</p>
+                  <p className="text-slate-800 font-extrabold text-sm md:text-xl mt-1 tracking-tight">{card.value}</p>
                 )}
-                <p className="text-slate-400 text-xs mt-1 font-semibold">{card.desc}</p>
+                <p className="text-slate-400 text-[10px] md:text-xs mt-1 font-semibold">{card.desc}</p>
               </div>
             </motion.div>
           ))}
