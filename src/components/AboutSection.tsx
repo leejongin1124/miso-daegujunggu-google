@@ -234,41 +234,30 @@ export default function AboutSection({ sectionId }: { sectionId?: string }) {
             </p>
           </div>
 
-          <div className="overflow-x-auto pb-4">
+          {/* PC 레이아웃 (md 이상) */}
+          <div className="hidden md:block overflow-x-auto pb-4">
             <div style={{ minWidth: '600px' }}>
               <div className="relative border-l-2 border-slate-200 ml-40 py-4">
                 {historyData.map((milestone, idx) => (
                   <div key={idx} className="mb-14 last:mb-0 relative">
-
-                    {/* 좌측 연도 표시 */}
                     <div className="absolute -left-[176px] top-0 w-40 text-right">
                       <span className="text-2xl font-black text-slate-800 tracking-tight font-mono">{milestone.year}</span>
                     </div>
-
-                    {/* 타임라인 원형 동그라미 */}
                     <div className="absolute -left-[9px] top-2.5 w-4 h-4 rounded-full bg-white border-4 border-teal-600 shadow-md" />
-
                     <div className="bg-white p-6 rounded-2xl border border-slate-100 shadow-sm ml-6 hover:shadow-md transition-shadow">
                       <ul className="space-y-3.5">
                         {milestone.items.map((item, id) => (
                           <li key={id} className="flex items-start space-x-3 text-left">
-                            <span className="text-xs font-bold text-slate-400 font-mono tracking-wider w-14 pt-1 flex-shrink-0">
-                              {item.date}
-                            </span>
+                            <span className="text-xs font-bold text-slate-400 font-mono tracking-wider w-14 pt-1 flex-shrink-0">{item.date}</span>
                             <div className="flex-1 font-medium text-slate-700">
                               {item.emphasis ? (
                                 <span className="inline-flex flex-wrap items-center gap-2">
                                   <span className="text-teal-600 font-bold bg-teal-50 px-2 py-0.5 rounded text-xs font-mono">핵심성과</span>
                                   <strong className="text-slate-900 font-bold">{item.text}</strong>
                                   {(item as any).newsUrl && (
-                                    <a
-                                      href={(item as any).newsUrl}
-                                      target="_blank"
-                                      rel="noopener noreferrer"
-                                      className="inline-flex items-center space-x-1 bg-amber-50 border border-amber-200 text-amber-700 hover:bg-amber-100 text-[10px] font-bold px-2 py-0.5 rounded-full transition-colors"
-                                    >
-                                      <span>📰</span>
-                                      <span>신문기사 보기</span>
+                                    <a href={(item as any).newsUrl} target="_blank" rel="noopener noreferrer"
+                                      className="inline-flex items-center space-x-1 bg-amber-50 border border-amber-200 text-amber-700 hover:bg-amber-100 text-[10px] font-bold px-2 py-0.5 rounded-full transition-colors">
+                                      <span>📰</span><span>신문기사 보기</span>
                                     </a>
                                   )}
                                 </span>
@@ -280,11 +269,53 @@ export default function AboutSection({ sectionId }: { sectionId?: string }) {
                         ))}
                       </ul>
                     </div>
-
                   </div>
                 ))}
               </div>
             </div>
+          </div>
+
+          {/* 모바일 레이아웃 (md 미만) — 연도가 카드 상단에 표시, 세로 타임라인 */}
+          <div className="md:hidden relative border-l-2 border-slate-200 ml-4 py-2">
+            {historyData.map((milestone, idx) => (
+              <div key={idx} className="mb-8 last:mb-0 relative pl-6">
+                {/* 원형 동그라미 */}
+                <div className="absolute -left-[9px] top-1 w-4 h-4 rounded-full bg-white border-4 border-teal-600 shadow-md" />
+                {/* 연도 배지 */}
+                <div className="mb-2">
+                  <span className="text-lg font-black text-teal-700 font-mono">{milestone.year}</span>
+                </div>
+                <div className="bg-white p-4 rounded-xl border border-slate-100 shadow-sm">
+                  <ul className="space-y-2.5">
+                    {milestone.items.map((item, id) => (
+                      <li key={id} className="text-left">
+                        <div className="flex items-center gap-1.5 mb-0.5">
+                          <span className="text-[11px] font-bold text-slate-400 font-mono">{item.date}</span>
+                          {item.emphasis && (
+                            <span className="text-teal-600 font-bold bg-teal-50 px-1.5 py-0.5 rounded text-[10px] font-mono">핵심성과</span>
+                          )}
+                        </div>
+                        <div className="text-[12px] font-medium text-slate-700 leading-snug">
+                          {item.emphasis ? (
+                            <span className="inline-flex flex-wrap items-center gap-1.5">
+                              <strong className="text-slate-900">{item.text}</strong>
+                              {(item as any).newsUrl && (
+                                <a href={(item as any).newsUrl} target="_blank" rel="noopener noreferrer"
+                                  className="inline-flex items-center space-x-0.5 bg-amber-50 border border-amber-200 text-amber-700 text-[10px] font-bold px-1.5 py-0.5 rounded-full">
+                                  <span>📰</span><span>기사</span>
+                                </a>
+                              )}
+                            </span>
+                          ) : (
+                            <span className="text-slate-600">{item.text}</span>
+                          )}
+                        </div>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+            ))}
           </div>
 
         </div>}
