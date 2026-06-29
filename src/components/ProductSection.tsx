@@ -73,7 +73,7 @@ export default function ProductSection({ onScrollToSection, onOpenCalculator, in
       name: '청년 미래이음',
       subtitle: '만 19세 ~ 34세 청년 / 미취업자 및 신규 취·창업 1년차',
       description: '아직 신용이 충분히 형성되지 않은 대학생·구직자에게 올바른 금융 지식과 함께 사회 진출의 발판을 마련해주는 청년 전용 정책 자금입니다.',
-      limit: '최대 500만 원 (개인 한도)',
+      limit: '최대 500만 원',
       interestRate: '연 4.5% (고정 이율)',
       repaymentPeriod: '거치 최대 6년 + 매달 분할 상환 5년 (총 11년 상환 설계)',
       repaymentMethod: '원리금 균등분할 상환',
