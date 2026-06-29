@@ -371,15 +371,34 @@ export default function GuideSection({ sectionId }: { sectionId?: string }) {
                 신용정보회사(NICE 또는 KCB)의 개인신용평점이 하위 20%에 해당하는 고객<br />
                 <span className="font-bold text-teal-700">KCB 700점 이하 · NICE 749점 이하</span>
               </p>
+              <p className="text-[10px] text-slate-400 font-medium">내 신용점수를 먼저 확인해 보세요 👇</p>
               <div className="flex flex-wrap gap-2 pt-1">
-                <a href="https://www.niceinfo.co.kr" target="_blank" rel="noopener noreferrer"
-                  className="text-[10px] font-bold text-teal-700 bg-white border border-teal-200 px-2.5 py-1 rounded-full hover:bg-teal-100 transition">
-                  NICE신용평가정보 →
-                </a>
-                <a href="https://www.allcredit.co.kr" target="_blank" rel="noopener noreferrer"
-                  className="text-[10px] font-bold text-teal-700 bg-white border border-teal-200 px-2.5 py-1 rounded-full hover:bg-teal-100 transition">
-                  코리아크레딧뷰로 →
-                </a>
+                <motion.a
+                  href="https://www.niceinfo.co.kr"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  whileHover={{ scale: 1.07 }}
+                  whileTap={{ scale: 0.95 }}
+                  animate={{ boxShadow: ['0 0 0px #0d9488', '0 0 8px #0d9488', '0 0 0px #0d9488'] }}
+                  transition={{ duration: 1.8, repeat: Infinity }}
+                  className="flex items-center gap-1.5 text-xs font-black text-white bg-teal-600 px-4 py-2 rounded-xl shadow-sm cursor-pointer"
+                >
+                  <span>🔍</span>
+                  <span>NICE 신용점수 확인</span>
+                </motion.a>
+                <motion.a
+                  href="https://www.allcredit.co.kr"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  whileHover={{ scale: 1.07 }}
+                  whileTap={{ scale: 0.95 }}
+                  animate={{ boxShadow: ['0 0 0px #6366f1', '0 0 8px #6366f1', '0 0 0px #6366f1'] }}
+                  transition={{ duration: 1.8, repeat: Infinity, delay: 0.9 }}
+                  className="flex items-center gap-1.5 text-xs font-black text-white bg-indigo-600 px-4 py-2 rounded-xl shadow-sm cursor-pointer"
+                >
+                  <span>🔍</span>
+                  <span>KCB 신용점수 확인</span>
+                </motion.a>
               </div>
             </div>
 
