@@ -93,28 +93,38 @@ export default function GuideSection({ sectionId }: { sectionId?: string }) {
   const processSteps = [
     {
       step: '01',
-      title: '전화 상담 및 방문 예약',
-      desc: '053-252-6408 전화 상담을 통해 방문 예약 일정을 안내받습니다.'
+      icon: '📞',
+      label: '이용 상담',
+      title: '전화 상담 · 방문 예약',
+      desc: '053-252-6408로 전화하여 방문 일정을 잡습니다.'
     },
     {
       step: '02',
-      title: '서류 지참 및 1차 면담',
-      desc: '사업자등록증, 부가세 증빙 등 필수 지참 서류를 구비하여 하나은행 봉덕지점 4층 사무소에 직접 내방하여 대면 심사를 거칩니다.'
+      icon: '📋',
+      label: '서류 준비',
+      title: '서류 지참 · 1차 면담',
+      desc: '필수 서류를 챙겨 하나은행 봉덕지점 4층에 내방합니다.'
     },
     {
       step: '03',
-      title: '법인 여신 심사 및 현장 실사',
-      desc: '제출 자격 적격성 검토 후, 전문위원이 직접 사업장(점포)을 방문하여 매출 및 운영 상태를 꼼꼼히 확인합니다.'
+      icon: '🔍',
+      label: '현장 심사',
+      title: '현장 실사 · 적격 검토',
+      desc: '전문위원이 사업장을 직접 방문해 매출·운영을 확인합니다.'
     },
     {
       step: '04',
-      title: '융자위원회 의결 & 승인',
-      desc: '법인 내 소집된 융자위원회의 내부 심의 규정에 따라 엄격한 기준으로 승인 여부를 결정합니다. (대출 승인을 보장하지는 않습니다)'
+      icon: '⚖️',
+      label: '승인 결정',
+      title: '융자위원회 심의',
+      desc: '내부 규정에 따라 승인 여부를 결정합니다.'
     },
     {
       step: '05',
-      title: '자금 지급 및 사후 관리',
-      desc: '무보증·무담보 조건으로 지정 계좌에 신속하게 지급되며, 성실 상환 기간 동안 필요 시 경영 컨설팅을 제공해 드립니다.'
+      icon: '💳',
+      label: '자금 수령',
+      title: '자금 지급 · 사후 관리',
+      desc: '승인 시 지정 계좌로 신속 지급, 경영 컨설팅도 제공합니다.'
     }
   ];
 
@@ -474,14 +484,22 @@ export default function GuideSection({ sectionId }: { sectionId?: string }) {
 
           <div className="grid grid-cols-1 md:grid-cols-5 gap-6 mt-8 text-left">
             {processSteps.map((p, idx) => (
-              <div key={idx} className="bg-white p-6 rounded-2xl border border-slate-100 shadow-sm relative group hover:border-miso-blue-200 hover:shadow-md transition duration-300">
-                <div className="w-10 h-10 rounded-xl bg-miso-blue-50 text-miso-blue-700 font-black text-sm flex items-center justify-center shadow-inner">
-                  {p.step}
+              <div key={idx} className="bg-white p-6 rounded-2xl border border-slate-100 shadow-sm relative group hover:border-miso-blue-200 hover:shadow-md transition duration-300 flex flex-col">
+                {/* 단계 번호 + 아이콘 */}
+                <div className="flex items-center justify-between mb-4">
+                  <div className="w-9 h-9 rounded-xl bg-miso-blue-50 text-miso-blue-700 font-black text-xs flex items-center justify-center shadow-inner">
+                    {p.step}
+                  </div>
+                  <span className="text-2xl">{p.icon}</span>
                 </div>
-                <h4 className="font-extrabold text-slate-800 text-sm mt-5 tracking-tight group-hover:text-miso-blue-600 transition-colors">
+                {/* 카테고리 라벨 */}
+                <span className="inline-block text-[10px] font-black text-miso-blue-600 bg-miso-blue-50 px-2 py-0.5 rounded-full mb-2 w-fit tracking-wide">
+                  {p.label}
+                </span>
+                <h4 className="font-extrabold text-slate-800 text-sm tracking-tight group-hover:text-miso-blue-600 transition-colors leading-snug">
                   {p.title}
                 </h4>
-                <p className="text-slate-500 text-xs mt-2 leading-relaxed font-semibold">
+                <p className="text-slate-500 text-xs mt-2 leading-relaxed font-semibold flex-1">
                   {p.desc}
                 </p>
               </div>
