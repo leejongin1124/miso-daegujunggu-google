@@ -328,83 +328,9 @@ export default function AboutSection({ sectionId }: { sectionId?: string }) {
 
               </div>
 
-              {/* 법인 블로그 배너 */}
-              <motion.a
-                href="https://blog.naver.com/PostView.naver?blogId=eornwndrn1&logNo=224112219401&categoryNo=6&parentCategoryNo=&from=thumbnailList"
-                target="_blank"
-                rel="noopener noreferrer"
-                initial={{ opacity: 0, y: 8 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
-                transition={{ duration: 0.3 }}
-                className="mt-4 flex items-center justify-between bg-gradient-to-r from-teal-500 to-emerald-500 rounded-2xl px-5 py-4 shadow-md cursor-pointer group"
-              >
-                <div className="flex items-center space-x-3">
-                  {/* 네이버 블로그 로고 */}
-                  <div className="w-14 h-14 bg-white rounded-xl flex items-center justify-center flex-shrink-0 shadow-sm p-1.5">
-                    <img
-                      src="/logos/naver_blog_logo.png"
-                      alt="네이버 블로그"
-                      className="w-full h-full object-contain"
-                    />
-                  </div>
-                  <div>
-                    <p className="text-white font-extrabold text-sm leading-tight">법인 공식 블로그 보기</p>
-                    <p className="text-white/80 text-[11px] mt-0.5 leading-tight">상세 방문 안내 및 대출 상품 정보를 확인하실 수 있습니다</p>
-                  </div>
-                </div>
-                <div className="flex items-center space-x-1.5 bg-white text-teal-700 font-bold text-xs px-3.5 py-2 rounded-xl shadow-sm group-hover:bg-teal-50 transition-colors flex-shrink-0 ml-3">
-                  <span>방문하기</span>
-                  <motion.span
-                    animate={{ x: [0, 4, 0] }}
-                    transition={{ duration: 1.2, repeat: Infinity, ease: 'easeInOut' }}
-                  >→</motion.span>
-                </div>
-              </motion.a>
-
-              {/* 전화문의 버튼 */}
-              <div className="pt-4 flex justify-center">
-                <motion.a
-                  href="tel:053-252-6408"
-                  whileHover={{ scale: 1.04 }}
-                  whileTap={{ scale: 0.97 }}
-                  className="relative w-full flex items-center justify-center space-x-3 bg-gradient-to-r from-orange-500 to-rose-500 text-white font-extrabold py-4 px-6 rounded-2xl shadow-lg overflow-hidden group cursor-pointer"
-                >
-                  {/* 배경 펄스 */}
-                  <motion.div
-                    className="absolute inset-0 bg-white/10 rounded-2xl"
-                    animate={{ opacity: [0, 0.2, 0] }}
-                    transition={{ duration: 1.6, repeat: Infinity }}
-                  />
-                  {/* 튀어오르는 손가락 아이콘 */}
-                  <motion.span
-                    className="text-2xl relative z-10"
-                    animate={{ y: [0, -6, 0] }}
-                    transition={{ duration: 0.9, repeat: Infinity, ease: 'easeInOut' }}
-                  >
-                    ☎️
-                  </motion.span>
-                  <div className="relative z-10 text-center">
-                    <div className="text-[11px] font-bold text-white/80 tracking-widest uppercase mb-0.5">지금 바로 전화상담</div>
-                    <div className="text-xl font-black tracking-tight">053-252-6408</div>
-                  </div>
-                  {/* 우측 클릭 유도 화살표 */}
-                  <motion.span
-                    className="text-lg relative z-10"
-                    animate={{ x: [0, 5, 0] }}
-                    transition={{ duration: 0.9, repeat: Infinity, ease: 'easeInOut' }}
-                  >
-                    👆
-                  </motion.span>
-                </motion.a>
-              </div>
-
-
             </div>
 
-            {/* 지도 박스 */}
+            {/* 지도 박스 — 모바일: 텍스트 아래 / PC: 우측 */}
             <div className="bg-white p-3 rounded-2xl border border-slate-200 shadow-md">
               <a
                 href="https://naver.me/GSQLkTiM"
@@ -432,6 +358,65 @@ export default function AboutSection({ sectionId }: { sectionId?: string }) {
               </div>
             </div>
 
+          </div>
+
+          {/* 블로그 + 전화상담 — PC: 한 줄 나란히 / 모바일: 세로 순서 */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 pt-2">
+            {/* 법인 블로그 배너 */}
+            <motion.a
+              href="https://blog.naver.com/PostView.naver?blogId=eornwndrn1&logNo=224112219401&categoryNo=6&parentCategoryNo=&from=thumbnailList"
+              target="_blank"
+              rel="noopener noreferrer"
+              initial={{ opacity: 0, y: 8 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.98 }}
+              transition={{ duration: 0.3 }}
+              className="flex items-center justify-between bg-gradient-to-r from-teal-500 to-emerald-500 rounded-2xl px-5 py-4 shadow-md cursor-pointer group"
+            >
+              <div className="flex items-center space-x-3">
+                <div className="w-12 h-12 bg-white rounded-xl flex items-center justify-center flex-shrink-0 shadow-sm p-1.5">
+                  <img src="/logos/naver_blog_logo.png" alt="네이버 블로그" className="w-full h-full object-contain" />
+                </div>
+                <div>
+                  <p className="text-white font-extrabold text-sm leading-tight">법인 공식 블로그 보기</p>
+                  <p className="text-white/80 text-[11px] mt-0.5 leading-tight">상세 방문 안내 및 대출 상품 정보를 확인하실 수 있습니다</p>
+                </div>
+              </div>
+              <div className="flex items-center space-x-1 bg-white text-teal-700 font-bold text-xs px-3 py-2 rounded-xl shadow-sm group-hover:bg-teal-50 transition-colors flex-shrink-0 ml-3">
+                <span>방문하기</span>
+                <motion.span animate={{ x: [0, 4, 0] }} transition={{ duration: 1.2, repeat: Infinity, ease: 'easeInOut' }}>→</motion.span>
+              </div>
+            </motion.a>
+
+            {/* 전화상담 버튼 */}
+            <motion.a
+              href="tel:053-252-6408"
+              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.97 }}
+              className="relative flex items-center justify-center space-x-3 bg-gradient-to-r from-orange-500 to-rose-500 text-white font-extrabold py-4 px-6 rounded-2xl shadow-lg overflow-hidden cursor-pointer"
+            >
+              <motion.div
+                className="absolute inset-0 bg-white/10 rounded-2xl"
+                animate={{ opacity: [0, 0.2, 0] }}
+                transition={{ duration: 1.6, repeat: Infinity }}
+              />
+              <motion.span
+                className="text-2xl relative z-10"
+                animate={{ y: [0, -6, 0] }}
+                transition={{ duration: 0.9, repeat: Infinity, ease: 'easeInOut' }}
+              >☎️</motion.span>
+              <div className="relative z-10 text-center">
+                <div className="text-[11px] font-bold text-white/80 tracking-widest uppercase mb-0.5">지금 바로 전화상담</div>
+                <div className="text-xl font-black tracking-tight">053-252-6408</div>
+              </div>
+              <motion.span
+                className="text-lg relative z-10"
+                animate={{ x: [0, 5, 0] }}
+                transition={{ duration: 0.9, repeat: Infinity, ease: 'easeInOut' }}
+              >👆</motion.span>
+            </motion.a>
           </div>
 
         </div>}
