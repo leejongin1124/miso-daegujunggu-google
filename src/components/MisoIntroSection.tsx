@@ -215,8 +215,8 @@ export default function MisoIntroSection() {
                     transition={{ duration: 1.8, repeat: Infinity, ease: 'easeInOut' }}
                     whileHover={{ scale: 1.1, boxShadow: '0 4px 16px #03C75Acc' }}
                     whileTap={{ scale: 0.93 }}
-                    className="flex-shrink-0 inline-flex items-center gap-1.5 bg-[#03C75A] text-white text-[11px] font-bold px-2.5 py-1.5 rounded-lg cursor-pointer">
-                    <img src="/logos/naver_blog_logo.png" alt="블로그" className="w-3.5 h-3.5 object-contain brightness-0 invert flex-shrink-0" />
+                    className="flex-shrink-0 inline-flex items-center gap-1 bg-[#03C75A] text-white text-[10px] font-bold px-2 py-1 rounded-md cursor-pointer">
+                    <img src="/logos/naver_blog_logo.png" alt="블로그" className="w-3 h-3 object-contain brightness-0 invert flex-shrink-0" />
                     <span>블로그 보기</span>
                   </motion.a>
                 </div>
@@ -300,8 +300,8 @@ export default function MisoIntroSection() {
                           transition={{ duration: 1.8, repeat: Infinity, ease: 'easeInOut' }}
                           whileHover={{ scale: 1.1, boxShadow: '0 4px 16px #03C75Acc' }}
                           whileTap={{ scale: 0.93 }}
-                          className="inline-flex items-center gap-1.5 bg-[#03C75A] text-white text-[11px] font-bold px-2.5 py-1.5 rounded-lg cursor-pointer w-fit">
-                          <img src="/logos/naver_blog_logo.png" alt="블로그" className="w-3.5 h-3.5 object-contain brightness-0 invert flex-shrink-0" />
+                          className="inline-flex items-center gap-1 bg-[#03C75A] text-white text-[10px] font-bold px-2 py-1 rounded-md cursor-pointer w-fit">
+                          <img src="/logos/naver_blog_logo.png" alt="블로그" className="w-3 h-3 object-contain brightness-0 invert flex-shrink-0" />
                           <span>블로그 보기</span>
                         </motion.a>
                       </div>
