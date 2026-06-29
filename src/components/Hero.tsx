@@ -47,7 +47,7 @@ export default function Hero({ onScrollToSection }: HeroProps) {
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setSpotlightIdx(prev => (prev + 1) % 4);
+      setSpotlightIdx(prev => (prev + 1) % 2);
     }, 1800);
     return () => clearInterval(interval);
   }, []);
@@ -282,17 +282,17 @@ export default function Hero({ onScrollToSection }: HeroProps) {
               whileInView={{ opacity: 1, y: 0, scale: 1 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: i * 0.12, type: 'spring', stiffness: 200, damping: 18 }}
-              animate={spotlightIdx === i ? { y: -4, scale: 1.02 } : { y: 0, scale: 1 }}
+              animate={spotlightIdx === i && i < 2 ? { y: -4, scale: 1.02 } : { y: 0, scale: 1 }}
               onClick={card.action}
               className={`relative bg-white/90 backdrop-blur-sm rounded-2xl shadow-sm transition-colors duration-500 text-left group overflow-hidden ${
                 card.action ? 'cursor-pointer' : ''
               } ${
-                spotlightIdx === i
+                spotlightIdx === i && i < 2
                   ? 'border-2 border-teal-400 shadow-lg shadow-teal-100'
                   : 'border border-slate-100 hover:border-teal-200 hover:shadow-md'
               }`}
             >
-              {spotlightIdx === i && (
+              {spotlightIdx === i && i < 2 && (
                 <motion.div
                   initial={{ opacity: 0 }}
                   animate={{ opacity: [0, 0.15, 0] }}
@@ -325,12 +325,12 @@ export default function Hero({ onScrollToSection }: HeroProps) {
                       </motion.div>
                     </div>
                   ) : (
-                  <div className={`p-2 md:p-3 rounded-xl transition-all shadow-inner ${spotlightIdx === i ? 'bg-teal-50' : 'bg-slate-50 group-hover:bg-white'}`}>
+                  <div className={`p-2 md:p-3 rounded-xl transition-all shadow-inner ${spotlightIdx === i && i < 2 ? 'bg-teal-50' : 'bg-slate-50 group-hover:bg-white'}`}>
                     {card.icon}
                   </div>
                   )}
                   {card.action && (
-                    <span className={`text-[10px] font-bold px-2 py-0.5 rounded-full transition-colors ${spotlightIdx === i ? 'bg-teal-600 text-white' : 'text-teal-600 bg-teal-50 group-hover:bg-teal-600 group-hover:text-white'}`}>
+                    <span className={`text-[10px] font-bold px-2 py-0.5 rounded-full transition-colors ${spotlightIdx === i && i < 2 ? 'bg-teal-600 text-white' : 'text-teal-600 bg-teal-50 group-hover:bg-teal-600 group-hover:text-white'}`}>
                       이동
                     </span>
                   )}
