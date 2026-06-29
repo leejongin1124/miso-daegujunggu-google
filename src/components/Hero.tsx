@@ -9,8 +9,10 @@ import { Phone, ArrowRight, ShieldCheck, BadgePercent, TrendingUp, Users, Bankno
 
 function useCountUp(target: number, duration: number, trigger: boolean) {
   const [count, setCount] = useState(0);
+  const [done, setDone] = useState(false);
   useEffect(() => {
     if (!trigger) return;
+    setDone(false);
     let startTime: number | null = null;
     const step = (timestamp: number) => {
       if (!startTime) startTime = timestamp;
@@ -18,11 +20,11 @@ function useCountUp(target: number, duration: number, trigger: boolean) {
       const eased = 1 - Math.pow(1 - progress, 3);
       setCount(Math.floor(eased * target));
       if (progress < 1) requestAnimationFrame(step);
-      else setCount(target);
+      else { setCount(target); setDone(true); }
     };
     requestAnimationFrame(step);
   }, [trigger, target, duration]);
-  return count;
+  return { count, done };
 }
 
 interface HeroProps {
@@ -76,8 +78,8 @@ export default function Hero({ onScrollToSection }: HeroProps) {
     return () => observer.disconnect();
   }, []);
 
-  const countPeople = useCountUp(3800, 2200, statsInView);
-  const countMoney = useCountUp(600, 2200, statsInView);
+  const { count: countPeople, done: peopleDone } = useCountUp(3800, 3800, statsInView);
+  const { count: countMoney, done: moneyDone } = useCountUp(600, 3800, statsInView);
 
   // 타이틀 순차 애니메이션 phase: 0→숨김 1→1번등장 2→2번등장 3→고정
   const [titlePhase, setTitlePhase] = useState(0);
@@ -356,7 +358,15 @@ export default function Hero({ onScrollToSection }: HeroProps) {
                     ))}
                   </div>
                 ) : (
-                  <p className="text-slate-800 font-extrabold text-sm md:text-xl mt-1 tracking-tight">{card.value}</p>
+                  <motion.p
+                    className="text-slate-800 font-extrabold text-sm md:text-xl mt-1 tracking-tight"
+                    animate={
+                      (i === 2 && peopleDone) || (i === 3 && moneyDone)
+                        ? { scale: [1, 1.22, 0.95, 1.08, 1], y: [0, -8, 2, -4, 0] }
+                        : { scale: 1, y: 0 }
+                    }
+                    transition={{ duration: 0.6, ease: 'easeInOut' }}
+                  >{card.value}</motion.p>
                 )}
                 <p className="text-slate-400 text-[10px] md:text-xs mt-1 font-semibold">{card.desc}</p>
               </div>
