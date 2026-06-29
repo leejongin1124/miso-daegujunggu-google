@@ -433,7 +433,7 @@ export default function AboutSection({ sectionId }: { sectionId?: string }) {
                         opacity: pi === phoneIdx ? 1 : 0,
                       }}
                       transition={{ duration: 0.4, ease: 'easeInOut' }}
-                      className={`absolute inset-0 flex items-center justify-center text-xl font-black tracking-tight ${p.color}`}
+                      className={`absolute inset-0 flex items-center justify-center text-lg font-black tracking-tight whitespace-nowrap ${p.color}`}
                     >
                       {p.number}
                     </motion.div>
