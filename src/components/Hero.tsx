@@ -250,7 +250,7 @@ export default function Hero({ onScrollToSection }: HeroProps) {
         </div>
 
         {/* 4종 퀵 카드 — 동영상 섹션 하단 */}
-        <div ref={statsRef} className="grid grid-cols-2 lg:grid-cols-4 gap-2 md:gap-4 pb-4 md:pb-8">
+        <div ref={statsRef} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-2 md:gap-4 pb-4 md:pb-8">
           {quickCards.map((card, i) => (
             <motion.div
               key={i}
@@ -258,9 +258,9 @@ export default function Hero({ onScrollToSection }: HeroProps) {
               whileInView={{ opacity: 1, y: 0, scale: 1 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: i * 0.12, type: 'spring', stiffness: 200, damping: 18 }}
-              animate={spotlightIdx === i ? { y: -6, scale: 1.03 } : { y: 0, scale: 1 }}
+              animate={spotlightIdx === i ? { y: -4, scale: 1.02 } : { y: 0, scale: 1 }}
               onClick={card.action}
-              className={`relative bg-white/90 backdrop-blur-sm p-4 md:p-6 rounded-2xl shadow-sm transition-colors duration-500 text-left group overflow-hidden ${
+              className={`relative bg-white/90 backdrop-blur-sm rounded-2xl shadow-sm transition-colors duration-500 text-left group overflow-hidden ${
                 card.action ? 'cursor-pointer' : ''
               } ${
                 spotlightIdx === i
@@ -276,37 +276,75 @@ export default function Hero({ onScrollToSection }: HeroProps) {
                   className="absolute inset-0 bg-gradient-to-br from-teal-400 to-emerald-400 pointer-events-none rounded-2xl"
                 />
               )}
-              <div className="flex justify-between items-start relative z-10">
-                <div className={`p-3 rounded-xl transition-all shadow-inner ${spotlightIdx === i ? 'bg-teal-50' : 'bg-slate-50 group-hover:bg-white'}`}>
+
+              {/* 모바일: 가로 한 줄 레이아웃 */}
+              <div className="flex md:hidden items-center gap-3 px-3 py-2.5 relative z-10">
+                <div className={`p-2 rounded-xl flex-shrink-0 shadow-inner ${spotlightIdx === i ? 'bg-teal-50' : 'bg-slate-50'}`}>
                   {card.icon}
                 </div>
+                <div className="flex-1 min-w-0">
+                  <p className="text-slate-500 text-[9px] font-bold uppercase tracking-wider leading-none">{card.title}</p>
+                  {i === 0 ? (
+                    <div className="relative h-5 overflow-hidden mt-0.5">
+                      {PHONES.map((phone, pi) => (
+                        <motion.span
+                          key={phone.number}
+                          animate={{
+                            y: pi === phoneIdx ? 0 : pi === (phoneIdx - 1 + PHONES.length) % PHONES.length ? -20 : 20,
+                            opacity: pi === phoneIdx ? 1 : 0,
+                          }}
+                          transition={{ duration: 0.4, ease: 'easeInOut' }}
+                          className={`absolute inset-0 flex items-center font-extrabold text-sm tracking-tight ${phone.color}`}
+                        >
+                          {phone.number}
+                        </motion.span>
+                      ))}
+                    </div>
+                  ) : (
+                    <p className="text-slate-800 font-extrabold text-sm tracking-tight mt-0.5">{card.value}</p>
+                  )}
+                </div>
                 {card.action && (
-                  <span className={`text-[10px] font-bold px-2 py-0.5 rounded-full transition-colors ${spotlightIdx === i ? 'bg-teal-600 text-white' : 'text-teal-600 bg-teal-50 group-hover:bg-teal-600 group-hover:text-white'}`}>
+                  <span className={`text-[9px] font-bold px-2 py-0.5 rounded-full flex-shrink-0 ${spotlightIdx === i ? 'bg-teal-600 text-white' : 'text-teal-600 bg-teal-50'}`}>
                     이동
                   </span>
                 )}
               </div>
-              <h3 className="text-slate-500 text-[10px] md:text-xs font-bold uppercase tracking-wider mt-3 md:mt-5 relative z-10">{card.title}</h3>
-              {i === 0 ? (
-                <div className="relative h-7 overflow-hidden mt-1">
-                  {PHONES.map((phone, pi) => (
-                    <motion.p
-                      key={phone.number}
-                      animate={{
-                        y: pi === phoneIdx ? 0 : pi === (phoneIdx - 1 + PHONES.length) % PHONES.length ? -28 : 28,
-                        opacity: pi === phoneIdx ? 1 : 0,
-                      }}
-                      transition={{ duration: 0.4, ease: 'easeInOut' }}
-                      className={`absolute inset-0 flex items-center font-extrabold text-base md:text-xl tracking-tight ${phone.color}`}
-                    >
-                      {phone.number}
-                    </motion.p>
-                  ))}
+
+              {/* PC: 기존 세로 레이아웃 */}
+              <div className="hidden md:block p-6 relative z-10">
+                <div className="flex justify-between items-start">
+                  <div className={`p-3 rounded-xl transition-all shadow-inner ${spotlightIdx === i ? 'bg-teal-50' : 'bg-slate-50 group-hover:bg-white'}`}>
+                    {card.icon}
+                  </div>
+                  {card.action && (
+                    <span className={`text-[10px] font-bold px-2 py-0.5 rounded-full transition-colors ${spotlightIdx === i ? 'bg-teal-600 text-white' : 'text-teal-600 bg-teal-50 group-hover:bg-teal-600 group-hover:text-white'}`}>
+                      이동
+                    </span>
+                  )}
                 </div>
-              ) : (
-                <p className="text-slate-800 font-extrabold text-base md:text-xl mt-1 tracking-tight relative z-10">{card.value}</p>
-              )}
-              <p className="text-slate-400 text-xs mt-1 font-semibold relative z-10">{card.desc}</p>
+                <h3 className="text-slate-500 text-xs font-bold uppercase tracking-wider mt-5">{card.title}</h3>
+                {i === 0 ? (
+                  <div className="relative h-7 overflow-hidden mt-1">
+                    {PHONES.map((phone, pi) => (
+                      <motion.p
+                        key={phone.number}
+                        animate={{
+                          y: pi === phoneIdx ? 0 : pi === (phoneIdx - 1 + PHONES.length) % PHONES.length ? -28 : 28,
+                          opacity: pi === phoneIdx ? 1 : 0,
+                        }}
+                        transition={{ duration: 0.4, ease: 'easeInOut' }}
+                        className={`absolute inset-0 flex items-center font-extrabold text-xl tracking-tight ${phone.color}`}
+                      >
+                        {phone.number}
+                      </motion.p>
+                    ))}
+                  </div>
+                ) : (
+                  <p className="text-slate-800 font-extrabold text-xl mt-1 tracking-tight">{card.value}</p>
+                )}
+                <p className="text-slate-400 text-xs mt-1 font-semibold">{card.desc}</p>
+              </div>
             </motion.div>
           ))}
         </div>
