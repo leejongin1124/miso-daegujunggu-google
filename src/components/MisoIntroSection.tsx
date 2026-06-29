@@ -93,7 +93,8 @@ export default function MisoIntroSection() {
             <p className="text-white/80 text-sm mt-1">어떤 점이 다른지 한눈에 확인하세요</p>
           </div>
 
-          <div className="overflow-x-auto">
+          {/* PC 테이블 */}
+          <div className="hidden md:block overflow-x-auto">
             <table className="w-full text-sm">
               <thead>
                 <tr className="bg-slate-50 border-b border-slate-100">
@@ -124,7 +125,28 @@ export default function MisoIntroSection() {
             </table>
           </div>
 
-          <div className="px-8 py-5 bg-teal-50/50 border-t border-teal-100">
+          {/* 모바일 — B안: 3열 압축형 */}
+          <div className="md:hidden">
+            <div className="grid grid-cols-[auto_1fr_1fr] text-[10px] font-extrabold text-slate-400 uppercase tracking-wider bg-slate-50 border-b border-slate-100">
+              <div className="px-3 py-2">항목</div>
+              <div className="px-3 py-2 text-teal-600 flex items-center gap-1">
+                <span className="w-1.5 h-1.5 rounded-full bg-teal-500 inline-block" />미소금융
+              </div>
+              <div className="px-3 py-2">일반은행</div>
+            </div>
+            {comparison.map((row, i) => (
+              <div key={i} className={`grid grid-cols-[auto_1fr_1fr] border-b border-slate-50 ${i % 2 === 0 ? 'bg-white' : 'bg-slate-50/40'}`}>
+                <div className="px-3 py-3 font-bold text-slate-600 text-[11px] leading-snug whitespace-nowrap">{row.item}</div>
+                <div className="px-3 py-3 font-bold text-teal-700 text-[11px] leading-snug flex items-start gap-1">
+                  {row.good && <CheckCircle2 className="w-3 h-3 text-teal-500 shrink-0 mt-0.5" />}
+                  <span>{row.miso}</span>
+                </div>
+                <div className="px-3 py-3 text-slate-500 text-[11px] leading-snug font-medium">{row.bank}</div>
+              </div>
+            ))}
+          </div>
+
+          <div className="px-6 py-4 bg-teal-50/50 border-t border-teal-100">
             <p className="text-teal-700 text-xs font-bold text-center">
               ※ 미소금융은 중개 수수료, 선납금, 보증 비용 등 어떠한 명목의 비용도 요구하지 않습니다. 이를 요구하는 경우 100% 사기입니다.
             </p>
@@ -144,7 +166,73 @@ export default function MisoIntroSection() {
             <p className="text-white/80 text-sm mt-1">4가지 정책 대출 상품의 주요 조건을 한 번에 확인하세요</p>
           </div>
 
-          <div className="overflow-x-auto">
+          {/* 모바일 — A안: 상품별 세로 카드 */}
+          <div className="md:hidden divide-y divide-slate-100">
+            {[
+              {
+                name: '사회적연대금융',
+                purpose: '사회적경제기업 운영·시설·임차보증금',
+                limit: '최대 1억원',
+                rate: '연 4.5% (우수기업 4.0%)',
+                period: '최대 6년 (거치 2년 포함)',
+                highlight: true,
+                blog: 'https://blog.naver.com/PostView.naver?blogId=eornwndrn1&logNo=223850000058&categoryNo=7&parentCategoryNo=7&from=thumbnailList'
+              },
+              {
+                name: '사업자 운영자금',
+                purpose: '원재료 구입, 사업장 운영비용',
+                limit: '최대 2,000만원 (청년 최대 3,000만원)',
+                rate: '연 4.5%',
+                period: '최대 5.5년 (거치 6개월 포함)',
+                highlight: false,
+                blog: 'https://blog.naver.com/PostView.naver?blogId=eornwndrn1&logNo=224289610439&categoryNo=7&parentCategoryNo=7&from=thumbnailList'
+              },
+              {
+                name: '청년미래이음대출',
+                purpose: '만 19~34세 청년 취·창업 자금',
+                limit: '최대 500만원',
+                rate: '연 4.5%',
+                period: '최대 11년 (거치 6년 포함)',
+                highlight: false,
+                blog: 'https://blog.naver.com/PostView.naver?blogId=eornwndrn1&logNo=224274876397&categoryNo=7&parentCategoryNo=7&from=thumbnailList'
+              },
+              {
+                name: '금융취약계층 생계자금',
+                purpose: '취약계층 생계안정 자금',
+                limit: '최대 500만원',
+                rate: '연 4.5%',
+                period: '거치 1년 + 분할 5년 (총 6년)',
+                highlight: false,
+                blog: 'https://blog.naver.com/eornwndrn1/224328452218'
+              }
+            ].map((row, i) => (
+              <div key={i} className={`px-5 py-5 ${i % 2 === 0 ? 'bg-white' : 'bg-slate-50/40'}`}>
+                <a href={row.blog} target="_blank" rel="noopener noreferrer"
+                  className={`inline-flex items-center gap-2 font-extrabold text-sm mb-3 hover:opacity-75 transition-opacity ${row.highlight ? 'text-teal-700' : 'text-slate-800'}`}>
+                  <img src="/logos/naver_blog_logo.png" alt="블로그" className="w-5 h-5 object-contain flex-shrink-0" />
+                  <span>{row.name}</span>
+                </a>
+                <p className="text-slate-500 text-xs font-medium mb-3 leading-relaxed">{row.purpose}</p>
+                <div className="flex gap-2 mb-2">
+                  <div className="flex-1 bg-slate-50 rounded-lg px-3 py-2">
+                    <p className="text-[10px] font-bold text-slate-400 mb-0.5">대출한도</p>
+                    <p className="text-xs font-bold text-slate-800">{row.limit}</p>
+                  </div>
+                  <div className="flex-1 bg-teal-50 rounded-lg px-3 py-2">
+                    <p className="text-[10px] font-bold text-teal-500 mb-0.5">대출금리</p>
+                    <p className="text-xs font-bold text-teal-700">{row.rate}</p>
+                  </div>
+                </div>
+                <div className="bg-indigo-50 rounded-lg px-3 py-2">
+                  <p className="text-[10px] font-bold text-indigo-400 mb-0.5">상환기간</p>
+                  <p className="text-xs font-medium text-indigo-700">{row.period}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {/* PC 테이블 */}
+          <div className="hidden md:block overflow-x-auto">
             <table className="w-full text-sm" style={{ minWidth: '640px' }}>
               <thead>
                 <tr className="bg-slate-50 border-b border-slate-100">
