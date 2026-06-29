@@ -136,14 +136,56 @@ export default function AboutSection({ sectionId }: { sectionId?: string }) {
         </div>}
 
         {/* 법인 조직도 (공공기관 형식 CSS/SVG 다이어그램) */}
-        {show('organization') && <div id="organization" className="text-center space-y-8 bg-white p-8 md:p-12 rounded-3xl border border-slate-100 shadow-sm">
+        {show('organization') && <div id="organization" className="text-center space-y-8 bg-white p-4 md:p-12 rounded-3xl border border-slate-100 shadow-sm">
           <div className="space-y-2">
             <span className="text-xs font-bold text-teal-600 tracking-widest uppercase">Organization Chart</span>
             <h3 className="text-2xl md:text-3xl font-extrabold text-slate-950 tracking-tight">조직도</h3>
             <p className="text-slate-500 text-xs">법인 운영 조직 및 업무 분장</p>
           </div>
 
-          <div className="overflow-x-auto py-6">
+          {/* 모바일 조직도 카드 레이아웃 */}
+          <div className="md:hidden space-y-2 text-left">
+            {/* 사원총회 */}
+            <div className="bg-slate-800 text-white text-center py-2.5 rounded-xl font-bold text-sm">사원총회</div>
+            <div className="flex justify-center"><div className="w-0.5 h-4 bg-slate-300"/></div>
+            {/* 이사회 + 감사 */}
+            <div className="flex gap-2">
+              <div className="flex-1 bg-slate-700 text-white text-center py-2 rounded-lg font-bold text-sm">이사회</div>
+              <div className="w-24 bg-amber-500 text-white text-center py-2 rounded-lg font-bold text-sm">감사</div>
+            </div>
+            <div className="flex justify-start pl-[calc(50%-1px)]"><div className="w-0.5 h-4 bg-slate-300"/></div>
+            {/* 이사장 */}
+            <div className="bg-teal-600 text-white text-center py-3 rounded-xl font-extrabold text-base">이사장 (대표)</div>
+            <div className="flex justify-center"><div className="w-0.5 h-4 bg-slate-300"/></div>
+            {/* 융자위원회 */}
+            <div className="bg-indigo-600 text-white text-center py-2 rounded-lg font-bold text-sm">융자위원회</div>
+            <div className="flex justify-center"><div className="w-0.5 h-4 bg-slate-300"/></div>
+            {/* 5개 부서 — 2열 그리드 */}
+            <div className="grid grid-cols-2 gap-2">
+              <div className="bg-teal-50 border border-teal-200 rounded-lg py-2.5 text-center">
+                <div className="text-teal-800 font-bold text-xs">전문위원</div>
+                <div className="text-teal-600 text-[11px]">(여신심사 1팀)</div>
+              </div>
+              <div className="bg-teal-50 border border-teal-200 rounded-lg py-2.5 text-center">
+                <div className="text-teal-800 font-bold text-xs">전문위원</div>
+                <div className="text-teal-600 text-[11px]">(여신심사 2팀)</div>
+              </div>
+              <div className="bg-teal-50 border border-teal-200 rounded-lg py-2.5 text-center">
+                <div className="text-teal-800 font-bold text-xs">전문위원</div>
+                <div className="text-teal-600 text-[11px]">(여신심사 3팀)</div>
+              </div>
+              <div className="bg-indigo-50 border border-indigo-200 rounded-lg py-2.5 text-center">
+                <div className="text-indigo-800 font-bold text-xs">전문위원</div>
+                <div className="text-indigo-600 text-[11px]">(사업 행정기획)</div>
+              </div>
+              <div className="col-span-2 bg-rose-50 border border-rose-200 rounded-lg py-2.5 text-center">
+                <div className="text-rose-800 font-bold text-xs">신중년 사회공헌단</div>
+              </div>
+            </div>
+          </div>
+
+          {/* PC 조직도 SVG (md 이상) */}
+          <div className="hidden md:block overflow-x-auto py-6">
             <div style={{minWidth: '840px'}}>
               <svg viewBox="0 0 840 385" width="840" height="385" xmlns="http://www.w3.org/2000/svg" style={{display:'block', margin:'0 auto', fontFamily:'inherit'}}>
 
@@ -221,6 +263,7 @@ export default function AboutSection({ sectionId }: { sectionId?: string }) {
               </svg>
             </div>
           </div>
+
         </div>}
 
         {/* 법인 연혁 (스마트 타임라인 카드) */}
