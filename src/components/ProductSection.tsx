@@ -373,7 +373,7 @@ export default function ProductSection({ onScrollToSection, onOpenCalculator, in
                     className="flex items-center justify-center gap-2 bg-amber-500 hover:bg-amber-600 text-white font-black text-sm py-3 rounded-xl transition shadow-md"
                   >
                     <span>📞</span>
-                    <span>지금 바로 전화 상담하기 · 053-252-6480</span>
+                    <span>전화 상담</span>
                   </a>
                 </div>
               )}
