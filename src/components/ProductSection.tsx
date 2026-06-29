@@ -94,7 +94,7 @@ export default function ProductSection({ onScrollToSection, onOpenCalculator, in
       name: '금융취약계층 생계자금',
       subtitle: '기초수급자 · 차상위 · 다문화 · 보이스피싱 피해자 긴급의료',
       description: '가족의 급작스러운 사고·질병, 전세 사기 등 불의의 상황으로 병원비나 생계 주거비 마련이 어려운 가구를 지원하는 긴급 금융 지원 자금입니다.',
-      limit: '최대 500만 원 (생계 한도)',
+      limit: '최대 500만 원',
       interestRate: '연 4.5%',
       repaymentPeriod: '거치 1년 + 매월 분할 상환 5년 (총 6년 상환)',
       repaymentMethod: '원리금 균등분할 상환',
