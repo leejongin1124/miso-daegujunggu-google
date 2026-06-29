@@ -13,7 +13,6 @@ import GuideSection from './components/GuideSection';
 import CaseSection from './components/CaseSection';
 import NoticeSection from './components/NoticeSection';
 import Footer from './components/Footer';
-import FloatingWidget from './components/FloatingWidget';
 import MisoIntroSection from './components/MisoIntroSection';
 
 // 섹션 ID → 어느 컴포넌트에 속하는지 매핑
@@ -184,7 +183,6 @@ export default function App() {
 
       <Footer />
 
-      <FloatingWidget onOpenCalculator={handleOpenCalculator} />
 
     </div>
   );
