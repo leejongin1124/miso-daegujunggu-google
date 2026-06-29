@@ -153,6 +153,7 @@ export default function MisoIntroSection() {
                   <th className="text-center px-5 py-4 font-extrabold text-slate-500 text-xs uppercase tracking-wider">대출한도</th>
                   <th className="text-center px-5 py-4 font-extrabold text-slate-500 text-xs uppercase tracking-wider">대출금리</th>
                   <th className="text-center px-5 py-4 font-extrabold text-slate-500 text-xs uppercase tracking-wider">상환기간</th>
+                  <th className="text-center px-5 py-4 font-extrabold text-slate-500 text-xs uppercase tracking-wider">블로그</th>
                 </tr>
               </thead>
               <tbody>
@@ -163,7 +164,8 @@ export default function MisoIntroSection() {
                     limit: '최대 1억원',
                     rate: '연 4.5% (우수기업 4.0%)',
                     period: '최대 6년 (거치 2년 포함)',
-                    highlight: true
+                    highlight: true,
+                    blog: 'https://blog.naver.com/PostView.naver?blogId=eornwndrn1&logNo=223850000058&categoryNo=7&parentCategoryNo=7&from=thumbnailList'
                   },
                   {
                     name: '사업자 운영자금',
@@ -171,7 +173,8 @@ export default function MisoIntroSection() {
                     limit: '최대 2,000만원 (청년 최대 3,000만원)',
                     rate: '연 4.5%',
                     period: '최대 5.5년 (거치 6개월 포함)',
-                    highlight: false
+                    highlight: false,
+                    blog: 'https://blog.naver.com/PostView.naver?blogId=eornwndrn1&logNo=224289610439&categoryNo=7&parentCategoryNo=7&from=thumbnailList'
                   },
                   {
                     name: '청년미래이음대출',
@@ -179,7 +182,8 @@ export default function MisoIntroSection() {
                     limit: '최대 500만원',
                     rate: '연 4.5%',
                     period: '최대 11년 (거치 6년 포함)',
-                    highlight: false
+                    highlight: false,
+                    blog: 'https://blog.naver.com/PostView.naver?blogId=eornwndrn1&logNo=224274876397&categoryNo=7&parentCategoryNo=7&from=thumbnailList'
                   },
                   {
                     name: '금융취약계층 생계자금',
@@ -187,7 +191,8 @@ export default function MisoIntroSection() {
                     limit: '최대 500만원',
                     rate: '연 4.5%',
                     period: '거치 1년 + 분할 5년 (총 6년)',
-                    highlight: false
+                    highlight: false,
+                    blog: 'https://blog.naver.com/eornwndrn1/224328452218'
                   }
                 ].map((row, i) => (
                   <tr key={i} className={`border-b border-slate-50 ${i % 2 === 0 ? 'bg-white' : 'bg-slate-50/30'}`}>
@@ -196,6 +201,11 @@ export default function MisoIntroSection() {
                     <td className="px-5 py-4 text-center font-bold text-slate-800 text-xs">{row.limit}</td>
                     <td className="px-5 py-4 text-center font-bold text-teal-700 text-xs">{row.rate}</td>
                     <td className="px-5 py-4 text-center text-slate-600 text-xs">{row.period}</td>
+                    <td className="px-5 py-4 text-center">
+                      <a href={row.blog} target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center w-7 h-7 rounded-lg hover:bg-slate-100 transition">
+                        <img src="/logos/naver_blog_logo.png" alt="블로그" className="w-5 h-5 object-contain" />
+                      </a>
+                    </td>
                   </tr>
                 ))}
               </tbody>
