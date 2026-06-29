@@ -32,9 +32,9 @@ interface HeroProps {
 const AUDIENCE = ['청년', '소상공인', '취약계층', '자영업자'];
 
 const PHONES = [
-  { number: '053-252-6408', color: 'text-teal-600' },
+  { number: '053-252-6408', color: 'text-rose-600' },
   { number: '053-252-6409', color: 'text-indigo-600' },
-  { number: '053-252-6479', color: 'text-rose-600' },
+  { number: '053-252-6479', color: 'text-teal-600' },
   { number: '053-252-6480', color: 'text-amber-600' },
 ];
 
