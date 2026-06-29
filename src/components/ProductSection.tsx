@@ -51,7 +51,7 @@ export default function ProductSection({ onScrollToSection, onOpenCalculator, in
       name: '사업자 운영자금',
       subtitle: '사업자등록증 보유 후 실제 운영 3개월 이상인 소상공인·개인 사업자',
       description: '골목의 동네 미용실, 전통시장 안 작은 상회, 1인 배달업 등 사업 실적이 있음에도 담보가 부족해 대출이 어려운 자영업자를 지원하는 긴급 운영자금입니다.',
-      limit: '최대 2,000만원 (청년 사업가는 우대 최대 3,000만원)',
+      limit: '최대 2,000만원 (청년사업가는 최대 3,000만원)',
       interestRate: '연 4.5% (고정 이율)',
       repaymentPeriod: '거치 6개월 + 매달 균등분할상환 5년 (총 5.5년) / 청년 우수 시 거치 2년',
       repaymentMethod: '원리금 균등분할 상환',
