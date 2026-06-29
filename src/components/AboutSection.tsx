@@ -5,7 +5,7 @@
 
 import { motion } from 'motion/react';
 import { useState, useEffect } from 'react';
-import { Award, Briefcase, Calendar, MapPin, Bus, Train, Phone, Share2, Printer, ExternalLink } from 'lucide-react';
+import { Award, Briefcase, Calendar, MapPin, Bus, Train, Car, Phone, Share2, Printer, ExternalLink } from 'lucide-react';
 
 const PHONES = [
   { number: '053-252-6408', chip: 'bg-rose-100 text-rose-700',    bg: 'from-rose-500 to-pink-500' },
@@ -410,7 +410,19 @@ export default function AboutSection({ sectionId }: { sectionId?: string }) {
                     <h5 className="font-extrabold text-slate-800">일반 버스 노선</h5>
                     <p className="text-slate-500 font-medium mt-0.5">
                       대구고등학교 건너 정류장에 내리시면 바로 근처입니다 <br />
-                      오는 버스: 349, 405, 410, 503, 649
+                      오는 버스: <strong>349, 405, 410, 503, 649</strong>
+                    </p>
+                  </div>
+                </div>
+
+                <div className="flex items-start space-x-3 text-sm">
+                  <div className="p-1.5 bg-amber-50 rounded text-amber-600 mt-0.5">
+                    <Car className="w-4 h-4" />
+                  </div>
+                  <div>
+                    <h5 className="font-extrabold text-slate-800">자가용 이용 시</h5>
+                    <p className="text-slate-500 font-medium mt-0.5">
+                      하나은행 봉덕지점 <strong>뒤편 주차장</strong> 이용 시 <strong className="text-amber-600">무료 주차</strong> 가능합니다
                     </p>
                   </div>
                 </div>
