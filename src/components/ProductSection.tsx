@@ -133,6 +133,79 @@ export default function ProductSection({ onScrollToSection, onOpenCalculator, in
           </p>
         </div>
 
+        {/* 한눈에 보는 대출상품 비교표 */}
+        <div className="bg-white rounded-3xl shadow-sm border border-slate-100 overflow-hidden">
+          <div className="px-6 py-5 border-b border-slate-100">
+            <h3 className="font-black text-slate-900 text-base md:text-lg">한눈에 보는 대출상품 안내</h3>
+            <p className="text-slate-500 text-xs md:text-sm font-medium mt-1">4가지 정책 대출 상품의 주요 조건을 한 번에 확인하세요</p>
+          </div>
+
+          {/* PC: 테이블 */}
+          <div className="hidden md:block overflow-x-auto">
+            <table className="w-full text-sm text-left">
+              <thead className="bg-teal-50 text-teal-700 text-xs font-bold uppercase tracking-wide">
+                <tr>
+                  <th className="px-5 py-3">상품명</th>
+                  <th className="px-5 py-3">자금용도</th>
+                  <th className="px-5 py-3">대출한도</th>
+                  <th className="px-5 py-3">대출금리</th>
+                  <th className="px-5 py-3">상환기간</th>
+                  <th className="px-5 py-3 text-center">블로그</th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-slate-100 text-slate-700 font-medium text-xs">
+                {[
+                  { name: '사회적연대금융', use: '사회적경제기업 운영·시설·임차보증금', limit: '최대 1억원', rate: '연 4.5% (우수기업 4.0%)', period: '최대 6년 (거치 2년 포함)', blog: products[0].blogUrl },
+                  { name: '사업자 운영자금', use: '원재료 구입, 사업장 운영비용', limit: '최대 2,000만원 (청년 최대 3,000만원)', rate: '연 4.5%', period: '최대 5.5년 (거치 6개월 포함)', blog: products[1].blogUrl },
+                  { name: '청년미래이음대출', use: '만 19~34세 청년 취·창업 자금', limit: '최대 500만원', rate: '연 4.5%', period: '최대 11년 (거치 6년 포함)', blog: products[2].blogUrl },
+                  { name: '금융취약계층 생계자금', use: '취약계층 생계안정 자금', limit: '최대 500만원', rate: '연 4.5%', period: '거치 1년 + 분할 5년 (총 6년)', blog: products[3].blogUrl },
+                ].map((row, i) => (
+                  <tr key={i} className={i % 2 === 0 ? 'bg-white' : 'bg-slate-50'}>
+                    <td className="px-5 py-3 font-black text-slate-800 whitespace-nowrap">{row.name}</td>
+                    <td className="px-5 py-3">{row.use}</td>
+                    <td className="px-5 py-3 whitespace-nowrap">{row.limit}</td>
+                    <td className="px-5 py-3 whitespace-nowrap">{row.rate}</td>
+                    <td className="px-5 py-3 whitespace-nowrap">{row.period}</td>
+                    <td className="px-5 py-3 text-center">
+                      {row.blog && (
+                        <a href={row.blog} target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center w-7 h-7 rounded-lg hover:bg-slate-100 transition">
+                          <img src="/logos/naver_blog_logo.png" alt="블로그" className="w-5 h-5 object-contain" />
+                        </a>
+                      )}
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+
+          {/* 모바일: 카드 */}
+          <div className="md:hidden divide-y divide-slate-100">
+            {[
+              { name: '사회적연대금융', limit: '최대 1억원', rate: '연 4.5% (우수기업 4.0%)', period: '최대 6년', blog: products[0].blogUrl },
+              { name: '사업자 운영자금', limit: '최대 2,000만원', rate: '연 4.5%', period: '최대 5.5년', blog: products[1].blogUrl },
+              { name: '청년미래이음대출', limit: '최대 500만원', rate: '연 4.5%', period: '최대 11년', blog: products[2].blogUrl },
+              { name: '금융취약계층 생계자금', limit: '최대 500만원', rate: '연 4.5%', period: '총 6년', blog: products[3].blogUrl },
+            ].map((row, i) => (
+              <div key={i} className="px-5 py-4 flex items-center justify-between gap-3">
+                <div className="space-y-1 min-w-0">
+                  <p className="font-black text-slate-800 text-sm">{row.name}</p>
+                  <p className="text-xs text-slate-500 font-medium">{row.limit} · {row.rate} · {row.period}</p>
+                </div>
+                {row.blog && (
+                  <a href={row.blog} target="_blank" rel="noopener noreferrer" className="flex-shrink-0 w-8 h-8 flex items-center justify-center rounded-lg bg-slate-50 hover:bg-slate-100 transition">
+                    <img src="/logos/naver_blog_logo.png" alt="블로그" className="w-5 h-5 object-contain" />
+                  </a>
+                )}
+              </div>
+            ))}
+          </div>
+
+          <div className="px-6 py-3 bg-slate-50 border-t border-slate-100">
+            <p className="text-[11px] text-slate-400 font-medium">※ 모든 상품 금리는 연 4.5% 고정이며, 4회 이상 성실 납입 시 연 3.5%로 우대 적용됩니다.</p>
+          </div>
+        </div>
+
         {/* 탭 가로 셀렉터 */}
         <div className="flex flex-wrap justify-center gap-3 max-w-3xl mx-auto">
           {products.map((p) => {
