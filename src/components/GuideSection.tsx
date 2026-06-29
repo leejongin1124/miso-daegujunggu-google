@@ -416,10 +416,20 @@ export default function GuideSection({ sectionId }: { sectionId?: string }) {
               <p className="text-slate-600 text-xs leading-relaxed">
                 근로장려금 신청 자격 요건에 해당하는 고객
               </p>
-              <a href="https://hometax.go.kr/websquare/websquare.html?w2xPath=/ui/pp/index_pp.xml&tmIdx=45&tm2lIdx=4501000000&tm3lIdx=4501010000" target="_blank" rel="noopener noreferrer"
-                className="inline-block text-[10px] font-bold text-teal-700 bg-white border border-teal-200 px-2.5 py-1 rounded-full hover:bg-teal-100 transition">
-                국세청 홈택스 근로·자녀장려금 안내 →
-              </a>
+              <p className="text-[10px] text-slate-400 font-medium">자격 해당 여부를 지금 바로 확인하세요 👇</p>
+              <motion.a
+                href="https://hometax.go.kr/websquare/websquare.html?w2xPath=/ui/pp/index_pp.xml&tmIdx=45&tm2lIdx=4501000000&tm3lIdx=4501010000"
+                target="_blank"
+                rel="noopener noreferrer"
+                whileHover={{ scale: 1.07 }}
+                whileTap={{ scale: 0.95 }}
+                animate={{ boxShadow: ['0 0 0px #16a34a', '0 0 8px #16a34a', '0 0 0px #16a34a'] }}
+                transition={{ duration: 1.8, repeat: Infinity }}
+                className="inline-flex items-center gap-1.5 text-xs font-black text-white bg-green-600 px-4 py-2 rounded-xl shadow-sm cursor-pointer"
+              >
+                <span>🏛️</span>
+                <span>국세청 홈택스 근로·자녀장려금 안내</span>
+              </motion.a>
             </div>
           </div>
 
