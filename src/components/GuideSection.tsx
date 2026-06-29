@@ -472,15 +472,43 @@ export default function GuideSection({ sectionId }: { sectionId?: string }) {
         {/* 이용 절차 타임라인 가이드 */}
         {show('process-guide') && <><div id="process-guide" className="space-y-12">
           
-          <div className="text-center space-y-3">
-            <span className="text-miso-blue-600 font-bold text-sm tracking-widest uppercase">Process Flow</span>
-            <h3 className="text-2.5xl md:text-3xl font-extrabold text-slate-900 tracking-tight">
-              체계적이고 투명한 대출 진행 절차
-            </h3>
-            <p className="text-slate-500 text-xs">
-              서민금융진흥원 심의 규칙에 맞춰 진행되는 5단계 핵심 단계입니다.
-            </p>
-          </div>
+          <motion.div
+            initial={{ opacity: 0, y: 16 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.45 }}
+            className="relative bg-gradient-to-r from-miso-blue-700 to-miso-navy-700 rounded-3xl px-8 py-7 text-white overflow-hidden"
+          >
+            <div className="absolute -right-8 -top-8 w-40 h-40 bg-white/5 rounded-full blur-2xl pointer-events-none" />
+            <div className="relative z-10 flex flex-col md:flex-row md:items-center gap-4">
+              <div className="flex items-center gap-4">
+                <motion.span
+                  animate={{ rotate: [0, -8, 8, -8, 0] }}
+                  transition={{ duration: 2, repeat: Infinity, repeatDelay: 2 }}
+                  className="text-4xl"
+                >
+                  🗺️
+                </motion.span>
+                <div>
+                  <span className="text-[10px] font-black text-miso-blue-200 tracking-widest uppercase">Step-by-Step Guide</span>
+                  <h3 className="text-xl md:text-2xl font-black tracking-tight leading-tight mt-0.5">
+                    대출 진행 절차 안내
+                  </h3>
+                  <p className="text-miso-blue-100 text-xs font-semibold mt-1">
+                    서민금융진흥원 심의 규칙에 맞춘 5단계 핵심 과정입니다.
+                  </p>
+                </div>
+              </div>
+              <motion.div
+                animate={{ opacity: [1, 0.3, 1] }}
+                transition={{ duration: 1.6, repeat: Infinity }}
+                className="md:ml-auto flex items-center gap-2 bg-white/15 border border-white/20 rounded-xl px-4 py-2 text-xs font-black whitespace-nowrap"
+              >
+                <span>📞</span>
+                <span>전화 상담 먼저 · 053-252-6408</span>
+              </motion.div>
+            </div>
+          </motion.div>
 
           <div className="grid grid-cols-1 md:grid-cols-5 gap-6 mt-8 text-left">
             {processSteps.map((p, idx) => (
@@ -510,11 +538,45 @@ export default function GuideSection({ sectionId }: { sectionId?: string }) {
 
         {/* 대출 서류 가이드 보완 팝카드 */}
         <div className="bg-gradient-to-tr from-teal-50 to-slate-50 p-8 rounded-3xl border border-teal-100 text-left space-y-6">
+          {/* 준비서류 섹션 헤더 */}
+          <motion.div
+            initial={{ opacity: 0, y: 16 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.45 }}
+            className="relative bg-gradient-to-r from-teal-600 to-emerald-600 rounded-2xl px-6 py-5 text-white overflow-hidden"
+          >
+            <div className="absolute -right-6 -top-6 w-32 h-32 bg-white/5 rounded-full blur-2xl pointer-events-none" />
+            <div className="relative z-10 flex flex-col md:flex-row md:items-center gap-3">
+              <div className="flex items-center gap-3">
+                <motion.span
+                  animate={{ y: [0, -4, 0] }}
+                  transition={{ duration: 1.4, repeat: Infinity, repeatDelay: 1.5 }}
+                  className="text-3xl"
+                >
+                  📂
+                </motion.span>
+                <div>
+                  <span className="text-[10px] font-black text-teal-100 tracking-widest uppercase">Required Documents</span>
+                  <h3 className="text-lg md:text-xl font-black tracking-tight leading-tight mt-0.5">
+                    준비 서류 안내
+                  </h3>
+                  <p className="text-teal-100 text-xs font-semibold mt-0.5">
+                    두 번 발걸음 안 하시게, 아래 서류를 미리 챙겨주세요.
+                  </p>
+                </div>
+              </div>
+              <motion.div
+                animate={{ opacity: [1, 0.3, 1] }}
+                transition={{ duration: 1.6, repeat: Infinity, delay: 0.8 }}
+                className="md:ml-auto flex items-center gap-2 bg-white/15 border border-white/20 rounded-xl px-4 py-2 text-xs font-black whitespace-nowrap"
+              >
+                <span>✅</span>
+                <span>서류 완비 시 당일 접수 가능</span>
+              </motion.div>
+            </div>
+          </motion.div>
           <div className="space-y-2">
-            <span className="inline-flex items-center text-[10px] font-bold bg-indigo-50 text-indigo-700 px-2 rounded">
-              Required Documents
-            </span>
-            <h4 className="font-extrabold text-slate-900 text-xl">두 번 발걸음 안 하시게 "서류"를 챙겨주세요</h4>
             <p className="text-slate-500 text-sm leading-relaxed">
               귀한 시간 내서 오셨는데, 서류가 빠져서 다시 댁으로 돌아가시는 일이 없어야겠지요?<br />
               아래 적힌 서류들을 챙겨오시면, <strong className="text-teal-700">"대출이 되는지, 얼마나 되는지"</strong> 신속하게 알려드릴 수 있습니다.
