@@ -4,7 +4,7 @@
  */
 
 import { motion } from 'motion/react';
-import { ShieldCheck, BadgePercent, TrendingUp, CheckCircle2, XCircle } from 'lucide-react';
+import { ShieldCheck, BadgePercent, TrendingDown, CheckCircle2, XCircle } from 'lucide-react';
 
 export default function MisoIntroSection() {
   const features = [
@@ -21,7 +21,7 @@ export default function MisoIntroSection() {
       desc: '금융위원회의 허가를 받은 공익법인으로, 서민금융진흥원의 공식 사업수행기관입니다. 무허가 사금융과는 엄격히 구분되는 제도권 금융기관입니다.'
     },
     {
-      icon: <TrendingUp className="w-10 h-10 text-indigo-600" />,
+      icon: <TrendingDown className="w-10 h-10 text-indigo-600" />,
       bg: 'bg-indigo-50',
       title: '연 4.5% 저금리 대출',
       desc: '일반 금융기관 이용이 어려운 분들을 대상으로 연 4.5% 저금리 대출을 지원합니다. 상담을 통해 자격을 확인하신 후 이용하실 수 있습니다.'
