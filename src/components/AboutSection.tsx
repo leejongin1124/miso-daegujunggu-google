@@ -372,9 +372,8 @@ export default function AboutSection({ sectionId }: { sectionId?: string }) {
               <span className="text-xs font-black tracking-widest text-teal-600 uppercase">Way to Come</span>
               <h3 className="text-2xl md:text-3xl font-extrabold text-slate-900">대구중구법인 오시는 길</h3>
               <p className="text-slate-600 font-medium text-sm md:text-base leading-relaxed">
-                (사)미소금융대구중구법인은 대구광역시 남구에 위치하고 있습니다. <br />
-                남구 소재의 하나은행 건물 4층으로 오시면 정성을 다해 직접 상담을 진행해 드립니다. <br />
-                지하철 및 버스 노선이 편리하게 마련되어 있어 교통이 수월합니다.
+                대구광역시 남구 하나은행 봉덕지점 건물 4층에 위치합니다. <br />
+                지하철·버스 접근이 편리하며, 방문 상담을 환영합니다.
               </p>
 
               <div className="space-y-4 pt-2">
