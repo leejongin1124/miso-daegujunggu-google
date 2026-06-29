@@ -365,7 +365,7 @@ export default function Hero({ onScrollToSection }: HeroProps) {
                 </div>
                 <h3 className="text-slate-500 text-[10px] md:text-xs font-bold uppercase tracking-wider mt-3 md:mt-5">{card.title}</h3>
                 {i === 0 ? (
-                  <div className="relative h-6 md:h-7 overflow-hidden mt-1">
+                  <div className="relative h-7 md:h-10 overflow-hidden mt-1">
                     {PHONES.map((phone, pi) => (
                       <motion.p
                         key={phone.number}
@@ -374,7 +374,7 @@ export default function Hero({ onScrollToSection }: HeroProps) {
                           opacity: pi === phoneIdx ? 1 : 0,
                         }}
                         transition={{ duration: 0.4, ease: 'easeInOut' }}
-                        className={`absolute inset-0 flex items-center font-extrabold text-sm md:text-xl tracking-tight ${phone.color}`}
+                        className={`absolute inset-0 flex items-center font-extrabold text-lg md:text-3xl tracking-tight ${phone.color}`}
                       >
                         {phone.number}
                       </motion.p>
