@@ -9,22 +9,22 @@ import { ShieldCheck, BadgePercent, TrendingUp, CheckCircle2, XCircle } from 'lu
 export default function MisoIntroSection() {
   const features = [
     {
-      icon: <ShieldCheck className="w-7 h-7 text-teal-600" />,
+      icon: <ShieldCheck className="w-10 h-10 text-teal-600" />,
       bg: 'bg-teal-50',
       title: '투명한 공익 재원',
-      desc: '정부 출연금과 금융회사 출연금으로 조성된 공적 재원으로 운영됩니다. 수익이 아닌 서민의 자립을 목적으로 설립된 비영리 구조입니다.'
+      desc: '정부 및 금융회사 출연금으로 조성된 공적 기금으로 운영됩니다. 수익 창출이 아닌 서민의 경제적 자립 지원을 목적으로 설립된 비영리 법인입니다.'
     },
     {
-      icon: <BadgePercent className="w-7 h-7 text-emerald-600" />,
+      icon: <BadgePercent className="w-10 h-10 text-emerald-600" />,
       bg: 'bg-emerald-50',
       title: '제도권 비영리 법인',
-      desc: '금융위원회 허가를 받은 공익법인으로, 서민금융진흥원의 공식 사업수행기관입니다. 불법 사금융과는 전혀 다른 제도권 금융입니다.'
+      desc: '금융위원회의 허가를 받은 공익법인으로, 서민금융진흥원의 공식 사업수행기관입니다. 무허가 사금융과는 엄격히 구분되는 제도권 금융기관입니다.'
     },
     {
-      icon: <TrendingUp className="w-7 h-7 text-indigo-600" />,
+      icon: <TrendingUp className="w-10 h-10 text-indigo-600" />,
       bg: 'bg-indigo-50',
-      title: '연 4.5% 저금리',
-      desc: '시중 은행 대출이 어려운 분들에게 연 4.5% 수준의 저금리로 지원합니다. 담보나 보증 없이 자립 의지만으로 신청하실 수 있습니다.'
+      title: '연 4.5% 저금리 대출',
+      desc: '일반 금융기관 이용이 어려운 분들을 대상으로 연 4.5% 저금리 대출을 지원합니다. 상담을 통해 자격을 확인하신 후 이용하실 수 있습니다.'
     }
   ];
 
@@ -71,7 +71,7 @@ export default function MisoIntroSection() {
               transition={{ duration: 0.45, delay: i * 0.1 }}
               className="bg-white border border-slate-100 rounded-2xl p-8 shadow-sm hover:shadow-md hover:border-teal-200 transition-all"
             >
-              <div className={`w-14 h-14 ${f.bg} rounded-xl flex items-center justify-center mb-5`}>
+              <div className={`w-18 h-18 ${f.bg} rounded-xl flex items-center justify-center mb-5`}>
                 {f.icon}
               </div>
               <h3 className="font-extrabold text-slate-900 text-lg mb-3">{f.title}</h3>
