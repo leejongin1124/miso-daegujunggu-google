@@ -35,8 +35,7 @@ export default function ProductSection({ onScrollToSection, onOpenCalculator, in
       target: [
         '고용노동부 정식 인증 사회적기업',
         '지역 지자체 및 부처형 예비사회적기업',
-        '사회적협동조합 및 자활·마을 공인기업',
-        '최근 3개년 평균 연매출 10억 원 이하 법인 (3년 미만은 설립 후 연평균 적용)'
+'최근 3개년 평균 연매출 10억 원 이하 법인 (3년 미만은 설립 후 연평균 적용)'
       ],
       suitability: [
         '사업 활동 및 사회적 가치 실현 관련 증빙 서류를 갖춘 대구 지역 사회적경제기업',
