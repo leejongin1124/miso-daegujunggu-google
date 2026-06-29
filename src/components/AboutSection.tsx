@@ -444,8 +444,7 @@ export default function AboutSection({ sectionId }: { sectionId?: string }) {
                   className="w-full h-80 object-cover"
                 />
               </a>
-              <div className="flex items-center justify-between mt-2 px-1">
-                <p className="text-slate-400 text-[10px] font-bold">하나은행 건물 뒤편 주차 공간 보유</p>
+              <div className="flex items-center justify-center mt-2 px-1">
                 <a
                   href="https://naver.me/GSQLkTiM"
                   target="_blank"
