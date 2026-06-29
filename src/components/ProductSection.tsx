@@ -314,39 +314,90 @@ export default function ProductSection({ onScrollToSection, onOpenCalculator, in
                 <div className="flex items-center space-x-2 text-slate-800 font-bold text-sm">
                   <CheckCircle2 className="w-5 h-5 text-teal-600" />
                   <span>
-                    {activeProduct.id === 'youth'
-                      ? '신청 자격 요건 (청년요건과 기본요건 충족 시 상담 가능)'
+                    {activeProduct.id === 'youth' || activeProduct.id === 'vulnerable'
+                      ? '신청 자격 요건 (STEP 1 + STEP 2 동시 충족 필수)'
                       : '신청 자격 요건 (하나라도 해당 시 상담 가능)'}
                   </span>
                 </div>
 
                 {activeProduct.id === 'youth' ? (
-                  <div className="space-y-4 text-xs">
-                    <div className="bg-indigo-50 border border-indigo-100 rounded-xl p-4 space-y-1.5">
-                      <p className="font-extrabold text-slate-800">① 청년 요건</p>
+                  <div className="text-xs space-y-0">
+                    {/* STEP 1 */}
+                    <motion.div
+                      initial={{ opacity: 0, y: -8 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.4 }}
+                      className="bg-indigo-50 border-2 border-indigo-300 rounded-xl p-4 space-y-1.5"
+                    >
+                      <div className="flex items-center gap-2 mb-2">
+                        <span className="bg-indigo-600 text-white text-[10px] font-black px-2.5 py-0.5 rounded-full tracking-widest">STEP 1</span>
+                        <p className="font-extrabold text-slate-800">청년 요건</p>
+                      </div>
                       <ul className="pl-4 space-y-1 text-slate-600 font-medium">
                         <li>• 만 19세 이상 34세 이하 청년이면서, 미취업 상태이거나 취업·창업 이력 1년 미만인 분</li>
                       </ul>
+                    </motion.div>
+
+                    {/* AND 커넥터 */}
+                    <div className="flex flex-col items-center py-1.5">
+                      <div className="w-0.5 h-3 bg-slate-300" />
+                      <motion.span
+                        animate={{ opacity: [1, 0.2, 1] }}
+                        transition={{ duration: 1.2, repeat: Infinity }}
+                        className="bg-rose-600 text-white text-[10px] font-black px-3 py-0.5 rounded-full"
+                      >
+                        AND · 두 가지 동시 충족 필수
+                      </motion.span>
+                      <div className="w-0.5 h-3 bg-slate-300" />
                     </div>
-                    <div className="bg-teal-50 border border-teal-100 rounded-xl p-4 space-y-1.5">
-                      <p className="font-extrabold text-slate-800">② 기본 미소금융 대상 (다음 중 하나 해당)</p>
+
+                    {/* STEP 2 */}
+                    <motion.div
+                      initial={{ opacity: 0, y: 8 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.4, delay: 0.2 }}
+                      className="bg-teal-50 border-2 border-teal-300 rounded-xl p-4 space-y-1.5"
+                    >
+                      <div className="flex items-center gap-2 mb-2">
+                        <span className="bg-teal-600 text-white text-[10px] font-black px-2.5 py-0.5 rounded-full tracking-widest">STEP 2</span>
+                        <p className="font-extrabold text-slate-800">기본 미소금융 대상 (다음 중 하나 해당)</p>
+                      </div>
                       <ul className="pl-4 space-y-1.5 text-slate-600 font-medium">
                         <li>• 신용점수 하위 20% 이하 (NICE 749점 이하 또는 KCB 700점 이하)</li>
                         <li>• 기초생활수급자 또는 차상위계층</li>
                         <li>• 최근 1년 이내 근로장려금 수급 이력이 있는 분</li>
                       </ul>
-                    </div>
+                    </motion.div>
+
+                    {/* 최종 경고 배너 */}
+                    <motion.div
+                      animate={{ opacity: [1, 0.4, 1] }}
+                      transition={{ duration: 1.6, repeat: Infinity }}
+                      className="mt-3 flex items-center gap-2 bg-rose-50 border border-rose-300 rounded-xl px-4 py-3"
+                    >
+                      <span className="text-base">⚠️</span>
+                      <p className="text-rose-700 font-black text-xs">STEP 1 + STEP 2 모두 해당 시에만 상담 신청이 가능합니다</p>
+                    </motion.div>
                   </div>
+
                 ) : activeProduct.id === 'vulnerable' ? (
-                  <div className="space-y-4 text-xs">
-                    {/* 기본 요건 표 */}
-                    <div>
-                      <p className="font-extrabold text-slate-800 mb-1.5">① 기본 요건 (다음 중 하나 해당)</p>
+                  <div className="text-xs space-y-0">
+                    {/* STEP 1 */}
+                    <motion.div
+                      initial={{ opacity: 0, y: -8 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.4 }}
+                      className="bg-teal-50 border-2 border-teal-300 rounded-xl p-4"
+                    >
+                      <div className="flex items-center gap-2 mb-2">
+                        <span className="bg-teal-600 text-white text-[10px] font-black px-2.5 py-0.5 rounded-full tracking-widest">STEP 1</span>
+                        <p className="font-extrabold text-slate-800">기본 요건 (다음 중 하나 해당)</p>
+                      </div>
                       <table className="w-full text-left border-collapse">
                         <thead>
-                          <tr className="bg-teal-50">
-                            <th className="border border-teal-100 px-3 py-2 text-teal-700 font-bold w-28">구분</th>
-                            <th className="border border-teal-100 px-3 py-2 text-teal-700 font-bold">요건</th>
+                          <tr className="bg-teal-100">
+                            <th className="border border-teal-200 px-3 py-2 text-teal-700 font-bold w-28">구분</th>
+                            <th className="border border-teal-200 px-3 py-2 text-teal-700 font-bold">요건</th>
                           </tr>
                         </thead>
                         <tbody className="text-slate-600 font-medium">
@@ -364,16 +415,37 @@ export default function ProductSection({ onScrollToSection, onOpenCalculator, in
                           </tr>
                         </tbody>
                       </table>
+                    </motion.div>
+
+                    {/* AND 커넥터 */}
+                    <div className="flex flex-col items-center py-1.5">
+                      <div className="w-0.5 h-3 bg-slate-300" />
+                      <motion.span
+                        animate={{ opacity: [1, 0.2, 1] }}
+                        transition={{ duration: 1.2, repeat: Infinity }}
+                        className="bg-rose-600 text-white text-[10px] font-black px-3 py-0.5 rounded-full"
+                      >
+                        AND · 두 가지 동시 충족 필수
+                      </motion.span>
+                      <div className="w-0.5 h-3 bg-slate-300" />
                     </div>
 
-                    {/* 추가 요건 표 */}
-                    <div>
-                      <p className="font-extrabold text-slate-800 mb-1.5">② 추가 요건 (다음 중 하나 해당)</p>
+                    {/* STEP 2 */}
+                    <motion.div
+                      initial={{ opacity: 0, y: 8 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.4, delay: 0.2 }}
+                      className="bg-indigo-50 border-2 border-indigo-300 rounded-xl p-4"
+                    >
+                      <div className="flex items-center gap-2 mb-2">
+                        <span className="bg-indigo-600 text-white text-[10px] font-black px-2.5 py-0.5 rounded-full tracking-widest">STEP 2</span>
+                        <p className="font-extrabold text-slate-800">추가 요건 (다음 중 하나 해당)</p>
+                      </div>
                       <table className="w-full text-left border-collapse">
                         <thead>
-                          <tr className="bg-teal-50">
-                            <th className="border border-teal-100 px-3 py-2 text-teal-700 font-bold w-28">구분</th>
-                            <th className="border border-teal-100 px-3 py-2 text-teal-700 font-bold">해당자</th>
+                          <tr className="bg-indigo-100">
+                            <th className="border border-indigo-200 px-3 py-2 text-indigo-700 font-bold w-28">구분</th>
+                            <th className="border border-indigo-200 px-3 py-2 text-indigo-700 font-bold">해당자</th>
                           </tr>
                         </thead>
                         <tbody className="text-slate-600 font-medium">
@@ -391,8 +463,19 @@ export default function ProductSection({ onScrollToSection, onOpenCalculator, in
                           </tr>
                         </tbody>
                       </table>
-                    </div>
+                    </motion.div>
+
+                    {/* 최종 경고 배너 */}
+                    <motion.div
+                      animate={{ opacity: [1, 0.4, 1] }}
+                      transition={{ duration: 1.6, repeat: Infinity }}
+                      className="mt-3 flex items-center gap-2 bg-rose-50 border border-rose-300 rounded-xl px-4 py-3"
+                    >
+                      <span className="text-base">⚠️</span>
+                      <p className="text-rose-700 font-black text-xs">STEP 1 + STEP 2 모두 해당 시에만 상담 신청이 가능합니다</p>
+                    </motion.div>
                   </div>
+
                 ) : (
                   <ul className="space-y-2.5 pl-6 list-disc text-xs md:text-sm text-slate-600 font-medium leading-relaxed">
                     {activeProduct.target.map((t, i) => (
