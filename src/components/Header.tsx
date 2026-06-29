@@ -256,7 +256,7 @@ export default function Header({ activeTab, setActiveTab, onScrollToSection, onO
                   onClick={() => setMobileMenuOpen(false)}
                   className="w-full bg-gradient-to-r from-teal-500 to-emerald-500 text-white font-bold py-3 rounded-xl text-center text-sm transition-all flex items-center justify-center space-x-2 shadow-sm"
                 >
-                  <span>📝</span>
+                  <img src="/logos/naver_blog_logo.png" alt="네이버 블로그" className="w-5 h-5 object-contain" />
                   <span>법인 블로그 방문</span>
                 </a>
                 <div className="text-center text-[10px] text-slate-400 font-medium py-2">
