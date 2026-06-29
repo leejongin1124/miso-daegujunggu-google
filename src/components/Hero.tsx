@@ -44,6 +44,7 @@ export default function Hero({ onScrollToSection }: HeroProps) {
   const [statsInView, setStatsInView] = useState(false);
   const [phoneIdx, setPhoneIdx] = useState(0);
   const statsRef = useRef<HTMLDivElement>(null);
+  const videoRef = useRef<HTMLVideoElement>(null);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -147,10 +148,12 @@ export default function Hero({ onScrollToSection }: HeroProps) {
 
       {/* 배경 동영상 — 모바일: object-top으로 상단 인물 중심 표시 */}
       <video
+        ref={videoRef}
         autoPlay
         muted
         loop
         playsInline
+        onCanPlay={() => { if (videoRef.current) videoRef.current.playbackRate = 0.6; }}
         className="absolute inset-0 w-full h-full object-cover [object-position:80%_0%] md:[object-position:50%_50%]"
         src="/hero-bg.mp4"
       />
