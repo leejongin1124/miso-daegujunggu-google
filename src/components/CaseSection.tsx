@@ -252,7 +252,11 @@ export default function CaseSection({ initialFilter }: CaseSectionProps) {
                     <span className="block font-black text-slate-850 text-sm">{c.author}</span>
                     <p className="text-teal-600 font-bold text-[10px] mt-0.5 flex items-center gap-1 uppercase">
                       <Sparkles className="w-3.5 h-3.5" />
-                      <span>성실 상환 중 · 현재 정상 운영</span>
+                      <span>
+                        {c.category === 'youth' || c.category === 'vulnerable'
+                          ? '성실 상환 중'
+                          : '성실 상환 중 · 현재 정상 운영'}
+                      </span>
                     </p>
                   </div>
                   <div className="w-9 h-9 bg-slate-50 border border-slate-100 rounded-full flex items-center justify-center text-rose-500 shadow-inner">
