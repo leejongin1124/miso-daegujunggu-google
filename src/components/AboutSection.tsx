@@ -236,12 +236,12 @@ export default function AboutSection({ sectionId }: { sectionId?: string }) {
 
           <div className="overflow-x-auto pb-4">
             <div style={{ minWidth: '600px' }}>
-              <div className="relative border-l-2 border-slate-200 ml-28 py-4">
+              <div className="relative border-l-2 border-slate-200 ml-40 py-4">
                 {historyData.map((milestone, idx) => (
                   <div key={idx} className="mb-14 last:mb-0 relative">
 
                     {/* 좌측 연도 표시 */}
-                    <div className="absolute -left-[152px] top-0 w-36 text-right">
+                    <div className="absolute -left-[176px] top-0 w-40 text-right">
                       <span className="text-2xl font-black text-slate-800 tracking-tight font-mono">{milestone.year}</span>
                     </div>
 
