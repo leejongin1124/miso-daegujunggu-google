@@ -89,9 +89,28 @@ export default function Hero({ onScrollToSection }: HeroProps) {
 
   const currentPhone = PHONES[phoneIdx];
 
+  const phoneIconColors: Record<string, string> = {
+    'text-rose-600': 'text-rose-600',
+    'text-indigo-600': 'text-indigo-600',
+    'text-teal-600': 'text-teal-600',
+    'text-amber-600': 'text-amber-600',
+  };
+  const phoneBgColors: Record<string, string> = {
+    'text-rose-600': 'bg-rose-50',
+    'text-indigo-600': 'bg-indigo-50',
+    'text-teal-600': 'bg-teal-50',
+    'text-amber-600': 'bg-amber-50',
+  };
+  const phoneRingColors: Record<string, string> = {
+    'text-rose-600': 'bg-rose-400',
+    'text-indigo-600': 'bg-indigo-400',
+    'text-teal-600': 'bg-teal-400',
+    'text-amber-600': 'bg-amber-400',
+  };
+
   const quickCards = [
     {
-      icon: <Phone className="w-6 h-6 text-teal-600" />,
+      icon: null,
       title: '대표번호 즉시상담',
       value: currentPhone.number,
       desc: '평일 09시 ~ 18시 운영',
@@ -279,9 +298,32 @@ export default function Hero({ onScrollToSection }: HeroProps) {
 
               <div className="p-3 md:p-6 relative z-10">
                 <div className="flex justify-between items-start">
+                  {i === 0 ? (
+                    <div className="relative">
+                      {/* 울리는 링 효과 */}
+                      <motion.div
+                        className={`absolute inset-0 rounded-xl ${phoneRingColors[currentPhone.color]} opacity-30`}
+                        animate={{ scale: [1, 1.6, 1.6], opacity: [0.35, 0, 0] }}
+                        transition={{ duration: 1.4, repeat: Infinity, ease: 'easeOut' }}
+                      />
+                      <motion.div
+                        className={`absolute inset-0 rounded-xl ${phoneRingColors[currentPhone.color]} opacity-20`}
+                        animate={{ scale: [1, 1.9, 1.9], opacity: [0.25, 0, 0] }}
+                        transition={{ duration: 1.4, repeat: Infinity, ease: 'easeOut', delay: 0.2 }}
+                      />
+                      <motion.div
+                        className={`p-2 md:p-3 rounded-xl shadow-inner relative z-10 transition-colors duration-500 ${phoneBgColors[currentPhone.color]}`}
+                        animate={{ rotate: [0, -12, 12, -8, 8, -4, 4, 0] }}
+                        transition={{ duration: 0.7, repeat: Infinity, repeatDelay: 1.8, ease: 'easeInOut' }}
+                      >
+                        <Phone className={`w-6 h-6 transition-colors duration-500 ${phoneIconColors[currentPhone.color]}`} />
+                      </motion.div>
+                    </div>
+                  ) : (
                   <div className={`p-2 md:p-3 rounded-xl transition-all shadow-inner ${spotlightIdx === i ? 'bg-teal-50' : 'bg-slate-50 group-hover:bg-white'}`}>
                     {card.icon}
                   </div>
+                  )}
                   {card.action && (
                     <span className={`text-[10px] font-bold px-2 py-0.5 rounded-full transition-colors ${spotlightIdx === i ? 'bg-teal-600 text-white' : 'text-teal-600 bg-teal-50 group-hover:bg-teal-600 group-hover:text-white'}`}>
                       이동
