@@ -439,9 +439,9 @@ export default function ProductSection({ onScrollToSection, onOpenCalculator, in
                     <motion.span
                       animate={{ rotate: [0, -10, 10, -10, 0] }}
                       transition={{ duration: 1.2, repeat: Infinity, repeatDelay: 1.5 }}
-                      className="relative z-10 text-base"
+                      className="relative z-10"
                     >
-                      📝
+                      <img src="/logos/naver_blog_logo.png" alt="네이버 블로그" className="w-5 h-5 object-contain" />
                     </motion.span>
                     <span className="relative z-10 whitespace-nowrap">블로그에서 상품 자세히 보기</span>
                   </motion.a>
