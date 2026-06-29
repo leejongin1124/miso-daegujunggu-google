@@ -368,7 +368,8 @@ export default function GuideSection({ sectionId }: { sectionId?: string }) {
               <div className="w-9 h-9 bg-teal-600 text-white rounded-xl flex items-center justify-center font-black text-sm">1</div>
               <h4 className="font-extrabold text-teal-800 text-sm">신용평점 하위 20% 해당자</h4>
               <p className="text-slate-600 text-xs leading-relaxed">
-                신용정보회사(NICE 또는 KCB)의 개인신용평점이 하위 20%에 해당하는 고객
+                신용정보회사(NICE 또는 KCB)의 개인신용평점이 하위 20%에 해당하는 고객<br />
+                <span className="font-bold text-teal-700">KCB 700점 이하 · NICE 749점 이하</span>
               </p>
               <div className="flex flex-wrap gap-2 pt-1">
                 <a href="https://www.niceinfo.co.kr" target="_blank" rel="noopener noreferrer"
