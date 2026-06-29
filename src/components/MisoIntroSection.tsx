@@ -207,18 +207,18 @@ export default function MisoIntroSection() {
               }
             ].map((row, i) => (
               <div key={i} className={`px-5 py-5 ${i % 2 === 0 ? 'bg-white' : 'bg-slate-50/40'}`}>
-                <div className="flex items-start justify-between gap-2 mb-3">
-                  <span className={`font-extrabold text-sm leading-snug ${row.highlight ? 'text-teal-700' : 'text-slate-800'}`}>{row.name}</span>
-                  <motion.a
-                    href={row.blog} target="_blank" rel="noopener noreferrer"
-                    animate={{ y: [0, -4, 0], scale: [1, 1.08, 1], boxShadow: ['0 1px 4px #03C75A55', '0 6px 16px #03C75Aaa', '0 1px 4px #03C75A55'] }}
-                    transition={{ duration: 1.6, repeat: Infinity, ease: 'easeInOut' }}
-                    whileHover={{ scale: 1.2, y: -6, boxShadow: '0 8px 20px #03C75Acc' }}
-                    whileTap={{ scale: 0.9 }}
-                    className="flex-shrink-0 inline-flex items-center justify-center bg-[#03C75A] p-1.5 rounded-md cursor-pointer">
+                <motion.a
+                  href={row.blog} target="_blank" rel="noopener noreferrer"
+                  animate={{ y: [0, -3, 0], boxShadow: ['0 1px 4px #03C75A33', '0 4px 14px #03C75A88', '0 1px 4px #03C75A33'] }}
+                  transition={{ duration: 1.6, repeat: Infinity, ease: 'easeInOut' }}
+                  whileHover={{ y: -4, boxShadow: '0 6px 18px #03C75Acc' }}
+                  whileTap={{ scale: 0.97 }}
+                  className="inline-flex items-center gap-2 mb-3 cursor-pointer group">
+                  <span className="flex-shrink-0 inline-flex items-center justify-center bg-[#03C75A] p-1.5 rounded-md">
                     <img src="/logos/naver_blog_logo.png" alt="블로그" className="w-4 h-4 object-contain brightness-0 invert flex-shrink-0" />
-                  </motion.a>
-                </div>
+                  </span>
+                  <span className={`font-extrabold text-sm leading-snug group-hover:underline ${row.highlight ? 'text-teal-700' : 'text-slate-800'}`}>{row.name}</span>
+                </motion.a>
                 <p className="text-slate-500 text-xs font-medium mb-3 leading-relaxed">{row.purpose}</p>
                 <div className="flex gap-2 mb-2">
                   <div className="flex-1 bg-slate-50 rounded-lg px-3 py-2">
@@ -291,18 +291,18 @@ export default function MisoIntroSection() {
                 ].map((row, i) => (
                   <tr key={i} className={`border-b border-slate-50 ${i % 2 === 0 ? 'bg-white' : 'bg-slate-50/30'}`}>
                     <td className={`px-5 py-4 font-extrabold text-sm ${row.highlight ? 'text-teal-700' : 'text-slate-800'}`}>
-                      <div className="flex flex-col gap-2">
-                        <span>{row.name}</span>
-                        <motion.a
-                          href={row.blog} target="_blank" rel="noopener noreferrer"
-                          animate={{ scale: [1, 1.06, 1], boxShadow: ['0 1px 4px #03C75A55', '0 2px 12px #03C75Aaa', '0 1px 4px #03C75A55'] }}
-                          transition={{ duration: 1.8, repeat: Infinity, ease: 'easeInOut' }}
-                          whileHover={{ scale: 1.1, boxShadow: '0 4px 16px #03C75Acc' }}
-                          whileTap={{ scale: 0.93 }}
-                          className="inline-flex items-center justify-center bg-[#03C75A] p-1.5 rounded-md cursor-pointer w-fit">
+                      <motion.a
+                        href={row.blog} target="_blank" rel="noopener noreferrer"
+                        animate={{ y: [0, -3, 0], boxShadow: ['0 1px 4px #03C75A33', '0 4px 14px #03C75A88', '0 1px 4px #03C75A33'] }}
+                        transition={{ duration: 1.6, repeat: Infinity, ease: 'easeInOut' }}
+                        whileHover={{ y: -4, boxShadow: '0 6px 18px #03C75Acc' }}
+                        whileTap={{ scale: 0.97 }}
+                        className="inline-flex items-center gap-2 cursor-pointer group">
+                        <span className="flex-shrink-0 inline-flex items-center justify-center bg-[#03C75A] p-1.5 rounded-md">
                           <img src="/logos/naver_blog_logo.png" alt="블로그" className="w-4 h-4 object-contain brightness-0 invert flex-shrink-0" />
-                        </motion.a>
-                      </div>
+                        </span>
+                        <span className="group-hover:underline">{row.name}</span>
+                      </motion.a>
                     </td>
                     <td className="px-5 py-4 text-slate-600 text-xs font-medium leading-relaxed">{row.purpose}</td>
                     <td className="px-5 py-4 text-center font-bold text-slate-800 text-xs">{row.limit}</td>
