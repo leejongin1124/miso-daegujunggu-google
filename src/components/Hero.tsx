@@ -32,10 +32,10 @@ interface HeroProps {
 const AUDIENCE = ['청년', '소상공인', '취약계층', '자영업자'];
 
 const PHONES = [
-  '053-252-6408',
-  '053-252-6409',
-  '053-252-6479',
-  '053-252-6480',
+  { number: '053-252-6408', color: 'text-teal-600' },
+  { number: '053-252-6409', color: 'text-indigo-600' },
+  { number: '053-252-6479', color: 'text-rose-600' },
+  { number: '053-252-6480', color: 'text-amber-600' },
 ];
 
 export default function Hero({ onScrollToSection }: HeroProps) {
@@ -93,9 +93,9 @@ export default function Hero({ onScrollToSection }: HeroProps) {
     {
       icon: <Phone className="w-6 h-6 text-teal-600" />,
       title: '대표번호 즉시상담',
-      value: currentPhone,
+      value: currentPhone.number,
       desc: '평일 09시 ~ 18시 운영',
-      action: () => window.open(`tel:${currentPhone}`)
+      action: () => window.open(`tel:${currentPhone.number}`)
     },
     {
       icon: <MapPin className="w-6 h-6 text-rose-600" />,
@@ -291,15 +291,15 @@ export default function Hero({ onScrollToSection }: HeroProps) {
                 <div className="relative h-7 overflow-hidden mt-1">
                   {PHONES.map((phone, pi) => (
                     <motion.p
-                      key={phone}
+                      key={phone.number}
                       animate={{
                         y: pi === phoneIdx ? 0 : pi === (phoneIdx - 1 + PHONES.length) % PHONES.length ? -28 : 28,
                         opacity: pi === phoneIdx ? 1 : 0,
                       }}
                       transition={{ duration: 0.4, ease: 'easeInOut' }}
-                      className="absolute inset-0 flex items-center text-slate-800 font-extrabold text-base md:text-xl tracking-tight"
+                      className={`absolute inset-0 flex items-center font-extrabold text-base md:text-xl tracking-tight ${phone.color}`}
                     >
-                      {phone}
+                      {phone.number}
                     </motion.p>
                   ))}
                 </div>
