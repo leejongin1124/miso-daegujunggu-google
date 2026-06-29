@@ -153,7 +153,7 @@ export default function Hero({ onScrollToSection }: HeroProps) {
         muted
         loop
         playsInline
-        onCanPlay={() => { if (videoRef.current) videoRef.current.playbackRate = 0.6; }}
+        onCanPlay={() => { if (videoRef.current) videoRef.current.playbackRate = 0.7; }}
         className="absolute inset-0 w-full h-full object-cover [object-position:80%_0%] md:[object-position:50%_50%]"
         src="/hero-bg.mp4"
       />
