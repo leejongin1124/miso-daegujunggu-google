@@ -3,7 +3,7 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-import { motion } from 'motion/react';
+import { motion, useAnimation } from 'motion/react';
 import { useState, useEffect, useRef } from 'react';
 import { Phone, ArrowRight, ShieldCheck, BadgePercent, TrendingUp, Users, Banknote, MapPin } from 'lucide-react';
 
@@ -80,6 +80,29 @@ export default function Hero({ onScrollToSection }: HeroProps) {
 
   const { count: countPeople, done: peopleDone } = useCountUp(3800, 3800, statsInView);
   const { count: countMoney, done: moneyDone } = useCountUp(600, 3800, statsInView);
+
+  const peopleAnim = useAnimation();
+  const moneyAnim = useAnimation();
+
+  useEffect(() => {
+    if (peopleDone) {
+      peopleAnim.start({
+        scale: [1, 1.5, 0.9, 1.25, 0.95, 1.1, 1],
+        y: [0, -18, 4, -10, 2, -5, 0],
+        transition: { duration: 0.8, ease: 'easeInOut' }
+      });
+    }
+  }, [peopleDone]);
+
+  useEffect(() => {
+    if (moneyDone) {
+      moneyAnim.start({
+        scale: [1, 1.5, 0.9, 1.25, 0.95, 1.1, 1],
+        y: [0, -18, 4, -10, 2, -5, 0],
+        transition: { duration: 0.8, ease: 'easeInOut' }
+      });
+    }
+  }, [moneyDone]);
 
   // 타이틀 순차 애니메이션 phase: 0→숨김 1→1번등장 2→2번등장 3→고정
   const [titlePhase, setTitlePhase] = useState(0);
@@ -359,13 +382,8 @@ export default function Hero({ onScrollToSection }: HeroProps) {
                   </div>
                 ) : (
                   <motion.p
-                    className="text-slate-800 font-extrabold text-sm md:text-xl mt-1 tracking-tight"
-                    animate={
-                      (i === 2 && peopleDone) || (i === 3 && moneyDone)
-                        ? { scale: [1, 1.22, 0.95, 1.08, 1], y: [0, -8, 2, -4, 0] }
-                        : { scale: 1, y: 0 }
-                    }
-                    transition={{ duration: 0.6, ease: 'easeInOut' }}
+                    className="text-slate-800 font-extrabold text-lg md:text-3xl mt-1 tracking-tight"
+                    animate={i === 2 ? peopleAnim : i === 3 ? moneyAnim : undefined}
                   >{card.value}</motion.p>
                 )}
                 <p className="text-slate-400 text-[10px] md:text-xs mt-1 font-semibold">{card.desc}</p>
