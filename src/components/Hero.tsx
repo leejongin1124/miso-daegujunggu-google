@@ -254,7 +254,7 @@ export default function Hero({ onScrollToSection }: HeroProps) {
                 href="https://blog.naver.com/eornwndrn1"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex flex-1 md:flex-none justify-center items-center space-x-2 bg-teal-500/30 backdrop-blur-md text-white border border-teal-300/40 hover:bg-teal-500/50 font-bold px-4 md:px-8 py-4 rounded-2xl transition-all shadow-lg text-sm md:text-base"
+                className="inline-flex flex-1 md:flex-none justify-center items-center space-x-2 bg-white/10 backdrop-blur-md text-white border border-white/25 hover:bg-white/20 font-bold px-4 md:px-8 py-4 rounded-2xl transition-all shadow-lg text-sm md:text-base"
               >
                 <img
                   src="/logos/naver_blog_logo.png"
