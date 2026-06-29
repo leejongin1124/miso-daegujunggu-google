@@ -207,11 +207,14 @@ export default function MisoIntroSection() {
               }
             ].map((row, i) => (
               <div key={i} className={`px-5 py-5 ${i % 2 === 0 ? 'bg-white' : 'bg-slate-50/40'}`}>
-                <a href={row.blog} target="_blank" rel="noopener noreferrer"
-                  className={`inline-flex items-center gap-2 font-extrabold text-sm mb-3 hover:opacity-75 transition-opacity ${row.highlight ? 'text-teal-700' : 'text-slate-800'}`}>
-                  <img src="/logos/naver_blog_logo.png" alt="블로그" className="w-5 h-5 object-contain flex-shrink-0" />
-                  <span>{row.name}</span>
-                </a>
+                <div className="flex items-start justify-between gap-2 mb-3">
+                  <span className={`font-extrabold text-sm leading-snug ${row.highlight ? 'text-teal-700' : 'text-slate-800'}`}>{row.name}</span>
+                  <a href={row.blog} target="_blank" rel="noopener noreferrer"
+                    className="flex-shrink-0 inline-flex items-center gap-1.5 bg-[#03C75A] hover:bg-[#02b050] active:scale-95 text-white text-[11px] font-bold px-2.5 py-1.5 rounded-lg shadow-sm transition-all duration-150">
+                    <img src="/logos/naver_blog_logo.png" alt="블로그" className="w-3.5 h-3.5 object-contain brightness-0 invert flex-shrink-0" />
+                    <span>블로그 보기</span>
+                  </a>
+                </div>
                 <p className="text-slate-500 text-xs font-medium mb-3 leading-relaxed">{row.purpose}</p>
                 <div className="flex gap-2 mb-2">
                   <div className="flex-1 bg-slate-50 rounded-lg px-3 py-2">
@@ -284,10 +287,14 @@ export default function MisoIntroSection() {
                 ].map((row, i) => (
                   <tr key={i} className={`border-b border-slate-50 ${i % 2 === 0 ? 'bg-white' : 'bg-slate-50/30'}`}>
                     <td className={`px-5 py-4 font-extrabold text-sm ${row.highlight ? 'text-teal-700' : 'text-slate-800'}`}>
-                      <a href={row.blog} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 hover:opacity-75 transition-opacity">
-                        <img src="/logos/naver_blog_logo.png" alt="블로그" className="w-4 h-4 object-contain flex-shrink-0" />
+                      <div className="flex flex-col gap-2">
                         <span>{row.name}</span>
-                      </a>
+                        <a href={row.blog} target="_blank" rel="noopener noreferrer"
+                          className="inline-flex items-center gap-1.5 bg-[#03C75A] hover:bg-[#02b050] active:scale-95 text-white text-[11px] font-bold px-2.5 py-1.5 rounded-lg shadow-sm transition-all duration-150 w-fit">
+                          <img src="/logos/naver_blog_logo.png" alt="블로그" className="w-3.5 h-3.5 object-contain brightness-0 invert flex-shrink-0" />
+                          <span>블로그 보기</span>
+                        </a>
+                      </div>
                     </td>
                     <td className="px-5 py-4 text-slate-600 text-xs font-medium leading-relaxed">{row.purpose}</td>
                     <td className="px-5 py-4 text-center font-bold text-slate-800 text-xs">{row.limit}</td>
