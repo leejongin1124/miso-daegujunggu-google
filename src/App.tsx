@@ -181,7 +181,7 @@ export default function App() {
 
       </main>
 
-      <Footer />
+      <Footer onScrollToSection={handleScrollToSection} />
 
 
     </div>

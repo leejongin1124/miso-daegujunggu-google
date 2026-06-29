@@ -3,13 +3,20 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-export default function Footer() {
+interface FooterProps {
+  onScrollToSection: (sectionId: string) => void;
+}
+
+export default function Footer({ onScrollToSection }: FooterProps) {
   return (
     <footer className="bg-slate-900 text-slate-400 py-10 border-t border-slate-800 text-left">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-3">
 
-        {/* 로고 및 법인명 — 헤더와 동일 구조 */}
-        <div className="flex items-center space-x-2.5 pb-3 border-b border-slate-800">
+        {/* 로고 및 법인명 — 클릭 시 초기 화면으로 이동 */}
+        <div
+          className="flex items-center space-x-2.5 pb-3 border-b border-slate-800 cursor-pointer hover:opacity-80 transition-opacity w-fit"
+          onClick={() => onScrollToSection('hero-section')}
+        >
           <img src="/miso_symbol.png" alt="미소금융 로고" className="w-9 h-9 object-contain" />
           <div className="leading-none">
             <div className="text-white font-bold text-base tracking-tight leading-none">(사)미소금융대구중구법인</div>
