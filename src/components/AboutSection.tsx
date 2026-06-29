@@ -8,10 +8,10 @@ import { useState, useEffect } from 'react';
 import { Award, Briefcase, Calendar, MapPin, Bus, Train, Phone, Share2, Printer, ExternalLink } from 'lucide-react';
 
 const PHONES = [
-  { number: '053-252-6408', color: 'text-rose-400',   bg: 'from-rose-500 to-pink-500' },
-  { number: '053-252-6409', color: 'text-indigo-300', bg: 'from-indigo-500 to-violet-500' },
-  { number: '053-252-6479', color: 'text-teal-300',   bg: 'from-teal-500 to-emerald-500' },
-  { number: '053-252-6480', color: 'text-amber-300',  bg: 'from-amber-500 to-orange-500' },
+  { number: '053-252-6408', chip: 'bg-rose-100 text-rose-700',    bg: 'from-rose-500 to-pink-500' },
+  { number: '053-252-6409', chip: 'bg-indigo-100 text-indigo-700', bg: 'from-indigo-500 to-violet-500' },
+  { number: '053-252-6479', chip: 'bg-teal-100 text-teal-700',    bg: 'from-teal-500 to-emerald-500' },
+  { number: '053-252-6480', chip: 'bg-amber-100 text-amber-700',  bg: 'from-amber-500 to-orange-500' },
 ];
 
 export default function AboutSection({ sectionId }: { sectionId?: string }) {
@@ -22,7 +22,7 @@ export default function AboutSection({ sectionId }: { sectionId?: string }) {
   useEffect(() => {
     const interval = setInterval(() => {
       setPhoneIdx(prev => (prev + 1) % PHONES.length);
-    }, 3000);
+    }, 4500);
     return () => clearInterval(interval);
   }, []);
   const historyData = [
@@ -410,7 +410,7 @@ export default function AboutSection({ sectionId }: { sectionId?: string }) {
               href={`tel:${PHONES[phoneIdx].number}`}
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.97 }}
-              className={`relative flex items-center justify-center space-x-3 bg-gradient-to-r ${PHONES[phoneIdx].bg} text-white font-extrabold py-4 px-6 rounded-2xl shadow-lg overflow-hidden cursor-pointer transition-all duration-700`}
+              className={`relative flex items-center justify-between gap-3 bg-gradient-to-r ${PHONES[phoneIdx].bg} text-white font-extrabold py-4 px-5 rounded-2xl shadow-lg overflow-hidden cursor-pointer transition-all duration-700`}
             >
               <motion.div
                 className="absolute inset-0 bg-white/10 rounded-2xl"
@@ -418,30 +418,32 @@ export default function AboutSection({ sectionId }: { sectionId?: string }) {
                 transition={{ duration: 1.6, repeat: Infinity }}
               />
               <motion.span
-                className="text-2xl relative z-10"
+                className="text-2xl relative z-10 flex-shrink-0"
                 animate={{ y: [0, -6, 0] }}
                 transition={{ duration: 0.9, repeat: Infinity, ease: 'easeInOut' }}
               >☎️</motion.span>
-              <div className="relative z-10 text-center">
-                <div className="text-[11px] font-bold text-white/80 tracking-widest uppercase mb-0.5">지금 바로 전화상담</div>
-                <div className="relative h-7 overflow-hidden">
+              <div className="relative z-10 flex-1 text-center min-w-0">
+                <div className="text-[11px] font-bold text-white/80 tracking-widest uppercase mb-1">지금 바로 전화상담</div>
+                <div className="relative h-8 overflow-hidden">
                   {PHONES.map((p, pi) => (
                     <motion.div
                       key={p.number}
                       animate={{
-                        y: pi === phoneIdx ? 0 : pi === (phoneIdx - 1 + PHONES.length) % PHONES.length ? -28 : 28,
+                        y: pi === phoneIdx ? 0 : pi === (phoneIdx - 1 + PHONES.length) % PHONES.length ? -32 : 32,
                         opacity: pi === phoneIdx ? 1 : 0,
                       }}
                       transition={{ duration: 0.4, ease: 'easeInOut' }}
-                      className={`absolute inset-0 flex items-center justify-center text-lg font-black tracking-tight whitespace-nowrap ${p.color}`}
+                      className="absolute inset-0 flex items-center justify-center"
                     >
-                      {p.number}
+                      <span className={`${p.chip} text-base font-black tracking-tight whitespace-nowrap px-3 py-1 rounded-lg`}>
+                        {p.number}
+                      </span>
                     </motion.div>
                   ))}
                 </div>
               </div>
               <motion.span
-                className="text-lg relative z-10"
+                className="text-lg relative z-10 flex-shrink-0"
                 animate={{ x: [0, 5, 0] }}
                 transition={{ duration: 0.9, repeat: Infinity, ease: 'easeInOut' }}
               >👆</motion.span>
