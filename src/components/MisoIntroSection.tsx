@@ -153,7 +153,6 @@ export default function MisoIntroSection() {
                   <th className="text-center px-5 py-4 font-extrabold text-slate-500 text-xs uppercase tracking-wider">대출한도</th>
                   <th className="text-center px-5 py-4 font-extrabold text-slate-500 text-xs uppercase tracking-wider">대출금리</th>
                   <th className="text-center px-5 py-4 font-extrabold text-slate-500 text-xs uppercase tracking-wider">상환기간</th>
-                  <th className="text-center px-5 py-4 font-extrabold text-slate-500 text-xs uppercase tracking-wider">블로그</th>
                 </tr>
               </thead>
               <tbody>
@@ -196,16 +195,16 @@ export default function MisoIntroSection() {
                   }
                 ].map((row, i) => (
                   <tr key={i} className={`border-b border-slate-50 ${i % 2 === 0 ? 'bg-white' : 'bg-slate-50/30'}`}>
-                    <td className={`px-5 py-4 font-extrabold text-sm ${row.highlight ? 'text-teal-700' : 'text-slate-800'}`}>{row.name}</td>
+                    <td className={`px-5 py-4 font-extrabold text-sm ${row.highlight ? 'text-teal-700' : 'text-slate-800'}`}>
+                      <a href={row.blog} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 hover:opacity-75 transition-opacity">
+                        <img src="/logos/naver_blog_logo.png" alt="블로그" className="w-4 h-4 object-contain flex-shrink-0" />
+                        <span>{row.name}</span>
+                      </a>
+                    </td>
                     <td className="px-5 py-4 text-slate-600 text-xs font-medium leading-relaxed">{row.purpose}</td>
                     <td className="px-5 py-4 text-center font-bold text-slate-800 text-xs">{row.limit}</td>
                     <td className="px-5 py-4 text-center font-bold text-teal-700 text-xs">{row.rate}</td>
                     <td className="px-5 py-4 text-center text-slate-600 text-xs">{row.period}</td>
-                    <td className="px-5 py-4 text-center">
-                      <a href={row.blog} target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center w-7 h-7 rounded-lg hover:bg-slate-100 transition">
-                        <img src="/logos/naver_blog_logo.png" alt="블로그" className="w-5 h-5 object-contain" />
-                      </a>
-                    </td>
                   </tr>
                 ))}
               </tbody>
