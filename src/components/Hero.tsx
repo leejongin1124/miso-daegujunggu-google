@@ -62,7 +62,7 @@ export default function Hero({ onScrollToSection }: HeroProps) {
   useEffect(() => {
     const interval = setInterval(() => {
       setPhoneIdx(prev => (prev + 1) % PHONES.length);
-    }, 2500);
+    }, 4500);
     return () => clearInterval(interval);
   }, []);
 
