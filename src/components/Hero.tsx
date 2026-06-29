@@ -5,7 +5,7 @@
 
 import { motion } from 'motion/react';
 import { useState, useEffect, useRef } from 'react';
-import { Phone, ArrowRight, ShieldCheck, BadgePercent, TrendingUp, Users, PiggyBank, MapPin } from 'lucide-react';
+import { Phone, ArrowRight, ShieldCheck, BadgePercent, TrendingUp, Users, Banknote, MapPin } from 'lucide-react';
 
 function useCountUp(target: number, duration: number, trigger: boolean) {
   const [count, setCount] = useState(0);
@@ -130,7 +130,12 @@ export default function Hero({ onScrollToSection }: HeroProps) {
       desc: '대구 소상공인의 든든한 동반자'
     },
     {
-      icon: <PiggyBank className="w-6 h-6 text-indigo-600" />,
+      icon: (
+        <div className="relative inline-flex items-center justify-center">
+          <Banknote className="w-6 h-6 text-indigo-600" />
+          <span className="absolute -top-1.5 -right-2 text-[9px] font-black bg-indigo-600 text-white rounded-full px-1 leading-tight">₩</span>
+        </div>
+      ),
       title: '누적 지원 금액',
       value: statsInView ? `${countMoney}억 원 돌파` : '0억 원 돌파',
       desc: '2026년 5월 누적 기준'
