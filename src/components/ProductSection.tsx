@@ -206,22 +206,34 @@ export default function ProductSection({ onScrollToSection, onOpenCalculator, in
               <div className="h-0.5 w-full bg-slate-100" />
 
               {/* 스펙 핵심 수치 대전 */}
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-4 py-2">
-                <div className="bg-slate-50 p-4 rounded-xl text-center border border-slate-100">
-                  <span className="block text-slate-400 text-[10px] font-bold uppercase tracking-wider">대출 최대 한도</span>
-                  <span className="block text-slate-800 font-black text-sm md:text-base mt-1.5">{activeProduct.limit}</span>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 py-2">
+                <div className="bg-slate-50 px-5 py-4 rounded-xl border border-slate-100 flex items-center gap-4">
+                  <div className="flex-shrink-0 w-10 h-10 bg-teal-100 rounded-xl flex items-center justify-center text-lg">💰</div>
+                  <div>
+                    <span className="block text-slate-400 text-[10px] font-bold uppercase tracking-wider mb-1">대출 최대 한도</span>
+                    <span className="block text-slate-800 font-black text-base leading-snug">{activeProduct.limit}</span>
+                  </div>
                 </div>
-                <div className="bg-slate-50 p-4 rounded-xl text-center border border-slate-100">
-                  <span className="block text-slate-400 text-[10px] font-bold uppercase tracking-wider">실질 금리 수준</span>
-                  <span className="block text-teal-700 font-black text-sm md:text-base mt-1.5">{activeProduct.interestRate}</span>
+                <div className="bg-teal-50 px-5 py-4 rounded-xl border border-teal-100 flex items-center gap-4">
+                  <div className="flex-shrink-0 w-10 h-10 bg-teal-200 rounded-xl flex items-center justify-center text-lg">📉</div>
+                  <div>
+                    <span className="block text-teal-600 text-[10px] font-bold uppercase tracking-wider mb-1">실질 금리 수준</span>
+                    <span className="block text-teal-800 font-black text-sm leading-snug">{activeProduct.interestRate}</span>
+                  </div>
                 </div>
-                <div className="bg-slate-50 p-4 rounded-xl text-center border border-slate-100">
-                  <span className="block text-slate-400 text-[10px] font-bold uppercase tracking-wider">상환·거치 기간</span>
-                  <span className="block text-slate-800 font-extrabold text-[11px] md:text-xs mt-2 leading-tight">{activeProduct.repaymentPeriod}</span>
+                <div className="bg-slate-50 px-5 py-4 rounded-xl border border-slate-100 flex items-center gap-4">
+                  <div className="flex-shrink-0 w-10 h-10 bg-indigo-100 rounded-xl flex items-center justify-center text-lg">📅</div>
+                  <div>
+                    <span className="block text-slate-400 text-[10px] font-bold uppercase tracking-wider mb-1">상환 · 거치 기간</span>
+                    <span className="block text-slate-700 font-bold text-xs leading-relaxed">{activeProduct.repaymentPeriod}</span>
+                  </div>
                 </div>
-                <div className="bg-slate-50 p-4 rounded-xl text-center border border-slate-100">
-                  <span className="block text-slate-400 text-[10px] font-bold uppercase tracking-wider">상환 방식 종류</span>
-                  <span className="block text-slate-800 font-black text-xs mt-2">{activeProduct.repaymentMethod}</span>
+                <div className="bg-slate-50 px-5 py-4 rounded-xl border border-slate-100 flex items-center gap-4">
+                  <div className="flex-shrink-0 w-10 h-10 bg-emerald-100 rounded-xl flex items-center justify-center text-lg">🔄</div>
+                  <div>
+                    <span className="block text-slate-400 text-[10px] font-bold uppercase tracking-wider mb-1">상환 방식</span>
+                    <span className="block text-slate-800 font-black text-sm leading-snug">{activeProduct.repaymentMethod}</span>
+                  </div>
                 </div>
               </div>
 
