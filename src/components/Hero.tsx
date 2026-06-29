@@ -139,6 +139,7 @@ export default function Hero({ onScrollToSection }: HeroProps) {
       icon: null,
       title: '대표번호 즉시상담',
       value: currentPhone.number,
+      valueClass: 'text-lg md:text-3xl',
       desc: '평일 09시 ~ 18시 운영',
       action: () => window.open(`tel:${currentPhone.number}`)
     },
@@ -146,6 +147,7 @@ export default function Hero({ onScrollToSection }: HeroProps) {
       icon: <MapPin className="w-6 h-6 text-rose-600" />,
       title: '법인 방문 오시는 길',
       value: '하나은행 봉덕지점 4층',
+      valueClass: 'text-sm md:text-xl whitespace-nowrap',
       desc: '남구 중앙대로 146',
       action: () => onScrollToSection('location')
     },
@@ -153,6 +155,7 @@ export default function Hero({ onScrollToSection }: HeroProps) {
       icon: <Users className="w-6 h-6 text-emerald-600" />,
       title: '누적 대출 인원',
       value: statsInView ? `${countPeople.toLocaleString()} 여명` : '0 여명',
+      valueClass: 'text-lg md:text-3xl',
       desc: '대구 소상공인의 든든한 동반자'
     },
     {
@@ -164,6 +167,7 @@ export default function Hero({ onScrollToSection }: HeroProps) {
       ),
       title: '누적 대출 금액',
       value: statsInView ? `${countMoney}억 원 돌파` : '0억 원 돌파',
+      valueClass: 'text-lg md:text-3xl',
       desc: '2026년 5월 누적 기준'
     }
   ];
@@ -382,7 +386,7 @@ export default function Hero({ onScrollToSection }: HeroProps) {
                   </div>
                 ) : (
                   <motion.p
-                    className="text-slate-800 font-extrabold text-lg md:text-3xl mt-1 tracking-tight"
+                    className={`text-slate-800 font-extrabold mt-1 tracking-tight ${card.valueClass ?? 'text-lg md:text-3xl'}`}
                     animate={i === 2 ? peopleAnim : i === 3 ? moneyAnim : undefined}
                   >{card.value}</motion.p>
                 )}
