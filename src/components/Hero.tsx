@@ -125,7 +125,7 @@ export default function Hero({ onScrollToSection }: HeroProps) {
     },
     {
       icon: <Users className="w-6 h-6 text-emerald-600" />,
-      title: '누적 지원 인원',
+      title: '누적 대출 인원',
       value: statsInView ? `${countPeople.toLocaleString()} 여명` : '0 여명',
       desc: '대구 소상공인의 든든한 동반자'
     },
@@ -136,7 +136,7 @@ export default function Hero({ onScrollToSection }: HeroProps) {
           <span className="absolute -top-1.5 -right-2 text-[9px] font-black bg-indigo-600 text-white rounded-full px-1 leading-tight">₩</span>
         </div>
       ),
-      title: '누적 지원 금액',
+      title: '누적 대출 금액',
       value: statsInView ? `${countMoney}억 원 돌파` : '0억 원 돌파',
       desc: '2026년 5월 누적 기준'
     }
