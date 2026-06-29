@@ -19,6 +19,7 @@ export interface Product {
   suitability: string[];
   effect: string;
   blogUrl?: string;
+  phone?: string;
 }
 
 export interface Milestone {

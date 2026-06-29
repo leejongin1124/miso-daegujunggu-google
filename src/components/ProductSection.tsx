@@ -43,7 +43,8 @@ export default function ProductSection({ onScrollToSection, onOpenCalculator, in
         '취약계층 고용 유지 및 사회적 서비스 제공을 목적으로 운영되는 기업'
       ],
       effect: '보조금 지급 공백기에도 조직 운영을 안정적으로 유지하고, 직원의 고용을 지속할 수 있도록 지원합니다.',
-      blogUrl: 'https://blog.naver.com/PostView.naver?blogId=eornwndrn1&logNo=223850000058&categoryNo=7&parentCategoryNo=7&from=thumbnailList'
+      blogUrl: 'https://blog.naver.com/PostView.naver?blogId=eornwndrn1&logNo=223850000058&categoryNo=7&parentCategoryNo=7&from=thumbnailList',
+      phone: '053-252-6480'
     },
     {
       id: 'business',
@@ -407,7 +408,7 @@ export default function ProductSection({ onScrollToSection, onOpenCalculator, in
                   </motion.a>
                 ) : null}
                 <a
-                  href="tel:053-252-6408"
+                  href={`tel:${activeProduct.phone ?? '053-252-6408'}`}
                   className="flex-1 bg-teal-600 text-white font-bold py-4 rounded-xl text-center text-sm shadow-md hover:bg-teal-700 transition"
                 >
                   📞 {activeProduct.name} 상담 신청하기
