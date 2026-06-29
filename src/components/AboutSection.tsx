@@ -95,7 +95,7 @@ export default function AboutSection({ sectionId }: { sectionId?: string }) {
   ];
 
   return (
-    <section className="py-20 bg-white">
+    <section className="pt-4 pb-20 md:py-20 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-24">
 
         {/* 이사장 인사말 */}
@@ -364,7 +364,7 @@ export default function AboutSection({ sectionId }: { sectionId?: string }) {
         </div>}
 
         {/* 오시는 길 지도 서비스 및 역 안내 */}
-        {show('location') && <div id="location" className="space-y-8 bg-slate-50 p-8 md:p-14 rounded-3xl border border-slate-100 text-left">
+        {show('location') && <div id="location" className="space-y-8 bg-slate-50 px-4 py-6 md:p-14 rounded-3xl border border-slate-100 text-left">
           
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-start">
             

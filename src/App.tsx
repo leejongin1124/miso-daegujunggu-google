@@ -142,7 +142,7 @@ export default function App() {
 
         {/* 법인소개 */}
         {activeSection === 'about' && (
-          <div className="bg-white pt-20">
+          <div className="bg-white pt-14 md:pt-20">
             <AboutSection sectionId={activeSectionId ?? undefined} />
           </div>
         )}
