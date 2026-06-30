@@ -435,61 +435,83 @@ export default function ProductSection({ onScrollToSection, onOpenCalculator, in
               )}
 
               {activeProduct.id === 'social' && (
-                <div className="bg-amber-50 border-2 border-amber-400 p-5 rounded-2xl space-y-4">
-                  <div className="flex items-start gap-2">
-                    <span className="text-xl mt-0.5">⚠️</span>
-                    <h4 className="font-black text-sm text-amber-800 leading-snug">
-                      신청 전 반드시 유선 상담을 먼저 받아주세요
-                    </h4>
-                  </div>
-                  <p className="text-slate-700 text-xs font-semibold leading-relaxed">
-                    본 상품은 일반 금융 상품과 달리 <span className="text-amber-700 font-black">사회적가치등급 산정 절차</span>와{' '}
-                    <span className="text-amber-700 font-black">법인 관련 서류</span> 준비가 필요합니다.
-                    자격 요건 충족 여부를 전화 상담으로 먼저 확인하신 후 신청 절차를 진행하시면
-                    심사 지연을 예방하고 소중한 시간을 절약하실 수 있습니다.
-                  </p>
-                  <p className="text-amber-800 text-xs font-black">
-                    📞 전화 상담 먼저 → 서류 준비 → 대출 신청 순서로 진행해 주세요.
-                  </p>
-                  <a
-                    href="tel:053-252-6480"
-                    className="flex items-center justify-center gap-2 bg-amber-500 hover:bg-amber-600 text-white font-black text-sm py-3 rounded-xl transition shadow-md"
-                  >
-                    <span>📞</span>
-                    <span>전화 상담 · 053-252-6480</span>
-                  </a>
-                </div>
-              )}
-
-              {activeProduct.id === 'social' && (
-                <div className="bg-indigo-50 border-2 border-indigo-300 p-5 rounded-2xl">
-                  <h4 className="font-black text-sm text-indigo-700 flex items-center gap-2">
-                    <span className="animate-bounce inline-block">📋</span>
-                    <span className="animate-pulse">신청 전 필수 절차 — 온라인 사전검토 2단계</span>
+                <div className="rounded-2xl border border-slate-200 bg-slate-50 p-5">
+                  <h4 className="text-center font-black text-sm text-slate-700 tracking-widest mb-4">
+                    ⚡ 신속 대출진행 4단계 프로세스
                   </h4>
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-3 mt-3.5 text-xs text-slate-600">
-                    <a 
-                      href="https://m.one-click.co.kr/#/kinfa_miso" 
-                      target="_blank" 
-                      rel="noopener noreferrer"
-                      className="bg-white hover:bg-slate-50 p-3.5 rounded-xl border border-slate-150 flex items-center justify-between font-bold shadow-sm transition-all"
-                    >
-                      <span>1단계. NICE 원클릭 서류 제출</span>
-                      <ArrowUpRight className="w-4 h-4 text-slate-400" />
-                    </a>
-                    <a 
-                      href="http://www.kodit.co.kr" 
-                      target="_blank" 
-                      rel="noopener noreferrer"
-                      className="bg-white hover:bg-slate-50 p-3.5 rounded-xl border border-slate-150 flex items-center justify-between font-bold shadow-sm transition-all"
-                    >
-                      <span>2단계. 신용보증기금 평가 업로드</span>
-                      <ArrowUpRight className="w-4 h-4 text-slate-400" />
-                    </a>
+                  <div className="flex flex-col gap-2">
+                    {/* STEP 01 */}
+                    <div className="bg-white border-2 border-blue-400 rounded-2xl p-4 shadow-sm">
+                      <div className="flex items-center gap-2 mb-2">
+                        <span className="bg-blue-500 text-white text-[10px] font-black px-2 py-0.5 rounded-full">STEP 01</span>
+                        <span className="font-black text-sm text-slate-800">서민금융 대출상담 &amp; 온라인 서류접수</span>
+                      </div>
+                      <div className="flex flex-col gap-2 mt-3">
+                        <a
+                          href="tel:053-252-6480"
+                          className="flex items-center justify-center gap-2 bg-blue-500 hover:bg-blue-600 text-white font-black text-xs py-2.5 rounded-xl transition shadow"
+                        >
+                          <span>📞</span><span>전화 상담 · 053-252-6480</span>
+                        </a>
+                        <div className="grid grid-cols-2 gap-2">
+                          <a
+                            href="https://m.one-click.co.kr/#/kinfa_miso"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="flex items-center justify-between bg-slate-100 hover:bg-slate-200 px-3 py-2 rounded-xl text-xs font-bold text-slate-700 transition"
+                          >
+                            <span>NICE 서류접수</span>
+                            <ArrowUpRight className="w-3.5 h-3.5 text-slate-400" />
+                          </a>
+                          <a
+                            href="http://www.kodit.co.kr"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="flex items-center justify-between bg-slate-100 hover:bg-slate-200 px-3 py-2 rounded-xl text-xs font-bold text-slate-700 transition"
+                          >
+                            <span>KODIT 평가</span>
+                            <ArrowUpRight className="w-3.5 h-3.5 text-slate-400" />
+                          </a>
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Arrow */}
+                    <div className="flex justify-center text-blue-400 text-lg font-black">▼</div>
+
+                    {/* STEP 02 */}
+                    <div className="bg-white border-2 border-indigo-400 rounded-2xl p-4 shadow-sm">
+                      <div className="flex items-center gap-2 mb-1">
+                        <span className="bg-indigo-500 text-white text-[10px] font-black px-2 py-0.5 rounded-full">STEP 02</span>
+                        <span className="font-black text-sm text-slate-800">경영현장 실사방문 &amp; 적격 심사</span>
+                      </div>
+                      <p className="text-xs text-slate-500 font-semibold mt-1">대출관련 서류 징구 · 전문심사위원 현장방문 및 면담 · 서류 심사</p>
+                    </div>
+
+                    {/* Arrow */}
+                    <div className="flex justify-center text-indigo-400 text-lg font-black">▼</div>
+
+                    {/* STEP 03 */}
+                    <div className="bg-white border-2 border-violet-400 rounded-2xl p-4 shadow-sm">
+                      <div className="flex items-center gap-2 mb-1">
+                        <span className="bg-violet-500 text-white text-[10px] font-black px-2 py-0.5 rounded-full">STEP 03</span>
+                        <span className="font-black text-sm text-slate-800">융자위원회 부의 및 심의의결</span>
+                      </div>
+                      <p className="text-xs text-slate-500 font-semibold mt-1">사회적가치등급 및 신용평가 종합 심의</p>
+                    </div>
+
+                    {/* Arrow */}
+                    <div className="flex justify-center text-violet-400 text-lg font-black">▼</div>
+
+                    {/* STEP 04 */}
+                    <div className="bg-gradient-to-r from-violet-500 to-blue-500 rounded-2xl p-4 shadow-md">
+                      <div className="flex items-center gap-2 mb-1">
+                        <span className="bg-white/30 text-white text-[10px] font-black px-2 py-0.5 rounded-full">STEP 04</span>
+                        <span className="font-black text-sm text-white">최종 대출약정 및 대출금 실행</span>
+                      </div>
+                      <p className="text-xs text-white/80 font-semibold mt-1">약정 체결 후 대출금 지급 완료 🎉</p>
+                    </div>
                   </div>
-                  <p className="text-[10px] text-slate-400 font-medium mt-2 leading-normal">
-                    ※ 사회적 기업용 공동인증서를 준비하여 NICE서류 센터 및 KODIT 사회가치평가 사이트에 전송하셔야 정밀 융자위원 심사가 시작됩니다.
-                  </p>
                 </div>
               )}
 
