@@ -29,7 +29,7 @@ export default function ProductSection({ onScrollToSection, onOpenCalculator, in
       subtitle: '전국 최초 미소법인 취급 · 최다 지원 실적 (누적 37건 / 15억 원)',
       description: '사회적기업, 협동조합, 자활기업, 마을기업 등 사회 구조의 빈틈에서 취약계층의 고용 안정을 도모하는 단체 전용 특별 정책 무담보 운영 자금입니다.',
       limit: '최대 1억 원',
-      interestRate: '연 4.5% (사회적가치등급 S6등급 이상 연 4.0%로 우대)',
+      interestRate: '연 4.5%\n연 4.0% (사회적가치등급 S6등급이상)',
       repaymentPeriod: '거치 최대 2년 + 균등분할상환 4년 (최대 6년)',
       repaymentMethod: '원리금 균등분할 상환',
       target: [
@@ -240,7 +240,7 @@ export default function ProductSection({ onScrollToSection, onOpenCalculator, in
                   <div className="flex-shrink-0 w-10 h-10 bg-teal-200 rounded-xl flex items-center justify-center text-lg">📉</div>
                   <div>
                     <span className="block text-teal-600 text-[10px] font-bold uppercase tracking-wider mb-1">실질 금리 수준</span>
-                    <span className="block text-teal-800 font-black text-sm leading-snug">{activeProduct.interestRate}</span>
+                    <span className="block text-teal-800 font-black text-sm leading-snug whitespace-pre-line">{activeProduct.interestRate}</span>
                   </div>
                 </div>
                 <div className="bg-slate-50 px-5 py-4 rounded-xl border border-slate-100 flex items-center gap-4">
