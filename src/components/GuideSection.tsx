@@ -293,19 +293,25 @@ export default function GuideSection({ sectionId }: { sectionId?: string }) {
                 />
                 <div className="relative h-8 mt-1">
                   {[
-                    { val: 0,  label: '0개월' },
-                    { val: 6,  label: '6개월' },
-                    { val: 12, label: '1년' },
-                    { val: 24, label: '2년' },
-                    { val: 72, label: '6년' },
-                  ].map(({ val, label }, i, arr) => {
+                    { val: 0,  label: '0개월', mobileHide: false },
+                    { val: 6,  label: '6개월', mobileHide: false },
+                    { val: 12, label: '1년',   mobileHide: false },
+                    { val: 24, label: '2년',   mobileHide: false },
+                    { val: 36, label: '3년',   mobileHide: true  },
+                    { val: 48, label: '4년',   mobileHide: true  },
+                    { val: 60, label: '5년',   mobileHide: true  },
+                    { val: 72, label: '6년',   mobileHide: false },
+                  ].map(({ val, label, mobileHide }, i, arr) => {
                     const pct = (val / 72) * 100;
+                    const isFirst = i === 0;
                     const isLast = i === arr.length - 1;
+                    const top = i % 2 === 0 ? '0px' : '16px';
+                    const transform = isFirst ? 'translateX(0)' : isLast ? 'translateX(-100%)' : 'translateX(-50%)';
                     return (
                       <span
                         key={val}
-                        className="absolute text-[10px] text-slate-400 font-semibold cursor-pointer hover:text-miso-blue-600 transition whitespace-nowrap"
-                        style={{ left: `${pct}%`, transform: isLast ? 'translateX(-100%)' : 'translateX(-50%)' }}
+                        className={`absolute text-[10px] text-slate-400 font-semibold cursor-pointer hover:text-miso-blue-600 transition whitespace-nowrap ${mobileHide ? 'hidden md:inline' : ''}`}
+                        style={{ left: `${pct}%`, top, transform }}
                         onClick={() => setGracePeriod(val)}
                       >
                         {label}
