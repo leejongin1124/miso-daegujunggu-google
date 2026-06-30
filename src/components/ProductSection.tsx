@@ -459,19 +459,25 @@ export default function ProductSection({ onScrollToSection, onOpenCalculator, in
                             href="https://m.one-click.co.kr/#/kinfa_miso"
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="flex items-center justify-between bg-slate-100 hover:bg-slate-200 px-3 py-2 rounded-xl text-xs font-bold text-slate-700 transition"
+                            className="flex items-center justify-between bg-blue-50 hover:bg-blue-100 border border-blue-300 px-3 py-2.5 rounded-xl text-xs font-bold text-blue-800 transition group"
                           >
-                            <span>1단계 NICE서류접수</span>
-                            <ArrowUpRight className="w-3.5 h-3.5 text-slate-400" />
+                            <div className="flex items-center gap-2">
+                              <span className="bg-blue-500 text-white text-[9px] font-black w-5 h-5 rounded-full flex items-center justify-center shrink-0">1</span>
+                              <span>NICE 서류접수</span>
+                            </div>
+                            <ArrowUpRight className="w-3.5 h-3.5 text-blue-400 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
                           </a>
                           <a
                             href="http://www.kodit.co.kr"
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="flex items-center justify-between bg-slate-100 hover:bg-slate-200 px-3 py-2 rounded-xl text-xs font-bold text-slate-700 transition"
+                            className="flex items-center justify-between bg-green-50 hover:bg-green-100 border border-green-300 px-3 py-2.5 rounded-xl text-xs font-bold text-green-800 transition group"
                           >
-                            <span>2단계 신용보증기금 평가</span>
-                            <ArrowUpRight className="w-3.5 h-3.5 text-slate-400" />
+                            <div className="flex items-center gap-2">
+                              <span className="bg-green-500 text-white text-[9px] font-black w-5 h-5 rounded-full flex items-center justify-center shrink-0">2</span>
+                              <span>신용보증기금 평가</span>
+                            </div>
+                            <ArrowUpRight className="w-3.5 h-3.5 text-green-400 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
                           </a>
                         </div>
                       </div>
