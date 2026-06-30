@@ -53,7 +53,7 @@ export default function ProductSection({ onScrollToSection, onOpenCalculator, in
       description: '골목의 동네 미용실, 전통시장 안 작은 상회, 1인 배달업 등 사업 실적이 있음에도 담보가 부족해 대출이 어려운 자영업자를 지원하는 긴급 운영자금입니다.',
       limit: '최대 2,000만원\n최대 3,000만원(청년사업가)',
       interestRate: '연 4.5%',
-      repaymentPeriod: '최대 5.5년 : 거치기간 6개월 + 상환 5년\n7년 : 거치기간 2년 + 분할상환 5년 (단.청년 19세이상 34세이하)',
+      repaymentPeriod: '최대 5.5년 : 거치 6개월 + 상환 5년\n최대 7년 : 거치 2년 + 상환 5년 (청년 19세이상 34세이하)',
       repaymentMethod: '매월 원리금 균등분할 상환',
       target: [
         '신용점수 하위 20% 이하 (NICE 749점 이하 또는 KCB 700점 이하)',
