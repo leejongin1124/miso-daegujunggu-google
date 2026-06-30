@@ -26,7 +26,7 @@ export default function ProductSection({ onScrollToSection, onOpenCalculator, in
     {
       id: 'social',
       name: '사회적연대금융',
-      subtitle: '전국 최초 미소법인 취급 · 최다 지원 실적 (누적 37건 / 15억 원)',
+      subtitle: '전국 최초·최다 — 누적 37건 / 15억 원 대출 실행 완료',
       description: '사회적기업, 협동조합 등 사회 구조의 빈틈에서 취약계층의 고용 안정을 도모하는 단체 전용 특별 정책 무담보 운영 자금입니다.',
       limit: '최대 1억 원',
       interestRate: '연 4.5%\n연 4.0% (사회적가치등급 S6등급이상)',
@@ -213,7 +213,7 @@ export default function ProductSection({ onScrollToSection, onOpenCalculator, in
                       transition={{ duration: 1.8, repeat: Infinity }}
                     >
                       <span className="hidden md:inline">{activeProduct.subtitle}</span>
-                      <span className="md:hidden">전국 최초 미소법인 취급 · 최다 지원 실적<br/>(누적 37건 / 15억 원)</span>
+                      <span className="md:hidden">전국 최초·최다 — 누적 37건 / 15억 원<br/>대출 실행 완료</span>
                     </motion.span>
                   </motion.p>
                 ) : (
