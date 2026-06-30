@@ -96,7 +96,7 @@ export default function ProductSection({ onScrollToSection, onOpenCalculator, in
       description: '가족의 급작스러운 사고·질병, 전세 사기 등 불의의 상황으로 병원비나 생계 주거비 마련이 어려운 가구를 지원하는 긴급 금융 지원 자금입니다.',
       limit: '최대 500만 원',
       interestRate: '연 4.5%',
-      repaymentPeriod: '거치 1년 + 매월 분할 상환 5년 (총 6년 상환)',
+      repaymentPeriod: '최대 6년 : 거치기간 1년 + 분할상환 5년',
       repaymentMethod: '원리금 균등분할 상환',
       target: [
         '① 기본 요건 (다음 중 하나 해당) — 개인신용평점 하위 20% 이하 또는 하위 50% 이하 & 연소득 3,500만원 이하 / 기초생활수급자 또는 차상위계층 / 근로장려금 신청자격 대상자',
