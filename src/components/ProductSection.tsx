@@ -53,7 +53,7 @@ export default function ProductSection({ onScrollToSection, onOpenCalculator, in
       description: '골목의 동네 미용실, 전통시장 안 작은 상회, 1인 배달업 등 사업 실적이 있음에도 담보가 부족해 대출이 어려운 자영업자를 지원하는 긴급 운영자금입니다.',
       limit: '최대 2,000만원\n최대 3,000만원(청년사업가)',
       interestRate: '연 4.5%',
-      repaymentPeriod: '거치 6개월 + 매달 균등분할상환 5년 (총 5.5년) / 청년 우수 시 거치 2년',
+      repaymentPeriod: '최대 5.5년 : 거치기간 6개월 + 상환 5년\n7년 : 거치기간 2년 + 분할상환 5년 (단.청년 19세이상 34세이하)',
       repaymentMethod: '원리금 균등분할 상환',
       target: [
         '신용점수 하위 20% 이하 (NICE 749점 이하 또는 KCB 700점 이하)',
@@ -247,7 +247,7 @@ export default function ProductSection({ onScrollToSection, onOpenCalculator, in
                   <div className="flex-shrink-0 w-10 h-10 bg-indigo-100 rounded-xl flex items-center justify-center text-lg">📅</div>
                   <div>
                     <span className="block text-slate-400 text-[10px] font-bold uppercase tracking-wider mb-1">거치 · 상환 기간</span>
-                    <span className="block text-slate-700 font-bold text-xs leading-relaxed">{activeProduct.repaymentPeriod}</span>
+                    <span className="block text-slate-700 font-bold text-xs leading-relaxed whitespace-pre-line">{activeProduct.repaymentPeriod}</span>
                   </div>
                 </div>
                 <div className="bg-slate-50 px-5 py-4 rounded-xl border border-slate-100 flex items-center gap-4">
