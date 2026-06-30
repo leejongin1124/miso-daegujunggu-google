@@ -223,7 +223,7 @@ export default function GuideSection({ sectionId }: { sectionId?: string }) {
                   <span>5.5%</span>
                 </div>
                 {/* 금리 안내 테이블 */}
-                <div className="grid grid-cols-3 gap-1.5 mt-2">
+                <div className="grid grid-cols-4 gap-1.5 mt-2">
                   <button onClick={() => setInterestRate(2.0)} className="bg-green-50 border border-green-200 rounded-xl p-2 text-center hover:bg-green-100 transition">
                     <p className="text-green-700 font-black text-sm">2.0%</p>
                     <p className="text-[10px] text-green-600 font-semibold leading-tight mt-0.5">무등록사업자<br/>500만원</p>
@@ -231,6 +231,10 @@ export default function GuideSection({ sectionId }: { sectionId?: string }) {
                   <button onClick={() => setInterestRate(3.5)} className="bg-blue-50 border border-blue-200 rounded-xl p-2 text-center hover:bg-blue-100 transition">
                     <p className="text-blue-700 font-black text-sm">3.5%</p>
                     <p className="text-[10px] text-blue-600 font-semibold leading-tight mt-0.5">4회차이상<br/>정상납입 우대</p>
+                  </button>
+                  <button onClick={() => setInterestRate(4.5)} className="bg-teal-50 border border-teal-300 rounded-xl p-2 text-center hover:bg-teal-100 transition">
+                    <p className="text-teal-700 font-black text-sm">4.5%</p>
+                    <p className="text-[10px] text-teal-600 font-semibold leading-tight mt-0.5">기본<br/>적용금리</p>
                   </button>
                   <button onClick={() => setInterestRate(5.5)} className="bg-red-50 border border-red-200 rounded-xl p-2 text-center hover:bg-red-100 transition">
                     <p className="text-red-600 font-black text-sm">5.5%</p>
