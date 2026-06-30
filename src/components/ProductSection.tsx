@@ -517,17 +517,6 @@ export default function ProductSection({ onScrollToSection, onOpenCalculator, in
               )}
 
               <div className="flex flex-col sm:flex-row gap-3 pt-4">
-                {activeProduct.id === 'social' && (
-                  <a
-                    href="https://www.socialenterprise.or.kr"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex-1 flex items-center justify-center gap-2 bg-green-700 hover:bg-green-600 text-white font-bold py-4 rounded-xl text-sm shadow-md transition"
-                  >
-                    <img src="/logos/sejin_logo.png" alt="한국사회적기업진흥원" className="h-5 w-auto object-contain brightness-0 invert" />
-                    바로가기
-                  </a>
-                )}
                 {activeProduct.blogUrl ? (
                   <motion.a
                     href={activeProduct.blogUrl}
@@ -552,6 +541,17 @@ export default function ProductSection({ onScrollToSection, onOpenCalculator, in
                     <span className="relative z-10 whitespace-nowrap">블로그 상품내용 자세히 보기</span>
                   </motion.a>
                 ) : null}
+                {activeProduct.id === 'social' && (
+                  <a
+                    href="https://www.socialenterprise.or.kr"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex-1 flex items-center justify-center gap-2 bg-green-700 hover:bg-green-600 text-white font-bold py-4 rounded-xl text-sm shadow-md transition"
+                  >
+                    <img src="/logos/sejin_logo.png" alt="한국사회적기업진흥원" className="h-5 w-auto object-contain brightness-0 invert" />
+                    바로가기
+                  </a>
+                )}
                 {activeProduct.id !== 'social' && (
                   <a
                     href={`tel:${activeProduct.phone ?? '053-252-6408'}`}
