@@ -195,7 +195,7 @@ export default function GuideSection({ sectionId }: { sectionId?: string }) {
                 <div className="relative h-9 mt-1">
                   {[
                     { val: 1000000,   label: '100만',   mobileHide: true  },
-                    { val: 5000000,   label: '500만',   mobileHide: true  },
+                    { val: 5000000,   label: '500만',   mobileHide: false },
                     { val: 10000000,  label: '1,000만', mobileHide: false },
                     { val: 20000000,  label: '2,000만', mobileHide: true  },
                     { val: 30000000,  label: '3,000만', mobileHide: false },
