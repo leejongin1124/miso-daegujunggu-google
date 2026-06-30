@@ -526,15 +526,15 @@ export default function ProductSection({ onScrollToSection, onOpenCalculator, in
                     >
                       <img src="/logos/naver_blog_logo.png" alt="네이버 블로그" className="w-5 h-5 object-contain" />
                     </motion.span>
-                    <span className="relative z-10 whitespace-nowrap">블로그에서 <strong>{activeProduct.name}</strong> 자세히 보기</span>
+                    <span className="relative z-10 whitespace-nowrap">블로그 상품내용 자세히 보기</span>
                   </motion.a>
                 ) : null}
                 {activeProduct.id !== 'social' && (
                   <a
                     href={`tel:${activeProduct.phone ?? '053-252-6408'}`}
-                    className="flex-1 bg-teal-600 text-white font-bold py-4 rounded-xl text-center text-sm shadow-md hover:bg-teal-700 transition"
+                    className="flex-1 bg-teal-600 text-white font-bold py-4 rounded-xl text-center text-sm shadow-md hover:bg-teal-700 transition whitespace-nowrap"
                   >
-                    📞 {activeProduct.name} 상담 신청하기
+                    📞 전화 상담 신청하기
                   </a>
                 )}
               </div>
