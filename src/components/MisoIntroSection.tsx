@@ -75,7 +75,7 @@ export default function MisoIntroSection() {
                 {f.icon}
               </div>
               <h3 className="font-extrabold text-slate-900 text-lg mb-3">{f.title}</h3>
-              <p className="text-slate-500 text-sm leading-relaxed font-medium">{f.desc}</p>
+              <p className="text-slate-500 text-base leading-relaxed font-medium">{f.desc}</p>
             </motion.div>
           ))}
         </div>
@@ -90,7 +90,7 @@ export default function MisoIntroSection() {
         >
           <div className="bg-gradient-to-r from-teal-600 to-emerald-600 px-8 py-6 text-white">
             <h3 className="font-extrabold text-xl">미소금융 vs 일반 금융기관 비교</h3>
-            <p className="text-white/80 text-sm mt-1">어떤 점이 다른지 한눈에 확인하세요</p>
+            <p className="text-white/80 text-base mt-1">어떤 점이 다른지 한눈에 확인하세요</p>
           </div>
 
           {/* PC 테이블 */}

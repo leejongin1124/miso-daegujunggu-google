@@ -113,7 +113,7 @@ export default function AboutSection({ sectionId }: { sectionId?: string }) {
             </h3>
             <div className="h-1 w-20 bg-teal-600 rounded-full" />
             
-            <div className="text-slate-600 text-sm md:text-base leading-relaxed space-y-4">
+            <div className="text-slate-600 text-base md:text-lg leading-relaxed space-y-4">
               <p>안녕하십니까, <strong>(사)미소금융대구중구법인</strong> 대표 <strong>김석동</strong>입니다.</p>
               <p>
                 열심히 일하고 계시지만 은행 문턱이 높아 막막하셨던 소상공인·자영업자 여러분께 먼저 인사드립니다.
@@ -371,14 +371,14 @@ export default function AboutSection({ sectionId }: { sectionId?: string }) {
             <div className="space-y-6">
               <span className="text-xs font-black tracking-widest text-teal-600 uppercase">Way to Come</span>
               <h3 className="text-2xl md:text-3xl font-extrabold text-slate-900">대구중구법인 오시는 길</h3>
-              <p className="text-slate-600 font-medium text-sm md:text-base leading-relaxed">
+              <p className="text-slate-600 font-medium text-base md:text-lg leading-relaxed">
                 대구광역시 남구 하나은행 봉덕지점 건물 4층에 위치합니다. <br />
                 지하철·버스 접근이 편리하며, 방문 상담을 환영합니다.
               </p>
 
               <div className="space-y-4 pt-2">
                 
-                <div className="flex items-start space-x-3 text-sm">
+                <div className="flex items-start space-x-3 text-base">
                   <div className="p-1.5 bg-teal-50 rounded text-teal-700 mt-0.5">
                     <MapPin className="w-4 h-4" />
                   </div>
@@ -388,7 +388,7 @@ export default function AboutSection({ sectionId }: { sectionId?: string }) {
                   </div>
                 </div>
 
-                <div className="flex items-start space-x-3 text-sm">
+                <div className="flex items-start space-x-3 text-base">
                   <div className="p-1.5 bg-indigo-50 rounded text-indigo-700 mt-0.5">
                     <Train className="w-4 h-4" />
                   </div>
@@ -401,7 +401,7 @@ export default function AboutSection({ sectionId }: { sectionId?: string }) {
                   </div>
                 </div>
 
-                <div className="flex items-start space-x-3 text-sm">
+                <div className="flex items-start space-x-3 text-base">
                   <div className="p-1.5 bg-emerald-50 rounded text-emerald-700 mt-0.5">
                     <Bus className="w-4 h-4" />
                   </div>
@@ -414,7 +414,7 @@ export default function AboutSection({ sectionId }: { sectionId?: string }) {
                   </div>
                 </div>
 
-                <div className="flex items-start space-x-3 text-sm">
+                <div className="flex items-start space-x-3 text-base">
                   <div className="p-1.5 bg-amber-50 rounded text-amber-600 mt-0.5">
                     <Car className="w-4 h-4" />
                   </div>

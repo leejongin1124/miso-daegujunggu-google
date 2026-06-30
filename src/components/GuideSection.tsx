@@ -369,15 +369,15 @@ export default function GuideSection({ sectionId }: { sectionId?: string }) {
           <div className="text-center space-y-3">
             <span className="text-teal-600 font-bold text-sm tracking-widest uppercase">Eligibility</span>
             <h3 className="text-2xl md:text-3xl font-extrabold text-slate-900 tracking-tight">대출 지원대상 안내</h3>
-            <p className="text-slate-500 text-xs">개인 및 개인사업자 중 아래 세 가지 요건 중 하나에 해당하면 상담이 가능합니다.</p>
+            <p className="text-slate-500 text-sm">개인 및 개인사업자 중 아래 세 가지 요건 중 하나에 해당하면 상담이 가능합니다.</p>
           </div>
 
           {/* 지원대상 3가지 */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             <div className="bg-teal-50 border border-teal-200 rounded-2xl p-6 space-y-3">
               <div className="w-9 h-9 bg-teal-600 text-white rounded-xl flex items-center justify-center font-black text-sm">1</div>
-              <h4 className="font-extrabold text-teal-800 text-sm">신용평점 하위 20% 해당자</h4>
-              <p className="text-slate-600 text-xs leading-relaxed">
+              <h4 className="font-extrabold text-teal-800 text-base">신용평점 하위 20% 해당자</h4>
+              <p className="text-slate-600 text-sm leading-relaxed">
                 신용정보회사(NICE 또는 KCB)의 개인신용평점이 하위 20%에 해당하는 고객<br />
                 <span className="font-bold text-teal-700">KCB 700점 이하 · NICE 749점 이하</span>
               </p>
@@ -414,16 +414,16 @@ export default function GuideSection({ sectionId }: { sectionId?: string }) {
 
             <div className="bg-teal-50 border border-teal-200 rounded-2xl p-6 space-y-3">
               <div className="w-9 h-9 bg-teal-600 text-white rounded-xl flex items-center justify-center font-black text-sm">2</div>
-              <h4 className="font-extrabold text-teal-800 text-sm">취약계층 해당자</h4>
-              <p className="text-slate-600 text-xs leading-relaxed">
+              <h4 className="font-extrabold text-teal-800 text-base">취약계층 해당자</h4>
+              <p className="text-slate-600 text-sm leading-relaxed">
                 기초생활수급권자 또는 차상위계층에 해당하는 취약계층 고객
               </p>
             </div>
 
             <div className="bg-teal-50 border border-teal-200 rounded-2xl p-6 space-y-3">
               <div className="w-9 h-9 bg-teal-600 text-white rounded-xl flex items-center justify-center font-black text-sm">3</div>
-              <h4 className="font-extrabold text-teal-800 text-sm">근로장려금 신청 자격 해당자</h4>
-              <p className="text-slate-600 text-xs leading-relaxed">
+              <h4 className="font-extrabold text-teal-800 text-base">근로장려금 신청 자격 해당자</h4>
+              <p className="text-slate-600 text-sm leading-relaxed">
                 근로장려금 신청 자격 요건에 해당하는 고객
               </p>
               <p className="text-[10px] text-slate-400 font-medium">자격 해당 여부를 지금 바로 확인하세요 👇</p>
@@ -653,7 +653,7 @@ export default function GuideSection({ sectionId }: { sectionId?: string }) {
                       }`}>
                         Q
                       </span>
-                      <span className="font-extrabold text-slate-800 text-sm md:text-base leading-snug">
+                      <span className="font-extrabold text-slate-800 text-base md:text-lg leading-snug">
                         {faq.question}
                       </span>
                     </span>
@@ -670,7 +670,7 @@ export default function GuideSection({ sectionId }: { sectionId?: string }) {
                     }`}
                   >
                     <div className="p-6 bg-slate-50/70 text-slate-600 space-y-2 rounded-b-2xl">
-                      <p className="text-xs md:text-sm leading-relaxed font-semibold">
+                      <p className="text-sm md:text-base leading-relaxed font-semibold">
                         {faq.answer}
                       </p>
                     </div>
