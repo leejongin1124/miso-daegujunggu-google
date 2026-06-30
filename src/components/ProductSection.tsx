@@ -463,7 +463,7 @@ export default function ProductSection({ onScrollToSection, onOpenCalculator, in
                           >
                             <div className="flex items-center gap-2">
                               <span className="bg-blue-500 text-white text-[9px] font-black w-5 h-5 rounded-full flex items-center justify-center shrink-0">1</span>
-                              <span>NICE 서류접수</span>
+                              <span>NICE<br/>서류접수</span>
                             </div>
                             <ArrowUpRight className="w-3.5 h-3.5 text-blue-400 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
                           </a>
