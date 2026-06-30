@@ -30,7 +30,7 @@ export default function ProductSection({ onScrollToSection, onOpenCalculator, in
       description: '사회적기업, 협동조합, 자활기업, 마을기업 등 사회 구조의 빈틈에서 취약계층의 고용 안정을 도모하는 단체 전용 특별 정책 무담보 운영 자금입니다.',
       limit: '최대 1억 원',
       interestRate: '연 4.5%\n연 4.0% (사회적가치등급 S6등급이상)',
-      repaymentPeriod: '거치 최대 2년 + 균등분할상환 4년 (최대 6년)',
+      repaymentPeriod: '최대 6년 : 거치기간 2년 + 분할상환 4년',
       repaymentMethod: '원리금 균등분할 상환',
       target: [
         '고용노동부 정식 인증 사회적기업',
@@ -246,7 +246,7 @@ export default function ProductSection({ onScrollToSection, onOpenCalculator, in
                 <div className="bg-slate-50 px-5 py-4 rounded-xl border border-slate-100 flex items-center gap-4">
                   <div className="flex-shrink-0 w-10 h-10 bg-indigo-100 rounded-xl flex items-center justify-center text-lg">📅</div>
                   <div>
-                    <span className="block text-slate-400 text-[10px] font-bold uppercase tracking-wider mb-1">상환 · 거치 기간</span>
+                    <span className="block text-slate-400 text-[10px] font-bold uppercase tracking-wider mb-1">거치 · 상환 기간</span>
                     <span className="block text-slate-700 font-bold text-xs leading-relaxed">{activeProduct.repaymentPeriod}</span>
                   </div>
                 </div>
