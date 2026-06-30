@@ -472,14 +472,14 @@ export default function ProductSection({ onScrollToSection, onOpenCalculator, in
                   </h4>
                   <div className="flex flex-col gap-2">
                     {/* STEP 01 */}
-                    <div className="bg-white border-2 border-blue-400 rounded-2xl p-4 shadow-sm">
-                      <div className="mb-2">
+                    <div className="bg-white border-2 border-blue-400 rounded-2xl p-4 shadow-sm md:text-center">
+                      <div className="mb-2 md:flex md:flex-col md:items-center">
                         <span className="bg-blue-500 text-white text-[10px] font-black px-2 py-0.5 rounded-full inline-block mb-1">STEP 01</span>
                         <p className="font-black text-sm text-slate-800">대출상담 &amp; 온라인서류접수</p>
                         <motion.p
                           animate={{ scale: [1, 1.04, 1], color: ['#dc2626', '#f97316', '#dc2626'] }}
                           transition={{ duration: 1.4, repeat: Infinity }}
-                          className="text-xs font-black mt-0.5 flex items-center gap-1"
+                          className="text-xs font-black mt-0.5 flex items-center justify-start md:justify-center gap-1"
                         >
                           <motion.span
                             animate={{ rotate: [0, -15, 15, -10, 10, 0] }}
@@ -500,25 +500,25 @@ export default function ProductSection({ onScrollToSection, onOpenCalculator, in
                             href="https://m.one-click.co.kr/#/kinfa_miso"
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="flex items-center justify-between bg-blue-50 hover:bg-blue-100 border border-blue-300 px-3 py-2.5 rounded-xl text-xs font-bold text-blue-800 transition group"
+                            className="flex items-center justify-between md:justify-center bg-blue-50 hover:bg-blue-100 border border-blue-300 px-3 py-2.5 rounded-xl text-xs font-bold text-blue-800 transition group"
                           >
                             <div className="flex items-center gap-2">
                               <span className="bg-blue-500 text-white text-[9px] font-black w-5 h-5 rounded-full flex items-center justify-center shrink-0">1</span>
                               <span>NICE<br/>서류접수</span>
                             </div>
-                            <ArrowUpRight className="w-3.5 h-3.5 text-blue-400 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+                            <ArrowUpRight className="w-3.5 h-3.5 text-blue-400 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform md:ml-1" />
                           </a>
                           <a
                             href="http://www.kodit.co.kr"
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="flex items-center justify-between bg-green-50 hover:bg-green-100 border border-green-300 px-3 py-2.5 rounded-xl text-xs font-bold text-green-800 transition group"
+                            className="flex items-center justify-between md:justify-center bg-green-50 hover:bg-green-100 border border-green-300 px-3 py-2.5 rounded-xl text-xs font-bold text-green-800 transition group"
                           >
                             <div className="flex items-center gap-2">
                               <span className="bg-green-500 text-white text-[9px] font-black w-5 h-5 rounded-full flex items-center justify-center shrink-0">2</span>
                               <span>KODIT<br/>평가</span>
                             </div>
-                            <ArrowUpRight className="w-3.5 h-3.5 text-green-400 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+                            <ArrowUpRight className="w-3.5 h-3.5 text-green-400 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform md:ml-1" />
                           </a>
                         </div>
                       </div>
@@ -528,7 +528,7 @@ export default function ProductSection({ onScrollToSection, onOpenCalculator, in
                     <div className="flex justify-center text-blue-400 text-lg font-black">▼</div>
 
                     {/* STEP 02 */}
-                    <div className="bg-white border-2 border-indigo-400 rounded-2xl p-4 shadow-sm">
+                    <div className="bg-white border-2 border-indigo-400 rounded-2xl p-4 shadow-sm md:text-center md:flex md:flex-col md:items-center">
                       <span className="bg-indigo-500 text-white text-[10px] font-black px-2 py-0.5 rounded-full inline-block mb-1">STEP 02</span>
                       <p className="font-black text-sm text-slate-800">경영현장 실사방문 &amp; 적격 심사</p>
                       <p className="text-xs text-slate-500 font-semibold mt-0.5">대출관련 서류 징구 · 전문심사위원<br className="md:hidden" /> 현장방문 및 면담 · 서류 심사</p>
@@ -538,7 +538,7 @@ export default function ProductSection({ onScrollToSection, onOpenCalculator, in
                     <div className="flex justify-center text-indigo-400 text-lg font-black">▼</div>
 
                     {/* STEP 03 */}
-                    <div className="bg-white border-2 border-violet-400 rounded-2xl p-4 shadow-sm">
+                    <div className="bg-white border-2 border-violet-400 rounded-2xl p-4 shadow-sm md:text-center md:flex md:flex-col md:items-center">
                       <span className="bg-violet-500 text-white text-[10px] font-black px-2 py-0.5 rounded-full inline-block mb-1">STEP 03</span>
                       <p className="font-black text-sm text-slate-800">융자위원회 부의 및 심의의결</p>
                       <p className="text-xs text-slate-500 font-semibold mt-0.5">사회적가치등급 및 신용평가 종합 심의</p>
@@ -548,7 +548,7 @@ export default function ProductSection({ onScrollToSection, onOpenCalculator, in
                     <div className="flex justify-center text-violet-400 text-lg font-black">▼</div>
 
                     {/* STEP 04 */}
-                    <div className="bg-white border-2 border-violet-400 rounded-2xl p-4 shadow-sm">
+                    <div className="bg-white border-2 border-violet-400 rounded-2xl p-4 shadow-sm md:text-center md:flex md:flex-col md:items-center">
                       <span className="bg-violet-500 text-white text-[10px] font-black px-2 py-0.5 rounded-full inline-block mb-1">STEP 04</span>
                       <p className="font-black text-sm text-slate-800">최종 대출약정 및 대출금 실행</p>
                       <p className="text-xs text-slate-500 font-semibold mt-0.5">약정 체결 후 대출금 지급 완료 🎉</p>
