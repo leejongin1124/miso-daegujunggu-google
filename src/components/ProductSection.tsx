@@ -27,7 +27,7 @@ export default function ProductSection({ onScrollToSection, onOpenCalculator, in
       id: 'social',
       name: '사회적연대금융',
       subtitle: '전국 최초·최다 — 누적 37건 / 15억 원 대출 실행 완료',
-      description: '사회적기업, 협동조합 등 사회 구조의 빈틈에서 취약계층의 고용 안정을 도모하는 단체 전용 특별 정책 무담보 운영 자금입니다.',
+      description: '사회적기업·협동조합 등 사회적경제 조직의 안정적 운영을 지원하는 정부 정책 기반 무담보 운영자금입니다.',
       limit: '최대 1억 원',
       interestRate: '연 4.5%\n연 4.0% (사회적가치등급 S6등급이상)',
       repaymentPeriod: '최대 6년 : 거치 2년 + 상환 4년',
