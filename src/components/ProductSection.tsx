@@ -75,7 +75,7 @@ export default function ProductSection({ onScrollToSection, onOpenCalculator, in
       description: '아직 신용이 충분히 형성되지 않은 대학생·구직자에게 올바른 금융 지식과 함께 사회 진출의 발판을 마련해주는 청년 전용 정책 자금입니다.',
       limit: '최대 500만 원',
       interestRate: '연 4.5%',
-      repaymentPeriod: '최대 11년 : 거치기간 6년 + 분할상환 5년',
+      repaymentPeriod: '최대 11년 : 거치 6년 + 상환 5년',
       repaymentMethod: '매월 원리금 균등분할 상환',
       target: [
         '① 청년 요건 (다음 중 하나 해당) — 만 19세 이상 34세 이하 청년 / 미취업 상태이거나 취업·창업 이력 1년 미만인 분',
