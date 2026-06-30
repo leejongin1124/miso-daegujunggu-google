@@ -466,7 +466,17 @@ export default function ProductSection({ onScrollToSection, onOpenCalculator, in
                       <div className="mb-2">
                         <span className="bg-blue-500 text-white text-[10px] font-black px-2 py-0.5 rounded-full inline-block mb-1">STEP 01</span>
                         <p className="font-black text-sm text-slate-800">대출상담 &amp; 온라인서류접수</p>
-                        <p className="text-xs text-blue-600 font-bold mt-0.5">* 대출신청 전 유선상담을 먼저 받아주세요</p>
+                        <motion.p
+                          animate={{ scale: [1, 1.04, 1], color: ['#dc2626', '#f97316', '#dc2626'] }}
+                          transition={{ duration: 1.4, repeat: Infinity }}
+                          className="text-xs font-black mt-0.5 flex items-center gap-1"
+                        >
+                          <motion.span
+                            animate={{ rotate: [0, -15, 15, -10, 10, 0] }}
+                            transition={{ duration: 0.8, repeat: Infinity, repeatDelay: 1.8 }}
+                          >📞</motion.span>
+                          반드시 전화 상담 후 신청해 주세요
+                        </motion.p>
                       </div>
                       <div className="flex flex-col gap-2 mt-3">
                         <a
