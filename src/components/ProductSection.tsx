@@ -29,8 +29,8 @@ export default function ProductSection({ onScrollToSection, onOpenCalculator, in
     if (autoPlayedRef.current) return;
     autoPlayedRef.current = true;
     const tabIds = ['social', 'business', 'youth', 'vulnerable'];
-    const totalRounds = 5;
-    const interval = 1200;
+    const totalRounds = 1;
+    const interval = 5000;
     let step = 0;
     const total = tabIds.length * totalRounds;
     const timer = setInterval(() => {
