@@ -475,7 +475,7 @@ export default function ProductSection({ onScrollToSection, onOpenCalculator, in
                           >
                             <div className="flex items-center gap-2">
                               <span className="bg-green-500 text-white text-[9px] font-black w-5 h-5 rounded-full flex items-center justify-center shrink-0">2</span>
-                              <span>신용보증기금 평가</span>
+                              <span>신용보증기금<br/>평가</span>
                             </div>
                             <ArrowUpRight className="w-3.5 h-3.5 text-green-400 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
                           </a>
