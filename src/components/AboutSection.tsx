@@ -295,7 +295,6 @@ export default function AboutSection({ sectionId }: { sectionId?: string }) {
                             <div className="flex-1 font-medium text-slate-700">
                               {item.emphasis ? (
                                 <span className="inline-flex flex-wrap items-center gap-2">
-                                  <span className="text-teal-600 font-bold bg-teal-50 px-2 py-0.5 rounded text-xs font-mono">핵심성과</span>
                                   <strong className="text-slate-900 font-bold">{item.text}</strong>
                                   {(item as any).newsUrl && (
                                     <a href={(item as any).newsUrl} target="_blank" rel="noopener noreferrer"
@@ -334,9 +333,6 @@ export default function AboutSection({ sectionId }: { sectionId?: string }) {
                       <li key={id} className="text-left">
                         <div className="flex items-center gap-1.5 mb-0.5">
                           <span className="text-[11px] font-bold text-slate-400 font-mono">{item.date}</span>
-                          {item.emphasis && (
-                            <span className="text-teal-600 font-bold bg-teal-50 px-1.5 py-0.5 rounded text-[10px] font-mono">핵심성과</span>
-                          )}
                         </div>
                         <div className="text-[12px] font-medium text-slate-700 leading-snug">
                           {item.emphasis ? (
