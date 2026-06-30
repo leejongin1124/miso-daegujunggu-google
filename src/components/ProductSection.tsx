@@ -442,11 +442,13 @@ export default function ProductSection({ onScrollToSection, onOpenCalculator, in
                   <div className="flex flex-col gap-2">
                     {/* STEP 01 */}
                     <div className="bg-white border-2 border-blue-400 rounded-2xl p-4 shadow-sm">
-                      <div className="flex items-center gap-2 mb-2">
-                        <span className="bg-blue-500 text-white text-[10px] font-black px-2 py-0.5 rounded-full">STEP 01</span>
-                        <span className="font-black text-sm text-slate-800">대출상담 &amp; 온라인서류접수</span>
+                      <div className="flex items-start gap-2 mb-2">
+                        <span className="bg-blue-500 text-white text-[10px] font-black px-2 py-0.5 rounded-full shrink-0 mt-0.5">STEP 01</span>
+                        <div>
+                          <span className="font-black text-sm text-slate-800">대출상담 &amp; 온라인서류접수</span>
+                          <p className="text-xs text-blue-600 font-bold mt-0.5">* 대출신청 전 유선상담을 먼저 받아주세요</p>
+                        </div>
                       </div>
-                      <p className="text-xs text-blue-600 font-bold mt-1">* 대출신청 전 유선상담을 먼저 받아주세요</p>
                       <div className="flex flex-col gap-2 mt-3">
                         <a
                           href="tel:053-252-6480"
@@ -488,11 +490,13 @@ export default function ProductSection({ onScrollToSection, onOpenCalculator, in
 
                     {/* STEP 02 */}
                     <div className="bg-white border-2 border-indigo-400 rounded-2xl p-4 shadow-sm">
-                      <div className="flex items-center gap-2 mb-1">
-                        <span className="bg-indigo-500 text-white text-[10px] font-black px-2 py-0.5 rounded-full">STEP 02</span>
-                        <span className="font-black text-sm text-slate-800">경영현장 실사방문 &amp; 적격 심사</span>
+                      <div className="flex items-start gap-2">
+                        <span className="bg-indigo-500 text-white text-[10px] font-black px-2 py-0.5 rounded-full shrink-0 mt-0.5">STEP 02</span>
+                        <div>
+                          <span className="font-black text-sm text-slate-800">경영현장 실사방문 &amp; 적격 심사</span>
+                          <p className="text-xs text-slate-500 font-semibold mt-0.5">대출관련 서류 징구 · 전문심사위원 현장방문 및 면담 · 서류 심사</p>
+                        </div>
                       </div>
-                      <p className="text-xs text-slate-500 font-semibold mt-1">대출관련 서류 징구 · 전문심사위원 현장방문 및 면담 · 서류 심사</p>
                     </div>
 
                     {/* Arrow */}
@@ -500,11 +504,13 @@ export default function ProductSection({ onScrollToSection, onOpenCalculator, in
 
                     {/* STEP 03 */}
                     <div className="bg-white border-2 border-violet-400 rounded-2xl p-4 shadow-sm">
-                      <div className="flex items-center gap-2 mb-1">
-                        <span className="bg-violet-500 text-white text-[10px] font-black px-2 py-0.5 rounded-full">STEP 03</span>
-                        <span className="font-black text-sm text-slate-800">융자위원회 부의 및 심의의결</span>
+                      <div className="flex items-start gap-2">
+                        <span className="bg-violet-500 text-white text-[10px] font-black px-2 py-0.5 rounded-full shrink-0 mt-0.5">STEP 03</span>
+                        <div>
+                          <span className="font-black text-sm text-slate-800">융자위원회 부의 및 심의의결</span>
+                          <p className="text-xs text-slate-500 font-semibold mt-0.5">사회적가치등급 및 신용평가 종합 심의</p>
+                        </div>
                       </div>
-                      <p className="text-xs text-slate-500 font-semibold mt-1">사회적가치등급 및 신용평가 종합 심의</p>
                     </div>
 
                     {/* Arrow */}
@@ -512,11 +518,13 @@ export default function ProductSection({ onScrollToSection, onOpenCalculator, in
 
                     {/* STEP 04 */}
                     <div className="bg-gradient-to-r from-violet-500 to-blue-500 rounded-2xl p-4 shadow-md">
-                      <div className="flex items-center gap-2 mb-1">
-                        <span className="bg-white/30 text-white text-[10px] font-black px-2 py-0.5 rounded-full">STEP 04</span>
-                        <span className="font-black text-sm text-white">최종 대출약정 및 대출금 실행</span>
+                      <div className="flex items-start gap-2">
+                        <span className="bg-white/30 text-white text-[10px] font-black px-2 py-0.5 rounded-full shrink-0 mt-0.5">STEP 04</span>
+                        <div>
+                          <span className="font-black text-sm text-white">최종 대출약정 및 대출금 실행</span>
+                          <p className="text-xs text-white/80 font-semibold mt-0.5">약정 체결 후 대출금 지급 완료 🎉</p>
+                        </div>
                       </div>
-                      <p className="text-xs text-white/80 font-semibold mt-1">약정 체결 후 대출금 지급 완료 🎉</p>
                     </div>
                   </div>
                 </div>
