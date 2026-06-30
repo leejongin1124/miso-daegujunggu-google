@@ -195,17 +195,19 @@ export default function GuideSection({ sectionId }: { sectionId?: string }) {
                 <div className="relative h-5 mt-1">
                   {[
                     { val: 1000000,   label: '100만' },
+                    { val: 5000000,   label: '500만' },
                     { val: 10000000,  label: '1,000만' },
                     { val: 30000000,  label: '3,000만' },
                     { val: 50000000,  label: '5,000만' },
                     { val: 100000000, label: '1억' },
-                  ].map(({ val, label }) => {
+                  ].map(({ val, label }, i, arr) => {
                     const pct = ((val - 1000000) / (100000000 - 1000000)) * 100;
+                    const isLast = i === arr.length - 1;
                     return (
                       <span
                         key={val}
-                        className="absolute text-[11px] text-slate-400 font-extrabold -translate-x-1/2 cursor-pointer hover:text-miso-blue-600 transition"
-                        style={{ left: `${pct}%` }}
+                        className="absolute text-[11px] text-slate-400 font-extrabold cursor-pointer hover:text-miso-blue-600 transition whitespace-nowrap"
+                        style={{ left: `${pct}%`, transform: isLast ? 'translateX(-100%)' : 'translateX(-50%)' }}
                         onClick={() => setLoanAmount(val)}
                       >
                         {label}
