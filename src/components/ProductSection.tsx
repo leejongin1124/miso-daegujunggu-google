@@ -260,13 +260,21 @@ export default function ProductSection({ onScrollToSection, onOpenCalculator, in
               </div>
 
               <div className="space-y-4">
-                <div className="flex items-center space-x-2 text-slate-800 font-bold text-sm">
-                  <CheckCircle2 className="w-5 h-5 text-teal-600" />
-                  <span>
-                    {activeProduct.id === 'youth' || activeProduct.id === 'vulnerable'
-                      ? '신청 자격 요건 (STEP 1 + STEP 2 동시 충족 필수)'
-                      : '신청 자격 요건 (하나라도 해당 시 상담 가능)'}
-                  </span>
+                <div className="flex items-start space-x-2 text-slate-800 font-bold text-sm">
+                  <CheckCircle2 className="w-5 h-5 text-teal-600 shrink-0 mt-0.5" />
+                  {activeProduct.id === 'youth' || activeProduct.id === 'vulnerable' ? (
+                    <span>
+                      신청 자격 요건
+                      <span className="hidden md:inline"> (STEP 1 + STEP 2 동시 충족 필수)</span>
+                      <span className="md:hidden text-teal-700 block text-xs font-black mt-0.5">(STEP 1 + STEP 2 동시 충족 필수)</span>
+                    </span>
+                  ) : (
+                    <span>
+                      신청 자격 요건
+                      <span className="hidden md:inline"> (하나라도 해당 시 상담 가능)</span>
+                      <span className="md:hidden text-slate-500 block text-xs font-semibold mt-0.5">(하나라도 해당 시 상담 가능)</span>
+                    </span>
+                  )}
                 </div>
 
                 {activeProduct.id === 'youth' ? (
