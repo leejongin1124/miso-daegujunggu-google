@@ -211,7 +211,8 @@ export default function ProductSection({ onScrollToSection, onOpenCalculator, in
                       animate={{ opacity: [1, 0.6, 1] }}
                       transition={{ duration: 1.8, repeat: Infinity }}
                     >
-                      {activeProduct.subtitle}
+                      <span className="hidden md:inline">{activeProduct.subtitle}</span>
+                      <span className="md:hidden">전국 최초 미소법인 취급 · 최다 지원 실적<br/>(누적 37건 / 15억 원)</span>
                     </motion.span>
                   </motion.p>
                 ) : (
