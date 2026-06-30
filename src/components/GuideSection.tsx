@@ -197,6 +197,7 @@ export default function GuideSection({ sectionId }: { sectionId?: string }) {
                     { val: 1000000,   label: '100만',   mobileHide: true  },
                     { val: 5000000,   label: '500만',   mobileHide: true  },
                     { val: 10000000,  label: '1,000만', mobileHide: false },
+                    { val: 20000000,  label: '2,000만', mobileHide: true  },
                     { val: 30000000,  label: '3,000만', mobileHide: false },
                     { val: 50000000,  label: '5,000만', mobileHide: false },
                     { val: 100000000, label: '1억',     mobileHide: false },
