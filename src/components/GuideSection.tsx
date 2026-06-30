@@ -333,13 +333,14 @@ export default function GuideSection({ sectionId }: { sectionId?: string }) {
                     { val: 36, label: '3년' },
                     { val: 48, label: '4년' },
                     { val: 60, label: '5년' },
-                  ].map(({ val, label }) => {
+                  ].map(({ val, label }, i, arr) => {
                     const pct = ((val - 12) / (60 - 12)) * 100;
+                    const isLast = i === arr.length - 1;
                     return (
                       <span
                         key={val}
-                        className="absolute text-[10px] text-slate-400 font-semibold -translate-x-1/2 cursor-pointer hover:text-miso-blue-600 transition text-center leading-tight"
-                        style={{ left: `${pct}%` }}
+                        className="absolute text-[10px] text-slate-400 font-semibold cursor-pointer hover:text-miso-blue-600 transition whitespace-nowrap"
+                        style={{ left: `${pct}%`, transform: isLast ? 'translateX(-100%)' : 'translateX(-50%)' }}
                         onClick={() => setRepaymentPeriod(val)}
                       >
                         {label}
