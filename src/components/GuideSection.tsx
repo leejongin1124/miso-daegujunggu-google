@@ -204,21 +204,38 @@ export default function GuideSection({ sectionId }: { sectionId?: string }) {
               {/* 실질 이자율 설정 (미소금융 정책이율 4.0 ~ 4.5%) */}
               <div className="space-y-4 pt-6 pb-4">
                 <div className="flex justify-between items-center text-sm font-extrabold text-slate-800">
-                  <span className="flex items-center gap-1">📈 연 이자율 (표준 4.5% 기준)</span>
+                  <span className="flex items-center gap-1">📈 연 이자율</span>
                   <span className="text-miso-blue-600 font-black text-lg">{interestRate.toFixed(1)}%</span>
                 </div>
-                <input 
-                  type="range" 
-                  min="4.0" 
-                  max="4.5" 
-                  step="0.1"
+                <input
+                  type="range"
+                  min="2.0"
+                  max="5.5"
+                  step="0.5"
                   value={interestRate}
                   onChange={(e) => setInterestRate(Number(e.target.value))}
                   className="w-full accent-miso-blue-600 cursor-pointer h-2 bg-slate-100 rounded-lg appearance-none"
                 />
                 <div className="flex justify-between text-[11px] text-slate-400 font-semibold">
-                  <span>우수 사회적기업 4.0% 우대</span>
-                  <span>서민금융 표준 4.5%</span>
+                  <span>2.0%</span>
+                  <span>3.5%</span>
+                  <span>4.5%</span>
+                  <span>5.5%</span>
+                </div>
+                {/* 금리 안내 테이블 */}
+                <div className="grid grid-cols-3 gap-1.5 mt-2">
+                  <button onClick={() => setInterestRate(2.0)} className="bg-green-50 border border-green-200 rounded-xl p-2 text-center hover:bg-green-100 transition">
+                    <p className="text-green-700 font-black text-sm">2.0%</p>
+                    <p className="text-[10px] text-green-600 font-semibold leading-tight mt-0.5">무등록사업자<br/>500만원</p>
+                  </button>
+                  <button onClick={() => setInterestRate(3.5)} className="bg-blue-50 border border-blue-200 rounded-xl p-2 text-center hover:bg-blue-100 transition">
+                    <p className="text-blue-700 font-black text-sm">3.5%</p>
+                    <p className="text-[10px] text-blue-600 font-semibold leading-tight mt-0.5">4회차이상<br/>정상납입 우대</p>
+                  </button>
+                  <button onClick={() => setInterestRate(5.5)} className="bg-red-50 border border-red-200 rounded-xl p-2 text-center hover:bg-red-100 transition">
+                    <p className="text-red-600 font-black text-sm">5.5%</p>
+                    <p className="text-[10px] text-red-500 font-semibold leading-tight mt-0.5">연체 발생시<br/>적용금리</p>
+                  </button>
                 </div>
               </div>
 
