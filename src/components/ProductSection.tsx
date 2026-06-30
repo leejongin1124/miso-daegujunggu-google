@@ -562,18 +562,6 @@ export default function ProductSection({ onScrollToSection, onOpenCalculator, in
                 </div>
               </div>
 
-              <div className="bg-gradient-to-tr from-teal-600 to-emerald-600 p-8 rounded-3xl text-white shadow-lg shadow-teal-100 space-y-4">
-                <span className="text-[10px] font-bold text-teal-100 bg-white/20 px-2.5 py-1 rounded-md uppercase">Expected Effect</span>
-                <h4 className="font-extrabold text-lg">기대 효과</h4>
-                <p className="text-teal-50 text-xs md:text-sm leading-relaxed font-medium">
-                  &ldquo;{activeProduct.effect}&rdquo;
-                </p>
-                <div className="pt-2">
-                  <p className="text-[10px] text-teal-200 leading-normal">
-                    ※ 모든 대출 심사는 신청인 본인의 신용 및 증빙 서류를 기준으로 융자심의위원회 규정에 따라 처리됩니다.
-                  </p>
-                </div>
-              </div>
 
             </div>
 
