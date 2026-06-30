@@ -294,13 +294,14 @@ export default function GuideSection({ sectionId }: { sectionId?: string }) {
                     { val: 12, label: '1년' },
                     { val: 24, label: '2년' },
                     { val: 72, label: '6년' },
-                  ].map(({ val, label }) => {
+                  ].map(({ val, label }, i, arr) => {
                     const pct = (val / 72) * 100;
+                    const isLast = i === arr.length - 1;
                     return (
                       <span
                         key={val}
-                        className="absolute text-[10px] text-slate-400 font-semibold -translate-x-1/2 cursor-pointer hover:text-miso-blue-600 transition text-center leading-tight"
-                        style={{ left: `${pct}%` }}
+                        className="absolute text-[10px] text-slate-400 font-semibold cursor-pointer hover:text-miso-blue-600 transition whitespace-nowrap"
+                        style={{ left: `${pct}%`, transform: isLast ? 'translateX(-100%)' : 'translateX(-50%)' }}
                         onClick={() => setGracePeriod(val)}
                       >
                         {label}
