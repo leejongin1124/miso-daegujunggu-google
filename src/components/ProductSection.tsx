@@ -30,7 +30,7 @@ export default function ProductSection({ onScrollToSection, onOpenCalculator, in
       description: '사회적기업, 협동조합, 자활기업, 마을기업 등 사회 구조의 빈틈에서 취약계층의 고용 안정을 도모하는 단체 전용 특별 정책 무담보 운영 자금입니다.',
       limit: '최대 1억 원',
       interestRate: '연 4.5% (사회적가치등급 S6등급 이상 연 4.0%로 우대)',
-      repaymentPeriod: '거치 최대 2년 + 균등분할상환 4년 (최대 6년) 또는 2년 만기 일시상환',
+      repaymentPeriod: '거치 최대 2년 + 균등분할상환 4년 (최대 6년)',
       repaymentMethod: '원리금 균등분할 상환',
       target: [
         '고용노동부 정식 인증 사회적기업',
