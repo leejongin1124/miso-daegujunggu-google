@@ -461,7 +461,7 @@ export default function ProductSection({ onScrollToSection, onOpenCalculator, in
                             rel="noopener noreferrer"
                             className="flex items-center justify-between bg-slate-100 hover:bg-slate-200 px-3 py-2 rounded-xl text-xs font-bold text-slate-700 transition"
                           >
-                            <span>NICE 서류접수</span>
+                            <span>1단계 NICE서류접수</span>
                             <ArrowUpRight className="w-3.5 h-3.5 text-slate-400" />
                           </a>
                           <a
@@ -470,7 +470,7 @@ export default function ProductSection({ onScrollToSection, onOpenCalculator, in
                             rel="noopener noreferrer"
                             className="flex items-center justify-between bg-slate-100 hover:bg-slate-200 px-3 py-2 rounded-xl text-xs font-bold text-slate-700 transition"
                           >
-                            <span>KODIT 평가</span>
+                            <span>2단계 신용보증기금 평가</span>
                             <ArrowUpRight className="w-3.5 h-3.5 text-slate-400" />
                           </a>
                         </div>
