@@ -586,7 +586,6 @@ export default function ProductSection({ onScrollToSection, onOpenCalculator, in
 
               {/* 기대 효과 — PC 전용 */}
               <div className="hidden md:block bg-gradient-to-tr from-teal-600 to-emerald-600 p-8 rounded-3xl text-white shadow-lg shadow-teal-100 space-y-4">
-                <span className="text-[10px] font-bold text-teal-100 bg-white/20 px-2.5 py-1 rounded-md uppercase">Expected Effect</span>
                 <h4 className="font-extrabold text-lg">기대 효과</h4>
                 <p className="text-teal-50 text-xs md:text-sm leading-relaxed font-medium">
                   &ldquo;{activeProduct.effect}&rdquo;
