@@ -216,11 +216,24 @@ export default function GuideSection({ sectionId }: { sectionId?: string }) {
                   onChange={(e) => setInterestRate(Number(e.target.value))}
                   className="w-full accent-miso-blue-600 cursor-pointer h-2 bg-slate-100 rounded-lg appearance-none"
                 />
-                <div className="flex justify-between text-[11px] text-slate-400 font-semibold">
-                  <span>2.0%</span>
-                  <span>3.5%</span>
-                  <span>4.5%</span>
-                  <span>5.5%</span>
+                <div className="relative h-5 mt-1">
+                  {[
+                    { val: 2.0, label: '2.0%' },
+                    { val: 3.5, label: '3.5%' },
+                    { val: 4.5, label: '4.5%' },
+                    { val: 5.5, label: '5.5%' },
+                  ].map(({ val, label }) => {
+                    const pct = ((val - 2.0) / (5.5 - 2.0)) * 100;
+                    return (
+                      <span
+                        key={val}
+                        className="absolute text-[11px] text-slate-400 font-semibold -translate-x-1/2"
+                        style={{ left: `${pct}%` }}
+                      >
+                        {label}
+                      </span>
+                    );
+                  })}
                 </div>
                 {/* 금리 안내 테이블 */}
                 <div className="grid grid-cols-4 gap-1.5 mt-2">
