@@ -52,7 +52,7 @@ export default function ProductSection({ onScrollToSection, onOpenCalculator, in
       subtitle: '사업자등록증 보유 후 실제 운영 3개월 이상인 소상공인·개인 사업자',
       description: '골목의 동네 미용실, 전통시장 안 작은 상회, 1인 배달업 등 사업 실적이 있음에도 담보가 부족해 대출이 어려운 자영업자를 지원하는 긴급 운영자금입니다.',
       limit: '최대 2,000만원\n최대 3,000만원(청년사업가)',
-      interestRate: '연 4.5%',
+      interestRate: '연 4.5%\n연 3.5%(우대금리 적용시)',
       repaymentPeriod: '최대 5.5년 : 거치 6개월 + 상환 5년\n최대 7년 : 거치 2년 + 상환 5년 (청년 19세이상 34세이하)',
       repaymentMethod: '매월 원리금 균등분할 상환',
       target: [
@@ -74,7 +74,7 @@ export default function ProductSection({ onScrollToSection, onOpenCalculator, in
       subtitle: '만 19세 ~ 34세 청년 / 미취업자 및 신규 취·창업 1년차',
       description: '아직 신용이 충분히 형성되지 않은 대학생·구직자에게 올바른 금융 지식과 함께 사회 진출의 발판을 마련해주는 청년 전용 정책 자금입니다.',
       limit: '최대 500만 원',
-      interestRate: '연 4.5%',
+      interestRate: '연 4.5%\n연 3.5%(우대금리 적용시)',
       repaymentPeriod: '최대 11년 : 거치 6년 + 상환 5년',
       repaymentMethod: '매월 원리금 균등분할 상환',
       target: [
@@ -95,7 +95,7 @@ export default function ProductSection({ onScrollToSection, onOpenCalculator, in
       subtitle: '기초수급자 · 차상위 · 다문화 · 보이스피싱 피해자 긴급의료',
       description: '가족의 급작스러운 사고·질병, 전세 사기 등 불의의 상황으로 병원비나 생계 주거비 마련이 어려운 가구를 지원하는 긴급 금융 지원 자금입니다.',
       limit: '최대 500만 원',
-      interestRate: '연 4.5%',
+      interestRate: '연 4.5%\n연 3.5%(우대금리 적용시)',
       repaymentPeriod: '최대 6년 : 거치 1년 + 상환 5년',
       repaymentMethod: '매월 원리금 균등분할 상환',
       target: [
