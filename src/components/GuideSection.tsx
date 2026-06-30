@@ -285,12 +285,26 @@ export default function GuideSection({ sectionId }: { sectionId?: string }) {
                   onChange={(e) => setGracePeriod(Number(e.target.value))}
                   className="w-full accent-miso-blue-600 cursor-pointer h-2 bg-slate-100 rounded-lg appearance-none"
                 />
-                <div className="flex justify-between text-[11px] text-slate-400 font-semibold">
-                  <span>즉시원금상환 (0개월)</span>
-                  <span>사업자 상한 6개월</span>
-                  <span>생계 1년</span>
-                  <span>사회연대 2년</span>
-                  <span>미래이음 상한 6년</span>
+                <div className="relative h-8 mt-1">
+                  {[
+                    { val: 0,  label: '0개월' },
+                    { val: 6,  label: '6개월' },
+                    { val: 12, label: '1년' },
+                    { val: 24, label: '2년' },
+                    { val: 72, label: '6년' },
+                  ].map(({ val, label }) => {
+                    const pct = (val / 72) * 100;
+                    return (
+                      <span
+                        key={val}
+                        className="absolute text-[10px] text-slate-400 font-semibold -translate-x-1/2 cursor-pointer hover:text-miso-blue-600 transition text-center leading-tight"
+                        style={{ left: `${pct}%` }}
+                        onClick={() => setGracePeriod(val)}
+                      >
+                        {label}
+                      </span>
+                    );
+                  })}
                 </div>
               </div>
 
@@ -309,12 +323,26 @@ export default function GuideSection({ sectionId }: { sectionId?: string }) {
                   onChange={(e) => setRepaymentPeriod(Number(e.target.value))}
                   className="w-full accent-miso-blue-600 cursor-pointer h-2 bg-slate-100 rounded-lg appearance-none"
                 />
-                <div className="flex justify-between text-[11px] text-slate-400 font-semibold">
-                  <span>12개월 (1년)</span>
-                  <span>24개월</span>
-                  <span>36개월</span>
-                  <span>48개월</span>
-                  <span>소상공인 표준 60개월 (5년)</span>
+                <div className="relative h-8 mt-1">
+                  {[
+                    { val: 12, label: '1년' },
+                    { val: 24, label: '2년' },
+                    { val: 36, label: '3년' },
+                    { val: 48, label: '4년' },
+                    { val: 60, label: '5년' },
+                  ].map(({ val, label }) => {
+                    const pct = ((val - 12) / (60 - 12)) * 100;
+                    return (
+                      <span
+                        key={val}
+                        className="absolute text-[10px] text-slate-400 font-semibold -translate-x-1/2 cursor-pointer hover:text-miso-blue-600 transition text-center leading-tight"
+                        style={{ left: `${pct}%` }}
+                        onClick={() => setRepaymentPeriod(val)}
+                      >
+                        {label}
+                      </span>
+                    );
+                  })}
                 </div>
               </div>
 
