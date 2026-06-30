@@ -194,13 +194,13 @@ export default function GuideSection({ sectionId }: { sectionId?: string }) {
                 />
                 <div className="relative h-9 mt-1">
                   {[
-                    { val: 1000000,   label: '100만' },
-                    { val: 5000000,   label: '500만' },
-                    { val: 10000000,  label: '1,000만' },
-                    { val: 30000000,  label: '3,000만' },
-                    { val: 50000000,  label: '5,000만' },
-                    { val: 100000000, label: '1억' },
-                  ].map(({ val, label }, i, arr) => {
+                    { val: 1000000,   label: '100만',   mobileHide: true  },
+                    { val: 5000000,   label: '500만',   mobileHide: true  },
+                    { val: 10000000,  label: '1,000만', mobileHide: false },
+                    { val: 30000000,  label: '3,000만', mobileHide: false },
+                    { val: 50000000,  label: '5,000만', mobileHide: false },
+                    { val: 100000000, label: '1억',     mobileHide: false },
+                  ].map(({ val, label, mobileHide }, i, arr) => {
                     const pct = ((val - 1000000) / (100000000 - 1000000)) * 100;
                     const isFirst = i === 0;
                     const isLast = i === arr.length - 1;
@@ -209,7 +209,7 @@ export default function GuideSection({ sectionId }: { sectionId?: string }) {
                     return (
                       <span
                         key={val}
-                        className="absolute text-[11px] text-slate-400 font-extrabold cursor-pointer hover:text-miso-blue-600 transition whitespace-nowrap"
+                        className={`absolute text-[11px] text-slate-400 font-extrabold cursor-pointer hover:text-miso-blue-600 transition whitespace-nowrap ${mobileHide ? 'hidden md:inline' : ''}`}
                         style={{ left: `${pct}%`, top, transform }}
                         onClick={() => setLoanAmount(val)}
                       >
