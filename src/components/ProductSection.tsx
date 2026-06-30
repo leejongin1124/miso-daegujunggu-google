@@ -444,8 +444,9 @@ export default function ProductSection({ onScrollToSection, onOpenCalculator, in
                     <div className="bg-white border-2 border-blue-400 rounded-2xl p-4 shadow-sm">
                       <div className="flex items-center gap-2 mb-2">
                         <span className="bg-blue-500 text-white text-[10px] font-black px-2 py-0.5 rounded-full">STEP 01</span>
-                        <span className="font-black text-sm text-slate-800">서민금융 대출상담 &amp; 온라인 서류접수</span>
+                        <span className="font-black text-sm text-slate-800">대출상담 &amp; 온라인서류접수</span>
                       </div>
+                      <p className="text-xs text-blue-600 font-bold mt-1">* 대출신청 전 유선상담을 먼저 받아주세요</p>
                       <div className="flex flex-col gap-2 mt-3">
                         <a
                           href="tel:053-252-6480"
