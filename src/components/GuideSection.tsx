@@ -192,12 +192,26 @@ export default function GuideSection({ sectionId }: { sectionId?: string }) {
                   onChange={(e) => setLoanAmount(Number(e.target.value))}
                   className="w-full accent-miso-blue-600 cursor-pointer h-2 bg-slate-100 rounded-lg appearance-none"
                 />
-                <div className="flex justify-between text-[11px] text-slate-400 font-extrabold">
-                  <span>100만</span>
-                  <span>1,000만</span>
-                  <span>3,000만</span>
-                  <span>5,000만</span>
-                  <span>우수기업 1억 한도</span>
+                <div className="relative h-5 mt-1">
+                  {[
+                    { val: 1000000,   label: '100만' },
+                    { val: 10000000,  label: '1,000만' },
+                    { val: 30000000,  label: '3,000만' },
+                    { val: 50000000,  label: '5,000만' },
+                    { val: 100000000, label: '1억' },
+                  ].map(({ val, label }) => {
+                    const pct = ((val - 1000000) / (100000000 - 1000000)) * 100;
+                    return (
+                      <span
+                        key={val}
+                        className="absolute text-[11px] text-slate-400 font-extrabold -translate-x-1/2 cursor-pointer hover:text-miso-blue-600 transition"
+                        style={{ left: `${pct}%` }}
+                        onClick={() => setLoanAmount(val)}
+                      >
+                        {label}
+                      </span>
+                    );
+                  })}
                 </div>
               </div>
 
