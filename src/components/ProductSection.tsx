@@ -3,7 +3,7 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { BadgePercent, ShieldCheck, CheckCircle2, ChevronRight, Calculator, FileText, ArrowUpRight, HelpCircle, FileCheck, Star, Users } from 'lucide-react';
 import { Product } from '../types';
@@ -17,31 +17,11 @@ interface ProductSectionProps {
 
 export default function ProductSection({ onScrollToSection, onOpenCalculator, initialTab }: ProductSectionProps) {
   const [activeTab, setActiveTab] = useState<string>(initialTab || 'social');
-  const [blinkingTab, setBlinkingTab] = useState<string | null>(null);
-  const autoPlayedRef = useRef(false);
+  const [blinkingTab] = useState<string | null>(null);
 
   useEffect(() => {
     if (initialTab) setActiveTab(initialTab);
   }, [initialTab]);
-
-  // 자동 순환: 5번 반복 후 종료
-  useEffect(() => {
-    if (autoPlayedRef.current) return;
-    autoPlayedRef.current = true;
-    const tabIds = ['social', 'business', 'youth', 'vulnerable'];
-    const totalRounds = 1;
-    const interval = 5000;
-    let step = 0;
-    const total = tabIds.length * totalRounds;
-    const timer = setInterval(() => {
-      const idx = step % tabIds.length;
-      setBlinkingTab(tabIds[idx]);
-      setActiveTab(tabIds[idx]);
-      step++;
-      if (step >= total) clearInterval(timer);
-    }, interval);
-    return () => clearInterval(timer);
-  }, []);
 
   const products: Product[] = [
     {
