@@ -88,7 +88,7 @@ export default function Hero({ onScrollToSection }: HeroProps) {
     if (peopleDone) {
       peopleAnim.start({
         scale: [1, 1.5, 0.9, 1.25, 0.95, 1.1, 1],
-        y: [0, -18, 4, -10, 2, -5, 0],
+        x: [0, 18, -4, 10, -2, 5, 0],
         transition: { duration: 0.8, ease: 'easeInOut' }
       });
     }
@@ -98,7 +98,7 @@ export default function Hero({ onScrollToSection }: HeroProps) {
     if (moneyDone) {
       moneyAnim.start({
         scale: [1, 1.5, 0.9, 1.25, 0.95, 1.1, 1],
-        y: [0, -18, 4, -10, 2, -5, 0],
+        x: [0, 18, -4, 10, -2, 5, 0],
         transition: { duration: 0.8, ease: 'easeInOut' }
       });
     }
