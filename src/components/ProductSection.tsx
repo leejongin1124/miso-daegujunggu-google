@@ -3,7 +3,7 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { BadgePercent, ShieldCheck, CheckCircle2, ChevronRight, Calculator, FileText, ArrowUpRight, HelpCircle, FileCheck, Star, Users } from 'lucide-react';
 import { Product } from '../types';
@@ -17,10 +17,31 @@ interface ProductSectionProps {
 
 export default function ProductSection({ onScrollToSection, onOpenCalculator, initialTab }: ProductSectionProps) {
   const [activeTab, setActiveTab] = useState<string>(initialTab || 'social');
+  const [blinkingTab, setBlinkingTab] = useState<string | null>(null);
+  const autoPlayedRef = useRef(false);
 
   useEffect(() => {
     if (initialTab) setActiveTab(initialTab);
   }, [initialTab]);
+
+  // 자동 순환: 5번 반복 후 종료
+  useEffect(() => {
+    if (autoPlayedRef.current) return;
+    autoPlayedRef.current = true;
+    const tabIds = ['social', 'business', 'youth', 'vulnerable'];
+    const totalRounds = 5;
+    const interval = 1200;
+    let step = 0;
+    const total = tabIds.length * totalRounds;
+    const timer = setInterval(() => {
+      const idx = step % tabIds.length;
+      setBlinkingTab(tabIds[idx]);
+      setActiveTab(tabIds[idx]);
+      step++;
+      if (step >= total) clearInterval(timer);
+    }, interval);
+    return () => clearInterval(timer);
+  }, []);
 
   const products: Product[] = [
     {
@@ -145,13 +166,14 @@ export default function ProductSection({ onScrollToSection, onOpenCalculator, in
             };
             const s = tabStyles[p.id];
             const isActive = activeTab === p.id;
+            const isBlinking = blinkingTab === p.id;
             return (
               <motion.button
                 key={p.id}
-                onClick={() => setActiveTab(p.id)}
-                whileTap={{ scale: 0.93 }}
-                animate={isActive ? { scale: 1.05 } : { scale: 1 }}
-                transition={{ type: 'spring', stiffness: 400, damping: 20 }}
+                onClick={() => { setActiveTab(p.id); setBlinkingTab(null); }}
+                whileTap={{ scale: 1.15 }}
+                animate={isActive ? { scale: 1.05, boxShadow: isBlinking ? ['0 0 0px rgba(99,102,241,0)', '0 0 18px rgba(99,102,241,0.7)', '0 0 0px rgba(99,102,241,0)'] : undefined } : { scale: 1 }}
+                transition={{ type: 'spring', stiffness: 400, damping: 20, boxShadow: { duration: 0.6, repeat: isBlinking ? Infinity : 0 } }}
                 className={`relative flex-1 min-w-[130px] py-4 px-4 rounded-2xl text-xs md:text-sm font-extrabold tracking-tight transition-all duration-300 overflow-hidden ${
                   isActive
                     ? `bg-gradient-to-r ${s.active} text-white shadow-lg`
