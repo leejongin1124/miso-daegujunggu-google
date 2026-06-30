@@ -31,7 +31,7 @@ export default function ProductSection({ onScrollToSection, onOpenCalculator, in
       limit: '최대 1억 원',
       interestRate: '연 4.5%\n연 4.0% (사회적가치등급 S6등급이상)',
       repaymentPeriod: '최대 6년 : 거치기간 2년 + 분할상환 4년',
-      repaymentMethod: '원리금 균등분할 상환',
+      repaymentMethod: '매월 원리금 균등분할 상환',
       target: [
         '고용노동부 정식 인증 사회적기업',
         '지역 지자체 및 부처형 예비사회적기업',
@@ -54,7 +54,7 @@ export default function ProductSection({ onScrollToSection, onOpenCalculator, in
       limit: '최대 2,000만원\n최대 3,000만원(청년사업가)',
       interestRate: '연 4.5%',
       repaymentPeriod: '최대 5.5년 : 거치기간 6개월 + 상환 5년\n7년 : 거치기간 2년 + 분할상환 5년 (단.청년 19세이상 34세이하)',
-      repaymentMethod: '원리금 균등분할 상환',
+      repaymentMethod: '매월 원리금 균등분할 상환',
       target: [
         '신용점수 하위 20% 이하 (NICE 749점 이하 또는 KCB 700점 이하)',
         '기초생활수급자 또는 차상위계층',
@@ -76,7 +76,7 @@ export default function ProductSection({ onScrollToSection, onOpenCalculator, in
       limit: '최대 500만 원',
       interestRate: '연 4.5%',
       repaymentPeriod: '최대 11년 : 거치기간 6년 + 분할상환 5년',
-      repaymentMethod: '원리금 균등분할 상환',
+      repaymentMethod: '매월 원리금 균등분할 상환',
       target: [
         '① 청년 요건 (다음 중 하나 해당) — 만 19세 이상 34세 이하 청년 / 미취업 상태이거나 취업·창업 이력 1년 미만인 분',
         '② 기본 미소금융 대상 (다음 중 하나 해당) — 신용점수 하위 20% 이하 (NICE 749점 이하 또는 KCB 700점 이하) / 기초생활수급자 또는 차상위계층 / 최근 1년 이내 근로장려금 수급 이력이 있는 분'
@@ -97,7 +97,7 @@ export default function ProductSection({ onScrollToSection, onOpenCalculator, in
       limit: '최대 500만 원',
       interestRate: '연 4.5%',
       repaymentPeriod: '최대 6년 : 거치기간 1년 + 분할상환 5년',
-      repaymentMethod: '원리금 균등분할 상환',
+      repaymentMethod: '매월 원리금 균등분할 상환',
       target: [
         '① 기본 요건 (다음 중 하나 해당) — 개인신용평점 하위 20% 이하 또는 하위 50% 이하 & 연소득 3,500만원 이하 / 기초생활수급자 또는 차상위계층 / 근로장려금 신청자격 대상자',
         '② 추가 요건 — 성실상환: 불법사금융예방대출 완제자 또는 미소금융 12회차 이상 성실상환자',
