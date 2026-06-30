@@ -51,7 +51,7 @@ export default function ProductSection({ onScrollToSection, onOpenCalculator, in
       name: '사업자 운영자금',
       subtitle: '사업자등록증 보유 후 실제 운영 3개월 이상인 소상공인·개인 사업자',
       description: '골목의 동네 미용실, 전통시장 안 작은 상회, 1인 배달업 등 사업 실적이 있음에도 담보가 부족해 대출이 어려운 자영업자를 지원하는 긴급 운영자금입니다.',
-      limit: '최대 2,000만원 (청년사업가는 최대 3,000만원)',
+      limit: '최대 2,000만원\n최대 3,000만원(청년사업가)',
       interestRate: '연 4.5%',
       repaymentPeriod: '거치 6개월 + 매달 균등분할상환 5년 (총 5.5년) / 청년 우수 시 거치 2년',
       repaymentMethod: '원리금 균등분할 상환',
@@ -233,7 +233,7 @@ export default function ProductSection({ onScrollToSection, onOpenCalculator, in
                   <div className="flex-shrink-0 w-10 h-10 bg-teal-100 rounded-xl flex items-center justify-center text-lg">💰</div>
                   <div>
                     <span className="block text-slate-400 text-[10px] font-bold uppercase tracking-wider mb-1">대출 최대 한도</span>
-                    <span className="block text-slate-800 font-black text-base leading-snug">{activeProduct.limit}</span>
+                    <span className="block text-slate-800 font-black text-base leading-snug whitespace-pre-line">{activeProduct.limit}</span>
                   </div>
                 </div>
                 <div className="bg-teal-50 px-5 py-4 rounded-xl border border-teal-100 flex items-center gap-4">
