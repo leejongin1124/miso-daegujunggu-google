@@ -323,7 +323,7 @@ export default function ProductSection({ onScrollToSection, onOpenCalculator, in
                         <p className="font-extrabold text-slate-800">기본 미소금융 대상 (다음 중 하나 해당)</p>
                       </div>
                       <ul className="pl-4 space-y-1.5 text-slate-600 font-medium">
-                        <li>• 신용정보회사의 개인신용평점이 하위 20%에 해당하는 고객</li>
+                        <li>• 신용정보회사의 개인신용평점이 하위 20%에 해당하는 고객 (KCB 700점 · NICE 749점)</li>
                         <li>• 기초생활수급자 또는 차상위계층</li>
                         <li>• 최근 1년 이내 근로장려금 수급 이력이 있는 분</li>
                       </ul>
