@@ -195,9 +195,30 @@ export default function ProductSection({ onScrollToSection, onOpenCalculator, in
                 <h3 className="text-2xl md:text-3.5xl font-black text-slate-900 tracking-tight">
                   {activeProduct.name}
                 </h3>
-                <p className="text-teal-600 font-bold text-xs md:text-sm">
-                  {activeProduct.subtitle}
-                </p>
+                {activeProduct.id === 'social' ? (
+                  <motion.p
+                    key="social-subtitle"
+                    initial={{ opacity: 0, y: 6 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.4 }}
+                    className="inline-flex items-center gap-1.5 bg-gradient-to-r from-amber-400 to-orange-500 text-white font-black text-xs md:text-sm px-3 py-1.5 rounded-full shadow-md"
+                  >
+                    <motion.span
+                      animate={{ scale: [1, 1.3, 1] }}
+                      transition={{ duration: 1.2, repeat: Infinity, repeatDelay: 1.5 }}
+                    >🏆</motion.span>
+                    <motion.span
+                      animate={{ opacity: [1, 0.6, 1] }}
+                      transition={{ duration: 1.8, repeat: Infinity }}
+                    >
+                      {activeProduct.subtitle}
+                    </motion.span>
+                  </motion.p>
+                ) : (
+                  <p className="text-teal-600 font-bold text-xs md:text-sm">
+                    {activeProduct.subtitle}
+                  </p>
+                )}
                 <p className="text-slate-500 font-medium text-xs md:text-sm leading-relaxed pt-2">
                   {activeProduct.description}
                 </p>
