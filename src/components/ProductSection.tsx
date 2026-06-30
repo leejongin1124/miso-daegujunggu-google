@@ -507,10 +507,10 @@ export default function ProductSection({ onScrollToSection, onOpenCalculator, in
                     <div className="flex justify-center text-violet-400 text-lg font-black">▼</div>
 
                     {/* STEP 04 */}
-                    <div className="bg-gradient-to-r from-violet-500 to-blue-500 rounded-2xl p-4 shadow-md">
-                      <span className="bg-white/30 text-white text-[10px] font-black px-2 py-0.5 rounded-full inline-block mb-1">STEP 04</span>
-                      <p className="font-black text-sm text-white">최종 대출약정 및 대출금 실행</p>
-                      <p className="text-xs text-white/80 font-semibold mt-0.5">약정 체결 후 대출금 지급 완료 🎉</p>
+                    <div className="bg-white border-2 border-violet-400 rounded-2xl p-4 shadow-sm">
+                      <span className="bg-violet-500 text-white text-[10px] font-black px-2 py-0.5 rounded-full inline-block mb-1">STEP 04</span>
+                      <p className="font-black text-sm text-slate-800">최종 대출약정 및 대출금 실행</p>
+                      <p className="text-xs text-slate-500 font-semibold mt-0.5">약정 체결 후 대출금 지급 완료 🎉</p>
                     </div>
                   </div>
                 </div>
