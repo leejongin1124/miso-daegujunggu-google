@@ -432,10 +432,19 @@ export default function AboutSection({ sectionId }: { sectionId?: string }) {
                   <Train className="w-4 h-4" />
                 </div>
                 <div>
-                  <h5 className="font-extrabold text-slate-800">지하철 이용 시</h5>
+                  <h5 className="font-extrabold text-slate-800">
+                    <span className="md:hidden">대구 지하철 이용 시</span>
+                    <span className="hidden md:inline">지하철 이용 시</span>
+                  </h5>
                   <p className="text-slate-500 font-medium mt-0.5">
-                    대구 지하철 1호선 <strong>영대병원역</strong> 3번 출구 도보 8분 <br />
-                    대구 지하철 1호선 <strong>교대역</strong> 2번 출구 도보 10분
+                    <span className="md:hidden whitespace-nowrap">
+                      1호선 <strong>영대병원역</strong> 3번출구 도보8분 <br />
+                      1호선 <strong>교대역</strong> 2번출구 도보10분
+                    </span>
+                    <span className="hidden md:inline">
+                      대구 지하철 1호선 <strong>영대병원역</strong> 3번 출구 도보 8분 <br />
+                      대구 지하철 1호선 <strong>교대역</strong> 2번 출구 도보 10분
+                    </span>
                   </p>
                 </div>
               </div>
