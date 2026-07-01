@@ -364,7 +364,7 @@ export default function AboutSection({ sectionId }: { sectionId?: string }) {
           
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-start">
             
-            <div className="space-y-6">
+            <div className="space-y-6 order-2 lg:order-1">
               <span className="text-xs font-black tracking-widest text-teal-600 uppercase">Way to Come</span>
               <h3 className="text-2xl md:text-3xl font-extrabold text-slate-900">대구중구법인 오시는 길</h3>
               <p className="text-slate-600 font-medium text-base md:text-lg leading-relaxed">
@@ -426,8 +426,8 @@ export default function AboutSection({ sectionId }: { sectionId?: string }) {
 
             </div>
 
-            {/* 지도 박스 — 모바일: 텍스트 아래 / PC: 우측 */}
-            <div className="bg-white p-3 rounded-2xl border border-slate-200 shadow-md">
+            {/* 지도 박스 — 모바일: 텍스트 위(먼저 표시) / PC: 우측 그대로 */}
+            <div className="bg-white p-3 rounded-2xl border border-slate-200 shadow-md order-1 lg:order-2">
               <a
                 href="https://naver.me/GSQLkTiM"
                 target="_blank"
