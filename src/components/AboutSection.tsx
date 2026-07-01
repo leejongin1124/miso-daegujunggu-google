@@ -471,19 +471,20 @@ export default function AboutSection({ sectionId }: { sectionId?: string }) {
               transition={{ duration: 0.3 }}
               className="flex items-center justify-between bg-gradient-to-r from-teal-500 to-emerald-500 rounded-2xl px-5 py-4 shadow-md cursor-pointer group"
             >
-              <div className="flex items-center space-x-3">
+              <div className="flex items-center space-x-3 min-w-0">
                 <div className="w-12 h-12 bg-white rounded-xl flex items-center justify-center flex-shrink-0 shadow-sm p-1.5">
                   <img src="/logos/naver_blog_logo.png" alt="네이버 블로그" className="w-full h-full object-contain" />
                 </div>
-                <div>
-                  <p className="text-white font-extrabold text-sm leading-tight">법인 공식 블로그 보기</p>
+                <div className="min-w-0">
+                  <p className="text-white font-extrabold text-sm leading-tight whitespace-nowrap">법인 공식 블로그 보기</p>
                   <p className="text-white/80 text-[11px] mt-0.5 leading-tight">상세 방문 안내 및 대출 상품 정보를 확인하실 수 있습니다</p>
                 </div>
               </div>
-              <div className="flex items-center space-x-1 bg-white text-teal-700 font-bold text-xs px-3 py-2 rounded-xl shadow-sm group-hover:bg-teal-50 transition-colors flex-shrink-0 ml-3">
+              <div className="hidden sm:flex items-center space-x-1 bg-white text-teal-700 font-bold text-xs px-3 py-2 rounded-xl shadow-sm group-hover:bg-teal-50 transition-colors flex-shrink-0 ml-3">
                 <span>방문하기</span>
                 <motion.span animate={{ x: [0, 4, 0] }} transition={{ duration: 1.2, repeat: Infinity, ease: 'easeInOut' }}>→</motion.span>
               </div>
+              <ExternalLink className="sm:hidden w-5 h-5 text-white flex-shrink-0 ml-2" />
             </motion.a>
 
             {/* 전화상담 버튼 — 4개 번호 순환 */}
