@@ -152,7 +152,7 @@ export default function GuideSection({ sectionId }: { sectionId?: string }) {
             <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
               <div className="space-y-2">
                 <span className="text-[10px] font-bold text-miso-blue-100 bg-white/20 px-2.5 py-1 rounded-md uppercase">Smart Interest Simulator</span>
-                <h3 className="text-2xl font-black tracking-tight leading-none">대구중구법인 대출 설계 계산기</h3>
+                <h3 className="text-xl md:text-2xl font-black tracking-tight leading-none whitespace-nowrap">대출 설계 계산기</h3>
                 <p className="text-miso-blue-100 text-xs font-semibold">비영리 공공수행 이율 연 4.5% 기준 매월 가상 상환액</p>
               </div>
               <div className="flex gap-2">
