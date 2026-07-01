@@ -146,19 +146,19 @@ export default function AboutSection({ sectionId }: { sectionId?: string }) {
           {/* 모바일 조직도 카드 레이아웃 */}
           <div className="md:hidden space-y-2 text-left">
             {/* 사원총회 */}
-            <div className="bg-slate-800 text-white text-center py-2.5 rounded-xl font-bold text-sm">사원총회</div>
+            <div className="w-[70%] mx-auto bg-slate-800 text-white text-center py-2.5 rounded-xl font-bold text-sm">사원총회</div>
             <div className="flex justify-center"><div className="w-0.5 h-4 bg-slate-300"/></div>
             {/* 이사회 + 감사 */}
-            <div className="flex gap-2">
+            <div className="w-[70%] mx-auto flex gap-2">
               <div className="flex-1 bg-slate-700 text-white text-center py-2 rounded-lg font-bold text-sm">이사회</div>
-              <div className="w-24 bg-amber-500 text-white text-center py-2 rounded-lg font-bold text-sm">감사</div>
+              <div className="w-20 bg-amber-500 text-white text-center py-2 rounded-lg font-bold text-sm">감사</div>
             </div>
-            <div className="flex justify-start pl-[calc(50%-1px)]"><div className="w-0.5 h-4 bg-slate-300"/></div>
+            <div className="flex justify-center"><div className="w-0.5 h-4 bg-slate-300"/></div>
             {/* 이사장 */}
-            <div className="bg-teal-600 text-white text-center py-3 rounded-xl font-extrabold text-base">이사장 (대표)</div>
+            <div className="w-[60%] mx-auto bg-teal-600 text-white text-center py-3 rounded-xl font-extrabold text-base">이사장 (대표)</div>
             <div className="flex justify-center"><div className="w-0.5 h-4 bg-slate-300"/></div>
             {/* 융자위원회 */}
-            <div className="bg-indigo-600 text-white text-center py-2 rounded-lg font-bold text-sm">융자위원회</div>
+            <div className="w-[55%] mx-auto bg-indigo-600 text-white text-center py-2 rounded-lg font-bold text-sm">융자위원회</div>
             <div className="flex justify-center"><div className="w-0.5 h-4 bg-slate-300"/></div>
             {/* 5개 부서 — 2열 그리드 */}
             <div className="grid grid-cols-2 gap-2">
