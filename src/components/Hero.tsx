@@ -316,7 +316,7 @@ export default function Hero({ onScrollToSection }: HeroProps) {
                 transition={{ duration: 1.1, repeat: Infinity, ease: 'easeInOut' }}
                 whileHover={{ scale: 1.12 }}
                 whileTap={{ scale: 0.92 }}
-                className="relative inline-flex flex-1 md:flex-none justify-center items-center space-x-2 bg-white/15 backdrop-blur-md text-white border border-white/30 hover:bg-white/30 font-bold px-4 md:px-7 py-4 rounded-2xl transition-colors shadow-lg shadow-teal-500/20 text-sm md:text-base"
+                className="relative inline-flex flex-1 md:flex-none justify-center items-center space-x-2 bg-white/5 backdrop-blur-[2px] text-white border border-white/30 hover:bg-white/30 font-bold px-4 md:px-7 py-4 rounded-2xl transition-colors shadow-lg shadow-teal-500/20 text-sm md:text-base"
               >
                 <motion.span
                   animate={{ opacity: [1, 0.4, 1] }}
@@ -337,7 +337,7 @@ export default function Hero({ onScrollToSection }: HeroProps) {
                 transition={{ duration: 1.1, repeat: Infinity, ease: 'easeInOut', delay: 0.4 }}
                 whileHover={{ scale: 1.12 }}
                 whileTap={{ scale: 0.92 }}
-                className="relative inline-flex flex-1 md:flex-none justify-center items-center space-x-2 bg-white/10 backdrop-blur-md text-white border border-white/25 hover:bg-white/20 font-bold px-4 md:px-8 py-4 rounded-2xl transition-colors shadow-lg shadow-emerald-500/20 text-sm md:text-base"
+                className="relative inline-flex flex-1 md:flex-none justify-center items-center space-x-2 bg-white/[0.03] backdrop-blur-[2px] text-white border border-white/25 hover:bg-white/20 font-bold px-4 md:px-8 py-4 rounded-2xl transition-colors shadow-lg shadow-emerald-500/20 text-sm md:text-base"
               >
                 <motion.span
                   animate={{ opacity: [1, 0.4, 1] }}
@@ -373,7 +373,7 @@ export default function Hero({ onScrollToSection }: HeroProps) {
               transition={{ duration: 0.5, delay: i * 0.12, type: 'spring', stiffness: 200, damping: 18 }}
               animate={spotlightIdx === i && i < 2 ? { y: -4, scale: 1.02 } : { y: 0, scale: 1 }}
               onClick={card.action}
-              className={`relative bg-white/90 backdrop-blur-sm rounded-2xl shadow-sm transition-colors duration-500 text-left group overflow-hidden ${
+              className={`relative bg-white/60 backdrop-blur-sm rounded-2xl shadow-sm transition-colors duration-500 text-left group overflow-hidden ${
                 card.action ? 'cursor-pointer' : ''
               } ${
                 spotlightIdx === i && i < 2
