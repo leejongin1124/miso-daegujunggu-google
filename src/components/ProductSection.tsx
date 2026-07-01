@@ -60,7 +60,7 @@ export default function ProductSection({ onScrollToSection, onOpenCalculator, in
       rateTiers: [
         { label: '무등록사업자', limit: '최대 500만원', baseRate: '연 2.0%' },
         { label: '프리랜서', limit: '최대 1,000만원', baseRate: '연 4.5%', preferentialRate: '연 3.5%' },
-        { label: '일반사업자', limit: '최대 2,000만원', baseRate: '연 4.5%', preferentialRate: '연 3.5%' },
+        { label: '개인사업자', limit: '최대 2,000만원', baseRate: '연 4.5%', preferentialRate: '연 3.5%' },
         { label: '청년사업자 (19~34세)', limit: '최대 3,000만원', baseRate: '연 4.5%', preferentialRate: '연 3.5%' }
       ],
       target: [
@@ -244,20 +244,25 @@ export default function ProductSection({ onScrollToSection, onOpenCalculator, in
                       <span className="flex-shrink-0 w-8 h-8 bg-teal-100 rounded-lg flex items-center justify-center text-base">💰</span>
                       <span className="text-slate-700 font-black text-xs md:text-sm">사업자 유형별 대출한도 · 적용금리</span>
                     </div>
-                    <table className="w-full text-left border-collapse">
+                    <table className="w-full text-left border-collapse table-fixed">
+                      <colgroup>
+                        <col className="w-[30%]" />
+                        <col className="w-[32%]" />
+                        <col className="w-[38%]" />
+                      </colgroup>
                       <thead>
                         <tr className="bg-slate-100">
-                          <th className="border border-slate-200 px-3 py-2 text-slate-600 font-bold text-[11px] md:text-xs">구분</th>
-                          <th className="border border-slate-200 px-3 py-2 text-slate-600 font-bold text-[11px] md:text-xs">대출한도</th>
-                          <th className="border border-slate-200 px-3 py-2 text-slate-600 font-bold text-[11px] md:text-xs">적용금리</th>
+                          <th className="border border-slate-200 px-2 md:px-3 py-2 text-slate-600 font-bold text-[11px] md:text-xs">구분</th>
+                          <th className="border border-slate-200 px-2 md:px-3 py-2 text-slate-600 font-bold text-[11px] md:text-xs">대출한도</th>
+                          <th className="border border-slate-200 px-2 md:px-3 py-2 text-slate-600 font-bold text-[11px] md:text-xs">적용금리</th>
                         </tr>
                       </thead>
                       <tbody className="text-xs md:text-sm font-semibold">
                         {activeProduct.rateTiers.map((tier, idx) => (
                           <tr key={tier.label} className={idx % 2 === 0 ? 'bg-white' : 'bg-slate-50/60'}>
-                            <td className="border border-slate-200 px-3 py-2 text-slate-800 font-bold">{tier.label}</td>
-                            <td className="border border-slate-200 px-3 py-2 text-slate-700">{tier.limit}</td>
-                            <td className="border border-slate-200 px-3 py-2 text-teal-700">
+                            <td className="border border-slate-200 px-2 md:px-3 py-2 text-slate-800 font-bold text-[11px] md:text-sm leading-tight">{tier.label}</td>
+                            <td className="border border-slate-200 px-2 md:px-3 py-2 text-slate-700 whitespace-nowrap text-[11px] md:text-sm">{tier.limit}</td>
+                            <td className="border border-slate-200 px-2 md:px-3 py-2 text-teal-700">
                               {tier.preferentialRate ? (
                                 <span className="flex flex-wrap items-center gap-1">
                                   <span className="text-slate-400 line-through decoration-slate-300">{tier.baseRate}</span>
