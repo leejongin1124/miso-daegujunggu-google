@@ -364,70 +364,18 @@ export default function AboutSection({ sectionId }: { sectionId?: string }) {
           
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-start">
             
-            <div className="space-y-6 order-2 lg:order-1">
+            {/* 소개 문구 — 모바일: 최상단 / PC: 좌측 상단 */}
+            <div className="space-y-6 order-1 lg:order-1">
               <span className="text-xs font-black tracking-widest text-teal-600 uppercase">Way to Come</span>
               <h3 className="text-2xl md:text-3xl font-extrabold text-slate-900">대구중구법인 오시는 길</h3>
               <p className="text-slate-600 font-medium text-base md:text-lg leading-relaxed">
                 대구광역시 남구 하나은행 봉덕지점 건물 4층에 위치합니다. <br />
                 지하철·버스 접근이 편리하며, 방문 상담을 환영합니다.
               </p>
-
-              <div className="space-y-4 pt-2">
-                
-                <div className="flex items-start space-x-3 text-base">
-                  <div className="p-1.5 bg-teal-50 rounded text-teal-700 mt-0.5">
-                    <MapPin className="w-4 h-4" />
-                  </div>
-                  <div>
-                    <h5 className="font-extrabold text-slate-800">상세 주소</h5>
-                    <p className="text-slate-500 font-medium mt-0.5">대구광역시 남구 중앙대로 146, 4층 (봉덕동, 하나은행 봉덕지점 건물)</p>
-                  </div>
-                </div>
-
-                <div className="flex items-start space-x-3 text-base">
-                  <div className="p-1.5 bg-indigo-50 rounded text-indigo-700 mt-0.5">
-                    <Train className="w-4 h-4" />
-                  </div>
-                  <div>
-                    <h5 className="font-extrabold text-slate-800">지하철 이용 시</h5>
-                    <p className="text-slate-500 font-medium mt-0.5">
-                      대구 지하철 1호선 <strong>영대병원역</strong> 3번 출구 도보 8분 <br />
-                      대구 지하철 1호선 <strong>교대역</strong> 2번 출구 도보 10분
-                    </p>
-                  </div>
-                </div>
-
-                <div className="flex items-start space-x-3 text-base">
-                  <div className="p-1.5 bg-emerald-50 rounded text-emerald-700 mt-0.5">
-                    <Bus className="w-4 h-4" />
-                  </div>
-                  <div>
-                    <h5 className="font-extrabold text-slate-800">일반 버스 노선</h5>
-                    <p className="text-slate-500 font-medium mt-0.5">
-                      대구고등학교 건너 정류장에 내리시면 바로 근처입니다 <br />
-                      오는 버스: <strong>349, 405, 410, 503, 649</strong>
-                    </p>
-                  </div>
-                </div>
-
-                <div className="flex items-start space-x-3 text-base">
-                  <div className="p-1.5 bg-amber-50 rounded text-amber-600 mt-0.5">
-                    <Car className="w-4 h-4" />
-                  </div>
-                  <div>
-                    <h5 className="font-extrabold text-slate-800">자가용 이용 시</h5>
-                    <p className="text-slate-500 font-medium mt-0.5">
-                      하나은행 봉덕지점 <strong>뒤편 주차장</strong> 이용 시 <strong className="text-amber-600">무료 주차</strong> 가능합니다
-                    </p>
-                  </div>
-                </div>
-
-              </div>
-
             </div>
 
-            {/* 지도 박스 — 모바일: 텍스트 위(먼저 표시) / PC: 우측 그대로 */}
-            <div className="bg-white p-3 rounded-2xl border border-slate-200 shadow-md order-1 lg:order-2">
+            {/* 지도 박스 — 모바일: 소개 문구 다음 / PC: 우측 그대로 */}
+            <div className="bg-white p-3 rounded-2xl border border-slate-200 shadow-md order-2 lg:order-2 lg:row-span-2">
               <a
                 href="https://naver.me/GSQLkTiM"
                 target="_blank"
@@ -451,6 +399,59 @@ export default function AboutSection({ sectionId }: { sectionId?: string }) {
                   <ExternalLink className="w-3 h-3" />
                 </a>
               </div>
+            </div>
+
+            {/* 상세 정보 — 모바일: 지도 다음(교통정보 유도) / PC: 좌측 하단 */}
+            <div className="space-y-4 pt-2 order-3 lg:order-3">
+
+              <div className="flex items-start space-x-3 text-base">
+                <div className="p-1.5 bg-teal-50 rounded text-teal-700 mt-0.5">
+                  <MapPin className="w-4 h-4" />
+                </div>
+                <div>
+                  <h5 className="font-extrabold text-slate-800">상세 주소</h5>
+                  <p className="text-slate-500 font-medium mt-0.5">대구광역시 남구 중앙대로 146, 4층 (봉덕동, 하나은행 봉덕지점 건물)</p>
+                </div>
+              </div>
+
+              <div className="flex items-start space-x-3 text-base">
+                <div className="p-1.5 bg-indigo-50 rounded text-indigo-700 mt-0.5">
+                  <Train className="w-4 h-4" />
+                </div>
+                <div>
+                  <h5 className="font-extrabold text-slate-800">지하철 이용 시</h5>
+                  <p className="text-slate-500 font-medium mt-0.5">
+                    대구 지하철 1호선 <strong>영대병원역</strong> 3번 출구 도보 8분 <br />
+                    대구 지하철 1호선 <strong>교대역</strong> 2번 출구 도보 10분
+                  </p>
+                </div>
+              </div>
+
+              <div className="flex items-start space-x-3 text-base">
+                <div className="p-1.5 bg-emerald-50 rounded text-emerald-700 mt-0.5">
+                  <Bus className="w-4 h-4" />
+                </div>
+                <div>
+                  <h5 className="font-extrabold text-slate-800">일반 버스 노선</h5>
+                  <p className="text-slate-500 font-medium mt-0.5">
+                    대구고등학교 건너 정류장에 내리시면 바로 근처입니다 <br />
+                    오는 버스: <strong>349, 405, 410, 503, 649</strong>
+                  </p>
+                </div>
+              </div>
+
+              <div className="flex items-start space-x-3 text-base">
+                <div className="p-1.5 bg-amber-50 rounded text-amber-600 mt-0.5">
+                  <Car className="w-4 h-4" />
+                </div>
+                <div>
+                  <h5 className="font-extrabold text-slate-800">자가용 이용 시</h5>
+                  <p className="text-slate-500 font-medium mt-0.5">
+                    하나은행 봉덕지점 <strong>뒤편 주차장</strong> 이용 시 <strong className="text-amber-600">무료 주차</strong> 가능합니다
+                  </p>
+                </div>
+              </div>
+
             </div>
 
           </div>
