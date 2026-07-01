@@ -52,14 +52,14 @@ export default function NoticeSection({ sectionId }: { sectionId?: string }) {
         
         {/* 공지사항 */}
         {show('notice') && <><div id="notice" className="text-center space-y-4 max-w-4xl mx-auto">
-          <span className="text-xs font-black text-teal-600 tracking-widest uppercase">Miso Notice Board</span>
+          <span className="text-xs font-black text-teal-600 tracking-widest uppercase">Official Notice</span>
           <h2 className="text-3xl md:text-4.5xl font-black text-slate-900 tracking-tight leading-none">
-            알림마당
+            공지사항
           </h2>
           <div className="h-1.5 w-16 bg-teal-600 rounded-full mx-auto" />
           <p className="text-slate-600 font-medium text-base md:text-lg max-w-2xl mx-auto leading-relaxed">
-            (사)미소금융대구중구법인은 대출 관련 공지사항과 <br className="hidden sm:inline" />
-            유용한 금융 정보를 투명하게 안내합니다.
+            (사)미소금융대구중구법인의 공식 공지사항 및 <br className="hidden sm:inline" />
+            주요 안내사항을 확인하실 수 있습니다.
           </p>
         </div>
 
