@@ -58,7 +58,7 @@ export default function ProductSection({ onScrollToSection, onOpenCalculator, in
       repaymentPeriod: '최대 5.5년 : 거치 6개월 + 상환 5년\n최대 7년 : 거치 2년 + 상환 5년 (청년 19세이상 34세이하)',
       repaymentMethod: '매월 원리금 균등분할 상환',
       target: [
-        '신용정보회사의 개인신용평점이 하위 20%에 해당하는 고객',
+        '신용정보회사의 개인신용평점이 하위 20%에 해당하는 고객 (KCB 700점 · NICE 749점)',
         '기초생활수급자 또는 차상위계층',
         '최근 1년 이내 근로장려금 수급 이력이 있는 개인'
       ],
