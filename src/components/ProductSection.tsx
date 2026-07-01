@@ -336,7 +336,7 @@ export default function ProductSection({ onScrollToSection, onOpenCalculator, in
                       className="mt-3 flex items-center gap-2 bg-rose-50 border border-rose-300 rounded-xl px-4 py-3"
                     >
                       <span className="text-base">⚠️</span>
-                      <p className="text-rose-700 font-black text-xs">STEP 1 + STEP 2 모두 해당 시에만 상담 신청이 가능합니다</p>
+                      <p className="text-rose-700 font-black text-xs">① STEP 1 + STEP 2 모두 해당해야 하는 기본 자격 요건입니다</p>
                     </motion.div>
                   </div>
 
@@ -446,20 +446,20 @@ export default function ProductSection({ onScrollToSection, onOpenCalculator, in
               </div>
 
               {activeProduct.id === 'youth' && (
-                <div className="bg-rose-50 border-2 border-rose-300 p-5 rounded-2xl">
-                  <h4 className="font-black text-sm text-rose-700 flex items-center gap-2">
+                <div className="bg-amber-50 border-2 border-amber-300 p-5 rounded-2xl">
+                  <h4 className="font-black text-sm text-amber-700 flex items-center gap-2">
                     <span className="animate-bounce inline-block">🔔</span>
-                    <span className="animate-pulse">신청 전 필수 절차 — 반드시 확인하세요</span>
+                    <span className="animate-pulse">② 자격 요건 충족자 필수 이수 절차</span>
                   </h4>
                   <p className="text-slate-700 text-xs font-semibold mt-3 leading-relaxed">
-                    청년미래이음대출 신청 전, 서민금융진흥원 홈페이지에서<br />
-                    <span className="text-rose-600 font-black">「청년 모두를 위한 재무상담」</span>을 먼저 이수하셔야 합니다.
+                    위 ① 자격 요건에 해당하는 분은, 신청 전 서민금융진흥원 홈페이지에서<br />
+                    <span className="text-amber-700 font-black">「청년 모두를 위한 재무상담」</span>을 반드시 이수하셔야 합니다.
                   </p>
                   <a
                     href="https://www.kinfa.or.kr/financialLife/youthFinancialCounseling.do"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="mt-4 inline-flex items-center gap-2 bg-rose-600 hover:bg-rose-700 text-white font-bold text-xs px-4 py-2.5 rounded-xl transition shadow-sm"
+                    className="mt-4 inline-flex items-center gap-2 bg-amber-600 hover:bg-amber-700 text-white font-bold text-xs px-4 py-2.5 rounded-xl transition shadow-sm"
                   >
                     <span>서민금융진흥원 홈페이지 바로가기</span>
                     <ArrowUpRight className="w-3.5 h-3.5" />
