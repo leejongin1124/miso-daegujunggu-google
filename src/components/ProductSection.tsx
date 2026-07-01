@@ -57,6 +57,12 @@ export default function ProductSection({ onScrollToSection, onOpenCalculator, in
       interestRate: '연 4.5%\n연 3.5%(우대금리 적용시)',
       repaymentPeriod: '최대 5.5년 : 거치 6개월 + 상환 5년\n최대 7년 : 거치 2년 + 상환 5년 (청년 19세이상 34세이하)',
       repaymentMethod: '매월 원리금 균등분할 상환',
+      rateTiers: [
+        { label: '무등록사업자', limit: '최대 500만원', baseRate: '연 2.0%' },
+        { label: '프리랜서', limit: '최대 1,000만원', baseRate: '연 4.5%', preferentialRate: '연 3.5%' },
+        { label: '일반사업자', limit: '최대 2,000만원', baseRate: '연 4.5%', preferentialRate: '연 3.5%' },
+        { label: '청년사업자 (19~34세)', limit: '최대 3,000만원', baseRate: '연 4.5%', preferentialRate: '연 3.5%' }
+      ],
       target: [
         '신용정보회사의 개인신용평점이 하위 20%에 해당하는 고객 (KCB 700점 · NICE 749점)',
         '기초생활수급자 또는 차상위계층',
@@ -232,6 +238,47 @@ export default function ProductSection({ onScrollToSection, onOpenCalculator, in
 
               {/* 스펙 핵심 수치 대전 */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 py-2">
+                {activeProduct.rateTiers ? (
+                  <div className="sm:col-span-2 bg-slate-50 rounded-xl border border-slate-100 overflow-hidden">
+                    <div className="flex items-center gap-2 px-5 pt-4 pb-2">
+                      <span className="flex-shrink-0 w-8 h-8 bg-teal-100 rounded-lg flex items-center justify-center text-base">💰</span>
+                      <span className="text-slate-700 font-black text-xs md:text-sm">사업자 유형별 대출한도 · 적용금리</span>
+                    </div>
+                    <table className="w-full text-left border-collapse">
+                      <thead>
+                        <tr className="bg-slate-100">
+                          <th className="border border-slate-200 px-3 py-2 text-slate-600 font-bold text-[11px] md:text-xs">구분</th>
+                          <th className="border border-slate-200 px-3 py-2 text-slate-600 font-bold text-[11px] md:text-xs">대출한도</th>
+                          <th className="border border-slate-200 px-3 py-2 text-slate-600 font-bold text-[11px] md:text-xs">적용금리</th>
+                        </tr>
+                      </thead>
+                      <tbody className="text-xs md:text-sm font-semibold">
+                        {activeProduct.rateTiers.map((tier, idx) => (
+                          <tr key={tier.label} className={idx % 2 === 0 ? 'bg-white' : 'bg-slate-50/60'}>
+                            <td className="border border-slate-200 px-3 py-2 text-slate-800 font-bold">{tier.label}</td>
+                            <td className="border border-slate-200 px-3 py-2 text-slate-700">{tier.limit}</td>
+                            <td className="border border-slate-200 px-3 py-2 text-teal-700">
+                              {tier.preferentialRate ? (
+                                <span className="flex flex-wrap items-center gap-1">
+                                  <span className="text-slate-400 line-through decoration-slate-300">{tier.baseRate}</span>
+                                  <ArrowUpRight className="w-3 h-3 text-teal-500 rotate-90" />
+                                  <span className="text-teal-700 font-black">{tier.preferentialRate}</span>
+                                  <span className="text-slate-400 text-[10px] font-medium">(우대)</span>
+                                </span>
+                              ) : (
+                                <span className="text-slate-700 font-black">{tier.baseRate}</span>
+                              )}
+                            </td>
+                          </tr>
+                        ))}
+                      </tbody>
+                    </table>
+                    <p className="text-slate-400 text-[10px] md:text-xs px-5 py-2.5">
+                      ※ 무등록사업자는 별도 고정금리가 적용되며 우대금리 대상에서 제외됩니다.
+                    </p>
+                  </div>
+                ) : (
+                <>
                 <div className="bg-slate-50 px-5 py-4 rounded-xl border border-slate-100 flex items-center gap-4">
                   <div className="flex-shrink-0 w-10 h-10 bg-teal-100 rounded-xl flex items-center justify-center text-lg">💰</div>
                   <div>
@@ -246,6 +293,8 @@ export default function ProductSection({ onScrollToSection, onOpenCalculator, in
                     <span className="block text-teal-800 font-black text-sm leading-snug whitespace-pre-line">{activeProduct.interestRate}</span>
                   </div>
                 </div>
+                </>
+                )}
                 <div className="bg-slate-50 px-5 py-4 rounded-xl border border-slate-100 flex items-center gap-4">
                   <div className="flex-shrink-0 w-10 h-10 bg-indigo-100 rounded-xl flex items-center justify-center text-lg">📅</div>
                   <div>

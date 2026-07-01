@@ -20,6 +20,7 @@ export interface Product {
   effect: string;
   blogUrl?: string;
   phone?: string;
+  rateTiers?: { label: string; limit: string; baseRate: string; preferentialRate?: string }[];
 }
 
 export interface Milestone {
