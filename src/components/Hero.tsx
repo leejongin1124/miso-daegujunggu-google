@@ -78,8 +78,8 @@ export default function Hero({ onScrollToSection }: HeroProps) {
     return () => observer.disconnect();
   }, []);
 
-  const { count: countPeople, done: peopleDone } = useCountUp(3800, 3800, statsInView);
-  const { count: countMoney, done: moneyDone } = useCountUp(600, 3800, statsInView);
+  const { count: countPeople, done: peopleDone } = useCountUp(3800, 1200, statsInView);
+  const { count: countMoney, done: moneyDone } = useCountUp(600, 1200, statsInView);
 
   const peopleAnim = useAnimation();
   const moneyAnim = useAnimation();
@@ -118,7 +118,7 @@ export default function Hero({ onScrollToSection }: HeroProps) {
 
   useEffect(() => {
     if (peopleDone && moneyDone) {
-      const t = setTimeout(() => setStatsCardsVisible(false), 3000);
+      const t = setTimeout(() => setStatsCardsVisible(false), 1000);
       return () => clearTimeout(t);
     }
   }, [peopleDone, moneyDone]);
@@ -192,7 +192,12 @@ export default function Hero({ onScrollToSection }: HeroProps) {
   ];
 
   return (
-    <section id="hero-section" className="relative overflow-hidden min-h-[100svh] flex flex-col">
+    <section
+      id="hero-section"
+      className={`relative overflow-hidden flex flex-col transition-[min-height] duration-700 ease-in-out ${
+        isMobile && !statsCardsVisible ? 'min-h-0' : 'min-h-[100svh]'
+      }`}
+    >
 
       {/* 배경 동영상 — 모바일: object-top으로 상단 인물 중심 표시 */}
       <video
@@ -212,8 +217,8 @@ export default function Hero({ onScrollToSection }: HeroProps) {
       <div className="relative z-10 flex flex-col flex-1 pt-12 md:pt-16">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full flex flex-col flex-1">
 
-        {/* 텍스트 영역 — 모바일: 중앙, PC: 좌측 */}
-        <div className="flex-1 flex items-center py-4 md:py-12">
+        {/* 텍스트 영역 — 모바일: 상단 고정(카드 접힘에 영향받지 않음), PC: 중앙 */}
+        <div className="flex-1 flex items-start md:items-center py-4 md:py-12">
 
           <div className="space-y-3 md:space-y-6 text-left w-full md:max-w-2xl">
 
