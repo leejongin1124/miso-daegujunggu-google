@@ -456,7 +456,9 @@ export default function AboutSection({ sectionId }: { sectionId?: string }) {
                 <div>
                   <h5 className="font-extrabold text-slate-800">일반 버스 노선</h5>
                   <p className="text-slate-500 font-medium mt-0.5">
-                    대구고등학교 건너 정류장에 내리시면 바로 근처입니다 <br />
+                    <span className="md:hidden">대구고등학교 건너 정류장 근처</span>
+                    <span className="hidden md:inline">대구고등학교 건너 정류장에 내리시면 바로 근처입니다</span>
+                    <br />
                     오는 버스: <strong>349, 405, 410, 503, 649</strong>
                   </p>
                 </div>
@@ -469,7 +471,19 @@ export default function AboutSection({ sectionId }: { sectionId?: string }) {
                 <div>
                   <h5 className="font-extrabold text-slate-800">자가용 이용 시</h5>
                   <p className="text-slate-500 font-medium mt-0.5">
-                    하나은행 봉덕지점 <strong>뒤편 주차장</strong> 이용 시 <strong className="text-amber-600">무료 주차</strong> 가능합니다
+                    <span className="md:hidden">
+                      하나은행 봉덕지점 <strong>뒤편 주차장</strong> 이용 시 <br />
+                      <motion.strong
+                        className="inline-block text-amber-600"
+                        animate={{ scale: [1, 1.08, 1] }}
+                        transition={{ duration: 1.2, repeat: Infinity, ease: 'easeInOut' }}
+                      >
+                        무료 주차
+                      </motion.strong> 가능합니다
+                    </span>
+                    <span className="hidden md:inline">
+                      하나은행 봉덕지점 <strong>뒤편 주차장</strong> 이용 시 <strong className="text-amber-600">무료 주차</strong> 가능합니다
+                    </span>
                   </p>
                 </div>
               </div>
