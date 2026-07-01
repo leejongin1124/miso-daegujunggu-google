@@ -278,6 +278,9 @@ export default function ProductSection({ onScrollToSection, onOpenCalculator, in
                         ))}
                       </tbody>
                     </table>
+                    <p className="text-slate-400 text-[10px] md:text-xs px-5 py-2.5">
+                      ※ 기본금리는 연 4.5%이며, 성실상환 우대금리 적용 시 연 3.5%로 적용됩니다. (무등록사업자 제외)
+                    </p>
                   </div>
                 ) : (
                 <>
