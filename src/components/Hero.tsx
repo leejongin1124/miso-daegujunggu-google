@@ -286,7 +286,8 @@ export default function Hero({ onScrollToSection }: HeroProps) {
               className="space-y-2"
             >
               <p className="text-white/70 text-sm md:text-base font-medium leading-relaxed drop-shadow">
-                금융위원회 허가 비영리 공익법인이자 서민금융진흥원 공식 사업수행기관입니다.
+                금융위원회 허가 비영리 공익법인이자<br className="md:hidden" />{' '}
+                서민금융진흥원 공식 사업수행기관입니다.
               </p>
               <p className="text-white text-base md:text-lg font-semibold leading-relaxed flex flex-wrap items-center gap-2 drop-shadow">
                 대구·경북 청년·소상공인·취약계층의 자립을 위해
