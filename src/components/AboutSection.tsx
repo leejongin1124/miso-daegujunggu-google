@@ -368,14 +368,25 @@ export default function AboutSection({ sectionId }: { sectionId?: string }) {
             <div className="space-y-1.5 md:space-y-6 order-1 lg:order-1">
               <span className="text-xs font-black tracking-widest text-teal-600 uppercase">Way to Come</span>
               <h3 className="text-2xl md:text-3xl font-extrabold text-slate-900">대구중구법인 오시는 길</h3>
-              <p className="text-slate-600 font-medium text-base md:text-lg leading-relaxed">
-                <span className="hidden md:inline">대구광역시 남구 하나은행 봉덕지점 건물 4층에 위치합니다. <br /></span>
+              <p className="hidden md:block text-slate-600 font-medium text-base md:text-lg leading-relaxed">
+                대구광역시 남구 하나은행 봉덕지점 건물 4층에 위치합니다. <br />
                 지하철·버스 접근이 편리하며, 방문 상담을 환영합니다.
               </p>
             </div>
 
-            {/* 지도 박스 — 모바일: 자가용 이용 시 다음(맨 아래) / PC: 우측 그대로 */}
+            {/* 지도 박스 — 모바일: 자가용 이용 시 다음(맨 아래), 버튼은 지도 상단 / PC: 우측 그대로, 버튼은 지도 하단 */}
             <div className="bg-white p-3 rounded-2xl border border-slate-200 shadow-md order-3 lg:order-2 lg:row-span-2">
+              <div className="flex items-center justify-center mb-2 px-1 md:hidden">
+                <a
+                  href="https://naver.me/GSQLkTiM"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="bg-teal-600 text-white hover:bg-teal-700 px-3 py-1.5 rounded-lg text-[10px] font-bold transition-all flex items-center space-x-1"
+                >
+                  <span>📍 네이버 지도 열기</span>
+                  <ExternalLink className="w-3 h-3" />
+                </a>
+              </div>
               <a
                 href="https://naver.me/GSQLkTiM"
                 target="_blank"
@@ -388,7 +399,7 @@ export default function AboutSection({ sectionId }: { sectionId?: string }) {
                   className="w-full h-80 object-cover"
                 />
               </a>
-              <div className="flex items-center justify-center mt-2 px-1">
+              <div className="hidden md:flex items-center justify-center mt-2 px-1">
                 <a
                   href="https://naver.me/GSQLkTiM"
                   target="_blank"
