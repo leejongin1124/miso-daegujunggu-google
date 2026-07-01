@@ -468,7 +468,7 @@ export default function GuideSection({ sectionId }: { sectionId?: string }) {
               <div className="w-9 h-9 bg-teal-600 text-white rounded-xl flex items-center justify-center font-black text-sm">1</div>
               <h4 className="font-extrabold text-teal-800 text-base">신용평점 하위 20% 해당자</h4>
               <p className="text-slate-600 text-sm leading-relaxed">
-                신용정보회사의 개인신용평점이 하위 20%에 해당하는 고객 (KCB 700점 · NICE 749점)<br />
+                신용정보회사의 개인신용평점이 하위 20%에 해당하는 고객<br />
                 <span className="font-bold text-teal-700">KCB 700점 이하 · NICE 749점 이하</span>
               </p>
               <p className="text-[10px] text-slate-400 font-medium">내 신용점수를 먼저 확인해 보세요 👇</p>
