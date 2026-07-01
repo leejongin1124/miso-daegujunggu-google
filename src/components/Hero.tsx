@@ -118,7 +118,7 @@ export default function Hero({ onScrollToSection }: HeroProps) {
 
   useEffect(() => {
     if (peopleDone && moneyDone) {
-      const t = setTimeout(() => setStatsCardsVisible(false), 1000);
+      const t = setTimeout(() => setStatsCardsVisible(false), 2000);
       return () => clearTimeout(t);
     }
   }, [peopleDone, moneyDone]);
