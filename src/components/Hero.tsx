@@ -303,19 +303,27 @@ export default function Hero({ onScrollToSection }: HeroProps) {
               transition={{ duration: 0.6, delay: 0.3 }}
               className="flex flex-row gap-3 pt-2 items-start w-full"
             >
-              <button
+              <motion.button
                 onClick={() => onScrollToSection('social-finance')}
-                className="inline-flex flex-1 md:flex-none justify-center items-center space-x-2 bg-white/15 backdrop-blur-md text-white border border-white/30 hover:bg-white/30 font-bold px-4 md:px-7 py-4 rounded-2xl transition-all shadow text-sm md:text-base"
+                animate={{ scale: [1, 1.05, 1] }}
+                transition={{ duration: 1.6, repeat: Infinity, ease: 'easeInOut' }}
+                whileHover={{ scale: 1.08 }}
+                whileTap={{ scale: 0.95 }}
+                className="inline-flex flex-1 md:flex-none justify-center items-center space-x-2 bg-white/15 backdrop-blur-md text-white border border-white/30 hover:bg-white/30 font-bold px-4 md:px-7 py-4 rounded-2xl transition-colors shadow text-sm md:text-base"
               >
                 <span className="md:hidden">🔍 상품안내</span>
                 <span className="hidden md:inline">🔍 지원상품 전체보기</span>
                 <ArrowRight className="w-4 h-4 hidden md:inline" />
-              </button>
-              <a
+              </motion.button>
+              <motion.a
                 href="https://blog.naver.com/eornwndrn1"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex flex-1 md:flex-none justify-center items-center space-x-2 bg-white/10 backdrop-blur-md text-white border border-white/25 hover:bg-white/20 font-bold px-4 md:px-8 py-4 rounded-2xl transition-all shadow-lg text-sm md:text-base"
+                animate={{ scale: [1, 1.05, 1] }}
+                transition={{ duration: 1.6, repeat: Infinity, ease: 'easeInOut', delay: 0.3 }}
+                whileHover={{ scale: 1.08 }}
+                whileTap={{ scale: 0.95 }}
+                className="inline-flex flex-1 md:flex-none justify-center items-center space-x-2 bg-white/10 backdrop-blur-md text-white border border-white/25 hover:bg-white/20 font-bold px-4 md:px-8 py-4 rounded-2xl transition-colors shadow-lg text-sm md:text-base"
               >
                 <img
                   src="/logos/naver_blog_logo.png"
@@ -324,7 +332,7 @@ export default function Hero({ onScrollToSection }: HeroProps) {
                 />
                 <span className="md:hidden">법인 블로그</span>
                 <span className="hidden md:inline">법인 공식 블로그 보기</span>
-              </a>
+              </motion.a>
             </motion.div>
           </div>
         </div>
