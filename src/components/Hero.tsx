@@ -3,7 +3,7 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-import { motion, useAnimation } from 'motion/react';
+import { motion, useAnimation, AnimatePresence } from 'motion/react';
 import { useState, useEffect, useRef } from 'react';
 import { Phone, ArrowRight, ShieldCheck, BadgePercent, TrendingUp, Users, Banknote, MapPin } from 'lucide-react';
 
@@ -103,6 +103,25 @@ export default function Hero({ onScrollToSection }: HeroProps) {
       });
     }
   }, [moneyDone]);
+
+  // 모바일 전용: 카운트업 애니메이션 종료 3초 후 통계 카드(누적 대출 인원/금액) 숨김 → 하단 footer 노출
+  const [isMobile, setIsMobile] = useState(false);
+  const [statsCardsVisible, setStatsCardsVisible] = useState(true);
+
+  useEffect(() => {
+    const mq = window.matchMedia('(max-width: 767px)');
+    setIsMobile(mq.matches);
+    const handler = (e: MediaQueryListEvent) => setIsMobile(e.matches);
+    mq.addEventListener('change', handler);
+    return () => mq.removeEventListener('change', handler);
+  }, []);
+
+  useEffect(() => {
+    if (peopleDone && moneyDone) {
+      const t = setTimeout(() => setStatsCardsVisible(false), 3000);
+      return () => clearTimeout(t);
+    }
+  }, [peopleDone, moneyDone]);
 
   // 타이틀 순차 애니메이션 phase: 0→숨김 1→1번등장 2→2번등장 3→고정
   const [titlePhase, setTitlePhase] = useState(0);
@@ -307,12 +326,16 @@ export default function Hero({ onScrollToSection }: HeroProps) {
 
         {/* 4종 퀵 카드 — 동영상 섹션 하단 */}
         <div ref={statsRef} className="grid grid-cols-2 lg:grid-cols-4 gap-2 md:gap-4 pb-4 md:pb-8">
-          {quickCards.map((card, i) => (
+          <AnimatePresence>
+          {quickCards.map((card, i) => {
+            if (i >= 2 && isMobile && !statsCardsVisible) return null;
+            return (
             <motion.div
               key={i}
               initial={{ opacity: 0, y: 30, scale: 0.95 }}
               whileInView={{ opacity: 1, y: 0, scale: 1 }}
               viewport={{ once: true }}
+              exit={{ opacity: 0, scale: 0.9, height: 0, marginTop: 0, marginBottom: 0, paddingTop: 0, paddingBottom: 0 }}
               transition={{ duration: 0.5, delay: i * 0.12, type: 'spring', stiffness: 200, damping: 18 }}
               animate={spotlightIdx === i && i < 2 ? { y: -4, scale: 1.02 } : { y: 0, scale: 1 }}
               onClick={card.action}
@@ -393,7 +416,9 @@ export default function Hero({ onScrollToSection }: HeroProps) {
                 <p className="text-slate-400 text-[10px] md:text-xs mt-1 font-semibold">{card.desc}</p>
               </div>
             </motion.div>
-          ))}
+            );
+          })}
+          </AnimatePresence>
         </div>
 
       </div>
