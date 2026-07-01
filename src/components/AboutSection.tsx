@@ -421,7 +421,9 @@ export default function AboutSection({ sectionId }: { sectionId?: string }) {
                 </div>
                 <div>
                   <h5 className="font-extrabold text-slate-800">상세 주소</h5>
-                  <p className="text-slate-500 font-medium mt-0.5">대구광역시 남구 중앙대로 146, 4층 (봉덕동, 하나은행 봉덕지점 건물)</p>
+                  <p className="text-slate-500 font-medium mt-0.5">
+                    대구광역시 남구 중앙대로 146, 4층<br className="md:hidden" /> <span className="md:inline">(봉덕동, 하나은행 봉덕지점)</span>
+                  </p>
                 </div>
               </div>
 
