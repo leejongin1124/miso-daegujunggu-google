@@ -49,8 +49,14 @@ export default function Hero({ onScrollToSection }: HeroProps) {
   const videoRef = useRef<HTMLVideoElement>(null);
 
   useEffect(() => {
+    let count = 0;
     const interval = setInterval(() => {
+      count += 1;
       setSpotlightIdx(prev => (prev + 1) % 2);
+      if (count >= 4) {
+        clearInterval(interval);
+        setSpotlightIdx(-1);
+      }
     }, 1800);
     return () => clearInterval(interval);
   }, []);
