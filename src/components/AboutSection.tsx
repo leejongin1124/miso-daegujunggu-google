@@ -364,12 +364,12 @@ export default function AboutSection({ sectionId }: { sectionId?: string }) {
           
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-start">
             
-            {/* 소개 문구 — 모바일: 최상단 / PC: 좌측 상단 */}
-            <div className="space-y-6 order-1 lg:order-1">
+            {/* 소개 문구 — 모바일: 최상단(간격 축소) / PC: 좌측 상단 */}
+            <div className="space-y-1.5 md:space-y-6 order-1 lg:order-1">
               <span className="text-xs font-black tracking-widest text-teal-600 uppercase">Way to Come</span>
               <h3 className="text-2xl md:text-3xl font-extrabold text-slate-900">대구중구법인 오시는 길</h3>
               <p className="text-slate-600 font-medium text-base md:text-lg leading-relaxed">
-                대구광역시 남구 하나은행 봉덕지점 건물 4층에 위치합니다. <br />
+                <span className="hidden md:inline">대구광역시 남구 하나은행 봉덕지점 건물 4층에 위치합니다. <br /></span>
                 지하철·버스 접근이 편리하며, 방문 상담을 환영합니다.
               </p>
             </div>
