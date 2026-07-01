@@ -374,8 +374,8 @@ export default function AboutSection({ sectionId }: { sectionId?: string }) {
               </p>
             </div>
 
-            {/* 지도 박스 — 모바일: 소개 문구 다음 / PC: 우측 그대로 */}
-            <div className="bg-white p-3 rounded-2xl border border-slate-200 shadow-md order-2 lg:order-2 lg:row-span-2">
+            {/* 지도 박스 — 모바일: 자가용 이용 시 다음(맨 아래) / PC: 우측 그대로 */}
+            <div className="bg-white p-3 rounded-2xl border border-slate-200 shadow-md order-3 lg:order-2 lg:row-span-2">
               <a
                 href="https://naver.me/GSQLkTiM"
                 target="_blank"
@@ -401,8 +401,8 @@ export default function AboutSection({ sectionId }: { sectionId?: string }) {
               </div>
             </div>
 
-            {/* 상세 정보 — 모바일: 지도 다음(교통정보 유도) / PC: 좌측 하단 */}
-            <div className="space-y-4 pt-2 order-3 lg:order-3">
+            {/* 상세 정보 — 모바일: 소개 문구 다음(지도보다 먼저) / PC: 좌측 하단 */}
+            <div className="space-y-4 pt-2 order-2 lg:order-3">
 
               <div className="flex items-start space-x-3 text-base">
                 <div className="p-1.5 bg-teal-50 rounded text-teal-700 mt-0.5">
