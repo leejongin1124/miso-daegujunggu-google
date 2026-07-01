@@ -179,9 +179,9 @@ export default function GuideSection({ sectionId }: { sectionId?: string }) {
               
               {/* 대출 원금 */}
               <div className="space-y-4 pb-4">
-                <div className="flex justify-between items-center text-sm font-extrabold text-slate-800">
+                <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center text-sm font-extrabold text-slate-800 gap-1">
                   <span className="flex items-center gap-1">💰 대출 요청 원금 설정</span>
-                  <span className="text-miso-blue-600 font-black text-lg">{(loanAmount / 10000).toLocaleString()}만 원</span>
+                  <span className="text-miso-blue-600 font-black text-lg whitespace-nowrap">{(loanAmount / 10000).toLocaleString()}만 원</span>
                 </div>
                 <input 
                   type="range" 
@@ -223,9 +223,9 @@ export default function GuideSection({ sectionId }: { sectionId?: string }) {
 
               {/* 실질 이자율 설정 (미소금융 정책이율 4.0 ~ 4.5%) */}
               <div className="space-y-4 pt-6 pb-4">
-                <div className="flex justify-between items-center text-sm font-extrabold text-slate-800">
+                <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center text-sm font-extrabold text-slate-800 gap-1">
                   <span className="flex items-center gap-1">📈 연 이자율</span>
-                  <span className="text-miso-blue-600 font-black text-lg">{interestRate.toFixed(1)}%</span>
+                  <span className="text-miso-blue-600 font-black text-lg whitespace-nowrap">{interestRate.toFixed(1)}%</span>
                 </div>
                 <input
                   type="range"
@@ -278,9 +278,9 @@ export default function GuideSection({ sectionId }: { sectionId?: string }) {
 
               {/* 거치 기간 설정 (이자만 납부하는 유예기) */}
               <div className="space-y-4 pt-6 pb-4">
-                <div className="flex justify-between items-center text-sm font-extrabold text-slate-800">
+                <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center text-sm font-extrabold text-slate-800 gap-1">
                   <span className="flex items-center gap-1">⏳ 거치 유예기간 (이자만 납부)</span>
-                  <span className="text-miso-blue-600 font-black text-lg">{gracePeriod} 개월 {gracePeriod >= 12 && `(${Math.floor(gracePeriod / 12)}년)`}</span>
+                  <span className="text-miso-blue-600 font-black text-lg whitespace-nowrap">{gracePeriod} 개월 {gracePeriod >= 12 && `(${Math.floor(gracePeriod / 12)}년)`}</span>
                 </div>
                 <input 
                   type="range" 
@@ -323,9 +323,9 @@ export default function GuideSection({ sectionId }: { sectionId?: string }) {
 
               {/* 원금 상환 기간 설정 */}
               <div className="space-y-4 pt-6">
-                <div className="flex justify-between items-center text-sm font-extrabold text-slate-800">
+                <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center text-sm font-extrabold text-slate-800 gap-1">
                   <span className="flex items-center gap-1">📅 원금분할상환 기간 설정</span>
-                  <span className="text-miso-blue-600 font-black text-lg">{repaymentPeriod} 개월 ({repaymentPeriod / 12}년)</span>
+                  <span className="text-miso-blue-600 font-black text-lg whitespace-nowrap">{repaymentPeriod} 개월 ({repaymentPeriod / 12}년)</span>
                 </div>
                 <input 
                   type="range" 
@@ -372,7 +372,7 @@ export default function GuideSection({ sectionId }: { sectionId?: string }) {
 
                 {/* 거치 기간 이자 */}
                 {gracePeriod > 0 && (
-                  <div className="flex justify-between text-sm">
+                  <div className="flex flex-col sm:flex-row sm:justify-between sm:items-baseline text-sm gap-0.5">
                     <span className="text-slate-500 font-medium">거치기간 중 매달 납부액(이자만):</span>
                     <span className="font-black text-slate-800">{calcResult.gracePeriodMonthlyInterest.toLocaleString()} 원</span>
                   </div>
@@ -380,11 +380,11 @@ export default function GuideSection({ sectionId }: { sectionId?: string }) {
 
                 {/* 상환 기간 돌입 후 이자 */}
                 <div className="space-y-3 pt-2">
-                  <div className="flex justify-between text-sm">
+                  <div className="flex flex-col sm:flex-row sm:justify-between sm:items-baseline text-sm gap-0.5">
                     <span className="text-slate-500 font-medium">상환기간 매월 균등 원금:</span>
                     <span className="font-black text-slate-800">{calcResult.repaymentMonthlyPrincipal.toLocaleString()} 원</span>
                   </div>
-                  <div className="flex justify-between text-sm">
+                  <div className="flex flex-col sm:flex-row sm:justify-between sm:items-baseline text-sm gap-0.5">
                     <span className="text-slate-500 font-medium mr-2 flex items-center">
                       상환기간 첫달 평균 이자:
                       <span className="inline-block relative group ml-1 text-slate-300 hover:text-slate-500 cursor-help pr-1 text-xs">
@@ -397,7 +397,7 @@ export default function GuideSection({ sectionId }: { sectionId?: string }) {
                     <span className="font-black text-miso-blue-700">{calcResult.repaymentMonthlyInterest.toLocaleString()} 원</span>
                   </div>
                   <div className="h-0.5 bg-dashed bg-slate-200 my-1" />
-                  <div className="flex justify-between text-base font-extrabold text-slate-900">
+                  <div className="flex flex-col sm:flex-row sm:justify-between sm:items-baseline text-base font-extrabold text-slate-900 gap-0.5">
                     <span>이후 매월 평균 납입금:</span>
                     <span className="font-black text-miso-blue-600">월 {calcResult.repaymentTotalMonthly.toLocaleString()} 원</span>
                   </div>
@@ -405,11 +405,11 @@ export default function GuideSection({ sectionId }: { sectionId?: string }) {
 
                 {/* 누적 통계 */}
                 <div className="bg-white p-4.5 rounded-2xl border border-slate-200 space-y-2.5">
-                  <div className="flex justify-between text-xs">
+                  <div className="flex flex-col sm:flex-row sm:justify-between sm:items-baseline text-xs gap-0.5">
                     <span className="text-slate-400 font-extrabold">원금과 이자 합산</span>
                     <span className="text-slate-500 font-bold">총 납부 이자 : {calcResult.totalInterest.toLocaleString()}원</span>
                   </div>
-                  <div className="flex justify-between text-sm font-extrabold text-slate-900">
+                  <div className="flex flex-col sm:flex-row sm:justify-between sm:items-baseline text-sm font-extrabold text-slate-900 gap-0.5">
                     <span>총 상환 예정액:</span>
                     <span className="font-black text-slate-800">{calcResult.totalPayment.toLocaleString()} 원</span>
                   </div>

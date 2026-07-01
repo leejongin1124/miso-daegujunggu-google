@@ -24,3 +24,13 @@
   --color-miso-navy-800: #0D1026;
   --color-miso-navy-900: #0A0D1E;
 }
+
+html {
+  font-size: 17px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 18px;
+  }
+}

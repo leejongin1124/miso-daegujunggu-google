@@ -119,7 +119,7 @@ export default function CaseSection({ initialFilter }: CaseSectionProps) {
         {/* 타이틀 */}
         <div id="case-social" className="text-center space-y-4 max-w-4xl mx-auto">
           <span className="text-xs font-black text-teal-600 tracking-widest uppercase">Miso Miracle Stories</span>
-          <h2 className="text-2xl md:text-4xl font-black text-slate-900 tracking-tight leading-tight whitespace-nowrap overflow-hidden text-ellipsis">
+          <h2 className="text-2xl md:text-4xl font-black text-slate-900 tracking-tight leading-tight md:whitespace-nowrap">
             대구 시민들의 실제 이야기
           </h2>
           <div className="h-1.5 w-16 bg-teal-600 rounded-full mx-auto" />
