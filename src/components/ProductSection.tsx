@@ -51,8 +51,8 @@ export default function ProductSection({ onScrollToSection, onOpenCalculator, in
     {
       id: 'business',
       name: '사업자 운영자금',
-      subtitle: '사업자등록증 보유 후 실제 운영 3개월 이상인 소상공인·개인 사업자',
-      description: '골목의 동네 미용실, 전통시장 안 작은 상회, 1인 배달업 등 사업 실적이 있음에도 담보가 부족해 대출이 어려운 자영업자를 지원하는 긴급 운영자금입니다.',
+      subtitle: '실제 운영 3개월 이상 소상공인·개인 사업자 (무등록사업자 포함)',
+      description: '성실히 사업을 이어오셨음에도 담보나 신용 요건이 부족해 은행 문턱을 넘기 어려운 자영업자분들을 위한 정책 운영자금입니다.',
       limit: '최대 2,000만원\n최대 3,000만원(청년사업가)',
       interestRate: '연 4.5%\n연 3.5%(우대금리 적용시)',
       repaymentPeriod: '최대 5.5년 : 거치 6개월 + 상환 5년\n최대 7년 : 거치 2년 + 상환 5년 (청년 19세이상 34세이하)',
@@ -273,9 +273,6 @@ export default function ProductSection({ onScrollToSection, onOpenCalculator, in
                         ))}
                       </tbody>
                     </table>
-                    <p className="text-slate-400 text-[10px] md:text-xs px-5 py-2.5">
-                      ※ 무등록사업자는 별도 고정금리가 적용되며 우대금리 대상에서 제외됩니다.
-                    </p>
                   </div>
                 ) : (
                 <>
