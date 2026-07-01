@@ -68,9 +68,9 @@ export default function NoticeSection({ sectionId }: { sectionId?: string }) {
           <div className="flex justify-between items-center border-b border-slate-200 pb-5">
             <h3 className="font-extrabold text-slate-900 text-lg flex items-center gap-1.5">
               <FileText className="w-5.5 h-5.5 text-teal-650" />
-              <span>법인 소식 & 공식 공지사항</span>
+              <span>공지사항</span>
             </h3>
-            <span className="text-slate-400 font-bold text-xs">최신 업데이트 기준</span>
+
           </div>
 
           <div className="space-y-4">
