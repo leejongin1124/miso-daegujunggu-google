@@ -103,9 +103,9 @@ export default function NoticeSection({ sectionId }: { sectionId?: string }) {
         {/* 불법 사금융 예방 배너 및 단속 카드 (안심 보호) */}
         {show('anti-fraud') && <div id="anti-fraud" className="bg-rose-50/50 border border-rose-100 p-8 md:p-12 rounded-3xl text-left space-y-8">
           
-          <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 border-b border-rose-100 pb-5">
+          <div className="flex flex-col md:flex-row justify-between items-center md:items-center gap-4 border-b border-rose-100 pb-5 text-center md:text-left">
             <div className="space-y-1.5">
-              <h3 className="font-extrabold text-slate-950 text-lg flex items-center gap-1.5">
+              <h3 className="font-extrabold text-slate-950 text-base md:text-lg flex items-center justify-center md:justify-start gap-1.5 whitespace-nowrap">
                 <AlertTriangle className="w-6 h-6 text-rose-600 shrink-0" />
                 <span>불법 사금융 및 보이스피싱 피해 예방 안내</span>
               </h3>
@@ -113,10 +113,10 @@ export default function NoticeSection({ sectionId }: { sectionId?: string }) {
                 불법 사금융 피해를 입으셨거나 의심스러운 연락을 받으셨다면, 아래 정부 공식 상담번호를 이용해 주시기 바랍니다.
               </p>
             </div>
-            
-            <a 
+
+            <a
               href="tel:1397"
-              className="bg-rose-600 hover:bg-rose-700 text-white font-black px-4.5 py-3 rounded-xl text-xs flex items-center gap-1.5 shrink-0 transition"
+              className="bg-rose-600 hover:bg-rose-700 text-white font-black px-4.5 py-3 rounded-xl text-xs flex items-center justify-center gap-1.5 shrink-0 transition mx-auto md:mx-0"
             >
               <span>☎ 서민금융 통합 번호 1397</span>
             </a>
