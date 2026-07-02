@@ -374,6 +374,8 @@ export default function Hero({ onScrollToSection }: HeroProps) {
               animate={spotlightIdx === i && i < 2 ? { y: -4, scale: 1.02 } : { y: 0, scale: 1 }}
               onClick={card.action}
               className={`relative rounded-2xl shadow-sm transition-colors duration-500 text-left group overflow-hidden ${
+                i === 0 ? 'order-2 md:order-none' : i === 1 ? 'order-1 md:order-none' : ''
+              } ${
                 i < 2
                   ? 'bg-white/5 md:bg-white/60 backdrop-blur-[2px] md:backdrop-blur-sm'
                   : 'bg-white/60 backdrop-blur-sm'
