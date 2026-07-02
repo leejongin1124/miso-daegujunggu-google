@@ -34,10 +34,10 @@ interface HeroProps {
 const AUDIENCE = ['청년', '소상공인', '취약계층', '자영업자'];
 
 const PHONES = [
-  { number: '053-252-6408', color: 'text-rose-600' },
-  { number: '053-252-6409', color: 'text-indigo-600' },
-  { number: '053-252-6479', color: 'text-teal-600' },
-  { number: '053-252-6480', color: 'text-amber-600' },
+  { number: '053-252-6408', color: 'text-rose-600', mdColor: 'text-white md:text-rose-600' },
+  { number: '053-252-6409', color: 'text-indigo-600', mdColor: 'text-white md:text-indigo-600' },
+  { number: '053-252-6479', color: 'text-teal-600', mdColor: 'text-white md:text-teal-600' },
+  { number: '053-252-6480', color: 'text-amber-600', mdColor: 'text-white md:text-amber-600' },
 ];
 
 export default function Hero({ onScrollToSection }: HeroProps) {
@@ -447,7 +447,7 @@ export default function Hero({ onScrollToSection }: HeroProps) {
                           opacity: pi === phoneIdx ? 1 : 0,
                         }}
                         transition={{ duration: 0.4, ease: 'easeInOut' }}
-                        className={`absolute inset-0 flex items-center font-extrabold text-lg md:text-3xl tracking-tight drop-shadow md:drop-shadow-none ${phone.color}`}
+                        className={`absolute inset-0 flex items-center font-extrabold text-lg md:text-3xl tracking-tight drop-shadow md:drop-shadow-none ${phone.mdColor}`}
                       >
                         {phone.number}
                       </motion.p>
