@@ -61,30 +61,32 @@ export default function GuideSection({ sectionId }: { sectionId?: string }) {
     totalPayment: 0
   });
 
-  // 대출 계산 로직 구현
+  // 대출 계산 로직 구현 (매월 원리금 균등분할 상환 방식 — 상품 안내와 동일한 산출 방식)
   useEffect(() => {
-    // 거치 기간 월 이자 계산 (원금 * 연이율 / 12)
+    // 거치 기간 월 이자 계산 (원금 * 연이율 / 12, 거치기간 동안은 이자만 납부)
     const graceInterest = Math.round((loanAmount * (interestRate / 100)) / 12);
 
-    // 상환 기간에 따른 월 원금 균등 상환액 (원리금이 아닌 미소금융은 원금 균등 상환이 기본 원칙임)
-    const monthlyPrincipal = Math.round(loanAmount / repaymentPeriod);
+    // 월 이자율
+    const monthlyRate = interestRate / 100 / 12;
 
-    // 상환 첫 달 이자 (일반적으로 점점 줄어들지만, 사용자가 체감할 수 있도록 평균적인 납부액 or 첫 달 기준 가이딩)
-    // 미소금융은 남은 잔액 기준 이자를 매달 계산하므로 첫 달 이자가 가장 큼
-    const maxMonthlyInterest = Math.round((loanAmount * (interestRate / 100)) / 12);
-    const minMonthlyInterest = Math.round((monthlyPrincipal * (interestRate / 100)) / 12);
-    const avgMonthlyInterest = Math.round((maxMonthlyInterest + minMonthlyInterest) / 2);
+    // 원리금균등분할상환: 매월 납부액(A) = 원금 * r / (1 - (1+r)^-N)
+    const monthlyPayment = monthlyRate === 0
+      ? Math.round(loanAmount / repaymentPeriod)
+      : Math.round((loanAmount * monthlyRate) / (1 - Math.pow(1 + monthlyRate, -repaymentPeriod)));
 
-    // 총 이자액 = (거치기간 동안 이자 총액) + (상환기간 동안 줄어드는 이자의 합)
-    // 상환기간 총 이자식: sum_{k=1}^N (원금 - (k-1)*월원금) * r / 12 = 원금 * r / 12 * (N + 1) / 2
-    const repaymentTotalInterest = Math.round(((loanAmount * (interestRate / 100)) / 12) * (repaymentPeriod + 1) / 2);
+    // 상환 첫 달 이자·원금 (원리금균등 방식은 이 두 값의 합이 매월 동일하게 유지됨)
+    const firstMonthInterest = Math.round(loanAmount * monthlyRate);
+    const firstMonthPrincipal = monthlyPayment - firstMonthInterest;
+
+    // 총 이자액 = (거치기간 동안 이자 총액) + (상환기간 총 납부액 - 원금)
+    const repaymentTotalInterest = (monthlyPayment * repaymentPeriod) - loanAmount;
     const totalInt = Math.round((graceInterest * gracePeriod) + repaymentTotalInterest);
 
     setCalcResult({
       gracePeriodMonthlyInterest: graceInterest,
-      repaymentMonthlyPrincipal: monthlyPrincipal,
-      repaymentMonthlyInterest: avgMonthlyInterest, // 평균적인 상환 이자 산출
-      repaymentTotalMonthly: monthlyPrincipal + avgMonthlyInterest,
+      repaymentMonthlyPrincipal: firstMonthPrincipal,
+      repaymentMonthlyInterest: firstMonthInterest,
+      repaymentTotalMonthly: monthlyPayment,
       totalInterest: totalInt,
       totalPayment: loanAmount + totalInt
     });
@@ -367,7 +369,7 @@ export default function GuideSection({ sectionId }: { sectionId?: string }) {
               
               <div className="space-y-6">
                 <h4 className="font-extrabold text-slate-900 text-[15px] pb-3 border-b border-slate-200">
-                  가상 설계 결과 (원금균등 기본안)
+                  가상 설계 결과 (원리금균등 기본안)
                 </h4>
 
                 {/* 거치 기간 이자 */}
@@ -381,16 +383,16 @@ export default function GuideSection({ sectionId }: { sectionId?: string }) {
                 {/* 상환 기간 돌입 후 이자 */}
                 <div className="space-y-3 pt-2">
                   <div className="flex flex-col sm:flex-row sm:justify-between sm:items-baseline text-sm gap-0.5">
-                    <span className="text-slate-500 font-medium">상환기간 매월 균등 원금:</span>
+                    <span className="text-slate-500 font-medium">상환 첫 달 원금:</span>
                     <span className="font-black text-slate-800">{calcResult.repaymentMonthlyPrincipal.toLocaleString()} 원</span>
                   </div>
                   <div className="flex flex-col sm:flex-row sm:justify-between sm:items-baseline text-sm gap-0.5">
                     <span className="text-slate-500 font-medium mr-2 flex items-center">
-                      상환기간 첫달 평균 이자:
+                      상환 첫 달 이자:
                       <span className="inline-block relative group ml-1 text-slate-300 hover:text-slate-500 cursor-help pr-1 text-xs">
                         ⓘ
                         <span className="absolute bottom-full left-1/2 transform -translate-x-1/2 bg-black text-white text-[10px] p-2 rounded w-44 hidden group-hover:block z-20 font-medium leading-normal">
-                          원금균등 방식은 매월 원금이 줄어들수록 부과되는 이자도 점차 줄어듭니다. 결과는 첫달과 마지막달의 평균 기준입니다.
+                          원리금균등 방식은 매월 납부액(원금+이자)이 동일하며, 회차가 지날수록 원금 비중은 늘고 이자 비중은 줄어듭니다. 표시된 값은 첫 달 기준입니다.
                         </span>
                       </span>
                     </span>
@@ -398,7 +400,7 @@ export default function GuideSection({ sectionId }: { sectionId?: string }) {
                   </div>
                   <div className="h-0.5 bg-dashed bg-slate-200 my-1" />
                   <div className="flex flex-col sm:flex-row sm:justify-between sm:items-baseline text-base font-extrabold text-slate-900 gap-0.5">
-                    <span>이후 매월 평균 납입금:</span>
+                    <span>매월 납입금 (원리금균등):</span>
                     <span className="font-black text-miso-blue-600">월 {calcResult.repaymentTotalMonthly.toLocaleString()} 원</span>
                   </div>
                 </div>
