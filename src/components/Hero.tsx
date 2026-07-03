@@ -377,16 +377,16 @@ export default function Hero({ onScrollToSection }: HeroProps) {
                 i === 0 ? 'order-2 md:order-none' : i === 1 ? 'order-1 md:order-none' : ''
               } ${
                 i < 2
-                  ? 'bg-white/5 md:bg-white/60 backdrop-blur-[2px] md:backdrop-blur-sm'
-                  : 'bg-white/60 backdrop-blur-sm'
+                  ? 'bg-white/5 backdrop-blur-[2px] md:backdrop-blur-[2px]'
+                  : 'bg-white/60 md:bg-white/5 backdrop-blur-sm md:backdrop-blur-[2px]'
               } ${
                 card.action ? 'cursor-pointer' : ''
               } ${
                 spotlightIdx === i && i < 2
                   ? 'border-2 border-teal-400 shadow-lg shadow-teal-100'
                   : i < 2
-                    ? 'border border-white/30 md:border-slate-100 hover:border-teal-200 hover:shadow-md'
-                    : 'border border-slate-100 hover:border-teal-200 hover:shadow-md'
+                    ? 'border border-white/30 hover:border-teal-200 hover:shadow-md'
+                    : 'border border-slate-100 md:border-white/30 hover:border-teal-200 hover:shadow-md'
               }`}
             >
               {spotlightIdx === i && i < 2 && (
@@ -426,8 +426,8 @@ export default function Hero({ onScrollToSection }: HeroProps) {
                     spotlightIdx === i && i < 2
                       ? 'bg-teal-50'
                       : i < 2
-                        ? 'bg-white/10 md:bg-slate-50 md:group-hover:bg-white'
-                        : 'bg-slate-50 group-hover:bg-white'
+                        ? 'bg-white/10'
+                        : 'bg-slate-50 md:bg-white/10 group-hover:bg-white md:group-hover:bg-white/20'
                   }`}>
                     {card.icon}
                   </div>
@@ -438,7 +438,7 @@ export default function Hero({ onScrollToSection }: HeroProps) {
                     </span>
                   )}
                 </div>
-                <h3 className={`text-[10px] md:text-xs font-bold uppercase tracking-wider mt-3 md:mt-5 ${i < 2 ? 'text-white/80 md:text-slate-500' : 'text-slate-500'}`}>{card.title}</h3>
+                <h3 className={`text-[10px] md:text-xs font-bold uppercase tracking-wider mt-3 md:mt-5 ${i < 2 ? 'text-white/80' : 'text-slate-500 md:text-white/80'}`}>{card.title}</h3>
                 {i === 0 ? (
                   <div className="relative h-7 md:h-10 overflow-hidden mt-1">
                     {PHONES.map((phone, pi) => (
@@ -449,7 +449,7 @@ export default function Hero({ onScrollToSection }: HeroProps) {
                           opacity: pi === phoneIdx ? 1 : 0,
                         }}
                         transition={{ duration: 0.4, ease: 'easeInOut' }}
-                        className={`absolute inset-0 flex items-center font-extrabold text-lg md:text-3xl tracking-tight drop-shadow md:drop-shadow-none ${phone.mdColor}`}
+                        className="absolute inset-0 flex items-center font-extrabold text-lg md:text-3xl tracking-tight drop-shadow text-white"
                       >
                         {phone.number}
                       </motion.p>
@@ -458,12 +458,12 @@ export default function Hero({ onScrollToSection }: HeroProps) {
                 ) : (
                   <motion.p
                     className={`font-extrabold mt-1 tracking-tight ${card.valueClass ?? 'text-lg md:text-3xl'} ${
-                      i === 1 ? 'text-white md:text-slate-800 drop-shadow md:drop-shadow-none' : 'text-slate-800'
+                      i === 1 ? 'text-white drop-shadow' : 'text-slate-800 md:text-white md:drop-shadow'
                     }`}
                     animate={i === 2 ? peopleAnim : i === 3 ? moneyAnim : undefined}
                   >{card.value}</motion.p>
                 )}
-                <p className={`text-[10px] md:text-xs mt-1 font-semibold ${i < 2 ? 'text-white/70 md:text-slate-400' : 'text-slate-400'}`}>{card.desc}</p>
+                <p className={`text-[10px] md:text-xs mt-1 font-semibold ${i < 2 ? 'text-white/70' : 'text-slate-400 md:text-white/70'}`}>{card.desc}</p>
               </div>
             </motion.div>
             );
