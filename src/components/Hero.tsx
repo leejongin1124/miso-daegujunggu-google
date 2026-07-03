@@ -173,7 +173,7 @@ export default function Hero({ onScrollToSection }: HeroProps) {
       title: '법인 방문 오시는 길',
       value: '하나은행 봉덕지점 4층',
       valueClass: 'text-sm md:text-xl whitespace-nowrap',
-      desc: '남구 중앙대로 146',
+      desc: '대구 남구 중앙대로 146',
       action: () => onScrollToSection('location')
     },
     {
@@ -181,7 +181,7 @@ export default function Hero({ onScrollToSection }: HeroProps) {
       title: '누적 대출 인원',
       value: statsInView ? `${countPeople.toLocaleString()} 여명` : '0 여명',
       valueClass: 'text-lg md:text-3xl',
-      desc: '대구 소상공인의 든든한 동반자'
+      desc: '대구·경북 소상공인의 든든한 동반자'
     },
     {
       icon: (
@@ -193,7 +193,7 @@ export default function Hero({ onScrollToSection }: HeroProps) {
       title: '누적 대출 금액',
       value: statsInView ? `${countMoney}억 원 돌파` : '0억 원 돌파',
       valueClass: 'text-lg md:text-3xl',
-      desc: '2026년 5월 누적 기준'
+      desc: '2026년 누적 기준'
     }
   ];
 
