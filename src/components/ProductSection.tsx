@@ -12,10 +12,11 @@ interface ProductSectionProps {
   onScrollToSection: (sectionId: string) => void;
   onOpenCalculator: () => void;
   initialTab?: string;
+  hideTabs?: boolean;
 }
 
 
-export default function ProductSection({ onScrollToSection, onOpenCalculator, initialTab }: ProductSectionProps) {
+export default function ProductSection({ onScrollToSection, onOpenCalculator, initialTab, hideTabs }: ProductSectionProps) {
   const [activeTab, setActiveTab] = useState<string>(initialTab || 'social');
   const [blinkingTab] = useState<string | null>(null);
 
@@ -141,8 +142,8 @@ export default function ProductSection({ onScrollToSection, onOpenCalculator, in
           </p>
         </div>
 
-        {/* 탭 가로 셀렉터 */}
-        <div className="flex flex-wrap justify-center gap-3 max-w-3xl mx-auto">
+        {/* 탭 가로 셀렉터 — 특정 상품 링크로 바로 진입한 경우 숨김 */}
+        {!hideTabs && <div className="flex flex-wrap justify-center gap-3 max-w-3xl mx-auto">
           {products.map((p) => {
             const tabStyles: Record<string, { active: string; inactive: string; glow: string; icon: JSX.Element }> = {
               social:     { active: 'from-teal-500 to-cyan-500 shadow-teal-200',        inactive: 'border-teal-200 text-teal-700 hover:bg-teal-50',       glow: 'shadow-teal-300',    icon: <Star className="w-4 h-4" /> },
@@ -182,7 +183,7 @@ export default function ProductSection({ onScrollToSection, onOpenCalculator, in
               </motion.button>
             );
           })}
-        </div>
+        </div>}
 
         {/* 탭 콘텐츠 본문 (정밀 상세카드) */}
         <AnimatePresence mode="wait">

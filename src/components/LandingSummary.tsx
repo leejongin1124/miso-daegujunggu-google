@@ -29,7 +29,7 @@ const cards = [
     badge: '지원상품',
     title: '4가지\n정책 대출 상품',
     desc: '사회적연대 · 사업자운영자금\n청년미래이음 · 취약계층생계자금',
-    sectionId: 'social-finance',
+    sectionId: 'products-all',
   },
   {
     emoji: '📋',

@@ -311,7 +311,7 @@ export default function Hero({ onScrollToSection }: HeroProps) {
               className="flex flex-row gap-3 pt-2 items-start w-full"
             >
               <motion.button
-                onClick={() => onScrollToSection('social-finance')}
+                onClick={() => onScrollToSection('products-all')}
                 animate={{ scale: [1, 1.1, 1], y: [0, -3, 0] }}
                 transition={{ duration: 1.1, repeat: Infinity, ease: 'easeInOut' }}
                 whileHover={{ scale: 1.12 }}

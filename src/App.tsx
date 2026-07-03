@@ -21,7 +21,7 @@ const SECTION_MAP: Record<string, string> = {
   'organization': 'about', 'location': 'about',
   'miso-intro': 'miso-intro',
   'social-finance': 'products', 'business-fund': 'products',
-  'youth-fund': 'products', 'vulnerable-fund': 'products',
+  'youth-fund': 'products', 'vulnerable-fund': 'products', 'products-all': 'products',
   'loan-target': 'guide', 'faq-section': 'guide',
   'loan-calc-intro': 'guide', 'loan-calc': 'guide', 'process-guide': 'guide',
   'case-social': 'cases', 'case-business': 'cases',
@@ -32,6 +32,8 @@ const SECTION_MAP: Record<string, string> = {
 export default function App() {
   const [activeTab, setActiveTab] = useState<TabType>(TabType.ABOUT);
   const [productTab, setProductTab] = useState<string>('social');
+  // 특정 상품 링크로 바로 진입한 경우(true) 상단 4개 탭 선택바를 숨기고 해당 상품만 표시
+  const [productHideTabs, setProductHideTabs] = useState<boolean>(false);
   const [caseFilter, setCaseFilter] = useState<string>('all');
 
   // null = 랜딩페이지, 문자열 = 해당 컴포넌트만 표시
@@ -97,7 +99,14 @@ export default function App() {
       window.scrollTo({ top: 0, behavior: 'smooth' });
       return;
     }
+    if (sectionId === 'products-all') {
+      setProductHideTabs(false);
+      setProductTab('social');
+      revealAndScroll('social-finance');
+      return;
+    }
     if (sectionToProductTab[sectionId]) {
+      setProductHideTabs(true);
       setProductTab(sectionToProductTab[sectionId]);
       revealAndScroll('social-finance');
       return;
@@ -154,6 +163,7 @@ export default function App() {
               onScrollToSection={handleScrollToSection}
               onOpenCalculator={handleOpenCalculator}
               initialTab={productTab}
+              hideTabs={productHideTabs}
             />
           </div>
         )}
