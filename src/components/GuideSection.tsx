@@ -51,6 +51,15 @@ export default function GuideSection({ sectionId }: { sectionId?: string }) {
   const [gracePeriod, setGracePeriod] = useState<number>(6); // 디폴트 거치 6개월
   const [repaymentPeriod, setRepaymentPeriod] = useState<number>(60); // 디폴트 상환 60개월 (5년)
 
+  // 거치기간 중 적용금리는 상품별로 상이함 (사업자 운영자금 2.0% / 금융취약계층 생계자금 3.0% / 청년미래이음대출 4.5%)
+  const GRACE_RATE_OPTIONS = [
+    { id: 'business', label: '사업자 운영자금', rate: 2.0 },
+    { id: 'vulnerable', label: '금융취약계층 생계자금', rate: 3.0 },
+    { id: 'youth', label: '청년미래이음대출', rate: 4.5 },
+  ] as const;
+  const [graceRateType, setGraceRateType] = useState<typeof GRACE_RATE_OPTIONS[number]['id']>('business');
+  const gracePeriodRate = GRACE_RATE_OPTIONS.find((o) => o.id === graceRateType)!.rate;
+
   // 대출 계산 결과 저장
   const [calcResult, setCalcResult] = useState({
     gracePeriodMonthlyInterest: 0,
@@ -63,10 +72,10 @@ export default function GuideSection({ sectionId }: { sectionId?: string }) {
 
   // 대출 계산 로직 구현 (매월 원리금 균등분할 상환 방식 — 상품 안내와 동일한 산출 방식)
   useEffect(() => {
-    // 거치 기간 월 이자 계산 (원금 * 연이율 / 12, 거치기간 동안은 이자만 납부)
-    const graceInterest = Math.round((loanAmount * (interestRate / 100)) / 12);
+    // 거치 기간 월 이자 계산 (원금 * 상품별 거치기간 적용금리 / 12, 거치기간 동안은 이자만 납부)
+    const graceInterest = Math.round((loanAmount * (gracePeriodRate / 100)) / 12);
 
-    // 월 이자율
+    // 월 이자율 (상환기간 적용금리 기준)
     const monthlyRate = interestRate / 100 / 12;
 
     // 원리금균등분할상환: 매월 납부액(A) = 원금 * r / (1 - (1+r)^-N)
@@ -90,7 +99,7 @@ export default function GuideSection({ sectionId }: { sectionId?: string }) {
       totalInterest: totalInt,
       totalPayment: loanAmount + totalInt
     });
-  }, [loanAmount, interestRate, gracePeriod, repaymentPeriod]);
+  }, [loanAmount, interestRate, gracePeriod, repaymentPeriod, gracePeriodRate]);
 
   const processSteps = [
     {
@@ -157,15 +166,21 @@ export default function GuideSection({ sectionId }: { sectionId?: string }) {
                 <h3 className="text-xl md:text-2xl font-black tracking-tight leading-none whitespace-nowrap">대출 설계 계산기</h3>
                 <p className="text-miso-blue-100 text-xs font-semibold">비영리 공공수행 이율 연 4.5% 기준 매월 가상 상환액</p>
               </div>
-              <div className="flex gap-2">
-                <button 
-                  onClick={() => { setLoanAmount(20000000); setGracePeriod(6); setRepaymentPeriod(60); }}
+              <div className="flex flex-wrap gap-2">
+                <button
+                  onClick={() => { setLoanAmount(20000000); setGracePeriod(6); setRepaymentPeriod(60); setGraceRateType('business'); }}
                   className="bg-white/10 hover:bg-white/20 text-white text-xs font-bold px-3 py-2 rounded-lg transition-all"
                 >
                   🏪 사업자 표준 (2천만 / 거치6M)
                 </button>
-                <button 
-                  onClick={() => { setLoanAmount(5000000); setGracePeriod(72); setRepaymentPeriod(60); }}
+                <button
+                  onClick={() => { setLoanAmount(5000000); setGracePeriod(12); setRepaymentPeriod(60); setGraceRateType('vulnerable'); }}
+                  className="bg-white/10 hover:bg-white/20 text-white text-xs font-bold px-3 py-2 rounded-lg transition-all"
+                >
+                  🛡️ 금융취약계층 (5백만 / 거치1년)
+                </button>
+                <button
+                  onClick={() => { setLoanAmount(5000000); setGracePeriod(72); setRepaymentPeriod(60); setGraceRateType('youth'); }}
                   className="bg-white/10 hover:bg-white/20 text-white text-xs font-bold px-3 py-2 rounded-lg transition-all"
                 >
                   🌱 청년 미래이음 (5백만 / 거치6년)
@@ -283,6 +298,24 @@ export default function GuideSection({ sectionId }: { sectionId?: string }) {
                 <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center text-sm font-extrabold text-slate-800 gap-1">
                   <span className="flex items-center gap-1">⏳ 거치 유예기간 (이자만 납부)</span>
                   <span className="text-miso-blue-600 font-black text-lg whitespace-nowrap">{gracePeriod} 개월 {gracePeriod >= 12 && `(${Math.floor(gracePeriod / 12)}년)`}</span>
+                </div>
+
+                {/* 거치기간 적용금리는 상품별로 다름 */}
+                <div className="flex flex-wrap items-center gap-1.5 text-xs">
+                  <span className="text-slate-400 font-semibold mr-1">거치기간 적용상품:</span>
+                  {GRACE_RATE_OPTIONS.map((opt) => (
+                    <button
+                      key={opt.id}
+                      onClick={() => setGraceRateType(opt.id)}
+                      className={`px-2.5 py-1 rounded-full font-bold transition-all ${
+                        graceRateType === opt.id
+                          ? 'bg-miso-blue-600 text-white shadow'
+                          : 'bg-slate-100 text-slate-500 hover:bg-slate-200'
+                      }`}
+                    >
+                      {opt.label} {opt.rate.toFixed(1)}%
+                    </button>
+                  ))}
                 </div>
                 <input 
                   type="range" 
