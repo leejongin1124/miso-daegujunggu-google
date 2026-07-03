@@ -326,7 +326,7 @@ export default function Hero({ onScrollToSection }: HeroProps) {
                   이동
                 </motion.span>
                 <span className="md:hidden">🔍 상품안내</span>
-                <span className="hidden md:inline">🔍 지원상품 전체보기</span>
+                <span className="hidden md:inline">🔍 대출상품 전체보기</span>
                 <ArrowRight className="w-4 h-4 hidden md:inline" />
               </motion.button>
               <motion.a
