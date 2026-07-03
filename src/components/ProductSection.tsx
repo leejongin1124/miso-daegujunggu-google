@@ -516,7 +516,7 @@ export default function ProductSection({ onScrollToSection, onOpenCalculator, in
                     rel="noopener noreferrer"
                     className="mt-4 inline-flex items-center gap-2 bg-amber-600 hover:bg-amber-700 text-white font-bold text-xs px-4 py-2.5 rounded-xl transition shadow-sm"
                   >
-                    <span>서민금융진흥원 재무상담 바로가기</span>
+                    <span>서민금융진흥원 <span className="text-yellow-300 font-black">재무상담</span> 바로가기</span>
                     <ArrowUpRight className="w-3.5 h-3.5" />
                   </a>
                 </div>
