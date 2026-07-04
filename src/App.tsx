@@ -3,19 +3,22 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef, Suspense, lazy } from 'react';
 import { TabType } from './types';
 import Header from './components/Header';
 import Hero from './components/Hero';
-import AboutSection from './components/AboutSection';
-import ProductSection from './components/ProductSection';
-import GuideSection from './components/GuideSection';
-import CaseSection from './components/CaseSection';
-import NoticeSection from './components/NoticeSection';
 import Footer from './components/Footer';
-import MisoIntroSection from './components/MisoIntroSection';
-import PrivacyPolicySection from './components/PrivacyPolicySection';
 import SectionPageShell from './components/SectionPageShell';
+import FloatingWidget from './components/FloatingWidget';
+
+// 랜딩 화면(Hero+Footer)에는 필요 없는 화면들은 지연 로딩하여 초기 번들 크기를 줄임
+const AboutSection = lazy(() => import('./components/AboutSection'));
+const ProductSection = lazy(() => import('./components/ProductSection'));
+const GuideSection = lazy(() => import('./components/GuideSection'));
+const CaseSection = lazy(() => import('./components/CaseSection'));
+const NoticeSection = lazy(() => import('./components/NoticeSection'));
+const MisoIntroSection = lazy(() => import('./components/MisoIntroSection'));
+const PrivacyPolicySection = lazy(() => import('./components/PrivacyPolicySection'));
 
 // 섹션 ID → 어느 컴포넌트에 속하는지 매핑
 const SECTION_MAP: Record<string, string> = {
@@ -145,6 +148,8 @@ export default function App() {
           <Hero onScrollToSection={handleScrollToSection} />
         )}
 
+        <Suspense fallback={<div className="min-h-[60vh]" />}>
+
         {/* 미소금융이란 */}
         {activeSection === 'miso-intro' && (
           <div className="bg-white pt-20">
@@ -157,7 +162,7 @@ export default function App() {
           <SectionPageShell
             eyebrow="About Foundation"
             title="법인소개"
-            description="금융위원회 허가 비영리 공익법인으로서 대구·경북 서민과 소상공인의 자립을 지원합니다."
+            description={"금융위원회 허가 비영리 공익법인으로서\n대구·경북 서민과 소상공인의 자립을 지원합니다."}
             bgImage="/backgrounds/about-bg.webp"
           >
             <AboutSection sectionId={activeSectionId ?? undefined} />
@@ -169,7 +174,7 @@ export default function App() {
           <SectionPageShell
             eyebrow="Miso Finance Products"
             title="지원상품"
-            description="상품별 대상 요건과 증빙서류를 확인한 뒤 심사 절차에 따라 지원 가능 여부를 안내합니다."
+            description={"상품별 대상 요건과 증빙서류를 확인한 뒤\n심사 절차에 따라 지원 가능 여부를 안내합니다."}
             bgImage="/backgrounds/products-bg.webp"
           >
             <ProductSection
@@ -186,7 +191,7 @@ export default function App() {
           <SectionPageShell
             eyebrow="Loan Guide"
             title="대출안내"
-            description="상담, 서류 준비, 심사, 결과 안내까지 신청 전 필요한 절차를 차분히 확인하실 수 있습니다."
+            description={"상담, 서류 준비, 심사, 결과 안내까지\n신청 전 필요한 절차를 차분히 확인하실 수 있습니다."}
             bgImage="/backgrounds/guide-bg.webp"
           >
             <GuideSection sectionId={activeSectionId ?? undefined} />
@@ -198,7 +203,7 @@ export default function App() {
           <SectionPageShell
             eyebrow="Support Cases"
             title="지원사례"
-            description="상담과 심사를 통해 다시 일어선 이웃들의 자립 이야기를 소개합니다."
+            description={"상담과 심사를 통해 다시 일어선\n이웃들의 자립 이야기를 소개합니다."}
             bgImage="/backgrounds/cases-bg.webp"
           >
             <CaseSection initialFilter={caseFilter} />
@@ -210,7 +215,7 @@ export default function App() {
           <SectionPageShell
             eyebrow="Notice & Safety"
             title="알림마당"
-            description="공지사항과 불법사금융·보이스피싱 피해예방 정보를 안내합니다."
+            description={"공지사항과\n불법사금융·보이스피싱 피해예방 정보를 안내합니다."}
             bgImage="/backgrounds/notice-bg.webp"
           >
             <NoticeSection sectionId={activeSectionId ?? undefined} />
@@ -224,7 +229,11 @@ export default function App() {
           </div>
         )}
 
+        </Suspense>
+
       </main>
+
+      <FloatingWidget onOpenCalculator={handleOpenCalculator} />
 
       <Footer onScrollToSection={handleScrollToSection} />
 

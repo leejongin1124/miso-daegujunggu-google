@@ -314,11 +314,6 @@ export default function MisoIntroSection() {
             </table>
           </div>
 
-          <div className="px-8 py-5 bg-indigo-50/50 border-t border-indigo-100">
-            <p className="text-indigo-700 text-xs font-bold text-center">
-              ※ 모든 상품 금리는 연 4.5% 고정이며, 4회 이상 성실 납입 시 연 3.5%로 우대 적용됩니다.
-            </p>
-          </div>
         </motion.div>
 
       </div>

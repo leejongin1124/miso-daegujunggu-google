@@ -25,7 +25,14 @@ export default function AboutSection({ sectionId }: { sectionId?: string }) {
     }, 4500);
     return () => clearInterval(interval);
   }, []);
-  const historyData = [
+  interface HistoryItem {
+    date: string;
+    text: string;
+    emphasis: boolean;
+    newsUrl?: string;
+  }
+
+  const historyData: { year: string; items: HistoryItem[] }[] = [
     {
       year: '2026',
       items: [
@@ -296,8 +303,8 @@ export default function AboutSection({ sectionId }: { sectionId?: string }) {
                               {item.emphasis ? (
                                 <span className="inline-flex flex-wrap items-center gap-2">
                                   <strong className="text-slate-900 font-bold">{item.text}</strong>
-                                  {(item as any).newsUrl && (
-                                    <a href={(item as any).newsUrl} target="_blank" rel="noopener noreferrer"
+                                  {item.newsUrl && (
+                                    <a href={item.newsUrl} target="_blank" rel="noopener noreferrer"
                                       className="inline-flex items-center space-x-1 bg-amber-50 border border-amber-200 text-amber-700 hover:bg-amber-100 text-[10px] font-bold px-2 py-0.5 rounded-full transition-colors">
                                       <span>📰</span><span>신문기사 보기</span>
                                     </a>
@@ -338,8 +345,8 @@ export default function AboutSection({ sectionId }: { sectionId?: string }) {
                           {item.emphasis ? (
                             <span className="inline-flex flex-wrap items-center gap-1.5">
                               <strong className="text-slate-900">{item.text}</strong>
-                              {(item as any).newsUrl && (
-                                <a href={(item as any).newsUrl} target="_blank" rel="noopener noreferrer"
+                              {item.newsUrl && (
+                                <a href={item.newsUrl} target="_blank" rel="noopener noreferrer"
                                   className="inline-flex items-center space-x-0.5 bg-amber-50 border border-amber-200 text-amber-700 text-[10px] font-bold px-1.5 py-0.5 rounded-full">
                                   <span>📰</span><span>기사</span>
                                 </a>
@@ -394,8 +401,9 @@ export default function AboutSection({ sectionId }: { sectionId?: string }) {
                 className="block w-full rounded-xl overflow-hidden cursor-pointer hover:opacity-90 transition-opacity"
               >
                 <img
-                  src="/map-location.png"
+                  src="/map-location.webp"
                   alt="미소금융대구중구법인 위치 지도"
+                  loading="lazy"
                   className="w-full h-80 object-cover"
                 />
               </a>

@@ -23,7 +23,7 @@ export default function CaseSection({ initialFilter }: CaseSectionProps) {
     {
       id: 'social-1',
       category: 'social',
-      image: '/images/case-social-1.png',
+      image: '/images/case-social-1.webp',
       title: '발달장애인 10명의 월급날, 더 이상 한숨이 없습니다',
       problem: '대구 남산동에서 발달장애인 10명과 함께 제과제빵 사회적기업을 운영하고 있습니다. 보조금이 들어오기 전 급여일마다 통장을 보며 한숨만 나왔어요. 담보가 없다고 하니 은행에서는 상담도 제대로 안 해주더라고요.',
       solution: '미소금융에 전화했더니 사회적기업 서류와 신보 가치평가만으로 심사가 된다고 했습니다. 공동인증서 챙겨서 방문했는데, 무보증으로 운영자금을 받을 수 있었어요. 생각보다 절차가 복잡하지 않았습니다.',
@@ -34,7 +34,7 @@ export default function CaseSection({ initialFilter }: CaseSectionProps) {
     {
       id: 'social-2',
       category: 'social',
-      image: '/images/case-social-2.png',
+      image: '/images/case-social-2.webp',
       title: '신규 협동조합도 문턱 없이 자금을 받을 수 있었습니다',
       problem: '돌봄 서비스를 하고 싶어서 사회적협동조합을 설립했는데, 설립한 지 얼마 안 됐다는 이유로 은행에서는 상담조차 거절당했습니다. 조합원들 모두 처음엔 포기할까 생각했어요.',
       solution: '미소금융대구중구법인을 찾아갔더니 조합 서류와 사회적 가치 평가만으로 심사를 진행해 주었습니다. 담보 없이 운영자금을 받을 수 있었고, 덕분에 조합 운영을 이어갈 수 있었습니다.',
@@ -45,7 +45,7 @@ export default function CaseSection({ initialFilter }: CaseSectionProps) {
     {
       id: 'business-1',
       category: 'business',
-      image: '/images/case-business-1.png',
+      image: '/images/case-business-1.webp',
       title: '반찬가게 10년, 사금융 전화 누르기 직전에 미소금융을 알았습니다',
       problem: '반찬가게를 10년째 운영했는데 코로나 이후로 식재료 값은 오르고 매출은 줄어서 재료도 절반밖에 못 사는 상황이었어요. 매일 밤 사채 광고 문자를 보면서 전화를 눌러야 하나 고민했습니다.',
       solution: '지인 소개로 통장 내역과 사업자등록증을 챙겨서 방문했습니다. 카드 매출 내역만으로도 심사가 됐고, 생각보다 많은 금액을 승인받았어요. 그때 전화 안 누른 게 정말 다행입니다.',
@@ -56,7 +56,7 @@ export default function CaseSection({ initialFilter }: CaseSectionProps) {
     {
       id: 'business-2',
       category: 'business',
-      image: '/images/case-business-2.png',
+      image: '/images/case-business-2.webp',
       title: '개업 3개월, 자금이 바닥났는데 청년 우대 한도로 숨통이 트였습니다',
       problem: '동성로에 수제버거 가게를 열었는데 개업 초반부터 인테리어 대출 상환과 재료비가 한꺼번에 밀려왔어요. 거래 이력이 짧다는 이유로 은행에서는 상담조차 안 해줬습니다.',
       solution: '개업 3개월이 지나고 미소금융 청년 자영업자 우대 한도(최대 3,000만원)를 알게 됐습니다. 카드 정산 내역을 챙겨서 상담받았더니 바로 심사가 진행됐어요. 덕분에 재료를 제대로 갖추고 장사를 이어갈 수 있었습니다.',
@@ -67,7 +67,7 @@ export default function CaseSection({ initialFilter }: CaseSectionProps) {
     {
       id: 'youth-1',
       category: 'youth',
-      image: '/images/case-youth-1.png',
+      image: '/images/case-youth-1.webp',
       title: '아르바이트생 신분으로도 첫 대출, 브랜드 런칭까지 할 수 있었습니다',
       problem: '디자이너로 독립해서 내 브랜드를 만들고 싶었는데, 아르바이트생 신분에 금융 거래 이력도 없다 보니 은행이나 카드사에서는 아예 상담이 안 됐어요. 자금이 없으니 시작 자체가 막막했습니다.',
       solution: '청년미래이음 신청을 하면서 「청년 모두를 위한 재무상담」도 함께 이수했습니다. 담당자분이 소득 증빙 방법을 친절하게 안내해 주셔서 어렵지 않게 진행할 수 있었어요.',
@@ -78,7 +78,7 @@ export default function CaseSection({ initialFilter }: CaseSectionProps) {
     {
       id: 'youth-2',
       category: 'youth',
-      image: '/images/case-youth-2.png',
+      image: '/images/case-youth-2.webp',
       title: '취업 준비 중 카드 한도가 바닥났는데, 사채 대신 미소금융을 선택했습니다',
       problem: '대학 마지막 학기에 면접비, 시험 응시료가 계속 나가다 보니 카드 한도가 다 찼어요. 단기 사채 광고 문자가 매일 와서 손이 갈 뻔했습니다.',
       solution: '청년미래이음을 알게 돼서 구직 계획서와 아르바이트 소득 내역을 챙겨 상담받았습니다. 생각보다 간단하게 진행됐고, 취업 준비를 끝까지 마칠 수 있었어요.',
@@ -89,7 +89,7 @@ export default function CaseSection({ initialFilter }: CaseSectionProps) {
     {
       id: 'vulnerable-1',
       category: 'vulnerable',
-      image: '/images/case-vulnerable-1.png',
+      image: '/images/case-vulnerable-1.webp',
       title: '아이 수술비가 갑자기 수백만 원, 미소금융이 버팀목이 됐습니다',
       problem: '편의점 알바로 아이 둘을 혼자 키우고 있었는데, 큰 아이가 갑자기 장 수술을 받아야 한다는 연락이 왔어요. 수백만 원이 갑자기 필요한데 방법이 없었습니다.',
       solution: '사회복지센터 선생님 소개로 미소금융 생계자금을 알게 됐습니다. 한부모가정 서류를 챙겨서 상담받았더니 긴급 의료비로 승인이 났어요. 그 돈으로 아이 수술을 제때 받을 수 있었습니다.',
@@ -100,7 +100,7 @@ export default function CaseSection({ initialFilter }: CaseSectionProps) {
     {
       id: 'vulnerable-2',
       category: 'vulnerable',
-      image: '/images/case-vulnerable-2.png',
+      image: '/images/case-vulnerable-2.webp',
       title: '보이스피싱으로 모든 게 무너졌는데, 미소금융으로 다시 일어설 수 있었습니다',
       problem: '보이스피싱 피해를 당하고 나서 신용도 망가지고 월세도 몇 달째 못 내다가 퇴거 통지서까지 받았어요. 어디에도 기댈 곳이 없어서 정말 힘든 시간이었습니다.',
       solution: '통합지원센터에서 미소금융 생계자금을 안내해 주었습니다. 보이스피싱 피해 관련 서류를 챙겨서 접수했더니 심사가 진행됐어요. 그 자금으로 밀린 임차료를 해결하고 생활을 다시 시작할 수 있었습니다.',
@@ -189,7 +189,7 @@ export default function CaseSection({ initialFilter }: CaseSectionProps) {
                   {/* 케이스 이미지 */}
                   {c.image && (
                     <div className="w-full rounded-2xl overflow-hidden bg-slate-50">
-                      <img src={c.image} alt={c.title} className="w-full h-auto object-contain" />
+                      <img src={c.image} alt={c.title} loading="lazy" className="w-full h-auto object-contain" />
                     </div>
                   )}
 

@@ -173,7 +173,7 @@ export default function NoticeSection({ sectionId }: { sectionId?: string }) {
                     if (window.innerWidth < 768) {
                       window.location.href = 'tel:112';
                     } else {
-                      window.open('https://www.police.go.kr/index.do', '_blank');
+                      window.open('https://www.police.go.kr/index.do', '_blank', 'noopener,noreferrer');
                     }
                   }}
                   initial={{ opacity: 0, y: 20 }}
@@ -234,7 +234,7 @@ export default function NoticeSection({ sectionId }: { sectionId?: string }) {
                     if (window.innerWidth < 768) {
                       window.location.href = 'tel:1332';
                     } else {
-                      window.open('https://www.fss.or.kr', '_blank');
+                      window.open('https://www.fss.or.kr', '_blank', 'noopener,noreferrer');
                     }
                   }}
                   initial={{ opacity: 0, y: 20 }}
@@ -272,7 +272,7 @@ export default function NoticeSection({ sectionId }: { sectionId?: string }) {
                     if (window.innerWidth < 768) {
                       window.location.href = 'tel:1397';
                     } else {
-                      window.open('https://www.kinfa.or.kr', '_blank');
+                      window.open('https://www.kinfa.or.kr', '_blank', 'noopener,noreferrer');
                     }
                   }}
                   initial={{ opacity: 0, y: 20 }}
