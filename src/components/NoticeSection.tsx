@@ -74,14 +74,28 @@ export default function NoticeSection({ sectionId }: { sectionId?: string }) {
           </div>
 
           <div className="space-y-4">
-            {notices.map((n) => (
-              <div key={n.id} className="bg-white p-6 rounded-2xl border border-slate-150 shadow-sm flex flex-col sm:flex-row sm:items-start gap-4 hover:border-teal-300 transition-all">
-                
-                <span className={`px-2.5 py-1 rounded text-[10px] font-black tracking-widest uppercase text-center shrink-0 min-w-[50px] ${
+            {notices.map((n, idx) => (
+              <motion.div
+                key={n.id}
+                initial={{ opacity: 0, y: 14 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4, delay: idx * 0.08 }}
+                whileHover={{ y: -3 }}
+                className="bg-white p-6 rounded-2xl border border-slate-150 shadow-sm flex flex-col sm:flex-row sm:items-start gap-4 hover:border-teal-300 hover:shadow-md transition-all"
+              >
+                <span className={`px-2.5 py-1 rounded text-[10px] font-black tracking-widest uppercase text-center shrink-0 min-w-[50px] flex items-center justify-center gap-1 ${
                   n.badge === '중요' ? 'bg-rose-50 text-rose-700 border border-rose-100' :
                   n.badge === '공지' ? 'bg-teal-50 text-teal-700 border border-teal-100' :
                   'bg-slate-50 text-slate-500 border border-slate-150'
                 }`}>
+                  {n.badge === '중요' && (
+                    <motion.span
+                      className="w-1.5 h-1.5 rounded-full bg-rose-500"
+                      animate={{ opacity: [1, 0.3, 1] }}
+                      transition={{ duration: 1.6, repeat: Infinity }}
+                    />
+                  )}
                   {n.badge}
                 </span>
 
@@ -95,7 +109,7 @@ export default function NoticeSection({ sectionId }: { sectionId?: string }) {
                   <span className="text-slate-400 font-mono text-[10px] block pt-1">{n.date}</span>
                 </div>
 
-              </div>
+              </motion.div>
             ))}
           </div>
         </div></>}
@@ -124,13 +138,21 @@ export default function NoticeSection({ sectionId }: { sectionId?: string }) {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {antiFrauds.map((af, idx) => (
-              <div key={idx} className="bg-white p-6 rounded-2xl border border-rose-100 shadow-sm space-y-4">
+              <motion.div
+                key={idx}
+                initial={{ opacity: 0, y: 14 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4, delay: idx * 0.1 }}
+                whileHover={{ y: -4 }}
+                className="bg-white p-6 rounded-2xl border border-rose-100 shadow-sm hover:shadow-md transition-shadow space-y-4"
+              >
                 <div className="p-2 bg-rose-50 rounded-lg inline-block text-rose-650">
                   {af.icon}
                 </div>
                 <h4 className="font-extrabold text-slate-900 text-sm">{af.title}</h4>
                 <p className="text-slate-500 text-xs leading-relaxed font-semibold">{af.desc}</p>
-              </div>
+              </motion.div>
             ))}
           </div>
 
