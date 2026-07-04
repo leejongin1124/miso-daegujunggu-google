@@ -3,7 +3,7 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-import { useState, useEffect, type ReactElement } from 'react';
+import { useState, useEffect, useRef, type ReactElement } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { BadgePercent, ShieldCheck, CheckCircle2, ChevronRight, Calculator, FileText, ArrowUpRight, HelpCircle, FileCheck, Star, Users } from 'lucide-react';
 import { Product } from '../types';
@@ -23,6 +23,31 @@ export default function ProductSection({ onScrollToSection, onOpenCalculator, in
   useEffect(() => {
     if (initialTab) setActiveTab(initialTab);
   }, [initialTab]);
+
+  // 전체보기(4개 탭)로 진입 시, 사용자가 직접 조작하기 전까지 자동으로 4개 상품을 순환 소개
+  const userInteractedRef = useRef(false);
+  useEffect(() => {
+    if (hideTabs) return;
+    userInteractedRef.current = false;
+    const order = ['social', 'business', 'youth', 'vulnerable'];
+    let idx = order.indexOf(initialTab || 'social');
+    let step = 0;
+    const interval = setInterval(() => {
+      if (userInteractedRef.current) {
+        clearInterval(interval);
+        return;
+      }
+      idx = (idx + 1) % order.length;
+      step += 1;
+      setActiveTab(order[idx]);
+      setBlinkingTab(order[idx]);
+      if (step >= order.length * 2) {
+        clearInterval(interval);
+        setBlinkingTab(null);
+      }
+    }, 2200);
+    return () => clearInterval(interval);
+  }, [hideTabs, initialTab]);
 
   const products: Product[] = [
     {
@@ -157,7 +182,7 @@ export default function ProductSection({ onScrollToSection, onOpenCalculator, in
             return (
               <motion.button
                 key={p.id}
-                onClick={() => { setActiveTab(p.id); setBlinkingTab(null); }}
+                onClick={() => { userInteractedRef.current = true; setActiveTab(p.id); setBlinkingTab(null); }}
                 whileTap={{ scale: 1.15 }}
                 animate={isActive ? { scale: 1.05, boxShadow: isBlinking ? ['0 0 0px rgba(99,102,241,0)', '0 0 18px rgba(99,102,241,0.7)', '0 0 0px rgba(99,102,241,0)'] : undefined } : { scale: 1 }}
                 transition={{ type: 'spring', stiffness: 400, damping: 20, boxShadow: { duration: 0.6, repeat: isBlinking ? Infinity : 0 } }}
