@@ -34,7 +34,18 @@ export default function Footer({ onScrollToSection }: FooterProps) {
           <div className="flex flex-wrap gap-x-6 gap-y-1 text-slate-500 font-medium">
             <span><strong>대표 문의:</strong> 053-252-6408</span>
             <span><strong>FAX:</strong> 053-252-8877</span>
-            <span><strong>서민금융 콜 통합:</strong> 1397 (국번없이)</span>
+            <button
+              onClick={() => {
+                if (window.innerWidth < 768) {
+                  window.location.href = 'tel:1397';
+                } else {
+                  window.open('https://www.kinfa.or.kr', '_blank', 'noopener,noreferrer');
+                }
+              }}
+              className="text-slate-400 hover:text-white font-semibold underline underline-offset-2 transition-colors"
+            >
+              <strong className="text-slate-500 no-underline">서민금융진흥원:</strong> 1397 (국번없이)
+            </button>
           </div>
           <div className="flex flex-wrap gap-x-6 gap-y-1">
             <button
@@ -43,9 +54,6 @@ export default function Footer({ onScrollToSection }: FooterProps) {
             >
               개인정보처리방침
             </button>
-            <a href="https://www.kinfa.or.kr" target="_blank" rel="noopener noreferrer" className="text-slate-400 hover:text-white font-semibold underline underline-offset-2 transition-colors">
-              서민금융진흥원 바로가기
-            </a>
           </div>
           <p className="text-slate-600 font-bold pt-1">
             © 2026 (사)미소금융대구중구법인 (Daegu Junggu Miso Microcredit Bank Corp). All rights reserved.
