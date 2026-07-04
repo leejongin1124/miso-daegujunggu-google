@@ -47,6 +47,7 @@ export default function Hero({ onScrollToSection }: HeroProps) {
   const [phoneIdx, setPhoneIdx] = useState(0);
   const statsRef = useRef<HTMLDivElement>(null);
   const videoRef = useRef<HTMLVideoElement>(null);
+  const [videoPlaying, setVideoPlaying] = useState(false);
 
   useEffect(() => {
     let count = 0;
@@ -184,7 +185,14 @@ export default function Hero({ onScrollToSection }: HeroProps) {
       className="relative overflow-hidden flex flex-col min-h-[100svh]"
     >
 
-      {/* 배경 동영상 — 모바일: object-top으로 상단 인물 중심 표시 */}
+      {/* 최초 로딩 배경(포스터) — 모바일 중앙 정렬(50:50), 동영상 재생 시작 전까지만 표시 */}
+      <img
+        src="/hero-bg.jpg"
+        alt=""
+        aria-hidden="true"
+        className={`absolute inset-0 w-full h-full object-cover [object-position:50%_50%] transition-opacity duration-500 ${videoPlaying ? 'opacity-0' : 'opacity-100'}`}
+      />
+      {/* 배경 동영상 — 재생 시작 후 모바일은 80% 우측 기준 표시 */}
       <video
         ref={videoRef}
         autoPlay
@@ -192,8 +200,8 @@ export default function Hero({ onScrollToSection }: HeroProps) {
         loop
         playsInline
         preload="metadata"
-        poster="/hero-bg.jpg"
         onCanPlay={() => { if (videoRef.current) videoRef.current.playbackRate = 0.8; }}
+        onPlaying={() => setVideoPlaying(true)}
         className="absolute inset-0 w-full h-full object-cover [object-position:80%_0%] md:[object-position:50%_50%]"
         src="/hero-bg.mp4"
       />
