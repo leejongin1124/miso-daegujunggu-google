@@ -289,12 +289,19 @@ export default function AboutSection({ sectionId }: { sectionId?: string }) {
             <div style={{ minWidth: '600px' }}>
               <div className="relative border-l-2 border-slate-200 ml-40 py-4">
                 {historyData.map((milestone, idx) => (
-                  <div key={idx} className="mb-14 last:mb-0 relative">
+                  <motion.div
+                    key={idx}
+                    initial={{ opacity: 0, x: -16 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true, margin: '-60px' }}
+                    transition={{ duration: 0.4, delay: Math.min(idx * 0.05, 0.4) }}
+                    className="mb-14 last:mb-0 relative"
+                  >
                     <div className="absolute -left-[176px] top-0 w-40 text-right">
                       <span className="text-2xl font-black text-slate-800 tracking-tight font-mono">{milestone.year}</span>
                     </div>
                     <div className="absolute -left-[9px] top-2.5 w-4 h-4 rounded-full bg-white border-4 border-teal-600 shadow-md" />
-                    <div className="bg-white p-6 rounded-2xl border border-slate-100 shadow-sm ml-6 hover:shadow-md transition-shadow">
+                    <div className="bg-white p-6 rounded-2xl border border-slate-100 shadow-sm ml-6 hover:shadow-lg hover:border-teal-100 transition-all">
                       <ul className="space-y-3.5">
                         {milestone.items.map((item, id) => (
                           <li key={id} className="flex items-start space-x-3 text-left">
@@ -318,7 +325,7 @@ export default function AboutSection({ sectionId }: { sectionId?: string }) {
                         ))}
                       </ul>
                     </div>
-                  </div>
+                  </motion.div>
                 ))}
               </div>
             </div>
@@ -327,7 +334,14 @@ export default function AboutSection({ sectionId }: { sectionId?: string }) {
           {/* 모바일 레이아웃 (md 미만) — 연도가 카드 상단에 표시, 세로 타임라인 */}
           <div className="md:hidden relative border-l-2 border-slate-200 ml-4 py-2">
             {historyData.map((milestone, idx) => (
-              <div key={idx} className="mb-8 last:mb-0 relative pl-6">
+              <motion.div
+                key={idx}
+                initial={{ opacity: 0, y: 12 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: '-40px' }}
+                transition={{ duration: 0.35, delay: Math.min(idx * 0.04, 0.3) }}
+                className="mb-8 last:mb-0 relative pl-6"
+              >
                 {/* 원형 동그라미 */}
                 <div className="absolute -left-[9px] top-1 w-4 h-4 rounded-full bg-white border-4 border-teal-600 shadow-md" />
                 {/* 연도 배지 */}
@@ -360,7 +374,7 @@ export default function AboutSection({ sectionId }: { sectionId?: string }) {
                     ))}
                   </ul>
                 </div>
-              </div>
+              </motion.div>
             ))}
           </div>
 
@@ -382,7 +396,13 @@ export default function AboutSection({ sectionId }: { sectionId?: string }) {
             </div>
 
             {/* 지도 박스 — 모바일: 자가용 이용 시 다음(맨 아래), 버튼은 지도 상단 / PC: 우측 그대로, 버튼은 지도 하단 */}
-            <div className="bg-white p-3 rounded-2xl border border-slate-200 shadow-md order-3 lg:order-2 lg:row-span-2">
+            <motion.div
+              initial={{ opacity: 0, scale: 0.98 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.4 }}
+              className="bg-white p-3 rounded-2xl border border-slate-200 shadow-md hover:shadow-xl transition-shadow order-3 lg:order-2 lg:row-span-2"
+            >
               <div className="flex items-center justify-center mb-2 px-1 md:hidden">
                 <a
                   href="https://naver.me/GSQLkTiM"
@@ -418,7 +438,7 @@ export default function AboutSection({ sectionId }: { sectionId?: string }) {
                   <ExternalLink className="w-3 h-3" />
                 </a>
               </div>
-            </div>
+            </motion.div>
 
             {/* 상세 정보 — 모바일: 소개 문구 다음(지도보다 먼저) / PC: 좌측 하단 */}
             <div className="space-y-4 pt-2 order-2 lg:order-3">

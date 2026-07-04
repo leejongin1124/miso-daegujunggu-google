@@ -297,14 +297,14 @@ export default function ProductSection({ onScrollToSection, onOpenCalculator, in
                   </div>
                 ) : (
                 <>
-                <div className="bg-slate-50 px-5 py-4 rounded-xl border border-slate-100 flex items-center gap-4">
+                <div className="bg-slate-50 px-5 py-4 rounded-xl border border-slate-100 flex items-center gap-4 hover:shadow-md hover:border-slate-200 transition-all">
                   <div className="flex-shrink-0 w-10 h-10 bg-teal-100 rounded-xl flex items-center justify-center text-lg">💰</div>
                   <div>
                     <span className="block text-slate-400 text-[10px] font-bold uppercase tracking-wider mb-1">대출 최대 한도</span>
                     <span className="block text-slate-800 font-black text-base leading-snug whitespace-pre-line">{activeProduct.limit}</span>
                   </div>
                 </div>
-                <div className="bg-teal-50 px-5 py-4 rounded-xl border border-teal-100 flex items-center gap-4">
+                <div className="bg-teal-50 px-5 py-4 rounded-xl border border-teal-100 flex items-center gap-4 hover:shadow-md hover:border-teal-200 transition-all">
                   <div className="flex-shrink-0 w-10 h-10 bg-teal-200 rounded-xl flex items-center justify-center text-lg">📉</div>
                   <div>
                     <span className="block text-teal-600 text-[10px] font-bold uppercase tracking-wider mb-1">실질 금리 수준</span>
@@ -313,14 +313,14 @@ export default function ProductSection({ onScrollToSection, onOpenCalculator, in
                 </div>
                 </>
                 )}
-                <div className="bg-slate-50 px-5 py-4 rounded-xl border border-slate-100 flex items-center gap-4">
+                <div className="bg-slate-50 px-5 py-4 rounded-xl border border-slate-100 flex items-center gap-4 hover:shadow-md hover:border-slate-200 transition-all">
                   <div className="flex-shrink-0 w-10 h-10 bg-indigo-100 rounded-xl flex items-center justify-center text-lg">📅</div>
                   <div>
                     <span className="block text-slate-400 text-[10px] font-bold uppercase tracking-wider mb-1">거치 · 상환 기간</span>
                     <span className="block text-slate-700 font-bold text-xs leading-relaxed whitespace-pre-line">{activeProduct.repaymentPeriod}</span>
                   </div>
                 </div>
-                <div className="bg-slate-50 px-5 py-4 rounded-xl border border-slate-100 flex items-center gap-4">
+                <div className="bg-slate-50 px-5 py-4 rounded-xl border border-slate-100 flex items-center gap-4 hover:shadow-md hover:border-slate-200 transition-all">
                   <div className="flex-shrink-0 w-10 h-10 bg-emerald-100 rounded-xl flex items-center justify-center text-lg">🔄</div>
                   <div>
                     <span className="block text-slate-400 text-[10px] font-bold uppercase tracking-wider mb-1">상환 방식</span>
@@ -677,20 +677,26 @@ export default function ProductSection({ onScrollToSection, onOpenCalculator, in
             {/* 우측 보강 설명: 적용 추천 대상 및 기대 효과 */}
             <div id="youth-fund" className="lg:col-span-5 space-y-6 text-left">
               
-              <div id="vulnerable-fund" className="bg-white p-6.5 md:p-8 rounded-3xl shadow-sm border border-slate-100 space-y-6">
+              <div id="vulnerable-fund" className="bg-white p-6.5 md:p-8 rounded-3xl shadow-sm hover:shadow-md transition-shadow border border-slate-100 space-y-6">
                 <h4 className="font-extrabold text-slate-900 text-lg flex items-center gap-1 tracking-tight">
                   <Star className="w-5 h-5 text-indigo-500 fill-indigo-500" />
                   <span>이런 분에게 적극 추천합니다</span>
                 </h4>
-                
+
                 <div className="space-y-4">
                   {activeProduct.suitability.map((suit, index) => (
-                    <div key={index} className="flex gap-3 text-sm">
+                    <motion.div
+                      key={index}
+                      initial={{ opacity: 0, x: 10 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{ duration: 0.35, delay: index * 0.08 }}
+                      className="flex gap-3 text-sm"
+                    >
                       <div className="w-6 h-6 rounded-full bg-teal-50 text-teal-700 font-bold text-xs flex items-center justify-center shrink-0 mt-0.5">
                         {index + 1}
                       </div>
                       <p className="text-slate-600 font-medium leading-relaxed">{suit}</p>
-                    </div>
+                    </motion.div>
                   ))}
                 </div>
               </div>
