@@ -51,8 +51,6 @@ export default function Footer({ onScrollToSection }: FooterProps) {
                 1397 (국번없이)
               </a>
             </span>
-          </div>
-          <div className="flex flex-wrap gap-x-6 gap-y-1">
             <button
               onClick={() => onScrollToSection('privacy-policy')}
               className="text-slate-400 hover:text-white font-semibold underline underline-offset-2 transition-colors"
