@@ -277,7 +277,8 @@ export default function Hero({ onScrollToSection }: HeroProps) {
                 서민금융진흥원 공식 사업수행기관입니다.
               </p>
               <p className="text-white text-base md:text-lg font-semibold leading-relaxed drop-shadow">
-                대구·경북 청년·소상공인·금융취약계층을 위한 서민금융 상담을 제공합니다.
+                대구·경북 청년·소상공인·금융취약계층을 위한<br className="md:hidden" />{' '}
+                서민금융 상담을 제공합니다.
               </p>
             </motion.div>
 
