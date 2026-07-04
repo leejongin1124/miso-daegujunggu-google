@@ -32,7 +32,7 @@ export default function Footer({ onScrollToSection }: FooterProps) {
             <span><strong>주소:</strong> 대구광역시 남구 중앙대로 146, 4층 (봉덕동, 하나은행 봉덕지점)</span>
           </div>
           <div className="flex flex-wrap gap-x-6 gap-y-1 text-slate-500 font-medium">
-            <span><strong>대표 문의:</strong> 053-252-6408</span>
+            <span><strong>대표 문의:</strong> <a href="tel:053-252-6408" className="hover:text-white underline underline-offset-2 transition-colors">053-252-6408</a></span>
             <span><strong>FAX:</strong> 053-252-8877</span>
             <span>
               <a
