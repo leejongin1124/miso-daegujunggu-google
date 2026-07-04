@@ -14,6 +14,7 @@ import CaseSection from './components/CaseSection';
 import NoticeSection from './components/NoticeSection';
 import Footer from './components/Footer';
 import MisoIntroSection from './components/MisoIntroSection';
+import PrivacyPolicySection from './components/PrivacyPolicySection';
 
 // 섹션 ID → 어느 컴포넌트에 속하는지 매핑
 const SECTION_MAP: Record<string, string> = {
@@ -27,6 +28,7 @@ const SECTION_MAP: Record<string, string> = {
   'case-social': 'cases', 'case-business': 'cases',
   'case-youth': 'cases', 'case-vulnerable': 'cases',
   'notice': 'notice', 'anti-fraud': 'notice',
+  'privacy-policy': 'privacy',
 };
 
 export default function App() {
@@ -186,6 +188,13 @@ export default function App() {
         {activeSection === 'notice' && (
           <div className="bg-white pt-20">
             <NoticeSection sectionId={activeSectionId ?? undefined} />
+          </div>
+        )}
+
+        {/* 개인정보처리방침 */}
+        {activeSection === 'privacy' && (
+          <div className="bg-white pt-20">
+            <PrivacyPolicySection />
           </div>
         )}
 

@@ -23,8 +23,8 @@ export default function MisoIntroSection() {
     {
       icon: <TrendingDown className="w-10 h-10 text-indigo-600" />,
       bg: 'bg-indigo-50',
-      title: '연 4.5% 저금리 대출',
-      desc: '일반 금융기관 이용이 어려운 분들을 대상으로 연 4.5% 저금리 대출을 지원합니다. 상담을 통해 자격을 확인하신 후 이용하실 수 있습니다.'
+      title: '상품별 정책금리 적용',
+      desc: '상품별 금리와 한도는 대상 요건, 우대 조건, 심사 결과에 따라 달라질 수 있습니다. 상담을 통해 본인에게 맞는 지원 가능 여부를 확인하실 수 있습니다.'
     }
   ];
 

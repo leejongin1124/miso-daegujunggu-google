@@ -110,25 +110,6 @@ export default function Hero({ onScrollToSection }: HeroProps) {
     }
   }, [moneyDone]);
 
-  // 모바일 전용: 카운트업 애니메이션 종료 3초 후 통계 카드(누적 대출 인원/금액) 숨김 → 하단 footer 노출
-  const [isMobile, setIsMobile] = useState(false);
-  const [statsCardsVisible, setStatsCardsVisible] = useState(true);
-
-  useEffect(() => {
-    const mq = window.matchMedia('(max-width: 767px)');
-    setIsMobile(mq.matches);
-    const handler = (e: MediaQueryListEvent) => setIsMobile(e.matches);
-    mq.addEventListener('change', handler);
-    return () => mq.removeEventListener('change', handler);
-  }, []);
-
-  useEffect(() => {
-    if (peopleDone && moneyDone) {
-      const t = setTimeout(() => setStatsCardsVisible(false), 2000);
-      return () => clearTimeout(t);
-    }
-  }, [peopleDone, moneyDone]);
-
   // 타이틀 순차 애니메이션 phase: 0→숨김 1→1번등장 2→2번등장 3→고정
   const [titlePhase, setTitlePhase] = useState(0);
   useEffect(() => {
@@ -200,9 +181,7 @@ export default function Hero({ onScrollToSection }: HeroProps) {
   return (
     <section
       id="hero-section"
-      className={`relative overflow-hidden flex flex-col transition-[min-height] duration-700 ease-in-out ${
-        isMobile && !statsCardsVisible ? 'min-h-0' : 'min-h-[100svh]'
-      }`}
+      className="relative overflow-hidden flex flex-col min-h-[100svh]"
     >
 
       {/* 배경 동영상 — 모바일: object-top으로 상단 인물 중심 표시 */}
@@ -212,6 +191,8 @@ export default function Hero({ onScrollToSection }: HeroProps) {
         muted
         loop
         playsInline
+        preload="metadata"
+        poster="/hero-bg.jpg"
         onCanPlay={() => { if (videoRef.current) videoRef.current.playbackRate = 0.8; }}
         className="absolute inset-0 w-full h-full object-cover [object-position:80%_0%] md:[object-position:50%_50%]"
         src="/hero-bg.mp4"
@@ -295,12 +276,8 @@ export default function Hero({ onScrollToSection }: HeroProps) {
                 금융위원회 허가 비영리 공익법인이자<br className="md:hidden" />{' '}
                 서민금융진흥원 공식 사업수행기관입니다.
               </p>
-              <p className="text-white text-base md:text-lg font-semibold leading-relaxed flex flex-wrap items-center gap-2 drop-shadow">
-                대구·경북 청년·소상공인·취약계층의 자립을 위해
-                <span className="inline-flex items-center bg-emerald-500/90 text-white text-xs font-black px-2.5 py-1 rounded-lg whitespace-nowrap shadow">
-                  연 4.5% 저금리
-                </span>
-                상담부터 대출까지 함께합니다.
+              <p className="text-white text-base md:text-lg font-semibold leading-relaxed drop-shadow">
+                대구·경북 청년·소상공인·금융취약계층을 위한 서민금융 상담을 제공합니다.
               </p>
             </motion.div>
 
@@ -310,50 +287,29 @@ export default function Hero({ onScrollToSection }: HeroProps) {
               transition={{ duration: 0.6, delay: 0.3 }}
               className="flex flex-row gap-3 pt-2 items-start w-full"
             >
-              <motion.button
-                onClick={() => onScrollToSection('products-all')}
+              <motion.a
+                href={`tel:${currentPhone.number}`}
                 animate={{ scale: [1, 1.1, 1], y: [0, -3, 0] }}
                 transition={{ duration: 1.1, repeat: Infinity, ease: 'easeInOut' }}
                 whileHover={{ scale: 1.12 }}
                 whileTap={{ scale: 0.92 }}
                 className="relative inline-flex flex-1 md:flex-none justify-center items-center space-x-2 bg-white/5 backdrop-blur-[2px] text-white border border-white/30 hover:bg-white/30 font-bold px-4 md:px-7 py-4 rounded-2xl transition-colors shadow-lg shadow-teal-500/20 text-sm md:text-base"
               >
-                <motion.span
-                  animate={{ opacity: [1, 0.4, 1] }}
-                  transition={{ duration: 1.1, repeat: Infinity }}
-                  className="md:hidden absolute -top-2 -right-2 bg-teal-600 text-white text-[9px] font-black px-2 py-0.5 rounded-full shadow"
-                >
-                  이동
-                </motion.span>
-                <span className="md:hidden">🔍 상품안내</span>
-                <span className="hidden md:inline">🔍 대출상품 전체보기</span>
-                <ArrowRight className="w-4 h-4 hidden md:inline" />
-              </motion.button>
-              <motion.a
-                href="https://blog.naver.com/eornwndrn1"
-                target="_blank"
-                rel="noopener noreferrer"
+                <Phone className="w-4 h-4" />
+                <span>전화상담</span>
+              </motion.a>
+              <motion.button
+                onClick={() => onScrollToSection('products-all')}
                 animate={{ scale: [1, 1.1, 1], y: [0, -3, 0] }}
                 transition={{ duration: 1.1, repeat: Infinity, ease: 'easeInOut', delay: 0.4 }}
                 whileHover={{ scale: 1.12 }}
                 whileTap={{ scale: 0.92 }}
                 className="relative inline-flex flex-1 md:flex-none justify-center items-center space-x-2 bg-white/[0.03] backdrop-blur-[2px] text-white border border-white/25 hover:bg-white/20 font-bold px-4 md:px-8 py-4 rounded-2xl transition-colors shadow-lg shadow-emerald-500/20 text-sm md:text-base"
               >
-                <motion.span
-                  animate={{ opacity: [1, 0.4, 1] }}
-                  transition={{ duration: 1.1, repeat: Infinity, delay: 0.4 }}
-                  className="md:hidden absolute -top-2 -right-2 bg-teal-600 text-white text-[9px] font-black px-2 py-0.5 rounded-full shadow"
-                >
-                  이동
-                </motion.span>
-                <img
-                  src="/logos/naver_blog_logo.png"
-                  alt="블로그"
-                  className="w-5 h-5 md:w-6 md:h-6 object-contain"
-                />
-                <span className="md:hidden">법인 블로그</span>
-                <span className="hidden md:inline">법인 공식 블로그 보기</span>
-              </motion.a>
+                <span className="md:hidden">🔍 상품안내</span>
+                <span className="hidden md:inline">🔍 대출상품 전체보기</span>
+                <ArrowRight className="w-4 h-4 hidden md:inline" />
+              </motion.button>
             </motion.div>
           </div>
         </div>
@@ -362,14 +318,12 @@ export default function Hero({ onScrollToSection }: HeroProps) {
         <div ref={statsRef} className="grid grid-cols-2 lg:grid-cols-4 gap-2 md:gap-4 pb-4 md:pb-8">
           <AnimatePresence>
           {quickCards.map((card, i) => {
-            if (i >= 2 && isMobile && !statsCardsVisible) return null;
             return (
             <motion.div
               key={i}
               initial={{ opacity: 0, y: 30, scale: 0.95 }}
               whileInView={{ opacity: 1, y: 0, scale: 1 }}
               viewport={{ once: true }}
-              exit={{ opacity: 0, scale: 0.9, height: 0, marginTop: 0, marginBottom: 0, paddingTop: 0, paddingBottom: 0 }}
               transition={{ duration: 0.5, delay: i * 0.12, type: 'spring', stiffness: 200, damping: 18 }}
               animate={spotlightIdx === i && i < 2 ? { y: -4, scale: 1.02 } : { y: 0, scale: 1 }}
               onClick={card.action}
@@ -433,9 +387,7 @@ export default function Hero({ onScrollToSection }: HeroProps) {
                   </div>
                   )}
                   {card.action && (
-                    <span className={`text-[10px] font-bold px-2 py-0.5 rounded-full transition-colors ${spotlightIdx === i && i < 2 ? 'bg-teal-600 text-white' : 'text-teal-600 bg-teal-50 group-hover:bg-teal-600 group-hover:text-white'}`}>
-                      이동
-                    </span>
+                    <ArrowRight className={`w-4 h-4 transition-colors ${i < 2 ? 'text-white/70' : 'text-slate-400 md:text-white/70'}`} />
                   )}
                 </div>
                 <h3 className={`text-[10px] md:text-xs font-bold uppercase tracking-wider mt-3 md:mt-5 ${i < 2 ? 'text-white/80' : 'text-slate-500 md:text-white/80'}`}>{card.title}</h3>
@@ -469,6 +421,24 @@ export default function Hero({ onScrollToSection }: HeroProps) {
             );
           })}
           </AnimatePresence>
+        </div>
+
+        {/* 법인 블로그 — 핵심 CTA와 분리하여 하단에 보조 링크로 배치 */}
+        <div className="pb-6 md:pb-8 flex justify-center">
+          <a
+            href="https://blog.naver.com/eornwndrn1"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-1.5 text-white/70 hover:text-white text-xs md:text-sm font-semibold transition-colors"
+          >
+            <img
+              src="/logos/naver_blog_logo.png"
+              alt="블로그"
+              className="w-4 h-4 object-contain"
+            />
+            <span>법인 공식 블로그 보기</span>
+            <ArrowRight className="w-3.5 h-3.5" />
+          </a>
         </div>
 
       </div>

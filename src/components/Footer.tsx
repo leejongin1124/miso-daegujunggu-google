@@ -36,6 +36,20 @@ export default function Footer({ onScrollToSection }: FooterProps) {
             <span><strong>FAX:</strong> 053-252-8877</span>
             <span><strong>서민금융 콜 통합:</strong> 1397 (국번없이)</span>
           </div>
+          <p className="text-slate-600 font-medium pt-1 leading-relaxed">
+            본 홈페이지는 별도 회원가입이나 온라인 신청을 통해 개인정보를 직접 수집하지 않습니다.
+          </p>
+          <div className="flex flex-wrap gap-x-6 gap-y-1 pt-1">
+            <button
+              onClick={() => onScrollToSection('privacy-policy')}
+              className="text-slate-400 hover:text-white font-semibold underline underline-offset-2 transition-colors"
+            >
+              개인정보처리방침
+            </button>
+            <a href="https://www.kinfa.or.kr" target="_blank" rel="noopener noreferrer" className="text-slate-400 hover:text-white font-semibold underline underline-offset-2 transition-colors">
+              서민금융진흥원 바로가기
+            </a>
+          </div>
           <p className="text-slate-600 font-bold pt-1">
             © 2026 (사)미소금융대구중구법인 (Daegu Junggu Miso Microcredit Bank Corp). All rights reserved.
           </p>

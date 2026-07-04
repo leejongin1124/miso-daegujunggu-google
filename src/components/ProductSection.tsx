@@ -3,7 +3,7 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, type ReactElement } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { BadgePercent, ShieldCheck, CheckCircle2, ChevronRight, Calculator, FileText, ArrowUpRight, HelpCircle, FileCheck, Star, Users } from 'lucide-react';
 import { Product } from '../types';
@@ -18,7 +18,7 @@ interface ProductSectionProps {
 
 export default function ProductSection({ onScrollToSection, onOpenCalculator, initialTab, hideTabs }: ProductSectionProps) {
   const [activeTab, setActiveTab] = useState<string>(initialTab || 'social');
-  const [blinkingTab] = useState<string | null>(null);
+  const [blinkingTab, setBlinkingTab] = useState<string | null>(null);
 
   useEffect(() => {
     if (initialTab) setActiveTab(initialTab);
@@ -137,15 +137,15 @@ export default function ProductSection({ onScrollToSection, onOpenCalculator, in
           </h2>
           <div className="h-1.5 w-16 bg-teal-600 rounded-full mx-auto" />
           <p className="text-slate-600 font-medium text-base md:text-lg max-w-2xl mx-auto leading-relaxed text-left md:text-center">
-            상환 의지와 자립의 꿈, 그것으로 충분합니다. <br className="hidden sm:inline" />
-            담보·보증 없이, 연 4.5% 저금리 대출로 여러분의 새 출발을 함께합니다.
+            상품별 대상 요건과 증빙서류를 확인한 뒤, <br className="hidden sm:inline" />
+            심사 절차에 따라 서민금융 지원 가능 여부를 안내합니다.
           </p>
         </div>
 
         {/* 탭 가로 셀렉터 — 특정 상품 링크로 바로 진입한 경우 숨김 */}
         {!hideTabs && <div className="flex flex-wrap justify-center gap-3 max-w-3xl mx-auto">
           {products.map((p) => {
-            const tabStyles: Record<string, { active: string; inactive: string; glow: string; icon: JSX.Element }> = {
+            const tabStyles: Record<string, { active: string; inactive: string; glow: string; icon: ReactElement }> = {
               social:     { active: 'from-teal-500 to-cyan-500 shadow-teal-200',        inactive: 'border-teal-200 text-teal-700 hover:bg-teal-50',       glow: 'shadow-teal-300',    icon: <Star className="w-4 h-4" /> },
               business:   { active: 'from-orange-500 to-amber-500 shadow-orange-200',  inactive: 'border-orange-200 text-orange-700 hover:bg-orange-50',  glow: 'shadow-orange-300',  icon: <BadgePercent className="w-4 h-4" /> },
               youth:      { active: 'from-indigo-500 to-violet-500 shadow-indigo-200',  inactive: 'border-indigo-200 text-indigo-700 hover:bg-indigo-50',  glow: 'shadow-indigo-300',  icon: <Users className="w-4 h-4" /> },
@@ -566,7 +566,7 @@ export default function ProductSection({ onScrollToSection, onOpenCalculator, in
                             <ArrowUpRight className="w-3.5 h-3.5 text-blue-400 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform md:ml-1" />
                           </a>
                           <a
-                            href="http://www.kodit.co.kr"
+                            href="https://www.kodit.co.kr"
                             target="_blank"
                             rel="noopener noreferrer"
                             className="flex items-center justify-between md:justify-center bg-green-50 hover:bg-green-100 border border-green-300 px-3 py-2.5 rounded-xl text-xs font-bold text-green-800 transition group"
