@@ -9,7 +9,6 @@ import Header from './components/Header';
 import Hero from './components/Hero';
 import Footer from './components/Footer';
 import SectionPageShell from './components/SectionPageShell';
-import FloatingWidget from './components/FloatingWidget';
 
 // 랜딩 화면(Hero+Footer)에는 필요 없는 화면들은 지연 로딩하여 초기 번들 크기를 줄임
 const AboutSection = lazy(() => import('./components/AboutSection'));
@@ -232,8 +231,6 @@ export default function App() {
         </Suspense>
 
       </main>
-
-      <FloatingWidget onOpenCalculator={handleOpenCalculator} />
 
       <Footer onScrollToSection={handleScrollToSection} />
 
