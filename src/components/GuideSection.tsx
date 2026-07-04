@@ -499,7 +499,14 @@ export default function GuideSection({ sectionId }: { sectionId?: string }) {
 
           {/* 지원대상 3가지 */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-            <div className="bg-teal-50 border border-teal-200 rounded-2xl p-6 space-y-3">
+            <motion.div
+              initial={{ opacity: 0, y: 14 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.4 }}
+              whileHover={{ y: -4 }}
+              className="bg-teal-50 border border-teal-200 rounded-2xl p-6 space-y-3 hover:shadow-md transition-shadow"
+            >
               <div className="w-9 h-9 bg-teal-600 text-white rounded-xl flex items-center justify-center font-black text-sm">1</div>
               <h4 className="font-extrabold text-teal-800 text-base">신용평점 하위 20% 해당자</h4>
               <p className="text-slate-600 text-sm leading-relaxed">
@@ -535,17 +542,31 @@ export default function GuideSection({ sectionId }: { sectionId?: string }) {
                   <span>KCB 신용점수 확인</span>
                 </motion.a>
               </div>
-            </div>
+            </motion.div>
 
-            <div className="bg-teal-50 border border-teal-200 rounded-2xl p-6 space-y-3">
+            <motion.div
+              initial={{ opacity: 0, y: 14 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.4, delay: 0.1 }}
+              whileHover={{ y: -4 }}
+              className="bg-teal-50 border border-teal-200 rounded-2xl p-6 space-y-3 hover:shadow-md transition-shadow"
+            >
               <div className="w-9 h-9 bg-teal-600 text-white rounded-xl flex items-center justify-center font-black text-sm">2</div>
               <h4 className="font-extrabold text-teal-800 text-base">취약계층 해당자</h4>
               <p className="text-slate-600 text-sm leading-relaxed">
                 기초생활수급권자 또는 차상위계층에 해당하는 취약계층 고객
               </p>
-            </div>
+            </motion.div>
 
-            <div className="bg-teal-50 border border-teal-200 rounded-2xl p-6 space-y-3">
+            <motion.div
+              initial={{ opacity: 0, y: 14 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.4, delay: 0.2 }}
+              whileHover={{ y: -4 }}
+              className="bg-teal-50 border border-teal-200 rounded-2xl p-6 space-y-3 hover:shadow-md transition-shadow"
+            >
               <div className="w-9 h-9 bg-teal-600 text-white rounded-xl flex items-center justify-center font-black text-sm">3</div>
               <h4 className="font-extrabold text-teal-800 text-base">근로장려금 신청 자격 해당자</h4>
               <p className="text-slate-600 text-sm leading-relaxed">
@@ -565,7 +586,7 @@ export default function GuideSection({ sectionId }: { sectionId?: string }) {
                 <span>🏛️</span>
                 <span>국세청 홈택스 근로·자녀장려금 안내</span>
               </motion.a>
-            </div>
+            </motion.div>
           </div>
 
           {/* 대출 제외대상 */}
@@ -637,7 +658,15 @@ export default function GuideSection({ sectionId }: { sectionId?: string }) {
 
           <div className="grid grid-cols-1 md:grid-cols-5 gap-6 mt-8 text-left">
             {processSteps.map((p, idx) => (
-              <div key={idx} className="bg-white p-6 rounded-2xl border border-slate-100 shadow-sm relative group hover:border-miso-blue-200 hover:shadow-md transition duration-300 flex flex-col">
+              <motion.div
+                key={idx}
+                initial={{ opacity: 0, y: 16 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4, delay: idx * 0.08 }}
+                whileHover={{ y: -5 }}
+                className="bg-white p-6 rounded-2xl border border-slate-100 shadow-sm relative group hover:border-miso-blue-200 hover:shadow-lg transition duration-300 flex flex-col"
+              >
                 {/* 단계 번호 + 아이콘 */}
                 <div className="flex items-center justify-between mb-4">
                   <div className="w-9 h-9 rounded-xl bg-miso-blue-50 text-miso-blue-700 font-black text-xs flex items-center justify-center shadow-inner">
@@ -655,7 +684,7 @@ export default function GuideSection({ sectionId }: { sectionId?: string }) {
                 <p className="text-slate-500 text-xs mt-2 leading-relaxed font-semibold flex-1">
                   {p.desc}
                 </p>
-              </div>
+              </motion.div>
             ))}
           </div>
 
@@ -710,16 +739,30 @@ export default function GuideSection({ sectionId }: { sectionId?: string }) {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-sm">
             {/* 신분 확인 */}
-            <div className="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm space-y-2">
+            <motion.div
+              initial={{ opacity: 0, y: 14 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.4 }}
+              whileHover={{ y: -4 }}
+              className="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition-shadow space-y-2"
+            >
               <span className="font-extrabold text-slate-800 block text-base">📝 신분 확인</span>
               <ul className="space-y-1.5 text-slate-600 text-[13px]">
                 <li className="flex items-start gap-2"><span className="text-teal-500 mt-0.5">✓</span><span>주민등록증 또는 운전면허증 <span className="text-rose-500 font-bold">(필수)</span></span></li>
                 <li className="flex items-start gap-2"><span className="text-teal-500 mt-0.5">✓</span><span>주민등록 등본·초본 <span className="text-slate-400 text-[11px]">(주민센터 발급)</span></span></li>
               </ul>
-            </div>
+            </motion.div>
 
             {/* 사업 서류 */}
-            <div className="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm space-y-2">
+            <motion.div
+              initial={{ opacity: 0, y: 14 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.4, delay: 0.1 }}
+              whileHover={{ y: -4 }}
+              className="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition-shadow space-y-2"
+            >
               <span className="font-extrabold text-slate-800 block text-base">🏪 사업 관련 서류</span>
               <ul className="space-y-1.5 text-slate-600 text-[13px]">
                 <li className="flex items-start gap-2"><span className="text-teal-500 mt-0.5">✓</span><span>사업자등록증</span></li>
@@ -727,17 +770,24 @@ export default function GuideSection({ sectionId }: { sectionId?: string }) {
                 <li className="flex items-start gap-2"><span className="text-teal-500 mt-0.5">✓</span><span>주거래 통장 <span className="text-slate-400 text-[11px]">(최근 3개월 입출금내역)</span></span></li>
                 <li className="flex items-start gap-2"><span className="text-teal-500 mt-0.5">✓</span><span>소득금액증명원 또는 부가세 과세표준증명원</span></li>
               </ul>
-            </div>
+            </motion.div>
 
             {/* 해당자 추가 서류 */}
-            <div className="bg-white p-5 rounded-2xl border border-amber-100 shadow-sm space-y-2">
+            <motion.div
+              initial={{ opacity: 0, y: 14 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.4, delay: 0.2 }}
+              whileHover={{ y: -4 }}
+              className="bg-white p-5 rounded-2xl border border-amber-100 shadow-sm hover:shadow-md transition-shadow space-y-2"
+            >
               <span className="font-extrabold text-slate-800 block text-base">📋 해당되시는 분만</span>
               <ul className="space-y-1.5 text-slate-600 text-[13px]">
                 <li className="flex items-start gap-2"><span className="text-amber-500 mt-0.5">✓</span><span>근로장려금 수급사실 증명서</span></li>
                 <li className="flex items-start gap-2"><span className="text-amber-500 mt-0.5">✓</span><span>국민기초생활수급자 증명서</span></li>
                 <li className="flex items-start gap-2"><span className="text-amber-500 mt-0.5">✓</span><span>차상위계층 확인서</span></li>
               </ul>
-            </div>
+            </motion.div>
           </div>
         </div></>}
 
@@ -756,14 +806,18 @@ export default function GuideSection({ sectionId }: { sectionId?: string }) {
           </div>
 
           <div className="max-w-4xl mx-auto space-y-4 text-left">
-            {faqs.map((faq) => {
+            {faqs.map((faq, idx) => {
               const isOpen = openFaqId === faq.id;
               return (
-                <div 
+                <motion.div
                   key={faq.id}
+                  initial={{ opacity: 0, y: 12 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.35, delay: idx * 0.06 }}
                   className={`bg-white rounded-2xl border transition-all duration-300 ${
-                    isOpen 
-                      ? 'border-miso-blue-500 shadow-md ring-1 ring-miso-blue-500/20' 
+                    isOpen
+                      ? 'border-miso-blue-500 shadow-md ring-1 ring-miso-blue-500/20'
                       : 'border-slate-200/90 hover:border-slate-400 hover:shadow-sm'
                   }`}
                 >
@@ -800,7 +854,7 @@ export default function GuideSection({ sectionId }: { sectionId?: string }) {
                       </p>
                     </div>
                   </div>
-                </div>
+                </motion.div>
               );
             })}
           </div>
