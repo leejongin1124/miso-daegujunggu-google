@@ -151,21 +151,8 @@ export default function ProductSection({ onScrollToSection, onOpenCalculator, in
   const activeProduct = products.find((p) => p.id === activeTab) || products[0];
 
   return (
-    <section className="py-20 bg-slate-50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
-        
-        {/* 상단 타이들 */}
-        <div id="social-finance" className="text-center space-y-4 max-w-4xl mx-auto">
-          <span className="text-xs font-black text-teal-600 tracking-widest uppercase">Miso Finance Products</span>
-          <h2 className="text-2xl md:text-3xl font-black text-slate-900 tracking-tight leading-tight md:whitespace-nowrap">
-            미소금융대구중구법인 대표상품
-          </h2>
-          <div className="h-1.5 w-16 bg-teal-600 rounded-full mx-auto" />
-          <p className="text-slate-600 font-medium text-base md:text-lg max-w-2xl mx-auto leading-relaxed text-left md:text-center">
-            상품별 대상 요건과 증빙서류를 확인한 뒤, <br className="hidden sm:inline" />
-            심사 절차에 따라 서민금융 지원 가능 여부를 안내합니다.
-          </p>
-        </div>
+    <section className="py-12 md:py-16 bg-slate-50">
+      <div id="social-finance" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
 
         {/* 탭 가로 셀렉터 — 특정 상품 링크로 바로 진입한 경우 숨김 */}
         {!hideTabs && <div className="flex flex-wrap justify-center gap-3 max-w-3xl mx-auto">

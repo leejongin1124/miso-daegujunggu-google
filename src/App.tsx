@@ -15,6 +15,7 @@ import NoticeSection from './components/NoticeSection';
 import Footer from './components/Footer';
 import MisoIntroSection from './components/MisoIntroSection';
 import PrivacyPolicySection from './components/PrivacyPolicySection';
+import SectionPageShell from './components/SectionPageShell';
 
 // 섹션 ID → 어느 컴포넌트에 속하는지 매핑
 const SECTION_MAP: Record<string, string> = {
@@ -153,42 +154,67 @@ export default function App() {
 
         {/* 법인소개 */}
         {activeSection === 'about' && (
-          <div className="bg-white pt-14 md:pt-20">
+          <SectionPageShell
+            eyebrow="About Foundation"
+            title="법인소개"
+            description="금융위원회 허가 비영리 공익법인으로서 대구·경북 서민과 소상공인의 자립을 지원합니다."
+            bgImage="/backgrounds/about-bg.webp"
+          >
             <AboutSection sectionId={activeSectionId ?? undefined} />
-          </div>
+          </SectionPageShell>
         )}
 
         {/* 지원상품 */}
         {activeSection === 'products' && (
-          <div className="pt-20">
+          <SectionPageShell
+            eyebrow="Miso Finance Products"
+            title="지원상품"
+            description="상품별 대상 요건과 증빙서류를 확인한 뒤 심사 절차에 따라 지원 가능 여부를 안내합니다."
+            bgImage="/backgrounds/products-bg.webp"
+          >
             <ProductSection
               onScrollToSection={handleScrollToSection}
               onOpenCalculator={handleOpenCalculator}
               initialTab={productTab}
               hideTabs={productHideTabs}
             />
-          </div>
+          </SectionPageShell>
         )}
 
         {/* 대출안내 */}
         {activeSection === 'guide' && (
-          <div className="bg-white pt-20">
+          <SectionPageShell
+            eyebrow="Loan Guide"
+            title="대출안내"
+            description="상담, 서류 준비, 심사, 결과 안내까지 신청 전 필요한 절차를 차분히 확인하실 수 있습니다."
+            bgImage="/backgrounds/guide-bg.webp"
+          >
             <GuideSection sectionId={activeSectionId ?? undefined} />
-          </div>
+          </SectionPageShell>
         )}
 
         {/* 지원사례 */}
         {activeSection === 'cases' && (
-          <div className="pt-20">
+          <SectionPageShell
+            eyebrow="Support Cases"
+            title="지원사례"
+            description="상담과 심사를 통해 다시 일어선 이웃들의 자립 이야기를 소개합니다."
+            bgImage="/backgrounds/cases-bg.webp"
+          >
             <CaseSection initialFilter={caseFilter} />
-          </div>
+          </SectionPageShell>
         )}
 
         {/* 알림마당 */}
         {activeSection === 'notice' && (
-          <div className="bg-white pt-20">
+          <SectionPageShell
+            eyebrow="Notice & Safety"
+            title="알림마당"
+            description="공지사항과 불법사금융·보이스피싱 피해예방 정보를 안내합니다."
+            bgImage="/backgrounds/notice-bg.webp"
+          >
             <NoticeSection sectionId={activeSectionId ?? undefined} />
-          </div>
+          </SectionPageShell>
         )}
 
         {/* 개인정보처리방침 */}
