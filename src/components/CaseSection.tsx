@@ -118,56 +118,66 @@ export default function CaseSection({ initialFilter }: CaseSectionProps) {
 
         {/* 필터 칩 */}
         <div className="flex flex-wrap justify-center gap-2.5">
-          <button
+          <motion.button
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
             onClick={() => setFilter('all')}
             className={`px-5 py-2.5 rounded-full text-xs font-black tracking-tight transition-all duration-200 ${
-              filter === 'all' 
-                ? 'bg-slate-900 text-white shadow' 
+              filter === 'all'
+                ? 'bg-slate-900 text-white shadow-lg shadow-slate-900/20'
                 : 'bg-white border border-slate-200 text-slate-600 hover:border-slate-300'
             }`}
           >
             🌟 전체 사례 보기
-          </button>
-          <button
+          </motion.button>
+          <motion.button
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
             onClick={() => setFilter('social')}
             className={`px-5 py-2.5 rounded-full text-xs font-black tracking-tight transition-all duration-200 ${
-              filter === 'social' 
-                ? 'bg-teal-600 text-white shadow' 
+              filter === 'social'
+                ? 'bg-teal-600 text-white shadow-lg shadow-teal-600/20'
                 : 'bg-white border border-slate-200 text-slate-600 hover:border-slate-300'
             }`}
           >
             🏛 사회적연대금융 사례
-          </button>
-          <button
+          </motion.button>
+          <motion.button
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
             onClick={() => setFilter('business')}
             className={`px-5 py-2.5 rounded-full text-xs font-black tracking-tight transition-all duration-200 ${
-              filter === 'business' 
-                ? 'bg-emerald-600 text-white shadow' 
+              filter === 'business'
+                ? 'bg-emerald-600 text-white shadow-lg shadow-emerald-600/20'
                 : 'bg-white border border-slate-200 text-slate-600 hover:border-slate-300'
             }`}
           >
             🏪 자영업 동네 소상공인 사례
-          </button>
-          <button
+          </motion.button>
+          <motion.button
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
             onClick={() => setFilter('youth')}
             className={`px-5 py-2.5 rounded-full text-xs font-black tracking-tight transition-all duration-200 ${
-              filter === 'youth' 
-                ? 'bg-indigo-600 text-white shadow' 
+              filter === 'youth'
+                ? 'bg-indigo-600 text-white shadow-lg shadow-indigo-600/20'
                 : 'bg-white border border-slate-200 text-slate-600 hover:border-slate-300'
             }`}
           >
             🌱 청년 미래이음 사례
-          </button>
-          <button
+          </motion.button>
+          <motion.button
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
             onClick={() => setFilter('vulnerable')}
             className={`px-5 py-2.5 rounded-full text-xs font-black tracking-tight transition-all duration-200 ${
-              filter === 'vulnerable' 
-                ? 'bg-rose-600 text-white shadow' 
+              filter === 'vulnerable'
+                ? 'bg-rose-600 text-white shadow-lg shadow-rose-600/20'
                 : 'bg-white border border-slate-200 text-slate-600 hover:border-slate-300'
             }`}
           >
             🤝 금융배려계층 구제 사례
-          </button>
+          </motion.button>
         </div>
 
         {/* 그리드 정렬 */}
@@ -177,11 +187,12 @@ export default function CaseSection({ initialFilter }: CaseSectionProps) {
               <motion.div
                 key={c.id}
                 layout
-                initial={{ opacity: 0, scale: 0.95 }}
-                animate={{ opacity: 1, scale: 1 }}
+                initial={{ opacity: 0, scale: 0.95, y: 16 }}
+                animate={{ opacity: 1, scale: 1, y: 0 }}
                 exit={{ opacity: 0, scale: 0.95 }}
                 transition={{ duration: 0.3 }}
-                className="bg-white p-8 rounded-3xl border border-slate-100 shadow-sm hover:shadow-lg transition-all relative flex flex-col justify-between"
+                whileHover={{ y: -6 }}
+                className="group bg-white p-8 rounded-3xl border border-slate-100 shadow-sm hover:shadow-2xl hover:shadow-slate-300/40 hover:border-slate-200 transition-all duration-300 relative flex flex-col justify-between"
               >
                 {/* 물밑에 비실용적인 기하학적 요소 제거, 정갈하게 카드 형태로만 처리 */}
                 <div id="case-business" className="space-y-6">
@@ -189,7 +200,12 @@ export default function CaseSection({ initialFilter }: CaseSectionProps) {
                   {/* 케이스 이미지 */}
                   {c.image && (
                     <div className="w-full rounded-2xl overflow-hidden bg-slate-50">
-                      <img src={c.image} alt={c.title} loading="lazy" className="w-full h-auto object-contain" />
+                      <img
+                        src={c.image}
+                        alt={c.title}
+                        loading="lazy"
+                        className="w-full h-auto object-contain transition-transform duration-500 group-hover:scale-105"
+                      />
                     </div>
                   )}
 
