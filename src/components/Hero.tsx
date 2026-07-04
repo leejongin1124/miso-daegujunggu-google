@@ -194,7 +194,7 @@ export default function Hero({ onScrollToSection }: HeroProps) {
         preload="metadata"
         poster="/hero-bg.jpg"
         onCanPlay={() => { if (videoRef.current) videoRef.current.playbackRate = 0.8; }}
-        className="absolute inset-0 w-full h-full object-cover [object-position:80%_0%] md:[object-position:50%_50%]"
+        className="absolute inset-0 w-full h-full object-cover [object-position:50%_50%]"
         src="/hero-bg.mp4"
       />
       {/* 오버레이 — 밝기 조정 */}
@@ -335,19 +335,15 @@ export default function Hero({ onScrollToSection }: HeroProps) {
               animate={spotlightIdx === i && i < 2 ? { y: -4, scale: 1.02 } : { y: 0, scale: 1 }}
               onClick={card.action}
               className={`relative rounded-2xl shadow-sm transition-colors duration-500 text-left group overflow-hidden ${
-                i === 0 ? 'order-2 md:order-4' : i === 1 ? 'order-1 md:order-3' : i === 2 ? 'md:order-1' : 'md:order-2'
+                i === 0 ? 'order-2 md:order-4' : i === 1 ? 'order-1 md:order-3' : i === 2 ? 'order-3 md:order-1' : 'order-4 md:order-2'
               } ${
-                i < 2
-                  ? 'bg-white/5 backdrop-blur-[2px] md:backdrop-blur-[2px]'
-                  : 'bg-white/60 md:bg-white/5 backdrop-blur-sm md:backdrop-blur-[2px]'
+                'bg-white/5 backdrop-blur-[2px]'
               } ${
                 card.action ? 'cursor-pointer' : ''
               } ${
                 spotlightIdx === i && i < 2
                   ? 'border-2 border-teal-400 shadow-lg shadow-teal-100'
-                  : i < 2
-                    ? 'border border-white/30 hover:border-teal-200 hover:shadow-md'
-                    : 'border border-slate-100 md:border-white/30 hover:border-teal-200 hover:shadow-md'
+                  : 'border border-white/30 hover:border-teal-200 hover:shadow-md'
               }`}
             >
               {spotlightIdx === i && i < 2 && (
@@ -386,18 +382,16 @@ export default function Hero({ onScrollToSection }: HeroProps) {
                   <div className={`p-2 md:p-3 rounded-xl transition-all shadow-inner ${
                     spotlightIdx === i && i < 2
                       ? 'bg-teal-50'
-                      : i < 2
-                        ? 'bg-white/10'
-                        : 'bg-slate-50 md:bg-white/10 group-hover:bg-white md:group-hover:bg-white/20'
+                      : 'bg-white/10 group-hover:bg-white/20'
                   }`}>
                     {card.icon}
                   </div>
                   )}
                   {card.action && (
-                    <ArrowRight className={`w-4 h-4 transition-colors ${i < 2 ? 'text-white/70' : 'text-slate-400 md:text-white/70'}`} />
+                    <ArrowRight className="w-4 h-4 transition-colors text-white/70" />
                   )}
                 </div>
-                <h3 className={`text-[10px] md:text-xs font-bold uppercase tracking-wider mt-3 md:mt-5 ${i < 2 ? 'text-white/80' : 'text-slate-500 md:text-white/80'}`}>{card.title}</h3>
+                <h3 className="text-[10px] md:text-xs font-bold uppercase tracking-wider mt-3 md:mt-5 text-white/80">{card.title}</h3>
                 {i === 0 ? (
                   <div className="relative h-7 md:h-10 overflow-hidden mt-1">
                     {PHONES.map((phone, pi) => (
@@ -416,13 +410,11 @@ export default function Hero({ onScrollToSection }: HeroProps) {
                   </div>
                 ) : (
                   <motion.p
-                    className={`font-extrabold mt-1 tracking-tight ${card.valueClass ?? 'text-lg md:text-3xl'} ${
-                      i === 1 ? 'text-white drop-shadow' : 'text-slate-800 md:text-white md:drop-shadow'
-                    }`}
+                    className={`font-extrabold mt-1 tracking-tight text-white drop-shadow ${card.valueClass ?? 'text-lg md:text-3xl'}`}
                     animate={i === 2 ? peopleAnim : i === 3 ? moneyAnim : undefined}
                   >{card.value}</motion.p>
                 )}
-                <p className={`text-[10px] md:text-xs mt-1 font-semibold ${i < 2 ? 'text-white/70' : 'text-slate-400 md:text-white/70'}`}>{card.desc}</p>
+                <p className="text-[10px] md:text-xs mt-1 font-semibold text-white/70">{card.desc}</p>
               </div>
             </motion.div>
             );
