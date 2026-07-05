@@ -286,8 +286,8 @@ export default function AboutSection({ sectionId }: { sectionId?: string }) {
 
           {/* PC 레이아웃 (md 이상) */}
           <div className="hidden md:block overflow-x-auto pb-4">
-            <div style={{ minWidth: '600px' }}>
-              <div className="relative border-l-2 border-slate-200 ml-40 py-4">
+            <div style={{ minWidth: '680px' }}>
+              <div className="relative border-l-2 border-slate-200 ml-48 py-4">
                 {historyData.map((milestone, idx) => (
                   <motion.div
                     key={idx}
@@ -297,7 +297,7 @@ export default function AboutSection({ sectionId }: { sectionId?: string }) {
                     transition={{ duration: 0.4, delay: Math.min(idx * 0.05, 0.4) }}
                     className="mb-14 last:mb-0 relative"
                   >
-                    <div className="absolute -left-[176px] top-0 w-40 text-right">
+                    <div className="absolute -left-[224px] top-0 w-44 text-right">
                       <span className="text-2xl font-black text-slate-800 tracking-tight font-mono">{milestone.year}</span>
                     </div>
                     <div className="absolute -left-[9px] top-2.5 w-4 h-4 rounded-full bg-white border-4 border-teal-600 shadow-md" />
