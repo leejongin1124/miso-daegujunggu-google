@@ -15,12 +15,12 @@ const PHONES = [
 ];
 
 const BOARD_MEMBERS = [
-  { role: '이사장', name: '김석동', affiliation: '한국산업은행 부장(전)' },
-  { role: '이사', name: '박정희', affiliation: '영남대학교 경제금융학부 교수' },
-  { role: '이사', name: '정순도', affiliation: '법무법인 정앤정 변호사' },
-  { role: '이사', name: '홍성헌', affiliation: '경영학박사/산학연구원사무처장(전)' },
-  { role: '이사', name: '정헌철', affiliation: '한국산업은행 부장(전)' },
-  { role: '감사', name: '윤기태', affiliation: '공인회계사/세무사/경신세무회계사무소 대표' },
+  { role: '이사장', name: '김석동', affiliation: '(前) 한국산업은행 부장' },
+  { role: '이사', name: '박정희', affiliation: '(現) 영남대학교 경제금융학부 교수' },
+  { role: '이사', name: '정순도', affiliation: '(現) 법무법인 정앤정 변호사' },
+  { role: '이사', name: '홍성헌', affiliation: '(前) 경영학박사/산학연구원사무처장' },
+  { role: '이사', name: '정헌철', affiliation: '(前) 한국산업은행 부장' },
+  { role: '감사', name: '윤기태', affiliation: '(現) 공인회계사/세무사/경신세무회계사무소 대표' },
 ];
 
 export default function AboutSection({ sectionId }: { sectionId?: string }) {
@@ -297,17 +297,18 @@ export default function AboutSection({ sectionId }: { sectionId?: string }) {
                   viewport={{ once: true }}
                   transition={{ duration: 0.4, delay: idx * 0.06 }}
                   whileHover={{ y: -4 }}
-                  className="bg-white border border-slate-100 rounded-2xl p-6 shadow-sm hover:shadow-md transition-shadow text-left space-y-2"
+                  className="bg-white border border-miso-navy-100 rounded-2xl p-6 shadow-sm hover:shadow-md transition-shadow text-left space-y-2"
                 >
-                  <span className={`inline-block text-[10px] font-black tracking-wide px-2.5 py-1 rounded-full ${
-                    member.role === '이사장' ? 'bg-teal-50 text-teal-700 border border-teal-100' :
-                    member.role === '감사' ? 'bg-amber-50 text-amber-700 border border-amber-100' :
-                    'bg-indigo-50 text-indigo-700 border border-indigo-100'
-                  }`}>
+                  <span className="inline-block text-[10px] font-black tracking-wide px-2.5 py-1 rounded-full bg-miso-navy-50 text-miso-navy-600 border border-miso-navy-100">
                     {member.role}
                   </span>
                   <h4 className="font-extrabold text-slate-900 text-lg">{member.name}</h4>
-                  <p className="text-slate-500 text-sm leading-relaxed">{member.affiliation}</p>
+                  <p className="text-slate-500 text-sm leading-relaxed">
+                    <span className={member.affiliation.startsWith('(現)') ? 'font-bold text-miso-blue-700' : 'font-bold text-slate-400'}>
+                      {member.affiliation.slice(0, 3)}
+                    </span>
+                    {member.affiliation.slice(3)}
+                  </p>
                 </motion.div>
               ))}
             </div>
