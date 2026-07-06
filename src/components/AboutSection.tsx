@@ -162,16 +162,16 @@ export default function AboutSection({ sectionId }: { sectionId?: string }) {
           {/* 모바일 조직도 카드 레이아웃 */}
           <div className="md:hidden space-y-2 text-left">
             {/* 사원총회 */}
-            <div className="w-[70%] mx-auto bg-slate-800 text-white text-center py-2.5 rounded-xl font-bold text-sm">사원총회</div>
+            <div className="w-[70%] mx-auto bg-slate-800 text-white text-center py-3 rounded-xl font-bold text-sm flex items-center justify-center h-12">사원총회</div>
             <div className="flex justify-center"><div className="w-0.5 h-4 bg-slate-300"/></div>
             {/* 이사회 + 감사 */}
             <div className="w-[70%] mx-auto flex gap-2">
-              <div className="flex-1 bg-slate-700 text-white text-center py-2 rounded-lg font-bold text-sm">이사회</div>
-              <div className="w-20 bg-amber-500 text-white text-center py-2 rounded-lg font-bold text-sm">감사</div>
+              <div className="flex-1 bg-slate-700 text-white text-center py-3 rounded-lg font-bold text-sm flex items-center justify-center h-12">이사회</div>
+              <div className="flex-1 bg-amber-500 text-white text-center py-3 rounded-lg font-bold text-sm flex items-center justify-center h-12">감사</div>
             </div>
             <div className="flex justify-center"><div className="w-0.5 h-4 bg-slate-300"/></div>
             {/* 이사장 */}
-            <div className="w-[60%] mx-auto bg-teal-600 text-white text-center py-3 rounded-xl font-extrabold text-base">이사장 (대표)</div>
+            <div className="w-[70%] mx-auto bg-teal-600 text-white text-center py-3 rounded-xl font-extrabold text-base flex items-center justify-center h-12">이사장 (대표)</div>
             <div className="flex justify-center"><div className="w-0.5 h-4 bg-slate-300"/></div>
             {/* 융자위원회 */}
             <div className="w-[55%] mx-auto bg-indigo-600 text-white text-center py-2 rounded-lg font-bold text-sm">융자위원회</div>
@@ -208,16 +208,16 @@ export default function AboutSection({ sectionId }: { sectionId?: string }) {
                 {/* ── 연결선 ── */}
 
                 {/* 사원총회(center=310) → T → 이사회(310) & 감사(620) */}
-                <line x1="310" y1="48" x2="310" y2="78" stroke="#CBD5E1" strokeWidth="2"/>
+                <line x1="310" y1="52" x2="310" y2="78" stroke="#CBD5E1" strokeWidth="2"/>
                 <line x1="310" y1="78" x2="620" y2="78" stroke="#CBD5E1" strokeWidth="2"/>
                 <line x1="310" y1="78" x2="310" y2="105" stroke="#CBD5E1" strokeWidth="2"/>
                 <line x1="620" y1="78" x2="620" y2="105" stroke="#CBD5E1" strokeWidth="2"/>
 
                 {/* 이사회(310) → 이사장(310) */}
-                <line x1="310" y1="145" x2="310" y2="178" stroke="#CBD5E1" strokeWidth="2"/>
+                <line x1="310" y1="149" x2="310" y2="178" stroke="#CBD5E1" strokeWidth="2"/>
 
                 {/* 이사장(310) 하단 수직선 → y=248 분기점 → 우측 수평 → 융자위원회(715) */}
-                <line x1="310" y1="226" x2="310" y2="285" stroke="#CBD5E1" strokeWidth="2"/>
+                <line x1="310" y1="222" x2="310" y2="285" stroke="#CBD5E1" strokeWidth="2"/>
                 <line x1="310" y1="248" x2="715" y2="248" stroke="#CBD5E1" strokeWidth="2"/>
                 <line x1="715" y1="248" x2="715" y2="260" stroke="#CBD5E1" strokeWidth="2"/>
 
@@ -232,20 +232,20 @@ export default function AboutSection({ sectionId }: { sectionId?: string }) {
                 {/* ── 박스 ── */}
 
                 {/* 사원총회 */}
-                <rect x="210" y="8" width="200" height="40" rx="10" fill="#1E293B"/>
-                <text x="310" y="33" textAnchor="middle" fill="white" fontSize="13" fontWeight="bold">사 원 총 회</text>
+                <rect x="220" y="8" width="180" height="44" rx="10" fill="#1E293B"/>
+                <text x="310" y="35" textAnchor="middle" fill="white" fontSize="13" fontWeight="bold">사 원 총 회</text>
 
                 {/* 이사회 */}
-                <rect x="230" y="105" width="160" height="40" rx="8" fill="#334155"/>
-                <text x="310" y="130" textAnchor="middle" fill="white" fontSize="13" fontWeight="bold">이 사 회</text>
+                <rect x="220" y="105" width="180" height="44" rx="8" fill="#334155"/>
+                <text x="310" y="132" textAnchor="middle" fill="white" fontSize="13" fontWeight="bold">이 사 회</text>
 
                 {/* 감사 */}
-                <rect x="565" y="105" width="110" height="40" rx="8" fill="#F59E0B"/>
-                <text x="620" y="130" textAnchor="middle" fill="white" fontSize="13" fontWeight="bold">감   사</text>
+                <rect x="530" y="105" width="180" height="44" rx="8" fill="#F59E0B"/>
+                <text x="620" y="132" textAnchor="middle" fill="white" fontSize="13" fontWeight="bold">감   사</text>
 
                 {/* 이사장 */}
-                <rect x="210" y="178" width="200" height="48" rx="10" fill="#0D9488"/>
-                <text x="310" y="207" textAnchor="middle" fill="white" fontSize="14" fontWeight="bold">이 사 장 (대표)</text>
+                <rect x="220" y="178" width="180" height="44" rx="10" fill="#0D9488"/>
+                <text x="310" y="205" textAnchor="middle" fill="white" fontSize="14" fontWeight="bold">이 사 장 (대표)</text>
 
                 {/* 융자위원회 — 신중년(right=615)과 간격 확보: x=635 */}
                 <rect x="635" y="260" width="160" height="42" rx="8" fill="#4F46E5"/>
