@@ -280,39 +280,39 @@ export default function AboutSection({ sectionId }: { sectionId?: string }) {
             </div>
           </div>
 
-        </div>}
+          {/* 이사진 현황 — 조직도 화면 내 별도 구성 */}
+          <div className="pt-4 space-y-8 border-t border-slate-100">
+            <div className="text-center space-y-2 pt-4">
+              <span className="text-xs font-bold text-indigo-600 tracking-widest uppercase">Board Members</span>
+              <h3 className="text-2xl md:text-3xl font-extrabold text-slate-950 tracking-tight">이사진 현황</h3>
+              <p className="text-slate-500 text-xs">법인을 이끌어가는 이사회 구성원을 소개합니다</p>
+            </div>
 
-        {/* 이사진 현황 */}
-        {show('board-members') && <div id="board-members" className="space-y-8">
-          <div className="text-center space-y-2">
-            <span className="text-xs font-bold text-indigo-600 tracking-widest uppercase">Board Members</span>
-            <h3 className="text-2xl md:text-3xl font-extrabold text-slate-950 tracking-tight">이사진 현황</h3>
-            <p className="text-slate-500 text-xs">법인을 이끌어가는 이사회 구성원을 소개합니다</p>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+              {BOARD_MEMBERS.map((member, idx) => (
+                <motion.div
+                  key={idx}
+                  initial={{ opacity: 0, y: 14 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.4, delay: idx * 0.06 }}
+                  whileHover={{ y: -4 }}
+                  className="bg-white border border-slate-100 rounded-2xl p-6 shadow-sm hover:shadow-md transition-shadow text-left space-y-2"
+                >
+                  <span className={`inline-block text-[10px] font-black tracking-wide px-2.5 py-1 rounded-full ${
+                    member.role === '이사장' ? 'bg-teal-50 text-teal-700 border border-teal-100' :
+                    member.role === '감사' ? 'bg-amber-50 text-amber-700 border border-amber-100' :
+                    'bg-indigo-50 text-indigo-700 border border-indigo-100'
+                  }`}>
+                    {member.role}
+                  </span>
+                  <h4 className="font-extrabold text-slate-900 text-lg">{member.name}</h4>
+                  <p className="text-slate-500 text-sm leading-relaxed">{member.affiliation}</p>
+                </motion.div>
+              ))}
+            </div>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-            {BOARD_MEMBERS.map((member, idx) => (
-              <motion.div
-                key={idx}
-                initial={{ opacity: 0, y: 14 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.4, delay: idx * 0.06 }}
-                whileHover={{ y: -4 }}
-                className="bg-white border border-slate-100 rounded-2xl p-6 shadow-sm hover:shadow-md transition-shadow text-left space-y-2"
-              >
-                <span className={`inline-block text-[10px] font-black tracking-wide px-2.5 py-1 rounded-full ${
-                  member.role === '이사장' ? 'bg-teal-50 text-teal-700 border border-teal-100' :
-                  member.role === '감사' ? 'bg-amber-50 text-amber-700 border border-amber-100' :
-                  'bg-indigo-50 text-indigo-700 border border-indigo-100'
-                }`}>
-                  {member.role}
-                </span>
-                <h4 className="font-extrabold text-slate-900 text-lg">{member.name}</h4>
-                <p className="text-slate-500 text-sm leading-relaxed">{member.affiliation}</p>
-              </motion.div>
-            ))}
-          </div>
         </div>}
 
         {/* 법인 연혁 (스마트 타임라인 카드) */}
