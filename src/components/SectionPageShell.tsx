@@ -21,12 +21,12 @@ export default function SectionPageShell({ eyebrow, title, description, bgImage,
         {/* 배경 이미지 — 없거나 로드 실패해도 위 그라데이션이 그대로 보여 깨지지 않음 */}
         {bgImage && (
           <div
-            className="absolute inset-0 bg-cover bg-center opacity-25"
+            className="absolute inset-0 bg-cover bg-center opacity-60"
             style={{ backgroundImage: `url(${bgImage})` }}
           />
         )}
-        {/* 어두운 오버레이 — 텍스트 가독성 확보 */}
-        <div className="absolute inset-0 bg-gradient-to-b from-slate-900/60 via-slate-900/50 to-slate-900/70" />
+        {/* 어두운 오버레이 — 배경이 보이면서도 텍스트 가독성 확보 */}
+        <div className="absolute inset-0 bg-gradient-to-b from-slate-900/45 via-slate-900/35 to-slate-900/55" />
 
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-3 md:space-y-4">
           <span className="inline-block text-[11px] md:text-xs font-black tracking-widest uppercase text-teal-300">
