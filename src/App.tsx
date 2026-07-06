@@ -22,7 +22,7 @@ const PrivacyPolicySection = lazy(() => import('./components/PrivacyPolicySectio
 // 섹션 ID → 어느 컴포넌트에 속하는지 매핑
 const SECTION_MAP: Record<string, string> = {
   'ceo-greeting': 'about', 'about-miso': 'about', 'history': 'about',
-  'organization': 'about', 'location': 'about',
+  'organization': 'about', 'board-members': 'about', 'location': 'about',
   'miso-intro': 'miso-intro',
   'social-finance': 'products', 'business-fund': 'products',
   'youth-fund': 'products', 'vulnerable-fund': 'products', 'products-all': 'products',
