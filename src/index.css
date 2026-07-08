@@ -1,6 +1,9 @@
 @import "tailwindcss";
+@import "pretendard/dist/web/variable/pretendardvariable-dynamic-subset.css";
 
 @theme {
+  --font-sans: 'Pretendard Variable', Pretendard, -apple-system, BlinkMacSystemFont, 'Malgun Gothic', system-ui, sans-serif;
+
   /* 서민금융진흥원 CI 색상 기반 팔레트 */
   --color-miso-blue-50: #EDF8FD;
   --color-miso-blue-100: #DBF0FA;
