@@ -176,7 +176,7 @@ export default function CaseSection({ initialFilter }: CaseSectionProps) {
                 : 'bg-white border border-slate-200 text-slate-600 hover:border-slate-300'
             }`}
           >
-            🤝 금융배려계층 구제 사례
+            🤝 금융배려계층 지원 사례
           </motion.button>
         </div>
 
