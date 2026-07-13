@@ -272,6 +272,10 @@ export default function CaseSection({ initialFilter }: CaseSectionProps) {
           </AnimatePresence>
         </div>
 
+        <p className="text-slate-400 text-[11px] text-center -mt-4">
+          ※ 사진은 이해를 돕기 위한 이미지이며 실제 고객 사진이 아닙니다.
+        </p>
+
         {/* 하단 기부 및 희망 고취 문구 배너 */}
         <div className="bg-slate-900 text-white p-8 md:p-12 rounded-3xl relative overflow-hidden text-left shadow-xl">
           <div className="absolute top-0 right-0 -mr-20 -mt-20 w-80 h-80 bg-teal-500/10 rounded-full blur-3xl pointer-events-none" />
