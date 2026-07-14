@@ -70,7 +70,7 @@ export default function ProductSection({ onScrollToSection, onOpenCalculator, in
         '정부 보조금 지급 전 발생하는 일시적 운영자금 부족을 해소하고자 하는 단체',
         '취약계층 고용 유지 및 사회적 서비스 제공을 목적으로 운영되는 기업'
       ],
-      effect: '보조금 지급 공백기에도 조직 운영을 안정적으로 유지하고, 직원의 고용을 지속할 수 있도록 지원합니다.',
+      effect: '보조금 지급 공백기에도 조직 운영을 안정적으로 유지하고,\n직원의 고용을 지속할 수 있도록 지원합니다.',
       blogUrl: 'https://blog.naver.com/PostView.naver?blogId=eornwndrn1&logNo=223850000058&categoryNo=7&parentCategoryNo=7&from=thumbnailList',
       phone: '053-252-6480'
     },
@@ -99,7 +99,7 @@ export default function ProductSection({ onScrollToSection, onOpenCalculator, in
         '고금리 대출을 저금리 정책자금으로 전환하고자 하는 분',
         '분할 상환 의지가 있는 소상공인·개인 사업자 (법인기업 제외)'
       ],
-      effect: '고금리 대출 대신 저금리로 사업을 유지하면서, 성실하게 상환하다 보면 신용도 함께 좋아집니다.',
+      effect: '고금리 대출 대신 저금리로 사업을 유지하면서,\n성실하게 상환하다 보면 신용도 함께 좋아집니다.',
       blogUrl: 'https://blog.naver.com/PostView.naver?blogId=eornwndrn1&logNo=224289610439&categoryNo=7&parentCategoryNo=7&from=thumbnailList'
     },
     {
@@ -120,7 +120,7 @@ export default function ProductSection({ onScrollToSection, onOpenCalculator, in
         '신용카드나 금융 거래 이력이 부족해 일반 은행 대출이 어려운 청년',
         '고금리 대부업 이용 전 공공 정책자금을 먼저 알아보고자 하는 청년'
       ],
-      effect: '취업 준비 기간 동안 생활 자금을 마련하고, 처음으로 건전한 신용을 쌓을 수 있는 기회가 됩니다.',
+      effect: '취업 준비 기간 동안 생활 자금을 마련하고,\n처음으로 건전한 신용을 쌓을 수 있는 기회가 됩니다.',
       blogUrl: 'https://blog.naver.com/PostView.naver?blogId=eornwndrn1&logNo=224274876397&categoryNo=7&parentCategoryNo=7&from=thumbnailList'
     },
     {
@@ -143,7 +143,7 @@ export default function ProductSection({ onScrollToSection, onOpenCalculator, in
         '수급비나 일용직 소득으로 매월 소액 이자를 납부할 수 있는 분',
         '고금리 사금융 대신 정부 지원 자금으로 생활을 안정시키고자 하는 분'
       ],
-      effect: '급하게 돈이 필요할 때, 고금리 사금융 대신 저금리 정책대출로 생활의 위기를 넘길 수 있습니다.',
+      effect: '급하게 돈이 필요할 때, 고금리 사금융 대신\n저금리 정책대출로 생활의 위기를 넘길 수 있습니다.',
       blogUrl: 'https://blog.naver.com/eornwndrn1/224328452218'
     }
   ];
@@ -702,9 +702,9 @@ export default function ProductSection({ onScrollToSection, onOpenCalculator, in
               </div>
 
               {/* 기대 효과 — PC/모바일 공통 */}
-              <div className="block bg-gradient-to-tr from-teal-600 to-emerald-600 p-8 rounded-3xl text-white shadow-lg shadow-teal-100 space-y-4">
+              <div className="block bg-gradient-to-tr from-teal-600 to-emerald-600 p-6 md:p-8 rounded-3xl text-white shadow-lg shadow-teal-100 space-y-4">
                 <h4 className="font-extrabold text-lg">기대 효과</h4>
-                <p className="text-teal-50 text-xs md:text-sm leading-relaxed font-medium">
+                <p className="text-teal-50 text-xs md:text-sm leading-relaxed font-medium whitespace-pre-line md:whitespace-normal">
                   &ldquo;{activeProduct.effect}&rdquo;
                 </p>
                 <div className="pt-2">
