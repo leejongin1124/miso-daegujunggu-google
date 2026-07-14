@@ -672,6 +672,11 @@ export default function ProductSection({ onScrollToSection, onOpenCalculator, in
                 )}
               </div>
 
+              {/* 심사 안내 각주 — 모바일 전용 (PC는 우측 기대효과 카드에 동일 문구 포함) */}
+              <p className="md:hidden text-slate-400 text-[11px] leading-relaxed pt-1">
+                ※ 이 상품은 자격 요건을 충족한 분을 대상으로, 서민금융진흥원 심의 규정에 따른 심사를 거쳐 지원 여부가 결정됩니다.
+              </p>
+
             </div>
 
             {/* 우측 보강 설명: 적용 추천 대상 및 기대 효과 */}
@@ -709,7 +714,7 @@ export default function ProductSection({ onScrollToSection, onOpenCalculator, in
                 </p>
                 <div className="pt-2">
                   <p className="text-[10px] text-teal-200 leading-normal">
-                    ※ 모든 대출 심사는 신청인 본인의 신용 및 증빙 서류를 기준으로 융자심의위원회 규정에 따라 처리됩니다.
+                    ※ 이 상품은 자격 요건을 충족한 분을 대상으로, 서민금융진흥원 심의 규정에 따른 심사를 거쳐 지원 여부가 결정됩니다.
                   </p>
                 </div>
               </div>
