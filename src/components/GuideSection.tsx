@@ -493,7 +493,7 @@ export default function GuideSection({ sectionId }: { sectionId?: string }) {
 
           <div className="text-center space-y-3">
             <span className="text-teal-600 font-bold text-sm tracking-widest uppercase">Eligibility</span>
-            <h3 className="text-2xl md:text-3xl font-extrabold text-slate-900 tracking-tight">대출 지원대상 안내</h3>
+            <h3 className="text-2xl md:text-3xl font-extrabold text-slate-900 tracking-tight">대출 자격요건 안내</h3>
             <p className="text-slate-500 text-sm">개인 및 개인사업자 중 아래 세 가지 요건 중 하나에 해당하면 상담이 가능합니다.</p>
           </div>
 

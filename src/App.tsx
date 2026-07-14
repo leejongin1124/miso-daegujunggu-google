@@ -153,7 +153,7 @@ export default function App() {
         {activeSection === 'miso-intro' && (
           <SectionPageShell
             eyebrow="Miso Finance Products"
-            title="지원상품"
+            title="대출상품"
             description={"상품별 대상 요건과 증빙서류를 확인한 뒤\n심사 절차에 따라 지원 가능 여부를 안내합니다."}
             bgImage="/backgrounds/products-bg.webp"
           >
@@ -177,7 +177,7 @@ export default function App() {
         {activeSection === 'products' && (
           <SectionPageShell
             eyebrow="Miso Finance Products"
-            title="지원상품"
+            title="대출상품"
             description={"상품별 대상 요건과 증빙서류를 확인한 뒤\n심사 절차에 따라 지원 가능 여부를 안내합니다."}
             bgImage="/backgrounds/products-bg.webp"
           >
