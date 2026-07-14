@@ -672,11 +672,6 @@ export default function ProductSection({ onScrollToSection, onOpenCalculator, in
                 )}
               </div>
 
-              {/* 심사 안내 각주 — 모바일 전용 (PC는 우측 기대효과 카드에 동일 문구 포함) */}
-              <p className="md:hidden text-slate-400 text-[11px] leading-relaxed pt-1">
-                ※ 이 상품은 자격 요건을 충족한 분을 대상으로, 서민금융진흥원 심의 규정에 따른 심사를 거쳐 지원 여부가 결정됩니다.
-              </p>
-
             </div>
 
             {/* 우측 보강 설명: 적용 추천 대상 및 기대 효과 */}
@@ -706,8 +701,8 @@ export default function ProductSection({ onScrollToSection, onOpenCalculator, in
                 </div>
               </div>
 
-              {/* 기대 효과 — PC 전용 */}
-              <div className="hidden md:block bg-gradient-to-tr from-teal-600 to-emerald-600 p-8 rounded-3xl text-white shadow-lg shadow-teal-100 space-y-4">
+              {/* 기대 효과 — PC/모바일 공통 */}
+              <div className="block bg-gradient-to-tr from-teal-600 to-emerald-600 p-8 rounded-3xl text-white shadow-lg shadow-teal-100 space-y-4">
                 <h4 className="font-extrabold text-lg">기대 효과</h4>
                 <p className="text-teal-50 text-xs md:text-sm leading-relaxed font-medium">
                   &ldquo;{activeProduct.effect}&rdquo;
