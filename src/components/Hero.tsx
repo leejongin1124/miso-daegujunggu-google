@@ -85,7 +85,7 @@ export default function Hero({ onScrollToSection }: HeroProps) {
     return () => observer.disconnect();
   }, []);
 
-  const { count: countPeople, done: peopleDone } = useCountUp(3800, 1200, statsInView);
+  const { count: countPeople, done: peopleDone } = useCountUp(6300, 1200, statsInView);
   const { count: countMoney, done: moneyDone } = useCountUp(600, 1200, statsInView);
 
   const peopleAnim = useAnimation();
@@ -160,8 +160,8 @@ export default function Hero({ onScrollToSection }: HeroProps) {
     },
     {
       icon: <Users className="w-6 h-6 text-emerald-600" />,
-      title: '누적 대출 인원',
-      value: statsInView ? `${countPeople.toLocaleString()} 여명` : '0 여명',
+      title: '누적 대출 건수',
+      value: statsInView ? `${countPeople.toLocaleString()} 건` : '0 건',
       valueClass: 'text-lg md:text-3xl',
       desc: '대구·경북 소상공인의 든든한 동반자'
     },
