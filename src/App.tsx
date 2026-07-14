@@ -206,7 +206,7 @@ export default function App() {
         {activeSection === 'cases' && (
           <SectionPageShell
             eyebrow="Support Cases"
-            title="지원사례"
+            title="상담사례"
             description={"상담과 심사를 통해 다시 일어선\n이웃들의 자립 이야기를 소개합니다."}
             bgImage="/backgrounds/cases-bg.webp"
           >

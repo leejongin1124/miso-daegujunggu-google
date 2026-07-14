@@ -66,7 +66,7 @@ export default function Header({ activeTab, setActiveTab, onScrollToSection, onO
     },
     {
       type: TabType.CASES,
-      label: '지원사례',
+      label: '상담사례',
       sublinks: [
         { name: '사회연대 성공 수기', id: 'case-social', icon: Award, color: 'text-yellow-500' },
         { name: '소상공인 대출 사례', id: 'case-business', icon: Store, color: 'text-indigo-500' },
