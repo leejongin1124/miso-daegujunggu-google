@@ -77,12 +77,10 @@ export default function Hero({ onScrollToSection }: HeroProps) {
   }, []);
 
   useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => { if (entry.isIntersecting) setStatsInView(true); },
-      { threshold: 0.3 }
-    );
-    if (statsRef.current) observer.observe(statsRef.current);
-    return () => observer.disconnect();
+    // 퀵카드는 히어로 최초 화면 안에 있는 콘텐츠라, 스크롤 진입을 기다리지 않고
+    // 짧은 지연 후 바로 카운트업을 시작 (화면이 낮은 기기에서 "0건" 노출 방지)
+    const timer = setTimeout(() => setStatsInView(true), 300);
+    return () => clearTimeout(timer);
   }, []);
 
   const { count: countPeople, done: peopleDone } = useCountUp(6300, 1200, statsInView);
