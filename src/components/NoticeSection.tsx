@@ -340,12 +340,12 @@ export default function NoticeSection({ sectionId }: { sectionId?: string }) {
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 md:gap-6">
             {[
               {
-                label: '서민금융진흥원',
-                href: 'https://www.kinfa.or.kr',
+                label: '대구신용보증재단',
+                href: 'https://www.dgsinbo.or.kr',
                 borderHover: 'hover:border-blue-300',
                 textColor: 'group-hover:text-blue-700',
-                logo: '/logos/kinfa_logo.png',
-                logoClass: 'h-10 w-auto object-contain'
+                logo: null,
+                logoClass: ''
               },
               {
                 label: '신용회복위원회',
@@ -386,7 +386,13 @@ export default function NoticeSection({ sectionId }: { sectionId?: string }) {
                 className={`flex flex-col items-center gap-3 bg-white border-2 border-slate-100 ${item.borderHover} rounded-2xl py-6 px-3 shadow-sm hover:shadow-lg transition-all duration-200 cursor-pointer group`}
               >
                 <div className="h-12 flex items-center justify-center drop-shadow-sm">
-                  <img src={item.logo} alt={item.label} className={item.logoClass} />
+                  {item.logo ? (
+                    <img src={item.logo} alt={item.label} className={item.logoClass} />
+                  ) : (
+                    <div className="w-12 h-12 rounded-full bg-blue-50 border border-blue-100 flex items-center justify-center text-blue-700 font-black text-sm">
+                      대구
+                    </div>
+                  )}
                 </div>
                 <span className={`text-[11px] font-bold text-slate-500 ${item.textColor} transition-colors text-center leading-tight`}>
                   {item.label}
