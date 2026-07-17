@@ -9,6 +9,8 @@ import Header from './components/Header';
 import Hero from './components/Hero';
 import Footer from './components/Footer';
 import SectionPageShell from './components/SectionPageShell';
+import LandingSummary from './components/LandingSummary';
+import ScrollToTopButton from './components/ScrollToTopButton';
 
 // 랜딩 화면(Hero+Footer)에는 필요 없는 화면들은 지연 로딩하여 초기 번들 크기를 줄임
 const AboutSection = lazy(() => import('./components/AboutSection'));
@@ -144,7 +146,10 @@ export default function App() {
 
         {/* 랜딩페이지: Hero + 퀵 네비게이션 */}
         {isLanding && (
-          <Hero onScrollToSection={handleScrollToSection} />
+          <>
+            <Hero onScrollToSection={handleScrollToSection} />
+            <LandingSummary onScrollToSection={handleScrollToSection} />
+          </>
         )}
 
         <Suspense fallback={<div className="min-h-[60vh]" />}>
@@ -238,6 +243,8 @@ export default function App() {
       </main>
 
       <Footer onScrollToSection={handleScrollToSection} />
+
+      <ScrollToTopButton />
 
 
     </div>
