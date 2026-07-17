@@ -28,6 +28,17 @@
   --color-miso-navy-900: #0A0D1E;
 }
 
+/* 저사양 기기 발열·배터리 부담 완화 및 접근성(motion 민감 사용자) 대응:
+   시스템에서 모션 최소화를 요청한 경우 무한 반복 애니메이션을 정지시킨다. */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
 html {
   font-size: 17px;
 }

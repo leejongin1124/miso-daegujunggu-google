@@ -44,7 +44,6 @@ export default function Hero({ onScrollToSection }: HeroProps) {
   const [spotlightIdx, setSpotlightIdx] = useState(0);
   const [audienceIdx, setAudienceIdx] = useState(0);
   const [statsInView, setStatsInView] = useState(false);
-  const [phoneIdx, setPhoneIdx] = useState(0);
   const statsRef = useRef<HTMLDivElement>(null);
   const videoRef = useRef<HTMLVideoElement>(null);
   const [videoPlaying, setVideoPlaying] = useState(false);
@@ -66,13 +65,6 @@ export default function Hero({ onScrollToSection }: HeroProps) {
     const interval = setInterval(() => {
       setAudienceIdx(prev => (prev + 1) % AUDIENCE.length);
     }, 2000);
-    return () => clearInterval(interval);
-  }, []);
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setPhoneIdx(prev => (prev + 1) % PHONES.length);
-    }, 4500);
     return () => clearInterval(interval);
   }, []);
 
@@ -118,7 +110,7 @@ export default function Hero({ onScrollToSection }: HeroProps) {
     return () => { clearTimeout(t1); clearTimeout(t2); clearTimeout(t3); };
   }, []);
 
-  const currentPhone = PHONES[phoneIdx];
+  const currentPhone = PHONES[0];
 
   const phoneIconColors: Record<string, string> = {
     'text-rose-600': 'text-rose-600',
@@ -132,13 +124,6 @@ export default function Hero({ onScrollToSection }: HeroProps) {
     'text-teal-600': 'bg-teal-50',
     'text-amber-600': 'bg-amber-50',
   };
-  const phoneRingColors: Record<string, string> = {
-    'text-rose-600': 'bg-rose-400',
-    'text-indigo-600': 'bg-indigo-400',
-    'text-teal-600': 'bg-teal-400',
-    'text-amber-600': 'bg-amber-400',
-  };
-
   const quickCards = [
     {
       icon: null,
@@ -366,24 +351,9 @@ export default function Hero({ onScrollToSection }: HeroProps) {
                 <div className="flex justify-between items-start">
                   {i === 0 ? (
                     <div className="relative">
-                      {/* 울리는 링 효과 */}
-                      <motion.div
-                        className={`absolute inset-0 rounded-xl ${phoneRingColors[currentPhone.color]} opacity-30`}
-                        animate={{ scale: [1, 1.6, 1.6], opacity: [0.35, 0, 0] }}
-                        transition={{ duration: 1.4, repeat: Infinity, ease: 'easeOut' }}
-                      />
-                      <motion.div
-                        className={`absolute inset-0 rounded-xl ${phoneRingColors[currentPhone.color]} opacity-20`}
-                        animate={{ scale: [1, 1.9, 1.9], opacity: [0.25, 0, 0] }}
-                        transition={{ duration: 1.4, repeat: Infinity, ease: 'easeOut', delay: 0.2 }}
-                      />
-                      <motion.div
-                        className={`p-2 md:p-3 rounded-xl shadow-inner relative z-10 transition-colors duration-500 ${phoneBgColors[currentPhone.color]}`}
-                        animate={{ rotate: [0, -12, 12, -8, 8, -4, 4, 0] }}
-                        transition={{ duration: 0.7, repeat: Infinity, repeatDelay: 1.8, ease: 'easeInOut' }}
-                      >
-                        <Phone className={`w-6 h-6 transition-colors duration-500 ${phoneIconColors[currentPhone.color]}`} />
-                      </motion.div>
+                      <div className={`p-2 md:p-3 rounded-xl shadow-inner relative z-10 ${phoneBgColors[currentPhone.color]}`}>
+                        <Phone className={`w-6 h-6 ${phoneIconColors[currentPhone.color]}`} />
+                      </div>
                     </div>
                   ) : (
                   <div className={`p-2 md:p-3 rounded-xl transition-all shadow-inner ${
@@ -401,19 +371,9 @@ export default function Hero({ onScrollToSection }: HeroProps) {
                 <h3 className="text-[10px] md:text-xs font-bold uppercase tracking-wider mt-3 md:mt-5 text-white/80">{card.title}</h3>
                 {i === 0 ? (
                   <div className="relative h-7 md:h-10 overflow-hidden mt-1">
-                    {PHONES.map((phone, pi) => (
-                      <motion.p
-                        key={phone.number}
-                        animate={{
-                          y: pi === phoneIdx ? 0 : pi === (phoneIdx - 1 + PHONES.length) % PHONES.length ? -28 : 28,
-                          opacity: pi === phoneIdx ? 1 : 0,
-                        }}
-                        transition={{ duration: 0.4, ease: 'easeInOut' }}
-                        className="absolute inset-0 flex items-center font-extrabold text-lg md:text-3xl tracking-tight drop-shadow text-white"
-                      >
-                        {phone.number}
-                      </motion.p>
-                    ))}
+                    <p className="absolute inset-0 flex items-center font-extrabold text-lg md:text-3xl tracking-tight drop-shadow text-white">
+                      {currentPhone.number}
+                    </p>
                   </div>
                 ) : (
                   <motion.p

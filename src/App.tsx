@@ -4,6 +4,7 @@
  */
 
 import { useState, useEffect, useRef, Suspense, lazy } from 'react';
+import { MotionConfig } from 'motion/react';
 import { TabType } from './types';
 import Header from './components/Header';
 import Hero from './components/Hero';
@@ -132,6 +133,7 @@ export default function App() {
   const isLanding = activeSection === null;
 
   return (
+    <MotionConfig reducedMotion="user">
     <div className="min-h-screen bg-slate-50 text-slate-800 antialiased selection:bg-miso-blue-500 selection:text-white">
 
       <Header
@@ -245,5 +247,6 @@ export default function App() {
 
 
     </div>
+    </MotionConfig>
   );
 }
