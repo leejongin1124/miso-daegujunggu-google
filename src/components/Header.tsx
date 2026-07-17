@@ -118,6 +118,8 @@ export default function Header({ activeTab, setActiveTab, onScrollToSection, onO
               <div key={item.type} className="relative h-full flex items-center">
                 <button
                   onClick={() => setOpenMenu(openMenu === item.type ? null : item.type)}
+                  aria-haspopup="true"
+                  aria-expanded={openMenu === item.type}
                   className={`px-4 py-2 font-semibold text-base tracking-tight transition-all duration-200 rounded-lg flex items-center space-x-1 ${
                     activeTab === item.type || openMenu === item.type
                       ? 'text-teal-600 bg-teal-50/50'
@@ -179,7 +181,10 @@ export default function Header({ activeTab, setActiveTab, onScrollToSection, onO
             </a>
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="p-2 rounded-lg text-slate-600 hover:text-slate-900 transition-colors focus:outline-none"
+              aria-label={mobileMenuOpen ? '메뉴 닫기' : '전체 메뉴 열기'}
+              aria-expanded={mobileMenuOpen}
+              aria-controls="mobile-menu-panel"
+              className="p-2 rounded-lg text-slate-600 hover:text-slate-900 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-teal-500"
             >
               {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
             </button>
@@ -195,6 +200,7 @@ export default function Header({ activeTab, setActiveTab, onScrollToSection, onO
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
+            id="mobile-menu-panel"
             className="lg:hidden border-t border-slate-100 bg-white overflow-y-auto max-h-[calc(100vh-56px)] shadow-lg"
           >
             <div className="px-4 py-6 space-y-4">
@@ -220,6 +226,7 @@ export default function Header({ activeTab, setActiveTab, onScrollToSection, onO
                   <div key={item.type} className="border-b border-slate-50 pb-2 mb-2">
                     <button
                       onClick={() => setMobileAccordion(mobileAccordion === item.type ? null : item.type)}
+                      aria-expanded={mobileAccordion === item.type}
                       className="flex justify-between items-center w-full py-2.5 px-2 text-left text-slate-800 font-semibold text-lg hover:text-teal-600 hover:bg-slate-50 rounded-lg"
                     >
                       <span>{item.label}</span>
