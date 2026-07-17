@@ -214,7 +214,7 @@ export default function ProductSection({ onScrollToSection, onOpenCalculator, in
                 <span className="inline-flex items-center text-teal-700 bg-teal-50 px-3 py-1 rounded-full text-xs font-bold ring-1 ring-teal-200/50">
                   {activeProduct.id === 'social' ? '🔥 최우수 핵심보급' : '📋 맞춤 서민지원'}
                 </span>
-                <h3 className="text-2xl md:text-3.5xl font-black text-slate-900 tracking-tight">
+                <h3 className="text-2xl md:text-[2rem] font-black text-slate-900 tracking-tight">
                   {activeProduct.name}
                 </h3>
                 {activeProduct.id === 'social' ? (

@@ -53,7 +53,7 @@ export default function NoticeSection({ sectionId }: { sectionId?: string }) {
         {/* 공지사항 */}
         {show('notice') && <><div id="notice" className="text-center space-y-4 max-w-4xl mx-auto">
           <span className="text-xs font-black text-teal-600 tracking-widest uppercase">Official Notice</span>
-          <h2 className="text-3xl md:text-4.5xl font-black text-slate-900 tracking-tight leading-none">
+          <h2 className="text-3xl md:text-[2.6rem] font-black text-slate-900 tracking-tight leading-none">
             공지사항
           </h2>
           <div className="h-1.5 w-16 bg-teal-600 rounded-full mx-auto" />
@@ -67,7 +67,7 @@ export default function NoticeSection({ sectionId }: { sectionId?: string }) {
         <div className="bg-slate-50 border border-slate-100 p-8 md:p-12 rounded-3xl text-left space-y-8">
           <div className="flex justify-between items-center border-b border-slate-200 pb-5">
             <h3 className="font-extrabold text-slate-900 text-lg flex items-center gap-1.5">
-              <FileText className="w-5.5 h-5.5 text-teal-650" />
+              <FileText className="w-5.5 h-5.5 text-teal-600" />
               <span>공지사항</span>
             </h3>
 
@@ -82,12 +82,12 @@ export default function NoticeSection({ sectionId }: { sectionId?: string }) {
                 viewport={{ once: true }}
                 transition={{ duration: 0.4, delay: idx * 0.08 }}
                 whileHover={{ y: -3 }}
-                className="bg-white p-6 rounded-2xl border border-slate-150 shadow-sm flex flex-col sm:flex-row sm:items-start gap-4 hover:border-teal-300 hover:shadow-md transition-all"
+                className="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm flex flex-col sm:flex-row sm:items-start gap-4 hover:border-teal-300 hover:shadow-md transition-all"
               >
                 <span className={`px-2.5 py-1 rounded text-[10px] font-black tracking-widest uppercase text-center shrink-0 min-w-[50px] flex items-center justify-center gap-1 ${
                   n.badge === '중요' ? 'bg-rose-50 text-rose-700 border border-rose-100' :
                   n.badge === '공지' ? 'bg-teal-50 text-teal-700 border border-teal-100' :
-                  'bg-slate-50 text-slate-500 border border-slate-150'
+                  'bg-slate-50 text-slate-500 border border-slate-200'
                 }`}>
                   {n.badge === '중요' && (
                     <motion.span
@@ -147,7 +147,7 @@ export default function NoticeSection({ sectionId }: { sectionId?: string }) {
                 whileHover={{ y: -4 }}
                 className="bg-white p-6 rounded-2xl border border-rose-100 shadow-sm hover:shadow-md transition-shadow space-y-4"
               >
-                <div className="p-2 bg-rose-50 rounded-lg inline-block text-rose-650">
+                <div className="p-2 bg-rose-50 rounded-lg inline-block text-rose-600">
                   {af.icon}
                 </div>
                 <h4 className="font-extrabold text-slate-900 text-sm">{af.title}</h4>

@@ -147,7 +147,7 @@ export default function GuideSection({ sectionId }: { sectionId?: string }) {
         {show(['loan-calc-intro', 'loan-calc']) && <>
         <div id="loan-calc-intro" className="text-center space-y-4 max-w-4xl mx-auto">
           <span className="text-xs font-black text-miso-blue-600 tracking-widest uppercase">Smart Loan Calculator</span>
-          <h2 className="text-3xl md:text-4.5xl font-black text-slate-900 tracking-tight leading-none">
+          <h2 className="text-3xl md:text-[2.6rem] font-black text-slate-900 tracking-tight leading-none">
             스마트 대출 계산기
           </h2>
           <div className="h-1.5 w-16 bg-miso-blue-600 rounded-full mx-auto" />
@@ -431,7 +431,7 @@ export default function GuideSection({ sectionId }: { sectionId?: string }) {
                     </span>
                     <span className="font-black text-miso-blue-700">{calcResult.repaymentMonthlyInterest.toLocaleString()} 원</span>
                   </div>
-                  <div className="h-0.5 bg-dashed bg-slate-200 my-1" />
+                  <div className="h-0.5 border-t border-dashed border-slate-200 my-1" />
                   <div className="flex flex-col sm:flex-row sm:justify-between sm:items-baseline text-base font-extrabold text-slate-900 gap-0.5">
                     <span>매월 납입금 (원리금균등):</span>
                     <span className="font-black text-miso-blue-600">월 {calcResult.repaymentTotalMonthly.toLocaleString()} 원</span>
@@ -796,7 +796,7 @@ export default function GuideSection({ sectionId }: { sectionId?: string }) {
           
           <div className="text-center space-y-3">
             <span className="text-xs font-black text-miso-blue-600 tracking-widest uppercase">Frequently Asked Questions</span>
-            <h3 className="text-2.5xl md:text-3.5xl font-black text-slate-900 tracking-tight">
+            <h3 className="text-[1.7rem] md:text-[2rem] font-black text-slate-900 tracking-tight">
               자주 묻는 서민금융 질문 (FAQ)
             </h3>
             <p className="text-slate-500 text-sm font-semibold max-w-2xl mx-auto leading-relaxed">
