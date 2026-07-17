@@ -5,7 +5,7 @@
 
 import { motion, useAnimation, AnimatePresence } from 'motion/react';
 import { useState, useEffect, useRef } from 'react';
-import { Phone, ArrowRight, ShieldCheck, BadgePercent, TrendingUp, Users, Banknote, MapPin } from 'lucide-react';
+import { Phone, ArrowRight, Users, Banknote, MapPin } from 'lucide-react';
 
 function useCountUp(target: number, duration: number, trigger: boolean) {
   const [count, setCount] = useState(0);
