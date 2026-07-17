@@ -699,6 +699,9 @@ export default function ProductSection({ onScrollToSection, onOpenCalculator, in
                     </motion.div>
                   ))}
                 </div>
+                <p className="text-[10px] text-slate-400 leading-normal">
+                  ※ 위 사항은 심사 참고를 돕기 위한 안내이며, 승인 요건이 아닙니다. 필요 서류와 심사 기준은 상담 시 확인하실 수 있습니다.
+                </p>
               </div>
 
               {/* 기대 효과 — PC/모바일 공통 */}
