@@ -272,8 +272,9 @@ export default function CaseSection({ initialFilter }: CaseSectionProps) {
           </AnimatePresence>
         </div>
 
-        <p className="text-slate-400 text-[11px] text-center -mt-4">
-          ※ 사진은 이해를 돕기 위한 이미지이며 실제 고객 사진이 아닙니다.
+        <p className="text-slate-400 text-[11px] text-center -mt-4 leading-relaxed">
+          ※ 사진은 이해를 돕기 위한 이미지이며 실제 고객 사진이 아닙니다.<br className="md:hidden" />
+          ※ 위 사례는 실제 상담 사례를 바탕으로 재구성하였으며, 개인정보 보호를 위해 성명·상호 등 일부 내용을 변경했습니다.
         </p>
 
         {/* 하단 기부 및 희망 고취 문구 배너 */}
