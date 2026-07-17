@@ -111,7 +111,7 @@ export default function PrivacyPolicySection() {
 
           <div className="px-2 space-y-1 text-slate-400 text-xs">
             <p>공고일자: 2026년 7월 5일</p>
-            <p>시행일자: 2026년 7월 5일</p>
+            <p>시행일자: 2026년 8월 3일</p>
             <p className="pt-1">본 방침은 관련 법령 및 정책 변경에 따라 개정될 수 있으며, 개정 시 홈페이지를 통해 공지합니다.</p>
           </div>
         </div>
