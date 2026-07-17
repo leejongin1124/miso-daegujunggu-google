@@ -106,7 +106,7 @@ export default function ProductSection({ onScrollToSection, onOpenCalculator, in
       id: 'youth',
       name: '청년 미래이음',
       subtitle: '만 19세 ~ 34세 청년 / 미취업자 및 신규 취·창업 1년차',
-      description: '아직 신용이 충분히 형성되지 않은 대학생·구직자에게 올바른 금융 지식과 함께 사회 진출의 발판을 마련해주는 청년 전용 정책 자금입니다.',
+      description: '만 19~34세이며 미취업 상태이거나 취업·창업 1년 미만인 청년 중, 아직 신용이 충분히 형성되지 않은 분에게 올바른 금융 지식과 함께 사회 진출의 발판을 마련해주는 청년 전용 정책 자금입니다.',
       limit: '최대 500만 원',
       interestRate: '연 4.5%\n연 3.5%(우대금리 적용시)',
       repaymentPeriod: '최대 11년 : 거치 6년 + 상환 5년',
@@ -116,7 +116,7 @@ export default function ProductSection({ onScrollToSection, onOpenCalculator, in
         '② 기본 미소금융 대상 (다음 중 하나 해당) — 신용정보회사의 개인신용평점이 하위 20%에 해당하는 고객 (KCB 700점 이하 · NICE 749점 이하, 2026년 기준) / 기초생활수급자 또는 차상위계층 / 근로장려금 신청자격 요건에 해당하는 분'
       ],
       suitability: [
-        '아르바이트나 소득이 있어 매월 소액 이자를 납부할 수 있는 청년',
+        '상환능력 등을 포함한 심사 결과에 따라 이용 여부가 결정됩니다',
         '신용카드나 금융 거래 이력이 부족해 일반 은행 대출이 어려운 청년',
         '고금리 대부업 이용 전 공공 정책자금을 먼저 알아보고자 하는 청년'
       ],
@@ -520,7 +520,7 @@ export default function ProductSection({ onScrollToSection, onOpenCalculator, in
                   </h4>
                   <p className="text-slate-700 text-xs font-semibold mt-3 leading-relaxed">
                     위 ① 자격 요건에 해당하는 분은, 신청 전 서민금융진흥원 홈페이지에서<br />
-                    <span className="text-amber-700 font-black">「청년 모두를 위한 재무상담」</span>을 반드시 이수하셔야 합니다.
+                    <span className="text-amber-700 font-black">「청년 모두를 위한 재무상담」</span>을 이수하셔야 합니다.
                   </p>
                   <a
                     href="https://www.kinfa.or.kr/financialLife/youthFinancialCounseling.do"
@@ -531,6 +531,9 @@ export default function ProductSection({ onScrollToSection, onOpenCalculator, in
                     <span>서민금융진흥원 <span className="text-yellow-300 font-black">재무상담</span> 바로가기</span>
                     <ArrowUpRight className="w-3.5 h-3.5" />
                   </a>
+                  <p className="text-amber-600/80 text-[10px] font-medium mt-2 leading-relaxed">
+                    ※ 이수 방법 및 시행 여부는 서민금융진흥원 안내에 따라 변경될 수 있습니다. 최신 내용은 위 공식 페이지 또는 서민금융통합콜센터(국번없이 1397)에서 확인하실 수 있습니다.
+                  </p>
                 </div>
               )}
 
