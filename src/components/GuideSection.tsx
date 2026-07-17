@@ -279,7 +279,7 @@ export default function GuideSection({ sectionId }: { sectionId?: string }) {
                   </button>
                   <button onClick={() => setInterestRate(3.5)} className="bg-blue-50 border border-blue-200 rounded-xl p-2 text-center hover:bg-blue-100 transition">
                     <p className="text-blue-700 font-black text-sm">3.5%</p>
-                    <p className="text-[10px] text-blue-600 font-semibold leading-tight mt-0.5">4회차이상<br/>정상납입 우대</p>
+                    <p className="text-[10px] text-blue-600 font-semibold leading-tight mt-0.5">성실상환시<br/>이자율 감면</p>
                   </button>
                   <button onClick={() => setInterestRate(4.5)} className="bg-teal-50 border border-teal-300 rounded-xl p-2 text-center hover:bg-teal-100 transition">
                     <p className="text-teal-700 font-black text-sm">4.5%</p>
