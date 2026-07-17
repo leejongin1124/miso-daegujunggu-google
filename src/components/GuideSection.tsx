@@ -291,6 +291,9 @@ export default function GuideSection({ sectionId }: { sectionId?: string }) {
                     <p className="text-[10px] text-red-500 font-semibold leading-tight mt-0.5">연체 발생시<br/>적용금리</p>
                   </button>
                 </div>
+                <p className="text-[10px] text-slate-400 leading-normal pt-1">
+                  ※ 연체가 장기화될 경우 최고 연 9%까지 연체이자율이 적용될 수 있습니다. (서민금융진흥원 고시 기준)
+                </p>
               </div>
 
               {/* 거치 기간 설정 (이자만 납부하는 유예기) */}
