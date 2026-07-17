@@ -145,7 +145,7 @@ export default function Hero({ onScrollToSection }: HeroProps) {
       icon: <Users className="w-6 h-6 text-emerald-600" />,
       title: '누적 대출 건수',
       value: statsInView ? `${countPeople.toLocaleString()} 건` : '0 건',
-      valueClass: 'text-lg md:text-3xl',
+      valueClass: 'text-[clamp(1rem,4.5vw,1.125rem)] md:text-3xl tabular-nums whitespace-nowrap',
       desc: '2026년 누적 기준'
     },
     {
@@ -157,7 +157,7 @@ export default function Hero({ onScrollToSection }: HeroProps) {
       ),
       title: '누적 대출 금액',
       value: statsInView ? `${countMoney}억 원 돌파` : '0억 원 돌파',
-      valueClass: 'text-lg md:text-3xl',
+      valueClass: 'text-[clamp(1rem,4.5vw,1.125rem)] md:text-3xl tabular-nums whitespace-nowrap',
       desc: '2026년 누적 기준'
     }
   ];
@@ -326,7 +326,7 @@ export default function Hero({ onScrollToSection }: HeroProps) {
               transition={{ duration: 0.5, delay: i * 0.12, type: 'spring', stiffness: 200, damping: 18 }}
               animate={spotlightIdx === i && i < 2 ? { y: -4, scale: 1.02 } : { y: 0, scale: 1 }}
               onClick={card.action}
-              className={`relative rounded-2xl shadow-sm transition-colors duration-500 text-left group overflow-hidden ${
+              className={`relative rounded-2xl shadow-sm transition-colors duration-500 text-left group overflow-hidden min-w-0 ${
                 i === 0 ? 'order-2 md:order-4' : i === 1 ? 'order-1 md:order-3' : i === 2 ? 'order-3 md:order-1' : 'order-4 md:order-2'
               } ${
                 'bg-white/5 backdrop-blur-[2px]'
@@ -347,7 +347,7 @@ export default function Hero({ onScrollToSection }: HeroProps) {
                 />
               )}
 
-              <div className="p-3 md:p-6 relative z-10">
+              <div className="p-2 min-[360px]:p-3 md:p-6 relative z-10 min-w-0">
                 <div className="flex justify-between items-start">
                   {i === 0 ? (
                     <div className="relative">
@@ -365,23 +365,23 @@ export default function Hero({ onScrollToSection }: HeroProps) {
                   </div>
                   )}
                   {card.action && (
-                    <ArrowRight className="w-4 h-4 transition-colors text-white/70" />
+                    <ArrowRight className="w-4 h-4 transition-colors text-white/70 shrink-0" />
                   )}
                 </div>
-                <h3 className="text-[10px] md:text-xs font-bold uppercase tracking-wider mt-3 md:mt-5 text-white/80">{card.title}</h3>
+                <h3 className="text-[10px] md:text-xs font-bold uppercase tracking-wider mt-3 md:mt-5 text-white/80 truncate">{card.title}</h3>
                 {i === 0 ? (
                   <div className="relative h-7 md:h-10 overflow-hidden mt-1">
-                    <p className="absolute inset-0 flex items-center font-extrabold text-lg md:text-3xl tracking-tight drop-shadow text-white">
+                    <p className="absolute inset-0 flex items-center font-extrabold text-[clamp(0.72rem,4.8vw,1.125rem)] md:text-3xl tracking-tight drop-shadow text-white whitespace-nowrap tabular-nums">
                       {currentPhone.number}
                     </p>
                   </div>
                 ) : (
                   <motion.p
-                    className={`font-extrabold mt-1 tracking-tight text-white drop-shadow ${card.valueClass ?? 'text-lg md:text-3xl'}`}
+                    className={`font-extrabold mt-1 tracking-tight text-white drop-shadow truncate ${card.valueClass ?? 'text-lg md:text-3xl'}`}
                     animate={i === 2 ? peopleAnim : i === 3 ? moneyAnim : undefined}
                   >{card.value}</motion.p>
                 )}
-                <p className="text-[10px] md:text-xs mt-1 font-semibold text-white/70">{card.desc}</p>
+                <p className="text-[10px] md:text-xs mt-1 font-semibold text-white/70 truncate">{card.desc}</p>
               </div>
             </motion.div>
             );

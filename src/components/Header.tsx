@@ -174,9 +174,9 @@ export default function Header({ activeTab, setActiveTab, onScrollToSection, onO
           <div className="lg:hidden flex items-center space-x-2">
             <a
               href="tel:053-252-6408"
-              className="flex items-center space-x-1 bg-teal-600 text-white text-xs font-bold px-3 py-1.5 rounded-full shadow-sm"
+              className="flex items-center space-x-1 bg-teal-600 text-white text-xs font-bold px-2.5 min-[360px]:px-3 py-1.5 rounded-full shadow-sm shrink-0 whitespace-nowrap"
             >
-              <Phone className="w-3.5 h-3.5" />
+              <Phone className="w-3.5 h-3.5 shrink-0" />
               <span>전화상담</span>
             </a>
             <button
