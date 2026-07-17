@@ -45,7 +45,7 @@ export default function AboutSection({ sectionId }: { sectionId?: string }) {
     {
       year: '2026',
       items: [
-        { date: '07.00', text: '미소금융대구중구법인 홈페이지 개설', emphasis: true }
+        { date: '08.03', text: '미소금융대구중구법인 홈페이지 개설', emphasis: true }
       ]
     },
     {
