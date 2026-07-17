@@ -41,7 +41,7 @@ export default function GuideSection({ sectionId }: { sectionId?: string }) {
     {
       id: 5,
       question: "대구중구법인 지점 위치는 어디이며 사전 예약이 필수인가요?",
-      answer: "사무소는 대구광역시 남구 중앙대로 146, 하나은행 봉덕지점 건물 4층에 있습니다. 방문 전에 대표번호 053-252-6408로 미리 연락 주시면 대기 없이 상담받으실 수 있습니다."
+      answer: "사무소는 대구광역시 남구 중앙대로 146, 하나은행 봉덕지점 건물 4층에 있습니다. 방문 전에 대표번호 053-252-6408로 미리 연락 주시면 대기 시간을 줄이고 원활하게 상담받으실 수 있습니다."
     }
   ];
 
@@ -735,7 +735,7 @@ export default function GuideSection({ sectionId }: { sectionId?: string }) {
           <div className="space-y-2">
             <p className="text-slate-500 text-sm leading-relaxed">
               귀한 시간 내서 오셨는데, 서류가 빠져서 다시 댁으로 돌아가시는 일이 없어야겠지요?<br />
-              아래 적힌 서류들을 챙겨오시면, <strong className="text-teal-700">"대출이 되는지, 얼마나 되는지"</strong> 신속하게 알려드릴 수 있습니다.
+              아래 적힌 서류들을 챙겨오시면, <strong className="text-teal-700">신청 자격 충족 여부와 예상 한도 범위</strong>를 상담을 통해 신속하게 안내해 드립니다. (최종 승인 여부는 여신심사 결과에 따라 달라질 수 있습니다)
             </p>
           </div>
 
