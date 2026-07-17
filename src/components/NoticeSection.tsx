@@ -368,8 +368,8 @@ export default function NoticeSection({ sectionId }: { sectionId?: string }) {
                 href: 'https://www.nts.go.kr',
                 borderHover: 'hover:border-red-300',
                 textColor: 'group-hover:text-red-700',
-                logo: null,
-                logoClass: ''
+                logo: 'https://hometax.go.kr/css/comm/bpr_portal_images/logo_nts.svg?postfix=2026_06_27',
+                logoClass: 'h-10 w-auto object-contain'
               },
             ].map((item, idx) => (
               <motion.a
