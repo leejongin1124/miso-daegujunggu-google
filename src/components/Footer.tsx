@@ -59,7 +59,7 @@ export default function Footer({ onScrollToSection }: FooterProps) {
             </button>
           </div>
           <p className="text-slate-600 font-bold pt-1">
-            © 2026 (사)미소금융대구중구법인 (Daegu Junggu Miso Microcredit Bank Corp). All rights reserved.
+            © 2026 (사)미소금융대구중구법인 (Daegu Jung-gu Miso Microfinance Association). All rights reserved.
           </p>
         </div>
 
