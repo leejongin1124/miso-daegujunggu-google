@@ -161,7 +161,7 @@ export default function Hero({ onScrollToSection }: HeroProps) {
       title: '누적 대출 건수',
       value: statsInView ? `${countPeople.toLocaleString()} 건` : '0 건',
       valueClass: 'text-lg md:text-3xl',
-      desc: '대구·경북 소상공인의 든든한 동반자'
+      desc: '2026년 누적 기준'
     },
     {
       icon: (

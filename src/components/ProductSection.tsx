@@ -53,7 +53,7 @@ export default function ProductSection({ onScrollToSection, onOpenCalculator, in
     {
       id: 'social',
       name: '사회적연대금융',
-      subtitle: '전국 최초·최다 — 누적 37건 / 15억 원 대출 실행 완료',
+      subtitle: '전국 최초, 누적 37건 / 15억 원 대출 실행 완료',
       description: '사회적기업·협동조합 등 사회적경제 조직의 안정적 운영을 지원하는 정부 정책 기반 무담보 운영자금입니다.',
       limit: '최대 1억 원',
       interestRate: '연 4.5%\n연 4.0% (사회적가치등급 S6등급이상)',
@@ -212,7 +212,7 @@ export default function ProductSection({ onScrollToSection, onOpenCalculator, in
             <div className="lg:col-span-7 bg-white p-8 md:p-10 rounded-3xl shadow-md border border-slate-100 text-left space-y-6">
               <div className="space-y-2">
                 <span className="inline-flex items-center text-teal-700 bg-teal-50 px-3 py-1 rounded-full text-xs font-bold ring-1 ring-teal-200/50">
-                  {activeProduct.id === 'social' ? '🔥 최우수 핵심보급' : '📋 맞춤 서민지원'}
+                  {activeProduct.id === 'social' ? '⭐ 대표 상품' : '📋 맞춤 서민지원'}
                 </span>
                 <h3 className="text-2xl md:text-[2rem] font-black text-slate-900 tracking-tight">
                   {activeProduct.name}
@@ -234,7 +234,7 @@ export default function ProductSection({ onScrollToSection, onOpenCalculator, in
                       transition={{ duration: 1.8, repeat: Infinity }}
                     >
                       <span className="hidden md:inline">{activeProduct.subtitle}</span>
-                      <span className="md:hidden">전국 최초·최다 — 누적 37건 / 15억 원<br/>대출 실행 완료</span>
+                      <span className="md:hidden">전국 최초, 누적 37건 / 15억 원<br/>대출 실행 완료</span>
                     </motion.span>
                   </motion.p>
                 ) : (
