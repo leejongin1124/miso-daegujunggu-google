@@ -290,7 +290,7 @@ export default function GuideSection({ sectionId }: { sectionId?: string }) {
                     <p className="text-[10px] text-red-500 font-semibold leading-tight mt-0.5">연체 발생시<br/>적용금리(안내)</p>
                   </div>
                 </div>
-                <p className="text-[10px] text-slate-400 leading-normal pt-1">
+                <p className="text-xs text-slate-500 leading-normal pt-1">
                   ※ 연체가 장기화될 경우 최고 연 9%까지 연체이자율이 적용될 수 있습니다. (서민금융진흥원 고시 기준)
                 </p>
               </div>
@@ -473,7 +473,7 @@ export default function GuideSection({ sectionId }: { sectionId?: string }) {
                     이자
                   </div>
                 </div>
-                <p className="text-[10px] text-slate-400 leading-normal pt-1 font-bold">
+                <p className="text-xs text-slate-500 leading-normal pt-1 font-bold">
                   ※ 시중 사채 연 20% 이용 시 이자 부담만 약 4배 가량 늘어납니다. 비영리 제도 자금의 낮은 금리를 충분히 활용해 보세요.
                 </p>
                 <a 
@@ -515,7 +515,7 @@ export default function GuideSection({ sectionId }: { sectionId?: string }) {
                 신용정보회사의 개인신용평점이 하위 20%에 해당하는 고객<br />
                 <span className="font-bold text-teal-700">KCB 700점 이하 · NICE 749점 이하</span>
               </p>
-              <p className="text-[10px] text-slate-400 font-medium">※ 2026년 기준 컷오프 점수이며, 매년 갱신됩니다. 내 신용점수를 먼저 확인해 보세요 👇</p>
+              <p className="text-xs text-slate-500 font-medium">※ 2026년 기준 컷오프 점수이며, 매년 갱신됩니다. 내 신용점수를 먼저 확인해 보세요 👇</p>
               <div className="flex flex-wrap gap-2 pt-1">
                 <motion.a
                   href="https://www.niceinfo.co.kr"

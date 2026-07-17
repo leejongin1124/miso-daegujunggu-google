@@ -292,7 +292,7 @@ export default function ProductSection({ onScrollToSection, onOpenCalculator, in
                         ))}
                       </tbody>
                     </table>
-                    <p className="text-slate-400 text-[10px] md:text-xs px-5 py-2.5">
+                    <p className="text-slate-500 text-xs px-5 py-2.5">
                       ※ 기본금리는 연 4.5%이며, 성실상환 우대금리 적용 시 연 3.5%로 적용됩니다. (무등록사업자 제외)
                     </p>
                   </div>
@@ -532,7 +532,7 @@ export default function ProductSection({ onScrollToSection, onOpenCalculator, in
                     <span>서민금융진흥원 <span className="text-yellow-300 font-black">재무상담</span> 바로가기</span>
                     <ArrowUpRight className="w-3.5 h-3.5" />
                   </a>
-                  <p className="text-amber-600/80 text-[10px] font-medium mt-2 leading-relaxed">
+                  <p className="text-amber-700 text-xs font-medium mt-2 leading-relaxed">
                     ※ 이수 방법 및 시행 여부는 서민금융진흥원 안내에 따라 변경될 수 있습니다. 최신 내용은 위 공식 페이지 또는 서민금융통합콜센터(국번없이 1397)에서 확인하실 수 있습니다.
                   </p>
                 </div>
@@ -582,7 +582,7 @@ export default function ProductSection({ onScrollToSection, onOpenCalculator, in
                             <ArrowUpRight className="w-3.5 h-3.5 text-blue-400 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform md:ml-1" />
                           </a>
                           <a
-                            href="https://www.kodit.co.kr"
+                            href="https://www.kodit.or.kr"
                             target="_blank"
                             rel="noopener noreferrer"
                             className="flex items-center justify-between md:justify-center bg-green-50 hover:bg-green-100 border border-green-300 px-3 py-2.5 rounded-xl text-xs font-bold text-green-800 transition group"
@@ -703,7 +703,7 @@ export default function ProductSection({ onScrollToSection, onOpenCalculator, in
                     </motion.div>
                   ))}
                 </div>
-                <p className="text-[10px] text-slate-400 leading-normal">
+                <p className="text-xs text-slate-500 leading-normal">
                   ※ 위 사항은 심사 참고를 돕기 위한 안내이며, 승인 요건이 아닙니다. 필요 서류와 심사 기준은 상담 시 확인하실 수 있습니다.
                 </p>
               </div>
@@ -715,13 +715,13 @@ export default function ProductSection({ onScrollToSection, onOpenCalculator, in
                   &ldquo;{activeProduct.effect}&rdquo;
                 </p>
                 <div className="pt-2 space-y-1.5">
-                  <p className="text-[10px] text-teal-200 leading-normal">
+                  <p className="text-xs text-teal-100 leading-normal">
                     ※ 이 상품은 자격 요건을 충족한 분을 대상으로, 서민금융진흥원 심의 규정에 따른 심사를 거쳐 지원 여부가 결정됩니다.
                   </p>
-                  <p className="text-[10px] text-teal-200 leading-normal">
+                  <p className="text-xs text-teal-100 leading-normal">
                     ※ 대출금 상환 연체 발생 시 연 5.5%, 연체가 장기화될 경우 최고 연 9%까지 연체이자율이 적용될 수 있습니다. (서민금융진흥원 고시 기준)
                   </p>
-                  <p className="text-[10px] text-teal-200 leading-normal">
+                  <p className="text-xs text-teal-100 leading-normal">
                     ※ 상환능력에 비해 대출금이 과도할 경우 개인신용평점 하락 및 상환 부담이 커질 수 있으니, 본인의 상환 계획을 충분히 검토하신 후 신청하시기 바랍니다.
                   </p>
                 </div>

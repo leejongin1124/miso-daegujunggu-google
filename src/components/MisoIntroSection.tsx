@@ -150,7 +150,7 @@ export default function MisoIntroSection() {
             <p className="text-teal-700 text-xs font-bold text-center">
               ※ 미소금융은 중개 수수료, 선납금, 보증 비용 등 어떠한 명목의 비용도 요구하지 않습니다. 이를 요구하는 경우 사기가 강하게 의심되므로 송금·앱 설치를 중단하고 공식 대표번호로 확인·신고해 주시기 바랍니다.
             </p>
-            <p className="text-slate-400 text-[11px] text-center">
+            <p className="text-slate-500 text-xs text-center">
               ※ 서민금융진흥원 미소금융 사업수행기관 현행 지정 현황은{' '}
               <a
                 href="https://www.kinfa.or.kr/financialSupport/localCorporation.do"

@@ -1,20 +1,16 @@
-<div align="center">
-<img width="1200" height="475" alt="GHBanner" src="https://ai.google.dev/static/site-assets/images/share-ais-513315318.png" />
-</div>
+# 미소금융대구중구법인 홈페이지
 
-# Run and deploy your AI Studio app
+(사)미소금융대구중구법인 공식 홈페이지 소스입니다. React 19 + TypeScript + Vite 6 + Tailwind CSS v4로 제작되었습니다.
 
-This contains everything you need to run your app locally.
+## 로컬 실행
 
-View your app in AI Studio: https://ai.studio/apps/30de8ece-bffa-4925-911b-9fecb774c311
+**사전 요구사항:** Node.js
 
-## Run Locally
-
-**Prerequisites:**  Node.js
-
-
-1. Install dependencies:
+1. 의존성 설치
    `npm install`
-2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
-3. Run the app:
+2. 개발 서버 실행
    `npm run dev`
+3. 프로덕션 빌드
+   `npm run build`
+
+별도의 API 키나 환경변수 설정이 필요하지 않습니다.

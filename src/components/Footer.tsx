@@ -13,16 +13,17 @@ export default function Footer({ onScrollToSection }: FooterProps) {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-3">
 
         {/* 로고 및 법인명 — 클릭 시 초기 화면으로 이동 */}
-        <div
-          className="flex items-center space-x-2.5 pb-3 border-b border-slate-800 cursor-pointer hover:opacity-80 transition-opacity w-fit"
+        <button
+          type="button"
+          className="flex items-center space-x-2.5 pb-3 border-b border-slate-800 cursor-pointer hover:opacity-80 transition-opacity w-fit text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-teal-500 rounded"
           onClick={() => onScrollToSection('hero-section')}
         >
           <img src="/miso_symbol.png" alt="미소금융 로고" className="w-9 h-9 object-contain" />
           <div className="text-center leading-none">
             <div className="text-white font-bold text-base tracking-tight leading-none">(사)미소금융대구중구법인</div>
-            <div className="text-[10px] font-semibold text-slate-400 tracking-wide uppercase mt-0.5 whitespace-nowrap">서민금융진흥원 미소금융 사업수행기관</div>
+            <div className="text-xs font-semibold text-slate-300 tracking-wide uppercase mt-0.5 whitespace-nowrap">서민금융진흥원 미소금융 사업수행기관</div>
           </div>
-        </div>
+        </button>
 
         {/* 법인 정보 */}
         <div className="text-xs leading-snug space-y-1.5">

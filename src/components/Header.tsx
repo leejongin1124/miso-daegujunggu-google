@@ -104,13 +104,17 @@ export default function Header({ activeTab, setActiveTab, onScrollToSection, onO
         <div className="flex justify-between items-center h-14">
 
           {/* 로고 */}
-          <div className="flex items-center space-x-2 cursor-pointer min-w-0 flex-shrink" onClick={() => handleSublinkClick('hero-section', TabType.ABOUT)}>
+          <button
+            type="button"
+            className="flex items-center space-x-2 cursor-pointer min-w-0 flex-shrink text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-teal-500 rounded"
+            onClick={() => handleSublinkClick('hero-section', TabType.ABOUT)}
+          >
             <img src="/miso_symbol.png" alt="미소금융 로고" className="w-7 h-7 lg:w-10 lg:h-10 object-contain flex-shrink-0" />
             <div className="text-center min-w-0 leading-none">
-              <span className="text-slate-900 font-bold text-[11px] sm:text-sm lg:text-lg tracking-tight leading-none whitespace-nowrap block">(사)미소금융대구중구법인</span>
-              <span className="text-[8px] sm:text-[9px] lg:text-[10px] font-semibold text-slate-400 tracking-wide uppercase block whitespace-nowrap mt-0.5">서민금융진흥원 미소금융 사업수행기관</span>
+              <span className="text-slate-900 font-bold text-xs sm:text-sm lg:text-lg tracking-tight leading-none whitespace-nowrap block">(사)미소금융대구중구법인</span>
+              <span className="text-[10px] sm:text-[11px] lg:text-xs font-semibold text-slate-500 tracking-wide uppercase block whitespace-nowrap mt-0.5">서민금융진흥원 미소금융 사업수행기관</span>
             </div>
-          </div>
+          </button>
 
           {/* GNB (데스크톱) — 클릭 시 해당 메뉴 아래로 드롭다운 */}
           <nav ref={navRef} className="hidden lg:flex space-x-1 xl:space-x-2 h-full items-center relative">
