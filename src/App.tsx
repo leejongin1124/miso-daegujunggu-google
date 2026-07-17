@@ -152,10 +152,10 @@ export default function App() {
         {/* 미소금융이란 */}
         {activeSection === 'miso-intro' && (
           <SectionPageShell
-            eyebrow="Miso Finance Products"
-            title="대출상품"
-            description={"상품별 대상 요건과 증빙서류를 확인한 뒤\n심사 절차에 따라 지원 가능 여부를 안내합니다."}
-            bgImage="/backgrounds/products-bg.webp"
+            eyebrow="Loan Guide"
+            title="대출안내"
+            description={"상담, 서류 준비, 심사, 결과 안내까지\n신청 전 필요한 절차를 차분히 확인하실 수 있습니다."}
+            bgImage="/backgrounds/guide-bg.webp"
           >
             <MisoIntroSection />
           </SectionPageShell>

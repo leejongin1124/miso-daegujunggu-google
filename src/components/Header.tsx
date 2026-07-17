@@ -47,7 +47,6 @@ export default function Header({ activeTab, setActiveTab, onScrollToSection, onO
       type: TabType.PRODUCTS,
       label: '대출상품',
       sublinks: [
-        { name: '미소금융이란', id: 'miso-intro', icon: Info, color: 'text-sky-500' },
         { name: '사회적연대금융', id: 'social-finance', icon: Users, color: 'text-teal-500' },
         { name: '사업자 운영자금', id: 'business-fund', icon: Briefcase, color: 'text-orange-500' },
         { name: '청년미래이음대출', id: 'youth-fund', icon: Rocket, color: 'text-purple-500' },
@@ -58,6 +57,7 @@ export default function Header({ activeTab, setActiveTab, onScrollToSection, onO
       type: TabType.GUIDE,
       label: '대출안내',
       sublinks: [
+        { name: '미소금융이란', id: 'miso-intro', icon: Info, color: 'text-sky-500' },
         { name: '대출 자격 안내', id: 'loan-target', icon: Target, color: 'text-red-500' },
         { name: '이용 절차 및 서류', id: 'process-guide', icon: FileText, color: 'text-amber-600' },
         { name: '자주 묻는 질문', id: 'faq-section', icon: HelpCircle, color: 'text-blue-500' },
