@@ -90,7 +90,7 @@ export default function ProductSection({ onScrollToSection, onOpenCalculator, in
         { label: '청년사업자 (19~34세)', limit: '최대 3,000만원', baseRate: '연 4.5%', preferentialRate: '연 3.5%' }
       ],
       target: [
-        '신용정보회사의 개인신용평점이 하위 20%에 해당하는 고객 (KCB 700점 · NICE 749점)',
+        '신용정보회사의 개인신용평점이 하위 20%에 해당하는 고객 (KCB 700점 이하 · NICE 749점 이하, 2026년 기준)',
         '기초생활수급자 또는 차상위계층',
         '최근 1년 이내 근로장려금 수급 이력이 있는 개인'
       ],
@@ -113,7 +113,7 @@ export default function ProductSection({ onScrollToSection, onOpenCalculator, in
       repaymentMethod: '매월 원리금 균등분할 상환',
       target: [
         '① 청년 요건 (다음 중 하나 해당) — 만 19세 이상 34세 이하 청년 / 미취업 상태이거나 취업·창업 이력 1년 미만인 분',
-        '② 기본 미소금융 대상 (다음 중 하나 해당) — 신용정보회사의 개인신용평점이 하위 20%에 해당하는 고객 (KCB 700점 · NICE 749점) / 기초생활수급자 또는 차상위계층 / 최근 1년 이내 근로장려금 수급 이력이 있는 분'
+        '② 기본 미소금융 대상 (다음 중 하나 해당) — 신용정보회사의 개인신용평점이 하위 20%에 해당하는 고객 (KCB 700점 이하 · NICE 749점 이하, 2026년 기준) / 기초생활수급자 또는 차상위계층 / 최근 1년 이내 근로장려금 수급 이력이 있는 분'
       ],
       suitability: [
         '아르바이트나 소득이 있어 매월 소액 이자를 납부할 수 있는 청년',
@@ -133,7 +133,7 @@ export default function ProductSection({ onScrollToSection, onOpenCalculator, in
       repaymentPeriod: '최대 6년 : 거치 1년 + 상환 5년',
       repaymentMethod: '매월 원리금 균등분할 상환',
       target: [
-        '① 기본 요건 (다음 중 하나 해당) — 개인신용평점 하위 20% 이하 (KCB 700점 · NICE 749점) 또는 하위 50% 이하 & 연소득 3,500만원 이하 / 기초생활수급자 또는 차상위계층 / 근로장려금 신청자격 대상자',
+        '① 기본 요건 (다음 중 하나 해당) — 개인신용평점 하위 20% 이하 (KCB 700점 이하 · NICE 749점 이하, 2026년 기준) 또는 하위 50% 이하 & 연소득 3,500만원 이하 / 기초생활수급자 또는 차상위계층 / 근로장려금 신청자격 대상자',
         '② 추가 요건 — 성실상환: 불법사금융예방대출 완제자 또는 미소금융 12회차 이상 성실상환자',
         '② 추가 요건 — 사회적배려대상자: 한부모·조손·다문화가족, 북한이탈주민, 등록장애인, 국민기초생활수급자, 차상위계층, 자활근로자, 근로장려금 수급자',
         '② 추가 요건 — 특별취약계층: 불법사금융 피해자 / 보이스피싱 피해자 / 전세사기 피해자 / 특별재난지역 거주자'
@@ -390,7 +390,7 @@ export default function ProductSection({ onScrollToSection, onOpenCalculator, in
                         <p className="font-extrabold text-slate-800">기본 미소금융 대상 (다음 중 하나 해당)</p>
                       </div>
                       <ul className="pl-4 space-y-1.5 text-slate-600 font-medium">
-                        <li>• 신용정보회사의 개인신용평점이 하위 20%에 해당하는 고객 (KCB 700점 · NICE 749점)</li>
+                        <li>• 신용정보회사의 개인신용평점이 하위 20%에 해당하는 고객 (KCB 700점 이하 · NICE 749점 이하, 2026년 기준)</li>
                         <li>• 기초생활수급자 또는 차상위계층</li>
                         <li>• 최근 1년 이내 근로장려금 수급 이력이 있는 분</li>
                       </ul>
@@ -430,7 +430,7 @@ export default function ProductSection({ onScrollToSection, onOpenCalculator, in
                         <tbody className="text-slate-600 font-medium">
                           <tr className="bg-white">
                             <td className="border border-slate-100 px-3 py-2 font-bold text-slate-700">신용점수</td>
-                            <td className="border border-slate-100 px-3 py-2">개인신용평점 하위 20% 이하 (KCB 700점 · NICE 749점) 또는 하위 50% 이하 & 연소득 3,500만원 이하</td>
+                            <td className="border border-slate-100 px-3 py-2">개인신용평점 하위 20% 이하 (KCB 700점 이하 · NICE 749점 이하, 2026년 기준) 또는 하위 50% 이하 & 연소득 3,500만원 이하</td>
                           </tr>
                           <tr className="bg-slate-50">
                             <td className="border border-slate-100 px-3 py-2 font-bold text-slate-700">수급자</td>

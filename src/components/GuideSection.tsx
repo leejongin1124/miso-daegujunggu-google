@@ -21,7 +21,7 @@ export default function GuideSection({ sectionId }: { sectionId?: string }) {
     {
       id: 1,
       question: "미소금융 대출의 신청 자격 기준은 구체적으로 어떻게 되나요?",
-      answer: "개인신용평점 하위 20%(KCB 700점, NICE 749점)에 해당하시거나, 기초생활수급자 및 차상위계층, 혹은 근로장려금 수급 사실이 증빙되는 소상공인, 자영업자 분들이 주요 지원 대상입니다. 담보나 보증 없이 순수 신용과 자활 의지로 지원하기 때문에 기준에 해당하시면 적극 검토해 드립니다."
+      answer: "개인신용평점 하위 20%(KCB 700점 이하, NICE 749점 이하, 2026년 기준)에 해당하시거나, 기초생활수급자 및 차상위계층, 혹은 근로장려금 수급 사실이 증빙되는 소상공인, 자영업자 분들이 주요 지원 대상입니다. 담보나 보증 없이 순수 신용과 자활 의지로 지원하기 때문에 기준에 해당하시면 적극 검토해 드립니다."
     },
     {
       id: 2,
@@ -513,7 +513,7 @@ export default function GuideSection({ sectionId }: { sectionId?: string }) {
                 신용정보회사의 개인신용평점이 하위 20%에 해당하는 고객<br />
                 <span className="font-bold text-teal-700">KCB 700점 이하 · NICE 749점 이하</span>
               </p>
-              <p className="text-[10px] text-slate-400 font-medium">내 신용점수를 먼저 확인해 보세요 👇</p>
+              <p className="text-[10px] text-slate-400 font-medium">※ 2026년 기준 컷오프 점수이며, 매년 갱신됩니다. 내 신용점수를 먼저 확인해 보세요 👇</p>
               <div className="flex flex-wrap gap-2 pt-1">
                 <motion.a
                   href="https://www.niceinfo.co.kr"
