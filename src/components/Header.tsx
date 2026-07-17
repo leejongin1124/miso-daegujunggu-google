@@ -108,7 +108,7 @@ export default function Header({ activeTab, setActiveTab, onScrollToSection, onO
             <img src="/miso_symbol.png" alt="미소금융 로고" className="w-7 h-7 lg:w-10 lg:h-10 object-contain flex-shrink-0" />
             <div className="text-center min-w-0 leading-none">
               <span className="text-slate-900 font-bold text-[11px] sm:text-sm lg:text-lg tracking-tight leading-none whitespace-nowrap block">(사)미소금융대구중구법인</span>
-              <span className="text-[8px] sm:text-[9px] lg:text-[10px] font-semibold text-slate-400 tracking-wide uppercase block whitespace-nowrap mt-0.5">서민금융진흥원 공식 사업수행기관</span>
+              <span className="text-[8px] sm:text-[9px] lg:text-[10px] font-semibold text-slate-400 tracking-wide uppercase block whitespace-nowrap mt-0.5">서민금융진흥원 미소금융 사업수행기관</span>
             </div>
           </div>
 

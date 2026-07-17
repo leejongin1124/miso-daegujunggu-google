@@ -18,7 +18,7 @@ export default function MisoIntroSection() {
       icon: <BadgePercent className="w-10 h-10 text-emerald-600" />,
       bg: 'bg-emerald-50',
       title: '제도권 비영리 법인',
-      desc: '금융위원회의 허가를 받은 공익법인으로, 서민금융진흥원의 공식 사업수행기관입니다. 무허가 사금융과는 엄격히 구분되는 제도권 금융기관입니다.'
+      desc: '금융위원회의 허가를 받은 공익법인으로, 서민금융진흥원의 미소금융 사업수행기관입니다. 무허가 사금융과는 엄격히 구분되는 제도권 금융기관입니다.'
     },
     {
       icon: <TrendingDown className="w-10 h-10 text-indigo-600" />,
@@ -146,9 +146,21 @@ export default function MisoIntroSection() {
             ))}
           </div>
 
-          <div className="px-6 py-4 bg-teal-50/50 border-t border-teal-100">
+          <div className="px-6 py-4 bg-teal-50/50 border-t border-teal-100 space-y-2">
             <p className="text-teal-700 text-xs font-bold text-center">
-              ※ 미소금융은 중개 수수료, 선납금, 보증 비용 등 어떠한 명목의 비용도 요구하지 않습니다. 이를 요구하는 경우 100% 사기입니다.
+              ※ 미소금융은 중개 수수료, 선납금, 보증 비용 등 어떠한 명목의 비용도 요구하지 않습니다. 이를 요구하는 경우 사기가 강하게 의심되므로 송금·앱 설치를 중단하고 공식 대표번호로 확인·신고해 주시기 바랍니다.
+            </p>
+            <p className="text-slate-400 text-[11px] text-center">
+              ※ 서민금융진흥원 미소금융 사업수행기관 현행 지정 현황은{' '}
+              <a
+                href="https://www.kinfa.or.kr/financialSupport/localCorporation.do"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="underline underline-offset-2 hover:text-teal-600"
+              >
+                서민금융진흥원 지역법인 공식 안내
+              </a>
+              에서 확인하실 수 있습니다.
             </p>
           </div>
         </motion.div>

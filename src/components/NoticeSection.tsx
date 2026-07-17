@@ -37,7 +37,7 @@ export default function NoticeSection({ sectionId }: { sectionId?: string }) {
     {
       icon: <Scale className="w-5.5 h-5.5 text-indigo-600" />,
       title: '대출 수수료 및 선납금 요구 사기 주의',
-      desc: '미소금융 정책자금은 중개 수수료, 보증 선납금, 서류 처리비 등 어떠한 명목의 비용도 요구하지 않습니다. 승인을 조건으로 금전을 요구하는 경우 100% 사기이므로 즉시 신고하시기 바랍니다.'
+      desc: '미소금융 정책자금은 중개 수수료, 보증 선납금, 서류 처리비 등 어떠한 명목의 비용도 요구하지 않습니다. 승인을 조건으로 금전을 요구하는 경우 사기가 강하게 의심되므로 송금·앱 설치를 중단하고 대표번호(053-252-6408) 또는 금융감독원(1332)으로 즉시 확인·신고해 주시기 바랍니다.'
     },
     {
       icon: <ShieldCheck className="w-5.5 h-5.5 text-emerald-600" />,
