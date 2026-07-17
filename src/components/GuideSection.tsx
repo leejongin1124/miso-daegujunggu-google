@@ -168,19 +168,19 @@ export default function GuideSection({ sectionId }: { sectionId?: string }) {
               </div>
               <div className="flex flex-wrap gap-2">
                 <button
-                  onClick={() => { setLoanAmount(20000000); setGracePeriod(6); setRepaymentPeriod(60); setGraceRateType('business'); }}
+                  onClick={() => { setLoanAmount(20000000); setInterestRate(4.5); setGracePeriod(6); setRepaymentPeriod(60); setGraceRateType('business'); }}
                   className="bg-white/10 hover:bg-white/20 text-white text-xs font-bold px-3 py-2 rounded-lg transition-all"
                 >
                   🏪 사업자 표준 (2천만 / 거치6M)
                 </button>
                 <button
-                  onClick={() => { setLoanAmount(5000000); setGracePeriod(12); setRepaymentPeriod(60); setGraceRateType('vulnerable'); }}
+                  onClick={() => { setLoanAmount(5000000); setInterestRate(4.5); setGracePeriod(12); setRepaymentPeriod(60); setGraceRateType('vulnerable'); }}
                   className="bg-white/10 hover:bg-white/20 text-white text-xs font-bold px-3 py-2 rounded-lg transition-all"
                 >
                   🛡️ 금융취약계층 (5백만 / 거치1년)
                 </button>
                 <button
-                  onClick={() => { setLoanAmount(5000000); setGracePeriod(72); setRepaymentPeriod(60); setGraceRateType('youth'); }}
+                  onClick={() => { setLoanAmount(5000000); setInterestRate(4.5); setGracePeriod(72); setRepaymentPeriod(60); setGraceRateType('youth'); }}
                   className="bg-white/10 hover:bg-white/20 text-white text-xs font-bold px-3 py-2 rounded-lg transition-all"
                 >
                   🌱 청년 미래이음 (5백만 / 거치6년)
@@ -247,7 +247,7 @@ export default function GuideSection({ sectionId }: { sectionId?: string }) {
                 <input
                   type="range"
                   min="2.0"
-                  max="5.5"
+                  max="4.5"
                   step="0.5"
                   value={interestRate}
                   onChange={(e) => setInterestRate(Number(e.target.value))}
@@ -258,9 +258,8 @@ export default function GuideSection({ sectionId }: { sectionId?: string }) {
                     { val: 2.0, label: '2.0%' },
                     { val: 3.5, label: '3.5%' },
                     { val: 4.5, label: '4.5%' },
-                    { val: 5.5, label: '5.5%' },
                   ].map(({ val, label }) => {
-                    const pct = ((val - 2.0) / (5.5 - 2.0)) * 100;
+                    const pct = ((val - 2.0) / (4.5 - 2.0)) * 100;
                     return (
                       <span
                         key={val}
@@ -286,10 +285,10 @@ export default function GuideSection({ sectionId }: { sectionId?: string }) {
                     <p className="text-teal-700 font-black text-sm">4.5%</p>
                     <p className="text-[10px] text-teal-600 font-semibold leading-tight mt-0.5">기본<br/>적용금리</p>
                   </button>
-                  <button onClick={() => setInterestRate(5.5)} className="bg-red-50 border border-red-200 rounded-xl p-2 text-center hover:bg-red-100 transition">
+                  <div className="bg-red-50 border border-red-200 rounded-xl p-2 text-center cursor-default" title="연체금리는 상환 설계 시뮬레이션에 반영되지 않는 안내용 정보입니다">
                     <p className="text-red-600 font-black text-sm">5.5%</p>
-                    <p className="text-[10px] text-red-500 font-semibold leading-tight mt-0.5">연체 발생시<br/>적용금리</p>
-                  </button>
+                    <p className="text-[10px] text-red-500 font-semibold leading-tight mt-0.5">연체 발생시<br/>적용금리(안내)</p>
+                  </div>
                 </div>
                 <p className="text-[10px] text-slate-400 leading-normal pt-1">
                   ※ 연체가 장기화될 경우 최고 연 9%까지 연체이자율이 적용될 수 있습니다. (서민금융진흥원 고시 기준)
