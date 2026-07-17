@@ -589,7 +589,7 @@ export default function AboutSection({ sectionId }: { sectionId?: string }) {
               </div>
               <div className="hidden sm:flex items-center space-x-1 bg-white text-teal-700 font-bold text-xs px-3 py-2 rounded-xl shadow-sm group-hover:bg-teal-50 transition-colors flex-shrink-0 ml-3">
                 <span>방문하기</span>
-                <motion.span animate={{ x: [0, 4, 0] }} transition={{ duration: 1.2, repeat: Infinity, ease: 'easeInOut' }}>→</motion.span>
+                <motion.span animate={{ x: [0, 4, 0] }} transition={{ duration: 1.2, repeat: 1, ease: 'easeInOut' }}>→</motion.span>
               </div>
               <ExternalLink className="sm:hidden w-5 h-5 text-white flex-shrink-0 ml-2" />
             </motion.a>

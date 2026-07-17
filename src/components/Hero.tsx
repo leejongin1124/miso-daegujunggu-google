@@ -282,7 +282,7 @@ export default function Hero({ onScrollToSection }: HeroProps) {
               <motion.button
                 onClick={() => onScrollToSection('products-all')}
                 animate={{ scale: [1, 1.1, 1], y: [0, -3, 0] }}
-                transition={{ duration: 1.1, repeat: Infinity, ease: 'easeInOut' }}
+                transition={{ duration: 1.1, repeat: 1, ease: 'easeInOut' }}
                 whileHover={{ scale: 1.12 }}
                 whileTap={{ scale: 0.92 }}
                 className="relative inline-flex flex-1 md:flex-none justify-center items-center space-x-2 bg-white/5 backdrop-blur-[2px] text-white border border-white/30 hover:bg-white/30 font-bold px-4 md:px-7 py-4 rounded-2xl transition-colors shadow-lg shadow-teal-500/20 text-sm md:text-base"
@@ -296,7 +296,7 @@ export default function Hero({ onScrollToSection }: HeroProps) {
                 target="_blank"
                 rel="noopener noreferrer"
                 animate={{ scale: [1, 1.1, 1], y: [0, -3, 0] }}
-                transition={{ duration: 1.1, repeat: Infinity, ease: 'easeInOut', delay: 0.4 }}
+                transition={{ duration: 1.1, repeat: 1, ease: 'easeInOut', delay: 0.4 }}
                 whileHover={{ scale: 1.12 }}
                 whileTap={{ scale: 0.92 }}
                 className="relative inline-flex flex-1 md:flex-none justify-center items-center space-x-2 bg-white/[0.03] backdrop-blur-[2px] text-white border border-white/25 hover:bg-white/20 font-bold px-4 md:px-8 py-4 rounded-2xl transition-colors shadow-lg shadow-emerald-500/20 text-sm md:text-base"
