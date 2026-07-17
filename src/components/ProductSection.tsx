@@ -209,7 +209,7 @@ export default function ProductSection({ onScrollToSection, onOpenCalculator, in
           >
             
             {/* 좌측 메인 스펙 카드 */}
-            <div id="business-fund" className="lg:col-span-7 bg-white p-8 md:p-10 rounded-3xl shadow-md border border-slate-100 text-left space-y-6">
+            <div className="lg:col-span-7 bg-white p-8 md:p-10 rounded-3xl shadow-md border border-slate-100 text-left space-y-6">
               <div className="space-y-2">
                 <span className="inline-flex items-center text-teal-700 bg-teal-50 px-3 py-1 rounded-full text-xs font-bold ring-1 ring-teal-200/50">
                   {activeProduct.id === 'social' ? '🔥 최우수 핵심보급' : '📋 맞춤 서민지원'}
@@ -675,9 +675,9 @@ export default function ProductSection({ onScrollToSection, onOpenCalculator, in
             </div>
 
             {/* 우측 보강 설명: 적용 추천 대상 및 기대 효과 */}
-            <div id="youth-fund" className="lg:col-span-5 space-y-6 text-left">
-              
-              <div id="vulnerable-fund" className="bg-white p-6.5 md:p-8 rounded-3xl shadow-sm hover:shadow-md transition-shadow border border-slate-100 space-y-6">
+            <div className="lg:col-span-5 space-y-6 text-left">
+
+              <div className="bg-white p-6.5 md:p-8 rounded-3xl shadow-sm hover:shadow-md transition-shadow border border-slate-100 space-y-6">
                 <h4 className="font-extrabold text-slate-900 text-lg flex items-center gap-1 tracking-tight">
                   <Star className="w-5 h-5 text-indigo-500 fill-indigo-500" />
                   <span>이런 분에게 적극 추천합니다</span>
