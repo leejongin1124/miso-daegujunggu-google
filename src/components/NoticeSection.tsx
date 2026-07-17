@@ -368,8 +368,8 @@ export default function NoticeSection({ sectionId }: { sectionId?: string }) {
                 href: 'https://www.nts.go.kr',
                 borderHover: 'hover:border-red-300',
                 textColor: 'group-hover:text-red-700',
-                logo: 'https://hometax.go.kr/css/comm/bpr_portal_images/logo_nts.svg?postfix=2026_06_27',
-                logoClass: 'h-10 w-auto object-contain'
+                logo: null,
+                logoClass: ''
               },
             ].map((item, idx) => (
               <motion.a
@@ -389,8 +389,8 @@ export default function NoticeSection({ sectionId }: { sectionId?: string }) {
                   {item.logo ? (
                     <img src={item.logo} alt={item.label} className={item.logoClass} />
                   ) : (
-                    <div className="w-12 h-12 rounded-full bg-blue-50 border border-blue-100 flex items-center justify-center text-blue-700 font-black text-sm">
-                      대구
+                    <div className="w-12 h-12 rounded-full bg-slate-100 border border-slate-200 flex items-center justify-center text-slate-600 font-black text-sm">
+                      {item.label.slice(0, 2)}
                     </div>
                   )}
                 </div>
