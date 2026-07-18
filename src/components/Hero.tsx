@@ -131,7 +131,7 @@ export default function Hero({ onScrollToSection }: HeroProps) {
       value: currentPhone.number,
       valueClass: 'text-lg md:text-3xl',
       desc: '평일 09시 ~ 18시 운영',
-      action: () => window.open(`tel:${currentPhone.number}`)
+      href: `tel:${currentPhone.number}`
     },
     {
       icon: <MapPin className="w-6 h-6 text-rose-600" />,
@@ -317,9 +317,11 @@ export default function Hero({ onScrollToSection }: HeroProps) {
         <div ref={statsRef} className="grid grid-cols-2 lg:grid-cols-4 gap-2 md:gap-4 pb-4 md:pb-8">
           <AnimatePresence>
           {quickCards.map((card, i) => {
+            const CardTag = card.href ? motion.a : motion.div;
             return (
-            <motion.div
+            <CardTag
               key={i}
+              href={card.href}
               initial={{ opacity: 0, y: 30, scale: 0.95 }}
               whileInView={{ opacity: 1, y: 0, scale: 1 }}
               viewport={{ once: true }}
@@ -331,7 +333,7 @@ export default function Hero({ onScrollToSection }: HeroProps) {
               } ${
                 'bg-white/5 backdrop-blur-[2px]'
               } ${
-                card.action ? 'cursor-pointer' : ''
+                card.action || card.href ? 'cursor-pointer' : ''
               } ${
                 spotlightIdx === i && i < 2
                   ? 'border-2 border-teal-400 shadow-lg shadow-teal-100'
@@ -364,7 +366,7 @@ export default function Hero({ onScrollToSection }: HeroProps) {
                     {card.icon}
                   </div>
                   )}
-                  {card.action && (
+                  {(card.action || card.href) && (
                     <ArrowRight className="w-4 h-4 transition-colors text-white/70 shrink-0" />
                   )}
                 </div>
@@ -383,7 +385,7 @@ export default function Hero({ onScrollToSection }: HeroProps) {
                 )}
                 <p className="text-[10px] md:text-xs mt-1 font-semibold text-white/70 truncate">{card.desc}</p>
               </div>
-            </motion.div>
+            </CardTag>
             );
           })}
           </AnimatePresence>

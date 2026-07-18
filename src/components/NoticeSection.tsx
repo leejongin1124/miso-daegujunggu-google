@@ -190,11 +190,11 @@ export default function NoticeSection({ sectionId }: { sectionId?: string }) {
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
 
                 {/* 경찰청 112 */}
-                <motion.div
-                  onClick={() => {
-                    if (window.innerWidth < 768) {
-                      window.location.href = 'tel:112';
-                    } else {
+                <motion.a
+                  href="tel:112"
+                  onClick={(e) => {
+                    if (window.innerWidth >= 768) {
+                      e.preventDefault();
                       window.open('https://www.police.go.kr/index.do', '_blank', 'noopener,noreferrer');
                     }
                   }}
@@ -248,14 +248,14 @@ export default function NoticeSection({ sectionId }: { sectionId?: string }) {
                     <span className="hidden md:inline">사이트 방문 →</span>
                     <span className="md:hidden">📞 전화 연결 →</span>
                   </motion.div>
-                </motion.div>
+                </motion.a>
 
                 {/* 금융감독원 1332 */}
-                <motion.div
-                  onClick={() => {
-                    if (window.innerWidth < 768) {
-                      window.location.href = 'tel:1332';
-                    } else {
+                <motion.a
+                  href="tel:1332"
+                  onClick={(e) => {
+                    if (window.innerWidth >= 768) {
+                      e.preventDefault();
                       window.open('https://www.fss.or.kr', '_blank', 'noopener,noreferrer');
                     }
                   }}
@@ -286,14 +286,14 @@ export default function NoticeSection({ sectionId }: { sectionId?: string }) {
                     <span className="hidden md:inline">사이트 방문 →</span>
                     <span className="md:hidden">📞 전화 연결 →</span>
                   </motion.div>
-                </motion.div>
+                </motion.a>
 
                 {/* 서민금융진흥원 1397 */}
-                <motion.div
-                  onClick={() => {
-                    if (window.innerWidth < 768) {
-                      window.location.href = 'tel:1397';
-                    } else {
+                <motion.a
+                  href="tel:1397"
+                  onClick={(e) => {
+                    if (window.innerWidth >= 768) {
+                      e.preventDefault();
                       window.open('https://www.kinfa.or.kr', '_blank', 'noopener,noreferrer');
                     }
                   }}
@@ -324,7 +324,7 @@ export default function NoticeSection({ sectionId }: { sectionId?: string }) {
                     <span className="hidden md:inline">사이트 방문 →</span>
                     <span className="md:hidden">📞 전화 연결 →</span>
                   </motion.div>
-                </motion.div>
+                </motion.a>
 
               </div>
             </div>
