@@ -116,9 +116,9 @@ export default function ProductSection({ onScrollToSection, onOpenCalculator, in
         '② 기본 미소금융 대상 (다음 중 하나 해당) — 신용정보회사의 개인신용평점이 하위 20%에 해당하는 고객 (KCB 700점 이하 · NICE 749점 이하, 2026년 기준) / 기초생활수급자 또는 차상위계층 / 근로장려금 신청자격 요건에 해당하는 분'
       ],
       suitability: [
-        '상환능력 등을 포함한 심사 결과에 따라 이용 여부가 결정됩니다',
         '신용카드나 금융 거래 이력이 부족해 일반 은행 대출이 어려운 청년',
-        '고금리 대부업 이용 전 공공 정책자금을 먼저 알아보고자 하는 청년'
+        '고금리 대부업 이용 전 공공 정책자금을 먼저 알아보고자 하는 청년',
+        '상환능력 등을 포함한 심사 결과에 따라 이용 여부가 결정됩니다'
       ],
       effect: '취업 준비 기간 동안 생활 자금을 마련하고,\n처음으로 건전한 신용을 쌓을 수 있는 기회가 됩니다.',
       blogUrl: 'https://blog.naver.com/PostView.naver?blogId=eornwndrn1&logNo=224274876397&categoryNo=7&parentCategoryNo=7&from=thumbnailList'
