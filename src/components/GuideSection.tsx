@@ -728,7 +728,7 @@ export default function GuideSection({ sectionId }: { sectionId?: string }) {
                 className="md:ml-auto flex items-center gap-2 bg-white/15 border border-white/20 rounded-xl px-4 py-2 text-xs font-black whitespace-nowrap"
               >
                 <span>✅</span>
-                <span>서류 완비 시 당일 접수 가능</span>
+                <span>서류 완비 시 재방문 없이 접수 진행</span>
               </motion.div>
             </div>
           </motion.div>
