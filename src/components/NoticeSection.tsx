@@ -344,8 +344,8 @@ export default function NoticeSection({ sectionId }: { sectionId?: string }) {
                 href: 'https://www.dgsinbo.or.kr',
                 borderHover: 'hover:border-blue-300',
                 textColor: 'group-hover:text-blue-700',
-                logo: null,
-                logoClass: ''
+                logo: '/logos/dgsinbo_logo.jpg',
+                logoClass: 'h-12 w-auto object-contain'
               },
               {
                 label: '신용회복위원회',
