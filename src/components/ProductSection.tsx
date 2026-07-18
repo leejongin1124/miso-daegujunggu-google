@@ -141,8 +141,8 @@ export default function ProductSection({ onScrollToSection, onOpenCalculator, in
       ],
       suitability: [
         '치료비·주거비 등 생활에 필요한 자금이 필요한 분',
-        '상환능력 등을 포함한 심사 결과에 따라 이용 여부가 결정됩니다',
-        '고금리 사금융 대신 정책자금으로 생활을 안정시키고자 하는 분'
+        '고금리 사금융 대신 정책자금으로 생활을 안정시키고자 하는 분',
+        '상환능력 등을 포함한 심사 결과에 따라 이용 여부가 결정됩니다'
       ],
       effect: '급하게 돈이 필요할 때, 고금리 사금융 대신\n생계자금 용도로 이용할 수 있으며, 상환 부담을 충분히 확인 후 신청하시기 바랍니다.',
       blogUrl: 'https://blog.naver.com/eornwndrn1/224328452218'
