@@ -182,7 +182,7 @@ export default function MisoIntroSection() {
           <div className="md:hidden divide-y divide-slate-100">
             {[
               {
-                name: '사회적연대금융',
+                name: '사회연대금융',
                 purpose: '사회적경제기업 운영·시설·임차보증금',
                 limit: '최대 1억원',
                 rate: '연 4.5% (우수기업 4.0%)',
@@ -265,7 +265,7 @@ export default function MisoIntroSection() {
               <tbody>
                 {[
                   {
-                    name: '사회적연대금융',
+                    name: '사회연대금융',
                     purpose: '사회적경제기업 운영·시설·임차보증금',
                     limit: '최대 1억원',
                     rate: '연 4.5% (우수기업 4.0%)',

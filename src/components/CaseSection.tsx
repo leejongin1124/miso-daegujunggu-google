@@ -140,7 +140,7 @@ export default function CaseSection({ initialFilter }: CaseSectionProps) {
                 : 'bg-white border border-slate-200 text-slate-600 hover:border-slate-300'
             }`}
           >
-            🏛 사회적연대금융 사례
+            🏛 사회연대금융 사례
           </motion.button>
           <motion.button
             whileHover={{ scale: 1.05 }}

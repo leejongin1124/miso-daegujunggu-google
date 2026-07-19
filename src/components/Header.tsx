@@ -47,7 +47,7 @@ export default function Header({ activeTab, setActiveTab, onScrollToSection, onO
       type: TabType.PRODUCTS,
       label: '대출상품',
       sublinks: [
-        { name: '사회적연대금융', id: 'social-finance', icon: Users, color: 'text-teal-500' },
+        { name: '사회연대금융', id: 'social-finance', icon: Users, color: 'text-teal-500' },
         { name: '사업자 운영자금', id: 'business-fund', icon: Briefcase, color: 'text-orange-500' },
         { name: '청년미래이음대출', id: 'youth-fund', icon: Rocket, color: 'text-purple-500' },
         { name: '금융취약계층 생계자금', id: 'vulnerable-fund', icon: Shield, color: 'text-emerald-500' }
