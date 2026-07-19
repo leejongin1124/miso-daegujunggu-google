@@ -533,7 +533,8 @@ export default function ProductSection({ onScrollToSection, onOpenCalculator, in
                     <ArrowUpRight className="w-3.5 h-3.5" />
                   </a>
                   <p className="text-amber-700 text-xs font-medium mt-2 leading-relaxed">
-                    ※ 이수 방법 및 시행 여부는 서민금융진흥원 안내에 따라 변경될 수 있습니다. 최신 내용은 위 공식 페이지 또는 서민금융통합콜센터(국번없이 1397)에서 확인하실 수 있습니다.
+                    ※ 이수 방법 및 시행 여부는 서민금융진흥원 안내에 따라 변경될 수 있습니다.<br />
+                    최신 내용은 위 공식 페이지 또는 서민금융통합콜센터(국번 없이 1397)에서 확인하실 수 있습니다.
                   </p>
                 </div>
               )}
