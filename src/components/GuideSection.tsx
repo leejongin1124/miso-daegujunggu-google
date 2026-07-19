@@ -197,16 +197,18 @@ export default function GuideSection({ sectionId }: { sectionId?: string }) {
               {/* 대출 원금 */}
               <div className="space-y-4 pb-4">
                 <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center text-sm font-extrabold text-slate-800 gap-1">
-                  <span className="flex items-center gap-1">💰 대출 요청 원금 설정</span>
-                  <span className="text-miso-blue-600 font-black text-lg whitespace-nowrap">{(loanAmount / 10000).toLocaleString()}만 원</span>
+                  <label htmlFor="loan-amount" className="flex items-center gap-1">💰 대출 요청 원금 설정</label>
+                  <output htmlFor="loan-amount" className="text-miso-blue-600 font-black text-lg whitespace-nowrap">{(loanAmount / 10000).toLocaleString()}만 원</output>
                 </div>
-                <input 
-                  type="range" 
-                  min="1000000" 
-                  max="100000000" 
+                <input
+                  id="loan-amount"
+                  type="range"
+                  min="1000000"
+                  max="100000000"
                   step="500000"
                   value={loanAmount}
                   onChange={(e) => setLoanAmount(Number(e.target.value))}
+                  aria-valuetext={`${loanAmount.toLocaleString('ko-KR')}원`}
                   className="w-full accent-miso-blue-600 cursor-pointer h-2 bg-slate-100 rounded-lg appearance-none"
                 />
                 <div className="relative h-9 mt-1">
@@ -241,16 +243,18 @@ export default function GuideSection({ sectionId }: { sectionId?: string }) {
               {/* 실질 이자율 설정 (미소금융 정책이율 4.0 ~ 4.5%) */}
               <div className="space-y-4 pt-6 pb-4">
                 <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center text-sm font-extrabold text-slate-800 gap-1">
-                  <span className="flex items-center gap-1">📈 연 이자율</span>
-                  <span className="text-miso-blue-600 font-black text-lg whitespace-nowrap">{interestRate.toFixed(1)}%</span>
+                  <label htmlFor="interest-rate" className="flex items-center gap-1">📈 연 이자율</label>
+                  <output htmlFor="interest-rate" className="text-miso-blue-600 font-black text-lg whitespace-nowrap">{interestRate.toFixed(1)}%</output>
                 </div>
                 <input
+                  id="interest-rate"
                   type="range"
                   min="2.0"
                   max="4.5"
                   step="0.5"
                   value={interestRate}
                   onChange={(e) => setInterestRate(Number(e.target.value))}
+                  aria-valuetext={`연 ${interestRate.toFixed(1)}퍼센트`}
                   className="w-full accent-miso-blue-600 cursor-pointer h-2 bg-slate-100 rounded-lg appearance-none"
                 />
                 <div className="relative h-5 mt-1">
@@ -298,8 +302,8 @@ export default function GuideSection({ sectionId }: { sectionId?: string }) {
               {/* 거치 기간 설정 (이자만 납부하는 유예기) */}
               <div className="space-y-4 pt-6 pb-4">
                 <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center text-sm font-extrabold text-slate-800 gap-1">
-                  <span className="flex items-center gap-1">⏳ 거치 유예기간 (이자만 납부)</span>
-                  <span className="text-miso-blue-600 font-black text-lg whitespace-nowrap">{gracePeriod} 개월 {gracePeriod >= 12 && `(${Math.floor(gracePeriod / 12)}년)`}</span>
+                  <label htmlFor="grace-period" className="flex items-center gap-1">⏳ 거치 유예기간 (이자만 납부)</label>
+                  <output htmlFor="grace-period" className="text-miso-blue-600 font-black text-lg whitespace-nowrap">{gracePeriod} 개월 {gracePeriod >= 12 && `(${Math.floor(gracePeriod / 12)}년)`}</output>
                 </div>
 
                 {/* 거치기간 적용금리는 상품별로 다름 */}
@@ -319,13 +323,15 @@ export default function GuideSection({ sectionId }: { sectionId?: string }) {
                     </button>
                   ))}
                 </div>
-                <input 
-                  type="range" 
-                  min="0" 
-                  max="72" 
+                <input
+                  id="grace-period"
+                  type="range"
+                  min="0"
+                  max="72"
                   step="6"
                   value={gracePeriod}
                   onChange={(e) => setGracePeriod(Number(e.target.value))}
+                  aria-valuetext={gracePeriod === 0 ? '거치기간 없음' : `${gracePeriod}개월${gracePeriod >= 12 ? `, ${Math.floor(gracePeriod / 12)}년` : ''}`}
                   className="w-full accent-miso-blue-600 cursor-pointer h-2 bg-slate-100 rounded-lg appearance-none"
                 />
                 <div className="relative h-8 mt-1">
@@ -361,16 +367,18 @@ export default function GuideSection({ sectionId }: { sectionId?: string }) {
               {/* 원금 상환 기간 설정 */}
               <div className="space-y-4 pt-6">
                 <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center text-sm font-extrabold text-slate-800 gap-1">
-                  <span className="flex items-center gap-1">📅 원금분할상환 기간 설정</span>
-                  <span className="text-miso-blue-600 font-black text-lg whitespace-nowrap">{repaymentPeriod} 개월 ({repaymentPeriod / 12}년)</span>
+                  <label htmlFor="repayment-period" className="flex items-center gap-1">📅 원금분할상환 기간 설정</label>
+                  <output htmlFor="repayment-period" className="text-miso-blue-600 font-black text-lg whitespace-nowrap">{repaymentPeriod} 개월 ({repaymentPeriod / 12}년)</output>
                 </div>
-                <input 
-                  type="range" 
+                <input
+                  id="repayment-period"
+                  type="range"
                   min="12" 
                   max="60" 
                   step="12"
                   value={repaymentPeriod}
                   onChange={(e) => setRepaymentPeriod(Number(e.target.value))}
+                  aria-valuetext={`${repaymentPeriod}개월, ${repaymentPeriod / 12}년`}
                   className="w-full accent-miso-blue-600 cursor-pointer h-2 bg-slate-100 rounded-lg appearance-none"
                 />
                 <div className="relative h-8 mt-1">
