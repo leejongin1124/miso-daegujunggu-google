@@ -278,8 +278,7 @@ export default function CaseSection({ initialFilter }: CaseSectionProps) {
         </div>
 
         <p className="text-slate-500 text-xs text-center -mt-4 leading-relaxed">
-          ※ 사진은 이해를 돕기 위한 이미지이며 실제 고객 사진이 아닙니다.<br className="md:hidden" />
-          ※ 위 사례는 이해를 돕기 위해 재구성한 예시이며, 실제 고객이나 실제 승인 결과가 아닙니다. 대출 가능 여부·한도·금리는 개인별 심사 결과에 따라 달라집니다.
+          ※ 위 사진과 사례는 이해를 돕기 위해 재구성한 예시이며, 실제 고객 및 승인 결과가 아닙니다. 대출 가능 여부·한도·금리는 개인별 심사 결과에 따라 달라집니다.
         </p>
 
         {/* 하단 기부 및 희망 고취 문구 배너 */}
