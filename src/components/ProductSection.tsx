@@ -714,15 +714,9 @@ export default function ProductSection({ onScrollToSection, onOpenCalculator, in
                 <p className="text-teal-50 text-xs md:text-sm leading-relaxed font-medium whitespace-pre-line md:whitespace-normal">
                   &ldquo;{activeProduct.effect}&rdquo;
                 </p>
-                <div className="pt-2 space-y-1.5">
+                <div className="pt-2">
                   <p className="text-xs text-teal-100 leading-normal">
-                    ※ 이 상품은 자격 요건을 충족한 분을 대상으로, 서민금융진흥원 심의 규정에 따른 심사를 거쳐 지원 여부가 결정됩니다.
-                  </p>
-                  <p className="text-xs text-teal-100 leading-normal">
-                    ※ 대출금 상환 연체 발생 시 연 5.5%, 연체가 장기화될 경우 최고 연 9%까지 연체이자율이 적용될 수 있습니다. (서민금융진흥원 고시 기준)
-                  </p>
-                  <p className="text-xs text-teal-100 leading-normal">
-                    ※ 상환능력에 비해 대출금이 과도할 경우 개인신용평점 하락 및 상환 부담이 커질 수 있으니, 본인의 상환 계획을 충분히 검토하신 후 신청하시기 바랍니다.
+                    ※ 이 상품은 서민금융진흥원 심의 규정에 따른 심사를 거쳐 지원 여부가 결정되며, 연체 시 최고 연 9%의 연체이자율이 적용될 수 있습니다(서민금융진흥원 고시 기준). 상환능력에 비해 대출금이 과도할 경우 신용도 하락 등 부담이 커질 수 있으니 상환 계획을 충분히 검토하신 후 신청하시기 바랍니다.
                   </p>
                 </div>
               </div>
