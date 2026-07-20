@@ -10,9 +10,10 @@ import { CaseStudy } from '../types';
 
 interface CaseSectionProps {
   initialFilter?: string;
+  onFilterChange?: (filter: string) => void;
 }
 
-export default function CaseSection({ initialFilter }: CaseSectionProps) {
+export default function CaseSection({ initialFilter, onFilterChange }: CaseSectionProps) {
   const [filter, setFilter] = useState<string>(initialFilter || 'all');
 
   useEffect(() => {
@@ -121,7 +122,7 @@ export default function CaseSection({ initialFilter }: CaseSectionProps) {
           <motion.button
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            onClick={() => setFilter('all')}
+            onClick={() => { setFilter('all'); onFilterChange?.('all'); }}
             className={`px-5 py-2.5 rounded-full text-xs font-black tracking-tight transition-all duration-200 ${
               filter === 'all'
                 ? 'bg-slate-900 text-white shadow-lg shadow-slate-900/20'
@@ -133,7 +134,7 @@ export default function CaseSection({ initialFilter }: CaseSectionProps) {
           <motion.button
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            onClick={() => setFilter('social')}
+            onClick={() => { setFilter('social'); onFilterChange?.('social'); }}
             className={`px-5 py-2.5 rounded-full text-xs font-black tracking-tight transition-all duration-200 ${
               filter === 'social'
                 ? 'bg-teal-600 text-white shadow-lg shadow-teal-600/20'
@@ -145,7 +146,7 @@ export default function CaseSection({ initialFilter }: CaseSectionProps) {
           <motion.button
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            onClick={() => setFilter('business')}
+            onClick={() => { setFilter('business'); onFilterChange?.('business'); }}
             className={`px-5 py-2.5 rounded-full text-xs font-black tracking-tight transition-all duration-200 ${
               filter === 'business'
                 ? 'bg-emerald-600 text-white shadow-lg shadow-emerald-600/20'
@@ -157,7 +158,7 @@ export default function CaseSection({ initialFilter }: CaseSectionProps) {
           <motion.button
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            onClick={() => setFilter('youth')}
+            onClick={() => { setFilter('youth'); onFilterChange?.('youth'); }}
             className={`px-5 py-2.5 rounded-full text-xs font-black tracking-tight transition-all duration-200 ${
               filter === 'youth'
                 ? 'bg-indigo-600 text-white shadow-lg shadow-indigo-600/20'
@@ -169,7 +170,7 @@ export default function CaseSection({ initialFilter }: CaseSectionProps) {
           <motion.button
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            onClick={() => setFilter('vulnerable')}
+            onClick={() => { setFilter('vulnerable'); onFilterChange?.('vulnerable'); }}
             className={`px-5 py-2.5 rounded-full text-xs font-black tracking-tight transition-all duration-200 ${
               filter === 'vulnerable'
                 ? 'bg-rose-600 text-white shadow-lg shadow-rose-600/20'

@@ -13,10 +13,11 @@ interface ProductSectionProps {
   onOpenCalculator: () => void;
   initialTab?: string;
   hideTabs?: boolean;
+  onTabChange?: (tab: string) => void;
 }
 
 
-export default function ProductSection({ onScrollToSection, onOpenCalculator, initialTab, hideTabs }: ProductSectionProps) {
+export default function ProductSection({ onScrollToSection, onOpenCalculator, initialTab, hideTabs, onTabChange }: ProductSectionProps) {
   const [activeTab, setActiveTab] = useState<string>(initialTab || 'social');
   const [blinkingTab, setBlinkingTab] = useState<string | null>(null);
 
@@ -170,7 +171,7 @@ export default function ProductSection({ onScrollToSection, onOpenCalculator, in
             return (
               <motion.button
                 key={p.id}
-                onClick={() => { userInteractedRef.current = true; setActiveTab(p.id); setBlinkingTab(null); }}
+                onClick={() => { userInteractedRef.current = true; setActiveTab(p.id); setBlinkingTab(null); onTabChange?.(p.id); }}
                 whileTap={{ scale: 1.15 }}
                 animate={isActive ? { scale: 1.05, boxShadow: isBlinking ? ['0 0 0px rgba(99,102,241,0)', '0 0 18px rgba(99,102,241,0.7)', '0 0 0px rgba(99,102,241,0)'] : undefined } : { scale: 1 }}
                 transition={{ type: 'spring', stiffness: 400, damping: 20, boxShadow: { duration: 0.6, repeat: isBlinking ? Infinity : 0 } }}

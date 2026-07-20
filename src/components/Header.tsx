@@ -4,18 +4,18 @@
  */
 
 import { useState, useRef, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'motion/react';
 import { Menu, X, ChevronDown, Phone, User, Clock, Network, MapPin, Info, Users, Briefcase, Rocket, Shield, Target, HelpCircle, Calculator, FileText, Award, Store, Zap, Heart, Bell, AlertTriangle } from 'lucide-react';
 import { TabType } from '../types';
 
 interface HeaderProps {
   activeTab: TabType;
-  setActiveTab: (tab: TabType) => void;
-  onScrollToSection: (sectionId: string) => void;
-  onOpenCalculator: () => void;
+  getSectionPath: (sectionId: string) => string;
+  prepareAnchor: (sectionId: string) => void;
 }
 
-export default function Header({ activeTab, setActiveTab, onScrollToSection, onOpenCalculator }: HeaderProps) {
+export default function Header({ activeTab, getSectionPath, prepareAnchor }: HeaderProps) {
   const [openMenu, setOpenMenu] = useState<string | null>(null);
   const [clickedSublink, setClickedSublink] = useState<string | null>(null);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -84,15 +84,14 @@ export default function Header({ activeTab, setActiveTab, onScrollToSection, onO
     }
   ];
 
-  const handleSublinkClick = (sectionId: string, tab: TabType) => {
+  // <Link>가 실제 이동(navigate)을 담당하므로, 여기서는 클릭 하이라이트 표시와
+  // 메뉴 닫기, 스크롤 앵커 준비만 처리한다 — 더 이상 이동 자체를 지연시키지 않음
+  const handleSublinkClick = (sectionId: string) => {
     setClickedSublink(sectionId);
-    setActiveTab(tab);
     setMobileMenuOpen(false);
     setOpenMenu(null);
-    setTimeout(() => {
-      onScrollToSection(sectionId);
-      setClickedSublink(null);
-    }, 400);
+    prepareAnchor(sectionId);
+    setTimeout(() => setClickedSublink(null), 250);
   };
 
   return (
@@ -104,17 +103,17 @@ export default function Header({ activeTab, setActiveTab, onScrollToSection, onO
         <div className="flex justify-between items-center h-14">
 
           {/* 로고 */}
-          <button
-            type="button"
+          <Link
+            to="/"
             className="flex items-center space-x-2 cursor-pointer min-w-0 flex-shrink text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-teal-500 rounded"
-            onClick={() => handleSublinkClick('hero-section', TabType.ABOUT)}
+            onClick={() => { setMobileMenuOpen(false); setOpenMenu(null); window.scrollTo({ top: 0, behavior: 'smooth' }); }}
           >
             <img src="/miso_symbol.png" alt="미소금융 로고" className="w-7 h-7 lg:w-10 lg:h-10 object-contain flex-shrink-0" />
             <div className="text-center min-w-0 leading-none">
               <span className="text-slate-900 font-bold text-xs sm:text-sm lg:text-lg tracking-tight leading-none whitespace-nowrap block">(사)미소금융대구중구법인</span>
               <span className="text-[10px] sm:text-[11px] lg:text-xs font-semibold text-slate-500 tracking-wide uppercase block whitespace-nowrap mt-0.5">서민금융진흥원 미소금융 사업수행기관</span>
             </div>
-          </button>
+          </Link>
 
           {/* GNB (데스크톱) — 클릭 시 해당 메뉴 아래로 드롭다운 */}
           <nav ref={navRef} className="hidden lg:flex space-x-1 xl:space-x-2 h-full items-center relative">
@@ -152,8 +151,9 @@ export default function Header({ activeTab, setActiveTab, onScrollToSection, onO
                             animate={{ opacity: 1, x: 0 }}
                             transition={{ delay: idx * 0.04, duration: 0.15 }}
                           >
-                            <button
-                              onClick={() => handleSublinkClick(sublink.id, item.type)}
+                            <Link
+                              to={getSectionPath(sublink.id)}
+                              onClick={() => handleSublinkClick(sublink.id)}
                               className={`w-full text-left px-4 py-2.5 text-sm font-medium transition-all duration-150 flex items-center space-x-2.5 group ${
                                 clickedSublink === sublink.id
                                   ? 'bg-teal-600 text-white'
@@ -162,7 +162,7 @@ export default function Header({ activeTab, setActiveTab, onScrollToSection, onO
                             >
                               {sublink.icon && <sublink.icon className={`w-3.5 h-3.5 flex-shrink-0 transition-colors ${clickedSublink === sublink.id ? 'text-white' : (sublink.color ?? 'text-slate-400')}`} />}
                               <span className="group-hover:translate-x-0.5 transition-transform duration-150">{sublink.name}</span>
-                            </button>
+                            </Link>
                           </motion.li>
                         ))}
                       </ul>
@@ -244,14 +244,15 @@ export default function Header({ activeTab, setActiveTab, onScrollToSection, onO
                         className="pl-4 pr-2 py-1 space-y-1 bg-slate-50/50 rounded-lg mt-1"
                       >
                         {item.sublinks.map((sublink) => (
-                          <button
+                          <Link
                             key={sublink.id}
-                            onClick={() => handleSublinkClick(sublink.id, item.type)}
+                            to={getSectionPath(sublink.id)}
+                            onClick={() => handleSublinkClick(sublink.id)}
                             className="flex items-center space-x-2.5 w-full text-left py-2 px-3 text-sm font-medium text-slate-600 hover:text-teal-600 hover:bg-white rounded transition-all"
                           >
                             {sublink.icon && <sublink.icon className={`w-3.5 h-3.5 flex-shrink-0 ${sublink.color ?? 'text-slate-400'}`} />}
                             <span>{sublink.name}</span>
-                          </button>
+                          </Link>
                         ))}
                       </motion.div>
                     )}
