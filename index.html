@@ -5,8 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" href="/favicon.ico" sizes="any" />
     <link rel="icon" type="image/png" href="/miso_symbol.png" />
+    <!-- title/description/canonical은 라우트별로 App.tsx의 RouteMeta 컴포넌트가 동적으로 채운다.
+         og:* 태그는 카카오톡 등 JS를 실행하지 않는 링크 미리보기 스크레이퍼를 위한
+         사이트 공통 기본값으로 정적 유지 (스크레이퍼는 React가 렌더링한 값을 보지 못함). -->
     <title>미소금융대구중구법인</title>
-    <meta name="description" content="(사)미소금융대구중구법인은 서민금융진흥원 미소금융 사업수행기관으로, 대구·경북 지역 청년·소상공인·금융취약계층을 위한 무담보 정책자금 상담 및 대출을 지원합니다." />
     <meta name="keywords" content="미소금융, 미소금융대구중구법인, 서민금융진흥원, 소상공인 대출, 청년 대출, 무담보 대출, 정책자금, 서민금융" />
     <meta property="og:title" content="미소금융대구중구법인" />
     <meta property="og:description" content="대구·경북 청년·소상공인·금융취약계층을 위한 서민금융 상담 및 정책자금 안내" />
@@ -15,8 +17,6 @@
     <meta property="og:url" content="https://misodaegu.or.kr" />
     <meta property="og:locale" content="ko_KR" />
     <meta property="og:site_name" content="미소금융대구중구법인" />
-    <meta name="robots" content="index, follow" />
-    <link rel="canonical" href="https://misodaegu.or.kr" />
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",

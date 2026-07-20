@@ -3,7 +3,9 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-import { useState, useEffect, useRef, Suspense, lazy } from 'react';
+import { useEffect, useRef, Suspense, lazy } from 'react';
+import { BrowserRouter, Routes, Route, Link, useNavigate, useLocation, useParams } from 'react-router-dom';
+import { useState } from 'react';
 import { MotionConfig } from 'motion/react';
 import { TabType } from './types';
 import Header from './components/Header';
@@ -21,7 +23,7 @@ const NoticeSection = lazy(() => import('./components/NoticeSection'));
 const MisoIntroSection = lazy(() => import('./components/MisoIntroSection'));
 const PrivacyPolicySection = lazy(() => import('./components/PrivacyPolicySection'));
 
-// 섹션 ID → 어느 컴포넌트에 속하는지 매핑
+// 섹션 ID(기존 앵커 스크롤 대상 DOM id와 동일) → 어느 라우트 컴포넌트에 속하는지 매핑
 const SECTION_MAP: Record<string, string> = {
   'ceo-greeting': 'about', 'about-miso': 'about', 'history': 'about',
   'organization': 'about', 'location': 'about',
@@ -36,30 +38,181 @@ const SECTION_MAP: Record<string, string> = {
   'privacy-policy': 'privacy',
 };
 
-export default function App() {
+// 컴포넌트 키 → 해당 sectionId로 이동할 실제 URL 경로를 만드는 함수
+const ROUTE_FOR_COMPONENT: Record<string, (sectionId: string) => string> = {
+  about: (id) => `/about/${id}`,
+  'miso-intro': () => '/miso-intro',
+  guide: (id) => `/guide/${id}`,
+  notice: (id) => `/notice/${id}`,
+  privacy: () => '/privacy-policy',
+};
+
+const sectionToProductTab: Record<string, string> = {
+  'social-finance': 'social', 'business-fund': 'business',
+  'youth-fund': 'youth', 'vulnerable-fund': 'vulnerable',
+};
+const sectionToCaseFilter: Record<string, string> = {
+  'case-social': 'social', 'case-business': 'business',
+  'case-youth': 'youth', 'case-vulnerable': 'vulnerable',
+};
+
+interface RouteProps {
+  onScrollToSection: (sectionId: string) => void;
+  onOpenCalculator: () => void;
+}
+
+const SITE_URL = 'https://misodaegu.or.kr';
+const SITE_NAME = '미소금융대구중구법인';
+
+// React 19는 컴포넌트가 렌더링한 <title>/<meta>/<link>를 자동으로 <head>로 끌어올려주므로
+// 별도 라이브러리(react-helmet-async) 없이 라우트별 메타데이터를 선언할 수 있음.
+// og:* 태그는 index.html에 사이트 공통 정적값으로 유지(카카오톡 등 JS 미실행 스크레이퍼 대상)하고,
+// 여기서는 실제 브라우저·검색엔진이 보는 title/description/canonical만 라우트별로 갱신한다.
+function RouteMeta({ title, description, path }: { title: string; description: string; path: string }) {
+  return (
+    <>
+      <title>{`${title} | ${SITE_NAME}`}</title>
+      <meta name="description" content={description} />
+      <link rel="canonical" href={`${SITE_URL}${path}`} />
+    </>
+  );
+}
+
+function LandingMeta() {
+  return (
+    <>
+      <title>{SITE_NAME}</title>
+      <meta name="description" content="(사)미소금융대구중구법인은 서민금융진흥원 미소금융 사업수행기관으로, 대구·경북 지역 청년·소상공인·금융취약계층을 위한 무담보 정책자금 상담 및 대출을 지원합니다." />
+      <link rel="canonical" href={SITE_URL} />
+    </>
+  );
+}
+
+function AboutRoute() {
+  const { sectionId } = useParams();
+  return (
+    <SectionPageShell
+      eyebrow="About Foundation"
+      title="법인소개"
+      description={"금융위원회 허가 비영리 공익법인으로서\n대구·경북 서민과 소상공인의 자립을 지원합니다."}
+      bgImage="/backgrounds/about-bg.webp"
+    >
+      <RouteMeta title="법인소개" description="금융위원회 허가 비영리 공익법인으로서 대구·경북 서민과 소상공인의 자립을 지원하는 미소금융대구중구법인을 소개합니다." path="/about" />
+      <AboutSection sectionId={sectionId} />
+    </SectionPageShell>
+  );
+}
+
+function MisoIntroRoute() {
+  return (
+    <SectionPageShell
+      eyebrow="Loan Guide"
+      title="대출안내"
+      description={"상담, 서류 준비, 심사, 결과 안내까지\n신청 전 필요한 절차를 차분히 확인하실 수 있습니다."}
+      bgImage="/backgrounds/guide-bg.webp"
+    >
+      <RouteMeta title="미소금융이란" description="서민금융진흥원 미소금융 사업수행기관인 미소금융대구중구법인이 안내하는 미소금융 제도 소개입니다." path="/miso-intro" />
+      <MisoIntroSection />
+    </SectionPageShell>
+  );
+}
+
+function ProductsRoute({ onScrollToSection, onOpenCalculator }: RouteProps) {
+  const { tab } = useParams();
+  return (
+    <SectionPageShell
+      eyebrow="Miso Finance Products"
+      title="대출상품"
+      description={"상품별 대상 요건과 증빙서류를 확인한 뒤\n심사 절차에 따라 지원 가능 여부를 안내합니다."}
+      bgImage="/backgrounds/products-bg.webp"
+    >
+      <RouteMeta title="대출상품" description="사회연대금융, 사업자 운영자금, 청년 미래이음, 금융취약계층 생계자금 등 미소금융대구중구법인 대출상품을 안내합니다." path={tab ? `/products/${tab}` : '/products'} />
+      <ProductSection
+        onScrollToSection={onScrollToSection}
+        onOpenCalculator={onOpenCalculator}
+        initialTab={tab ?? 'social'}
+        hideTabs={!!tab}
+      />
+    </SectionPageShell>
+  );
+}
+
+function GuideRoute() {
+  const { sectionId } = useParams();
+  return (
+    <SectionPageShell
+      eyebrow="Loan Guide"
+      title="대출안내"
+      description={"상담, 서류 준비, 심사, 결과 안내까지\n신청 전 필요한 절차를 차분히 확인하실 수 있습니다."}
+      bgImage="/backgrounds/guide-bg.webp"
+    >
+      <RouteMeta title="대출안내" description="상담, 서류 준비, 심사, 결과 안내까지 신청 전 필요한 절차와 자주 묻는 질문을 확인하실 수 있습니다." path={sectionId ? `/guide/${sectionId}` : '/guide'} />
+      <GuideSection sectionId={sectionId} />
+    </SectionPageShell>
+  );
+}
+
+function CasesRoute() {
+  const { filter } = useParams();
+  return (
+    <SectionPageShell
+      eyebrow="Support Cases"
+      title="상담사례"
+      description={"상담과 심사를 통해 다시 일어선\n이웃들의 자립 이야기를 소개합니다."}
+      bgImage="/backgrounds/cases-bg.webp"
+    >
+      <RouteMeta title="상담사례" description="상담과 심사를 통해 다시 일어선 이웃들의 자립 이야기를 소개합니다. (이해를 돕기 위해 재구성한 예시입니다)" path={filter ? `/cases/${filter}` : '/cases'} />
+      <CaseSection initialFilter={filter ?? 'all'} />
+    </SectionPageShell>
+  );
+}
+
+function NoticeRoute() {
+  const { sectionId } = useParams();
+  return (
+    <SectionPageShell
+      eyebrow="Notice & Safety"
+      title="알림마당"
+      description={"공지사항과\n불법사금융·보이스피싱 피해예방 정보를 안내합니다."}
+      bgImage="/backgrounds/notice-bg.webp"
+    >
+      <RouteMeta title="알림마당" description="법인 공지사항과 불법사금융·보이스피싱 피해예방 정보를 안내합니다." path={sectionId ? `/notice/${sectionId}` : '/notice'} />
+      <NoticeSection sectionId={sectionId} />
+    </SectionPageShell>
+  );
+}
+
+function PrivacyRoute() {
+  return (
+    <div className="bg-white pt-20">
+      <RouteMeta title="개인정보처리방침" description="미소금융대구중구법인 개인정보처리방침입니다." path="/privacy-policy" />
+      <PrivacyPolicySection />
+    </div>
+  );
+}
+
+function NotFoundRoute() {
+  return (
+    <div className="min-h-[60vh] flex flex-col items-center justify-center text-center px-4 pt-24 space-y-4">
+      <title>{`페이지를 찾을 수 없습니다 | ${SITE_NAME}`}</title>
+      <meta name="robots" content="noindex" />
+      <p className="text-6xl">🔍</p>
+      <h1 className="text-2xl font-black text-slate-900">페이지를 찾을 수 없습니다</h1>
+      <p className="text-slate-500 text-sm">주소가 변경되었거나 존재하지 않는 페이지입니다.</p>
+      <Link to="/" className="mt-4 inline-flex items-center gap-2 bg-teal-600 hover:bg-teal-700 text-white font-bold text-sm px-5 py-3 rounded-xl transition">
+        홈으로 돌아가기
+      </Link>
+    </div>
+  );
+}
+
+function AppShell() {
   const [activeTab, setActiveTab] = useState<TabType>(TabType.ABOUT);
-  const [productTab, setProductTab] = useState<string>('social');
-  // 특정 상품 링크로 바로 진입한 경우(true) 상단 4개 탭 선택바를 숨기고 해당 상품만 표시
-  const [productHideTabs, setProductHideTabs] = useState<boolean>(false);
-  const [caseFilter, setCaseFilter] = useState<string>('all');
-
-  // null = 랜딩페이지, 문자열 = 해당 컴포넌트만 표시
-  const [activeSection, setActiveSection] = useState<string | null>(null);
-  // 클릭된 서브섹션 ID (컴포넌트 내부에서 해당 항목만 표시)
-  const [activeSectionId, setActiveSectionId] = useState<string | null>(null);
-
+  const navigate = useNavigate();
+  const location = useLocation();
   const pendingScrollRef = useRef<string | null>(null);
 
-  const sectionToProductTab: Record<string, string> = {
-    'social-finance': 'social', 'business-fund': 'business',
-    'youth-fund': 'youth', 'vulnerable-fund': 'vulnerable',
-  };
-  const sectionToCaseFilter: Record<string, string> = {
-    'case-social': 'social', 'case-business': 'business',
-    'case-youth': 'youth', 'case-vulnerable': 'vulnerable',
-  };
-
-  // 섹션이 바뀐 뒤 대기 중인 스크롤 실행
+  // 경로가 바뀐 뒤 대기 중인 앵커 스크롤 실행 (지연 로딩된 컴포넌트가 마운트될 시간을 확보)
   useEffect(() => {
     if (pendingScrollRef.current) {
       const target = pendingScrollRef.current;
@@ -67,33 +220,30 @@ export default function App() {
       setTimeout(() => {
         const el = document.getElementById(target);
         if (el) {
-          const offset = el.getBoundingClientRect().top + window.pageYOffset - 110;
-          window.scrollTo({ top: offset, behavior: 'smooth' });
+          el.scrollIntoView({ behavior: 'smooth', block: 'start' });
         } else {
           window.scrollTo({ top: 0, behavior: 'smooth' });
         }
       }, 80);
     }
-  }, [activeSection]);
+  }, [location.pathname]);
 
-  const revealAndScroll = (sectionId: string) => {
-    const component = SECTION_MAP[sectionId];
-    if (!component) return;
+  const scrollToAnchor = (anchorId: string) => {
+    setTimeout(() => {
+      const el = document.getElementById(anchorId);
+      if (el) {
+        el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    }, 80);
+  };
 
-    if (activeSection === component && activeSectionId === sectionId) {
-      // 동일 서브섹션 → 스크롤만
-      setTimeout(() => {
-        const el = document.getElementById(sectionId);
-        if (el) {
-          const offset = el.getBoundingClientRect().top + window.pageYOffset - 110;
-          window.scrollTo({ top: offset, behavior: 'smooth' });
-        }
-      }, 80);
+  const goTo = (path: string, anchorId: string) => {
+    if (location.pathname === path) {
+      // 같은 경로 재클릭 → 스크롤만
+      scrollToAnchor(anchorId);
     } else {
-      // 다른 섹션/서브섹션 → 교체 후 상단으로
-      pendingScrollRef.current = sectionId;
-      setActiveSectionId(sectionId);
-      setActiveSection(component);
+      pendingScrollRef.current = anchorId;
+      navigate(path);
       window.scrollTo({ top: 0, behavior: 'instant' });
     }
   };
@@ -101,36 +251,33 @@ export default function App() {
   const handleScrollToSection = (sectionId: string) => {
     // 로고 클릭 등 랜딩페이지 복귀
     if (sectionId === 'hero-section') {
-      setActiveSection(null);
-      setActiveSectionId(null);
+      navigate('/');
       window.scrollTo({ top: 0, behavior: 'smooth' });
       return;
     }
     if (sectionId === 'products-all') {
-      setProductHideTabs(false);
-      setProductTab('social');
-      revealAndScroll('social-finance');
+      goTo('/products', 'social-finance');
       return;
     }
     if (sectionToProductTab[sectionId]) {
-      setProductHideTabs(true);
-      setProductTab(sectionToProductTab[sectionId]);
-      revealAndScroll('social-finance');
+      goTo(`/products/${sectionToProductTab[sectionId]}`, 'social-finance');
       return;
     }
     if (sectionToCaseFilter[sectionId]) {
-      setCaseFilter(sectionToCaseFilter[sectionId]);
-      revealAndScroll('case-social');
+      goTo(`/cases/${sectionToCaseFilter[sectionId]}`, 'case-social');
       return;
     }
-    revealAndScroll(sectionId);
+    const component = SECTION_MAP[sectionId];
+    if (!component) return;
+    const path = ROUTE_FOR_COMPONENT[component](sectionId);
+    goTo(path, sectionId);
   };
 
   const handleOpenCalculator = () => {
     handleScrollToSection('loan-calc');
   };
 
-  const isLanding = activeSection === null;
+  const isLanding = location.pathname === '/';
 
   return (
     <MotionConfig reducedMotion="user">
@@ -152,91 +299,17 @@ export default function App() {
         {/* LandingSummary(모바일/태블릿 5개 퀵메뉴 카드)는 현재 비노출 — 파일은 보존 */}
 
         <Suspense fallback={<div className="min-h-[60vh]" />}>
-
-        {/* 미소금융이란 */}
-        {activeSection === 'miso-intro' && (
-          <SectionPageShell
-            eyebrow="Loan Guide"
-            title="대출안내"
-            description={"상담, 서류 준비, 심사, 결과 안내까지\n신청 전 필요한 절차를 차분히 확인하실 수 있습니다."}
-            bgImage="/backgrounds/guide-bg.webp"
-          >
-            <MisoIntroSection />
-          </SectionPageShell>
-        )}
-
-        {/* 법인소개 */}
-        {activeSection === 'about' && (
-          <SectionPageShell
-            eyebrow="About Foundation"
-            title="법인소개"
-            description={"금융위원회 허가 비영리 공익법인으로서\n대구·경북 서민과 소상공인의 자립을 지원합니다."}
-            bgImage="/backgrounds/about-bg.webp"
-          >
-            <AboutSection sectionId={activeSectionId ?? undefined} />
-          </SectionPageShell>
-        )}
-
-        {/* 지원상품 */}
-        {activeSection === 'products' && (
-          <SectionPageShell
-            eyebrow="Miso Finance Products"
-            title="대출상품"
-            description={"상품별 대상 요건과 증빙서류를 확인한 뒤\n심사 절차에 따라 지원 가능 여부를 안내합니다."}
-            bgImage="/backgrounds/products-bg.webp"
-          >
-            <ProductSection
-              onScrollToSection={handleScrollToSection}
-              onOpenCalculator={handleOpenCalculator}
-              initialTab={productTab}
-              hideTabs={productHideTabs}
-            />
-          </SectionPageShell>
-        )}
-
-        {/* 대출안내 */}
-        {activeSection === 'guide' && (
-          <SectionPageShell
-            eyebrow="Loan Guide"
-            title="대출안내"
-            description={"상담, 서류 준비, 심사, 결과 안내까지\n신청 전 필요한 절차를 차분히 확인하실 수 있습니다."}
-            bgImage="/backgrounds/guide-bg.webp"
-          >
-            <GuideSection sectionId={activeSectionId ?? undefined} />
-          </SectionPageShell>
-        )}
-
-        {/* 지원사례 */}
-        {activeSection === 'cases' && (
-          <SectionPageShell
-            eyebrow="Support Cases"
-            title="상담사례"
-            description={"상담과 심사를 통해 다시 일어선\n이웃들의 자립 이야기를 소개합니다."}
-            bgImage="/backgrounds/cases-bg.webp"
-          >
-            <CaseSection initialFilter={caseFilter} />
-          </SectionPageShell>
-        )}
-
-        {/* 알림마당 */}
-        {activeSection === 'notice' && (
-          <SectionPageShell
-            eyebrow="Notice & Safety"
-            title="알림마당"
-            description={"공지사항과\n불법사금융·보이스피싱 피해예방 정보를 안내합니다."}
-            bgImage="/backgrounds/notice-bg.webp"
-          >
-            <NoticeSection sectionId={activeSectionId ?? undefined} />
-          </SectionPageShell>
-        )}
-
-        {/* 개인정보처리방침 */}
-        {activeSection === 'privacy' && (
-          <div className="bg-white pt-20">
-            <PrivacyPolicySection />
-          </div>
-        )}
-
+          <Routes>
+            <Route path="/" element={<LandingMeta />} />
+            <Route path="/miso-intro" element={<MisoIntroRoute />} />
+            <Route path="/about/:sectionId?" element={<AboutRoute />} />
+            <Route path="/products/:tab?" element={<ProductsRoute onScrollToSection={handleScrollToSection} onOpenCalculator={handleOpenCalculator} />} />
+            <Route path="/guide/:sectionId?" element={<GuideRoute />} />
+            <Route path="/cases/:filter?" element={<CasesRoute />} />
+            <Route path="/notice/:sectionId?" element={<NoticeRoute />} />
+            <Route path="/privacy-policy" element={<PrivacyRoute />} />
+            <Route path="*" element={<NotFoundRoute />} />
+          </Routes>
         </Suspense>
 
       </main>
@@ -248,5 +321,13 @@ export default function App() {
 
     </div>
     </MotionConfig>
+  );
+}
+
+export default function App() {
+  return (
+    <BrowserRouter>
+      <AppShell />
+    </BrowserRouter>
   );
 }

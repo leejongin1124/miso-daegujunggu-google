@@ -195,7 +195,7 @@ export default function CaseSection({ initialFilter }: CaseSectionProps) {
                 className="group bg-white p-8 rounded-3xl border border-slate-100 shadow-sm hover:shadow-2xl hover:shadow-slate-300/40 hover:border-slate-200 transition-all duration-300 relative flex flex-col justify-between"
               >
                 {/* 물밑에 비실용적인 기하학적 요소 제거, 정갈하게 카드 형태로만 처리 */}
-                <div id="case-business" className="space-y-6">
+                <div className="space-y-6">
 
                   {/* 재구성 사례 배지 */}
                   <span className="inline-flex items-center gap-1 bg-slate-100 text-slate-500 text-[10px] font-bold px-2.5 py-1 rounded-md">
@@ -215,7 +215,7 @@ export default function CaseSection({ initialFilter }: CaseSectionProps) {
                   )}
 
                   {/* 카테고리 태그 */}
-                  <div id="case-youth" className="flex justify-between items-center text-xs">
+                  <div className="flex justify-between items-center text-xs">
                     <span className={`font-black px-3 py-1 rounded-md text-[10px] uppercase ${
                       c.category === 'social' ? 'bg-teal-50 text-teal-700 border border-teal-100' :
                       c.category === 'business' ? 'bg-emerald-50 text-emerald-700 border border-emerald-100' :
@@ -227,7 +227,7 @@ export default function CaseSection({ initialFilter }: CaseSectionProps) {
                       {c.category === 'youth' && '청년 미래이음'}
                       {c.category === 'vulnerable' && '금융취약 생계자금'}
                     </span>
-                    <span id="case-vulnerable" className="text-slate-400 font-bold flex items-center gap-1 font-mono">
+                    <span className="text-slate-400 font-bold flex items-center gap-1 font-mono">
                       <MapPin className="w-3.5 h-3.5" />
                       {c.location}
                     </span>
