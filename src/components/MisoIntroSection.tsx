@@ -193,9 +193,9 @@ export default function MisoIntroSection() {
               {
                 name: '사업자 운영자금',
                 purpose: '원재료 구입, 사업장 운영비용',
-                limit: '최대 2,000만원 (청년 최대 3,000만원)',
+                limit: '무등록 최대 500만원\n프리랜서 최대 1,000만원\n개인사업자 최대 2,000만원\n청년사업자 최대 3,000만원',
                 rate: '연 4.5%',
-                period: '최대 5.5년 (거치 6개월 포함)',
+                period: '최대 5.5년 (거치 6개월 포함)\n청년 최대 7년 (거치 2년 포함)',
                 highlight: false,
                 blog: 'https://blog.naver.com/PostView.naver?blogId=eornwndrn1&logNo=224289610439&categoryNo=7&parentCategoryNo=7&from=thumbnailList'
               },
@@ -235,7 +235,9 @@ export default function MisoIntroSection() {
                 <div className="flex gap-2 mb-2">
                   <div className="flex-1 bg-slate-50 rounded-lg px-3 py-2">
                     <p className="text-[10px] font-bold text-slate-400 mb-0.5">대출한도</p>
-                    <p className="text-xs font-bold text-slate-800">{row.limit}</p>
+                    {row.limit.split('\n').map((line, j) => (
+                      <p key={j} className="text-[10px] font-bold text-slate-800 leading-tight break-keep">{line}</p>
+                    ))}
                   </div>
                   <div className="flex-1 bg-teal-50 rounded-lg px-3 py-2">
                     <p className="text-[10px] font-bold text-teal-500 mb-0.5">대출금리</p>
@@ -244,7 +246,9 @@ export default function MisoIntroSection() {
                 </div>
                 <div className="bg-indigo-50 rounded-lg px-3 py-2">
                   <p className="text-[10px] font-bold text-indigo-400 mb-0.5">상환기간</p>
-                  <p className="text-xs font-medium text-indigo-700">{row.period}</p>
+                  {row.period.split('\n').map((line, j) => (
+                    <p key={j} className="text-xs font-medium text-indigo-700 leading-snug break-keep">{line}</p>
+                  ))}
                 </div>
               </div>
             ))}
@@ -276,9 +280,9 @@ export default function MisoIntroSection() {
                   {
                     name: '사업자 운영자금',
                     purpose: '원재료 구입, 사업장 운영비용',
-                    limit: '최대 2,000만원 (청년 최대 3,000만원)',
+                    limit: '무등록 최대 500만원\n프리랜서 최대 1,000만원\n개인사업자 최대 2,000만원\n청년사업자 최대 3,000만원',
                     rate: '연 4.5%',
-                    period: '최대 5.5년 (거치 6개월 포함)',
+                    period: '최대 5.5년 (거치 6개월 포함)\n청년 최대 7년 (거치 2년 포함)',
                     highlight: false,
                     blog: 'https://blog.naver.com/PostView.naver?blogId=eornwndrn1&logNo=224289610439&categoryNo=7&parentCategoryNo=7&from=thumbnailList'
                   },
@@ -302,7 +306,7 @@ export default function MisoIntroSection() {
                   }
                 ].map((row, i) => (
                   <tr key={i} className={`border-b border-slate-50 ${i % 2 === 0 ? 'bg-white' : 'bg-slate-50/30'}`}>
-                    <td className={`px-5 py-4 font-extrabold text-sm ${row.highlight ? 'text-teal-700' : 'text-slate-800'}`}>
+                    <td className={`px-5 py-4 align-top font-extrabold text-sm ${row.highlight ? 'text-teal-700' : 'text-slate-800'}`}>
                       <motion.a
                         href={row.blog} target="_blank" rel="noopener noreferrer"
                         animate={{ y: [0, -3, 0], boxShadow: ['0 1px 4px #03C75A33', '0 4px 14px #03C75A88', '0 1px 4px #03C75A33'] }}
@@ -316,10 +320,18 @@ export default function MisoIntroSection() {
                         <span className="group-hover:underline">{row.name}</span>
                       </motion.a>
                     </td>
-                    <td className="px-5 py-4 text-slate-600 text-xs font-medium leading-relaxed">{row.purpose}</td>
-                    <td className="px-5 py-4 text-center font-bold text-slate-800 text-xs">{row.limit}</td>
-                    <td className="px-5 py-4 text-center font-bold text-teal-700 text-xs">{row.rate}</td>
-                    <td className="px-5 py-4 text-center text-slate-600 text-xs">{row.period}</td>
+                    <td className="px-5 py-4 align-top text-slate-600 text-xs font-medium leading-relaxed">{row.purpose}</td>
+                    <td className="px-5 py-4 align-top text-center font-bold text-slate-800 text-xs">
+                      {row.limit.split('\n').map((line, j) => (
+                        <p key={j} className="leading-snug break-keep">{line}</p>
+                      ))}
+                    </td>
+                    <td className="px-5 py-4 align-top text-center font-bold text-teal-700 text-xs">{row.rate}</td>
+                    <td className="px-5 py-4 align-top text-center text-slate-600 text-xs">
+                      {row.period.split('\n').map((line, j) => (
+                        <p key={j} className="leading-snug break-keep">{line}</p>
+                      ))}
+                    </td>
                   </tr>
                 ))}
               </tbody>
