@@ -86,9 +86,13 @@ export default function MisoIntroSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
-          className="bg-teal-50/50 border border-teal-100 rounded-3xl px-6 py-6 md:px-10 md:py-8 space-y-3"
+          whileHover={{ y: -4 }}
+          className="bg-teal-50/50 border border-teal-100 rounded-3xl px-6 py-6 md:px-10 md:py-8 space-y-3 shadow-sm hover:shadow-md hover:border-teal-200 transition-all"
         >
-          <h3 className="font-extrabold text-slate-900 text-lg text-center">'미소금융' 명칭 및 사칭 주의 안내</h3>
+          <h3 className="font-extrabold text-slate-900 text-lg text-left flex items-center gap-2">
+            <span aria-hidden="true">🛡️</span>
+            <span>'미소금융' 명칭 및 사칭 주의 안내</span>
+          </h3>
           <p className="text-slate-600 text-xs md:text-sm leading-relaxed">
             '미소금융'은 「서민의 금융생활 지원에 관한 법률」 및 관련 규정에 따라 보호되는 정책서민금융상품 명칭으로, 서민금융진흥원과 사업수행기관 등 법령상 허용된 자만 대출상품·광고·상호 등에 사용할 수 있습니다. 이를 위반할 경우 관련 법령에 따라 과태료가 부과될 수 있습니다.
           </p>
