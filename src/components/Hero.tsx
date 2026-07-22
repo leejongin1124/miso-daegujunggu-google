@@ -273,25 +273,6 @@ export default function Hero({ onScrollToSection }: HeroProps) {
               </p>
             </motion.div>
 
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.3 }}
-              className="flex flex-row gap-3 pt-2 items-start w-full"
-            >
-              <motion.button
-                onClick={() => onScrollToSection('products-all')}
-                animate={{ scale: [1, 1.1, 1], y: [0, -3, 0] }}
-                transition={{ duration: 1.1, repeat: 1, ease: 'easeInOut' }}
-                whileHover={{ scale: 1.12 }}
-                whileTap={{ scale: 0.92 }}
-                className="relative inline-flex w-full md:w-auto justify-center items-center space-x-2 bg-white/5 backdrop-blur-[2px] text-white border border-white/30 hover:bg-white/30 font-bold px-4 md:px-8 py-4 rounded-2xl transition-colors shadow-lg shadow-teal-500/20 text-sm md:text-base"
-              >
-                <span className="md:hidden">🔍 상품안내</span>
-                <span className="hidden md:inline">🔍 대출상품 전체보기</span>
-                <ArrowRight className="w-4 h-4 hidden md:inline" />
-              </motion.button>
-            </motion.div>
           </div>
         </div>
 
