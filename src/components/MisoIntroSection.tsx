@@ -146,23 +146,35 @@ export default function MisoIntroSection() {
             ))}
           </div>
 
-          <div className="px-6 py-4 bg-teal-50/50 border-t border-teal-100 space-y-2">
-            <p className="text-teal-700 text-xs font-bold text-center">
-              ※ 미소금융은 중개 수수료, 선납금, 보증 비용 등 어떠한 명목의 비용도 요구하지 않습니다. 이를 요구하는 경우 사기가 강하게 의심되므로 송금·앱 설치를 중단하고 공식 대표번호로 확인·신고해 주시기 바랍니다.
-            </p>
-            <p className="text-slate-500 text-xs text-center">
-              ※ 서민금융진흥원 미소금융 사업수행기관 현행 지정 현황은{' '}
-              <a
-                href="https://www.kinfa.or.kr/financialSupport/localCorporation.do"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="underline underline-offset-2 hover:text-teal-600"
-              >
-                서민금융진흥원 지역법인 공식 안내
-              </a>
-              에서 확인하실 수 있습니다.
-            </p>
-          </div>
+        </motion.div>
+
+        {/* '미소금융' 명칭 및 사칭 주의 안내 */}
+        <motion.div
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+          className="bg-teal-50/50 border border-teal-100 rounded-3xl px-6 py-6 md:px-10 md:py-8 space-y-3"
+        >
+          <h3 className="font-extrabold text-slate-900 text-lg text-center">'미소금융' 명칭 및 사칭 주의 안내</h3>
+          <p className="text-slate-600 text-xs md:text-sm leading-relaxed">
+            '미소금융'은 「서민의 금융생활 지원에 관한 법률」 및 관련 규정에 따라 보호되는 정책서민금융상품 명칭으로, 서민금융진흥원과 사업수행기관 등 법령상 허용된 자만 대출상품·광고·상호 등에 사용할 수 있습니다. 이를 위반할 경우 관련 법령에 따라 과태료가 부과될 수 있습니다.
+          </p>
+          <p className="text-slate-600 text-xs md:text-sm leading-relaxed">
+            미소금융 지원 여부는 상품별 지원요건과 심사기준에 따라 결정되며, 상담 또는 신청만으로 대출이 승인되는 것은 아닙니다. 미소금융은 상담·대출 진행을 이유로 중개 수수료, 선납금, 보증 비용 등 어떠한 명목의 비용도 요구하지 않습니다. 이를 요구받으신 경우 사기가 강하게 의심되므로 송금·앱 설치를 중단하고 공식 대표번호로 확인·신고해 주시기 바랍니다.
+          </p>
+          <p className="text-slate-500 text-xs md:text-sm leading-relaxed">
+            서민금융진흥원 미소금융 사업수행기관 현행 지정 현황은{' '}
+            <a
+              href="https://www.kinfa.or.kr/financialSupport/localCorporation.do"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="underline underline-offset-2 hover:text-teal-600"
+            >
+              서민금융진흥원 지역법인 공식 안내
+            </a>
+            에서 확인하실 수 있습니다.
+          </p>
         </motion.div>
 
         {/* 한눈에 보는 대출상품 안내 */}
