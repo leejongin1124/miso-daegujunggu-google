@@ -23,6 +23,34 @@ export default function Footer() {
           </div>
         </Link>
 
+        {/* 퀵링크 & 소셜 채널 */}
+        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 py-3 border-b border-slate-800 text-xs font-semibold">
+          <div className="flex flex-wrap items-center gap-x-5 gap-y-1.5">
+            <Link to="/products" className="text-slate-400 hover:text-white transition-colors">
+              상품안내
+            </Link>
+            <a
+              href="https://blog.naver.com/eornwndrn1"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-slate-400 hover:text-white transition-colors"
+            >
+              법인 공식 블로그
+            </a>
+          </div>
+          <div className="flex items-center gap-2.5">
+            <a
+              href="https://blog.naver.com/eornwndrn1"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="네이버 블로그"
+              className="flex items-center justify-center w-8 h-8 rounded-full bg-[#03C75A] hover:opacity-80 transition-opacity"
+            >
+              <img src="/logos/naver_blog_logo.png" alt="" className="w-4 h-4 object-contain brightness-0 invert" />
+            </a>
+          </div>
+        </div>
+
         {/* 법인 정보 */}
         <div className="text-xs leading-snug space-y-1.5">
           <div className="flex flex-wrap gap-x-6 gap-y-1 text-slate-400 font-semibold">
