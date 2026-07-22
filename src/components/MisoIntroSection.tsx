@@ -12,19 +12,19 @@ export default function MisoIntroSection() {
       icon: <ShieldCheck className="w-10 h-10 text-teal-600" />,
       bg: 'bg-teal-50',
       title: '투명한 공익 재원',
-      desc: '정부 및 금융회사 출연금으로 조성된 공적 기금으로 운영됩니다. 수익 창출이 아닌 서민의 경제적 자립 지원을 목적으로 설립된 비영리 법인입니다.'
+      desc: '정부와 금융회사의 출연금으로 조성한 공적 기금으로 운영합니다. 수익 창출이 아니라 서민의 경제적 자립을 돕기 위해 설립된 비영리 법인입니다.'
     },
     {
       icon: <BadgePercent className="w-10 h-10 text-emerald-600" />,
       bg: 'bg-emerald-50',
       title: '제도권 비영리 법인',
-      desc: '금융위원회의 허가를 받은 공익법인으로, 서민금융진흥원의 미소금융 사업수행기관입니다. 무허가 사금융과는 엄격히 구분되는 제도권 금융기관입니다.'
+      desc: '금융위원회의 허가를 받은 공익법인이자 서민금융진흥원의 미소금융 사업수행기관입니다. 무허가 사금융과 엄격히 구분되는 제도권 금융기관입니다.'
     },
     {
       icon: <TrendingDown className="w-10 h-10 text-indigo-600" />,
       bg: 'bg-indigo-50',
       title: '상품별 정책금리 적용',
-      desc: '상품별 금리와 한도는 대상 요건, 우대 조건, 심사 결과에 따라 달라질 수 있습니다. 상담을 통해 본인에게 맞는 지원 가능 여부를 확인하실 수 있습니다.'
+      desc: '금리와 한도는 상품별 대상 요건, 우대 조건, 심사 결과에 따라 달라질 수 있습니다. 상담을 통해 본인에게 맞는 지원 가능 여부를 확인해 보시기 바랍니다.'
     }
   ];
 
@@ -55,8 +55,8 @@ export default function MisoIntroSection() {
           </h2>
           <div className="h-1.5 w-16 bg-teal-600 rounded-full mx-auto" />
           <p className="text-slate-600 font-medium text-base md:text-lg leading-relaxed">
-            일반 금융기관 이용이 어려운 분들을 위한 저금리 대출로,<br className="hidden md:inline" />
-            수수료·담보 없이 이용 가능합니다.
+            일반 금융기관을 이용하기 어려운 분께 저금리 대출을 지원하며,<br className="hidden md:inline" />
+            수수료와 담보는 없습니다.
           </p>
         </motion.div>
 
@@ -94,13 +94,13 @@ export default function MisoIntroSection() {
             <span>'미소금융' 명칭 및 사칭 주의 안내</span>
           </h3>
           <p className="text-slate-600 text-xs md:text-sm leading-relaxed">
-            '미소금융'은 「서민의 금융생활 지원에 관한 법률」 및 관련 규정에 따라 보호되는 정책서민금융상품 명칭으로, 서민금융진흥원과 사업수행기관 등 법령상 허용된 자만 대출상품·광고·상호 등에 사용할 수 있습니다. 이를 위반할 경우 관련 법령에 따라 과태료가 부과될 수 있습니다.
+            '미소금융'은 「서민의 금융생활 지원에 관한 법률」 및 관련 규정에 따라 보호되는 정책서민금융상품 명칭입니다. 대출상품·광고·상호 등에 이 명칭을 사용하는 자는 서민금융진흥원과 사업수행기관 등 법령상 허용된 자여야 하며, 이를 위반하면 관련 법령에 따라 과태료가 부과될 수 있습니다.
           </p>
           <p className="text-slate-600 text-xs md:text-sm leading-relaxed">
-            미소금융 지원 여부는 상품별 지원요건과 심사기준에 따라 결정되며, 상담 또는 신청만으로 대출이 승인되는 것은 아닙니다. 미소금융은 상담·대출 진행을 이유로 중개 수수료, 선납금, 보증 비용 등 어떠한 명목의 비용도 요구하지 않습니다. 이를 요구받으신 경우 사기가 강하게 의심되므로 송금·앱 설치를 중단하고 공식 대표번호로 확인·신고해 주시기 바랍니다.
+            미소금융 지원 여부는 상품별 지원요건과 심사기준에 따라 결정되므로 상담 또는 신청만으로 대출이 승인되는 것은 아닙니다. 미소금융은 상담·대출 진행을 이유로 중개 수수료, 선납금, 보증 비용 등 어떠한 명목의 비용도 요구하지 않습니다. 비용을 요구받으셨다면 사기가 강하게 의심되므로 송금·앱 설치를 중단하고 공식 대표번호로 확인·신고해 주시기 바랍니다.
           </p>
           <p className="text-slate-500 text-xs md:text-sm leading-relaxed">
-            서민금융진흥원 미소금융 사업수행기관 현행 지정 현황은{' '}
+            현재 지정된 서민금융진흥원 미소금융 사업수행기관은{' '}
             <a
               href="https://www.kinfa.or.kr/financialSupport/localCorporation.do"
               target="_blank"
@@ -109,7 +109,7 @@ export default function MisoIntroSection() {
             >
               서민금융진흥원 지역법인 공식 안내
             </a>
-            에서 확인하실 수 있습니다.
+            에서 확인해 주시기 바랍니다.
           </p>
         </motion.div>
 
