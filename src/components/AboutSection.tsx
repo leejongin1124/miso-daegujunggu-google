@@ -14,8 +14,8 @@ const PHONES = [
   { number: '053-252-6480', chip: 'bg-amber-100 text-amber-700',  bg: 'from-amber-500 to-orange-500' },
 ];
 
-// 조직도/이사진 소개는 요청 시까지 비공개 — 콘텐츠는 삭제하지 않고 렌더링만 끈다
-const SHOW_ORGANIZATION_CHART = false;
+// 이사진 소개는 요청 시까지 비공개 — 콘텐츠는 삭제하지 않고 렌더링만 끈다 (조직도 자체는 공개)
+const SHOW_BOARD_MEMBERS = false;
 
 const BOARD_MEMBERS = [
   { role: '이사장', name: '김석동', affiliation: '(前) 한국산업은행 부장' },
@@ -155,7 +155,7 @@ export default function AboutSection({ sectionId }: { sectionId?: string }) {
         </div>}
 
         {/* 법인 조직도 (공공기관 형식 CSS/SVG 다이어그램) */}
-        {SHOW_ORGANIZATION_CHART && show('organization') && <div id="organization" className="text-center space-y-8 bg-white p-4 md:p-12 rounded-3xl border border-slate-100 shadow-sm">
+        {show('organization') && <div id="organization" className="text-center space-y-8 bg-white p-4 md:p-12 rounded-3xl border border-slate-100 shadow-sm">
           <div className="space-y-2">
             <span className="text-xs font-bold text-teal-600 tracking-widest uppercase">Organization Chart</span>
             <h3 className="text-2xl md:text-3xl font-extrabold text-slate-950 tracking-tight">조직도</h3>
@@ -284,7 +284,7 @@ export default function AboutSection({ sectionId }: { sectionId?: string }) {
           </div>
 
           {/* 이사진 현황 — 조직도 화면 내 별도 구성 */}
-          <div className="pt-4 space-y-8 border-t border-slate-100">
+          {SHOW_BOARD_MEMBERS && <div className="pt-4 space-y-8 border-t border-slate-100">
             <div className="text-center space-y-2 pt-4">
               <span className="text-xs font-bold text-indigo-600 tracking-widest uppercase">Board Members</span>
               <h3 className="text-2xl md:text-3xl font-extrabold text-slate-950 tracking-tight">이사진 현황</h3>
@@ -315,7 +315,7 @@ export default function AboutSection({ sectionId }: { sectionId?: string }) {
                 </motion.div>
               ))}
             </div>
-          </div>
+          </div>}
 
         </div>}
 
