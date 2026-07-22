@@ -36,6 +36,23 @@ export default function Footer() {
           >
             법인 공식 블로그
           </a>
+          <span className="text-slate-400">
+            <a
+              href="https://www.kinfa.or.kr"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-white transition-colors"
+            >
+              서민금융진흥원
+            </a>
+            :{' '}
+            <a href="tel:1397" className="hover:text-white transition-colors">
+              1397 (국번없이)
+            </a>
+          </span>
+          <Link to="/privacy-policy" className="text-slate-400 hover:text-white transition-colors">
+            개인정보처리방침
+          </Link>
         </div>
 
         {/* 법인 정보 */}
@@ -48,29 +65,6 @@ export default function Footer() {
           <div className="flex flex-wrap gap-x-6 gap-y-1 text-slate-500 font-medium">
             <span><strong>대표 문의:</strong> <a href="tel:053-252-6408" className="hover:text-white underline underline-offset-2 transition-colors">053-252-6408</a></span>
             <span><strong>FAX:</strong> 053-252-8877</span>
-            <span>
-              <a
-                href="https://www.kinfa.or.kr"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-slate-500 font-semibold hover:text-white underline underline-offset-2 transition-colors"
-              >
-                서민금융진흥원
-              </a>
-              :{' '}
-              <a
-                href="tel:1397"
-                className="text-slate-400 hover:text-white underline underline-offset-2 transition-colors"
-              >
-                1397 (국번없이)
-              </a>
-            </span>
-            <Link
-              to="/privacy-policy"
-              className="text-slate-400 hover:text-white font-semibold underline underline-offset-2 transition-colors"
-            >
-              개인정보처리방침
-            </Link>
           </div>
           <p className="text-slate-600 font-bold pt-1">
             © 2026 (사)미소금융대구중구법인 (Daegu Jung-gu Miso Microfinance Association). All rights reserved.
