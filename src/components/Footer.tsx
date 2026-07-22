@@ -67,7 +67,7 @@ export default function Footer() {
             <span><strong>FAX:</strong> 053-252-8877</span>
           </div>
           <p className="text-slate-600 font-bold pt-1">
-            © 2026 (사)미소금융대구중구법인 (Daegu Jung-gu Miso Microfinance Association). All rights reserved.
+            © 2026 (사)미소금융대구중구법인 (Daegujunggu Miso Microcredit Foundation). All rights reserved.
           </p>
         </div>
 
