@@ -229,7 +229,7 @@ export default function MisoIntroSection() {
                 purpose: '취약계층 생계안정 자금',
                 limit: '최대 500만원',
                 rate: '연 4.5%',
-                period: '거치 1년 + 분할 5년 (총 6년)',
+                period: '최대 6년 (거치 1년 포함)',
                 highlight: false,
                 blog: 'https://blog.naver.com/eornwndrn1/224328452218'
               }
@@ -316,7 +316,7 @@ export default function MisoIntroSection() {
                     purpose: '취약계층 생계안정 자금',
                     limit: '최대 500만원',
                     rate: '연 4.5%',
-                    period: '거치 1년 + 분할 5년 (총 6년)',
+                    period: '최대 6년 (거치 1년 포함)',
                     highlight: false,
                     blog: 'https://blog.naver.com/eornwndrn1/224328452218'
                   }
