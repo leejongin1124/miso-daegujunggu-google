@@ -49,7 +49,7 @@ export default function MisoIntroSection() {
           transition={{ duration: 0.5 }}
           className="text-center space-y-4 max-w-3xl mx-auto"
         >
-          <span className="text-xs font-black text-teal-600 tracking-widest uppercase">What is Miso Finance?</span>
+          <span className="text-xs font-black text-teal-600 tracking-widest uppercase">What is Miso Microcredit?</span>
           <h2 className="text-3xl md:text-4xl font-black text-slate-900 tracking-tight leading-tight">
             미소금융은 무엇이 다른가요?
           </h2>
