@@ -132,7 +132,7 @@ export default function NoticeSection({ sectionId }: { sectionId?: string }) {
               href="tel:1397"
               className="bg-rose-600 hover:bg-rose-700 text-white font-black px-4.5 py-3 rounded-xl text-xs flex items-center justify-center gap-1.5 shrink-0 transition mx-auto md:mx-0"
             >
-              <span>☎ 서민금융 통합 번호 1397</span>
+              <span>☎ 서민금융 콜센터 1397</span>
             </a>
           </div>
 
