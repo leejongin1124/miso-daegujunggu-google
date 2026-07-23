@@ -210,7 +210,7 @@ export default function MisoIntroSection() {
                 name: '사업자 운영자금',
                 purpose: '원재료 구입, 사업장 운영비용',
                 limit: '무등록 최대 500만원\n프리랜서 최대 1,000만원\n개인사업자 최대 2,000만원\n청년사업자 최대 3,000만원',
-                rate: '연 4.5%',
+                rate: '연 4.5% (무등록 2.0%)',
                 period: '최대 5.5년 (거치 6개월 포함)\n청년 최대 7년 (거치 2년 포함)',
                 highlight: false,
                 blog: 'https://blog.naver.com/PostView.naver?blogId=eornwndrn1&logNo=224289610439&categoryNo=7&parentCategoryNo=7&from=thumbnailList'
@@ -297,7 +297,7 @@ export default function MisoIntroSection() {
                     name: '사업자 운영자금',
                     purpose: '원재료 구입, 사업장 운영비용',
                     limit: '무등록 최대 500만원\n프리랜서 최대 1,000만원\n개인사업자 최대 2,000만원\n청년사업자 최대 3,000만원',
-                    rate: '연 4.5%',
+                    rate: '연 4.5% (무등록 2.0%)',
                     period: '최대 5.5년 (거치 6개월 포함)\n청년 최대 7년 (거치 2년 포함)',
                     highlight: false,
                     blog: 'https://blog.naver.com/PostView.naver?blogId=eornwndrn1&logNo=224289610439&categoryNo=7&parentCategoryNo=7&from=thumbnailList'
