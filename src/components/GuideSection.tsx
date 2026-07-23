@@ -121,7 +121,7 @@ export default function GuideSection({ sectionId }: { sectionId?: string }) {
       icon: '🔍',
       label: '현장 심사',
       title: '현장 실사 · 적격 검토',
-      desc: '전문위원이 사업장을 직접 방문해 매출·운영을 확인합니다.'
+      desc: '전문심사위원이 사업장을 직접 방문해 매출·운영을 확인합니다.'
     },
     {
       step: '04',
