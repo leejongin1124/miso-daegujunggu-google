@@ -565,7 +565,7 @@ export default function GuideSection({ sectionId }: { sectionId?: string }) {
               <div className="w-9 h-9 bg-teal-600 text-white rounded-xl flex items-center justify-center font-black text-sm">2</div>
               <h4 className="font-extrabold text-teal-800 text-base">취약계층 해당자</h4>
               <p className="text-slate-600 text-sm leading-relaxed">
-                기초생활수급권자 또는 차상위계층에 해당하는 취약계층 고객
+                기초생활수급자 또는 차상위계층에 해당하는 취약계층 고객
               </p>
             </motion.div>
 
