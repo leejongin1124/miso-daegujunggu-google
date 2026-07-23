@@ -31,10 +31,10 @@ export default function MisoIntroSection() {
   const comparison = [
     { item: '운영 목적', miso: '서민 자립 지원 (공익)', bank: '수익 창출 (영리)', good: true },
     { item: '담보 요구', miso: '없음 (무담보)', bank: '필요한 경우 많음', good: true },
-    { item: '금리 수준', miso: '연 4.5% 내외', bank: '신용에 따라 고금리 가능', good: true },
+    { item: '금리 수준', miso: '연 4.5% 이내', bank: '신용에 따라 고금리 가능', good: true },
     { item: '대출 한도', miso: '최대 1억 원', bank: '신용도에 따라 상이', good: false },
     { item: '감독 기관', miso: '금융위원회 · 서민금융진흥원', bank: '금융위원회', good: false },
-    { item: '수수료', miso: '일체 없음', bank: '중개 수수료 발생 가능', good: true },
+    { item: '수수료', miso: '없음', bank: '중개 수수료 발생 가능', good: true },
   ];
 
   return (
