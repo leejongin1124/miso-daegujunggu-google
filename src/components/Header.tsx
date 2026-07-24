@@ -40,6 +40,7 @@ export default function Header({ activeTab, getSectionPath, prepareAnchor }: Hea
         { name: '인사말', id: 'ceo-greeting', icon: User, color: 'text-blue-500' },
         { name: '법인 연혁', id: 'history', icon: Clock, color: 'text-amber-500' },
         { name: '조직도', id: 'organization', icon: Network, color: 'text-violet-500' },
+        { name: '재정보고', id: 'finance-report', icon: FileText, color: 'text-emerald-500' },
         { name: '오시는 길', id: 'location', icon: MapPin, color: 'text-rose-500' }
       ]
     },

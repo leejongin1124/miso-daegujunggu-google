@@ -49,7 +49,7 @@ const ROUTE_FOR_COMPONENT: Record<string, (sectionId: string) => string> = {
 // 라우트 파라미터 허용값 — 목록에 없는 값이 들어오면 기본 경로로 리다이렉트
 const PRODUCT_TABS = ['social', 'business', 'youth', 'vulnerable'];
 const CASE_FILTERS = ['social', 'business', 'youth', 'vulnerable'];
-const ABOUT_SECTIONS = ['ceo-greeting', 'about-miso', 'history', 'organization', 'location'];
+const ABOUT_SECTIONS = ['ceo-greeting', 'about-miso', 'history', 'organization', 'finance-report', 'location'];
 const GUIDE_SECTIONS = ['loan-target', 'faq-section', 'loan-calc-intro', 'loan-calc', 'process-guide'];
 const NOTICE_SECTIONS = ['notice', 'anti-fraud'];
 

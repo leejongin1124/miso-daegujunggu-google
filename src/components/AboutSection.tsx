@@ -5,7 +5,7 @@
 
 import { motion } from 'motion/react';
 import { useState, useEffect } from 'react';
-import { Award, Briefcase, Calendar, MapPin, Bus, Train, Car, Phone, Share2, Printer, ExternalLink } from 'lucide-react';
+import { Award, Briefcase, Calendar, MapPin, Bus, Train, Car, Phone, Share2, Printer, ExternalLink, FileText } from 'lucide-react';
 
 const PHONES = [
   { number: '053-252-6408', chip: 'bg-rose-100 text-rose-700',    bg: 'from-rose-500 to-pink-500' },
@@ -24,6 +24,26 @@ const BOARD_MEMBERS = [
   { role: '이사', name: '홍성헌', affiliation: '(前) 경영학박사/산학연구원사무처장' },
   { role: '이사', name: '정헌철', affiliation: '(前) 한국산업은행 부장' },
   { role: '감사', name: '윤기태', affiliation: '(現) 공인회계사/세무사/경신세무회계사무소 대표' },
+];
+
+// 재정보고 — 연도별 재무상태표·손익계산서 PDF. 파일 확보되는 대로 file 값을 채운다 (없으면 "등록 예정"으로 표시)
+const DISCLOSURES = [
+  { year: 2025, file: null as string | null },
+  { year: 2024, file: null as string | null },
+  { year: 2023, file: null as string | null },
+  { year: 2022, file: null as string | null },
+  { year: 2021, file: null as string | null },
+  { year: 2020, file: null as string | null },
+  { year: 2019, file: null as string | null },
+  { year: 2018, file: null as string | null },
+  { year: 2017, file: null as string | null },
+  { year: 2016, file: null as string | null },
+  { year: 2015, file: null as string | null },
+  { year: 2014, file: null as string | null },
+  { year: 2013, file: null as string | null },
+  { year: 2012, file: null as string | null },
+  { year: 2011, file: null as string | null },
+  { year: 2010, file: null as string | null },
 ];
 
 export default function AboutSection({ sectionId }: { sectionId?: string }) {
@@ -424,6 +444,66 @@ export default function AboutSection({ sectionId }: { sectionId?: string }) {
             ))}
           </div>
 
+        </div>}
+
+        {/* 재정보고 — 연도별 재무상태표·손익계산서 */}
+        {show('finance-report') && <div id="finance-report" className="text-center space-y-8 bg-white p-4 md:p-12 rounded-3xl border border-slate-100 shadow-sm">
+          <div className="space-y-2">
+            <span className="text-xs font-bold text-emerald-600 tracking-widest uppercase">Financial Report</span>
+            <h3 className="text-2xl md:text-3xl font-extrabold text-slate-950 tracking-tight">재정보고</h3>
+            <p className="text-slate-500 text-xs max-w-xl mx-auto leading-relaxed">
+              (사)미소금융대구중구법인의 재정 현황을 투명하게 공개합니다. 본 자료의 공식 원본은 국세청 공익법인 결산서류 등 공시시스템에서도 확인하실 수 있습니다.
+            </p>
+          </div>
+
+          <a
+            href="https://teht.hometax.go.kr/websquare/websquare.html?w2xPath=/ui/sf/a/c/UTESFACI01.xml"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 bg-emerald-50 hover:bg-emerald-100 border border-emerald-200 text-emerald-700 font-bold text-sm px-5 py-3 rounded-xl transition-colors"
+          >
+            <ExternalLink className="w-4 h-4" />
+            국세청 공익법인 결산서류 등 공시시스템 바로가기
+          </a>
+          <p className="text-slate-400 text-xs -mt-4">사업자번호 504-82-13565로 조회하실 수 있습니다.</p>
+
+          {/* 연도 바로가기 */}
+          <div className="flex flex-wrap justify-center gap-1.5 pt-2">
+            {DISCLOSURES.map((d) => (
+              <a
+                key={d.year}
+                href={`#finance-${d.year}`}
+                className="px-3 py-1.5 rounded-lg text-xs font-bold bg-slate-50 text-slate-600 hover:bg-emerald-50 hover:text-emerald-700 transition-colors"
+              >
+                {d.year}
+              </a>
+            ))}
+          </div>
+
+          {/* 목록 테이블 */}
+          <div className="text-left max-w-2xl mx-auto divide-y divide-slate-100 border-t border-b border-slate-100">
+            {DISCLOSURES.map((d, i) => (
+              <div key={d.year} id={`finance-${d.year}`} className="flex items-center justify-between gap-3 py-3 px-2 scroll-mt-28">
+                <span className="flex items-center gap-3 min-w-0">
+                  <span className="text-slate-400 text-xs font-bold w-8 shrink-0">{DISCLOSURES.length - i}</span>
+                  <FileText className="w-4 h-4 text-emerald-500 shrink-0" />
+                  <span className="font-semibold text-slate-700 text-sm truncate">{d.year}년 재무상태표 및 손익계산서</span>
+                </span>
+                {d.file ? (
+                  <a
+                    href={d.file}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="shrink-0 text-xs font-bold text-emerald-600 hover:text-emerald-700 underline underline-offset-2"
+                  >
+                    PDF 보기
+                  </a>
+                ) : (
+                  <span className="shrink-0 text-xs font-semibold text-slate-300">등록 예정</span>
+                )}
+              </div>
+            ))}
+          </div>
         </div>}
 
         {/* 오시는 길 지도 서비스 및 역 안내 */}
