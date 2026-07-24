@@ -64,6 +64,28 @@ const DISCLOSURES = [
   { year: 2010, file: '/disclosures/2010.pdf' as string | null },
 ];
 
+// 연도별 총자산(원) — 재무상태표 기준. 성장 추이 그래프에 사용 (연도 오름차순)
+const ASSET_GROWTH = [
+  { year: 2010, amount: 184054342 },
+  { year: 2011, amount: 691882995 },
+  { year: 2012, amount: 2259820402 },
+  { year: 2013, amount: 3956537727 },
+  { year: 2014, amount: 4961103652 },
+  { year: 2015, amount: 8293574028 },
+  { year: 2016, amount: 11273122087 },
+  { year: 2017, amount: 13033042580 },
+  { year: 2018, amount: 14140558331 },
+  { year: 2019, amount: 14710921616 },
+  { year: 2020, amount: 16202042022 },
+  { year: 2021, amount: 14165670694 },
+  { year: 2022, amount: 13056457088 },
+  { year: 2023, amount: 12279649667 },
+  { year: 2024, amount: 11201603433 },
+  { year: 2025, amount: 14140558331 },
+];
+const ASSET_MAX = Math.max(...ASSET_GROWTH.map(a => a.amount));
+const formatEok = (won: number) => `${(won / 100000000).toFixed(1)}억`;
+
 export default function AboutSection({ sectionId }: { sectionId?: string }) {
   const show = (ids: string | string[]) =>
     !sectionId || (Array.isArray(ids) ? ids.includes(sectionId) : sectionId === ids);
@@ -496,6 +518,31 @@ export default function AboutSection({ sectionId }: { sectionId?: string }) {
                 개년 연속<br />재정공시<br />(2010~2025)
               </span>
             </motion.div>
+
+            {/* 총자산 성장 추이 그래프 */}
+            <div className="space-y-4">
+              <div className="text-center space-y-1">
+                <h4 className="font-extrabold text-slate-900 text-base md:text-lg">법인 성장 추이</h4>
+                <p className="text-slate-400 text-xs">연도별 총자산 (단위: 억원)</p>
+              </div>
+              <div className="overflow-x-auto pb-2">
+                <div className="flex items-end gap-2.5 md:gap-3 min-w-[720px] md:min-w-0 h-48 px-1">
+                  {ASSET_GROWTH.map((a, idx) => (
+                    <div key={a.year} className="flex-1 flex flex-col items-center gap-1.5 h-full justify-end min-w-[38px]">
+                      <span className="text-[10px] md:text-xs font-bold text-slate-500 whitespace-nowrap">{formatEok(a.amount)}</span>
+                      <motion.div
+                        initial={{ height: 0 }}
+                        whileInView={{ height: `${Math.max((a.amount / ASSET_MAX) * 100, 3)}%` }}
+                        viewport={{ once: true, margin: '-40px' }}
+                        transition={{ duration: 0.7, delay: Math.min(idx * 0.05, 0.7), ease: 'easeOut' }}
+                        className="w-full rounded-t-md bg-gradient-to-t from-teal-600 to-emerald-400"
+                      />
+                      <span className="text-[10px] md:text-xs font-semibold text-slate-400 font-mono">{a.year}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
 
             <div className="flex flex-col items-center gap-2 text-center">
               <a
