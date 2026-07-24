@@ -502,23 +502,6 @@ export default function AboutSection({ sectionId }: { sectionId?: string }) {
 
           <div className="p-6 md:p-12 space-y-10">
 
-            {/* 연속 공시 연혁 강조 */}
-            <motion.div
-              initial={{ opacity: 0, y: 16 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              onViewportEnter={() => setFinanceStatsInView(true)}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5 }}
-              className="flex items-center justify-center gap-3"
-            >
-              <span className="text-4xl md:text-5xl font-black text-teal-600 tabular-nums leading-none">
-                {financeYearCount}
-              </span>
-              <span className="text-slate-500 text-xs md:text-sm font-bold leading-snug text-left">
-                개 회계연도<br />결산서류 공시<br />(2010~2025)
-              </span>
-            </motion.div>
-
             {/* 총자산 성장 추이 그래프 */}
             <div className="space-y-4">
               <div className="text-center space-y-1">
@@ -562,6 +545,16 @@ export default function AboutSection({ sectionId }: { sectionId?: string }) {
                 단체명 (사)미소금융대구중구법인,<br />
                 사업자번호 504-82-13565로 조회하실 수 있습니다.
               </p>
+              <motion.p
+                initial={{ opacity: 0, y: 10 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                onViewportEnter={() => setFinanceStatsInView(true)}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5 }}
+                className="text-teal-700 text-sm font-bold pt-1"
+              >
+                {financeYearCount}년 연속 결산서류 공시 (2010년~2025년)
+              </motion.p>
             </div>
 
             {/* PC 타임라인 (md 이상) */}
