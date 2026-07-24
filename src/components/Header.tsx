@@ -118,7 +118,12 @@ export default function Header({ activeTab, getSectionPath, prepareAnchor }: Hea
           {/* GNB (데스크톱) — 클릭 시 해당 메뉴 아래로 드롭다운 */}
           <nav ref={navRef} className="hidden lg:flex space-x-1 xl:space-x-2 h-full items-center relative">
             {menuItems.map((item) => (
-              <div key={item.type} className="relative h-full flex items-center">
+              <div
+                key={item.type}
+                className="relative h-full flex items-center"
+                onMouseEnter={() => setOpenMenu(item.type)}
+                onMouseLeave={() => setOpenMenu(null)}
+              >
                 <button
                   onClick={() => setOpenMenu(openMenu === item.type ? null : item.type)}
                   aria-haspopup="true"
