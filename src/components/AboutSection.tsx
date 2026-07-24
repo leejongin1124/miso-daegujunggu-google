@@ -81,7 +81,7 @@ const ASSET_GROWTH = [
   { year: 2022, amount: 13056457088 },
   { year: 2023, amount: 12279649667 },
   { year: 2024, amount: 11201603433 },
-  { year: 2025, amount: 14140558331 },
+  { year: 2025, amount: 10533341130 },
 ];
 const ASSET_MAX = Math.max(...ASSET_GROWTH.map(a => a.amount));
 const formatEok = (won: number) => `${(won / 100000000).toFixed(1)}억`;
