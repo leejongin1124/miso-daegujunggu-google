@@ -515,7 +515,7 @@ export default function AboutSection({ sectionId }: { sectionId?: string }) {
                 {financeYearCount}
               </span>
               <span className="text-slate-500 text-xs md:text-sm font-bold leading-snug text-left">
-                개년 연속<br />재정공시<br />(2010~2025)
+                개 회계연도<br />결산서류 공시<br />(2010~2025)
               </span>
             </motion.div>
 
