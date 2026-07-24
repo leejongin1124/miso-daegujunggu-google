@@ -129,7 +129,7 @@ export default function Header({ activeTab, getSectionPath, prepareAnchor }: Hea
                   aria-haspopup="true"
                   aria-expanded={openMenu === item.type}
                   className={`px-4 py-2 font-semibold text-base tracking-tight transition-all duration-200 rounded-lg flex items-center space-x-1 ${
-                    activeTab === item.type || openMenu === item.type
+                    (openMenu ? openMenu === item.type : activeTab === item.type)
                       ? 'text-teal-600 bg-teal-50/50'
                       : 'text-slate-600 hover:text-teal-600 hover:bg-slate-50'
                   }`}
