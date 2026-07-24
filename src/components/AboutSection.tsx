@@ -526,7 +526,7 @@ export default function AboutSection({ sectionId }: { sectionId?: string }) {
                 <p className="text-slate-400 text-xs">연도별 총자산 (단위: 억원)</p>
               </div>
               <div className="overflow-x-auto pb-2">
-                <div className="flex items-end gap-2.5 md:gap-3 min-w-[720px] md:min-w-0 h-48 px-1">
+                <div className="flex items-end gap-2.5 md:gap-3 min-w-[720px] md:min-w-0 h-64 md:h-80 px-1">
                   {ASSET_GROWTH.map((a, idx) => (
                     <div key={a.year} className="flex-1 flex flex-col items-center gap-1.5 h-full justify-end min-w-[38px]">
                       <span className="text-[10px] md:text-xs font-bold text-slate-500 whitespace-nowrap">{formatEok(a.amount)}</span>
@@ -558,7 +558,10 @@ export default function AboutSection({ sectionId }: { sectionId?: string }) {
                 <ExternalLink className="w-4 h-4 shrink-0" />
                 국세청 공익법인 공시시스템 바로가기
               </a>
-              <p className="text-slate-400 text-xs">단체명 (사)미소금융대구중구법인, 사업자번호 504-82-13565로 조회하실 수 있습니다.</p>
+              <p className="text-slate-400 text-xs break-keep">
+                단체명 (사)미소금융대구중구법인,<br />
+                사업자번호 504-82-13565로 조회하실 수 있습니다.
+              </p>
             </div>
 
             {/* PC 타임라인 (md 이상) */}
