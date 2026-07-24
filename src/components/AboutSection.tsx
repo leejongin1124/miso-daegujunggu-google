@@ -468,19 +468,6 @@ export default function AboutSection({ sectionId }: { sectionId?: string }) {
           </a>
           <p className="text-slate-400 text-xs -mt-4">단체명 (사)미소금융대구중구법인, 사업자번호 504-82-13565로 조회하실 수 있습니다.</p>
 
-          {/* 연도 바로가기 */}
-          <div className="flex flex-wrap justify-center gap-1.5 pt-2">
-            {DISCLOSURES.map((d) => (
-              <a
-                key={d.year}
-                href={`#finance-${d.year}`}
-                className="px-3 py-1.5 rounded-lg text-xs font-bold bg-slate-50 text-slate-600 hover:bg-emerald-50 hover:text-emerald-700 transition-colors"
-              >
-                {d.year}
-              </a>
-            ))}
-          </div>
-
           {/* 목록 테이블 */}
           <div className="text-left max-w-2xl mx-auto divide-y divide-slate-100 border-t border-b border-slate-100">
             {DISCLOSURES.map((d, i) => (
