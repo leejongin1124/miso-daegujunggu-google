@@ -69,7 +69,7 @@ export default function AboutSection({ sectionId }: { sectionId?: string }) {
     !sectionId || (Array.isArray(ids) ? ids.includes(sectionId) : sectionId === ids);
 
   const [financeStatsInView, setFinanceStatsInView] = useState(false);
-  const financeYearCount = useCountUp(DISCLOSURES.length, 900, financeStatsInView);
+  const financeYearCount = useCountUp(DISCLOSURES.length, 2200, financeStatsInView);
 
   const [phoneIdx, setPhoneIdx] = useState(0);
   useEffect(() => {
