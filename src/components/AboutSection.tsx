@@ -534,8 +534,12 @@ export default function AboutSection({ sectionId }: { sectionId?: string }) {
                         initial={{ height: 0 }}
                         whileInView={{ height: `${Math.max((a.amount / ASSET_MAX) * 100, 3)}%` }}
                         viewport={{ once: true, margin: '-40px' }}
-                        transition={{ duration: 0.7, delay: Math.min(idx * 0.05, 0.7), ease: 'easeOut' }}
-                        className="w-full rounded-t-md bg-gradient-to-t from-teal-600 to-emerald-400"
+                        whileHover={{ y: -10, scaleX: 1.08 }}
+                        transition={{
+                          height: { duration: 0.7, delay: Math.min(idx * 0.05, 0.7), ease: 'easeOut' },
+                          default: { type: 'spring', stiffness: 500, damping: 12 }
+                        }}
+                        className="w-full rounded-t-md bg-gradient-to-t from-teal-600 to-emerald-400 shadow-sm hover:shadow-lg hover:brightness-110 cursor-default"
                       />
                       <span className="text-[10px] md:text-xs font-semibold text-slate-400 font-mono">{a.year}</span>
                     </div>
