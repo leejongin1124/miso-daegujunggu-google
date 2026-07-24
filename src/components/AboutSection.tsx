@@ -452,7 +452,7 @@ export default function AboutSection({ sectionId }: { sectionId?: string }) {
             <span className="text-xs font-bold text-emerald-600 tracking-widest uppercase">Financial Report</span>
             <h3 className="text-2xl md:text-3xl font-extrabold text-slate-950 tracking-tight">재정보고</h3>
             <p className="text-slate-500 text-xs max-w-xl mx-auto leading-relaxed">
-              (사)미소금융대구중구법인의 재정 현황을 투명하게 공개합니다. 본 자료의 공식 원본은 국세청 공익법인 결산서류 등 공시시스템에서도 확인하실 수 있습니다.
+              (사)미소금융대구중구법인은 「상속세 및 증여세법」 제50조의3에 따라 결산서류를 공시하고 있으며, 공식 원본은 국세청 공익법인 결산서류 등 공시시스템에서 확인하실 수 있습니다.
             </p>
           </div>
 
