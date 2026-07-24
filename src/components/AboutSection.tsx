@@ -458,7 +458,7 @@ export default function AboutSection({ sectionId }: { sectionId?: string }) {
           </div>
 
           <a
-            href="https://teht.hometax.go.kr/websquare/websquare.html?w2xPath=/ui/sf/a/c/UTESFACI01.xml"
+            href="https://hometax.go.kr/websquare/websquare.html?w2xPath=/ui/pp/index_pp.xml&tmIdx=44&tm2lIdx=4405000000&tm3lIdx=4405020000"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 bg-emerald-50 hover:bg-emerald-100 border border-emerald-200 text-emerald-700 font-bold text-sm px-5 py-3 rounded-xl transition-colors"
@@ -466,7 +466,7 @@ export default function AboutSection({ sectionId }: { sectionId?: string }) {
             <ExternalLink className="w-4 h-4" />
             국세청 공익법인 결산서류 등 공시시스템 바로가기
           </a>
-          <p className="text-slate-400 text-xs -mt-4">사업자번호 504-82-13565로 조회하실 수 있습니다.</p>
+          <p className="text-slate-400 text-xs -mt-4">단체명 (사)미소금융대구중구법인, 사업자번호 504-82-13565로 조회하실 수 있습니다.</p>
 
           {/* 연도 바로가기 */}
           <div className="flex flex-wrap justify-center gap-1.5 pt-2">
