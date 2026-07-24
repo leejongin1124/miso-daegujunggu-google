@@ -43,7 +43,7 @@ const DISCLOSURES = [
   { year: 2013, file: null as string | null },
   { year: 2012, file: null as string | null },
   { year: 2011, file: null as string | null },
-  { year: 2010, file: null as string | null },
+  { year: 2010, file: '/disclosures/2010.pdf' as string | null },
 ];
 
 export default function AboutSection({ sectionId }: { sectionId?: string }) {
