@@ -7,6 +7,24 @@ import { motion } from 'motion/react';
 import { useState, useEffect } from 'react';
 import { Award, Briefcase, Calendar, MapPin, Bus, Train, Car, Phone, Share2, Printer, ExternalLink, FileText } from 'lucide-react';
 
+function useCountUp(target: number, duration: number, trigger: boolean) {
+  const [count, setCount] = useState(0);
+  useEffect(() => {
+    if (!trigger) return;
+    let startTime: number | null = null;
+    const step = (timestamp: number) => {
+      if (!startTime) startTime = timestamp;
+      const progress = Math.min((timestamp - startTime) / duration, 1);
+      const eased = 1 - Math.pow(1 - progress, 3);
+      setCount(Math.floor(eased * target));
+      if (progress < 1) requestAnimationFrame(step);
+      else setCount(target);
+    };
+    requestAnimationFrame(step);
+  }, [trigger, target, duration]);
+  return count;
+}
+
 const PHONES = [
   { number: '053-252-6408', chip: 'bg-rose-100 text-rose-700',    bg: 'from-rose-500 to-pink-500' },
   { number: '053-252-6409', chip: 'bg-indigo-100 text-indigo-700', bg: 'from-indigo-500 to-violet-500' },
@@ -49,6 +67,9 @@ const DISCLOSURES = [
 export default function AboutSection({ sectionId }: { sectionId?: string }) {
   const show = (ids: string | string[]) =>
     !sectionId || (Array.isArray(ids) ? ids.includes(sectionId) : sectionId === ids);
+
+  const [financeStatsInView, setFinanceStatsInView] = useState(false);
+  const financeYearCount = useCountUp(DISCLOSURES.length, 900, financeStatsInView);
 
   const [phoneIdx, setPhoneIdx] = useState(0);
   useEffect(() => {
@@ -447,50 +468,126 @@ export default function AboutSection({ sectionId }: { sectionId?: string }) {
         </div>}
 
         {/* 재정보고 — 연도별 재무상태표·손익계산서 */}
-        {show('finance-report') && <div id="finance-report" className="text-center space-y-8 bg-white p-4 md:p-12 rounded-3xl border border-slate-100 shadow-sm">
-          <div className="space-y-2">
-            <span className="text-xs font-bold text-emerald-600 tracking-widest uppercase">Financial Report</span>
-            <h3 className="text-2xl md:text-3xl font-extrabold text-slate-950 tracking-tight">재정보고</h3>
-            <p className="text-slate-500 text-xs max-w-xl mx-auto leading-relaxed">
-              「상속세 및 증여세법」 제50조의3에 따라 결산서류를 공시합니다.<br />
+        {show('finance-report') && <div id="finance-report" className="bg-white rounded-3xl border border-slate-100 shadow-sm overflow-hidden">
+          <div className="bg-gradient-to-r from-teal-600 to-emerald-600 px-6 py-8 md:px-12 md:py-10 text-white text-center space-y-2">
+            <span className="text-xs font-bold text-white/70 tracking-widest uppercase">Financial Report</span>
+            <h3 className="text-2xl md:text-3xl font-extrabold tracking-tight">재정보고</h3>
+            <p className="text-white/85 text-xs md:text-sm leading-relaxed max-w-xl mx-auto break-keep">
+              「상속세 및 증여세법」 제50조의3에 따라 공시합니다.<br />
               공식 원본은 국세청 공시시스템에서 확인할 수 있습니다.
             </p>
           </div>
 
-          <a
-            href="https://hometax.go.kr/websquare/websquare.html?w2xPath=/ui/pp/index_pp.xml&tmIdx=44&tm2lIdx=4405000000&tm3lIdx=4405020000"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 bg-emerald-50 hover:bg-emerald-100 border border-emerald-200 text-emerald-700 font-bold text-sm px-5 py-3 rounded-xl transition-colors"
-          >
-            <ExternalLink className="w-4 h-4" />
-            국세청 공익법인 결산서류 등 공시시스템 바로가기
-          </a>
-          <p className="text-slate-400 text-xs -mt-4">단체명 (사)미소금융대구중구법인, 사업자번호 504-82-13565로 조회하실 수 있습니다.</p>
+          <div className="p-6 md:p-12 space-y-10">
 
-          {/* 목록 테이블 */}
-          <div className="text-left max-w-2xl mx-auto divide-y divide-slate-100 border-t border-b border-slate-100">
-            {DISCLOSURES.map((d, i) => (
-              <div key={d.year} id={`finance-${d.year}`} className="flex items-center justify-between gap-3 py-3 px-2 scroll-mt-28">
-                <span className="flex items-center gap-3 min-w-0">
-                  <span className="text-slate-400 text-xs font-bold w-8 shrink-0">{DISCLOSURES.length - i}</span>
-                  <FileText className="w-4 h-4 text-emerald-500 shrink-0" />
-                  <span className="font-semibold text-slate-700 text-sm truncate">{d.year}년 재무상태표 및 손익계산서</span>
-                </span>
-                {d.file ? (
-                  <a
-                    href={d.file}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="shrink-0 text-xs font-bold text-emerald-600 hover:text-emerald-700 underline underline-offset-2"
-                  >
-                    PDF 보기
-                  </a>
-                ) : (
-                  <span className="shrink-0 text-xs font-semibold text-slate-300">등록 예정</span>
-                )}
+            {/* 연속 공시 연혁 강조 */}
+            <motion.div
+              initial={{ opacity: 0, y: 16 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              onViewportEnter={() => setFinanceStatsInView(true)}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5 }}
+              className="flex items-center justify-center gap-3"
+            >
+              <span className="text-4xl md:text-5xl font-black text-teal-600 tabular-nums leading-none">
+                {financeYearCount}
+              </span>
+              <span className="text-slate-500 text-xs md:text-sm font-bold leading-snug text-left">
+                개년 연속<br />재정공시<br />(2010~2025)
+              </span>
+            </motion.div>
+
+            <div className="flex flex-col items-center gap-2 text-center">
+              <a
+                href="https://hometax.go.kr/websquare/websquare.html?w2xPath=/ui/pp/index_pp.xml&tmIdx=44&tm2lIdx=4405000000&tm3lIdx=4405020000"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 bg-emerald-50 hover:bg-emerald-100 border border-emerald-200 text-emerald-700 font-bold text-sm px-5 py-3 rounded-xl transition-colors"
+              >
+                <ExternalLink className="w-4 h-4" />
+                국세청 공익법인 결산서류 등 공시시스템 바로가기
+              </a>
+              <p className="text-slate-400 text-xs">단체명 (사)미소금융대구중구법인, 사업자번호 504-82-13565로 조회하실 수 있습니다.</p>
+            </div>
+
+            {/* PC 타임라인 (md 이상) */}
+            <div className="hidden md:block overflow-x-auto pb-2">
+              <div style={{ minWidth: '560px' }}>
+                <div className="relative border-l-2 border-slate-200 ml-20 py-2">
+                  {DISCLOSURES.map((d, idx) => (
+                    <motion.div
+                      key={d.year}
+                      initial={{ opacity: 0, x: -16 }}
+                      whileInView={{ opacity: 1, x: 0 }}
+                      viewport={{ once: true, margin: '-40px' }}
+                      transition={{ duration: 0.35, delay: Math.min(idx * 0.03, 0.3) }}
+                      className="mb-5 last:mb-0 relative"
+                    >
+                      <div className="absolute -left-[92px] top-2 w-16 text-right">
+                        <span className="text-lg font-black text-slate-800 font-mono">{d.year}</span>
+                      </div>
+                      <div className="absolute -left-[9px] top-3 w-4 h-4 rounded-full bg-white border-4 border-teal-600 shadow-md" />
+                      <div className="flex items-center justify-between gap-3 bg-white border border-slate-100 rounded-xl px-4 py-3 ml-6 hover:shadow-md hover:border-teal-100 transition-all">
+                        <span className="flex items-center gap-2 min-w-0">
+                          <FileText className="w-4 h-4 text-emerald-500 shrink-0" />
+                          <span className="font-semibold text-slate-700 text-sm truncate">재무상태표 및 손익계산서</span>
+                        </span>
+                        {d.file ? (
+                          <a
+                            href={d.file}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="shrink-0 text-xs font-bold text-emerald-600 hover:text-emerald-700 underline underline-offset-2"
+                          >
+                            PDF 보기
+                          </a>
+                        ) : (
+                          <span className="shrink-0 text-xs font-semibold text-slate-300">등록 예정</span>
+                        )}
+                      </div>
+                    </motion.div>
+                  ))}
+                </div>
               </div>
-            ))}
+            </div>
+
+            {/* 모바일 타임라인 (md 미만) */}
+            <div className="md:hidden relative border-l-2 border-slate-200 ml-3 py-2">
+              {DISCLOSURES.map((d, idx) => (
+                <motion.div
+                  key={d.year}
+                  initial={{ opacity: 0, y: 10 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, margin: '-30px' }}
+                  transition={{ duration: 0.3, delay: Math.min(idx * 0.025, 0.25) }}
+                  className="mb-3 last:mb-0 relative pl-5"
+                >
+                  <div className="absolute -left-[9px] top-1 w-4 h-4 rounded-full bg-white border-4 border-teal-600 shadow-md" />
+                  <div className="bg-white border border-slate-100 rounded-xl px-3 py-2.5">
+                    <div className="flex items-center justify-between gap-2">
+                      <span className="flex items-center gap-1.5 min-w-0">
+                        <span className="text-teal-700 font-black text-sm font-mono shrink-0">{d.year}</span>
+                        <FileText className="w-3.5 h-3.5 text-emerald-500 shrink-0" />
+                      </span>
+                      {d.file ? (
+                        <a
+                          href={d.file}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="shrink-0 text-xs font-bold text-emerald-600 hover:text-emerald-700 underline underline-offset-2"
+                        >
+                          PDF 보기
+                        </a>
+                      ) : (
+                        <span className="shrink-0 text-xs font-semibold text-slate-300">등록 예정</span>
+                      )}
+                    </div>
+                    <p className="text-[11px] text-slate-500 mt-0.5">재무상태표 및 손익계산서</p>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+
           </div>
         </div>}
 
