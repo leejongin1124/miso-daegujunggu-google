@@ -86,6 +86,20 @@ const ASSET_GROWTH = [
 const ASSET_MAX = Math.max(...ASSET_GROWTH.map(a => a.amount));
 const formatEok = (won: number) => `${(won / 100000000).toFixed(1)}억`;
 
+// 성장 추이 라인 차트 좌표 계산 (SVG viewBox 기준, 0을 기준선으로 유지)
+const CHART_W = 760;
+const CHART_H = 200;
+const CHART_MARGIN_X = 24;
+const CHART_TOP = 30;
+const CHART_BASELINE = 160;
+const chartPoints = ASSET_GROWTH.map((a, idx) => {
+  const x = CHART_MARGIN_X + (idx * (CHART_W - CHART_MARGIN_X * 2)) / (ASSET_GROWTH.length - 1);
+  const y = CHART_BASELINE - (a.amount / ASSET_MAX) * (CHART_BASELINE - CHART_TOP);
+  return { ...a, x, y };
+});
+const chartLinePath = chartPoints.map((p, i) => `${i === 0 ? 'M' : 'L'}${p.x},${p.y}`).join(' ');
+const chartAreaPath = `${chartLinePath} L${chartPoints[chartPoints.length - 1].x},${CHART_BASELINE} L${chartPoints[0].x},${CHART_BASELINE} Z`;
+
 export default function AboutSection({ sectionId }: { sectionId?: string }) {
   const show = (ids: string | string[]) =>
     !sectionId || (Array.isArray(ids) ? ids.includes(sectionId) : sectionId === ids);
@@ -509,25 +523,80 @@ export default function AboutSection({ sectionId }: { sectionId?: string }) {
                 <p className="text-slate-400 text-xs">연도별 총자산 (단위: 억원)</p>
               </div>
               <div className="overflow-x-auto pb-2">
-                <div className="flex items-end gap-2.5 md:gap-3 min-w-[720px] md:min-w-0 h-80 md:h-[26rem] px-1">
-                  {ASSET_GROWTH.map((a, idx) => (
-                    <div key={a.year} className="flex-1 flex flex-col items-center gap-1.5 h-full justify-end min-w-[38px]">
-                      <span className="text-[10px] md:text-xs font-bold text-slate-500 whitespace-nowrap">{formatEok(a.amount)}</span>
-                      <motion.div
-                        initial={{ height: 0 }}
-                        whileInView={{ height: `${Math.max((a.amount / ASSET_MAX) * 100, 3)}%` }}
-                        viewport={{ once: true, margin: '-40px' }}
-                        whileHover={{ y: -10, scaleX: 1.08 }}
-                        transition={{
-                          height: { duration: 0.7, delay: Math.min(idx * 0.05, 0.7), ease: 'easeOut' },
-                          default: { type: 'spring', stiffness: 500, damping: 12 }
-                        }}
-                        className="w-full rounded-t-md bg-gradient-to-t from-teal-600 to-emerald-400 shadow-sm hover:shadow-lg hover:brightness-110 cursor-default"
+                <svg
+                  viewBox={`0 0 ${CHART_W} ${CHART_H}`}
+                  className="w-full min-w-[720px] md:min-w-0"
+                  role="img"
+                  aria-label="연도별 총자산 추이 꺾은선 그래프"
+                >
+                  <defs>
+                    <linearGradient id="assetAreaGradient" x1="0" y1="0" x2="0" y2="1">
+                      <stop offset="0%" stopColor="#0d9488" stopOpacity="0.35" />
+                      <stop offset="100%" stopColor="#0d9488" stopOpacity="0" />
+                    </linearGradient>
+                    <linearGradient id="assetLineGradient" x1="0" y1="0" x2="1" y2="0">
+                      <stop offset="0%" stopColor="#0d9488" />
+                      <stop offset="100%" stopColor="#34d399" />
+                    </linearGradient>
+                  </defs>
+
+                  {/* 기준선(0) */}
+                  <line x1={CHART_MARGIN_X} y1={CHART_BASELINE} x2={CHART_W - CHART_MARGIN_X} y2={CHART_BASELINE} stroke="#e2e8f0" strokeWidth="1" />
+
+                  {/* 영역 채우기 */}
+                  <motion.path
+                    d={chartAreaPath}
+                    fill="url(#assetAreaGradient)"
+                    initial={{ opacity: 0 }}
+                    whileInView={{ opacity: 1 }}
+                    viewport={{ once: true, margin: '-40px' }}
+                    transition={{ duration: 0.8, delay: 0.6 }}
+                  />
+
+                  {/* 추세선 (draw-in 애니메이션) */}
+                  <motion.path
+                    d={chartLinePath}
+                    fill="none"
+                    stroke="url(#assetLineGradient)"
+                    strokeWidth="2.5"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    initial={{ pathLength: 0 }}
+                    whileInView={{ pathLength: 1 }}
+                    viewport={{ once: true, margin: '-40px' }}
+                    transition={{ duration: 1.4, ease: 'easeInOut' }}
+                  />
+
+                  {/* 연도별 포인트 + 라벨 */}
+                  {chartPoints.map((p, idx) => (
+                    <motion.g
+                      key={p.year}
+                      initial={{ opacity: 0, scale: 0 }}
+                      whileInView={{ opacity: 1, scale: 1 }}
+                      viewport={{ once: true, margin: '-40px' }}
+                      transition={{ duration: 0.3, delay: 0.3 + Math.min(idx * 0.05, 0.7) }}
+                      style={{ transformOrigin: `${p.x}px ${p.y}px` }}
+                    >
+                      <text x={p.x} y={p.y - 10} textAnchor="middle" fontSize="10" fontWeight="700" fill="#475569">
+                        {formatEok(p.amount)}
+                      </text>
+                      <motion.circle
+                        cx={p.x}
+                        cy={p.y}
+                        r="4"
+                        fill="#fff"
+                        stroke="#0d9488"
+                        strokeWidth="2.5"
+                        whileHover={{ scale: 1.6 }}
+                        transition={{ type: 'spring', stiffness: 500, damping: 12 }}
+                        style={{ transformOrigin: `${p.x}px ${p.y}px`, cursor: 'default' }}
                       />
-                      <span className="text-[10px] md:text-xs font-semibold text-slate-400 font-mono">{a.year}</span>
-                    </div>
+                      <text x={p.x} y={CHART_BASELINE + 22} textAnchor="middle" fontSize="10" fontWeight="600" fill="#94a3b8" fontFamily="monospace">
+                        {p.year}
+                      </text>
+                    </motion.g>
                   ))}
-                </div>
+                </svg>
               </div>
             </div>
 
