@@ -526,7 +526,7 @@ export default function AboutSection({ sectionId }: { sectionId?: string }) {
                 <p className="text-slate-400 text-xs">연도별 총자산 (단위: 억원)</p>
               </div>
               <div className="overflow-x-auto pb-2">
-                <div className="flex items-end gap-2.5 md:gap-3 min-w-[720px] md:min-w-0 h-64 md:h-80 px-1">
+                <div className="flex items-end gap-2.5 md:gap-3 min-w-[720px] md:min-w-0 h-80 md:h-[26rem] px-1">
                   {ASSET_GROWTH.map((a, idx) => (
                     <div key={a.year} className="flex-1 flex flex-col items-center gap-1.5 h-full justify-end min-w-[38px]">
                       <span className="text-[10px] md:text-xs font-bold text-slate-500 whitespace-nowrap">{formatEok(a.amount)}</span>
