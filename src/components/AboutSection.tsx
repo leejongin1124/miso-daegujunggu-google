@@ -862,11 +862,11 @@ export default function AboutSection({ sectionId }: { sectionId?: string }) {
             <h5 className="font-extrabold text-slate-800 mb-3 text-base">실제 방문 사진</h5>
             <div className="grid grid-cols-2 md:grid-cols-5 gap-3">
               {[
-                { src: '/images/location/building-exterior.webp', alt: '미소금융대구중구법인 사무실 내부 전경', caption: '사무실 전경' },
+                { src: '/images/location/building-exterior.webp', alt: '미소금융대구중구법인 건물 외관 및 간판', caption: '사무실 외관' },
                 { src: '/images/location/parking-lot.webp', alt: '하나은행 봉덕지점 뒤편 무료 주차장', caption: '후면 무료 주차장' },
                 { src: '/images/location/entrance-notice-board.webp', alt: '건물 층별 안내판 (4층 미소금융대구중구법인)', caption: '층별 안내도' },
                 { src: '/images/location/building-entrance.webp', alt: '미소금융대구중구법인 사무실 입구 복도', caption: '사무실 입구' },
-                { src: '/images/location/office-entrance-sign.webp', alt: '미소금융대구중구법인 건물 외관 및 간판', caption: '사무실 외관' },
+                { src: '/images/location/office-interior.webp', alt: '미소금융대구중구법인 사무실 내부 전경', caption: '사무실 전경' },
               ].map((img) => (
                 <button
                   key={img.src}
