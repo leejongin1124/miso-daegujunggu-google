@@ -114,6 +114,15 @@ export default function AboutSection({ sectionId }: { sectionId?: string }) {
     }, 4500);
     return () => clearInterval(interval);
   }, []);
+
+  const [lightboxImg, setLightboxImg] = useState<{ src: string; alt: string; caption: string } | null>(null);
+  useEffect(() => {
+    if (!lightboxImg) return;
+    const onKey = (e: KeyboardEvent) => { if (e.key === 'Escape') setLightboxImg(null); };
+    window.addEventListener('keydown', onKey);
+    return () => window.removeEventListener('keydown', onKey);
+  }, [lightboxImg]);
+
   interface HistoryItem {
     date: string;
     text: string;
@@ -191,6 +200,7 @@ export default function AboutSection({ sectionId }: { sectionId?: string }) {
   ];
 
   return (
+    <>
     <section className="pt-4 pb-20 md:py-20 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-24">
 
@@ -852,25 +862,33 @@ export default function AboutSection({ sectionId }: { sectionId?: string }) {
             <h5 className="font-extrabold text-slate-800 mb-3 text-base">실제 방문 사진</h5>
             <div className="grid grid-cols-2 md:grid-cols-5 gap-3">
               {[
-                { src: '/images/location/building-exterior.webp', alt: '미소금융대구중구법인 건물 전경' },
-                { src: '/images/location/building-entrance.webp', alt: '건물 입구 전경' },
-                { src: '/images/location/office-entrance-sign.webp', alt: '미소금융대구중구법인 사무실 현관 사인' },
-                { src: '/images/location/entrance-notice-board.webp', alt: '입구 안내판 (4층 미소금융)' },
-                { src: '/images/location/parking-lot.webp', alt: '하나은행 봉덕지점 뒤편 무료 주차장' },
+                { src: '/images/location/building-exterior.webp', alt: '미소금융대구중구법인 사무실 내부 전경', caption: '사무실 전경' },
+                { src: '/images/location/parking-lot.webp', alt: '하나은행 봉덕지점 뒤편 무료 주차장', caption: '후면 무료 주차장' },
+                { src: '/images/location/entrance-notice-board.webp', alt: '건물 층별 안내판 (4층 미소금융대구중구법인)', caption: '층별 안내도' },
+                { src: '/images/location/building-entrance.webp', alt: '미소금융대구중구법인 사무실 입구 복도', caption: '사무실 입구' },
+                { src: '/images/location/office-entrance-sign.webp', alt: '미소금융대구중구법인 건물 외관 및 간판', caption: '사무실 외관' },
               ].map((img) => (
-                <div
+                <button
                   key={img.src}
-                  className="rounded-xl overflow-hidden border border-slate-200 shadow-sm bg-white"
+                  type="button"
+                  onClick={() => setLightboxImg(img)}
+                  className="text-left rounded-xl overflow-hidden border border-slate-200 shadow-sm bg-white cursor-pointer group focus:outline-none focus:ring-2 focus:ring-teal-500"
                 >
-                  <img
-                    src={img.src}
-                    alt={img.alt}
-                    loading="lazy"
-                    className="w-full h-32 md:h-40 object-cover"
-                  />
-                </div>
+                  <div className="overflow-hidden">
+                    <img
+                      src={img.src}
+                      alt={img.alt}
+                      loading="lazy"
+                      className="w-full h-32 md:h-40 object-cover group-hover:scale-105 transition-transform duration-300"
+                    />
+                  </div>
+                  <p className="text-[11px] md:text-xs font-bold text-slate-600 text-center py-1.5 px-1 truncate">
+                    {img.caption}
+                  </p>
+                </button>
               ))}
             </div>
+
           </div>
 
           {/* 블로그 + 전화상담 — PC: 한 줄 나란히 / 모바일: 세로 순서 */}
@@ -953,5 +971,31 @@ export default function AboutSection({ sectionId }: { sectionId?: string }) {
 
       </div>
     </section>
+
+    {/* 방문 사진 라이트박스 */}
+    {lightboxImg && (
+      <div
+        className="fixed inset-0 z-[100] bg-black/85 flex items-center justify-center p-4 md:p-8"
+        onClick={() => setLightboxImg(null)}
+      >
+        <button
+          type="button"
+          onClick={() => setLightboxImg(null)}
+          aria-label="닫기"
+          className="absolute top-4 right-4 md:top-6 md:right-6 w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 text-white text-2xl flex items-center justify-center transition-colors"
+        >
+          ✕
+        </button>
+        <div className="max-w-4xl max-h-full flex flex-col items-center" onClick={(e) => e.stopPropagation()}>
+          <img
+            src={lightboxImg.src}
+            alt={lightboxImg.alt}
+            className="max-w-full max-h-[80vh] rounded-lg object-contain shadow-2xl"
+          />
+          <p className="text-white/90 font-bold mt-4 text-center">{lightboxImg.caption}</p>
+        </div>
+      </div>
+    )}
+    </>
   );
 }
