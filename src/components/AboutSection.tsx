@@ -214,12 +214,12 @@ export default function AboutSection({ sectionId }: { sectionId?: string }) {
 
           <div className="lg:col-span-8 text-left space-y-6">
             <span className="text-xs font-black tracking-widest text-teal-600 uppercase">Ceo Greeting</span>
-            <h3 className="text-2xl md:text-3xl font-extrabold text-slate-900 tracking-tight leading-snug">
+            <h3 className="text-2xl md:text-3xl font-extrabold text-slate-900 tracking-tight leading-snug break-keep">
               &ldquo;영세자영업자의 든든한 버팀목이 되겠습니다.&rdquo;
             </h3>
             <div className="h-1 w-20 bg-teal-600 rounded-full" />
 
-            <div className="text-slate-600 text-base md:text-lg leading-relaxed space-y-4">
+            <div className="text-slate-600 text-base md:text-lg leading-relaxed space-y-4 break-keep">
               <p>
                 사단법인 미소금융 대구중구법인 홈페이지를 방문해주신 여러분께 진심으로 감사드립니다.
               </p>
