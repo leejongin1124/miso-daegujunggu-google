@@ -4,8 +4,11 @@
  */
 
 import { motion, useAnimation, AnimatePresence } from 'motion/react';
-import { useState, useEffect, useRef } from 'react';
-import { Phone, ArrowRight, Users, Banknote, MapPin, RotateCcw } from 'lucide-react';
+import { useState, useEffect, useRef, type ReactNode } from 'react';
+import { Link } from 'react-router-dom';
+import { Phone, ArrowRight, Users, Banknote, MapPin, RotateCcw, Landmark, ClipboardList } from 'lucide-react';
+
+const MotionLink = motion(Link);
 
 function useCountUp(target: number, duration: number, trigger: boolean) {
   const [count, setCount] = useState(0);
@@ -125,24 +128,21 @@ export default function Hero({ onScrollToSection }: HeroProps) {
     'text-teal-600': 'bg-teal-50',
     'text-amber-600': 'bg-amber-50',
   };
-  const quickCards = [
+  type QuickCard = {
+    id: string;
+    icon: ReactNode;
+    title: string;
+    value: string;
+    valueClass: string;
+    desc: string;
+    href?: string;
+    to?: string;
+    action?: () => void;
+  };
+
+  const statsCards: QuickCard[] = [
     {
-      icon: null,
-      title: '전화 상담 문의',
-      value: currentPhone.number,
-      valueClass: 'text-lg md:text-3xl',
-      desc: '평일 09시 ~ 18시 운영',
-      href: `tel:${currentPhone.number}`
-    },
-    {
-      icon: <MapPin className="w-6 h-6 text-rose-600" />,
-      title: '법인 방문 오시는 길',
-      value: '하나은행 봉덕지점 4층',
-      valueClass: 'text-sm md:text-xl whitespace-nowrap',
-      desc: '대구 남구 중앙대로 146',
-      action: () => onScrollToSection('location')
-    },
-    {
+      id: 'stats-count',
       icon: <Users className="w-6 h-6 text-emerald-600" />,
       title: '누적 대출 건수',
       value: statsInView ? `${countPeople.toLocaleString()} 건` : '0 건',
@@ -150,6 +150,7 @@ export default function Hero({ onScrollToSection }: HeroProps) {
       desc: '2026년 누적 기준'
     },
     {
+      id: 'stats-amount',
       icon: (
         <div className="relative inline-flex items-center justify-center">
           <Banknote className="w-6 h-6 text-indigo-600" />
@@ -161,6 +162,49 @@ export default function Hero({ onScrollToSection }: HeroProps) {
       valueClass: 'text-[clamp(1rem,4.5vw,1.125rem)] md:text-3xl tabular-nums whitespace-nowrap',
       desc: '2026년 누적 기준'
     }
+  ];
+
+  const navCards: QuickCard[] = [
+    {
+      id: 'products',
+      icon: <Landmark className="w-6 h-6 text-indigo-600" />,
+      title: '대출상품 안내',
+      value: '상품별 조건 확인',
+      valueClass: 'text-sm md:text-2xl whitespace-nowrap',
+      desc: '상품 비교 후 신청 가능',
+      to: '/products'
+    },
+    {
+      id: 'apply',
+      icon: <ClipboardList className="w-6 h-6 text-emerald-600" />,
+      title: '신청안내',
+      value: '신청 절차 확인',
+      valueClass: 'text-sm md:text-2xl whitespace-nowrap',
+      desc: '상담부터 결과 안내까지',
+      to: '/guide'
+    }
+  ];
+
+  const quickCards: QuickCard[] = [
+    {
+      id: 'call',
+      icon: null,
+      title: '전화 상담 문의',
+      value: currentPhone.number,
+      valueClass: 'text-lg md:text-3xl',
+      desc: '평일 09시 ~ 18시 운영',
+      href: `tel:${currentPhone.number}`
+    },
+    {
+      id: 'location',
+      icon: <MapPin className="w-6 h-6 text-rose-600" />,
+      title: '법인 방문 오시는 길',
+      value: '하나은행 봉덕지점 4층',
+      valueClass: 'text-sm md:text-xl whitespace-nowrap',
+      desc: '대구 남구 중앙대로 146',
+      action: () => onScrollToSection('location')
+    },
+    ...(videoEnded ? navCards : statsCards)
   ];
 
   return (
@@ -281,15 +325,17 @@ export default function Hero({ onScrollToSection }: HeroProps) {
 
         {/* 4종 퀵 카드 — 동영상 섹션 하단 */}
         <div ref={statsRef} className="grid grid-cols-2 lg:grid-cols-4 gap-2 md:gap-4 pb-4 md:pb-8">
-          <AnimatePresence>
+          <AnimatePresence mode="popLayout">
           {quickCards.map((card, i) => {
-            const CardTag = card.href ? motion.a : motion.div;
+            const CardTag = card.to ? MotionLink : card.href ? motion.a : motion.div;
             return (
             <CardTag
-              key={i}
-              href={card.href}
+              key={card.id}
+              {...(card.to ? { to: card.to } : {})}
+              {...(card.href ? { href: card.href } : {})}
               initial={{ opacity: 0, y: 30, scale: 0.95 }}
               whileInView={{ opacity: 1, y: 0, scale: 1 }}
+              exit={{ opacity: 0, y: -10, scale: 0.95 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: i * 0.12, type: 'spring', stiffness: 200, damping: 18 }}
               animate={spotlightIdx === i && i < 2 ? { y: -4, scale: 1.02 } : { y: 0, scale: 1 }}
@@ -332,7 +378,7 @@ export default function Hero({ onScrollToSection }: HeroProps) {
                     {card.icon}
                   </div>
                   )}
-                  {(card.action || card.href) && (
+                  {(card.action || card.href || card.to) && (
                     <ArrowRight className="w-4 h-4 transition-colors text-white/70 shrink-0" />
                   )}
                 </div>
@@ -346,7 +392,7 @@ export default function Hero({ onScrollToSection }: HeroProps) {
                 ) : (
                   <motion.p
                     className={`font-extrabold mt-1 tracking-tight text-white drop-shadow truncate ${card.valueClass ?? 'text-lg md:text-3xl'}`}
-                    animate={i === 2 ? peopleAnim : i === 3 ? moneyAnim : undefined}
+                    animate={card.id === 'stats-count' ? peopleAnim : card.id === 'stats-amount' ? moneyAnim : undefined}
                   >{card.value}</motion.p>
                 )}
                 <p className="text-[10px] md:text-xs mt-1 font-semibold text-white/70 truncate">{card.desc}</p>
