@@ -411,7 +411,7 @@ export default function AboutSection({ sectionId }: { sectionId?: string }) {
           
           <div className="text-center space-y-3">
             <span className="text-teal-600 font-bold text-sm tracking-widest uppercase">History Timeline</span>
-            <h3 className="text-3xl font-extrabold text-slate-900 tracking-tight">대구 미소금융의 15년 발자취</h3>
+            <h3 className="text-3xl font-extrabold text-slate-900 tracking-tight">대구 미소금융의 16년 발자취</h3>
             <p className="text-slate-500 text-sm max-w-2xl mx-auto">
               2010년 설립 이래 오직 자영업자와 서민의 재기를 위해 걸어온 영광스러운 순간입니다.
             </p>
