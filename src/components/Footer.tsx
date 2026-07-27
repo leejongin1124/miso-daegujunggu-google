@@ -28,6 +28,9 @@ export default function Footer() {
           <Link to="/products" className="text-slate-400 hover:text-white transition-colors">
             상품안내
           </Link>
+          <Link to="/guide" className="text-slate-400 hover:text-white transition-colors">
+            신청안내
+          </Link>
           <a
             href="https://blog.naver.com/eornwndrn1"
             target="_blank"

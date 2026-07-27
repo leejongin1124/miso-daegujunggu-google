@@ -3,15 +3,48 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { motion } from 'motion/react';
-import { CheckCircle2, AlertTriangle, Calculator, FileText, Info, HelpCircle, CornerDownRight, Landmark, FileCheck, ChevronDown } from 'lucide-react';
+import { CheckCircle2, AlertTriangle, Calculator, FileText, Info, HelpCircle, CornerDownRight, Landmark, FileCheck, ChevronDown, ChevronRight } from 'lucide-react';
+
+const GUIDE_CATEGORIES = [
+  { id: 'miso-intro', label: '미소금융이란', desc: '서민금융진흥원 미소금융 제도 소개', icon: Info },
+  { id: 'loan-target', label: '신청 전 확인사항', desc: '신청 전 확인해야 할 기본 기준', icon: CheckCircle2 },
+  { id: 'process-guide', label: '신청 절차·준비서류', desc: '상담부터 결과 안내까지의 절차', icon: FileCheck },
+  { id: 'faq-section', label: '자주 묻는 질문', desc: '신청 전 궁금한 점 모음', icon: HelpCircle },
+];
 
 export default function GuideSection({ sectionId }: { sectionId?: string }) {
+  const navigate = useNavigate();
   const show = (ids: string | string[]) =>
     !sectionId || (Array.isArray(ids) ? ids.includes(sectionId) : sectionId === ids);
   // FAQ 아코디언 상태 변수
   const [openFaqId, setOpenFaqId] = useState<number | null>(null);
+
+  // 신청안내 개요 화면(sectionId 없음)에서 카테고리 카드 4개를 1바퀴 자동 순환 강조
+  const [spotlightIdx, setSpotlightIdx] = useState(0);
+  const userInteractedRef = useRef(false);
+  useEffect(() => {
+    if (sectionId) return;
+    userInteractedRef.current = false;
+    setSpotlightIdx(0);
+    let idx = 0;
+    const interval = setInterval(() => {
+      if (userInteractedRef.current) {
+        clearInterval(interval);
+        return;
+      }
+      idx += 1;
+      if (idx >= GUIDE_CATEGORIES.length) {
+        clearInterval(interval);
+        setSpotlightIdx(-1);
+        return;
+      }
+      setSpotlightIdx(idx);
+    }, 2200);
+    return () => clearInterval(interval);
+  }, [sectionId]);
 
   const toggleFaq = (id: number) => {
     setOpenFaqId(openFaqId === id ? null : id);
@@ -222,7 +255,35 @@ export default function GuideSection({ sectionId }: { sectionId?: string }) {
   return (
     <section className="py-20 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-20">
-        
+
+        {/* 신청안내 카테고리 개요 (개요 화면에서만 노출, 4개 카드 1바퀴 자동 순환 강조) */}
+        {!sectionId && (
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+            {GUIDE_CATEGORIES.map((cat, i) => (
+              <motion.button
+                key={cat.id}
+                type="button"
+                onClick={() => { userInteractedRef.current = true; setSpotlightIdx(-1); navigate(`/guide/${cat.id}`); }}
+                initial={{ opacity: 0, y: 14 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4, delay: i * 0.08 }}
+                animate={spotlightIdx === i ? { y: -4, scale: 1.02 } : { y: 0, scale: 1 }}
+                className={`relative text-left rounded-2xl p-5 border transition-colors bg-white ${
+                  spotlightIdx === i
+                    ? 'border-2 border-teal-400 shadow-lg shadow-teal-100'
+                    : 'border-slate-200 hover:border-teal-200 hover:shadow-md'
+                }`}
+              >
+                <cat.icon className="w-6 h-6 text-teal-600" />
+                <h4 className="font-extrabold text-slate-900 text-sm mt-3">{cat.label}</h4>
+                <p className="text-slate-500 text-xs mt-1 leading-relaxed break-keep">{cat.desc}</p>
+                <ChevronRight className="w-4 h-4 text-slate-300 absolute top-5 right-5" />
+              </motion.button>
+            ))}
+          </div>
+        )}
+
         {/* 대출 계산기 */}
         {show(['loan-calc-intro', 'loan-calc']) && <>
         <div id="loan-calc-intro" className="text-center space-y-4 max-w-4xl mx-auto">
