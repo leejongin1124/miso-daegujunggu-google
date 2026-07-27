@@ -5,7 +5,7 @@
 
 import { motion, useAnimation, AnimatePresence } from 'motion/react';
 import { useState, useEffect, useRef } from 'react';
-import { Phone, ArrowRight, Users, Banknote, MapPin } from 'lucide-react';
+import { Phone, ArrowRight, Users, Banknote, MapPin, RotateCcw } from 'lucide-react';
 
 function useCountUp(target: number, duration: number, trigger: boolean) {
   const [count, setCount] = useState(0);
@@ -47,6 +47,7 @@ export default function Hero({ onScrollToSection }: HeroProps) {
   const statsRef = useRef<HTMLDivElement>(null);
   const videoRef = useRef<HTMLVideoElement>(null);
   const [videoPlaying, setVideoPlaying] = useState(false);
+  const [videoEnded, setVideoEnded] = useState(false);
 
   useEffect(() => {
     let count = 0;
@@ -180,14 +181,32 @@ export default function Hero({ onScrollToSection }: HeroProps) {
         ref={videoRef}
         autoPlay
         muted
-        loop
         playsInline
         preload="metadata"
         onCanPlay={() => { if (videoRef.current) videoRef.current.playbackRate = 0.8; }}
         onPlaying={() => setVideoPlaying(true)}
+        onEnded={() => setVideoEnded(true)}
         className="absolute inset-0 w-full h-full object-cover [object-position:80%_0%] md:[object-position:50%_50%]"
         src="/hero-bg.mp4"
       />
+      {/* 영상 종료 후에만 노출되는 다시보기 버튼 */}
+      {videoEnded && (
+        <button
+          type="button"
+          onClick={() => {
+            if (videoRef.current) {
+              videoRef.current.currentTime = 0;
+              videoRef.current.play();
+            }
+            setVideoEnded(false);
+          }}
+          aria-label="배경 영상 다시보기"
+          className="absolute bottom-5 right-5 z-20 flex items-center gap-1.5 bg-white/85 hover:bg-white text-slate-700 text-xs font-semibold px-3 py-2 rounded-full shadow-md backdrop-blur-sm transition-colors"
+        >
+          <RotateCcw className="w-3.5 h-3.5" />
+          <span>다시보기</span>
+        </button>
+      )}
       {/* 오버레이 — 밝기 조정 */}
       <div className="absolute inset-0 bg-slate-900/5 md:bg-gradient-to-r md:from-slate-900/10 md:via-slate-900/5 md:to-transparent pointer-events-none" />
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-slate-900/5 pointer-events-none" />
