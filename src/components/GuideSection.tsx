@@ -9,10 +9,11 @@ import { motion } from 'motion/react';
 import { CheckCircle2, AlertTriangle, Calculator, FileText, Info, HelpCircle, CornerDownRight, Landmark, FileCheck, ChevronDown, ChevronRight } from 'lucide-react';
 
 const GUIDE_CATEGORIES = [
-  { id: 'miso-intro', label: '미소금융이란', desc: '서민금융진흥원 미소금융 제도 소개', icon: Info },
-  { id: 'loan-target', label: '신청 전 확인사항', desc: '신청 전 확인해야 할 기본 기준', icon: CheckCircle2 },
-  { id: 'process-guide', label: '신청 절차·준비서류', desc: '상담부터 결과 안내까지의 절차', icon: FileCheck },
-  { id: 'faq-section', label: '자주 묻는 질문', desc: '신청 전 궁금한 점 모음', icon: HelpCircle },
+  { id: 'miso-intro', label: '미소금융이란', desc: '서민금융진흥원 미소금융 제도 소개', icon: Info, path: '/miso-intro' },
+  { id: 'loan-target', label: '신청 전 확인사항', desc: '신청 전 확인해야 할 기본 기준', icon: CheckCircle2, path: '/guide/loan-target' },
+  { id: 'process-guide', label: '신청 절차·준비서류', desc: '상담부터 결과 안내까지의 절차', icon: FileCheck, path: '/guide/process-guide' },
+  { id: 'faq-section', label: '자주 묻는 질문', desc: '신청 전 궁금한 점 모음', icon: HelpCircle, path: '/guide/faq-section' },
+  { id: 'loan-calc-intro', label: '대출금 계산기', desc: '월 상환 예정액을 미리 계산', icon: Calculator, path: '/guide/loan-calc-intro' },
 ];
 
 export default function GuideSection({ sectionId }: { sectionId?: string }) {
@@ -258,12 +259,12 @@ export default function GuideSection({ sectionId }: { sectionId?: string }) {
 
         {/* 신청안내 카테고리 개요 (개요 화면에서만 노출, 4개 카드 1바퀴 자동 순환 강조) */}
         {!sectionId && (
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
             {GUIDE_CATEGORIES.map((cat, i) => (
               <motion.button
                 key={cat.id}
                 type="button"
-                onClick={() => { userInteractedRef.current = true; setSpotlightIdx(-1); navigate(`/guide/${cat.id}`); }}
+                onClick={() => { userInteractedRef.current = true; setSpotlightIdx(-1); navigate(cat.path); }}
                 initial={{ opacity: 0, y: 14 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
@@ -283,361 +284,6 @@ export default function GuideSection({ sectionId }: { sectionId?: string }) {
             ))}
           </div>
         )}
-
-        {/* 대출 계산기 */}
-        {show(['loan-calc-intro', 'loan-calc']) && <>
-        <div id="loan-calc-intro" className="text-center space-y-4 max-w-4xl mx-auto">
-          <span className="text-xs font-black text-miso-blue-600 tracking-widest uppercase">Smart Loan Calculator</span>
-          <h2 className="text-3xl md:text-[2.6rem] font-black text-slate-900 tracking-tight leading-none">
-            스마트 대출 계산기
-          </h2>
-          <div className="h-1.5 w-16 bg-miso-blue-600 rounded-full mx-auto" />
-          <p className="text-slate-600 font-medium text-base md:text-lg max-w-2xl mx-auto leading-relaxed">
-            월 상환 예정액을 미리 확인하실 수 있습니다.
-          </p>
-        </div>
-
-        {/* 세련된 스마트 대출 이자 계산기 */}
-        <div id="loan-calc" className="bg-white border border-slate-200/90 rounded-3xl shadow-xl overflow-hidden text-left">
-          
-          <div className="bg-gradient-to-r from-miso-blue-700 to-miso-navy-700 p-8 text-white">
-            <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
-              <div className="space-y-2">
-                <span className="text-[10px] font-bold text-miso-blue-100 bg-white/20 px-2.5 py-1 rounded-md uppercase">Smart Interest Simulator</span>
-                <h3 className="text-xl md:text-2xl font-black tracking-tight leading-none whitespace-nowrap">대출 설계 계산기</h3>
-                <p className="text-miso-blue-100 text-xs font-semibold">비영리 공공수행 이율 연 4.5% 기준 매월 가상 상환액</p>
-              </div>
-              <div className="flex flex-wrap gap-2">
-                <button
-                  onClick={() => { setLoanAmount(20000000); setInterestRate(4.5); setGracePeriod(6); setRepaymentPeriod(60); setGraceRateType('business'); }}
-                  className="bg-white/10 hover:bg-white/20 text-white text-xs font-bold px-3 py-2 rounded-lg transition-all"
-                >
-                  🏪 사업자 표준 (2천만 / 거치6M)
-                </button>
-                <button
-                  onClick={() => { setLoanAmount(5000000); setInterestRate(4.5); setGracePeriod(12); setRepaymentPeriod(60); setGraceRateType('vulnerable'); }}
-                  className="bg-white/10 hover:bg-white/20 text-white text-xs font-bold px-3 py-2 rounded-lg transition-all"
-                >
-                  🛡️ 금융취약계층 (5백만 / 거치1년)
-                </button>
-                <button
-                  onClick={() => { setLoanAmount(5000000); setInterestRate(4.5); setGracePeriod(72); setRepaymentPeriod(60); setGraceRateType('youth'); }}
-                  className="bg-white/10 hover:bg-white/20 text-white text-xs font-bold px-3 py-2 rounded-lg transition-all"
-                >
-                  🌱 청년 미래이음 (5백만 / 거치6년)
-                </button>
-              </div>
-            </div>
-          </div>
-
-          <div className="grid grid-cols-1 lg:grid-cols-12">
-            
-            {/* 좌측 슬라이더 컨트롤러 영역 */}
-            <div className="lg:col-span-7 p-8 md:p-10 space-y-8 divide-y divide-slate-100">
-              
-              {/* 대출 원금 */}
-              <div className="space-y-4 pb-4">
-                <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center text-sm font-extrabold text-slate-800 gap-1">
-                  <label htmlFor="loan-amount" className="flex items-center gap-1">💰 대출 요청 원금 설정</label>
-                  <output htmlFor="loan-amount" className="text-miso-blue-600 font-black text-lg whitespace-nowrap">{(loanAmount / 10000).toLocaleString()}만 원</output>
-                </div>
-                <input
-                  id="loan-amount"
-                  type="range"
-                  min="1000000"
-                  max="100000000"
-                  step="500000"
-                  value={loanAmount}
-                  onChange={(e) => setLoanAmount(Number(e.target.value))}
-                  aria-valuetext={`${loanAmount.toLocaleString('ko-KR')}원`}
-                  className="w-full accent-miso-blue-600 cursor-pointer h-2 bg-slate-100 rounded-lg appearance-none"
-                />
-                <div className="relative h-9 mt-1">
-                  {[
-                    { val: 1000000,   label: '100만',   mobileHide: true  },
-                    { val: 5000000,   label: '500만',   mobileHide: false },
-                    { val: 10000000,  label: '1,000만', mobileHide: false },
-                    { val: 20000000,  label: '2,000만', mobileHide: true  },
-                    { val: 30000000,  label: '3,000만', mobileHide: false },
-                    { val: 50000000,  label: '5,000만', mobileHide: false },
-                    { val: 100000000, label: '1억',     mobileHide: false },
-                  ].map(({ val, label, mobileHide }, i, arr) => {
-                    const pct = ((val - 1000000) / (100000000 - 1000000)) * 100;
-                    const isFirst = i === 0;
-                    const isLast = i === arr.length - 1;
-                    const top = i % 2 === 0 ? '0px' : '16px';
-                    const transform = isFirst ? 'translateX(0)' : isLast ? 'translateX(-100%)' : 'translateX(-50%)';
-                    return (
-                      <span
-                        key={val}
-                        className={`absolute text-[11px] text-slate-400 font-extrabold cursor-pointer hover:text-miso-blue-600 transition whitespace-nowrap ${mobileHide ? 'hidden md:inline' : ''}`}
-                        style={{ left: `${pct}%`, top, transform }}
-                        onClick={() => setLoanAmount(val)}
-                      >
-                        {label}
-                      </span>
-                    );
-                  })}
-                </div>
-              </div>
-
-              {/* 실질 이자율 설정 (미소금융 정책이율 4.0 ~ 4.5%) */}
-              <div className="space-y-4 pt-6 pb-4">
-                <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center text-sm font-extrabold text-slate-800 gap-1">
-                  <label htmlFor="interest-rate" className="flex items-center gap-1">📈 연 이자율</label>
-                  <output htmlFor="interest-rate" className="text-miso-blue-600 font-black text-lg whitespace-nowrap">{interestRate.toFixed(1)}%</output>
-                </div>
-                <input
-                  id="interest-rate"
-                  type="range"
-                  min="2.0"
-                  max="4.5"
-                  step="0.5"
-                  value={interestRate}
-                  onChange={(e) => setInterestRate(Number(e.target.value))}
-                  aria-valuetext={`연 ${interestRate.toFixed(1)}퍼센트`}
-                  className="w-full accent-miso-blue-600 cursor-pointer h-2 bg-slate-100 rounded-lg appearance-none"
-                />
-                <div className="relative h-5 mt-1">
-                  {[
-                    { val: 2.0, label: '2.0%' },
-                    { val: 3.5, label: '3.5%' },
-                    { val: 4.5, label: '4.5%' },
-                  ].map(({ val, label }) => {
-                    const pct = ((val - 2.0) / (4.5 - 2.0)) * 100;
-                    return (
-                      <span
-                        key={val}
-                        className="absolute text-[11px] text-slate-400 font-semibold -translate-x-1/2"
-                        style={{ left: `${pct}%` }}
-                      >
-                        {label}
-                      </span>
-                    );
-                  })}
-                </div>
-                {/* 금리 안내 테이블 */}
-                <div className="grid grid-cols-4 gap-1.5 mt-2">
-                  <button onClick={() => setInterestRate(2.0)} className="bg-green-50 border border-green-200 rounded-xl p-2 text-center hover:bg-green-100 transition">
-                    <p className="text-green-700 font-black text-sm">2.0%</p>
-                    <p className="text-[10px] text-green-600 font-semibold leading-tight mt-0.5">무등록사업자<br/>500만원</p>
-                  </button>
-                  <button onClick={() => setInterestRate(3.5)} className="bg-blue-50 border border-blue-200 rounded-xl p-2 text-center hover:bg-blue-100 transition">
-                    <p className="text-blue-700 font-black text-sm">3.5%</p>
-                    <p className="text-[10px] text-blue-600 font-semibold leading-tight mt-0.5">성실상환시<br/>이자율 감면</p>
-                  </button>
-                  <button onClick={() => setInterestRate(4.5)} className="bg-teal-50 border border-teal-300 rounded-xl p-2 text-center hover:bg-teal-100 transition">
-                    <p className="text-teal-700 font-black text-sm">4.5%</p>
-                    <p className="text-[10px] text-teal-600 font-semibold leading-tight mt-0.5">기본<br/>적용금리</p>
-                  </button>
-                  <div className="bg-red-50 border border-red-200 rounded-xl p-2 text-center cursor-default" title="연체금리는 상환 설계 시뮬레이션에 반영되지 않는 안내용 정보입니다">
-                    <p className="text-red-600 font-black text-sm">5.5%</p>
-                    <p className="text-[10px] text-red-500 font-semibold leading-tight mt-0.5">연체 발생시<br/>적용금리(안내)</p>
-                  </div>
-                </div>
-                <p className="text-xs text-slate-500 leading-normal pt-1">
-                  ※ 연체가 장기화될 경우 최고 연 9%까지 연체이자율이 적용될 수 있습니다. (서민금융진흥원 고시 기준)
-                </p>
-              </div>
-
-              {/* 거치 기간 설정 (이자만 납부하는 유예기) */}
-              <div className="space-y-4 pt-6 pb-4">
-                <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center text-sm font-extrabold text-slate-800 gap-1">
-                  <label htmlFor="grace-period" className="flex items-center gap-1">⏳ 거치 유예기간 (이자만 납부)</label>
-                  <output htmlFor="grace-period" className="text-miso-blue-600 font-black text-lg whitespace-nowrap">{gracePeriod} 개월 {gracePeriod >= 12 && `(${Math.floor(gracePeriod / 12)}년)`}</output>
-                </div>
-
-                {/* 거치기간 적용금리는 상품별로 다름 */}
-                <div className="flex flex-wrap items-center gap-1.5 text-xs">
-                  <span className="text-slate-400 font-semibold mr-1">거치기간 적용상품:</span>
-                  {GRACE_RATE_OPTIONS.map((opt) => (
-                    <button
-                      key={opt.id}
-                      onClick={() => setGraceRateType(opt.id)}
-                      className={`px-2.5 py-1 rounded-full font-bold transition-all ${
-                        graceRateType === opt.id
-                          ? 'bg-miso-blue-600 text-white shadow'
-                          : 'bg-slate-100 text-slate-500 hover:bg-slate-200'
-                      }`}
-                    >
-                      {opt.label} {opt.rate.toFixed(1)}%
-                    </button>
-                  ))}
-                </div>
-                <input
-                  id="grace-period"
-                  type="range"
-                  min="0"
-                  max="72"
-                  step="6"
-                  value={gracePeriod}
-                  onChange={(e) => setGracePeriod(Number(e.target.value))}
-                  aria-valuetext={gracePeriod === 0 ? '거치기간 없음' : `${gracePeriod}개월${gracePeriod >= 12 ? `, ${Math.floor(gracePeriod / 12)}년` : ''}`}
-                  className="w-full accent-miso-blue-600 cursor-pointer h-2 bg-slate-100 rounded-lg appearance-none"
-                />
-                <div className="relative h-8 mt-1">
-                  {[
-                    { val: 0,  label: '0개월', mobileHide: false },
-                    { val: 6,  label: '6개월', mobileHide: false },
-                    { val: 12, label: '1년',   mobileHide: false },
-                    { val: 24, label: '2년',   mobileHide: false },
-                    { val: 36, label: '3년',   mobileHide: true  },
-                    { val: 48, label: '4년',   mobileHide: true  },
-                    { val: 60, label: '5년',   mobileHide: true  },
-                    { val: 72, label: '6년',   mobileHide: false },
-                  ].map(({ val, label, mobileHide }, i, arr) => {
-                    const pct = (val / 72) * 100;
-                    const isFirst = i === 0;
-                    const isLast = i === arr.length - 1;
-                    const top = i % 2 === 0 ? '0px' : '16px';
-                    const transform = isFirst ? 'translateX(0)' : isLast ? 'translateX(-100%)' : 'translateX(-50%)';
-                    return (
-                      <span
-                        key={val}
-                        className={`absolute text-[10px] text-slate-400 font-semibold cursor-pointer hover:text-miso-blue-600 transition whitespace-nowrap ${mobileHide ? 'hidden md:inline' : ''}`}
-                        style={{ left: `${pct}%`, top, transform }}
-                        onClick={() => setGracePeriod(val)}
-                      >
-                        {label}
-                      </span>
-                    );
-                  })}
-                </div>
-              </div>
-
-              {/* 원금 상환 기간 설정 */}
-              <div className="space-y-4 pt-6">
-                <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center text-sm font-extrabold text-slate-800 gap-1">
-                  <label htmlFor="repayment-period" className="flex items-center gap-1">📅 원금분할상환 기간 설정</label>
-                  <output htmlFor="repayment-period" className="text-miso-blue-600 font-black text-lg whitespace-nowrap">{repaymentPeriod} 개월 ({repaymentPeriod / 12}년)</output>
-                </div>
-                <input
-                  id="repayment-period"
-                  type="range"
-                  min="12" 
-                  max="60" 
-                  step="12"
-                  value={repaymentPeriod}
-                  onChange={(e) => setRepaymentPeriod(Number(e.target.value))}
-                  aria-valuetext={`${repaymentPeriod}개월, ${repaymentPeriod / 12}년`}
-                  className="w-full accent-miso-blue-600 cursor-pointer h-2 bg-slate-100 rounded-lg appearance-none"
-                />
-                <div className="relative h-8 mt-1">
-                  {[
-                    { val: 12, label: '1년' },
-                    { val: 24, label: '2년' },
-                    { val: 36, label: '3년' },
-                    { val: 48, label: '4년' },
-                    { val: 60, label: '5년' },
-                  ].map(({ val, label }, i, arr) => {
-                    const pct = ((val - 12) / (60 - 12)) * 100;
-                    const isLast = i === arr.length - 1;
-                    return (
-                      <span
-                        key={val}
-                        className="absolute text-[10px] text-slate-400 font-semibold cursor-pointer hover:text-miso-blue-600 transition whitespace-nowrap"
-                        style={{ left: `${pct}%`, transform: isLast ? 'translateX(-100%)' : 'translateX(-50%)' }}
-                        onClick={() => setRepaymentPeriod(val)}
-                      >
-                        {label}
-                      </span>
-                    );
-                  })}
-                </div>
-              </div>
-
-            </div>
-
-            {/* 우측 계산 결과 시각 패널 */}
-            <div className="lg:col-span-5 bg-slate-50 p-8 md:p-10 border-l border-slate-100 flex flex-col justify-between">
-              
-              <div className="space-y-6">
-                <h4 className="font-extrabold text-slate-900 text-[15px] pb-3 border-b border-slate-200">
-                  가상 설계 결과 (원리금균등 기본안)
-                </h4>
-
-                {/* 거치 기간 이자 */}
-                {gracePeriod > 0 && (
-                  <div className="flex flex-col sm:flex-row sm:justify-between sm:items-baseline text-sm gap-0.5">
-                    <span className="text-slate-500 font-medium">거치기간 중 매달 납부액(이자만):</span>
-                    <span className="font-black text-slate-800">{calcResult.gracePeriodMonthlyInterest.toLocaleString()} 원</span>
-                  </div>
-                )}
-
-                {/* 상환 기간 돌입 후 이자 */}
-                <div className="space-y-3 pt-2">
-                  <div className="flex flex-col sm:flex-row sm:justify-between sm:items-baseline text-sm gap-0.5">
-                    <span className="text-slate-500 font-medium">상환 첫 달 원금:</span>
-                    <span className="font-black text-slate-800">{calcResult.repaymentMonthlyPrincipal.toLocaleString()} 원</span>
-                  </div>
-                  <div className="flex flex-col sm:flex-row sm:justify-between sm:items-baseline text-sm gap-0.5">
-                    <span className="text-slate-500 font-medium mr-2 flex items-center">
-                      상환 첫 달 이자:
-                      <span className="inline-block relative group ml-1 text-slate-300 hover:text-slate-500 cursor-help pr-1 text-xs">
-                        ⓘ
-                        <span className="absolute bottom-full left-1/2 transform -translate-x-1/2 bg-black text-white text-[10px] p-2 rounded w-44 hidden group-hover:block z-20 font-medium leading-normal">
-                          원리금균등 방식은 매월 납부액(원금+이자)이 동일하며, 회차가 지날수록 원금 비중은 늘고 이자 비중은 줄어듭니다. 표시된 값은 첫 달 기준입니다.
-                        </span>
-                      </span>
-                    </span>
-                    <span className="font-black text-miso-blue-700">{calcResult.repaymentMonthlyInterest.toLocaleString()} 원</span>
-                  </div>
-                  <div className="h-0.5 border-t border-dashed border-slate-200 my-1" />
-                  <div className="flex flex-col sm:flex-row sm:justify-between sm:items-baseline text-base font-extrabold text-slate-900 gap-0.5">
-                    <span>매월 납입금 (원리금균등):</span>
-                    <span className="font-black text-miso-blue-600">월 {calcResult.repaymentTotalMonthly.toLocaleString()} 원</span>
-                  </div>
-                </div>
-
-                {/* 누적 통계 */}
-                <div className="bg-white p-4.5 rounded-2xl border border-slate-200 space-y-2.5">
-                  <div className="flex flex-col sm:flex-row sm:justify-between sm:items-baseline text-xs gap-0.5">
-                    <span className="text-slate-400 font-extrabold">원금과 이자 합산</span>
-                    <span className="text-slate-500 font-bold">총 납부 이자 : {calcResult.totalInterest.toLocaleString()}원</span>
-                  </div>
-                  <div className="flex flex-col sm:flex-row sm:justify-between sm:items-baseline text-sm font-extrabold text-slate-900 gap-0.5">
-                    <span>총 상환 예정액:</span>
-                    <span className="font-black text-slate-800">{calcResult.totalPayment.toLocaleString()} 원</span>
-                  </div>
-                </div>
-
-              </div>
-
-              {/* 매월 상환금 비주얼 바 데모 */}
-              <div className="pt-6 space-y-2 text-xs">
-                <span className="text-slate-400 font-bold block">월 상환 부담 한눈에 보기</span>
-                <div className="flex h-5 w-full bg-slate-200 rounded-lg overflow-hidden font-bold text-white text-[10px] text-center shrink-0">
-                  <div 
-                    style={{ width: `${(calcResult.repaymentMonthlyPrincipal / calcResult.repaymentTotalMonthly) * 100}%` }}
-                    className="bg-miso-blue-600 flex items-center justify-center"
-                    title="원금 분량"
-                  >
-                    원금 {Math.round((calcResult.repaymentMonthlyPrincipal / calcResult.repaymentTotalMonthly) * 100)}%
-                  </div>
-                  <div 
-                    style={{ width: `${(calcResult.repaymentMonthlyInterest / calcResult.repaymentTotalMonthly) * 100}%` }}
-                    className="bg-amber-500 flex items-center justify-center text-[9px]"
-                    title="평균 이자 분량"
-                  >
-                    이자
-                  </div>
-                </div>
-                <p className="text-xs text-slate-500 leading-normal pt-1 font-bold">
-                  ※ 시중 사채 연 20% 이용 시 이자 부담만 약 4배 가량 늘어납니다. 비영리 제도 자금의 낮은 금리를 충분히 활용해 보세요.
-                </p>
-                <a 
-                  href="tel:053-252-6408"
-                  className="w-full bg-miso-blue-600 hover:bg-miso-blue-700 text-white font-black py-4 rounded-xl text-center text-sm transition shadow mt-3 flex items-center justify-center"
-                >
-                  📞 위 설계 조건으로 전화 상담하기
-                </a>
-              </div>
-
-            </div>
-
-          </div>
-
-        </div></>}
 
         {/* 대출 지원대상 및 제외대상 */}
         {show('loan-target') && <div id="loan-target" className="space-y-8">
@@ -1034,6 +680,361 @@ export default function GuideSection({ sectionId }: { sectionId?: string }) {
           </div>
 
         </div>}
+
+        {/* 대출 계산기 */}
+        {show(['loan-calc-intro', 'loan-calc']) && <>
+        <div id="loan-calc-intro" className="text-center space-y-4 max-w-4xl mx-auto">
+          <span className="text-xs font-black text-miso-blue-600 tracking-widest uppercase">Smart Loan Calculator</span>
+          <h2 className="text-3xl md:text-[2.6rem] font-black text-slate-900 tracking-tight leading-none">
+            스마트 대출 계산기
+          </h2>
+          <div className="h-1.5 w-16 bg-miso-blue-600 rounded-full mx-auto" />
+          <p className="text-slate-600 font-medium text-base md:text-lg max-w-2xl mx-auto leading-relaxed">
+            월 상환 예정액을 미리 확인하실 수 있습니다.
+          </p>
+        </div>
+
+        {/* 세련된 스마트 대출 이자 계산기 */}
+        <div id="loan-calc" className="bg-white border border-slate-200/90 rounded-3xl shadow-xl overflow-hidden text-left">
+          
+          <div className="bg-gradient-to-r from-miso-blue-700 to-miso-navy-700 p-8 text-white">
+            <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+              <div className="space-y-2">
+                <span className="text-[10px] font-bold text-miso-blue-100 bg-white/20 px-2.5 py-1 rounded-md uppercase">Smart Interest Simulator</span>
+                <h3 className="text-xl md:text-2xl font-black tracking-tight leading-none whitespace-nowrap">대출 설계 계산기</h3>
+                <p className="text-miso-blue-100 text-xs font-semibold">비영리 공공수행 이율 연 4.5% 기준 매월 가상 상환액</p>
+              </div>
+              <div className="flex flex-wrap gap-2">
+                <button
+                  onClick={() => { setLoanAmount(20000000); setInterestRate(4.5); setGracePeriod(6); setRepaymentPeriod(60); setGraceRateType('business'); }}
+                  className="bg-white/10 hover:bg-white/20 text-white text-xs font-bold px-3 py-2 rounded-lg transition-all"
+                >
+                  🏪 사업자 표준 (2천만 / 거치6M)
+                </button>
+                <button
+                  onClick={() => { setLoanAmount(5000000); setInterestRate(4.5); setGracePeriod(12); setRepaymentPeriod(60); setGraceRateType('vulnerable'); }}
+                  className="bg-white/10 hover:bg-white/20 text-white text-xs font-bold px-3 py-2 rounded-lg transition-all"
+                >
+                  🛡️ 금융취약계층 (5백만 / 거치1년)
+                </button>
+                <button
+                  onClick={() => { setLoanAmount(5000000); setInterestRate(4.5); setGracePeriod(72); setRepaymentPeriod(60); setGraceRateType('youth'); }}
+                  className="bg-white/10 hover:bg-white/20 text-white text-xs font-bold px-3 py-2 rounded-lg transition-all"
+                >
+                  🌱 청년 미래이음 (5백만 / 거치6년)
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-12">
+            
+            {/* 좌측 슬라이더 컨트롤러 영역 */}
+            <div className="lg:col-span-7 p-8 md:p-10 space-y-8 divide-y divide-slate-100">
+              
+              {/* 대출 원금 */}
+              <div className="space-y-4 pb-4">
+                <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center text-sm font-extrabold text-slate-800 gap-1">
+                  <label htmlFor="loan-amount" className="flex items-center gap-1">💰 대출 요청 원금 설정</label>
+                  <output htmlFor="loan-amount" className="text-miso-blue-600 font-black text-lg whitespace-nowrap">{(loanAmount / 10000).toLocaleString()}만 원</output>
+                </div>
+                <input
+                  id="loan-amount"
+                  type="range"
+                  min="1000000"
+                  max="100000000"
+                  step="500000"
+                  value={loanAmount}
+                  onChange={(e) => setLoanAmount(Number(e.target.value))}
+                  aria-valuetext={`${loanAmount.toLocaleString('ko-KR')}원`}
+                  className="w-full accent-miso-blue-600 cursor-pointer h-2 bg-slate-100 rounded-lg appearance-none"
+                />
+                <div className="relative h-9 mt-1">
+                  {[
+                    { val: 1000000,   label: '100만',   mobileHide: true  },
+                    { val: 5000000,   label: '500만',   mobileHide: false },
+                    { val: 10000000,  label: '1,000만', mobileHide: false },
+                    { val: 20000000,  label: '2,000만', mobileHide: true  },
+                    { val: 30000000,  label: '3,000만', mobileHide: false },
+                    { val: 50000000,  label: '5,000만', mobileHide: false },
+                    { val: 100000000, label: '1억',     mobileHide: false },
+                  ].map(({ val, label, mobileHide }, i, arr) => {
+                    const pct = ((val - 1000000) / (100000000 - 1000000)) * 100;
+                    const isFirst = i === 0;
+                    const isLast = i === arr.length - 1;
+                    const top = i % 2 === 0 ? '0px' : '16px';
+                    const transform = isFirst ? 'translateX(0)' : isLast ? 'translateX(-100%)' : 'translateX(-50%)';
+                    return (
+                      <span
+                        key={val}
+                        className={`absolute text-[11px] text-slate-400 font-extrabold cursor-pointer hover:text-miso-blue-600 transition whitespace-nowrap ${mobileHide ? 'hidden md:inline' : ''}`}
+                        style={{ left: `${pct}%`, top, transform }}
+                        onClick={() => setLoanAmount(val)}
+                      >
+                        {label}
+                      </span>
+                    );
+                  })}
+                </div>
+              </div>
+
+              {/* 실질 이자율 설정 (미소금융 정책이율 4.0 ~ 4.5%) */}
+              <div className="space-y-4 pt-6 pb-4">
+                <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center text-sm font-extrabold text-slate-800 gap-1">
+                  <label htmlFor="interest-rate" className="flex items-center gap-1">📈 연 이자율</label>
+                  <output htmlFor="interest-rate" className="text-miso-blue-600 font-black text-lg whitespace-nowrap">{interestRate.toFixed(1)}%</output>
+                </div>
+                <input
+                  id="interest-rate"
+                  type="range"
+                  min="2.0"
+                  max="4.5"
+                  step="0.5"
+                  value={interestRate}
+                  onChange={(e) => setInterestRate(Number(e.target.value))}
+                  aria-valuetext={`연 ${interestRate.toFixed(1)}퍼센트`}
+                  className="w-full accent-miso-blue-600 cursor-pointer h-2 bg-slate-100 rounded-lg appearance-none"
+                />
+                <div className="relative h-5 mt-1">
+                  {[
+                    { val: 2.0, label: '2.0%' },
+                    { val: 3.5, label: '3.5%' },
+                    { val: 4.5, label: '4.5%' },
+                  ].map(({ val, label }) => {
+                    const pct = ((val - 2.0) / (4.5 - 2.0)) * 100;
+                    return (
+                      <span
+                        key={val}
+                        className="absolute text-[11px] text-slate-400 font-semibold -translate-x-1/2"
+                        style={{ left: `${pct}%` }}
+                      >
+                        {label}
+                      </span>
+                    );
+                  })}
+                </div>
+                {/* 금리 안내 테이블 */}
+                <div className="grid grid-cols-4 gap-1.5 mt-2">
+                  <button onClick={() => setInterestRate(2.0)} className="bg-green-50 border border-green-200 rounded-xl p-2 text-center hover:bg-green-100 transition">
+                    <p className="text-green-700 font-black text-sm">2.0%</p>
+                    <p className="text-[10px] text-green-600 font-semibold leading-tight mt-0.5">무등록사업자<br/>500만원</p>
+                  </button>
+                  <button onClick={() => setInterestRate(3.5)} className="bg-blue-50 border border-blue-200 rounded-xl p-2 text-center hover:bg-blue-100 transition">
+                    <p className="text-blue-700 font-black text-sm">3.5%</p>
+                    <p className="text-[10px] text-blue-600 font-semibold leading-tight mt-0.5">성실상환시<br/>이자율 감면</p>
+                  </button>
+                  <button onClick={() => setInterestRate(4.5)} className="bg-teal-50 border border-teal-300 rounded-xl p-2 text-center hover:bg-teal-100 transition">
+                    <p className="text-teal-700 font-black text-sm">4.5%</p>
+                    <p className="text-[10px] text-teal-600 font-semibold leading-tight mt-0.5">기본<br/>적용금리</p>
+                  </button>
+                  <div className="bg-red-50 border border-red-200 rounded-xl p-2 text-center cursor-default" title="연체금리는 상환 설계 시뮬레이션에 반영되지 않는 안내용 정보입니다">
+                    <p className="text-red-600 font-black text-sm">5.5%</p>
+                    <p className="text-[10px] text-red-500 font-semibold leading-tight mt-0.5">연체 발생시<br/>적용금리(안내)</p>
+                  </div>
+                </div>
+                <p className="text-xs text-slate-500 leading-normal pt-1">
+                  ※ 연체가 장기화될 경우 최고 연 9%까지 연체이자율이 적용될 수 있습니다. (서민금융진흥원 고시 기준)
+                </p>
+              </div>
+
+              {/* 거치 기간 설정 (이자만 납부하는 유예기) */}
+              <div className="space-y-4 pt-6 pb-4">
+                <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center text-sm font-extrabold text-slate-800 gap-1">
+                  <label htmlFor="grace-period" className="flex items-center gap-1">⏳ 거치 유예기간 (이자만 납부)</label>
+                  <output htmlFor="grace-period" className="text-miso-blue-600 font-black text-lg whitespace-nowrap">{gracePeriod} 개월 {gracePeriod >= 12 && `(${Math.floor(gracePeriod / 12)}년)`}</output>
+                </div>
+
+                {/* 거치기간 적용금리는 상품별로 다름 */}
+                <div className="flex flex-wrap items-center gap-1.5 text-xs">
+                  <span className="text-slate-400 font-semibold mr-1">거치기간 적용상품:</span>
+                  {GRACE_RATE_OPTIONS.map((opt) => (
+                    <button
+                      key={opt.id}
+                      onClick={() => setGraceRateType(opt.id)}
+                      className={`px-2.5 py-1 rounded-full font-bold transition-all ${
+                        graceRateType === opt.id
+                          ? 'bg-miso-blue-600 text-white shadow'
+                          : 'bg-slate-100 text-slate-500 hover:bg-slate-200'
+                      }`}
+                    >
+                      {opt.label} {opt.rate.toFixed(1)}%
+                    </button>
+                  ))}
+                </div>
+                <input
+                  id="grace-period"
+                  type="range"
+                  min="0"
+                  max="72"
+                  step="6"
+                  value={gracePeriod}
+                  onChange={(e) => setGracePeriod(Number(e.target.value))}
+                  aria-valuetext={gracePeriod === 0 ? '거치기간 없음' : `${gracePeriod}개월${gracePeriod >= 12 ? `, ${Math.floor(gracePeriod / 12)}년` : ''}`}
+                  className="w-full accent-miso-blue-600 cursor-pointer h-2 bg-slate-100 rounded-lg appearance-none"
+                />
+                <div className="relative h-8 mt-1">
+                  {[
+                    { val: 0,  label: '0개월', mobileHide: false },
+                    { val: 6,  label: '6개월', mobileHide: false },
+                    { val: 12, label: '1년',   mobileHide: false },
+                    { val: 24, label: '2년',   mobileHide: false },
+                    { val: 36, label: '3년',   mobileHide: true  },
+                    { val: 48, label: '4년',   mobileHide: true  },
+                    { val: 60, label: '5년',   mobileHide: true  },
+                    { val: 72, label: '6년',   mobileHide: false },
+                  ].map(({ val, label, mobileHide }, i, arr) => {
+                    const pct = (val / 72) * 100;
+                    const isFirst = i === 0;
+                    const isLast = i === arr.length - 1;
+                    const top = i % 2 === 0 ? '0px' : '16px';
+                    const transform = isFirst ? 'translateX(0)' : isLast ? 'translateX(-100%)' : 'translateX(-50%)';
+                    return (
+                      <span
+                        key={val}
+                        className={`absolute text-[10px] text-slate-400 font-semibold cursor-pointer hover:text-miso-blue-600 transition whitespace-nowrap ${mobileHide ? 'hidden md:inline' : ''}`}
+                        style={{ left: `${pct}%`, top, transform }}
+                        onClick={() => setGracePeriod(val)}
+                      >
+                        {label}
+                      </span>
+                    );
+                  })}
+                </div>
+              </div>
+
+              {/* 원금 상환 기간 설정 */}
+              <div className="space-y-4 pt-6">
+                <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center text-sm font-extrabold text-slate-800 gap-1">
+                  <label htmlFor="repayment-period" className="flex items-center gap-1">📅 원금분할상환 기간 설정</label>
+                  <output htmlFor="repayment-period" className="text-miso-blue-600 font-black text-lg whitespace-nowrap">{repaymentPeriod} 개월 ({repaymentPeriod / 12}년)</output>
+                </div>
+                <input
+                  id="repayment-period"
+                  type="range"
+                  min="12" 
+                  max="60" 
+                  step="12"
+                  value={repaymentPeriod}
+                  onChange={(e) => setRepaymentPeriod(Number(e.target.value))}
+                  aria-valuetext={`${repaymentPeriod}개월, ${repaymentPeriod / 12}년`}
+                  className="w-full accent-miso-blue-600 cursor-pointer h-2 bg-slate-100 rounded-lg appearance-none"
+                />
+                <div className="relative h-8 mt-1">
+                  {[
+                    { val: 12, label: '1년' },
+                    { val: 24, label: '2년' },
+                    { val: 36, label: '3년' },
+                    { val: 48, label: '4년' },
+                    { val: 60, label: '5년' },
+                  ].map(({ val, label }, i, arr) => {
+                    const pct = ((val - 12) / (60 - 12)) * 100;
+                    const isLast = i === arr.length - 1;
+                    return (
+                      <span
+                        key={val}
+                        className="absolute text-[10px] text-slate-400 font-semibold cursor-pointer hover:text-miso-blue-600 transition whitespace-nowrap"
+                        style={{ left: `${pct}%`, transform: isLast ? 'translateX(-100%)' : 'translateX(-50%)' }}
+                        onClick={() => setRepaymentPeriod(val)}
+                      >
+                        {label}
+                      </span>
+                    );
+                  })}
+                </div>
+              </div>
+
+            </div>
+
+            {/* 우측 계산 결과 시각 패널 */}
+            <div className="lg:col-span-5 bg-slate-50 p-8 md:p-10 border-l border-slate-100 flex flex-col justify-between">
+              
+              <div className="space-y-6">
+                <h4 className="font-extrabold text-slate-900 text-[15px] pb-3 border-b border-slate-200">
+                  가상 설계 결과 (원리금균등 기본안)
+                </h4>
+
+                {/* 거치 기간 이자 */}
+                {gracePeriod > 0 && (
+                  <div className="flex flex-col sm:flex-row sm:justify-between sm:items-baseline text-sm gap-0.5">
+                    <span className="text-slate-500 font-medium">거치기간 중 매달 납부액(이자만):</span>
+                    <span className="font-black text-slate-800">{calcResult.gracePeriodMonthlyInterest.toLocaleString()} 원</span>
+                  </div>
+                )}
+
+                {/* 상환 기간 돌입 후 이자 */}
+                <div className="space-y-3 pt-2">
+                  <div className="flex flex-col sm:flex-row sm:justify-between sm:items-baseline text-sm gap-0.5">
+                    <span className="text-slate-500 font-medium">상환 첫 달 원금:</span>
+                    <span className="font-black text-slate-800">{calcResult.repaymentMonthlyPrincipal.toLocaleString()} 원</span>
+                  </div>
+                  <div className="flex flex-col sm:flex-row sm:justify-between sm:items-baseline text-sm gap-0.5">
+                    <span className="text-slate-500 font-medium mr-2 flex items-center">
+                      상환 첫 달 이자:
+                      <span className="inline-block relative group ml-1 text-slate-300 hover:text-slate-500 cursor-help pr-1 text-xs">
+                        ⓘ
+                        <span className="absolute bottom-full left-1/2 transform -translate-x-1/2 bg-black text-white text-[10px] p-2 rounded w-44 hidden group-hover:block z-20 font-medium leading-normal">
+                          원리금균등 방식은 매월 납부액(원금+이자)이 동일하며, 회차가 지날수록 원금 비중은 늘고 이자 비중은 줄어듭니다. 표시된 값은 첫 달 기준입니다.
+                        </span>
+                      </span>
+                    </span>
+                    <span className="font-black text-miso-blue-700">{calcResult.repaymentMonthlyInterest.toLocaleString()} 원</span>
+                  </div>
+                  <div className="h-0.5 border-t border-dashed border-slate-200 my-1" />
+                  <div className="flex flex-col sm:flex-row sm:justify-between sm:items-baseline text-base font-extrabold text-slate-900 gap-0.5">
+                    <span>매월 납입금 (원리금균등):</span>
+                    <span className="font-black text-miso-blue-600">월 {calcResult.repaymentTotalMonthly.toLocaleString()} 원</span>
+                  </div>
+                </div>
+
+                {/* 누적 통계 */}
+                <div className="bg-white p-4.5 rounded-2xl border border-slate-200 space-y-2.5">
+                  <div className="flex flex-col sm:flex-row sm:justify-between sm:items-baseline text-xs gap-0.5">
+                    <span className="text-slate-400 font-extrabold">원금과 이자 합산</span>
+                    <span className="text-slate-500 font-bold">총 납부 이자 : {calcResult.totalInterest.toLocaleString()}원</span>
+                  </div>
+                  <div className="flex flex-col sm:flex-row sm:justify-between sm:items-baseline text-sm font-extrabold text-slate-900 gap-0.5">
+                    <span>총 상환 예정액:</span>
+                    <span className="font-black text-slate-800">{calcResult.totalPayment.toLocaleString()} 원</span>
+                  </div>
+                </div>
+
+              </div>
+
+              {/* 매월 상환금 비주얼 바 데모 */}
+              <div className="pt-6 space-y-2 text-xs">
+                <span className="text-slate-400 font-bold block">월 상환 부담 한눈에 보기</span>
+                <div className="flex h-5 w-full bg-slate-200 rounded-lg overflow-hidden font-bold text-white text-[10px] text-center shrink-0">
+                  <div 
+                    style={{ width: `${(calcResult.repaymentMonthlyPrincipal / calcResult.repaymentTotalMonthly) * 100}%` }}
+                    className="bg-miso-blue-600 flex items-center justify-center"
+                    title="원금 분량"
+                  >
+                    원금 {Math.round((calcResult.repaymentMonthlyPrincipal / calcResult.repaymentTotalMonthly) * 100)}%
+                  </div>
+                  <div 
+                    style={{ width: `${(calcResult.repaymentMonthlyInterest / calcResult.repaymentTotalMonthly) * 100}%` }}
+                    className="bg-amber-500 flex items-center justify-center text-[9px]"
+                    title="평균 이자 분량"
+                  >
+                    이자
+                  </div>
+                </div>
+                <p className="text-xs text-slate-500 leading-normal pt-1 font-bold">
+                  ※ 시중 사채 연 20% 이용 시 이자 부담만 약 4배 가량 늘어납니다. 비영리 제도 자금의 낮은 금리를 충분히 활용해 보세요.
+                </p>
+                <a 
+                  href="tel:053-252-6408"
+                  className="w-full bg-miso-blue-600 hover:bg-miso-blue-700 text-white font-black py-4 rounded-xl text-center text-sm transition shadow mt-3 flex items-center justify-center"
+                >
+                  📞 위 설계 조건으로 전화 상담하기
+                </a>
+              </div>
+
+            </div>
+
+          </div>
+
+        </div></>}
 
       </div>
     </section>
