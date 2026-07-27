@@ -313,7 +313,7 @@ export default function Hero({ onScrollToSection }: HeroProps) {
               className={`relative rounded-2xl shadow-sm transition-colors duration-500 text-left group overflow-hidden min-w-0 ${
                 i === 0 ? 'order-2 md:order-4' : i === 1 ? 'order-1 md:order-3' : i === 2 ? 'order-3 md:order-1' : 'order-4 md:order-2'
               } ${
-                'bg-white/5 backdrop-blur-[2px]'
+                videoEnded ? 'bg-black/30 backdrop-blur-md' : 'bg-white/5 backdrop-blur-[2px]'
               } ${
                 card.action || card.href ? 'cursor-pointer' : ''
               } ${
