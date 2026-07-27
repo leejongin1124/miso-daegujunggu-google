@@ -127,7 +127,7 @@ export default function Hero({ onScrollToSection }: HeroProps) {
   const quickCards = [
     {
       icon: null,
-      title: '대표번호 즉시상담',
+      title: '전화 상담 문의',
       value: currentPhone.number,
       valueClass: 'text-lg md:text-3xl',
       desc: '평일 09시 ~ 18시 운영',
