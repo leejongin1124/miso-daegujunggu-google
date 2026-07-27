@@ -215,28 +215,28 @@ export default function AboutSection({ sectionId }: { sectionId?: string }) {
           <div className="lg:col-span-8 text-left space-y-6">
             <span className="text-xs font-black tracking-widest text-teal-600 uppercase">Ceo Greeting</span>
             <h3 className="text-2xl md:text-3xl font-extrabold text-slate-900 tracking-tight leading-snug">
-              &ldquo;대구 지역 소상공인의 든든한 버팀목이 되겠습니다.&rdquo;
+              &ldquo;영세자영업자의 든든한 버팀목이 되겠습니다.&rdquo;
             </h3>
             <div className="h-1 w-20 bg-teal-600 rounded-full" />
-            
+
             <div className="text-slate-600 text-base md:text-lg leading-relaxed space-y-4">
-              <p>안녕하십니까, <strong>(사)미소금융대구중구법인</strong> 대표 <strong>김석동</strong>입니다.</p>
               <p>
-                열심히 일하고 계시지만 은행 문턱이 높아 막막하셨던 소상공인·자영업자 여러분께 먼저 인사드립니다.
+                사단법인 미소금융 대구중구법인 홈페이지를 방문해주신 여러분께 진심으로 감사드립니다.
               </p>
               <p>
-                저희 법인은 금융위원회 허가를 받은 비영리 공익법인으로, <strong>서민금융진흥원의 미소금융 사업수행기관으로서</strong> 대구 지역 서민의 경제적 자립을 지원하고 있습니다. 담보나 보증 없이도 자활 의지를 바탕으로 이용하실 수 있도록, 전문 여신심사 위원이 직접 현장을 방문하여 여러분의 상황을 꼼꼼히 살피고 있습니다.
+                미소금융은 저소득·저신용으로 제도권 금융을 이용하기 어려운 금융취약계층의 자립을 도와주기 위해 만들어진 대표적 정책서민금융이며, 우리 법인은 금융위원회의 허가를 받아 설립된 비영리 공익법인 및 미소금융 사업수행기관으로서 금융의 사회안전망 역할을 수행하고 있습니다.
               </p>
               <p>
-                장기화되는 경기 침체 속에서도 묵묵히 내일을 준비하시는 여러분의 노력이 헛되지 않도록, 저희 법인은 막중한 책임감을 갖고 투명하고 성실하게 업무에 임하겠습니다.
+                따라서 금융사각지대에 놓인 노점상이나 영세자영업자 중심의 지원대상자를 적극 발굴하여 적기의 자금 지원과 더불어, 일시적 어려움으로 절박한 상황에 놓인 청년과 취약계층에게도 희망을 주는 포용적 금융을 실천하기 위해 노력하겠습니다.
               </p>
               <p className="font-semibold text-slate-800">
-                다시 일어서고자 하는 의지가 있으시다면, 언제든지 저희 법인의 문을 두드려 주십시오. 여러분의 새 출발에 함께하겠습니다.
+                또한 사회적기업이나 사회적협동조합에 대한 사회적금융의 확대를 통해 지역경제 활성화와 지속가능한 공동체 발전에도 동참하고, 나아가 구성원 모두가 금융기관에서 오랜 기간 쌓은 금융경력을 사회에 환원하는 봉사정신으로 미소금융 이용자와 따뜻한 동반자가 되는데 최선을 다하겠습니다.
               </p>
             </div>
 
             <p className="text-right text-slate-800 font-extrabold text-base pt-4 decoration-teal-600 decoration-2">
-              (사)미소금융대구중구법인 대표 <span className="text-teal-600 font-black text-lg">김 석 동</span>
+              사단법인 미소금융 대구중구법인<br />
+              대표 <span className="text-teal-600 font-black text-lg">김 석 동</span>
             </p>
           </div>
         </div>}
