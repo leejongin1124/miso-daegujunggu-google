@@ -7,6 +7,7 @@ import { useState, useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { motion } from 'motion/react';
 import { CheckCircle2, AlertTriangle, Calculator, FileText, Info, HelpCircle, CornerDownRight, Landmark, FileCheck, ChevronDown, ChevronRight } from 'lucide-react';
+import MisoIntroSection from './MisoIntroSection';
 
 const GUIDE_CATEGORIES = [
   { id: 'miso-intro', label: '미소금융이란', desc: '서민금융진흥원 미소금융 제도 소개', icon: Info, path: '/miso-intro' },
@@ -284,6 +285,9 @@ export default function GuideSection({ sectionId }: { sectionId?: string }) {
             ))}
           </div>
         )}
+
+        {/* 개요 화면에서는 1번 카테고리(미소금융이란) 내용을 최상단에 바로 노출 */}
+        {!sectionId && <MisoIntroSection />}
 
         {/* 대출 지원대상 및 제외대상 */}
         {show('loan-target') && <div id="loan-target" className="space-y-8">
