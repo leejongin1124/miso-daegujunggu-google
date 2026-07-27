@@ -263,7 +263,7 @@ export default function Hero({ onScrollToSection }: HeroProps) {
                 className="relative inline-block"
               >
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-teal-300 to-emerald-300">
-                  대구·경북 청년·영세자영업자·금융취약계층을 위한 서민금융 상담을 제공합니다.
+                  청년·영세자영업자·금융취약계층을 위한 서민금융 상담을 제공합니다.
                 </span>
                 {titlePhase >= 3 && (
                   <motion.span
