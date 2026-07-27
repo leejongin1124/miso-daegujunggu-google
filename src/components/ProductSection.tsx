@@ -42,7 +42,7 @@ export default function ProductSection({ onScrollToSection, onOpenCalculator, in
       step += 1;
       setActiveTab(order[idx]);
       setBlinkingTab(order[idx]);
-      if (step >= order.length * 2) {
+      if (step >= order.length) {
         clearInterval(interval);
         setBlinkingTab(null);
       }

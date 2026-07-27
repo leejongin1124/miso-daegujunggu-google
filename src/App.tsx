@@ -145,7 +145,7 @@ function ProductsRoute({ onScrollToSection, onOpenCalculator }: RouteProps) {
         onOpenCalculator={onOpenCalculator}
         initialTab={tab ?? 'social'}
         hideTabs={!!tab}
-        onTabChange={(nextTab) => navigate(`/products/${nextTab}`, { replace: true })}
+        onTabChange={(nextTab) => navigate(`/products/${nextTab}`)}
       />
     </SectionPageShell>
   );
