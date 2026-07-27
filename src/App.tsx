@@ -88,7 +88,7 @@ function LandingMeta() {
   return (
     <>
       <title>{SITE_NAME}</title>
-      <meta name="description" content="(사)미소금융대구중구법인은 서민금융진흥원 미소금융 사업수행기관으로, 대구·경북 지역 청년·소상공인·금융취약계층을 위한 무담보 정책자금 상담 및 대출을 지원합니다." />
+      <meta name="description" content="(사)미소금융대구중구법인은 서민금융진흥원 미소금융 사업수행기관으로, 대구·경북 지역 청년·영세자영업자·금융취약계층을 위한 무담보 정책자금 상담 및 대출을 지원합니다." />
       <link rel="canonical" href={SITE_URL} />
     </>
   );
@@ -103,10 +103,10 @@ function AboutRoute() {
     <SectionPageShell
       eyebrow="About Foundation"
       title="법인소개"
-      description={"금융위원회 허가 비영리 공익법인으로서\n대구·경북 서민과 소상공인의 자립을 지원합니다."}
+      description={"금융위원회 허가 비영리 공익법인으로서\n대구·경북 서민과 영세자영업자의 자립을 지원합니다."}
       bgImage="/backgrounds/about-bg.webp"
     >
-      <RouteMeta title="법인소개" description="금융위원회 허가 비영리 공익법인으로서 대구·경북 서민과 소상공인의 자립을 지원하는 미소금융대구중구법인을 소개합니다." path="/about" />
+      <RouteMeta title="법인소개" description="금융위원회 허가 비영리 공익법인으로서 대구·경북 서민과 영세자영업자의 자립을 지원하는 미소금융대구중구법인을 소개합니다." path="/about" />
       <AboutSection sectionId={sectionId} />
     </SectionPageShell>
   );

@@ -70,7 +70,7 @@ export default function Header({ activeTab, getSectionPath, prepareAnchor }: Hea
       label: '상담사례',
       sublinks: [
         { name: '사회연대 성공 수기', id: 'case-social', icon: Award, color: 'text-yellow-500' },
-        { name: '소상공인 대출 사례', id: 'case-business', icon: Store, color: 'text-indigo-500' },
+        { name: '영세자영업자 대출 사례', id: 'case-business', icon: Store, color: 'text-indigo-500' },
         { name: '청년 미래이음 사례', id: 'case-youth', icon: Zap, color: 'text-cyan-500' },
         { name: '생계 극복 스토리', id: 'case-vulnerable', icon: Heart, color: 'text-pink-500' }
       ]

@@ -31,7 +31,7 @@ interface HeroProps {
   onScrollToSection: (sectionId: string) => void;
 }
 
-const AUDIENCE = ['청년', '소상공인', '취약계층', '자영업자'];
+const AUDIENCE = ['청년', '영세자영업자', '취약계층'];
 
 const PHONES = [
   { number: '053-252-6408', color: 'text-rose-600', mdColor: 'text-white md:text-rose-600' },
@@ -268,7 +268,7 @@ export default function Hero({ onScrollToSection }: HeroProps) {
                 서민금융진흥원 미소금융 사업수행기관입니다.
               </p>
               <p className="text-white text-base md:text-lg font-semibold leading-relaxed drop-shadow">
-                대구·경북 청년·소상공인·금융취약계층을 위한<br className="md:hidden" />{' '}
+                대구·경북 청년·영세자영업자·금융취약계층을 위한<br className="md:hidden" />{' '}
                 서민금융 상담을 제공합니다.
               </p>
             </motion.div>

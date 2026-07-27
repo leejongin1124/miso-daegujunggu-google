@@ -78,7 +78,7 @@ export default function ProductSection({ onScrollToSection, onOpenCalculator, in
     {
       id: 'business',
       name: '사업자 운영자금',
-      subtitle: '실제 운영 3개월 이상 소상공인·개인 사업자 (무등록사업자 포함)',
+      subtitle: '실제 운영 3개월 이상 영세자영업자·개인 사업자 (무등록사업자 포함)',
       description: '성실히 사업을 이어오셨음에도 담보나 신용 요건이 부족해 은행 문턱을 넘기 어려운 자영업자분들을 위한 정책 운영자금입니다.',
       limit: '최대 2,000만원\n최대 3,000만원(청년사업가)',
       interestRate: '연 4.5%\n연 3.5%(우대금리 적용시)',
@@ -98,7 +98,7 @@ export default function ProductSection({ onScrollToSection, onOpenCalculator, in
       suitability: [
         '카드 매출 또는 통장 입출금 내역으로 매출을 확인할 수 있는 분',
         '고금리 대출을 저금리 정책자금으로 전환하고자 하는 분',
-        '분할 상환 의지가 있는 소상공인·개인 사업자 (법인기업 제외)'
+        '분할 상환 의지가 있는 영세자영업자·개인 사업자 (법인기업 제외)'
       ],
       effect: '고금리 대출 대신 저금리로 사업을 유지하면서,\n성실한 상환 이력을 쌓아가실 수 있습니다.',
       blogUrl: 'https://blog.naver.com/PostView.naver?blogId=eornwndrn1&logNo=224289610439&categoryNo=7&parentCategoryNo=7&from=thumbnailList'

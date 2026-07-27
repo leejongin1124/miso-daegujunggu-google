@@ -48,7 +48,7 @@ const cards = [
     borderHover: 'hover:border-orange-300 hover:shadow-orange-100',
     badge: '상담사례',
     title: '실제 수혜자\n후기',
-    desc: '대구 소상공인의 생생한 재기 스토리\n사회연대 · 사업자 · 청년 · 취약계층',
+    desc: '대구 영세자영업자의 생생한 재기 스토리\n사회연대 · 사업자 · 청년 · 취약계층',
     sectionId: 'case-social',
   },
   {

@@ -153,7 +153,7 @@ export default function CaseSection({ initialFilter, onFilterChange }: CaseSecti
                 : 'bg-white border border-slate-200 text-slate-600 hover:border-slate-300'
             }`}
           >
-            🏪 자영업 동네 소상공인 사례
+            🏪 동네 영세자영업자 사례
           </motion.button>
           <motion.button
             whileHover={{ scale: 1.05 }}
