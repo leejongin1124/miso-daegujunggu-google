@@ -245,14 +245,14 @@ export default function Hero({ onScrollToSection }: HeroProps) {
               </div>
             </motion.div>
 
-            <h1 className="text-2xl sm:text-3xl lg:text-5xl font-extrabold tracking-tight text-white leading-[1.3] space-y-1 overflow-hidden drop-shadow-lg">
+            <h1 className="text-lg sm:text-xl lg:text-3xl font-extrabold tracking-tight text-white leading-snug break-keep space-y-1 overflow-hidden drop-shadow-lg">
               {/* 1번: 좌→우 슬라이드 후 고정 */}
               <motion.div
                 initial={{ x: -80, opacity: 0 }}
                 animate={titlePhase >= 1 ? { x: 0, opacity: 1 } : { x: -80, opacity: 0 }}
                 transition={{ duration: 0.55, ease: 'easeOut' }}
               >
-                은행 문턱에 막히셨나요?
+                금융위원회 허가 비영리 공익법인이자 서민금융진흥원 미소금융 사업수행기관입니다.
               </motion.div>
 
               {/* 2번: 슬라이드 + 밑줄 애니메이션 */}
@@ -263,7 +263,7 @@ export default function Hero({ onScrollToSection }: HeroProps) {
                 className="relative inline-block"
               >
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-teal-300 to-emerald-300">
-                  여기, 또 다른 길이 있습니다.
+                  대구·경북 청년·영세자영업자·금융취약계층을 위한 서민금융 상담을 제공합니다.
                 </span>
                 {titlePhase >= 3 && (
                   <motion.span
@@ -275,22 +275,6 @@ export default function Hero({ onScrollToSection }: HeroProps) {
                 )}
               </motion.div>
             </h1>
-
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.5 }}
-              className="space-y-2"
-            >
-              <p className="text-white/70 text-sm md:text-base font-medium leading-relaxed drop-shadow">
-                금융위원회 허가 비영리 공익법인이자<br className="md:hidden" />{' '}
-                서민금융진흥원 미소금융 사업수행기관입니다.
-              </p>
-              <p className="text-white text-base md:text-lg font-semibold leading-relaxed drop-shadow">
-                대구·경북 청년·영세자영업자·금융취약계층을 위한<br className="md:hidden" />{' '}
-                서민금융 상담을 제공합니다.
-              </p>
-            </motion.div>
 
           </div>
         </div>
