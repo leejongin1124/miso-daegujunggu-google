@@ -582,9 +582,13 @@ export default function GuideSection({ sectionId }: { sectionId?: string }) {
         {show('loan-target') && <div id="loan-target" className="space-y-8">
 
           <div className="text-center space-y-3">
-            <span className="text-teal-600 font-bold text-sm tracking-widest uppercase">Eligibility</span>
-            <h3 className="text-2xl md:text-3xl font-extrabold text-slate-900 tracking-tight">대출 자격요건 안내</h3>
-            <p className="text-slate-500 text-sm">개인 및 개인사업자 중 아래 세 가지 요건 중 하나에 해당하면 상담이 가능합니다.</p>
+            <span className="text-teal-600 font-bold text-sm tracking-widest uppercase">Before You Apply</span>
+            <h3 className="text-2xl md:text-3xl font-extrabold text-slate-900 tracking-tight">신청 전 확인사항</h3>
+            <p className="text-slate-500 text-sm">개인 또는 개인사업자는 상담을 신청하기 전에 아래 기준을 먼저 확인해 주세요.</p>
+          </div>
+
+          <div className="bg-amber-50 border border-amber-200 rounded-2xl px-5 py-4 text-sm text-amber-800 font-semibold text-center">
+            아래 기준에 해당하더라도 대출이 자동으로 승인되는 것은 아닙니다. 지원 여부와 한도는 상담과 심사를 거쳐 결정됩니다.
           </div>
 
           {/* 지원대상 3가지 */}
@@ -598,12 +602,12 @@ export default function GuideSection({ sectionId }: { sectionId?: string }) {
               className="bg-teal-50 border border-teal-200 rounded-2xl p-6 space-y-3 hover:shadow-md transition-shadow"
             >
               <div className="w-9 h-9 bg-teal-600 text-white rounded-xl flex items-center justify-center font-black text-sm">1</div>
-              <h4 className="font-extrabold text-teal-800 text-base">신용평점 하위 20% 해당자</h4>
+              <h4 className="font-extrabold text-teal-800 text-base">신용평점 기준 확인</h4>
               <p className="text-slate-600 text-sm leading-relaxed">
-                신용정보회사의 개인신용평점이 하위 20%에 해당하는 고객<br />
+                개인신용평점이 서민금융 지원 기준에 해당하는지 확인합니다. 기준 점수는 매년 변경될 수 있습니다.<br />
                 <span className="font-bold text-teal-700">KCB 700점 이하 · NICE 749점 이하</span>
               </p>
-              <p className="text-xs text-slate-500 font-medium">※ 2026년 기준 컷오프 점수이며, 매년 갱신됩니다. 내 신용점수를 먼저 확인해 보세요 👇</p>
+              <p className="text-xs text-slate-500 font-medium">※ 표시된 신용평점은 기본 확인 기준이며, 실제 대출 여부를 의미하지 않습니다. 내 신용점수를 먼저 확인해 보세요 👇</p>
               <div className="flex flex-wrap gap-2 pt-1">
                 <motion.a
                   href="https://www.niceinfo.co.kr"
@@ -643,9 +647,9 @@ export default function GuideSection({ sectionId }: { sectionId?: string }) {
               className="bg-teal-50 border border-teal-200 rounded-2xl p-6 space-y-3 hover:shadow-md transition-shadow"
             >
               <div className="w-9 h-9 bg-teal-600 text-white rounded-xl flex items-center justify-center font-black text-sm">2</div>
-              <h4 className="font-extrabold text-teal-800 text-base">취약계층 해당자</h4>
+              <h4 className="font-extrabold text-teal-800 text-base">취약계층 기준 확인</h4>
               <p className="text-slate-600 text-sm leading-relaxed">
-                기초생활수급자 또는 차상위계층에 해당하는 취약계층 고객
+                기초생활수급자, 차상위계층 등 서민금융 지원 기준에서 정한 취약계층에 해당하는지 확인합니다.
               </p>
             </motion.div>
 
@@ -658,9 +662,9 @@ export default function GuideSection({ sectionId }: { sectionId?: string }) {
               className="bg-teal-50 border border-teal-200 rounded-2xl p-6 space-y-3 hover:shadow-md transition-shadow"
             >
               <div className="w-9 h-9 bg-teal-600 text-white rounded-xl flex items-center justify-center font-black text-sm">3</div>
-              <h4 className="font-extrabold text-teal-800 text-base">근로장려금 신청 자격 해당자</h4>
+              <h4 className="font-extrabold text-teal-800 text-base">근로장려금 신청자격 기준 확인</h4>
               <p className="text-slate-600 text-sm leading-relaxed">
-                근로장려금 신청 자격 요건에 해당하는 고객
+                근로장려금 신청자격 요건에 해당하는지 국세청 안내를 통해 확인합니다.
               </p>
               <p className="text-[10px] text-slate-400 font-medium">자격 해당 여부를 지금 바로 확인하세요 👇</p>
               <motion.a
@@ -683,7 +687,7 @@ export default function GuideSection({ sectionId }: { sectionId?: string }) {
           <div className="bg-slate-50 border border-slate-200 rounded-2xl p-6 space-y-4">
             <div className="flex items-center space-x-2">
               <AlertTriangle className="w-5 h-5 text-slate-500 flex-shrink-0" />
-              <h4 className="font-extrabold text-slate-700 text-base">대출 제외대상</h4>
+              <h4 className="font-extrabold text-slate-700 text-base">지원 제한대상</h4>
             </div>
             <p className="text-slate-500 text-xs font-semibold">다음의 경우에는 미소금융 대출 지원이 제한됩니다.</p>
             <ul className="space-y-2.5">
