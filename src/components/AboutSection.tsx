@@ -5,7 +5,7 @@
 
 import { motion } from 'motion/react';
 import { useState, useEffect } from 'react';
-import { Award, Briefcase, Calendar, MapPin, Bus, Train, Car, Phone, Share2, Printer, ExternalLink, FileText } from 'lucide-react';
+import { Award, Briefcase, Calendar, MapPin, Bus, Train, Car, Phone, Share2, Printer, ExternalLink, FileText, Copy, Check, ShieldCheck } from 'lucide-react';
 
 function useCountUp(target: number, duration: number, trigger: boolean) {
   const [count, setCount] = useState(0);
@@ -106,6 +106,13 @@ export default function AboutSection({ sectionId }: { sectionId?: string }) {
 
   const [financeStatsInView, setFinanceStatsInView] = useState(false);
   const financeYearCount = useCountUp(DISCLOSURES.length, 2200, financeStatsInView);
+  const [copiedField, setCopiedField] = useState<string | null>(null);
+  const handleCopy = (field: string, value: string) => {
+    navigator.clipboard?.writeText(value).then(() => {
+      setCopiedField(field);
+      setTimeout(() => setCopiedField(prev => (prev === field ? null : prev)), 1500);
+    });
+  };
 
   const [phoneIdx, setPhoneIdx] = useState(0);
   useEffect(() => {
@@ -610,30 +617,72 @@ export default function AboutSection({ sectionId }: { sectionId?: string }) {
               </div>
             </div>
 
-            <div className="flex flex-col items-center gap-2 text-center">
-              <a
-                href="https://hometax.go.kr/websquare/websquare.html?w2xPath=/ui/pp/index_pp.xml&tmIdx=44&tm2lIdx=4405000000&tm3lIdx=4405020000"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 bg-emerald-50 hover:bg-emerald-100 border border-emerald-200 text-emerald-700 font-bold text-xs sm:text-sm px-5 py-3 rounded-xl transition-colors whitespace-nowrap"
-              >
-                <ExternalLink className="w-4 h-4 shrink-0" />
-                국세청 공익법인 공시시스템 바로가기
-              </a>
-              <p className="text-slate-400 text-xs break-keep">
-                단체명 (사)미소금융대구중구법인,<br />
-                사업자번호 504-82-13565로 조회하실 수 있습니다.
-              </p>
-              <motion.p
+            <div className="bg-slate-50 border border-slate-200 rounded-2xl px-5 py-6 md:px-8 md:py-7 space-y-4">
+              <div className="flex flex-col items-center gap-3 text-center">
+                <a
+                  href="https://hometax.go.kr/websquare/websquare.html?w2xPath=/ui/pp/index_pp.xml&tmIdx=44&tm2lIdx=4405000000&tm3lIdx=4405020000"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 bg-emerald-50 hover:bg-emerald-100 border border-emerald-200 text-emerald-700 font-bold text-xs sm:text-sm px-5 py-3 rounded-xl transition-colors whitespace-nowrap"
+                >
+                  <ExternalLink className="w-4 h-4 shrink-0" />
+                  국세청 공익법인 공시시스템 바로가기
+                </a>
+
+                {/* 조회용 정보 복사 칩 */}
+                <div className="flex flex-wrap items-center justify-center gap-2">
+                  {[
+                    { field: 'name', label: '단체명', value: '(사)미소금융대구중구법인' },
+                    { field: 'bizno', label: '사업자번호', value: '504-82-13565' },
+                  ].map((item) => (
+                    <button
+                      key={item.field}
+                      type="button"
+                      onClick={() => handleCopy(item.field, item.value)}
+                      className="inline-flex items-center gap-1.5 bg-white border border-slate-200 hover:border-emerald-300 text-slate-600 hover:text-emerald-700 text-xs font-semibold pl-3 pr-2.5 py-1.5 rounded-full transition-colors"
+                    >
+                      <span className="text-slate-400">{item.label}</span>
+                      <span className="font-bold">{item.value}</span>
+                      {copiedField === item.field ? (
+                        <Check className="w-3.5 h-3.5 text-emerald-600" />
+                      ) : (
+                        <Copy className="w-3.5 h-3.5" />
+                      )}
+                    </button>
+                  ))}
+                </div>
+                <p className="text-slate-400 text-[11px] break-keep">칩을 누르면 클립보드에 복사됩니다. 국세청 조회 화면에 붙여넣어 확인하세요.</p>
+              </div>
+
+              {/* 16년 연속 공시 배지 */}
+              <motion.div
                 initial={{ opacity: 0, y: 10 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 onViewportEnter={() => setFinanceStatsInView(true)}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5 }}
-                className="text-teal-700 text-sm font-bold pt-1"
+                className="flex items-center justify-center gap-3 pt-2"
               >
-                {financeYearCount}년 연속 결산서류 공시 (2010년~2025년)
-              </motion.p>
+                <div className="relative w-14 h-14 shrink-0">
+                  <motion.div
+                    animate={{ rotate: 360 }}
+                    transition={{ duration: 6, repeat: Infinity, ease: 'linear' }}
+                    className="absolute inset-0 rounded-full"
+                    style={{ background: 'conic-gradient(from 0deg, #0d9488, #34d399, #0d9488)' }}
+                  />
+                  <div className="absolute inset-[3px] rounded-full bg-white flex flex-col items-center justify-center">
+                    <span className="text-teal-700 font-black text-lg leading-none tabular-nums">{financeYearCount}</span>
+                    <span className="text-teal-600 text-[9px] font-bold leading-none mt-0.5">YEARS</span>
+                  </div>
+                </div>
+                <div className="text-left">
+                  <p className="flex items-center gap-1 text-teal-700 text-sm font-bold">
+                    <ShieldCheck className="w-4 h-4 shrink-0" />
+                    {financeYearCount}년 연속 결산서류 공시
+                  </p>
+                  <p className="text-slate-400 text-xs">2010년 ~ 2025년, 빠짐없이 투명하게 공개</p>
+                </div>
+              </motion.div>
             </div>
 
             {/* PC 타임라인 (md 이상) */}
@@ -659,14 +708,17 @@ export default function AboutSection({ sectionId }: { sectionId?: string }) {
                           <span className="font-semibold text-slate-700 text-sm truncate">재무상태표 및 손익계산서</span>
                         </span>
                         {d.file ? (
-                          <a
+                          <motion.a
                             href={d.file}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="shrink-0 text-xs font-bold text-emerald-600 hover:text-emerald-700 underline underline-offset-2"
+                            whileHover={{ y: -2, scale: 1.05 }}
+                            whileTap={{ scale: 0.95 }}
+                            className="shrink-0 inline-flex items-center gap-1 bg-emerald-50 hover:bg-emerald-100 text-emerald-700 text-xs font-bold px-2.5 py-1 rounded-lg transition-colors"
                           >
+                            <FileText className="w-3.5 h-3.5" />
                             PDF 보기
-                          </a>
+                          </motion.a>
                         ) : (
                           <span className="shrink-0 text-xs font-semibold text-slate-300">등록 예정</span>
                         )}
@@ -696,14 +748,17 @@ export default function AboutSection({ sectionId }: { sectionId?: string }) {
                         <FileText className="w-3.5 h-3.5 text-emerald-500 shrink-0" />
                       </span>
                       {d.file ? (
-                        <a
+                        <motion.a
                           href={d.file}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="shrink-0 text-xs font-bold text-emerald-600 hover:text-emerald-700 underline underline-offset-2"
+                          whileHover={{ y: -2, scale: 1.05 }}
+                          whileTap={{ scale: 0.95 }}
+                          className="shrink-0 inline-flex items-center gap-1 bg-emerald-50 hover:bg-emerald-100 text-emerald-700 text-xs font-bold px-2.5 py-1 rounded-lg transition-colors"
                         >
+                          <FileText className="w-3.5 h-3.5" />
                           PDF 보기
-                        </a>
+                        </motion.a>
                       ) : (
                         <span className="shrink-0 text-xs font-semibold text-slate-300">등록 예정</span>
                       )}
