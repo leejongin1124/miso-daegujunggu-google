@@ -113,7 +113,6 @@ export default function AboutSection({ sectionId }: { sectionId?: string }) {
     !sectionId || (Array.isArray(ids) ? ids.includes(sectionId) : sectionId === ids);
 
   const [financeStatsInView, setFinanceStatsInView] = useState(false);
-  const [historyFilter, setHistoryFilter] = useState<'전체' | HistoryCategory>('전체');
   const financeYearCount = useCountUp(DISCLOSURES.length, 2200, financeStatsInView);
   const [copiedField, setCopiedField] = useState<string | null>(null);
   const handleCopy = (field: string, value: string) => {
@@ -150,14 +149,6 @@ export default function AboutSection({ sectionId }: { sectionId?: string }) {
     impact?: string;
     newsUrl?: string;
   }
-
-  const HISTORY_CATEGORY_STYLE: Record<HistoryCategory, string> = {
-    설립: 'bg-slate-100 text-slate-600',
-    협약: 'bg-sky-50 text-sky-700',
-    수상: 'bg-amber-50 text-amber-700',
-    지원성과: 'bg-emerald-50 text-emerald-700',
-    기관운영: 'bg-slate-50 text-slate-500',
-  };
 
   // 매년 신규 연혁을 추가하고, 과거 누락 연도(2011·2014·2016·2017·2020·2021·2024)는
   // 자료 확인 후 순차적으로 채워나갈 예정 — 없는 연도는 목록에서 자연스럽게 생략됨
@@ -229,8 +220,6 @@ export default function AboutSection({ sectionId }: { sectionId?: string }) {
       ]
     }
   ];
-
-  const HISTORY_CATEGORIES: HistoryCategory[] = ['설립', '협약', '수상', '지원성과', '기관운영'];
 
   return (
     <>
@@ -450,32 +439,11 @@ export default function AboutSection({ sectionId }: { sectionId?: string }) {
             </p>
           </div>
 
-          {/* 연혁 유형 필터 */}
-          <div className="flex flex-wrap items-center justify-center gap-2">
-            {(['전체', ...HISTORY_CATEGORIES] as const).map((cat) => (
-              <button
-                key={cat}
-                type="button"
-                onClick={() => setHistoryFilter(cat)}
-                className={`text-xs font-bold px-3.5 py-1.5 rounded-full border transition-colors ${
-                  historyFilter === cat
-                    ? 'bg-teal-600 border-teal-600 text-white'
-                    : 'bg-white border-slate-200 text-slate-500 hover:border-teal-300 hover:text-teal-700'
-                }`}
-              >
-                {cat}
-              </button>
-            ))}
-          </div>
-
           {/* PC 레이아웃 (md 이상) */}
           <div className="hidden md:block overflow-x-auto pb-4">
             <div style={{ minWidth: '680px' }}>
               <div className="relative border-l-2 border-slate-200 ml-48 py-4">
-                {historyData
-                  .map((milestone) => ({ ...milestone, items: milestone.items.filter(i => historyFilter === '전체' || i.category === historyFilter) }))
-                  .filter(milestone => milestone.items.length > 0)
-                  .map((milestone, idx) => (
+                {historyData.map((milestone, idx) => (
                   <motion.div
                     key={milestone.year}
                     initial={{ opacity: 0, x: -16 }}
@@ -494,12 +462,9 @@ export default function AboutSection({ sectionId }: { sectionId?: string }) {
                           <li key={id} className={`flex items-start space-x-3 text-left ${item.status === 'planned' ? 'opacity-70' : ''}`}>
                             <span className="text-xs font-bold text-slate-400 font-mono tracking-wider w-14 pt-1 flex-shrink-0">{item.date}</span>
                             <div className="flex-1 font-medium text-slate-700 space-y-1">
-                              <span className="inline-flex flex-wrap items-center gap-2">
-                                <span className={`text-[10px] font-bold px-2 py-0.5 rounded-full ${HISTORY_CATEGORY_STYLE[item.category]}`}>{item.category}</span>
-                                {item.status === 'planned' && (
-                                  <span className="text-[10px] font-bold px-2 py-0.5 rounded-full border border-dashed border-slate-300 text-slate-400">예정</span>
-                                )}
-                              </span>
+                              {item.status === 'planned' && (
+                                <span className="inline-block text-[10px] font-bold px-2 py-0.5 rounded-full border border-dashed border-slate-300 text-slate-400">예정</span>
+                              )}
                               <div>
                                 {item.emphasis ? (
                                   <span className="inline-flex flex-wrap items-center gap-2">
@@ -531,10 +496,7 @@ export default function AboutSection({ sectionId }: { sectionId?: string }) {
 
           {/* 모바일 레이아웃 (md 미만) — 연도가 카드 상단에 표시, 세로 타임라인 */}
           <div className="md:hidden relative border-l-2 border-slate-200 ml-4 py-2">
-            {historyData
-              .map((milestone) => ({ ...milestone, items: milestone.items.filter(i => historyFilter === '전체' || i.category === historyFilter) }))
-              .filter(milestone => milestone.items.length > 0)
-              .map((milestone, idx) => (
+            {historyData.map((milestone, idx) => (
               <motion.div
                 key={milestone.year}
                 initial={{ opacity: 0, y: 12 }}
@@ -555,7 +517,6 @@ export default function AboutSection({ sectionId }: { sectionId?: string }) {
                       <li key={id} className={`text-left ${item.status === 'planned' ? 'opacity-70' : ''}`}>
                         <div className="flex items-center gap-1.5 mb-1 flex-wrap">
                           <span className="text-[11px] font-bold text-slate-400 font-mono">{item.date}</span>
-                          <span className={`text-[9px] font-bold px-1.5 py-0.5 rounded-full ${HISTORY_CATEGORY_STYLE[item.category]}`}>{item.category}</span>
                           {item.status === 'planned' && (
                             <span className="text-[9px] font-bold px-1.5 py-0.5 rounded-full border border-dashed border-slate-300 text-slate-400">예정</span>
                           )}
