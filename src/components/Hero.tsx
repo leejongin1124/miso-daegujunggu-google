@@ -3,8 +3,8 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-import { motion, useAnimation, AnimatePresence } from 'motion/react';
-import { useState, useEffect, useRef, useMemo, type ReactNode } from 'react';
+import { motion, useAnimation } from 'motion/react';
+import { useState, useEffect, useRef, type ReactNode } from 'react';
 import { Link } from 'react-router-dom';
 import { Phone, ArrowRight, Users, Banknote, MapPin, RotateCcw, Landmark, ClipboardList } from 'lucide-react';
 
@@ -36,17 +36,65 @@ interface HeroProps {
 
 const AUDIENCE = ['청년', '영세자영업자', '취약계층'];
 
-const PHONES = [
-  { number: '053-252-6408', color: 'text-rose-600', mdColor: 'text-white md:text-rose-600' },
-  { number: '053-252-6409', color: 'text-indigo-600', mdColor: 'text-white md:text-indigo-600' },
-  { number: '053-252-6479', color: 'text-teal-600', mdColor: 'text-white md:text-teal-600' },
-  { number: '053-252-6480', color: 'text-amber-600', mdColor: 'text-white md:text-amber-600' },
-];
+const PHONE_NUMBER = '053-252-6408';
+
+// 카드 슬롯 공통 껍데기. 슬롯 자체는 항상 마운트된 채로 유지되고,
+// 슬롯 안의 콘텐츠(icon/title/value/desc/링크)만 부모에서 바꿔 끼운다.
+// → 카드가 배열에서 추가/삭제되는 구조가 아니므로 AnimatePresence의
+//   mount/unmount(=등장/퇴장) 자체가 발생하지 않는다.
+interface CardContent {
+  icon: ReactNode;
+  title: string;
+  value: string;
+  valueClass?: string;
+  desc: string;
+  href?: string;
+  to?: string;
+  action?: () => void;
+  pulseControls?: ReturnType<typeof useAnimation>;
+}
+
+function CardSlot({ content, darkBg }: { content: CardContent; darkBg: boolean }) {
+  const Tag = content.to ? MotionLink : content.href ? motion.a : motion.div;
+  const clickable = !!(content.action || content.href || content.to);
+  return (
+    <Tag
+      {...(content.to ? { to: content.to } : {})}
+      {...(content.href ? { href: content.href } : {})}
+      onClick={content.action}
+      initial={{ opacity: 0, y: 30, scale: 0.95 }}
+      whileInView={{ opacity: 1, y: 0, scale: 1 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.5, type: 'spring', stiffness: 200, damping: 18 }}
+      className={`relative rounded-2xl shadow-sm transition-colors duration-500 text-left group overflow-hidden min-w-0 border border-white/30 hover:border-teal-200 hover:shadow-md ${
+        darkBg ? 'bg-black/30 backdrop-blur-md' : 'bg-white/5 backdrop-blur-[2px]'
+      } ${clickable ? 'cursor-pointer' : ''}`}
+    >
+      <div className="p-2 min-[360px]:p-3 md:p-6 relative z-10 min-w-0">
+        <div className="flex justify-between items-start">
+          <div className="p-2 md:p-3 rounded-xl transition-all shadow-inner bg-white/10 group-hover:bg-white/20">
+            {content.icon}
+          </div>
+          {clickable && <ArrowRight className="w-4 h-4 transition-colors text-white/70 shrink-0" />}
+        </div>
+        <h3 className="text-[10px] md:text-xs font-bold uppercase tracking-wider mt-3 md:mt-5 text-white/80 truncate">
+          {content.title}
+        </h3>
+        <motion.p
+          className={`font-extrabold mt-1 tracking-tight text-white drop-shadow truncate ${content.valueClass ?? 'text-lg md:text-3xl'}`}
+          animate={content.pulseControls}
+        >
+          {content.value}
+        </motion.p>
+        <p className="text-[10px] md:text-xs mt-1 font-semibold text-white/70 truncate">{content.desc}</p>
+      </div>
+    </Tag>
+  );
+}
 
 export default function Hero({ onScrollToSection }: HeroProps) {
   // 부모(App)가 onScrollToSection을 useCallback 없이 매 렌더 새로 생성해
-  // 전달하므로, ref로 최신 함수만 보관해 카드 메모이제이션이 부모 리렌더에
-  // 영향받지 않도록 분리한다.
+  // 전달하므로, ref로 최신 함수만 보관해 리렌더에 영향받지 않도록 분리한다.
   const onScrollToSectionRef = useRef(onScrollToSection);
   useEffect(() => {
     onScrollToSectionRef.current = onScrollToSection;
@@ -54,12 +102,14 @@ export default function Hero({ onScrollToSection }: HeroProps) {
 
   const [audienceIdx, setAudienceIdx] = useState(0);
   const [statsInView, setStatsInView] = useState(false);
-  const statsRef = useRef<HTMLDivElement>(null);
   const videoRef = useRef<HTMLVideoElement>(null);
   const [videoPlaying, setVideoPlaying] = useState(false);
   const [videoEnded, setVideoEnded] = useState(false);
-  // 5·6번(상품안내·신청안내) 카드는 동영상 재생 상태와 무관하게, 3·4번 숫자
-  // 카운팅 애니메이션이 모두 끝난 뒤 3초 뒤에 표시
+
+  // 5·6번(상품별 조건 확인 / 신청 절차 확인) 카드는 동영상 재생 시간과
+  // 무관하게, 3·4번(누적 대출 건수/금액) 숫자 카운팅이 끝나면 그 자리에
+  // 바로 표시된다. 한 번 true가 되면 다시 false로 되돌리는 코드는
+  // 어디에도 없다(리렌더 시 재계산되지 않는 단순 불리언 상태).
   const [showNavCards, setShowNavCards] = useState(false);
 
   useEffect(() => {
@@ -79,32 +129,32 @@ export default function Hero({ onScrollToSection }: HeroProps) {
   const { count: countPeople, done: peopleDone } = useCountUp(6300, 1200, statsInView);
   const { count: countMoney, done: moneyDone } = useCountUp(600, 1200, statsInView);
 
+  useEffect(() => {
+    if (peopleDone && moneyDone) {
+      setShowNavCards(true);
+    }
+  }, [peopleDone, moneyDone]);
+
   const peopleAnim = useAnimation();
   const moneyAnim = useAnimation();
 
-  const CARD_POP_KEYFRAMES = {
-    scale: [1, 1.5, 0.9, 1.25, 0.95, 1.1, 1],
-    x: [0, 18, -4, 10, -2, 5, 0],
-    transition: { duration: 0.8, ease: 'easeInOut' as const }
-  };
-
   useEffect(() => {
     if (peopleDone) {
-      peopleAnim.start(CARD_POP_KEYFRAMES);
+      peopleAnim.start({
+        scale: [1, 1.5, 0.9, 1.25, 0.95, 1.1, 1],
+        x: [0, 18, -4, 10, -2, 5, 0],
+        transition: { duration: 0.8, ease: 'easeInOut' as const }
+      });
     }
   }, [peopleDone]);
 
-  // 3·4번 숫자 카운팅 + 팝 애니메이션(0.8초)이 모두 끝난 뒤 3초 뒤에 5·6번 카드 표시.
-  // 5·6번은 등장 후 별도의 반복/마무리 애니메이션 없이 정적으로 유지된다.
-  useEffect(() => {
-    if (!(peopleDone && moneyDone)) return;
-    const timer = setTimeout(() => setShowNavCards(true), 3000);
-    return () => clearTimeout(timer);
-  }, [peopleDone, moneyDone]);
-
   useEffect(() => {
     if (moneyDone) {
-      moneyAnim.start(CARD_POP_KEYFRAMES);
+      moneyAnim.start({
+        scale: [1, 1.5, 0.9, 1.25, 0.95, 1.1, 1],
+        x: [0, 18, -4, 10, -2, 5, 0],
+        transition: { duration: 0.8, ease: 'easeInOut' as const }
+      });
     }
   }, [moneyDone]);
 
@@ -117,102 +167,73 @@ export default function Hero({ onScrollToSection }: HeroProps) {
     return () => { clearTimeout(t1); clearTimeout(t2); clearTimeout(t3); };
   }, []);
 
-  const currentPhone = PHONES[0];
-
-  const phoneIconColors: Record<string, string> = {
-    'text-rose-600': 'text-rose-600',
-    'text-indigo-600': 'text-indigo-600',
-    'text-teal-600': 'text-teal-600',
-    'text-amber-600': 'text-amber-600',
-  };
-  const phoneBgColors: Record<string, string> = {
-    'text-rose-600': 'bg-rose-50',
-    'text-indigo-600': 'bg-indigo-50',
-    'text-teal-600': 'bg-teal-50',
-    'text-amber-600': 'bg-amber-50',
-  };
-  type QuickCard = {
-    id: string;
-    icon: ReactNode;
-    title: string;
-    value: string;
-    valueClass: string;
-    desc: string;
-    href?: string;
-    to?: string;
-    action?: () => void;
+  // 카드 정의 (사용자 지정 번호)
+  // 1: 법인 방문 오시는 길, 2: 전화 상담 문의, 3: 누적 대출 건수,
+  // 4: 누적 대출 금액, 5: 상품별 조건 확인, 6: 신청 절차 확인
+  const card1Location: CardContent = {
+    icon: <MapPin className="w-6 h-6 text-rose-600" />,
+    title: '법인 방문 오시는 길',
+    value: '하나은행 봉덕지점 4층',
+    valueClass: 'text-sm md:text-xl whitespace-nowrap',
+    desc: '대구 남구 중앙대로 146',
+    action: () => onScrollToSectionRef.current('location')
   };
 
-  // 카드 배열/아이콘 엘리먼트를 매 렌더마다 새로 만들지 않도록 메모이즈.
-  // (audienceIdx 등 카드와 무관한 2초 간격 타이머로 인한 재렌더 시,
-  //  카드에 매번 새 객체/엘리먼트가 전달되어 프레이머 모션이 미세하게
-  //  재애니메이션되는 것을 방지 — 실제 관찰된 "번쩍임"의 원인)
-  const statsCards: QuickCard[] = useMemo(() => [
-    {
-      id: 'stats-count',
-      icon: <Users className="w-6 h-6 text-emerald-600" />,
-      title: '누적 대출 건수',
-      value: statsInView ? `${countPeople.toLocaleString()} 건` : '0 건',
-      valueClass: 'text-[clamp(1rem,4.5vw,1.125rem)] md:text-3xl tabular-nums whitespace-nowrap',
-      desc: '2026년 누적 기준'
-    },
-    {
-      id: 'stats-amount',
-      icon: (
-        <div className="relative inline-flex items-center justify-center">
-          <Banknote className="w-6 h-6 text-indigo-600" />
-          <span className="absolute -top-1.5 -right-2 text-[9px] font-black bg-indigo-600 text-white rounded-full px-1 leading-tight">₩</span>
-        </div>
-      ),
-      title: '누적 대출 금액',
-      value: statsInView ? `${countMoney}억 원 돌파` : '0억 원 돌파',
-      valueClass: 'text-[clamp(1rem,4.5vw,1.125rem)] md:text-3xl tabular-nums whitespace-nowrap',
-      desc: '2026년 누적 기준'
-    }
-  ], [statsInView, countPeople, countMoney]);
+  const card2Call: CardContent = {
+    icon: <Phone className="w-6 h-6 text-rose-600" />,
+    title: '전화 상담 문의',
+    value: PHONE_NUMBER,
+    valueClass: 'text-lg md:text-3xl tabular-nums',
+    desc: '평일 09시 ~ 18시 운영',
+    href: `tel:${PHONE_NUMBER}`
+  };
 
-  const navCards: QuickCard[] = useMemo(() => [
-    {
-      id: 'products',
-      icon: <Landmark className="w-6 h-6 text-indigo-600" />,
-      title: '대출상품 안내',
-      value: '상품별 조건 확인',
-      valueClass: 'text-sm md:text-2xl whitespace-nowrap',
-      desc: '상품 비교 후 신청 가능',
-      to: '/products'
-    },
-    {
-      id: 'apply',
-      icon: <ClipboardList className="w-6 h-6 text-emerald-600" />,
-      title: '신청안내',
-      value: '신청 절차 확인',
-      valueClass: 'text-sm md:text-2xl whitespace-nowrap',
-      desc: '상담부터 결과 안내까지',
-      to: '/guide'
-    }
-  ], []);
+  const card3StatsCount: CardContent = {
+    icon: <Users className="w-6 h-6 text-emerald-600" />,
+    title: '누적 대출 건수',
+    value: statsInView ? `${countPeople.toLocaleString()} 건` : '0 건',
+    valueClass: 'text-[clamp(1rem,4.5vw,1.125rem)] md:text-3xl tabular-nums whitespace-nowrap',
+    desc: '2026년 누적 기준',
+    pulseControls: peopleAnim
+  };
 
-  const quickCards: QuickCard[] = useMemo(() => [
-    {
-      id: 'call',
-      icon: null,
-      title: '전화 상담 문의',
-      value: currentPhone.number,
-      valueClass: 'text-lg md:text-3xl',
-      desc: '평일 09시 ~ 18시 운영',
-      href: `tel:${currentPhone.number}`
-    },
-    {
-      id: 'location',
-      icon: <MapPin className="w-6 h-6 text-rose-600" />,
-      title: '법인 방문 오시는 길',
-      value: '하나은행 봉덕지점 4층',
-      valueClass: 'text-sm md:text-xl whitespace-nowrap',
-      desc: '대구 남구 중앙대로 146',
-      action: () => onScrollToSectionRef.current('location')
-    },
-    ...(showNavCards ? navCards : statsCards)
-  ], [showNavCards, navCards, statsCards]);
+  const card4StatsAmount: CardContent = {
+    icon: (
+      <div className="relative inline-flex items-center justify-center">
+        <Banknote className="w-6 h-6 text-indigo-600" />
+        <span className="absolute -top-1.5 -right-2 text-[9px] font-black bg-indigo-600 text-white rounded-full px-1 leading-tight">₩</span>
+      </div>
+    ),
+    title: '누적 대출 금액',
+    value: statsInView ? `${countMoney}억 원 돌파` : '0억 원 돌파',
+    valueClass: 'text-[clamp(1rem,4.5vw,1.125rem)] md:text-3xl tabular-nums whitespace-nowrap',
+    desc: '2026년 누적 기준',
+    pulseControls: moneyAnim
+  };
+
+  const card5Products: CardContent = {
+    icon: <Landmark className="w-6 h-6 text-indigo-600" />,
+    title: '대출상품 안내',
+    value: '상품별 조건 확인',
+    valueClass: 'text-sm md:text-2xl whitespace-nowrap',
+    desc: '상품 비교 후 신청 가능',
+    to: '/products'
+  };
+
+  const card6Apply: CardContent = {
+    icon: <ClipboardList className="w-6 h-6 text-emerald-600" />,
+    title: '신청안내',
+    value: '신청 절차 확인',
+    valueClass: 'text-sm md:text-2xl whitespace-nowrap',
+    desc: '상담부터 결과 안내까지',
+    to: '/guide'
+  };
+
+  // 세 번째·네 번째 슬롯의 내용만 showNavCards에 따라 바뀐다.
+  // 슬롯(껍데기) 자체는 항상 같은 위치에 마운트되어 있으므로 등장/퇴장
+  // 애니메이션이 반복될 여지가 없다.
+  const slot3 = showNavCards ? card5Products : card3StatsCount;
+  const slot4 = showNavCards ? card6Apply : card4StatsAmount;
 
   return (
     <section
@@ -277,7 +298,7 @@ export default function Hero({ onScrollToSection }: HeroProps) {
               transition={{ duration: 0.5 }}
               className="flex items-center justify-start gap-2"
             >
-<div className="relative h-7 overflow-hidden">
+              <div className="relative h-7 overflow-hidden">
                 {AUDIENCE.map((label, i) => (
                   <motion.span
                     key={label}
@@ -330,66 +351,12 @@ export default function Hero({ onScrollToSection }: HeroProps) {
           </div>
         </div>
 
-        {/* 4종 퀵 카드 — 동영상 섹션 하단 */}
-        <div ref={statsRef} className="grid grid-cols-2 lg:grid-cols-4 gap-2 md:gap-4 pb-4 md:pb-8">
-          <AnimatePresence mode="popLayout">
-          {quickCards.map((card, i) => {
-            const CardTag = card.to ? MotionLink : card.href ? motion.a : motion.div;
-            return (
-            <CardTag
-              key={card.id}
-              {...(card.to ? { to: card.to } : {})}
-              {...(card.href ? { href: card.href } : {})}
-              initial={{ opacity: 0, y: 30, scale: 0.95 }}
-              whileInView={{ opacity: 1, y: 0, scale: 1 }}
-              exit={{ opacity: 0, y: -10, scale: 0.95 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: i * 0.12, type: 'spring', stiffness: 200, damping: 18 }}
-              onClick={card.action}
-              className={`relative rounded-2xl shadow-sm transition-colors duration-500 text-left group overflow-hidden min-w-0 ${
-                i === 0 ? 'order-2 md:order-4' : i === 1 ? 'order-1 md:order-3' : i === 2 ? 'order-3 md:order-1' : 'order-4 md:order-2'
-              } ${
-                videoEnded ? 'bg-black/30 backdrop-blur-md' : 'bg-white/5 backdrop-blur-[2px]'
-              } ${
-                card.action || card.href ? 'cursor-pointer' : ''
-              } border border-white/30 hover:border-teal-200 hover:shadow-md`}
-            >
-              <div className="p-2 min-[360px]:p-3 md:p-6 relative z-10 min-w-0">
-                <div className="flex justify-between items-start">
-                  {i === 0 ? (
-                    <div className="relative">
-                      <div className={`p-2 md:p-3 rounded-xl shadow-inner relative z-10 ${phoneBgColors[currentPhone.color]}`}>
-                        <Phone className={`w-6 h-6 ${phoneIconColors[currentPhone.color]}`} />
-                      </div>
-                    </div>
-                  ) : (
-                  <div className="p-2 md:p-3 rounded-xl transition-all shadow-inner bg-white/10 group-hover:bg-white/20">
-                    {card.icon}
-                  </div>
-                  )}
-                  {(card.action || card.href || card.to) && (
-                    <ArrowRight className="w-4 h-4 transition-colors text-white/70 shrink-0" />
-                  )}
-                </div>
-                <h3 className="text-[10px] md:text-xs font-bold uppercase tracking-wider mt-3 md:mt-5 text-white/80 truncate">{card.title}</h3>
-                {i === 0 ? (
-                  <div className="relative h-7 md:h-10 overflow-hidden mt-1">
-                    <p className="absolute inset-0 flex items-center font-extrabold text-[clamp(0.72rem,4.8vw,1.125rem)] md:text-3xl tracking-tight drop-shadow text-white whitespace-nowrap tabular-nums">
-                      {currentPhone.number}
-                    </p>
-                  </div>
-                ) : (
-                  <motion.p
-                    className={`font-extrabold mt-1 tracking-tight text-white drop-shadow truncate ${card.valueClass ?? 'text-lg md:text-3xl'}`}
-                    animate={card.id === 'stats-count' ? peopleAnim : card.id === 'stats-amount' ? moneyAnim : undefined}
-                  >{card.value}</motion.p>
-                )}
-                <p className="text-[10px] md:text-xs mt-1 font-semibold text-white/70 truncate">{card.desc}</p>
-              </div>
-            </CardTag>
-            );
-          })}
-          </AnimatePresence>
+        {/* 6종 퀵 카드 — 3·4번 슬롯은 항상 마운트된 채로 내용만 전환된다 */}
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-2 md:gap-4 pb-4 md:pb-8">
+          <CardSlot content={card1Location} darkBg={videoEnded} />
+          <CardSlot content={card2Call} darkBg={videoEnded} />
+          <CardSlot content={slot3} darkBg={videoEnded} />
+          <CardSlot content={slot4} darkBg={videoEnded} />
         </div>
 
       </div>
