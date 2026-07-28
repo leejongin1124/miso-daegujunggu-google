@@ -5,10 +5,8 @@
 
 import { motion, useAnimation } from 'motion/react';
 import { useState, useEffect, useRef, type ReactNode } from 'react';
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { Phone, ArrowRight, Users, Banknote, MapPin, RotateCcw, Landmark, ClipboardList } from 'lucide-react';
-
-const MotionLink = motion(Link);
 
 function useCountUp(target: number, duration: number, trigger: boolean) {
   const [count, setCount] = useState(0);
@@ -17,15 +15,17 @@ function useCountUp(target: number, duration: number, trigger: boolean) {
     if (!trigger) return;
     setDone(false);
     let startTime: number | null = null;
+    let frameId: number;
     const step = (timestamp: number) => {
       if (!startTime) startTime = timestamp;
       const progress = Math.min((timestamp - startTime) / duration, 1);
       const eased = 1 - Math.pow(1 - progress, 3);
       setCount(Math.floor(eased * target));
-      if (progress < 1) requestAnimationFrame(step);
+      if (progress < 1) frameId = requestAnimationFrame(step);
       else { setCount(target); setDone(true); }
     };
-    requestAnimationFrame(step);
+    frameId = requestAnimationFrame(step);
+    return () => cancelAnimationFrame(frameId);
   }, [trigger, target, duration]);
   return { count, done };
 }
@@ -55,13 +55,23 @@ interface CardContent {
 }
 
 function CardSlot({ content, darkBg }: { content: CardContent; darkBg: boolean }) {
-  const Tag = content.to ? MotionLink : content.href ? motion.a : motion.div;
+  // Tag는 content가 무엇이든 항상 같은 엘리먼트 타입을 유지해야 한다.
+  // (motion.div ↔ Link처럼 타입 자체가 바뀌면 리액트가 이전 인스턴스를
+  //  언마운트하고 새로 마운트하면서 initial→whileInView가 재실행되고,
+  //  이게 5·6번 카드가 "재마운트되어 다시 나타나는" 것처럼 보이던
+  //  진짜 원인이었다.) 링크 이동은 href만 네이티브 <a>로 두고,
+  // to(내부 라우트)는 onClick에서 navigate()로 직접 처리한다.
+  const navigate = useNavigate();
+  const Tag = content.href ? motion.a : motion.div;
   const clickable = !!(content.action || content.href || content.to);
+  const handleClick = () => {
+    content.action?.();
+    if (content.to) navigate(content.to);
+  };
   return (
     <Tag
-      {...(content.to ? { to: content.to } : {})}
       {...(content.href ? { href: content.href } : {})}
-      onClick={content.action}
+      onClick={handleClick}
       initial={{ opacity: 0, y: 30, scale: 0.95 }}
       whileInView={{ opacity: 1, y: 0, scale: 1 }}
       viewport={{ once: true }}
