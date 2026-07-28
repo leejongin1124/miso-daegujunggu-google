@@ -483,15 +483,64 @@ export default function GuideSection({ sectionId }: { sectionId?: string }) {
                 <span className="inline-block text-[10px] font-black text-miso-blue-600 bg-miso-blue-50 px-2 py-0.5 rounded-full mb-2 w-fit tracking-wide">
                   {p.label}
                 </span>
-                <h4 className="font-extrabold text-slate-800 text-sm tracking-tight group-hover:text-miso-blue-600 transition-colors leading-snug">
+                <h4 className="font-extrabold text-slate-800 text-sm tracking-tight group-hover:text-miso-blue-600 transition-colors leading-snug break-keep">
                   {p.title}
                 </h4>
-                <p className="text-slate-500 text-xs mt-2 leading-relaxed font-semibold flex-1">
+                <p className="text-slate-500 text-xs mt-2 leading-relaxed font-semibold flex-1 break-keep">
                   {p.desc}
                 </p>
               </motion.div>
             ))}
           </div>
+
+          {/* 잇다(서민금융진흥원) 온라인 신청 안내 */}
+          <motion.div
+            initial={{ opacity: 0, y: 16 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.45 }}
+            className="bg-gradient-to-r from-slate-800 to-slate-900 rounded-3xl px-8 py-7 text-white"
+          >
+            <div className="flex flex-col md:flex-row md:items-center gap-5">
+              <div className="flex items-center gap-4">
+                <span className="text-4xl">💻</span>
+                <div>
+                  <span className="text-[10px] font-black text-slate-300 tracking-widest uppercase">Online Application</span>
+                  <h4 className="text-lg md:text-xl font-black tracking-tight leading-tight mt-0.5 break-keep">
+                    온라인으로도 신청할 수 있어요
+                  </h4>
+                  <p className="text-slate-300 text-xs font-semibold mt-1 leading-relaxed break-keep">
+                    서민금융진흥원 '잇다' 플랫폼을 통해 방문 없이 온라인으로 상담을 신청하실 수 있습니다.<br />
+                    다만 최종 승인 여부는 방문 상담 및 여신심사 결과에 따라 결정됩니다.
+                  </p>
+                </div>
+              </div>
+              <div className="md:ml-auto flex flex-wrap gap-2 shrink-0">
+                <motion.a
+                  href="https://loan.kinfa.or.kr/main.ke"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  className="flex items-center gap-1.5 text-xs font-black text-slate-900 bg-white px-4 py-2.5 rounded-xl shadow-sm cursor-pointer whitespace-nowrap"
+                >
+                  <span>🖥️</span>
+                  <span>PC로 신청하기</span>
+                </motion.a>
+                <motion.a
+                  href="https://play.google.com/store/apps/details?id=kr.or.knfa.nfcs.m&hl=ko"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  className="flex items-center gap-1.5 text-xs font-black text-white bg-white/15 border border-white/20 px-4 py-2.5 rounded-xl shadow-sm cursor-pointer whitespace-nowrap"
+                >
+                  <span>📱</span>
+                  <span>모바일 앱 설치</span>
+                </motion.a>
+              </div>
+            </div>
+          </motion.div>
 
         </div>
 
