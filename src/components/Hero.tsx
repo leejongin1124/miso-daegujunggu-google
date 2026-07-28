@@ -44,6 +44,14 @@ const PHONES = [
 ];
 
 export default function Hero({ onScrollToSection }: HeroProps) {
+  // 부모(App)가 onScrollToSection을 useCallback 없이 매 렌더 새로 생성해
+  // 전달하므로, ref로 최신 함수만 보관해 카드 메모이제이션이 부모 리렌더에
+  // 영향받지 않도록 분리한다.
+  const onScrollToSectionRef = useRef(onScrollToSection);
+  useEffect(() => {
+    onScrollToSectionRef.current = onScrollToSection;
+  }, [onScrollToSection]);
+
   const [spotlightIdx, setSpotlightIdx] = useState(0);
   const [audienceIdx, setAudienceIdx] = useState(0);
   const [statsInView, setStatsInView] = useState(false);
@@ -215,10 +223,10 @@ export default function Hero({ onScrollToSection }: HeroProps) {
       value: '하나은행 봉덕지점 4층',
       valueClass: 'text-sm md:text-xl whitespace-nowrap',
       desc: '대구 남구 중앙대로 146',
-      action: () => onScrollToSection('location')
+      action: () => onScrollToSectionRef.current('location')
     },
     ...(showNavCards ? navCards : statsCards)
-  ], [currentPhone, onScrollToSection, showNavCards, navCards, statsCards]);
+  ], [showNavCards, navCards, statsCards]);
 
   return (
     <section
@@ -356,7 +364,9 @@ export default function Hero({ onScrollToSection }: HeroProps) {
               className={`relative rounded-2xl shadow-sm transition-colors duration-500 text-left group overflow-hidden min-w-0 ${
                 i === 0 ? 'order-2 md:order-4' : i === 1 ? 'order-1 md:order-3' : i === 2 ? 'order-3 md:order-1' : 'order-4 md:order-2'
               } ${
-                videoEnded ? 'bg-black/30 backdrop-blur-md' : 'bg-white/5 backdrop-blur-[2px]'
+                (card.id === 'products' || card.id === 'apply')
+                  ? 'bg-slate-900'
+                  : videoEnded ? 'bg-black/30 backdrop-blur-md' : 'bg-white/5 backdrop-blur-[2px]'
               } ${
                 card.action || card.href ? 'cursor-pointer' : ''
               } ${
