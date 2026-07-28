@@ -216,7 +216,7 @@ export default function ProductSection({ onScrollToSection, onOpenCalculator, in
                 <span className="inline-flex items-center text-teal-700 bg-teal-50 px-3 py-1 rounded-full text-xs font-bold ring-1 ring-teal-200/50">
                   {activeProduct.id === 'social' ? '⭐ 대표 상품' : '📋 맞춤 서민지원'}
                 </span>
-                <h3 className="text-2xl md:text-[2rem] font-black text-slate-900 tracking-tight">
+                <h3 className="text-2xl md:text-[2rem] font-black text-slate-900 tracking-tight break-keep">
                   {activeProduct.name}
                 </h3>
                 {activeProduct.id === 'social' ? (
@@ -244,7 +244,7 @@ export default function ProductSection({ onScrollToSection, onOpenCalculator, in
                     {activeProduct.subtitle}
                   </p>
                 )}
-                <p className="text-slate-500 font-medium text-xs md:text-sm leading-relaxed pt-2">
+                <p className="text-slate-500 font-medium text-xs md:text-sm leading-relaxed break-keep pt-2">
                   {activeProduct.description}
                 </p>
               </div>
@@ -319,7 +319,7 @@ export default function ProductSection({ onScrollToSection, onOpenCalculator, in
                   <div className="flex-shrink-0 w-10 h-10 bg-indigo-100 rounded-xl flex items-center justify-center text-lg">📅</div>
                   <div>
                     <span className="block text-slate-400 text-[10px] font-bold uppercase tracking-wider mb-1">거치 · 상환 기간</span>
-                    <span className="block text-slate-700 font-bold text-xs leading-relaxed whitespace-pre-line">{activeProduct.repaymentPeriod}</span>
+                    <span className="block text-slate-700 font-bold text-xs leading-relaxed break-keep whitespace-pre-line">{activeProduct.repaymentPeriod}</span>
                   </div>
                 </div>
                 <div className="bg-slate-50 px-5 py-4 rounded-xl border border-slate-100 flex items-center gap-4 hover:shadow-md hover:border-slate-200 transition-all">
@@ -524,7 +524,7 @@ export default function ProductSection({ onScrollToSection, onOpenCalculator, in
                         <span className="bg-indigo-600 text-white text-[10px] font-black px-2.5 py-0.5 rounded-full tracking-widest">필수</span>
                         <p className="font-extrabold text-slate-800">공통 요건</p>
                       </div>
-                      <ul className="space-y-2 pl-1 text-slate-600 font-medium leading-relaxed">
+                      <ul className="space-y-2 pl-1 text-slate-600 font-medium leading-relaxed break-keep">
                         {activeProduct.target.slice(3).map((t, i) => (
                           <li key={i}>• {t}</li>
                         ))}
@@ -555,7 +555,7 @@ export default function ProductSection({ onScrollToSection, onOpenCalculator, in
                         <span className="bg-teal-600 text-white text-[10px] font-black px-2.5 py-0.5 rounded-full tracking-widest">택1</span>
                         <p className="font-extrabold text-slate-800">자격유형 (다음 중 하나 해당)</p>
                       </div>
-                      <ul className="space-y-2 pl-1 text-slate-600 font-medium leading-relaxed">
+                      <ul className="space-y-2 pl-1 text-slate-600 font-medium leading-relaxed break-keep">
                         {activeProduct.target.slice(0, 3).map((t, i) => (
                           <li key={i}>• {t}</li>
                         ))}
@@ -574,7 +574,7 @@ export default function ProductSection({ onScrollToSection, onOpenCalculator, in
                   </div>
 
                 ) : (
-                  <ul className="space-y-2.5 pl-6 list-disc text-xs md:text-sm text-slate-600 font-medium leading-relaxed">
+                  <ul className="space-y-2.5 pl-6 list-disc text-xs md:text-sm text-slate-600 font-medium leading-relaxed break-keep">
                     {activeProduct.target.map((t, i) => (
                       <li key={i}>{t}</li>
                     ))}
@@ -584,11 +584,11 @@ export default function ProductSection({ onScrollToSection, onOpenCalculator, in
 
               {activeProduct.id === 'youth' && (
                 <div className="bg-amber-50 border-2 border-amber-300 p-5 rounded-2xl">
-                  <h4 className="font-black text-sm text-amber-700 flex items-center gap-2">
+                  <h4 className="font-black text-sm text-amber-700 flex items-center gap-2 break-keep">
                     <span className="animate-bounce inline-block">🔔</span>
                     <span className="animate-pulse">② 자격 요건 충족자 필수 이수 절차</span>
                   </h4>
-                  <p className="text-slate-700 text-xs font-semibold mt-3 leading-relaxed">
+                  <p className="text-slate-700 text-xs font-semibold mt-3 leading-relaxed break-keep">
                     위 ① 자격 요건에 해당하는 분은, 신청 전 서민금융진흥원 홈페이지에서<br />
                     <span className="text-amber-700 font-black">「청년 모두를 위한 재무상담」</span>을 이수하셔야 합니다.
                   </p>
@@ -601,7 +601,7 @@ export default function ProductSection({ onScrollToSection, onOpenCalculator, in
                     <span>서민금융진흥원 <span className="text-yellow-300 font-black">재무상담</span> 바로가기</span>
                     <ArrowUpRight className="w-3.5 h-3.5" />
                   </a>
-                  <p className="text-amber-700 text-xs font-medium mt-2 leading-relaxed">
+                  <p className="text-amber-700 text-xs font-medium mt-2 leading-relaxed break-keep">
                     ※ 이수 방법 및 시행 여부는 서민금융진흥원 안내에 따라 변경될 수 있습니다.<br />
                     최신 내용은 위 공식 페이지 또는 서민금융통합콜센터(국번 없이 1397)에서 확인하실 수 있습니다.
                   </p>
@@ -610,7 +610,7 @@ export default function ProductSection({ onScrollToSection, onOpenCalculator, in
 
               {activeProduct.id === 'social' && (
                 <div className="rounded-2xl border border-slate-200 bg-slate-50 p-5">
-                  <h4 className="text-center font-black text-sm text-slate-700 tracking-widest mb-4">
+                  <h4 className="text-center font-black text-sm text-slate-700 tracking-widest mb-4 break-keep">
                     ⚡ 신속 대출진행 4단계 프로세스
                   </h4>
                   <div className="flex flex-col gap-2">
@@ -752,7 +752,7 @@ export default function ProductSection({ onScrollToSection, onOpenCalculator, in
             <div className="lg:col-span-5 space-y-6 text-left">
 
               <div className="bg-white p-6.5 md:p-8 rounded-3xl shadow-sm hover:shadow-md transition-shadow border border-slate-100 space-y-6">
-                <h4 className="font-extrabold text-slate-900 text-lg flex items-center gap-1 tracking-tight">
+                <h4 className="font-extrabold text-slate-900 text-lg flex items-center gap-1 tracking-tight break-keep">
                   <Star className="w-5 h-5 text-indigo-500 fill-indigo-500" />
                   <span>이런 분에게 적극 추천합니다</span>
                 </h4>
@@ -769,7 +769,7 @@ export default function ProductSection({ onScrollToSection, onOpenCalculator, in
                       <div className="w-6 h-6 rounded-full bg-teal-50 text-teal-700 font-bold text-xs flex items-center justify-center shrink-0 mt-0.5">
                         {index + 1}
                       </div>
-                      <p className="text-slate-600 font-medium leading-relaxed">{suit}</p>
+                      <p className="text-slate-600 font-medium leading-relaxed break-keep">{suit}</p>
                     </motion.div>
                   ))}
                 </div>
@@ -780,8 +780,8 @@ export default function ProductSection({ onScrollToSection, onOpenCalculator, in
 
               {/* 기대 효과 — PC/모바일 공통 */}
               <div className="block bg-gradient-to-tr from-teal-600 to-emerald-600 p-6 md:p-8 rounded-3xl text-white shadow-lg shadow-teal-100 space-y-4">
-                <h4 className="font-extrabold text-lg">기대 효과</h4>
-                <p className="text-teal-50 text-xs md:text-sm leading-relaxed font-medium whitespace-pre-line md:whitespace-normal">
+                <h4 className="font-extrabold text-lg break-keep">기대 효과</h4>
+                <p className="text-teal-50 text-xs md:text-sm leading-relaxed break-keep font-medium whitespace-pre-line md:whitespace-normal">
                   &ldquo;{activeProduct.effect}&rdquo;
                 </p>
                 <div className="pt-2">

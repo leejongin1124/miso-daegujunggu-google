@@ -32,10 +32,10 @@ export default function SectionPageShell({ eyebrow, title, description, bgImage,
           <span className="inline-block text-[11px] md:text-xs font-black tracking-widest uppercase text-teal-300">
             {eyebrow}
           </span>
-          <h1 className="text-3xl md:text-5xl font-black text-white tracking-tight drop-shadow">
+          <h1 className="text-3xl md:text-5xl font-black text-white tracking-tight drop-shadow break-keep">
             {title}
           </h1>
-          <p className="text-white/80 text-sm md:text-lg font-medium leading-relaxed max-w-2xl md:max-w-none mx-auto whitespace-pre-line md:whitespace-nowrap">
+          <p className="text-white/80 text-sm md:text-lg font-medium leading-relaxed max-w-2xl md:max-w-none mx-auto whitespace-pre-line md:whitespace-nowrap break-keep">
             {description}
           </p>
         </div>

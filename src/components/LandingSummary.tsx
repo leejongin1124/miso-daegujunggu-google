@@ -75,7 +75,7 @@ export default function LandingSummary({ onScrollToSection }: LandingSummaryProp
           transition={{ duration: 0.5 }}
           className="text-center mb-12"
         >
-          <h2 className="text-2xl md:text-3xl font-extrabold text-slate-900 tracking-tight">
+          <h2 className="text-2xl md:text-3xl font-extrabold text-slate-900 tracking-tight break-keep">
             원하시는 메뉴를 선택하세요
           </h2>
           <p className="text-slate-400 text-sm mt-2">카드를 누르면 해당 내용으로 바로 이동합니다</p>
@@ -99,10 +99,10 @@ export default function LandingSummary({ onScrollToSection }: LandingSummaryProp
               </div>
 
               <div className="flex flex-col gap-2 flex-1">
-                <h3 className="font-extrabold text-slate-900 text-xl leading-snug whitespace-pre-line">
+                <h3 className="font-extrabold text-slate-900 text-xl leading-snug whitespace-pre-line break-keep">
                   {card.title}
                 </h3>
-                <p className="text-slate-500 text-sm leading-relaxed whitespace-pre-line font-medium">
+                <p className="text-slate-500 text-sm leading-relaxed break-keep whitespace-pre-line font-medium">
                   {card.desc}
                 </p>
               </div>

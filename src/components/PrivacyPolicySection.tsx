@@ -81,7 +81,7 @@ export default function PrivacyPolicySection() {
       <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6 text-left">
         <div className="space-y-2 text-center">
           <span className="text-xs font-black text-teal-600 tracking-widest uppercase">Privacy Policy</span>
-          <h2 className="text-2xl md:text-3xl font-black text-slate-900 tracking-tight">개인정보처리방침</h2>
+          <h2 className="text-2xl md:text-3xl font-black text-slate-900 tracking-tight break-keep">개인정보처리방침</h2>
           <div className="h-1.5 w-16 bg-teal-600 rounded-full mx-auto" />
           <p className="text-slate-500 text-sm pt-2">
             (사)미소금융대구중구법인은 개인정보보호법에 따라 이용자의 개인정보를 보호하고 이와 관련한 고충을 신속하고 원활하게 처리할 수 있도록 다음과 같이 개인정보처리방침을 수립·공개합니다.
@@ -90,8 +90,8 @@ export default function PrivacyPolicySection() {
 
         <div className="space-y-4">
           {ARTICLES.map((article, idx) => (
-            <div key={idx} className="bg-slate-50 border border-slate-100 rounded-2xl p-6 md:p-8 space-y-3 text-sm text-slate-600 leading-relaxed">
-              <h3 className="font-extrabold text-slate-900 text-base">{article.title}</h3>
+            <div key={idx} className="bg-slate-50 border border-slate-100 rounded-2xl p-6 md:p-8 space-y-3 text-sm text-slate-600 leading-relaxed break-keep">
+              <h3 className="font-extrabold text-slate-900 text-base break-keep">{article.title}</h3>
               {article.body.map((p, i) => (
                 <p key={i} className="whitespace-pre-line">{p}</p>
               ))}
@@ -101,8 +101,8 @@ export default function PrivacyPolicySection() {
             </div>
           ))}
 
-          <div className="bg-rose-50 border border-rose-100 rounded-2xl p-6 md:p-8 space-y-2 text-sm text-slate-600 leading-relaxed">
-            <h3 className="font-extrabold text-rose-700 text-base">개인정보 사칭 피해 주의</h3>
+          <div className="bg-rose-50 border border-rose-100 rounded-2xl p-6 md:p-8 space-y-2 text-sm text-slate-600 leading-relaxed break-keep">
+            <h3 className="font-extrabold text-rose-700 text-base break-keep">개인정보 사칭 피해 주의</h3>
             <p>
               온라인상에서 법인을 사칭하여 개인정보나 금전을 요구하는 경우 이에 응하지 마시고, 즉시 대표번호(053-252-6408) 또는
               금융감독원(1332)으로 신고해 주시기 바랍니다.

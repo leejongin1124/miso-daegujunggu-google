@@ -53,11 +53,11 @@ export default function NoticeSection({ sectionId }: { sectionId?: string }) {
         {/* 공지사항 */}
         {show('notice') && <><div id="notice" className="text-center space-y-4 max-w-4xl mx-auto">
           <span className="text-xs font-black text-teal-600 tracking-widest uppercase">Official Notice</span>
-          <h2 className="text-3xl md:text-[2.6rem] font-black text-slate-900 tracking-tight leading-none">
+          <h2 className="text-3xl md:text-[2.6rem] font-black text-slate-900 tracking-tight leading-none break-keep">
             공지사항
           </h2>
           <div className="h-1.5 w-16 bg-teal-600 rounded-full mx-auto" />
-          <p className="text-slate-600 font-medium text-base md:text-lg max-w-2xl mx-auto leading-relaxed">
+          <p className="text-slate-600 font-medium text-base md:text-lg max-w-2xl mx-auto leading-relaxed break-keep">
             (사)미소금융대구중구법인의 공식 공지사항 및 <br className="hidden sm:inline" />
             주요 안내사항을 확인하실 수 있습니다.
           </p>
@@ -66,7 +66,7 @@ export default function NoticeSection({ sectionId }: { sectionId?: string }) {
         {/* 공지사항 테이블 리스트 */}
         <div className="bg-slate-50 border border-slate-100 p-8 md:p-12 rounded-3xl text-left space-y-8">
           <div className="flex justify-between items-center border-b border-slate-200 pb-5">
-            <h3 className="font-extrabold text-slate-900 text-lg flex items-center gap-1.5">
+            <h3 className="font-extrabold text-slate-900 text-lg flex items-center gap-1.5 break-keep">
               <FileText className="w-5.5 h-5.5 text-teal-600" />
               <span>공지사항</span>
             </h3>
@@ -100,10 +100,10 @@ export default function NoticeSection({ sectionId }: { sectionId?: string }) {
                 </span>
 
                 <div className="flex-1 space-y-1.5 text-left">
-                  <h4 className="font-extrabold text-slate-900 text-sm md:text-base leading-snug">
+                  <h4 className="font-extrabold text-slate-900 text-sm md:text-base leading-snug break-keep">
                     {n.title}
                   </h4>
-                  <p className="text-slate-500 text-xs md:text-sm leading-relaxed font-semibold">
+                  <p className="text-slate-500 text-xs md:text-sm leading-relaxed break-keep font-semibold">
                     {n.desc}
                   </p>
                   <span className="text-slate-400 font-mono text-[10px] block pt-1">{n.date}</span>
@@ -150,8 +150,8 @@ export default function NoticeSection({ sectionId }: { sectionId?: string }) {
                 <div className="p-2 bg-rose-50 rounded-lg inline-block text-rose-600">
                   {af.icon}
                 </div>
-                <h4 className="font-extrabold text-slate-900 text-sm">{af.title}</h4>
-                <p className="text-slate-500 text-xs leading-relaxed font-semibold">{af.desc}</p>
+                <h4 className="font-extrabold text-slate-900 text-sm break-keep">{af.title}</h4>
+                <p className="text-slate-500 text-xs leading-relaxed break-keep font-semibold">{af.desc}</p>
               </motion.div>
             ))}
           </div>

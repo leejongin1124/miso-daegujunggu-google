@@ -59,7 +59,7 @@ export default function Footer() {
         </div>
 
         {/* 법인 정보 */}
-        <div className="text-xs leading-snug space-y-0.5">
+        <div className="text-xs leading-snug space-y-0.5 break-keep">
           <div className="flex flex-wrap gap-x-6 gap-y-1 text-slate-400 font-semibold">
             <span><strong>대표자:</strong> 김석동</span>
             <span><strong>사업자번호:</strong> 504-82-13565</span>

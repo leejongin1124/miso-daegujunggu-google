@@ -236,13 +236,13 @@ export default function CaseSection({ initialFilter, onFilterChange }: CaseSecti
 
                   <div className="space-y-2 relative pl-6">
                     <Quote className="w-5 h-5 text-slate-200 absolute left-0 top-0.5" />
-                    <h3 className="font-extrabold text-slate-900 text-lg tracking-tight leading-snug">
+                    <h3 className="font-extrabold text-slate-900 text-lg tracking-tight leading-snug break-keep">
                       {c.title}
                     </h3>
                   </div>
 
                   {/* 전/후 스토리 슬라이딩 */}
-                  <div className="space-y-3.5 text-xs bg-slate-50 p-4.5 rounded-2xl border border-slate-100 leading-relaxed font-semibold">
+                  <div className="space-y-3.5 text-xs bg-slate-50 p-4.5 rounded-2xl border border-slate-100 leading-relaxed break-keep font-semibold">
                     <div>
                       <span className="text-amber-600 block font-bold">🚫 당면한 자금 장벽</span>
                       <p className="text-slate-500 mt-1">{c.problem}</p>
@@ -278,7 +278,7 @@ export default function CaseSection({ initialFilter, onFilterChange }: CaseSecti
           </AnimatePresence>
         </div>
 
-        <p className="text-slate-500 text-xs text-center -mt-4 leading-relaxed">
+        <p className="text-slate-500 text-xs text-center -mt-4 leading-relaxed break-keep">
           ※ 위 사진과 사례는 이해를 돕기 위해 재구성한 예시이며, 실제 고객 및 승인 결과가 아닙니다. 대출 가능 여부·한도·금리는 개인별 심사 결과에 따라 달라집니다.
         </p>
 
@@ -290,10 +290,10 @@ export default function CaseSection({ initialFilter, onFilterChange }: CaseSecti
             <span className="inline-flex items-center text-[10px] font-black tracking-widest text-teal-300 bg-white/10 px-2.5 py-1 rounded">
               함께 성장하는 서민금융
             </span>
-            <h4 className="text-xl md:text-2xl font-black tracking-tight leading-snug">
+            <h4 className="text-xl md:text-2xl font-black tracking-tight leading-snug break-keep">
               &ldquo;갚아 주신 원금은 다음 분의 대출 재원이 됩니다&rdquo;
             </h4>
-            <p className="text-slate-400 text-xs md:text-sm leading-relaxed font-medium">
+            <p className="text-slate-400 text-xs md:text-sm leading-relaxed break-keep font-medium">
               저희 법인의 대출 재원은 서민금융진흥원이 조성한 공익 자금입니다. <br />
               성실히 갚아 주신 원금은 서민금융진흥원으로 돌아가, <br />
               경제적으로 어려운 다른 대구 시민의 자립 지원을 위한 대출 재원으로 활용됩니다.
