@@ -166,11 +166,11 @@ export default function GuideSection({ sectionId }: { sectionId?: string }) {
   const [gracePeriod, setGracePeriod] = useState<number>(6); // 디폴트 거치 6개월
   const [repaymentPeriod, setRepaymentPeriod] = useState<number>(60); // 디폴트 상환 60개월 (5년)
 
-  // 거치기간 중 적용금리는 상품별로 상이함 (사업자 운영자금 2.0% / 금융취약계층 생계자금 3.0% / 청년미래이음대출 4.5%)
+  // 거치기간 중 적용금리는 상품별로 상이함 (사업자 운영자금 2.0% / 금융취약계층 생계자금 3.0% / 청년미래이음 4.5%)
   const GRACE_RATE_OPTIONS = [
     { id: 'business', label: '사업자 운영자금', rate: 2.0 },
     { id: 'vulnerable', label: '금융취약계층 생계자금', rate: 3.0 },
-    { id: 'youth', label: '청년미래이음대출', rate: 4.5 },
+    { id: 'youth', label: '청년미래이음', rate: 4.5 },
   ] as const;
   const [graceRateType, setGraceRateType] = useState<typeof GRACE_RATE_OPTIONS[number]['id']>('business');
   const gracePeriodRate = GRACE_RATE_OPTIONS.find((o) => o.id === graceRateType)!.rate;

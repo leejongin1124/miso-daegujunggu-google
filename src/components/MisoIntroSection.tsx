@@ -216,7 +216,7 @@ export default function MisoIntroSection() {
                 blog: 'https://blog.naver.com/PostView.naver?blogId=eornwndrn1&logNo=224289610439&categoryNo=7&parentCategoryNo=7&from=thumbnailList'
               },
               {
-                name: '청년미래이음대출',
+                name: '청년미래이음',
                 purpose: '만 19~34세 청년 취·창업 자금',
                 limit: '최대 500만원',
                 rate: '연 4.5%',
@@ -303,7 +303,7 @@ export default function MisoIntroSection() {
                     blog: 'https://blog.naver.com/PostView.naver?blogId=eornwndrn1&logNo=224289610439&categoryNo=7&parentCategoryNo=7&from=thumbnailList'
                   },
                   {
-                    name: '청년미래이음대출',
+                    name: '청년미래이음',
                     purpose: '만 19~34세 청년 취·창업 자금',
                     limit: '최대 500만원',
                     rate: '연 4.5%',
