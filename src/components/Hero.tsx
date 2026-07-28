@@ -4,7 +4,7 @@
  */
 
 import { motion, useAnimation, AnimatePresence } from 'motion/react';
-import { useState, useEffect, useRef, type ReactNode } from 'react';
+import { useState, useEffect, useRef, useMemo, type ReactNode } from 'react';
 import { Link } from 'react-router-dom';
 import { Phone, ArrowRight, Users, Banknote, MapPin, RotateCcw, Landmark, ClipboardList } from 'lucide-react';
 
@@ -149,7 +149,11 @@ export default function Hero({ onScrollToSection }: HeroProps) {
     action?: () => void;
   };
 
-  const statsCards: QuickCard[] = [
+  // 카드 배열/아이콘 엘리먼트를 매 렌더마다 새로 만들지 않도록 메모이즈.
+  // (audienceIdx 등 카드와 무관한 2초 간격 타이머로 인한 재렌더 시,
+  //  카드에 매번 새 객체/엘리먼트가 전달되어 프레이머 모션이 미세하게
+  //  재애니메이션되는 것을 방지 — 실제 관찰된 "번쩍임"의 원인)
+  const statsCards: QuickCard[] = useMemo(() => [
     {
       id: 'stats-count',
       icon: <Users className="w-6 h-6 text-emerald-600" />,
@@ -171,9 +175,9 @@ export default function Hero({ onScrollToSection }: HeroProps) {
       valueClass: 'text-[clamp(1rem,4.5vw,1.125rem)] md:text-3xl tabular-nums whitespace-nowrap',
       desc: '2026년 누적 기준'
     }
-  ];
+  ], [statsInView, countPeople, countMoney]);
 
-  const navCards: QuickCard[] = [
+  const navCards: QuickCard[] = useMemo(() => [
     {
       id: 'products',
       icon: <Landmark className="w-6 h-6 text-indigo-600" />,
@@ -192,9 +196,9 @@ export default function Hero({ onScrollToSection }: HeroProps) {
       desc: '상담부터 결과 안내까지',
       to: '/guide'
     }
-  ];
+  ], []);
 
-  const quickCards: QuickCard[] = [
+  const quickCards: QuickCard[] = useMemo(() => [
     {
       id: 'call',
       icon: null,
@@ -214,7 +218,7 @@ export default function Hero({ onScrollToSection }: HeroProps) {
       action: () => onScrollToSection('location')
     },
     ...(showNavCards ? navCards : statsCards)
-  ];
+  ], [currentPhone, onScrollToSection, showNavCards, navCards, statsCards]);
 
   return (
     <section
@@ -352,7 +356,7 @@ export default function Hero({ onScrollToSection }: HeroProps) {
               className={`relative rounded-2xl shadow-sm transition-colors duration-500 text-left group overflow-hidden min-w-0 ${
                 i === 0 ? 'order-2 md:order-4' : i === 1 ? 'order-1 md:order-3' : i === 2 ? 'order-3 md:order-1' : 'order-4 md:order-2'
               } ${
-                showNavCards ? 'bg-slate-900' : videoEnded ? 'bg-black/30 backdrop-blur-md' : 'bg-white/5 backdrop-blur-[2px]'
+                videoEnded ? 'bg-black/30 backdrop-blur-md' : 'bg-white/5 backdrop-blur-[2px]'
               } ${
                 card.action || card.href ? 'cursor-pointer' : ''
               } ${
