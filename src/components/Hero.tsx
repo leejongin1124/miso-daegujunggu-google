@@ -52,7 +52,6 @@ export default function Hero({ onScrollToSection }: HeroProps) {
     onScrollToSectionRef.current = onScrollToSection;
   }, [onScrollToSection]);
 
-  const [spotlightIdx, setSpotlightIdx] = useState(0);
   const [audienceIdx, setAudienceIdx] = useState(0);
   const [statsInView, setStatsInView] = useState(false);
   const statsRef = useRef<HTMLDivElement>(null);
@@ -62,19 +61,6 @@ export default function Hero({ onScrollToSection }: HeroProps) {
   // 5·6번(상품안내·신청안내) 카드는 동영상 재생 상태와 무관하게, 3·4번 숫자
   // 카운팅 애니메이션이 모두 끝난 뒤 3초 뒤에 표시
   const [showNavCards, setShowNavCards] = useState(false);
-
-  useEffect(() => {
-    let count = 0;
-    const interval = setInterval(() => {
-      count += 1;
-      setSpotlightIdx(prev => (prev + 1) % 2);
-      if (count >= 4) {
-        clearInterval(interval);
-        setSpotlightIdx(-1);
-      }
-    }, 1800);
-    return () => clearInterval(interval);
-  }, []);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -359,7 +345,6 @@ export default function Hero({ onScrollToSection }: HeroProps) {
               exit={{ opacity: 0, y: -10, scale: 0.95 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: i * 0.12, type: 'spring', stiffness: 200, damping: 18 }}
-              animate={spotlightIdx === i && i < 2 && !showNavCards ? { y: -4, scale: 1.02 } : undefined}
               onClick={card.action}
               className={`relative rounded-2xl shadow-sm transition-colors duration-500 text-left group overflow-hidden min-w-0 ${
                 i === 0 ? 'order-2 md:order-4' : i === 1 ? 'order-1 md:order-3' : i === 2 ? 'order-3 md:order-1' : 'order-4 md:order-2'
@@ -367,21 +352,8 @@ export default function Hero({ onScrollToSection }: HeroProps) {
                 videoEnded ? 'bg-black/30 backdrop-blur-md' : 'bg-white/5 backdrop-blur-[2px]'
               } ${
                 card.action || card.href ? 'cursor-pointer' : ''
-              } ${
-                spotlightIdx === i && i < 2 && !showNavCards
-                  ? 'border-2 border-teal-400 shadow-lg shadow-teal-100'
-                  : 'border border-white/30 hover:border-teal-200 hover:shadow-md'
-              }`}
+              } border border-white/30 hover:border-teal-200 hover:shadow-md`}
             >
-              {spotlightIdx === i && i < 2 && !showNavCards && (
-                <motion.div
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: [0, 0.15, 0] }}
-                  transition={{ duration: 1.8, repeat: Infinity }}
-                  className="absolute inset-0 bg-gradient-to-br from-teal-400 to-emerald-400 pointer-events-none rounded-2xl"
-                />
-              )}
-
               <div className="p-2 min-[360px]:p-3 md:p-6 relative z-10 min-w-0">
                 <div className="flex justify-between items-start">
                   {i === 0 ? (
@@ -391,11 +363,7 @@ export default function Hero({ onScrollToSection }: HeroProps) {
                       </div>
                     </div>
                   ) : (
-                  <div className={`p-2 md:p-3 rounded-xl transition-all shadow-inner ${
-                    spotlightIdx === i && i < 2 && !showNavCards
-                      ? 'bg-teal-50'
-                      : 'bg-white/10 group-hover:bg-white/20'
-                  }`}>
+                  <div className="p-2 md:p-3 rounded-xl transition-all shadow-inner bg-white/10 group-hover:bg-white/20">
                     {card.icon}
                   </div>
                   )}
