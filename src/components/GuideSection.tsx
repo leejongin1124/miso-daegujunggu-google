@@ -591,6 +591,7 @@ export default function GuideSection({ sectionId }: { sectionId?: string }) {
                 <li className="flex items-start gap-2"><span className="text-amber-500 mt-0.5">✓</span><span>근로장려금 수급사실 증명서</span></li>
                 <li className="flex items-start gap-2"><span className="text-amber-500 mt-0.5">✓</span><span>국민기초생활수급자 증명서</span></li>
                 <li className="flex items-start gap-2"><span className="text-amber-500 mt-0.5">✓</span><span>차상위계층 확인서</span></li>
+                <li className="flex items-start gap-2"><span className="text-amber-500 mt-0.5">✓</span><span>기타 자격요건 확인 서류</span></li>
               </ul>
             </motion.div>
           </div>
