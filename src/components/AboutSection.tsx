@@ -5,7 +5,7 @@
 
 import { motion } from 'motion/react';
 import { useState, useEffect } from 'react';
-import { Award, Briefcase, Calendar, MapPin, Bus, Train, Car, Phone, Share2, Printer, ExternalLink, FileText, Copy, Check, ShieldCheck } from 'lucide-react';
+import { Award, Briefcase, Calendar, MapPin, Bus, Train, Car, Phone, Share2, Printer, ExternalLink, FileText, Copy, Check, ShieldCheck, ArrowRight } from 'lucide-react';
 
 function useCountUp(target: number, duration: number, trigger: boolean) {
   const [count, setCount] = useState(0);
@@ -63,6 +63,14 @@ const DISCLOSURES = [
   { year: 2011, file: '/disclosures/2011.pdf' as string | null },
   { year: 2010, file: '/disclosures/2010.pdf' as string | null },
 ];
+
+// 공시 아카이브 그룹핑 — 최근 5개년은 별도로, 나머지는 연대별로 묶어 표시
+const RECENT_DISCLOSURES = DISCLOSURES.slice(0, 5);
+const OLDER_DISCLOSURES_BY_DECADE = DISCLOSURES.slice(5).reduce<Record<string, typeof DISCLOSURES>>((acc, d) => {
+  const decade = `${Math.floor(d.year / 10) * 10}년대`;
+  acc[decade] = [...(acc[decade] ?? []), d];
+  return acc;
+}, {});
 
 // 연도별 총자산(원) — 재무상태표 기준. 성장 추이 그래프에 사용 (연도 오름차순)
 const ASSET_GROWTH = [
@@ -520,14 +528,14 @@ export default function AboutSection({ sectionId }: { sectionId?: string }) {
 
         </div>}
 
-        {/* 재정보고 — 연도별 재무상태표·손익계산서 */}
+        {/* 경영공시 — 연도별 재무상태표·손익계산서 */}
         {show('finance-report') && <div id="finance-report" className="bg-white rounded-3xl border border-slate-100 shadow-sm overflow-hidden">
           <div className="bg-gradient-to-r from-teal-600 to-emerald-600 px-6 py-8 md:px-12 md:py-10 text-white text-center space-y-2">
-            <span className="text-xs font-bold text-white/70 tracking-widest uppercase">Financial Report</span>
-            <h3 className="text-2xl md:text-3xl font-extrabold tracking-tight">재정보고</h3>
+            <span className="text-xs font-bold text-white/70 tracking-widest uppercase">Management Disclosure</span>
+            <h3 className="text-2xl md:text-3xl font-extrabold tracking-tight">경영공시</h3>
             <p className="text-white/85 text-xs md:text-sm leading-relaxed max-w-xl mx-auto break-keep">
-              「상속세 및 증여세법」 제50조의3에 따라 공시합니다.<br />
-              공식 원본은 국세청 공시시스템에서 확인할 수 있습니다.
+              2010년부터 2025년까지, {financeYearCount}년 연속 결산서류를 공개합니다.<br />
+              투명한 기관 운영을 위해 연도별 재무상태표와 손익계산서를 제공합니다.
             </p>
           </div>
 
@@ -654,118 +662,115 @@ export default function AboutSection({ sectionId }: { sectionId?: string }) {
                 <p className="text-slate-400 text-[11px] break-keep">칩을 누르면 클립보드에 복사됩니다. 국세청 조회 화면에 붙여넣어 확인하세요.</p>
               </div>
 
-              {/* 16년 연속 공시 배지 */}
+              {/* 16년 연속 공시 배지 (정적) */}
               <motion.div
                 initial={{ opacity: 0, y: 10 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 onViewportEnter={() => setFinanceStatsInView(true)}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5 }}
-                className="flex items-center justify-center gap-3 pt-2"
+                className="flex flex-col items-center gap-3 pt-2"
               >
-                <div className="relative w-14 h-14 shrink-0">
-                  <motion.div
-                    animate={{ rotate: 360 }}
-                    transition={{ duration: 6, repeat: Infinity, ease: 'linear' }}
-                    className="absolute inset-0 rounded-full"
-                    style={{ background: 'conic-gradient(from 0deg, #0d9488, #34d399, #0d9488)' }}
-                  />
-                  <div className="absolute inset-[3px] rounded-full bg-white flex flex-col items-center justify-center">
-                    <span className="text-teal-700 font-black text-lg leading-none tabular-nums">{financeYearCount}</span>
-                    <span className="text-teal-600 text-[9px] font-bold leading-none mt-0.5">YEARS</span>
+                <div className="flex items-center gap-3">
+                  <div className="relative w-14 h-14 shrink-0">
+                    <div
+                      className="absolute inset-0 rounded-full"
+                      style={{ background: 'conic-gradient(from 0deg, #0d9488, #34d399, #0d9488)' }}
+                    />
+                    <div className="absolute inset-[3px] rounded-full bg-white flex flex-col items-center justify-center">
+                      <span className="text-teal-700 font-black text-lg leading-none tabular-nums">{financeYearCount}</span>
+                      <span className="text-teal-600 text-[9px] font-bold leading-none mt-0.5">YEARS</span>
+                    </div>
+                  </div>
+                  <div className="text-left">
+                    <p className="flex items-center gap-1 text-teal-700 text-sm font-bold">
+                      <ShieldCheck className="w-4 h-4 shrink-0" />
+                      {financeYearCount}년 연속 결산서류 공시
+                    </p>
+                    <p className="text-slate-400 text-xs">2010년 ~ 2025년 공시자료 아카이브</p>
                   </div>
                 </div>
-                <div className="text-left">
-                  <p className="flex items-center gap-1 text-teal-700 text-sm font-bold">
-                    <ShieldCheck className="w-4 h-4 shrink-0" />
-                    {financeYearCount}년 연속 결산서류 공시
-                  </p>
-                  <p className="text-slate-400 text-xs">2010년 ~ 2025년, 빠짐없이 투명하게 공개</p>
+                <div className="flex items-center gap-2 text-[11px] font-bold text-slate-400 font-mono">
+                  <span>2010</span>
+                  <span className="w-16 sm:w-28 h-px bg-gradient-to-r from-slate-300 to-teal-500" />
+                  <span className="text-teal-700">2025</span>
                 </div>
               </motion.div>
             </div>
 
-            {/* PC 타임라인 (md 이상) */}
-            <div className="hidden md:block overflow-x-auto pb-2">
-              <div style={{ minWidth: '560px' }}>
-                <div className="relative border-l-2 border-slate-200 ml-20 py-2">
-                  {DISCLOSURES.map((d, idx) => (
-                    <motion.div
-                      key={d.year}
-                      initial={{ opacity: 0, x: -16 }}
-                      whileInView={{ opacity: 1, x: 0 }}
-                      viewport={{ once: true, margin: '-40px' }}
-                      transition={{ duration: 0.35, delay: Math.min(idx * 0.03, 0.3) }}
-                      className="mb-5 last:mb-0 relative"
-                    >
-                      <div className="absolute -left-[92px] top-2 w-16 text-right">
-                        <span className="text-lg font-black text-slate-800 font-mono">{d.year}</span>
-                      </div>
-                      <div className="absolute -left-[9px] top-3 w-4 h-4 rounded-full bg-white border-4 border-teal-600 shadow-md" />
-                      <div className="flex items-center justify-between gap-3 bg-white border border-slate-100 rounded-xl px-4 py-3 ml-6 hover:shadow-md hover:border-teal-100 transition-all">
-                        <span className="flex items-center gap-2 min-w-0">
-                          <FileText className="w-4 h-4 text-emerald-500 shrink-0" />
-                          <span className="font-semibold text-slate-700 text-sm truncate">재무상태표 및 손익계산서</span>
-                        </span>
-                        {d.file ? (
-                          <motion.a
-                            href={d.file}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            whileHover={{ y: -2, scale: 1.05 }}
-                            whileTap={{ scale: 0.95 }}
-                            className="shrink-0 inline-flex items-center gap-1 bg-emerald-50 hover:bg-emerald-100 text-emerald-700 text-xs font-bold px-2.5 py-1 rounded-lg transition-colors"
-                          >
-                            <FileText className="w-3.5 h-3.5" />
-                            PDF 보기
-                          </motion.a>
-                        ) : (
-                          <span className="shrink-0 text-xs font-semibold text-slate-300">등록 예정</span>
-                        )}
-                      </div>
-                    </motion.div>
-                  ))}
+            {/* 최신 공시자료 강조 카드 */}
+            <div className="space-y-3">
+              <h4 className="font-extrabold text-slate-900 text-base md:text-lg text-center">최신 공시자료</h4>
+              <div className="bg-gradient-to-br from-teal-50 to-emerald-50 border border-teal-200 rounded-2xl px-5 py-5 md:px-8 md:py-6 flex flex-wrap items-center justify-between gap-4">
+                <div className="flex items-center gap-3 min-w-0">
+                  <span className="shrink-0 bg-teal-600 text-white font-black text-lg md:text-xl px-3 py-1.5 rounded-lg font-mono">
+                    {DISCLOSURES[0].year}
+                  </span>
+                  <div className="min-w-0">
+                    <p className="font-bold text-slate-800 text-sm md:text-base break-keep">재무상태표 및 손익계산서</p>
+                    <p className="text-slate-400 text-xs break-keep">가장 최근 공개된 결산서류입니다</p>
+                  </div>
                 </div>
+                {DISCLOSURES[0].file ? (
+                  <motion.a
+                    href={DISCLOSURES[0].file}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    whileHover={{ y: -2 }}
+                    whileTap={{ scale: 0.97 }}
+                    className="shrink-0 inline-flex items-center gap-1.5 bg-teal-600 hover:bg-teal-700 text-white text-sm font-bold px-4 py-2.5 rounded-xl transition-colors"
+                  >
+                    <FileText className="w-4 h-4" />
+                    PDF 보기
+                  </motion.a>
+                ) : (
+                  <span className="shrink-0 text-xs font-semibold text-slate-400">등록 예정</span>
+                )}
               </div>
             </div>
 
-            {/* 모바일 타임라인 (md 미만) */}
-            <div className="md:hidden relative border-l-2 border-slate-200 ml-3 py-2">
-              {DISCLOSURES.map((d, idx) => (
-                <motion.div
-                  key={d.year}
-                  initial={{ opacity: 0, y: 10 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, margin: '-30px' }}
-                  transition={{ duration: 0.3, delay: Math.min(idx * 0.025, 0.25) }}
-                  className="mb-3 last:mb-0 relative pl-5"
-                >
-                  <div className="absolute -left-[9px] top-1 w-4 h-4 rounded-full bg-white border-4 border-teal-600 shadow-md" />
-                  <div className="bg-white border border-slate-100 rounded-xl px-3 py-2.5">
-                    <div className="flex items-center justify-between gap-2">
-                      <span className="flex items-center gap-1.5 min-w-0">
-                        <span className="text-teal-700 font-black text-sm font-mono shrink-0">{d.year}</span>
-                        <FileText className="w-3.5 h-3.5 text-emerald-500 shrink-0" />
-                      </span>
-                      {d.file ? (
-                        <motion.a
-                          href={d.file}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          whileHover={{ y: -2, scale: 1.05 }}
-                          whileTap={{ scale: 0.95 }}
-                          className="shrink-0 inline-flex items-center gap-1 bg-emerald-50 hover:bg-emerald-100 text-emerald-700 text-xs font-bold px-2.5 py-1 rounded-lg transition-colors"
-                        >
-                          <FileText className="w-3.5 h-3.5" />
-                          PDF 보기
-                        </motion.a>
-                      ) : (
-                        <span className="shrink-0 text-xs font-semibold text-slate-300">등록 예정</span>
-                      )}
-                    </div>
-                    <p className="text-[11px] text-slate-500 mt-0.5">재무상태표 및 손익계산서</p>
+            {/* 공시 아카이브 — 연도별 카드 그리드 */}
+            <div className="space-y-6">
+              {[
+                { label: '최근 공시', items: RECENT_DISCLOSURES },
+                ...Object.entries(OLDER_DISCLOSURES_BY_DECADE).map(([label, items]) => ({ label, items })),
+              ].map((group) => (
+                <div key={group.label} className="space-y-3">
+                  <h4 className="font-extrabold text-slate-700 text-sm md:text-base">{group.label}</h4>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+                    {group.items.map((d, idx) => (
+                      <motion.div
+                        key={d.year}
+                        initial={{ opacity: 0, y: 10 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true, margin: '-30px' }}
+                        transition={{ duration: 0.3, delay: Math.min(idx * 0.03, 0.24) }}
+                        className="flex items-center justify-between gap-3 bg-white border border-slate-100 rounded-xl px-4 py-3 hover:shadow-md hover:border-teal-200 transition-all group"
+                      >
+                        <span className="flex items-center gap-2.5 min-w-0">
+                          <span className="text-slate-800 font-black text-sm font-mono shrink-0">{d.year}</span>
+                          <span className="flex items-center gap-1.5 min-w-0">
+                            <FileText className="w-3.5 h-3.5 text-emerald-500 shrink-0" />
+                            <span className="font-semibold text-slate-600 text-xs md:text-sm truncate">재무상태표 및 손익계산서</span>
+                          </span>
+                        </span>
+                        {d.file ? (
+                          <a
+                            href={d.file}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="shrink-0 inline-flex items-center gap-1 bg-emerald-50 group-hover:bg-emerald-100 text-emerald-700 text-xs font-bold px-2.5 py-1.5 rounded-lg transition-colors"
+                          >
+                            PDF 보기
+                            <ArrowRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-0.5" />
+                          </a>
+                        ) : (
+                          <span className="shrink-0 text-xs font-semibold text-slate-300">등록 예정</span>
+                        )}
+                      </motion.div>
+                    ))}
                   </div>
-                </motion.div>
+                </div>
               ))}
             </div>
 
