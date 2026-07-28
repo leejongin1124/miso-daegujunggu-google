@@ -866,6 +866,15 @@ export default function AboutSection({ sectionId }: { sectionId?: string }) {
                       대구 지하철 1호선 <strong>교대역</strong> 2번 출구 도보 10분
                     </span>
                   </p>
+                  <a
+                    href="https://www.dtro.or.kr/cmsh/dtro.or.kr/html/nosundo.html"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1 text-indigo-600 text-xs font-bold mt-1.5 hover:text-indigo-700"
+                  >
+                    <span>지하철 노선도 보기</span>
+                    <ExternalLink className="w-3 h-3" />
+                  </a>
                 </div>
               </div>
 
@@ -881,6 +890,15 @@ export default function AboutSection({ sectionId }: { sectionId?: string }) {
                     <br />
                     오는 버스: <strong>349, 405, 410, 503, 649</strong>
                   </p>
+                  <a
+                    href="https://businfo.daegu.go.kr/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1 text-emerald-700 text-xs font-bold mt-1.5 hover:text-emerald-800"
+                  >
+                    <span>버스 실시간 도착정보 보기</span>
+                    <ExternalLink className="w-3 h-3" />
+                  </a>
                 </div>
               </div>
 
