@@ -239,6 +239,10 @@ export default function ProductSection({ onScrollToSection, onOpenCalculator, in
                       <span className="md:hidden">전국 최초, 누적 37건 / 15억 원<br/>대출 실행 완료</span>
                     </motion.span>
                   </motion.p>
+                ) : activeProduct.id === 'business' ? (
+                  <p className="text-teal-600 font-bold text-xs md:text-sm break-keep">
+                    실제 운영 <span className="text-base md:text-lg text-orange-600 font-black">3개월 이상</span> 영세자영업자·개인 사업자 (무등록사업자 포함)
+                  </p>
                 ) : (
                   <p className="text-teal-600 font-bold text-xs md:text-sm">
                     {activeProduct.subtitle}
