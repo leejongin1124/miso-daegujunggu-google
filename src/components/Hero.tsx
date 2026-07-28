@@ -54,7 +54,7 @@ interface CardContent {
   pulseControls?: ReturnType<typeof useAnimation>;
 }
 
-function CardSlot({ content, darkBg }: { content: CardContent; darkBg: boolean }) {
+function CardSlot({ content, darkBg, attention }: { content: CardContent; darkBg: boolean; attention?: boolean }) {
   // Tag는 content가 무엇이든 항상 같은 엘리먼트 타입을 유지해야 한다.
   // (motion.div ↔ Link처럼 타입 자체가 바뀌면 리액트가 이전 인스턴스를
   //  언마운트하고 새로 마운트하면서 initial→whileInView가 재실행되고,
@@ -76,9 +76,9 @@ function CardSlot({ content, darkBg }: { content: CardContent; darkBg: boolean }
       whileInView={{ opacity: 1, y: 0, scale: 1 }}
       viewport={{ once: true }}
       transition={{ duration: 0.5, type: 'spring', stiffness: 200, damping: 18 }}
-      className={`relative rounded-2xl shadow-sm transition-colors duration-500 text-left group overflow-hidden min-w-0 border border-white/30 hover:border-teal-200 hover:shadow-md ${
+      className={`relative rounded-2xl shadow-sm transition-all duration-300 text-left group overflow-hidden min-w-0 border border-white/30 hover:border-teal-200 hover:shadow-md ${
         darkBg ? 'bg-black/30 backdrop-blur-md' : 'bg-white/5 backdrop-blur-[2px]'
-      } ${clickable ? 'cursor-pointer' : ''}`}
+      } ${clickable ? 'cursor-pointer' : ''} ${attention ? 'ring-4 ring-teal-300/80 shadow-xl scale-[1.03]' : ''}`}
     >
       <div className="p-2 min-[360px]:p-3 md:p-6 relative z-10 min-w-0">
         <div className="flex justify-between items-start">
@@ -115,6 +115,17 @@ export default function Hero({ onScrollToSection }: HeroProps) {
   const videoRef = useRef<HTMLVideoElement>(null);
   const [videoPlaying, setVideoPlaying] = useState(false);
   const [videoEnded, setVideoEnded] = useState(false);
+
+  // 동영상이 최종 종료된 직후, 5·6·3·4번 카드 순서로 한 번씩 깜박이며
+  // 클릭을 유도하는 순환을 1회만 실행한다.
+  const [attentionIdx, setAttentionIdx] = useState<number | null>(null);
+  useEffect(() => {
+    if (!videoEnded) return;
+    const STEP_MS = 450;
+    const timers = [0, 1, 2, 3].map((i) => setTimeout(() => setAttentionIdx(i), i * STEP_MS));
+    timers.push(setTimeout(() => setAttentionIdx(null), 4 * STEP_MS));
+    return () => timers.forEach(clearTimeout);
+  }, [videoEnded]);
 
   // 5·6번(상품별 조건 확인 / 신청 절차 확인) 카드는 동영상 재생 시간과
   // 무관하게, 1·2번(누적 대출 건수/금액) 숫자 카운팅이 끝난 뒤 3초 후
@@ -364,10 +375,10 @@ export default function Hero({ onScrollToSection }: HeroProps) {
 
         {/* 6종 퀵 카드 — 3·4번 슬롯은 항상 마운트된 채로 내용만 전환된다 */}
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-2 md:gap-4 pb-4 md:pb-8">
-          <CardSlot content={slot1} darkBg={videoEnded} />
-          <CardSlot content={slot2} darkBg={videoEnded} />
-          <CardSlot content={card3Location} darkBg={videoEnded} />
-          <CardSlot content={card4Call} darkBg={videoEnded} />
+          <CardSlot content={slot1} darkBg={videoEnded} attention={attentionIdx === 0} />
+          <CardSlot content={slot2} darkBg={videoEnded} attention={attentionIdx === 1} />
+          <CardSlot content={card3Location} darkBg={videoEnded} attention={attentionIdx === 2} />
+          <CardSlot content={card4Call} darkBg={videoEnded} attention={attentionIdx === 3} />
         </div>
 
       </div>
