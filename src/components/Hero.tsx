@@ -121,7 +121,7 @@ export default function Hero({ onScrollToSection }: HeroProps) {
   const [attentionIdx, setAttentionIdx] = useState<number | null>(null);
   useEffect(() => {
     if (!videoEnded) return;
-    const STEP_MS = 450;
+    const STEP_MS = 900;
     const timers = [0, 1, 2, 3].map((i) => setTimeout(() => setAttentionIdx(i), i * STEP_MS));
     timers.push(setTimeout(() => setAttentionIdx(null), 4 * STEP_MS));
     return () => timers.forEach(clearTimeout);
