@@ -168,9 +168,9 @@ export default function Hero({ onScrollToSection }: HeroProps) {
   }, []);
 
   // 카드 정의 (사용자 지정 번호)
-  // 1: 법인 방문 오시는 길, 2: 전화 상담 문의, 3: 누적 대출 건수,
-  // 4: 누적 대출 금액, 5: 상품별 조건 확인, 6: 신청 절차 확인
-  const card1Location: CardContent = {
+  // 1: 누적 대출 건수, 2: 누적 대출 금액, 3: 법인 방문 오시는 길,
+  // 4: 전화 상담 문의, 5: 상품별 조건 확인, 6: 신청 절차 확인
+  const card3Location: CardContent = {
     icon: <MapPin className="w-6 h-6 text-rose-600" />,
     title: '법인 방문 오시는 길',
     value: '하나은행 봉덕지점 4층',
@@ -179,7 +179,7 @@ export default function Hero({ onScrollToSection }: HeroProps) {
     action: () => onScrollToSectionRef.current('location')
   };
 
-  const card2Call: CardContent = {
+  const card4Call: CardContent = {
     icon: <Phone className="w-6 h-6 text-rose-600" />,
     title: '전화 상담 문의',
     value: PHONE_NUMBER,
@@ -188,7 +188,7 @@ export default function Hero({ onScrollToSection }: HeroProps) {
     href: `tel:${PHONE_NUMBER}`
   };
 
-  const card3StatsCount: CardContent = {
+  const card1StatsCount: CardContent = {
     icon: <Users className="w-6 h-6 text-emerald-600" />,
     title: '누적 대출 건수',
     value: statsInView ? `${countPeople.toLocaleString()} 건` : '0 건',
@@ -197,7 +197,7 @@ export default function Hero({ onScrollToSection }: HeroProps) {
     pulseControls: peopleAnim
   };
 
-  const card4StatsAmount: CardContent = {
+  const card2StatsAmount: CardContent = {
     icon: (
       <div className="relative inline-flex items-center justify-center">
         <Banknote className="w-6 h-6 text-indigo-600" />
@@ -229,11 +229,11 @@ export default function Hero({ onScrollToSection }: HeroProps) {
     to: '/guide'
   };
 
-  // 세 번째·네 번째 슬롯의 내용만 showNavCards에 따라 바뀐다.
+  // 첫 번째·두 번째 슬롯의 내용만 showNavCards에 따라 바뀐다.
   // 슬롯(껍데기) 자체는 항상 같은 위치에 마운트되어 있으므로 등장/퇴장
   // 애니메이션이 반복될 여지가 없다.
-  const slot3 = showNavCards ? card5Products : card3StatsCount;
-  const slot4 = showNavCards ? card6Apply : card4StatsAmount;
+  const slot1 = showNavCards ? card5Products : card1StatsCount;
+  const slot2 = showNavCards ? card6Apply : card2StatsAmount;
 
   return (
     <section
@@ -353,10 +353,10 @@ export default function Hero({ onScrollToSection }: HeroProps) {
 
         {/* 6종 퀵 카드 — 3·4번 슬롯은 항상 마운트된 채로 내용만 전환된다 */}
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-2 md:gap-4 pb-4 md:pb-8">
-          <CardSlot content={card1Location} darkBg={videoEnded} />
-          <CardSlot content={card2Call} darkBg={videoEnded} />
-          <CardSlot content={slot3} darkBg={videoEnded} />
-          <CardSlot content={slot4} darkBg={videoEnded} />
+          <CardSlot content={slot1} darkBg={videoEnded} />
+          <CardSlot content={slot2} darkBg={videoEnded} />
+          <CardSlot content={card3Location} darkBg={videoEnded} />
+          <CardSlot content={card4Call} darkBg={videoEnded} />
         </div>
 
       </div>
