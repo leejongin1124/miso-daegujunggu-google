@@ -65,8 +65,8 @@ const DISCLOSURES = [
 ];
 
 // 공시 아카이브 그룹핑 — 최근 5개년은 별도로, 나머지는 연대별로 묶어 표시
-const RECENT_DISCLOSURES = DISCLOSURES.slice(0, 5);
-const OLDER_DISCLOSURES_BY_DECADE = DISCLOSURES.slice(5).reduce<Record<string, typeof DISCLOSURES>>((acc, d) => {
+const RECENT_DISCLOSURES = DISCLOSURES.slice(0, 6);
+const OLDER_DISCLOSURES_BY_DECADE = DISCLOSURES.slice(6).reduce<Record<string, typeof DISCLOSURES>>((acc, d) => {
   const decade = `${Math.floor(d.year / 10) * 10}년대`;
   acc[decade] = [...(acc[decade] ?? []), d];
   return acc;
@@ -662,25 +662,26 @@ export default function AboutSection({ sectionId }: { sectionId?: string }) {
                 <p className="text-slate-400 text-[11px] break-keep">칩을 누르면 클립보드에 복사됩니다. 국세청 조회 화면에 붙여넣어 확인하세요.</p>
               </div>
 
-              {/* 16년 연속 공시 배지 (정적) */}
+              {/* 구분선 — 국세청 조회 정보와 공시 연혁 지표를 시각적으로 분리 */}
+              <div className="border-t border-slate-200" />
+
+              {/* N년 연속 공시 지표 — 001기 2010년 → 016기 2025년 순으로 증가하는 카운트업 */}
               <motion.div
                 initial={{ opacity: 0, y: 10 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 onViewportEnter={() => setFinanceStatsInView(true)}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5 }}
-                className="flex flex-col items-center gap-3 pt-2"
+                className="flex flex-col items-center gap-3 pt-1"
               >
                 <div className="flex items-center gap-3">
-                  <div className="relative w-14 h-14 shrink-0">
-                    <div
-                      className="absolute inset-0 rounded-full"
-                      style={{ background: 'conic-gradient(from 0deg, #0d9488, #34d399, #0d9488)' }}
-                    />
-                    <div className="absolute inset-[3px] rounded-full bg-white flex flex-col items-center justify-center">
-                      <span className="text-teal-700 font-black text-lg leading-none tabular-nums">{financeYearCount}</span>
-                      <span className="text-teal-600 text-[9px] font-bold leading-none mt-0.5">YEARS</span>
-                    </div>
+                  <div className="shrink-0 bg-white border-2 border-teal-600 rounded-xl px-3.5 py-2 text-center leading-tight">
+                    <p className="text-teal-700 font-black text-lg tabular-nums font-mono">
+                      {String(Math.max(financeYearCount, 1)).padStart(3, '0')}기
+                    </p>
+                    <p className="text-slate-400 text-[11px] font-bold tabular-nums">
+                      {Math.min(2010 + Math.max(financeYearCount, 1) - 1, 2025)}년
+                    </p>
                   </div>
                   <div className="text-left">
                     <p className="flex items-center gap-1 text-teal-700 text-sm font-bold">
@@ -704,7 +705,7 @@ export default function AboutSection({ sectionId }: { sectionId?: string }) {
               <div className="bg-gradient-to-br from-teal-50 to-emerald-50 border border-teal-200 rounded-2xl px-5 py-5 md:px-8 md:py-6 flex flex-wrap items-center justify-between gap-4">
                 <div className="flex items-center gap-3 min-w-0">
                   <span className="shrink-0 bg-teal-600 text-white font-black text-lg md:text-xl px-3 py-1.5 rounded-lg font-mono">
-                    {DISCLOSURES[0].year}
+                    {DISCLOSURES[0].year}년
                   </span>
                   <div className="min-w-0">
                     <p className="font-bold text-slate-800 text-sm md:text-base break-keep">재무상태표 및 손익계산서</p>
@@ -748,7 +749,7 @@ export default function AboutSection({ sectionId }: { sectionId?: string }) {
                         className="flex items-center justify-between gap-3 bg-white border border-slate-100 rounded-xl px-4 py-3 hover:shadow-md hover:border-teal-200 transition-all group"
                       >
                         <span className="flex items-center gap-2.5 min-w-0">
-                          <span className="text-slate-800 font-black text-sm font-mono shrink-0">{d.year}</span>
+                          <span className="text-slate-800 font-black text-sm font-mono shrink-0">{d.year}년</span>
                           <span className="flex items-center gap-1.5 min-w-0">
                             <FileText className="w-3.5 h-3.5 text-emerald-500 shrink-0" />
                             <span className="font-semibold text-slate-600 text-xs md:text-sm truncate">재무상태표 및 손익계산서</span>
