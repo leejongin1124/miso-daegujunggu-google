@@ -273,7 +273,7 @@ export default function Hero({ onScrollToSection }: HeroProps) {
             setVideoEnded(false);
           }}
           aria-label="배경 영상 다시보기"
-          className="absolute bottom-5 right-5 z-20 flex items-center gap-1.5 bg-white/85 hover:bg-white text-slate-700 text-xs font-semibold px-3 py-2 rounded-full shadow-md backdrop-blur-sm transition-colors"
+          className="absolute top-20 right-5 md:top-24 z-20 flex items-center gap-1.5 bg-white/85 hover:bg-white text-slate-700 text-xs font-semibold px-3 py-2 rounded-full shadow-md backdrop-blur-sm transition-colors"
         >
           <RotateCcw className="w-3.5 h-3.5" />
           <span>다시보기</span>
