@@ -113,6 +113,7 @@ export default function AboutSection({ sectionId }: { sectionId?: string }) {
     !sectionId || (Array.isArray(ids) ? ids.includes(sectionId) : sectionId === ids);
 
   const [financeStatsInView, setFinanceStatsInView] = useState(false);
+  const [historyFilter, setHistoryFilter] = useState<'전체' | HistoryCategory>('전체');
   const financeYearCount = useCountUp(DISCLOSURES.length, 2200, financeStatsInView);
   const [copiedField, setCopiedField] = useState<string | null>(null);
   const handleCopy = (field: string, value: string) => {
@@ -138,81 +139,98 @@ export default function AboutSection({ sectionId }: { sectionId?: string }) {
     return () => window.removeEventListener('keydown', onKey);
   }, [lightboxImg]);
 
+  type HistoryCategory = '설립' | '협약' | '수상' | '지원성과' | '기관운영';
+
   interface HistoryItem {
     date: string;
     text: string;
+    category: HistoryCategory;
     emphasis: boolean;
+    status?: 'planned';
+    impact?: string;
     newsUrl?: string;
   }
 
+  const HISTORY_CATEGORY_STYLE: Record<HistoryCategory, string> = {
+    설립: 'bg-slate-100 text-slate-600',
+    협약: 'bg-sky-50 text-sky-700',
+    수상: 'bg-amber-50 text-amber-700',
+    지원성과: 'bg-emerald-50 text-emerald-700',
+    기관운영: 'bg-slate-50 text-slate-500',
+  };
+
+  // 매년 신규 연혁을 추가하고, 과거 누락 연도(2011·2014·2016·2017·2020·2021·2024)는
+  // 자료 확인 후 순차적으로 채워나갈 예정 — 없는 연도는 목록에서 자연스럽게 생략됨
   const historyData: { year: string; items: HistoryItem[] }[] = [
     {
       year: '2026',
       items: [
-        { date: '08.03', text: '미소금융대구중구법인 홈페이지 개설', emphasis: true }
+        { date: '08.03', text: '미소금융대구중구법인 홈페이지 개설 예정', category: '기관운영', emphasis: true, status: 'planned' }
       ]
     },
     {
       year: '2025',
       items: [
-        { date: '07.02', text: '사무실 임대차계약 연장 (3년) 체결', emphasis: false }
+        { date: '07.02', text: '사무실 임대차계약 연장 (3년) 체결', category: '기관운영', emphasis: false }
       ]
     },
     {
       year: '2023',
       items: [
-        { date: '04.01', text: '신중년 사회공헌사업단 시범운영 개시', emphasis: false }
+        { date: '04.01', text: '신중년 사회공헌사업단 시범운영 개시', category: '지원성과', emphasis: false }
       ]
     },
     {
       year: '2022',
       items: [
-        { date: '08.01', text: '현 사무소 이전 (남구 중앙대로 146, 하나은행 봉덕지점 4층)', emphasis: false }
+        { date: '08.01', text: '현 사무소 이전 (남구 중앙대로 146, 하나은행 봉덕지점 4층)', category: '기관운영', emphasis: false }
       ]
     },
     {
       year: '2019',
       items: [
-        { date: '06.17', text: '대구서민금융통합지원센터 지역협의체 출범 참가', emphasis: false }
+        { date: '06.17', text: '대구서민금융통합지원센터 지역협의체 출범 참가', category: '협약', emphasis: false }
       ]
     },
     {
       year: '2018',
       items: [
-        { date: '08.31', text: '전국 미소금융 법인 최초 사회적경제기업 1호 대출 지원', emphasis: true, newsUrl: 'https://www.yna.co.kr/view/AKR20180831135900002' },
-        { date: '10.30', text: '제3회 금융의 날 기념식 서민금융부문 수상 (김석동 대표)', emphasis: true, newsUrl: 'https://www.skyedaily.com/news/news_view.html?ID=78486' }
+        { date: '08.31', text: '전국 미소금융 법인 최초 사회적경제기업 1호 대출 지원', category: '지원성과', emphasis: true, newsUrl: 'https://www.yna.co.kr/view/AKR20180831135900002' },
+        { date: '10.30', text: '제3회 금융의 날 서민금융부문 국민포장 수훈 (김석동 대표)', category: '수상', emphasis: true, newsUrl: 'https://www.skyedaily.com/news/news_view.html?ID=78486' }
       ]
     },
     {
       year: '2015',
       items: [
-        { date: '12.28', text: '대구서민금융통합지원센터 개소 업무 협력 및 참가', emphasis: false }
+        { date: '12.28', text: '대구서민금융통합지원센터 개소 업무 협력 및 참가', category: '협약', emphasis: false }
       ]
     },
     {
       year: '2013',
       items: [
-        { date: '02.13', text: '대구신용보증재단 업무 연계 협약(MOU) 체결', emphasis: false },
-        { date: '06.06', text: '사무소 이전 (중구 경상감영길 제일은행 대구지점 4층)', emphasis: false }
+        { date: '02.13', text: '대구신용보증재단 업무 연계 협약(MOU) 체결', category: '협약', emphasis: false },
+        { date: '06.06', text: '사무소 이전 (중구 경상감영길 제일은행 대구지점 4층)', category: '기관운영', emphasis: false }
       ]
     },
     {
       year: '2012',
       items: [
-        { date: '01.25', text: '대구광역시 예비사회적기업 정식 지정', emphasis: false },
-        { date: '05.10', text: '대구광역시 서민금융지원 다자간 업무 협약(MOU) 체결', emphasis: false },
-        { date: '12.12', text: '서민금융 활성화 유공 대통령 표창 수상', emphasis: true, newsUrl: 'https://www.imaeil.com/page/view/2013010507401495165' }
+        { date: '01.25', text: '대구광역시 예비사회적기업 정식 지정', category: '기관운영', emphasis: false },
+        { date: '05.10', text: '대구광역시 서민금융지원 다자간 업무 협약(MOU) 체결', category: '협약', emphasis: false },
+        { date: '12.12', text: '전국 최우수기관 선정 및 대통령 기관표창 수상', category: '수상', emphasis: true, impact: '지원액 20억 9천만 원, 전년 대비 2.5배 증가', newsUrl: 'https://www.imaeil.com/page/view/2013010507401495165' }
       ]
     },
     {
       year: '2010',
       items: [
-        { date: '04.27', text: '금융위원회 비영리사단법인 설립 허가 인가', emphasis: false },
-        { date: '05.06', text: '사단법인 미소금융대구중구법인 설립 등기 완료', emphasis: false },
-        { date: '05.28', text: '공식 영업 개시 및 서민금융대출 개시', emphasis: true }
+        { date: '04.27', text: '금융위원회로부터 비영리사단법인 설립 허가', category: '설립', emphasis: false },
+        { date: '05.06', text: '사단법인 미소금융대구중구법인 설립 등기 완료', category: '설립', emphasis: false },
+        { date: '05.28', text: '공식 영업 개시 및 서민금융대출 개시', category: '설립', emphasis: true }
       ]
     }
   ];
+
+  const HISTORY_CATEGORIES: HistoryCategory[] = ['설립', '협약', '수상', '지원성과', '기관운영'];
 
   return (
     <>
@@ -426,19 +444,40 @@ export default function AboutSection({ sectionId }: { sectionId?: string }) {
           
           <div className="text-center space-y-3">
             <span className="text-teal-600 font-bold text-sm tracking-widest uppercase">History Timeline</span>
-            <h3 className="text-3xl font-extrabold text-slate-900 tracking-tight">대구 미소금융의 16년 발자취</h3>
-            <p className="text-slate-500 text-sm max-w-2xl mx-auto">
-              2010년 설립 이래 오직 자영업자와 서민의 재기를 위해 걸어온 영광스러운 순간입니다.
+            <h3 className="text-3xl font-extrabold text-slate-900 tracking-tight break-keep">지역과 함께한 미소금융의 발자취</h3>
+            <p className="text-slate-500 text-sm max-w-2xl mx-auto break-keep">
+              2010년 설립 이후 금융취약계층과 영세자영업자의 자립을 지원해 온 주요 기록입니다.
             </p>
+          </div>
+
+          {/* 연혁 유형 필터 */}
+          <div className="flex flex-wrap items-center justify-center gap-2">
+            {(['전체', ...HISTORY_CATEGORIES] as const).map((cat) => (
+              <button
+                key={cat}
+                type="button"
+                onClick={() => setHistoryFilter(cat)}
+                className={`text-xs font-bold px-3.5 py-1.5 rounded-full border transition-colors ${
+                  historyFilter === cat
+                    ? 'bg-teal-600 border-teal-600 text-white'
+                    : 'bg-white border-slate-200 text-slate-500 hover:border-teal-300 hover:text-teal-700'
+                }`}
+              >
+                {cat}
+              </button>
+            ))}
           </div>
 
           {/* PC 레이아웃 (md 이상) */}
           <div className="hidden md:block overflow-x-auto pb-4">
             <div style={{ minWidth: '680px' }}>
               <div className="relative border-l-2 border-slate-200 ml-48 py-4">
-                {historyData.map((milestone, idx) => (
+                {historyData
+                  .map((milestone) => ({ ...milestone, items: milestone.items.filter(i => historyFilter === '전체' || i.category === historyFilter) }))
+                  .filter(milestone => milestone.items.length > 0)
+                  .map((milestone, idx) => (
                   <motion.div
-                    key={idx}
+                    key={milestone.year}
                     initial={{ opacity: 0, x: -16 }}
                     whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true, margin: '-60px' }}
@@ -452,21 +491,32 @@ export default function AboutSection({ sectionId }: { sectionId?: string }) {
                     <div className="bg-white p-6 rounded-2xl border border-slate-100 shadow-sm ml-6 hover:shadow-lg hover:border-teal-100 transition-all">
                       <ul className="space-y-3.5">
                         {milestone.items.map((item, id) => (
-                          <li key={id} className="flex items-start space-x-3 text-left">
+                          <li key={id} className={`flex items-start space-x-3 text-left ${item.status === 'planned' ? 'opacity-70' : ''}`}>
                             <span className="text-xs font-bold text-slate-400 font-mono tracking-wider w-14 pt-1 flex-shrink-0">{item.date}</span>
-                            <div className="flex-1 font-medium text-slate-700">
-                              {item.emphasis ? (
-                                <span className="inline-flex flex-wrap items-center gap-2">
-                                  <strong className="text-slate-900 font-bold">{item.text}</strong>
-                                  {item.newsUrl && (
-                                    <a href={item.newsUrl} target="_blank" rel="noopener noreferrer"
-                                      className="inline-flex items-center space-x-1 bg-amber-50 border border-amber-200 text-amber-700 hover:bg-amber-100 text-[10px] font-bold px-2 py-0.5 rounded-full transition-colors">
-                                      <span>📰</span><span>신문기사 보기</span>
-                                    </a>
-                                  )}
-                                </span>
-                              ) : (
-                                <span className="text-slate-600 text-sm">{item.text}</span>
+                            <div className="flex-1 font-medium text-slate-700 space-y-1">
+                              <span className="inline-flex flex-wrap items-center gap-2">
+                                <span className={`text-[10px] font-bold px-2 py-0.5 rounded-full ${HISTORY_CATEGORY_STYLE[item.category]}`}>{item.category}</span>
+                                {item.status === 'planned' && (
+                                  <span className="text-[10px] font-bold px-2 py-0.5 rounded-full border border-dashed border-slate-300 text-slate-400">예정</span>
+                                )}
+                              </span>
+                              <div>
+                                {item.emphasis ? (
+                                  <span className="inline-flex flex-wrap items-center gap-2">
+                                    <strong className="text-slate-900 font-bold">{item.text}</strong>
+                                    {item.newsUrl && (
+                                      <a href={item.newsUrl} target="_blank" rel="noopener noreferrer"
+                                        className="inline-flex items-center space-x-1 bg-amber-50 border border-amber-200 text-amber-700 hover:bg-amber-100 text-[10px] font-bold px-2 py-0.5 rounded-full transition-colors">
+                                        <span>📰</span><span>신문기사 보기</span>
+                                      </a>
+                                    )}
+                                  </span>
+                                ) : (
+                                  <span className="text-slate-600 text-sm">{item.text}</span>
+                                )}
+                              </div>
+                              {item.impact && (
+                                <p className="text-emerald-700 text-xs font-semibold">{item.impact}</p>
                               )}
                             </div>
                           </li>
@@ -481,9 +531,12 @@ export default function AboutSection({ sectionId }: { sectionId?: string }) {
 
           {/* 모바일 레이아웃 (md 미만) — 연도가 카드 상단에 표시, 세로 타임라인 */}
           <div className="md:hidden relative border-l-2 border-slate-200 ml-4 py-2">
-            {historyData.map((milestone, idx) => (
+            {historyData
+              .map((milestone) => ({ ...milestone, items: milestone.items.filter(i => historyFilter === '전체' || i.category === historyFilter) }))
+              .filter(milestone => milestone.items.length > 0)
+              .map((milestone, idx) => (
               <motion.div
-                key={idx}
+                key={milestone.year}
                 initial={{ opacity: 0, y: 12 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: '-40px' }}
@@ -499,9 +552,13 @@ export default function AboutSection({ sectionId }: { sectionId?: string }) {
                 <div className="bg-white p-4 rounded-xl border border-slate-100 shadow-sm">
                   <ul className="space-y-2.5">
                     {milestone.items.map((item, id) => (
-                      <li key={id} className="text-left">
-                        <div className="flex items-center gap-1.5 mb-0.5">
+                      <li key={id} className={`text-left ${item.status === 'planned' ? 'opacity-70' : ''}`}>
+                        <div className="flex items-center gap-1.5 mb-1 flex-wrap">
                           <span className="text-[11px] font-bold text-slate-400 font-mono">{item.date}</span>
+                          <span className={`text-[9px] font-bold px-1.5 py-0.5 rounded-full ${HISTORY_CATEGORY_STYLE[item.category]}`}>{item.category}</span>
+                          {item.status === 'planned' && (
+                            <span className="text-[9px] font-bold px-1.5 py-0.5 rounded-full border border-dashed border-slate-300 text-slate-400">예정</span>
+                          )}
                         </div>
                         <div className="text-[12px] font-medium text-slate-700 leading-snug break-keep">
                           {item.emphasis ? (
@@ -518,6 +575,9 @@ export default function AboutSection({ sectionId }: { sectionId?: string }) {
                             <span className="text-slate-600">{item.text}</span>
                           )}
                         </div>
+                        {item.impact && (
+                          <p className="text-emerald-700 text-[11px] font-semibold mt-0.5">{item.impact}</p>
+                        )}
                       </li>
                     ))}
                   </ul>
