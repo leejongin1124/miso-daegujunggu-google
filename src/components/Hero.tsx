@@ -77,7 +77,7 @@ function CardSlot({ content, darkBg, attention }: { content: CardContent; darkBg
       viewport={{ once: true }}
       transition={{ duration: 0.5, type: 'spring', stiffness: 200, damping: 18 }}
       className={`relative rounded-2xl shadow-sm transition-all duration-300 text-left group overflow-hidden min-w-0 border border-white/30 hover:border-teal-200 hover:shadow-md ${
-        darkBg ? 'bg-black/30 backdrop-blur-md' : 'bg-white/5 backdrop-blur-[2px]'
+        darkBg ? 'bg-black/30 backdrop-blur-md' : 'bg-white/[0.02] backdrop-blur-none'
       } ${clickable ? 'cursor-pointer' : ''} ${attention ? 'ring-4 ring-teal-300/80 shadow-xl scale-[1.03]' : ''}`}
     >
       <div className="p-2 min-[360px]:p-3 md:p-6 relative z-10 min-w-0">
