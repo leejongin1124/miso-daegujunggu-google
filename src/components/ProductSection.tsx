@@ -340,6 +340,12 @@ export default function ProductSection({ onScrollToSection, onOpenCalculator, in
                       <span className="hidden md:inline"> (STEP 1 + STEP 2 동시 충족 필수)</span>
                       <span className="md:hidden text-teal-700 block text-xs font-black mt-0.5">(STEP 1 + STEP 2 동시 충족 필수)</span>
                     </span>
+                  ) : activeProduct.id === 'social' ? (
+                    <span>
+                      신청 자격 요건
+                      <span className="hidden md:inline"> (공통 요건 + 자격유형 중 하나 충족)</span>
+                      <span className="md:hidden text-teal-700 block text-xs font-black mt-0.5">(공통 요건 + 자격유형 중 하나 충족)</span>
+                    </span>
                   ) : (
                     <span>
                       신청 자격 요건
@@ -502,6 +508,68 @@ export default function ProductSection({ onScrollToSection, onOpenCalculator, in
                     >
                       <span className="text-base">⚠️</span>
                       <p className="text-rose-700 font-black text-xs">STEP 1 + STEP 2 모두 해당 시에만 상담 신청이 가능합니다</p>
+                    </motion.div>
+                  </div>
+
+                ) : activeProduct.id === 'social' ? (
+                  <div className="text-xs space-y-0">
+                    {/* 자격유형 — 다음 중 하나 해당 */}
+                    <motion.div
+                      initial={{ opacity: 0, y: -8 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.4 }}
+                      className="bg-teal-50 border-2 border-teal-300 rounded-xl p-4"
+                    >
+                      <div className="flex items-center gap-2 mb-2">
+                        <span className="bg-teal-600 text-white text-[10px] font-black px-2.5 py-0.5 rounded-full tracking-widest">택1</span>
+                        <p className="font-extrabold text-slate-800">자격유형 (다음 중 하나 해당)</p>
+                      </div>
+                      <ul className="space-y-2 pl-1 text-slate-600 font-medium leading-relaxed">
+                        {activeProduct.target.slice(0, 3).map((t, i) => (
+                          <li key={i}>• {t}</li>
+                        ))}
+                      </ul>
+                    </motion.div>
+
+                    {/* AND 커넥터 */}
+                    <div className="flex flex-col items-center py-1.5">
+                      <div className="w-0.5 h-3 bg-slate-300" />
+                      <motion.span
+                        animate={{ opacity: [1, 0.2, 1] }}
+                        transition={{ duration: 1.2, repeat: Infinity }}
+                        className="bg-rose-600 text-white text-[10px] font-black px-3 py-0.5 rounded-full"
+                      >
+                        AND · 공통 요건 동시 충족
+                      </motion.span>
+                      <div className="w-0.5 h-3 bg-slate-300" />
+                    </div>
+
+                    {/* 공통 요건 (필수) */}
+                    <motion.div
+                      initial={{ opacity: 0, y: 8 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.4, delay: 0.2 }}
+                      className="bg-indigo-50 border-2 border-indigo-300 rounded-xl p-4"
+                    >
+                      <div className="flex items-center gap-2 mb-2">
+                        <span className="bg-indigo-600 text-white text-[10px] font-black px-2.5 py-0.5 rounded-full tracking-widest">필수</span>
+                        <p className="font-extrabold text-slate-800">공통 요건</p>
+                      </div>
+                      <ul className="space-y-2 pl-1 text-slate-600 font-medium leading-relaxed">
+                        {activeProduct.target.slice(3).map((t, i) => (
+                          <li key={i}>• {t}</li>
+                        ))}
+                      </ul>
+                    </motion.div>
+
+                    {/* 최종 경고 배너 */}
+                    <motion.div
+                      animate={{ opacity: [1, 0.4, 1] }}
+                      transition={{ duration: 1.6, repeat: Infinity }}
+                      className="mt-3 flex items-center gap-2 bg-rose-50 border border-rose-300 rounded-xl px-4 py-3"
+                    >
+                      <span className="text-base">⚠️</span>
+                      <p className="text-rose-700 font-black text-xs">자격유형 중 하나 + 공통 요건을 모두 충족해야 상담 신청이 가능합니다</p>
                     </motion.div>
                   </div>
 
