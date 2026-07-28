@@ -613,15 +613,17 @@ export default function AboutSection({ sectionId }: { sectionId?: string }) {
                     transition={{ duration: 1.4, ease: 'easeInOut' }}
                   />
 
-                  {/* 연도별 포인트 + 라벨 */}
-                  {chartPoints.map((p, idx) => (
+                  {/* 연도별 포인트 + 라벨 — 꺾은선이 그려지는 속도(1.4초)에 맞춰
+                      좌→우로 순차 지연시키고, 등장 시 원이 한 번 크게 점등되었다가 안정된다 */}
+                  {chartPoints.map((p, idx) => {
+                    const pointDelay = (idx / Math.max(chartPoints.length - 1, 1)) * 1.4;
+                    return (
                     <motion.g
                       key={p.year}
-                      initial={{ opacity: 0, scale: 0 }}
-                      whileInView={{ opacity: 1, scale: 1 }}
+                      initial={{ opacity: 0 }}
+                      whileInView={{ opacity: 1 }}
                       viewport={{ once: true, margin: '-40px' }}
-                      transition={{ duration: 0.3, delay: 0.3 + Math.min(idx * 0.05, 0.7) }}
-                      style={{ transformOrigin: `${p.x}px ${p.y}px` }}
+                      transition={{ duration: 0.2, delay: pointDelay }}
                     >
                       <text x={p.x} y={p.y - 10} textAnchor="middle" fontSize="10" fontWeight="700" fill="#475569">
                         {formatEok(p.amount)}
@@ -633,15 +635,19 @@ export default function AboutSection({ sectionId }: { sectionId?: string }) {
                         fill="#fff"
                         stroke="#0d9488"
                         strokeWidth="2.5"
+                        initial={{ scale: 0 }}
+                        whileInView={{ scale: [0, 2.2, 1] }}
                         whileHover={{ scale: 1.6 }}
-                        transition={{ type: 'spring', stiffness: 500, damping: 12 }}
+                        viewport={{ once: true, margin: '-40px' }}
+                        transition={{ scale: { duration: 0.5, delay: pointDelay, times: [0, 0.5, 1], ease: 'easeOut' } }}
                         style={{ transformOrigin: `${p.x}px ${p.y}px`, cursor: 'default' }}
                       />
                       <text x={p.x} y={CHART_BASELINE + 22} textAnchor="middle" fontSize="10" fontWeight="600" fill="#94a3b8" fontFamily="monospace">
                         {p.year}
                       </text>
                     </motion.g>
-                  ))}
+                    );
+                  })}
                 </svg>
               </div>
             </div>
