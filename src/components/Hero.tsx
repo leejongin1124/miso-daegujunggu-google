@@ -51,6 +51,16 @@ export default function Hero({ onScrollToSection }: HeroProps) {
   const videoRef = useRef<HTMLVideoElement>(null);
   const [videoPlaying, setVideoPlaying] = useState(false);
   const [videoEnded, setVideoEnded] = useState(false);
+  // 3·4번 카드 숫자 카운팅 완료 후 3초 뒤에 5·6번(상품안내·신청안내) 카드로 전환
+  const [showNavCards, setShowNavCards] = useState(false);
+  useEffect(() => {
+    if (!videoEnded) {
+      setShowNavCards(false);
+      return;
+    }
+    const timer = setTimeout(() => setShowNavCards(true), 3000);
+    return () => clearTimeout(timer);
+  }, [videoEnded]);
 
   useEffect(() => {
     let count = 0;
@@ -84,24 +94,31 @@ export default function Hero({ onScrollToSection }: HeroProps) {
 
   const peopleAnim = useAnimation();
   const moneyAnim = useAnimation();
+  const productsAnim = useAnimation();
+  const applyAnim = useAnimation();
+
+  const CARD_POP_KEYFRAMES = {
+    scale: [1, 1.5, 0.9, 1.25, 0.95, 1.1, 1],
+    x: [0, 18, -4, 10, -2, 5, 0],
+    transition: { duration: 0.8, ease: 'easeInOut' as const }
+  };
 
   useEffect(() => {
     if (peopleDone) {
-      peopleAnim.start({
-        scale: [1, 1.5, 0.9, 1.25, 0.95, 1.1, 1],
-        x: [0, 18, -4, 10, -2, 5, 0],
-        transition: { duration: 0.8, ease: 'easeInOut' }
-      });
+      peopleAnim.start(CARD_POP_KEYFRAMES);
     }
   }, [peopleDone]);
 
   useEffect(() => {
+    if (showNavCards) {
+      productsAnim.start(CARD_POP_KEYFRAMES);
+      applyAnim.start(CARD_POP_KEYFRAMES);
+    }
+  }, [showNavCards]);
+
+  useEffect(() => {
     if (moneyDone) {
-      moneyAnim.start({
-        scale: [1, 1.5, 0.9, 1.25, 0.95, 1.1, 1],
-        x: [0, 18, -4, 10, -2, 5, 0],
-        transition: { duration: 0.8, ease: 'easeInOut' }
-      });
+      moneyAnim.start(CARD_POP_KEYFRAMES);
     }
   }, [moneyDone]);
 
@@ -204,7 +221,7 @@ export default function Hero({ onScrollToSection }: HeroProps) {
       desc: '대구 남구 중앙대로 146',
       action: () => onScrollToSection('location')
     },
-    ...(videoEnded ? navCards : statsCards)
+    ...(showNavCards ? navCards : statsCards)
   ];
 
   return (
@@ -392,7 +409,13 @@ export default function Hero({ onScrollToSection }: HeroProps) {
                 ) : (
                   <motion.p
                     className={`font-extrabold mt-1 tracking-tight text-white drop-shadow truncate ${card.valueClass ?? 'text-lg md:text-3xl'}`}
-                    animate={card.id === 'stats-count' ? peopleAnim : card.id === 'stats-amount' ? moneyAnim : undefined}
+                    animate={
+                      card.id === 'stats-count' ? peopleAnim
+                        : card.id === 'stats-amount' ? moneyAnim
+                        : card.id === 'products' ? productsAnim
+                        : card.id === 'apply' ? applyAnim
+                        : undefined
+                    }
                   >{card.value}</motion.p>
                 )}
                 <p className="text-[10px] md:text-xs mt-1 font-semibold text-white/70 truncate">{card.desc}</p>
