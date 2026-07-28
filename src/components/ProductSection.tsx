@@ -513,19 +513,19 @@ export default function ProductSection({ onScrollToSection, onOpenCalculator, in
 
                 ) : activeProduct.id === 'social' ? (
                   <div className="text-xs space-y-0">
-                    {/* 자격유형 — 다음 중 하나 해당 */}
+                    {/* 공통 요건 (필수) */}
                     <motion.div
                       initial={{ opacity: 0, y: -8 }}
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ duration: 0.4 }}
-                      className="bg-teal-50 border-2 border-teal-300 rounded-xl p-4"
+                      className="bg-indigo-50 border-2 border-indigo-300 rounded-xl p-4"
                     >
                       <div className="flex items-center gap-2 mb-2">
-                        <span className="bg-teal-600 text-white text-[10px] font-black px-2.5 py-0.5 rounded-full tracking-widest">택1</span>
-                        <p className="font-extrabold text-slate-800">자격유형 (다음 중 하나 해당)</p>
+                        <span className="bg-indigo-600 text-white text-[10px] font-black px-2.5 py-0.5 rounded-full tracking-widest">필수</span>
+                        <p className="font-extrabold text-slate-800">공통 요건</p>
                       </div>
                       <ul className="space-y-2 pl-1 text-slate-600 font-medium leading-relaxed">
-                        {activeProduct.target.slice(0, 3).map((t, i) => (
+                        {activeProduct.target.slice(3).map((t, i) => (
                           <li key={i}>• {t}</li>
                         ))}
                       </ul>
@@ -539,24 +539,24 @@ export default function ProductSection({ onScrollToSection, onOpenCalculator, in
                         transition={{ duration: 1.2, repeat: Infinity }}
                         className="bg-rose-600 text-white text-[10px] font-black px-3 py-0.5 rounded-full"
                       >
-                        AND · 공통 요건 동시 충족
+                        AND · 자격유형 동시 충족
                       </motion.span>
                       <div className="w-0.5 h-3 bg-slate-300" />
                     </div>
 
-                    {/* 공통 요건 (필수) */}
+                    {/* 자격유형 — 다음 중 하나 해당 */}
                     <motion.div
                       initial={{ opacity: 0, y: 8 }}
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ duration: 0.4, delay: 0.2 }}
-                      className="bg-indigo-50 border-2 border-indigo-300 rounded-xl p-4"
+                      className="bg-teal-50 border-2 border-teal-300 rounded-xl p-4"
                     >
                       <div className="flex items-center gap-2 mb-2">
-                        <span className="bg-indigo-600 text-white text-[10px] font-black px-2.5 py-0.5 rounded-full tracking-widest">필수</span>
-                        <p className="font-extrabold text-slate-800">공통 요건</p>
+                        <span className="bg-teal-600 text-white text-[10px] font-black px-2.5 py-0.5 rounded-full tracking-widest">택1</span>
+                        <p className="font-extrabold text-slate-800">자격유형 (다음 중 하나 해당)</p>
                       </div>
                       <ul className="space-y-2 pl-1 text-slate-600 font-medium leading-relaxed">
-                        {activeProduct.target.slice(3).map((t, i) => (
+                        {activeProduct.target.slice(0, 3).map((t, i) => (
                           <li key={i}>• {t}</li>
                         ))}
                       </ul>
