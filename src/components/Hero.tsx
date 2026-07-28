@@ -347,12 +347,12 @@ export default function Hero({ onScrollToSection }: HeroProps) {
               exit={{ opacity: 0, y: -10, scale: 0.95 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: i * 0.12, type: 'spring', stiffness: 200, damping: 18 }}
-              animate={spotlightIdx === i && i < 2 && !showNavCards ? { y: -4, scale: 1.02 } : { y: 0, scale: 1 }}
+              animate={spotlightIdx === i && i < 2 && !showNavCards ? { y: -4, scale: 1.02 } : undefined}
               onClick={card.action}
               className={`relative rounded-2xl shadow-sm transition-colors duration-500 text-left group overflow-hidden min-w-0 ${
                 i === 0 ? 'order-2 md:order-4' : i === 1 ? 'order-1 md:order-3' : i === 2 ? 'order-3 md:order-1' : 'order-4 md:order-2'
               } ${
-                videoEnded ? 'bg-black/30 backdrop-blur-md' : 'bg-white/5 backdrop-blur-[2px]'
+                showNavCards ? 'bg-slate-900' : videoEnded ? 'bg-black/30 backdrop-blur-md' : 'bg-white/5 backdrop-blur-[2px]'
               } ${
                 card.action || card.href ? 'cursor-pointer' : ''
               } ${
