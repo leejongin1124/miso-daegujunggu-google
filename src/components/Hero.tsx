@@ -51,16 +51,9 @@ export default function Hero({ onScrollToSection }: HeroProps) {
   const videoRef = useRef<HTMLVideoElement>(null);
   const [videoPlaying, setVideoPlaying] = useState(false);
   const [videoEnded, setVideoEnded] = useState(false);
-  // 3·4번 카드 숫자 카운팅 완료 후 3초 뒤에 5·6번(상품안내·신청안내) 카드로 전환
+  // 5·6번(상품안내·신청안내) 카드는 동영상 재생 상태와 무관하게, 3·4번 숫자
+  // 카운팅 애니메이션이 모두 끝난 뒤 3초 뒤에 표시
   const [showNavCards, setShowNavCards] = useState(false);
-  useEffect(() => {
-    if (!videoEnded) {
-      setShowNavCards(false);
-      return;
-    }
-    const timer = setTimeout(() => setShowNavCards(true), 3000);
-    return () => clearTimeout(timer);
-  }, [videoEnded]);
 
   useEffect(() => {
     let count = 0;
@@ -94,8 +87,6 @@ export default function Hero({ onScrollToSection }: HeroProps) {
 
   const peopleAnim = useAnimation();
   const moneyAnim = useAnimation();
-  const productsAnim = useAnimation();
-  const applyAnim = useAnimation();
 
   const CARD_POP_KEYFRAMES = {
     scale: [1, 1.5, 0.9, 1.25, 0.95, 1.1, 1],
@@ -109,12 +100,13 @@ export default function Hero({ onScrollToSection }: HeroProps) {
     }
   }, [peopleDone]);
 
+  // 3·4번 숫자 카운팅 + 팝 애니메이션(0.8초)이 모두 끝난 뒤 3초 뒤에 5·6번 카드 표시.
+  // 5·6번은 등장 후 별도의 반복/마무리 애니메이션 없이 정적으로 유지된다.
   useEffect(() => {
-    if (showNavCards) {
-      productsAnim.start(CARD_POP_KEYFRAMES);
-      applyAnim.start(CARD_POP_KEYFRAMES);
-    }
-  }, [showNavCards]);
+    if (!(peopleDone && moneyDone)) return;
+    const timer = setTimeout(() => setShowNavCards(true), 3000);
+    return () => clearTimeout(timer);
+  }, [peopleDone, moneyDone]);
 
   useEffect(() => {
     if (moneyDone) {
@@ -409,13 +401,7 @@ export default function Hero({ onScrollToSection }: HeroProps) {
                 ) : (
                   <motion.p
                     className={`font-extrabold mt-1 tracking-tight text-white drop-shadow truncate ${card.valueClass ?? 'text-lg md:text-3xl'}`}
-                    animate={
-                      card.id === 'stats-count' ? peopleAnim
-                        : card.id === 'stats-amount' ? moneyAnim
-                        : card.id === 'products' ? productsAnim
-                        : card.id === 'apply' ? applyAnim
-                        : undefined
-                    }
+                    animate={card.id === 'stats-count' ? peopleAnim : card.id === 'stats-amount' ? moneyAnim : undefined}
                   >{card.value}</motion.p>
                 )}
                 <p className="text-[10px] md:text-xs mt-1 font-semibold text-white/70 truncate">{card.desc}</p>
