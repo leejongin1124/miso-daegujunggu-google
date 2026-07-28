@@ -1080,7 +1080,7 @@ export default function GuideSection({ sectionId }: { sectionId?: string }) {
                   href="tel:053-252-6408"
                   className="w-full bg-miso-blue-600 hover:bg-miso-blue-700 text-white font-black py-4 rounded-xl text-center text-sm transition shadow mt-3 flex items-center justify-center"
                 >
-                  📞 위 설계 조건으로 전화 상담하기
+                  📞 계산 결과로 전화 상담 신청하기
                 </a>
               </div>
 
