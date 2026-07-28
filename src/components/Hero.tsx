@@ -347,7 +347,7 @@ export default function Hero({ onScrollToSection }: HeroProps) {
               exit={{ opacity: 0, y: -10, scale: 0.95 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: i * 0.12, type: 'spring', stiffness: 200, damping: 18 }}
-              animate={spotlightIdx === i && i < 2 ? { y: -4, scale: 1.02 } : { y: 0, scale: 1 }}
+              animate={spotlightIdx === i && i < 2 && !showNavCards ? { y: -4, scale: 1.02 } : { y: 0, scale: 1 }}
               onClick={card.action}
               className={`relative rounded-2xl shadow-sm transition-colors duration-500 text-left group overflow-hidden min-w-0 ${
                 i === 0 ? 'order-2 md:order-4' : i === 1 ? 'order-1 md:order-3' : i === 2 ? 'order-3 md:order-1' : 'order-4 md:order-2'
@@ -356,12 +356,12 @@ export default function Hero({ onScrollToSection }: HeroProps) {
               } ${
                 card.action || card.href ? 'cursor-pointer' : ''
               } ${
-                spotlightIdx === i && i < 2
+                spotlightIdx === i && i < 2 && !showNavCards
                   ? 'border-2 border-teal-400 shadow-lg shadow-teal-100'
                   : 'border border-white/30 hover:border-teal-200 hover:shadow-md'
               }`}
             >
-              {spotlightIdx === i && i < 2 && (
+              {spotlightIdx === i && i < 2 && !showNavCards && (
                 <motion.div
                   initial={{ opacity: 0 }}
                   animate={{ opacity: [0, 0.15, 0] }}
@@ -380,7 +380,7 @@ export default function Hero({ onScrollToSection }: HeroProps) {
                     </div>
                   ) : (
                   <div className={`p-2 md:p-3 rounded-xl transition-all shadow-inner ${
-                    spotlightIdx === i && i < 2
+                    spotlightIdx === i && i < 2 && !showNavCards
                       ? 'bg-teal-50'
                       : 'bg-white/10 group-hover:bg-white/20'
                   }`}>
