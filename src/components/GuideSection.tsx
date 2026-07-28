@@ -314,7 +314,7 @@ export default function GuideSection({ sectionId }: { sectionId?: string }) {
             >
               <div className="w-9 h-9 bg-teal-600 text-white rounded-xl flex items-center justify-center font-black text-sm">1</div>
               <h4 className="font-extrabold text-teal-800 text-base">신용평점 기준 확인</h4>
-              <p className="text-slate-600 text-sm leading-relaxed">
+              <p className="text-slate-600 text-sm leading-relaxed break-keep">
                 개인신용평점이 서민금융 지원 기준에 해당하는지 확인합니다. 기준 점수는 매년 변경될 수 있습니다.<br />
                 <span className="font-bold text-teal-700">KCB 700점 이하 · NICE 749점 이하</span>
               </p>
@@ -359,7 +359,7 @@ export default function GuideSection({ sectionId }: { sectionId?: string }) {
             >
               <div className="w-9 h-9 bg-teal-600 text-white rounded-xl flex items-center justify-center font-black text-sm">2</div>
               <h4 className="font-extrabold text-teal-800 text-base">취약계층 기준 확인</h4>
-              <p className="text-slate-600 text-sm leading-relaxed">
+              <p className="text-slate-600 text-sm leading-relaxed break-keep">
                 기초생활수급자, 차상위계층 등 서민금융 지원 기준에서 정한 취약계층에 해당하는지 확인합니다.
               </p>
             </motion.div>
@@ -374,7 +374,7 @@ export default function GuideSection({ sectionId }: { sectionId?: string }) {
             >
               <div className="w-9 h-9 bg-teal-600 text-white rounded-xl flex items-center justify-center font-black text-sm">3</div>
               <h4 className="font-extrabold text-teal-800 text-base">근로장려금 신청자격 기준 확인</h4>
-              <p className="text-slate-600 text-sm leading-relaxed">
+              <p className="text-slate-600 text-sm leading-relaxed break-keep">
                 근로장려금 신청자격 요건에 해당하는지 국세청 안내를 통해 확인합니다.
               </p>
               <p className="text-[10px] text-slate-400 font-medium">자격 해당 여부를 지금 바로 확인하세요 👇</p>
@@ -585,7 +585,7 @@ export default function GuideSection({ sectionId }: { sectionId?: string }) {
             </div>
           </motion.div>
           <div className="space-y-2">
-            <p className="text-slate-500 text-sm leading-relaxed">
+            <p className="text-slate-500 text-sm leading-relaxed break-keep">
               귀한 시간 내서 오셨는데, 서류가 빠져서 다시 댁으로 돌아가시는 일이 없어야겠지요?<br />
               아래 적힌 서류들을 챙겨오시면, <strong className="text-teal-700">신청 자격 충족 여부와 예상 한도 범위</strong>를 상담을 통해 신속하게 안내해 드립니다. (최종 승인 여부는 여신심사 결과에 따라 달라질 수 있습니다)
             </p>
@@ -654,7 +654,7 @@ export default function GuideSection({ sectionId }: { sectionId?: string }) {
             <h3 className="text-[1.7rem] md:text-[2rem] font-black text-slate-900 tracking-tight">
               자주 묻는 서민금융 질문 (FAQ)
             </h3>
-            <p className="text-slate-500 text-sm font-semibold max-w-2xl mx-auto leading-relaxed">
+            <p className="text-slate-500 text-sm font-semibold max-w-2xl mx-auto leading-relaxed break-keep">
               상담 예약 전, 많은 분들께서 궁금해하시는 핵심 질문들을 모았습니다. <br className="hidden sm:inline" />
               추가 정보가 필요하시면 대표전화로 편하게 상담받으실 수 있습니다.
             </p>
@@ -687,7 +687,7 @@ export default function GuideSection({ sectionId }: { sectionId?: string }) {
                       }`}>
                         Q
                       </span>
-                      <span className="font-extrabold text-slate-800 text-base md:text-lg leading-snug">
+                      <span className="font-extrabold text-slate-800 text-base md:text-lg leading-snug break-keep">
                         {faq.question}
                       </span>
                     </span>
@@ -704,7 +704,7 @@ export default function GuideSection({ sectionId }: { sectionId?: string }) {
                     }`}
                   >
                     <div className="p-6 bg-slate-50/70 text-slate-600 space-y-2 rounded-b-2xl">
-                      <p className="text-sm md:text-base leading-relaxed font-semibold">
+                      <p className="text-sm md:text-base leading-relaxed break-keep font-semibold">
                         {faq.answer}
                       </p>
                     </div>
@@ -743,7 +743,7 @@ export default function GuideSection({ sectionId }: { sectionId?: string }) {
             스마트 대출 계산기
           </h2>
           <div className="h-1.5 w-16 bg-miso-blue-600 rounded-full mx-auto" />
-          <p className="text-slate-600 font-medium text-base md:text-lg max-w-2xl mx-auto leading-relaxed">
+          <p className="text-slate-600 font-medium text-base md:text-lg max-w-2xl mx-auto leading-relaxed break-keep">
             월 상환 예정액을 미리 확인하실 수 있습니다.
           </p>
         </div>

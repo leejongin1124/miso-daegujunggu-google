@@ -400,7 +400,7 @@ export default function AboutSection({ sectionId }: { sectionId?: string }) {
                     {member.role}
                   </span>
                   <h4 className="font-extrabold text-slate-900 text-lg">{member.name}</h4>
-                  <p className="text-slate-500 text-sm leading-relaxed">
+                  <p className="text-slate-500 text-sm leading-relaxed break-keep">
                     <span className={member.affiliation.startsWith('(現)') ? 'font-bold text-miso-blue-700' : 'font-bold text-slate-400'}>
                       {member.affiliation.slice(0, 3)}
                     </span>
@@ -495,7 +495,7 @@ export default function AboutSection({ sectionId }: { sectionId?: string }) {
                         <div className="flex items-center gap-1.5 mb-0.5">
                           <span className="text-[11px] font-bold text-slate-400 font-mono">{item.date}</span>
                         </div>
-                        <div className="text-[12px] font-medium text-slate-700 leading-snug">
+                        <div className="text-[12px] font-medium text-slate-700 leading-snug break-keep">
                           {item.emphasis ? (
                             <span className="inline-flex flex-wrap items-center gap-1.5">
                               <strong className="text-slate-900">{item.text}</strong>
@@ -781,7 +781,7 @@ export default function AboutSection({ sectionId }: { sectionId?: string }) {
             <div className="space-y-1.5 md:space-y-6 order-1 lg:order-1">
               <span className="text-xs font-black tracking-widest text-teal-600 uppercase">Way to Come</span>
               <h3 className="text-2xl md:text-3xl font-extrabold text-slate-900">대구중구법인 오시는 길</h3>
-              <p className="hidden md:block text-slate-600 font-medium text-base md:text-lg leading-relaxed">
+              <p className="hidden md:block text-slate-600 font-medium text-base md:text-lg leading-relaxed break-keep">
                 대구광역시 남구 하나은행 봉덕지점 건물 4층에 위치합니다. <br />
                 지하철·버스 접근이 편리하며, 방문 상담을 환영합니다.
               </p>

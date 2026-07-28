@@ -54,7 +54,7 @@ export default function MisoIntroSection() {
             미소금융은 무엇이 다른가요?
           </h2>
           <div className="h-1.5 w-16 bg-teal-600 rounded-full mx-auto" />
-          <p className="text-slate-600 font-medium text-base md:text-lg leading-relaxed">
+          <p className="text-slate-600 font-medium text-base md:text-lg leading-relaxed break-keep">
             일반 금융기관을 이용하기 어려운 분께 저금리 대출을 지원하며,<br className="hidden md:inline" />
             수수료와 담보는 없습니다.
           </p>
@@ -75,7 +75,7 @@ export default function MisoIntroSection() {
                 {f.icon}
               </div>
               <h3 className="font-extrabold text-slate-900 text-lg mb-3">{f.title}</h3>
-              <p className="text-slate-500 text-base leading-relaxed font-medium">{f.desc}</p>
+              <p className="text-slate-500 text-base leading-relaxed break-keep font-medium">{f.desc}</p>
             </motion.div>
           ))}
         </div>
@@ -93,13 +93,13 @@ export default function MisoIntroSection() {
             <span aria-hidden="true">🛡️</span>
             <span>'미소금융' 명칭 및 사칭 주의 안내</span>
           </h3>
-          <p className="text-slate-600 text-xs md:text-sm leading-relaxed">
+          <p className="text-slate-600 text-xs md:text-sm leading-relaxed break-keep">
             '미소금융'은 「서민의 금융생활 지원에 관한 법률」 및 관련 규정에 따라 보호되는 정책서민금융상품 명칭입니다. 대출상품·광고·상호 등에 이 명칭을 사용하는 자는 서민금융진흥원과 사업수행기관 등 법령상 허용된 자여야 하며, 이를 위반하면 관련 법령에 따라 과태료가 부과될 수 있습니다.
           </p>
-          <p className="text-slate-600 text-xs md:text-sm leading-relaxed">
+          <p className="text-slate-600 text-xs md:text-sm leading-relaxed break-keep">
             미소금융 지원 여부는 상품별 지원요건과 심사기준에 따라 결정되므로 상담 또는 신청만으로 대출이 승인되는 것은 아닙니다. 미소금융은 상담·대출 진행을 이유로 중개 수수료, 선납금, 보증 비용 등 어떠한 명목의 비용도 요구하지 않습니다. 비용을 요구받으셨다면 사기가 강하게 의심되므로 송금·앱 설치를 중단하고 공식 대표번호로 확인·신고해 주시기 바랍니다.
           </p>
-          <p className="text-slate-500 text-xs md:text-sm leading-relaxed">
+          <p className="text-slate-500 text-xs md:text-sm leading-relaxed break-keep">
             현재 지정된 서민금융진흥원 미소금융 사업수행기관은{' '}
             <a
               href="https://www.kinfa.or.kr/financialSupport/localCorporation.do"
@@ -170,11 +170,11 @@ export default function MisoIntroSection() {
             {comparison.map((row, i) => (
               <div key={i} className={`grid grid-cols-[auto_1fr_1fr] border-b border-slate-50 ${i % 2 === 0 ? 'bg-white' : 'bg-slate-50/40'}`}>
                 <div className="px-3 py-3 font-bold text-slate-600 text-[11px] leading-snug whitespace-nowrap">{row.item}</div>
-                <div className="px-3 py-3 font-bold text-teal-700 text-[11px] leading-snug flex items-start gap-1">
+                <div className="px-3 py-3 font-bold text-teal-700 text-[11px] leading-snug break-keep flex items-start gap-1">
                   {row.good && <CheckCircle2 className="w-3 h-3 text-teal-500 shrink-0 mt-0.5" />}
                   <span>{row.miso}</span>
                 </div>
-                <div className="px-3 py-3 text-slate-500 text-[11px] leading-snug font-medium">{row.bank}</div>
+                <div className="px-3 py-3 text-slate-500 text-[11px] leading-snug break-keep font-medium">{row.bank}</div>
               </div>
             ))}
           </div>
@@ -245,9 +245,9 @@ export default function MisoIntroSection() {
                   <span className="flex-shrink-0 inline-flex items-center justify-center bg-[#03C75A] p-1.5 rounded-md">
                     <img src="/logos/naver_blog_logo.png" alt="블로그" className="w-4 h-4 object-contain brightness-0 invert flex-shrink-0" />
                   </span>
-                  <span className={`font-extrabold text-sm leading-snug group-hover:underline ${row.highlight ? 'text-teal-700' : 'text-slate-800'}`}>{row.name}</span>
+                  <span className={`font-extrabold text-sm leading-snug break-keep group-hover:underline ${row.highlight ? 'text-teal-700' : 'text-slate-800'}`}>{row.name}</span>
                 </motion.a>
-                <p className="text-slate-500 text-xs font-medium mb-3 leading-relaxed">{row.purpose}</p>
+                <p className="text-slate-500 text-xs font-medium mb-3 leading-relaxed break-keep">{row.purpose}</p>
                 <div className="flex gap-2 mb-2">
                   <div className="flex-1 bg-slate-50 rounded-lg px-3 py-2">
                     <p className="text-[10px] font-bold text-slate-400 mb-0.5">대출한도</p>
@@ -336,7 +336,7 @@ export default function MisoIntroSection() {
                         <span className="group-hover:underline">{row.name}</span>
                       </motion.a>
                     </td>
-                    <td className="px-5 py-4 align-top text-slate-600 text-xs font-medium leading-relaxed">{row.purpose}</td>
+                    <td className="px-5 py-4 align-top text-slate-600 text-xs font-medium leading-relaxed break-keep">{row.purpose}</td>
                     <td className="px-5 py-4 align-top text-center font-bold text-slate-800 text-xs">
                       {row.limit.split('\n').map((line, j) => (
                         <p key={j} className="leading-snug break-keep">{line}</p>

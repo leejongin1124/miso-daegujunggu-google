@@ -263,7 +263,7 @@ export default function ProductSection({ onScrollToSection, onOpenCalculator, in
                       <span className="flex-shrink-0 w-8 h-8 bg-teal-100 rounded-lg flex items-center justify-center text-base">💰</span>
                       <span className="text-slate-700 font-black text-xs md:text-sm">사업자 유형별 대출한도 · 적용금리</span>
                     </div>
-                    <table className="w-full text-left border-collapse table-fixed">
+                    <table className="w-full text-left border-collapse table-fixed break-keep">
                       <colgroup>
                         <col className="w-[30%]" />
                         <col className="w-[32%]" />
@@ -307,14 +307,14 @@ export default function ProductSection({ onScrollToSection, onOpenCalculator, in
                   <div className="flex-shrink-0 w-10 h-10 bg-teal-100 rounded-xl flex items-center justify-center text-lg">💰</div>
                   <div>
                     <span className="block text-slate-400 text-[10px] font-bold uppercase tracking-wider mb-1">대출 최대 한도</span>
-                    <span className="block text-slate-800 font-black text-base leading-snug whitespace-pre-line">{activeProduct.limit}</span>
+                    <span className="block text-slate-800 font-black text-base leading-snug break-keep whitespace-pre-line">{activeProduct.limit}</span>
                   </div>
                 </div>
                 <div className="bg-teal-50 px-5 py-4 rounded-xl border border-teal-100 flex items-center gap-4 hover:shadow-md hover:border-teal-200 transition-all">
                   <div className="flex-shrink-0 w-10 h-10 bg-teal-200 rounded-xl flex items-center justify-center text-lg">📉</div>
                   <div>
                     <span className="block text-teal-600 text-[10px] font-bold uppercase tracking-wider mb-1">실질 금리 수준</span>
-                    <span className="block text-teal-800 font-black text-sm leading-snug whitespace-pre-line">{activeProduct.interestRate}</span>
+                    <span className="block text-teal-800 font-black text-sm leading-snug break-keep whitespace-pre-line">{activeProduct.interestRate}</span>
                   </div>
                 </div>
                 </>
@@ -330,7 +330,7 @@ export default function ProductSection({ onScrollToSection, onOpenCalculator, in
                   <div className="flex-shrink-0 w-10 h-10 bg-emerald-100 rounded-xl flex items-center justify-center text-lg">🔄</div>
                   <div>
                     <span className="block text-slate-400 text-[10px] font-bold uppercase tracking-wider mb-1">상환 방식</span>
-                    <span className="block text-slate-800 font-black text-sm leading-snug">{activeProduct.repaymentMethod}</span>
+                    <span className="block text-slate-800 font-black text-sm leading-snug break-keep">{activeProduct.repaymentMethod}</span>
                   </div>
                 </div>
               </div>
@@ -432,7 +432,7 @@ export default function ProductSection({ onScrollToSection, onOpenCalculator, in
                         <span className="bg-teal-600 text-white text-[10px] font-black px-2.5 py-0.5 rounded-full tracking-widest">STEP 1</span>
                         <p className="font-extrabold text-slate-800">기본 요건 (다음 중 하나 해당)</p>
                       </div>
-                      <table className="w-full text-left border-collapse">
+                      <table className="w-full text-left border-collapse break-keep">
                         <thead>
                           <tr className="bg-teal-100">
                             <th className="border border-teal-200 px-3 py-2 text-teal-700 font-bold w-28">구분</th>
@@ -480,7 +480,7 @@ export default function ProductSection({ onScrollToSection, onOpenCalculator, in
                         <span className="bg-indigo-600 text-white text-[10px] font-black px-2.5 py-0.5 rounded-full tracking-widest">STEP 2</span>
                         <p className="font-extrabold text-slate-800">추가 요건 (다음 중 하나 해당)</p>
                       </div>
-                      <table className="w-full text-left border-collapse">
+                      <table className="w-full text-left border-collapse break-keep">
                         <thead>
                           <tr className="bg-indigo-100">
                             <th className="border border-indigo-200 px-3 py-2 text-indigo-700 font-bold w-28">구분</th>
