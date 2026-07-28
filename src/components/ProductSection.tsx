@@ -411,7 +411,7 @@ export default function ProductSection({ onScrollToSection, onOpenCalculator, in
                       className="mt-3 flex items-center gap-2 bg-rose-50 border border-rose-300 rounded-xl px-4 py-3"
                     >
                       <span className="text-base">⚠️</span>
-                      <p className="text-rose-700 font-black text-xs">① STEP 1 + STEP 2 모두 해당해야 하는 기본 자격 요건입니다</p>
+                      <p className="text-rose-700 font-black text-xs">STEP 1 + STEP 2 모두 해당 시에만 상담 신청이 가능합니다</p>
                     </motion.div>
                   </div>
 
