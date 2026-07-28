@@ -117,8 +117,8 @@ export default function Hero({ onScrollToSection }: HeroProps) {
   const [videoEnded, setVideoEnded] = useState(false);
 
   // 5·6번(상품별 조건 확인 / 신청 절차 확인) 카드는 동영상 재생 시간과
-  // 무관하게, 3·4번(누적 대출 건수/금액) 숫자 카운팅이 끝나면 그 자리에
-  // 바로 표시된다. 한 번 true가 되면 다시 false로 되돌리는 코드는
+  // 무관하게, 1·2번(누적 대출 건수/금액) 숫자 카운팅이 끝난 뒤 3초 후
+  // 그 자리에 표시된다. 한 번 true가 되면 다시 false로 되돌리는 코드는
   // 어디에도 없다(리렌더 시 재계산되지 않는 단순 불리언 상태).
   const [showNavCards, setShowNavCards] = useState(false);
 
@@ -136,13 +136,14 @@ export default function Hero({ onScrollToSection }: HeroProps) {
     return () => clearTimeout(timer);
   }, []);
 
-  const { count: countPeople, done: peopleDone } = useCountUp(6300, 1200, statsInView);
-  const { count: countMoney, done: moneyDone } = useCountUp(600, 1200, statsInView);
+  const { count: countPeople, done: peopleDone } = useCountUp(6300, 2500, statsInView);
+  const { count: countMoney, done: moneyDone } = useCountUp(600, 2500, statsInView);
 
+  // 1·2번 숫자 카운팅이 모두 끝난 뒤 3초 뒤에 5·6번(상품별 조건 확인/신청 절차 확인) 카드로 전환
   useEffect(() => {
-    if (peopleDone && moneyDone) {
-      setShowNavCards(true);
-    }
+    if (!(peopleDone && moneyDone)) return;
+    const timer = setTimeout(() => setShowNavCards(true), 3000);
+    return () => clearTimeout(timer);
   }, [peopleDone, moneyDone]);
 
   const peopleAnim = useAnimation();
