@@ -788,7 +788,20 @@ export default function GuideSection({ sectionId }: { sectionId?: string }) {
                   >
                     <div className="p-6 bg-slate-50/70 text-slate-600 space-y-2 rounded-b-2xl">
                       <p className="text-sm md:text-base leading-relaxed break-keep font-semibold">
-                        {faq.answer}
+                        {faq.id === 6 ? (
+                          <>
+                            <a href="https://www.credit.co.kr" target="_blank" rel="noopener noreferrer" className="text-miso-blue-600 font-bold underline underline-offset-2 hover:text-miso-blue-700">
+                              NICE지키미
+                            </a>
+                            {' 또는 '}
+                            <a href="https://www.allcredit.co.kr" target="_blank" rel="noopener noreferrer" className="text-miso-blue-600 font-bold underline underline-offset-2 hover:text-miso-blue-700">
+                              KCB 올크레딧
+                            </a>
+                            에서 무료로 본인의 신용평점을 조회할 수 있습니다.
+                          </>
+                        ) : (
+                          faq.answer
+                        )}
                       </p>
                     </div>
                   </div>
