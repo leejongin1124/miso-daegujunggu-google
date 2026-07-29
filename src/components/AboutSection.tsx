@@ -891,12 +891,28 @@ export default function AboutSection({ sectionId }: { sectionId?: string }) {
                   </h5>
                   <p className="text-slate-500 font-medium mt-0.5">
                     <span className="md:hidden whitespace-nowrap">
-                      1호선 <strong>영대병원역</strong> 3번출구 도보8분 <br />
-                      1호선 <strong>교대역</strong> 2번출구 도보10분
+                      1호선 <motion.strong
+                        className="inline-block text-indigo-700"
+                        animate={{ scale: [1, 1.08, 1] }}
+                        transition={{ duration: 1.2, repeat: Infinity, ease: 'easeInOut' }}
+                      >영대병원역</motion.strong> 3번출구 도보8분 <br />
+                      1호선 <motion.strong
+                        className="inline-block text-indigo-700"
+                        animate={{ scale: [1, 1.08, 1] }}
+                        transition={{ duration: 1.2, repeat: Infinity, ease: 'easeInOut', delay: 0.15 }}
+                      >교대역</motion.strong> 2번출구 도보10분
                     </span>
                     <span className="hidden md:inline">
-                      대구 지하철 1호선 <strong>영대병원역</strong> 3번 출구 도보 8분 <br />
-                      대구 지하철 1호선 <strong>교대역</strong> 2번 출구 도보 10분
+                      대구 지하철 1호선 <motion.strong
+                        className="inline-block text-indigo-700"
+                        animate={{ scale: [1, 1.08, 1] }}
+                        transition={{ duration: 1.2, repeat: Infinity, ease: 'easeInOut' }}
+                      >영대병원역</motion.strong> 3번 출구 도보 8분 <br />
+                      대구 지하철 1호선 <motion.strong
+                        className="inline-block text-indigo-700"
+                        animate={{ scale: [1, 1.08, 1] }}
+                        transition={{ duration: 1.2, repeat: Infinity, ease: 'easeInOut', delay: 0.15 }}
+                      >교대역</motion.strong> 2번 출구 도보 10분
                     </span>
                   </p>
                   <a
@@ -921,7 +937,11 @@ export default function AboutSection({ sectionId }: { sectionId?: string }) {
                     <span className="md:hidden">대구고등학교 건너 정류장 근처</span>
                     <span className="hidden md:inline">대구고등학교 건너 정류장에 내리시면 바로 근처입니다</span>
                     <br />
-                    오는 버스: <strong>349, 405, 410, 503, 649</strong>
+                    오는 버스: <motion.strong
+                      className="inline-block text-emerald-700"
+                      animate={{ scale: [1, 1.08, 1] }}
+                      transition={{ duration: 1.2, repeat: Infinity, ease: 'easeInOut' }}
+                    >349, 405, 410, 503, 649</motion.strong>
                   </p>
                   <a
                     href="https://businfo.daegu.go.kr/"
@@ -953,7 +973,11 @@ export default function AboutSection({ sectionId }: { sectionId?: string }) {
                       </motion.strong> 가능합니다
                     </span>
                     <span className="hidden md:inline">
-                      하나은행 봉덕지점 <strong>뒤편 주차장</strong> 이용 시 <strong className="text-amber-600">무료 주차</strong> 가능합니다
+                      하나은행 봉덕지점 <strong>뒤편 주차장</strong> 이용 시 <motion.strong
+                        className="inline-block text-amber-600"
+                        animate={{ scale: [1, 1.08, 1] }}
+                        transition={{ duration: 1.2, repeat: Infinity, ease: 'easeInOut' }}
+                      >무료 주차</motion.strong> 가능합니다
                     </span>
                   </p>
                 </div>
