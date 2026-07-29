@@ -6,7 +6,7 @@
 import { useState, useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { motion } from 'motion/react';
-import { CheckCircle2, AlertTriangle, Calculator, FileText, Info, HelpCircle, CornerDownRight, Landmark, FileCheck, ChevronDown, ChevronRight } from 'lucide-react';
+import { CheckCircle2, AlertTriangle, Calculator, FileText, Info, HelpCircle, CornerDownRight, Landmark, FileCheck, ChevronDown, ChevronRight, Search } from 'lucide-react';
 import MisoIntroSection from './MisoIntroSection';
 
 const GUIDE_CATEGORIES = [
@@ -23,6 +23,9 @@ export default function GuideSection({ sectionId }: { sectionId?: string }) {
     !sectionId || (Array.isArray(ids) ? ids.includes(sectionId) : sectionId === ids);
   // FAQ 아코디언 상태 변수
   const [openFaqId, setOpenFaqId] = useState<number | null>(null);
+  // FAQ 카테고리 필터 · 검색어 상태
+  const [faqCategory, setFaqCategory] = useState('전체');
+  const [faqQuery, setFaqQuery] = useState('');
 
   // 신청안내 개요 화면(sectionId 없음)에서 카테고리 카드 4개를 1바퀴 자동 순환 강조
   const [spotlightIdx, setSpotlightIdx] = useState(0);
@@ -55,110 +58,140 @@ export default function GuideSection({ sectionId }: { sectionId?: string }) {
   const faqs = [
     {
       id: 1,
+      category: '신청 자격',
       question: "미소금융은 누가 신청할 수 있나요?",
       answer: "개인신용평점 하위 20%(KCB 700점 이하, NICE 749점 이하 기준)에 해당하거나 기초생활수급자, 차상위계층, 근로장려금 신청자격 요건에 해당하는 청년, 영세자영업자가 신청할 수 있습니다. 요건 충족이 곧 승인을 의미하지는 않으며, 최종 지원 여부는 여신심사 결과에 따라 결정됩니다."
     },
     {
       id: 2,
+      category: '신청 자격',
       question: "신용점수가 낮으면 무조건 대출을 받을 수 있나요?",
       answer: "아닙니다. 신용점수 기준 충족은 신청 가능 여부를 판단하는 하나의 요건일 뿐이며, 상환능력과 사업 지속 가능성 등을 함께 살펴 종합적으로 심사합니다."
     },
     {
       id: 3,
+      category: '신청 자격',
       question: "담보나 보증인이 필요한가요?",
       answer: "담보나 보증인 없이 신청할 수 있습니다. 신용도와 상환 의지를 바탕으로 여신심사를 진행해 지원 여부를 결정합니다."
     },
     {
       id: 4,
+      category: '신청 자격',
       question: "기존에 다른 대출이 있으면 신청이 불가능한가요?",
       answer: "기존 대출이 있다는 사실만으로 신청이 제한되지는 않습니다. 소득, 상환능력, 기존 채무 현황 등을 종합적으로 심사해 판단합니다."
     },
     {
       id: 5,
+      category: '신청 절차·서류',
       question: "대리인 신청이 가능한가요?",
       answer: "대출상담 신청 및 약정체결 등의 모든 절차는 반드시 본인이 진행해야 합니다."
     },
     {
       id: 6,
+      category: '신청 자격',
       question: "나의 신용평점은 어디에서 확인할 수 있나요?",
       answer: "NICE지키미 또는 KCB 올크레딧에서 무료로 본인의 신용평점을 조회할 수 있습니다."
     },
     {
       id: 7,
+      category: '신청 절차·서류',
       question: "상담부터 대출금 지급까지 얼마나 걸리나요?",
       answer: "방문 상담, 서류 제출, 현장 확인, 여신심사 순서로 진행되며 통상 7영업일 이내입니다. 서류 보완이나 심사 일정에 따라 달라질 수 있습니다."
     },
     {
       id: 8,
+      category: '신청 절차·서류',
       question: "지점 방문 전에 예약해야 하나요?",
       answer: "필수는 아니지만, 방문 전 대표번호(053-252-6408)로 미리 연락하시면 대기 시간을 줄이고 원활하게 상담받으실 수 있습니다. 사무소는 대구광역시 남구 중앙대로 146, 하나은행 봉덕지점 4층에 있습니다."
     },
     {
       id: 9,
+      category: '신청 절차·서류',
       question: "상담비나 수수료가 있나요?",
       answer: "상담은 무료이며, 어떠한 명목의 상담수수료나 취급수수료도 요구하지 않습니다. 중개 수수료나 보증 선납금을 요구하는 연락을 받으시면 응하지 마시고 즉시 대표번호로 신고해 주시기 바랍니다."
     },
     {
       id: 10,
+      category: '신청 절차·서류',
       question: "신청 시 필요한 서류는 무엇인가요?",
       answer: "신청하는 상품과 신청인의 상황(사업자등록 여부, 소득 증빙 방식 등)에 따라 필요한 서류가 다릅니다. 상담 시 개별 안내해 드립니다."
     },
     {
       id: 11,
+      category: '상환·금리',
       question: "거치기간과 상환기간은 무엇이 다른가요?",
       answer: "거치기간은 원금 상환 없이 이자만 납부하는 기간이고, 상환기간은 원금과 이자를 함께 갚아나가는 기간입니다."
     },
     {
       id: 12,
+      category: '상환·금리',
       question: "대출금은 어떤 방식으로 상환하나요?",
       answer: "상품별 조건에 따라 매월 원리금 균등분할 방식으로 상환합니다."
     },
     {
       id: 13,
+      category: '상환·금리',
       question: "중도상환수수료가 있나요?",
       answer: "중도상환수수료는 없습니다. 대출 기간 중 언제든 일부 또는 전액을 미리 갚으실 수 있으며, 중도상환 시 남은 원금이 줄어드는 만큼 매월 이자도 함께 줄어듭니다."
     },
     {
       id: 14,
+      category: '상환·금리',
       question: "대출 가능 횟수에 제한이 있나요?",
       answer: "횟수 자체에 제한은 없습니다. 상품별 한도금액 범위 내에서 신청 자격을 다시 충족하면 재신청하실 수 있으며, 최종 지원 여부는 심사 결과에 따라 결정됩니다."
     },
     {
       id: 15,
+      category: '상품별 특별 조건',
       question: "운영자금 지원이 제한되는 업종이 있나요?",
       answer: "중소벤처기업부가 정한 소상공인 정책자금 융자제외 업종 기준을 적용합니다. 도박·사행성 기구 제조·판매업, 유흥주점업, 무도장 운영업, 성인 관련 업종, 금융·보험업, 일부 부동산업 등이 해당하며, 최종 판단은 표준산업분류코드(KSIC)와 실제 영위 업종을 기준으로 합니다. 업종명이 같더라도 분류코드와 실제 영업 형태에 따라 지원 가능 여부가 달라질 수 있어, 정확한 확인은 상담을 통해 안내해 드립니다."
     },
     {
       id: 16,
+      category: '상품별 특별 조건',
       question: "신청일 현재 2개 이상 사업장을 운영 중인데, 사업장별로 각각 대출이 가능한가요?",
       answer: "아닙니다. 신청일 현재 2개 이상의 자영업을 운영하고 있는 경우, 1개의 사업장에 대해서만 대출할 수 있습니다."
     },
     {
       id: 17,
+      category: '상품별 특별 조건',
       question: "사회적경제기업이나 법인도 지원을 받을 수 있나요?",
       answer: "일반 미소금융은 개인을 대상으로 하지만, 사회적연대금융은 지원요건을 충족하는 사회적경제기업과 법인 등이 신청할 수 있습니다."
     },
     {
       id: 18,
+      category: '상품별 특별 조건',
       question: "사회적연대금융은 어떤 기업이 신청할 수 있나요?",
       answer: "사회적기업, 예비사회적기업, 협동조합, 사회적협동조합, 마을기업, 자활기업 등 관계 법령이 정한 사회적경제기업이 대상입니다."
     },
     {
       id: 19,
+      category: '상품별 특별 조건',
       question: "사회적연대금융은 일반 미소금융과 무엇이 다른가요?",
       answer: "일반 미소금융은 개인의 경제적 자립을 지원하는 상품이고, 사회적연대금융은 사회적경제기업의 지속가능한 경영과 일자리 창출을 지원하는 상품입니다. 지원대상과 심사기준이 서로 다르게 적용됩니다."
     },
     {
       id: 20,
+      category: '상품별 특별 조건',
       question: "공동대표도 신청할 수 있나요?",
       answer: "공동대표라는 사실만으로 지원 여부가 결정되지는 않으며, 신청 상품과 기업 형태 등을 종합적으로 심사해 판단합니다."
     },
     {
       id: 21,
+      category: '신청 자격',
       question: "외국인도 신청할 수 있나요?",
       answer: "미소금융 지원대상은 대한민국 국민을 원칙으로 하며, 외국인은 지원 대상에서 제외됩니다."
     }
   ];
+
+  const FAQ_CATEGORIES = ['전체', '신청 자격', '신청 절차·서류', '상환·금리', '상품별 특별 조건'];
+
+  const filteredFaqs = faqs.filter((faq) => {
+    const matchesCategory = faqCategory === '전체' || faq.category === faqCategory;
+    const query = faqQuery.trim();
+    const matchesQuery = !query || faq.question.includes(query) || faq.answer.includes(query);
+    return matchesCategory && matchesQuery;
+  });
 
   // 대출계산기 상태 변수
   const [loanAmount, setLoanAmount] = useState<number>(10000000); // 디폴트 1000만 원
@@ -660,8 +693,58 @@ export default function GuideSection({ sectionId }: { sectionId?: string }) {
             </p>
           </div>
 
+          <div className="max-w-4xl mx-auto space-y-4">
+            {/* 검색창 */}
+            <div className="relative">
+              <Search className="w-4 h-4 text-slate-400 absolute left-4 top-1/2 -translate-y-1/2" />
+              <input
+                type="text"
+                value={faqQuery}
+                onChange={(e) => {
+                  setFaqQuery(e.target.value);
+                  setFaqCategory('전체');
+                  setOpenFaqId(null);
+                }}
+                placeholder="궁금한 내용을 검색해 보세요 (예: 서류, 상환, 자격)"
+                aria-label="자주 묻는 질문 검색"
+                className="w-full pl-10 pr-4 py-3 rounded-xl border border-slate-200 text-sm font-medium text-slate-700 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-miso-blue-500/30 focus:border-miso-blue-400"
+              />
+            </div>
+
+            {/* 카테고리 필터 칩 */}
+            <div className="flex items-center gap-2 overflow-x-auto pb-1">
+              {FAQ_CATEGORIES.map((cat) => (
+                <button
+                  key={cat}
+                  type="button"
+                  aria-pressed={faqCategory === cat}
+                  onClick={() => { setFaqCategory(cat); setOpenFaqId(null); }}
+                  className={`shrink-0 text-xs font-bold px-3.5 py-1.5 rounded-full border transition-colors whitespace-nowrap ${
+                    faqCategory === cat
+                      ? 'bg-miso-blue-600 border-miso-blue-600 text-white'
+                      : 'bg-white border-slate-200 text-slate-500 hover:border-miso-blue-300 hover:text-miso-blue-700'
+                  }`}
+                >
+                  {cat}
+                </button>
+              ))}
+            </div>
+
+            <p className="text-xs font-semibold text-slate-400" aria-live="polite">
+              {filteredFaqs.length}개의 질문이 있습니다.
+            </p>
+          </div>
+
           <div className="max-w-4xl mx-auto space-y-4 text-left">
-            {faqs.map((faq, idx) => {
+            {filteredFaqs.length === 0 && (
+              <div className="text-center py-10 space-y-2">
+                <p className="text-slate-500 text-sm font-semibold break-keep">검색 결과가 없습니다. 대표번호로 편하게 문의해 주세요.</p>
+                <a href="tel:053-252-6408" className="inline-block text-miso-blue-600 font-bold text-sm underline underline-offset-2">
+                  053-252-6408
+                </a>
+              </div>
+            )}
+            {filteredFaqs.map((faq, idx) => {
               const isOpen = openFaqId === faq.id;
               return (
                 <motion.div
