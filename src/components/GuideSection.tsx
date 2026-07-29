@@ -619,13 +619,13 @@ export default function GuideSection({ sectionId }: { sectionId?: string }) {
                 className="md:ml-auto flex items-center gap-2 bg-white/15 border border-white/20 rounded-xl px-4 py-2 text-xs font-black whitespace-nowrap"
               >
                 <span>✅</span>
-                <span>서류 완비 시 재방문 없이 접수 진행</span>
+                <span>기본서류 준비 시 첫 상담이 더 빨라집니다</span>
               </motion.div>
             </div>
           </motion.div>
           <div className="space-y-2">
             <p className="text-slate-500 text-sm leading-relaxed break-keep">
-              방문 전 아래 서류를 준비하시면 재방문 없이 <strong className="text-teal-700">신청 자격과 예상 한도</strong>를 상담을 통해 바로 안내해 드립니다.
+              아래 기본서류를 준비하시면 첫 상담에서 <strong className="text-teal-700">신청 자격과 예상 한도</strong>를 더 빠르게 확인하실 수 있습니다.
             </p>
           </div>
 
@@ -633,8 +633,9 @@ export default function GuideSection({ sectionId }: { sectionId?: string }) {
           <div className="flex items-start gap-3 bg-amber-50 border border-amber-200 rounded-2xl px-5 py-4">
             <AlertTriangle className="w-5 h-5 text-amber-600 shrink-0 mt-0.5" />
             <ul className="text-amber-800 text-xs md:text-sm font-semibold leading-relaxed break-keep space-y-1.5 list-disc pl-4">
-              <li>서류는 상담 이후 <strong>대출 결정 단계에서 필요한 서류</strong>이며, 서류 준비만으로 대출이 승인되지는 않습니다. 지원 여부는 여신심사 결과에 따라 결정됩니다.</li>
-              <li>필요 서류는 <strong>신청인의 상황에 따라 다르며</strong>, 안내 목록에 없는 서류를 추가로 요청드릴 수 있습니다.</li>
+              <li>서류 준비만으로 대출이 승인되지는 않으며, 지원 여부는 여신심사 결과에 따라 결정됩니다.</li>
+              <li>필요 서류는 <strong>상품과 신청인의 상황에 따라 다르며</strong>, 아래 목록에 없는 서류를 추가로 요청드릴 수 있습니다.</li>
+              <li>제출서류는 <strong>발급일로부터 1개월 이내</strong> 서류로 준비해 주세요.</li>
             </ul>
           </div>
 
@@ -666,7 +667,7 @@ export default function GuideSection({ sectionId }: { sectionId?: string }) {
             >
               <span className="font-extrabold text-slate-800 block text-base">🏪 사업 관련 서류</span>
               <ul className="space-y-1.5 text-slate-600 text-[13px]">
-                <li className="flex items-start gap-2"><span className="text-teal-500 mt-0.5">✓</span><span>사업자등록증 <span className="text-slate-400 text-[11px]">(직장인은 재직증명서로 대체)</span></span></li>
+                <li className="flex items-start gap-2"><span className="text-teal-500 mt-0.5">✓</span><span>사업자등록증</span></li>
                 <li className="flex items-start gap-2"><span className="text-teal-500 mt-0.5">✓</span><span>임대차 계약서 <span className="text-slate-400 text-[11px]">(가게 계약서)</span></span></li>
                 <li className="flex items-start gap-2"><span className="text-teal-500 mt-0.5">✓</span><span>주거래 통장 <span className="text-slate-400 text-[11px]">(최근 3개월 입출금내역)</span></span></li>
                 <li className="flex items-start gap-2"><span className="text-teal-500 mt-0.5">✓</span><span>소득금액증명원 또는 부가세 과세표준증명원</span></li>
@@ -692,13 +693,42 @@ export default function GuideSection({ sectionId }: { sectionId?: string }) {
             </motion.div>
           </div>
 
+          {/* 상담 후 상품별 개별 안내 서류 */}
+          <div className="space-y-4">
+            <div>
+              <span className="text-[10px] font-black text-teal-600 tracking-widest uppercase">After Consultation</span>
+              <h4 className="text-base md:text-lg font-black text-slate-900 tracking-tight mt-0.5">상담 후 상품별로 안내드리는 서류</h4>
+              <p className="text-slate-500 text-xs md:text-sm mt-1 leading-relaxed break-keep">
+                상담 후 신청을 진행하기로 하시면, 신청 상품과 상황에 따라 아래와 같은 서류를 추가로 안내해 드립니다.
+              </p>
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
+              <div className="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm space-y-2">
+                <span className="font-extrabold text-slate-800 block">청년미래이음</span>
+                <p className="text-slate-500 text-[11px] break-keep">취업 후 1년 이내 신청 시</p>
+                <ul className="space-y-1.5 text-slate-600 text-[13px] pt-1">
+                  <li className="flex items-start gap-2"><span className="text-teal-500 mt-0.5">✓</span><span>재직증명서</span></li>
+                  <li className="flex items-start gap-2"><span className="text-teal-500 mt-0.5">✓</span><span>급여통장 또는 최근 급여 입금내역 <span className="text-slate-400 text-[11px]">(소득금액 확인용)</span></span></li>
+                </ul>
+              </div>
+              <div className="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm space-y-2">
+                <span className="font-extrabold text-slate-800 block">금융취약계층 생계자금</span>
+                <p className="text-slate-500 text-[11px] break-keep">자격유형 1·2번 조건 충족자 중 직장인인 경우</p>
+                <ul className="space-y-1.5 text-slate-600 text-[13px] pt-1">
+                  <li className="flex items-start gap-2"><span className="text-teal-500 mt-0.5">✓</span><span>재직증명서</span></li>
+                  <li className="flex items-start gap-2"><span className="text-teal-500 mt-0.5">✓</span><span>급여통장 또는 최근 급여 입금내역</span></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
           {/* 민원서류 발급 방법 안내 */}
           <div className="space-y-4">
             <div>
               <span className="text-[10px] font-black text-teal-600 tracking-widest uppercase">How to Get Documents</span>
               <h4 className="text-base md:text-lg font-black text-slate-900 tracking-tight mt-0.5">민원서류 발급 방법 안내</h4>
               <p className="text-slate-500 text-xs md:text-sm mt-1 leading-relaxed break-keep">
-                주민등록등본·초본, 가족관계증명서, 납세증명서 등은 아래 두 가지 방법으로 발급받으실 수 있습니다.
+                주민등록등본·초본 등은 아래 두 가지 방법으로 발급받으실 수 있습니다. 가족관계증명서, 세금 관련 증명서 등은 서류에 따라 다른 공식 발급기관으로 안내될 수 있습니다.
               </p>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
@@ -720,7 +750,7 @@ export default function GuideSection({ sectionId }: { sectionId?: string }) {
                   정부24 온라인 발급
                 </span>
                 <p className="text-slate-600 text-[13px] leading-relaxed break-keep">
-                  정부24 홈페이지 또는 모바일 앱에서 회원가입(본인인증) 후 서류를 검색해 무료로 발급·출력할 수 있습니다.
+                  정부24 홈페이지 또는 모바일 앱에서 본인인증 후 회원 또는 비회원으로 신청해 서류를 발급·출력할 수 있습니다.
                 </p>
                 <div className="flex flex-wrap gap-2 pt-1">
                   <a
@@ -755,14 +785,14 @@ export default function GuideSection({ sectionId }: { sectionId?: string }) {
             </div>
           </div>
 
-          {/* 상품별 준비서류 PDF */}
+          {/* 상품별 예상 필요서류 PDF */}
           <div className="space-y-4">
             <div>
               <span className="text-[10px] font-black text-teal-600 tracking-widest uppercase">Product Document Checklist</span>
-              <h4 className="text-base md:text-lg font-black text-slate-900 tracking-tight mt-0.5">상품별 준비서류 PDF</h4>
+              <h4 className="text-base md:text-lg font-black text-slate-900 tracking-tight mt-0.5">상품별 예상 필요서류 안내 (참고용)</h4>
               <p className="text-slate-500 text-xs md:text-sm mt-1 leading-relaxed break-keep">
-                신청하시는 상품에 따라 필요한 서류가 조금씩 다릅니다. 아래에서 해당 상품의 준비서류 안내문을 확인하거나 인쇄하실 수 있습니다.<br />
-                <span className="text-slate-400">※ PDF에 적힌 서류를 모두 준비하셔야 하는 것은 아니며, 개인 상황에 따라 목록에 없는 서류가 추가로 필요할 수 있습니다.</span>
+                신청하시는 상품에 따라 필요한 서류가 조금씩 다릅니다. 아래 PDF에서 상품별로 필요할 수 있는 서류를 미리 확인하실 수 있습니다.<br />
+                <span className="text-slate-400">※ PDF는 참고자료이며, 실제 제출서류는 상담 후 개별 안내해 드립니다.</span>
               </p>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-sm">
