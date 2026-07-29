@@ -621,9 +621,6 @@ export default function ProductSection({ onScrollToSection, onOpenCalculator, in
                   <p className="text-slate-700 text-xs font-semibold mt-3 leading-relaxed break-keep">
                     대출이 결정된 이후, <span className="text-amber-700 font-black">서민금융진흥원 교육포털 온라인 교육 4과목 수료</span>가 필수입니다.
                   </p>
-                  <div className="mt-3 bg-white/70 border border-amber-200 rounded-xl p-3 text-[11px] md:text-xs text-slate-600 font-medium leading-relaxed break-keep">
-                    회원가입 → 로그인 → 금융교육포털 → 서민금융교육 → 미소금융(18과정 중) → <span className="font-bold text-slate-700">신청하기(4과목 필수)</span> → 강의별 → 교육수강 클릭
-                  </div>
                   <a
                     href="https://edu.kinfa.or.kr/edu/online/onlineEduList.do?ref1=LON&crseSubSeCd=SC1001"
                     target="_blank"
@@ -634,8 +631,7 @@ export default function ProductSection({ onScrollToSection, onOpenCalculator, in
                     <ArrowUpRight className="w-3.5 h-3.5" />
                   </a>
                   <p className="text-amber-700 text-xs font-medium mt-2 leading-relaxed break-keep">
-                    ※ 교육 제외대상자: 운송업, 무등록사업자, 전통시장상인, 65세 이상<br />
-                    이수 방법 및 시행 여부는 서민금융진흥원 안내에 따라 변경될 수 있습니다.
+                    ※ 교육 제외대상자: 운송업, 무등록사업자, 전통시장상인, 65세 이상
                   </p>
                 </div>
               )}
