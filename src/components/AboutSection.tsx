@@ -509,25 +509,25 @@ export default function AboutSection({ sectionId }: { sectionId?: string }) {
                 <div className="absolute -left-[9px] top-1 w-4 h-4 rounded-full bg-white border-4 border-teal-600 shadow-md" />
                 {/* 연도 배지 */}
                 <div className="mb-2">
-                  <span className="text-lg font-black text-teal-700 font-mono">{milestone.year}</span>
+                  <span className="text-xl font-black text-teal-700 font-mono">{milestone.year}</span>
                 </div>
                 <div className="bg-white p-4 rounded-xl border border-slate-100 shadow-sm">
-                  <ul className="space-y-2.5">
+                  <ul className="space-y-3">
                     {milestone.items.map((item, id) => (
                       <li key={id} className={`text-left ${item.status === 'planned' ? 'opacity-70' : ''}`}>
                         <div className="flex items-center gap-1.5 mb-1 flex-wrap">
-                          <span className="text-[11px] font-bold text-slate-400 font-mono">{item.date}</span>
+                          <span className="text-[13px] font-bold text-slate-400 font-mono">{item.date}</span>
                           {item.status === 'planned' && (
-                            <span className="text-[9px] font-bold px-1.5 py-0.5 rounded-full border border-dashed border-slate-300 text-slate-400">예정</span>
+                            <span className="text-[11px] font-bold px-1.5 py-0.5 rounded-full border border-dashed border-slate-300 text-slate-400">예정</span>
                           )}
                         </div>
-                        <div className="text-[12px] font-medium text-slate-700 leading-snug break-keep">
+                        <div className="text-[15px] font-medium text-slate-700 leading-snug break-keep">
                           {item.emphasis ? (
                             <span className="inline-flex flex-wrap items-center gap-1.5">
                               <strong className="text-slate-900">{item.text}</strong>
                               {item.newsUrl && (
                                 <a href={item.newsUrl} target="_blank" rel="noopener noreferrer"
-                                  className="inline-flex items-center space-x-0.5 bg-amber-50 border border-amber-200 text-amber-700 text-[10px] font-bold px-1.5 py-0.5 rounded-full">
+                                  className="inline-flex items-center space-x-0.5 bg-amber-50 border border-amber-200 text-amber-700 text-[12px] font-bold px-1.5 py-0.5 rounded-full">
                                   <span>📰</span><span>기사</span>
                                 </a>
                               )}
@@ -537,7 +537,7 @@ export default function AboutSection({ sectionId }: { sectionId?: string }) {
                           )}
                         </div>
                         {item.impact && (
-                          <p className="text-emerald-700 text-[11px] font-semibold mt-0.5">{item.impact}</p>
+                          <p className="text-emerald-700 text-[13px] font-semibold mt-0.5">{item.impact}</p>
                         )}
                       </li>
                     ))}
