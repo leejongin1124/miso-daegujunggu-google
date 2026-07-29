@@ -624,13 +624,13 @@ export default function GuideSection({ sectionId }: { sectionId?: string }) {
             </p>
           </div>
 
-          {/* 민원 예방 안내 — 서류 구비와 대출 승인은 별개임을 명확히 고지 */}
+          {/* 민원 예방 안내 — 서류 구비와 대출 승인은 별개이며, 서류 목록도 개인별로 달라질 수 있음을 함께 고지 */}
           <div className="flex items-start gap-3 bg-amber-50 border border-amber-200 rounded-2xl px-5 py-4">
             <AlertTriangle className="w-5 h-5 text-amber-600 shrink-0 mt-0.5" />
-            <p className="text-amber-800 text-xs md:text-sm font-semibold leading-relaxed break-keep">
-              아래 서류는 <strong>상담 이후, 대출이 결정된 다음 단계에서 필요한 서류</strong>입니다.<br />
-              서류를 모두 준비해 오셨다고 해서 대출이 자동으로 승인되는 것은 아니며, 지원 여부는 신용도와 상환능력 등을 종합적으로 검토하는 여신심사 결과에 따라 결정됩니다.
-            </p>
+            <ul className="text-amber-800 text-xs md:text-sm font-semibold leading-relaxed break-keep space-y-1.5 list-disc pl-4">
+              <li>아래 서류는 <strong>상담 이후, 대출이 결정된 다음 단계에서 필요한 서류</strong>입니다. 서류를 모두 준비해 오셨다고 해서 대출이 자동으로 승인되는 것은 아니며, 지원 여부는 신용도와 상환능력 등을 종합적으로 검토하는 여신심사 결과에 따라 결정됩니다.</li>
+              <li>아래 목록과 상품별 PDF에 적힌 서류를 <strong>전부 갖추셔야 하는 것은 아니며</strong>, 신청인의 상황(신용점수, 사업자 여부, 소득 증빙 방식 등)에 따라 필요한 서류가 다르고, <strong>여기에 없는 서류를 추가로 요청</strong>드릴 수 있습니다. 정확한 서류는 상담을 통해 개별 안내해 드립니다.</li>
+            </ul>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-sm">
@@ -693,7 +693,8 @@ export default function GuideSection({ sectionId }: { sectionId?: string }) {
               <span className="text-[10px] font-black text-teal-600 tracking-widest uppercase">Product Document Checklist</span>
               <h4 className="text-base md:text-lg font-black text-slate-900 tracking-tight mt-0.5">상품별 준비서류 PDF</h4>
               <p className="text-slate-500 text-xs md:text-sm mt-1 leading-relaxed break-keep">
-                신청하시는 상품에 따라 필요한 서류가 조금씩 다릅니다. 아래에서 해당 상품의 준비서류 안내문을 확인하거나 인쇄하실 수 있습니다.
+                신청하시는 상품에 따라 필요한 서류가 조금씩 다릅니다. 아래에서 해당 상품의 준비서류 안내문을 확인하거나 인쇄하실 수 있습니다.<br />
+                <span className="text-slate-400">※ PDF에 적힌 서류를 모두 준비하셔야 하는 것은 아니며, 개인 상황에 따라 목록에 없는 서류가 추가로 필요할 수 있습니다.</span>
               </p>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-sm">
