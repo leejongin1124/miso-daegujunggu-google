@@ -612,6 +612,34 @@ export default function ProductSection({ onScrollToSection, onOpenCalculator, in
                 </div>
               )}
 
+              {activeProduct.id === 'business' && (
+                <div className="bg-amber-50 border-2 border-amber-300 p-5 rounded-2xl">
+                  <h4 className="font-black text-sm text-amber-700 flex items-center gap-2 break-keep">
+                    <span className="animate-bounce inline-block">🔔</span>
+                    <span className="animate-pulse">② 대출 결정 이후 필수 이수 절차</span>
+                  </h4>
+                  <p className="text-slate-700 text-xs font-semibold mt-3 leading-relaxed break-keep">
+                    대출이 결정된 이후, <span className="text-amber-700 font-black">서민금융진흥원 교육포털 온라인 교육 4과목 수료</span>가 필수입니다.
+                  </p>
+                  <div className="mt-3 bg-white/70 border border-amber-200 rounded-xl p-3 text-[11px] md:text-xs text-slate-600 font-medium leading-relaxed break-keep">
+                    회원가입 → 로그인 → 금융교육포털 → 서민금융교육 → 미소금융(18과정 중) → <span className="font-bold text-slate-700">신청하기(4과목 필수)</span> → 강의별 → 교육수강 클릭
+                  </div>
+                  <a
+                    href="http://edu.kinfa.or.kr"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="mt-4 inline-flex items-center gap-2 bg-amber-600 hover:bg-amber-700 text-white font-bold text-xs px-4 py-2.5 rounded-xl transition shadow-sm"
+                  >
+                    <span>서민금융진흥원 <span className="text-yellow-300 font-black">교육포털</span> 바로가기</span>
+                    <ArrowUpRight className="w-3.5 h-3.5" />
+                  </a>
+                  <p className="text-amber-700 text-xs font-medium mt-2 leading-relaxed break-keep">
+                    ※ 교육 제외대상자: 운송업, 무등록사업자, 전통시장상인, 65세 이상<br />
+                    이수 방법 및 시행 여부는 서민금융진흥원 안내에 따라 변경될 수 있습니다.
+                  </p>
+                </div>
+              )}
+
               {activeProduct.id === 'social' && (
                 <div className="rounded-2xl border border-slate-200 bg-slate-50 p-5">
                   <h4 className="text-center font-black text-sm text-slate-700 tracking-widest mb-4 break-keep">
