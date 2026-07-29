@@ -625,7 +625,7 @@ export default function ProductSection({ onScrollToSection, onOpenCalculator, in
                     회원가입 → 로그인 → 금융교육포털 → 서민금융교육 → 미소금융(18과정 중) → <span className="font-bold text-slate-700">신청하기(4과목 필수)</span> → 강의별 → 교육수강 클릭
                   </div>
                   <a
-                    href="http://edu.kinfa.or.kr"
+                    href="https://edu.kinfa.or.kr/edu/online/onlineEduList.do?ref1=LON&crseSubSeCd=SC1001"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="mt-4 inline-flex items-center gap-2 bg-amber-600 hover:bg-amber-700 text-white font-bold text-xs px-4 py-2.5 rounded-xl transition shadow-sm"
