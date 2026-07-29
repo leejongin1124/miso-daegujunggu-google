@@ -6,7 +6,7 @@
 import { useState, useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { motion } from 'motion/react';
-import { CheckCircle2, AlertTriangle, Calculator, FileText, Info, HelpCircle, CornerDownRight, Landmark, FileCheck, ChevronDown, ChevronRight, Search } from 'lucide-react';
+import { CheckCircle2, AlertTriangle, Calculator, FileText, Info, HelpCircle, CornerDownRight, Landmark, FileCheck, ChevronDown, ChevronRight, Search, MapPin, Monitor, Smartphone } from 'lucide-react';
 import MisoIntroSection from './MisoIntroSection';
 
 const GUIDE_CATEGORIES = [
@@ -685,6 +685,69 @@ export default function GuideSection({ sectionId }: { sectionId?: string }) {
                 <li className="flex items-start gap-2"><span className="text-amber-500 mt-0.5">✓</span><span>기타 자격요건 확인 서류</span></li>
               </ul>
             </motion.div>
+          </div>
+
+          {/* 민원서류 발급 방법 안내 */}
+          <div className="space-y-4">
+            <div>
+              <span className="text-[10px] font-black text-teal-600 tracking-widest uppercase">How to Get Documents</span>
+              <h4 className="text-base md:text-lg font-black text-slate-900 tracking-tight mt-0.5">민원서류 발급 방법 안내</h4>
+              <p className="text-slate-500 text-xs md:text-sm mt-1 leading-relaxed break-keep">
+                주민등록등본·초본, 가족관계증명서, 납세증명서 등은 아래 두 가지 방법으로 발급받으실 수 있습니다.
+              </p>
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
+              {/* 주민센터 방문 발급 */}
+              <div className="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm space-y-2">
+                <span className="flex items-center gap-2 font-extrabold text-slate-800 text-base">
+                  <MapPin className="w-5 h-5 text-teal-600 shrink-0" />
+                  행정복지센터(주민센터) 방문 발급
+                </span>
+                <p className="text-slate-600 text-[13px] leading-relaxed break-keep">
+                  거주지 관할 행정복지센터(동 주민센터)를 방문하여 신분증을 제시하면 즉시 발급받으실 수 있습니다. 방문 전 발급 서류명을 미리 확인해 가시면 더욱 빠르게 처리됩니다.
+                </p>
+              </div>
+
+              {/* 정부24 온라인 발급 */}
+              <div className="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm space-y-2">
+                <span className="flex items-center gap-2 font-extrabold text-slate-800 text-base">
+                  <Monitor className="w-5 h-5 text-teal-600 shrink-0" />
+                  정부24 온라인 발급
+                </span>
+                <p className="text-slate-600 text-[13px] leading-relaxed break-keep">
+                  정부24 홈페이지 또는 모바일 앱에서 회원가입(본인인증) 후 서류를 검색해 무료로 발급·출력할 수 있습니다.
+                </p>
+                <div className="flex flex-wrap gap-2 pt-1">
+                  <a
+                    href="https://plus.gov.kr/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1.5 bg-teal-50 hover:bg-teal-100 text-teal-700 text-xs font-bold px-3 py-2 rounded-lg transition-colors"
+                  >
+                    <Monitor className="w-3.5 h-3.5" />
+                    PC · 인터넷으로 발급
+                  </a>
+                  <a
+                    href="https://play.google.com/store/search?q=%EC%A0%95%EB%B6%8024&c=apps"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1.5 bg-teal-50 hover:bg-teal-100 text-teal-700 text-xs font-bold px-3 py-2 rounded-lg transition-colors"
+                  >
+                    <Smartphone className="w-3.5 h-3.5" />
+                    모바일 앱 (안드로이드)
+                  </a>
+                  <a
+                    href="https://apps.apple.com/kr/search?term=%EC%A0%95%EB%B6%8024"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1.5 bg-teal-50 hover:bg-teal-100 text-teal-700 text-xs font-bold px-3 py-2 rounded-lg transition-colors"
+                  >
+                    <Smartphone className="w-3.5 h-3.5" />
+                    모바일 앱 (iOS)
+                  </a>
+                </div>
+              </div>
+            </div>
           </div>
 
           {/* 상품별 준비서류 PDF */}
