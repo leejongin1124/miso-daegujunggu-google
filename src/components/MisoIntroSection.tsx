@@ -93,8 +93,8 @@ export default function MisoIntroSection() {
             <span aria-hidden="true">🛡️</span>
             <span>'미소금융' 명칭 및 사칭 주의 안내</span>
           </h3>
-          <p className="text-slate-600 text-xs md:text-sm leading-relaxed break-keep">
-            '미소금융'은 <strong className="text-teal-700 font-extrabold">「서민의 금융생활 지원에 관한 법률」 및 관련 규정에 따라 보호되는 정책서민금융상품 명칭</strong>입니다. 대출상품·광고·상호 등에 이 명칭을 사용하는 자는 서민금융진흥원과 사업수행기관 등 법령상 허용된 자여야 하며, 이를 위반하면 관련 법령에 따라 과태료가 부과될 수 있습니다.
+          <p className="text-slate-600 text-xs md:text-sm leading-relaxed break-keep font-bold">
+            <strong className="text-indigo-600 font-extrabold">'미소금융'</strong>은 <strong className="text-teal-700 font-extrabold">「서민의 금융생활 지원에 관한 법률」 및 관련 규정에 따라 보호되는 정책서민금융상품 명칭</strong>입니다. 대출상품·광고·상호 등에 이 명칭을 사용하는 자는 서민금융진흥원과 사업수행기관 등 법령상 허용된 자여야 하며, 이를 위반하면 관련 법령에 따라 과태료가 부과될 수 있습니다.
           </p>
           <p className="text-slate-600 text-xs md:text-sm leading-relaxed break-keep">
             미소금융 지원 여부는 상품별 지원요건과 심사기준에 따라 결정되므로 상담 또는 신청만으로 대출이 승인되는 것은 아닙니다. 미소금융은 상담·대출 진행을 이유로 중개 수수료, 선납금, 보증 비용 등 어떠한 명목의 비용도 요구하지 않습니다. 비용을 요구받으셨다면 사기가 강하게 의심되므로 송금·앱 설치를 중단하고 공식 대표번호로 확인·신고해 주시기 바랍니다.
