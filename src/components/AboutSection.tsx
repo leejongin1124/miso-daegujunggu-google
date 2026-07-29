@@ -230,7 +230,7 @@ export default function AboutSection({ sectionId }: { sectionId?: string }) {
         {show(['ceo-greeting', 'about-miso']) && <div id="ceo-greeting" className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center bg-slate-50 p-8 md:p-14 rounded-3xl border border-slate-100">
           <div className="lg:col-span-4 text-center">
             <div className="w-52 h-52 bg-slate-100 rounded-2xl mx-auto overflow-hidden shadow-md border-4 border-white">
-              <img src="/ceo-photo.jpg" alt="대표이사" className="w-full h-full object-cover" onError={(e) => { (e.target as HTMLImageElement).style.display = 'none'; }} />
+              <img src="/ceo-photo.jpg" alt="미소금융대구중구법인 대표 김석동" className="w-full h-full object-cover" onError={(e) => { (e.target as HTMLImageElement).style.display = 'none'; }} />
             </div>
           </div>
 
