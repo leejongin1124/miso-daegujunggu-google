@@ -3,7 +3,7 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-import { motion } from 'motion/react';
+import { motion, AnimatePresence } from 'motion/react';
 import { useState, useEffect } from 'react';
 import { Award, Briefcase, Calendar, MapPin, Bus, Train, Car, Phone, Share2, Printer, ExternalLink, FileText, Copy, Check, ShieldCheck, ArrowRight } from 'lucide-react';
 
@@ -150,19 +150,22 @@ export default function AboutSection({ sectionId }: { sectionId?: string }) {
     newsUrl?: string;
   }
 
-  // 매년 신규 연혁을 추가하고, 과거 누락 연도(2011·2014·2016·2017·2020·2021·2024)는
-  // 자료 확인 후 순차적으로 채워나갈 예정 — 없는 연도는 목록에서 자연스럽게 생략됨
+  // 2026.07 통합 정리 — 「미소금융16년_연혁」 원본 문서 기준 재구성 (32건)
+  // 삭제 처리: 2025.07.02 임대차계약 연장(대내 행정사항), 2015.01.16 연도 오표기 항목,
+  //           2016.03.20·2018.02.02 중복 의심 항목(각각 2016.01.18·2018.08.22와 동일 실적)
+  const categoryStyle: Record<HistoryCategory, string> = {
+    '설립': 'bg-teal-50 text-teal-700 border border-teal-200',
+    '협약': 'bg-indigo-50 text-indigo-700 border border-indigo-200',
+    '수상': 'bg-amber-50 text-amber-700 border border-amber-200',
+    '지원성과': 'bg-emerald-50 text-emerald-700 border border-emerald-200',
+    '기관운영': 'bg-slate-100 text-slate-600 border border-slate-200',
+  };
+
   const historyData: { year: string; items: HistoryItem[] }[] = [
     {
       year: '2026',
       items: [
         { date: '08.03', text: '미소금융대구중구법인 홈페이지 개설 예정', category: '기관운영', emphasis: true, status: 'planned' }
-      ]
-    },
-    {
-      year: '2025',
-      items: [
-        { date: '07.02', text: '사무실 임대차계약 연장 (3년) 체결', category: '기관운영', emphasis: false }
       ]
     },
     {
@@ -178,48 +181,96 @@ export default function AboutSection({ sectionId }: { sectionId?: string }) {
       ]
     },
     {
+      year: '2020',
+      items: [
+        { date: '04.21', text: '2019년 미소금융 사업실적 평가 최우수등급 표창(서민금융진흥원장)', category: '수상', emphasis: false }
+      ]
+    },
+    {
       year: '2019',
       items: [
-        { date: '06.17', text: '대구서민금융통합지원센터 지역협의체 출범 참가', category: '협약', emphasis: false }
+        { date: '03.27', text: '2018년 미소금융 사업실적 평가 최우수등급 표창(서민금융진흥원장)', category: '수상', emphasis: false },
+        { date: '06.17', text: '대구서민금융통합지원센터 지역협의체 출범 참가', category: '협약', emphasis: true, newsUrl: 'https://www.yeongnam.com/web/view.php?key=20190618.010170750260001' }
       ]
     },
     {
       year: '2018',
       items: [
-        { date: '08.31', text: '전국 미소금융 법인 최초 사회적경제기업 1호 대출 지원', category: '지원성과', emphasis: true, newsUrl: 'https://www.yna.co.kr/view/AKR20180831135900002' },
+        { date: '03.27', text: '2017년 미소금융 사업실적 평가 최우수등급 표창(서민금융진흥원장)', category: '수상', emphasis: false },
+        { date: '06.28', text: '법인 명칭 변경 (미소금융대구중구지점 → 대구중구법인)', category: '기관운영', emphasis: false },
+        { date: '08.22', text: '서민금융진흥원장 표창장 (200/2000클럽) 수상', category: '수상', emphasis: false },
+        { date: '08.31', text: '전국 미소금융 사회적경제기업 1호 대출 지원', category: '지원성과', emphasis: true, newsUrl: 'https://www.yna.co.kr/view/AKR20180831135900002' },
         { date: '10.30', text: '제3회 금융의 날 서민금융부문 국민포장 수훈 (김석동 대표)', category: '수상', emphasis: true, newsUrl: 'https://www.skyedaily.com/news/news_view.html?ID=78486' }
+      ]
+    },
+    {
+      year: '2017',
+      items: [
+        { date: '02.17', text: '서민금융진흥원장 표창장 (찾아가는 서비스 최우수상) 수상', category: '수상', emphasis: false },
+        { date: '03.21', text: '2016년 미소금융 사업실적 평가 최우수등급 표창(서민금융진흥원장)', category: '수상', emphasis: false }
+      ]
+    },
+    {
+      year: '2016',
+      items: [
+        { date: '01.15', text: '대출실적 100억원/1,000건 돌파 클럽 달성(미소금융중앙재단)', category: '지원성과', emphasis: false },
+        { date: '01.18', text: '서민금융진흥원 2015년 사업실적 우수법인 선정', category: '수상', emphasis: false }
       ]
     },
     {
       year: '2015',
       items: [
-        { date: '12.28', text: '대구서민금융통합지원센터 개소 업무 협력 및 참가', category: '협약', emphasis: false }
+        { date: '01.16', text: '대출실적 50억원/500건 돌파 클럽 달성(미소금융중앙재단)', category: '지원성과', emphasis: false },
+        { date: '03.17', text: '2014년 미소금융 사업실적 평가 최우수등급 표창(미소금융중앙재단)', category: '수상', emphasis: false },
+        { date: '11.05', text: '영남대학교 총장 감사패 (산학협력 우수인재양성·취업활성화 기여)', category: '수상', emphasis: false },
+        { date: '12.28', text: '대구서민금융통합지원센터 유치 및 개소식 (금융위원장·대구광역시장 참석)', category: '협약', emphasis: true, newsUrl: 'https://www.iij.co.kr/news/articleView.html?idxno=138547' }
+      ]
+    },
+    {
+      year: '2014',
+      items: [
+        { date: '02.27', text: '2013년 미소금융 사업실적 평가 최우수등급 표창(미소금융중앙재단)', category: '수상', emphasis: false }
       ]
     },
     {
       year: '2013',
       items: [
-        { date: '02.13', text: '대구신용보증재단 업무 연계 협약(MOU) 체결', category: '협약', emphasis: false },
+        { date: '02.13', text: '대구신용보증재단과 서민금융지원 업무협약(MOU) 체결', category: '협약', emphasis: false },
+        { date: '04.02', text: '2012년도 미소금융 사업실적 평가 최우수등급 표창(미소금융중앙재단)', category: '수상', emphasis: false },
         { date: '06.06', text: '사무소 이전 (중구 경상감영길 제일은행 대구지점 4층)', category: '기관운영', emphasis: false }
       ]
     },
     {
       year: '2012',
       items: [
-        { date: '01.25', text: '대구광역시 예비사회적기업 정식 지정', category: '기관운영', emphasis: false },
+        { date: '01.24', text: '2011년도 미소금융 사업실적 평가 최우수등급 표창(미소금융중앙재단)', category: '수상', emphasis: false },
+        { date: '01.25', text: '대구광역시 예비사회적기업 정식 지정 (미소금융분야 전국 최초)', category: '기관운영', emphasis: false },
         { date: '05.10', text: '대구광역시 서민금융지원 다자간 업무 협약(MOU) 체결', category: '협약', emphasis: false },
-        { date: '12.12', text: '전국 최우수기관 선정 및 대통령 기관표창 수상', category: '수상', emphasis: true, impact: '지원액 20억 9천만 원, 전년 대비 2.5배 증가', newsUrl: 'https://www.imaeil.com/page/view/2013010507401495165' }
+        { date: '12.12', text: '서민금융지원 유공 대통령 표창 수상', category: '수상', emphasis: true, impact: '지원액 20억 9천만 원, 전년 대비 2.5배 증가', newsUrl: 'https://www.imaeil.com/page/view/2013010507401495165' }
       ]
     },
     {
       year: '2010',
       items: [
+        { date: '04.06', text: '사단법인 미소금융 지역거점 대표자 공모 선정', category: '설립', emphasis: false },
         { date: '04.27', text: '금융위원회로부터 비영리사단법인 설립 허가', category: '설립', emphasis: false },
+        { date: '04.28', text: '사무소 무상 임차 (중구 서문로 갑을빌딩 2층)', category: '설립', emphasis: false },
         { date: '05.06', text: '사단법인 미소금융대구중구법인 설립 등기 완료', category: '설립', emphasis: false },
         { date: '05.28', text: '공식 영업 개시 및 서민금융대출 개시', category: '설립', emphasis: true }
       ]
     }
   ];
+
+  const [openYears, setOpenYears] = useState<Set<string>>(new Set([historyData[0]?.year]));
+  const toggleYear = (year: string) => {
+    setOpenYears((prev) => {
+      const next = new Set(prev);
+      if (next.has(year)) next.delete(year); else next.add(year);
+      return next;
+    });
+  };
+  const allYearsOpen = openYears.size === historyData.length;
+  const toggleAllYears = () => setOpenYears(allYearsOpen ? new Set() : new Set(historyData.map((m) => m.year)));
 
   return (
     <>
@@ -428,9 +479,9 @@ export default function AboutSection({ sectionId }: { sectionId?: string }) {
 
         </div>}
 
-        {/* 법인 연혁 (스마트 타임라인 카드) */}
-        {show('history') && <div id="history" className="space-y-12">
-          
+        {/* 법인 연혁 (연도별 아코디언) */}
+        {show('history') && <div id="history" className="space-y-8">
+
           <div className="text-center space-y-3">
             <span className="text-teal-600 font-bold text-sm tracking-widest uppercase">History Timeline</span>
             <h3 className="text-3xl font-extrabold text-slate-900 tracking-tight break-keep">지역과 함께한 미소금융의 발자취</h3>
@@ -439,112 +490,91 @@ export default function AboutSection({ sectionId }: { sectionId?: string }) {
             </p>
           </div>
 
-          {/* PC 레이아웃 (md 이상) */}
-          <div className="hidden md:block overflow-x-auto pb-4">
-            <div style={{ minWidth: '680px' }}>
-              <div className="relative border-l-2 border-slate-200 ml-48 py-4">
-                {historyData.map((milestone, idx) => (
-                  <motion.div
-                    key={milestone.year}
-                    initial={{ opacity: 0, x: -16 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    viewport={{ once: true, margin: '-60px' }}
-                    transition={{ duration: 0.4, delay: Math.min(idx * 0.05, 0.4) }}
-                    className="mb-14 last:mb-0 relative"
-                  >
-                    <div className="absolute -left-[224px] top-0 w-44 text-right">
-                      <span className="text-2xl font-black text-slate-800 tracking-tight font-mono">{milestone.year}</span>
-                    </div>
-                    <div className="absolute -left-[9px] top-2.5 w-4 h-4 rounded-full bg-white border-4 border-teal-600 shadow-md" />
-                    <div className="bg-white p-6 rounded-2xl border border-slate-100 shadow-sm ml-6 hover:shadow-lg hover:border-teal-100 transition-all">
-                      <ul className="space-y-3.5">
-                        {milestone.items.map((item, id) => (
-                          <li key={id} className={`flex items-start space-x-3 text-left ${item.status === 'planned' ? 'opacity-70' : ''}`}>
-                            <span className="text-xs font-bold text-slate-400 font-mono tracking-wider w-14 pt-1 flex-shrink-0">{item.date}</span>
-                            <div className="flex-1 font-medium text-slate-700 space-y-1">
-                              {item.status === 'planned' && (
-                                <span className="inline-block text-[10px] font-bold px-2 py-0.5 rounded-full border border-dashed border-slate-300 text-slate-400">예정</span>
-                              )}
-                              <div>
-                                {item.emphasis ? (
-                                  <span className="inline-flex flex-wrap items-center gap-2">
-                                    <strong className="text-slate-900 font-bold">{item.text}</strong>
-                                    {item.newsUrl && (
-                                      <a href={item.newsUrl} target="_blank" rel="noopener noreferrer"
-                                        className="inline-flex items-center space-x-1 bg-amber-50 border border-amber-200 text-amber-700 hover:bg-amber-100 text-[10px] font-bold px-2 py-0.5 rounded-full transition-colors">
-                                        <span>📰</span><span>신문기사 보기</span>
-                                      </a>
-                                    )}
-                                  </span>
-                                ) : (
-                                  <span className="text-slate-600 text-sm">{item.text}</span>
-                                )}
-                              </div>
-                              {item.impact && (
-                                <p className="text-emerald-700 text-xs font-semibold">{item.impact}</p>
-                              )}
-                            </div>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                  </motion.div>
-                ))}
-              </div>
-            </div>
-          </div>
-
-          {/* 모바일 레이아웃 (md 미만) — 연도가 카드 상단에 표시, 세로 타임라인 */}
-          <div className="md:hidden relative border-l-2 border-slate-200 ml-4 py-2">
-            {historyData.map((milestone, idx) => (
-              <motion.div
-                key={milestone.year}
-                initial={{ opacity: 0, y: 12 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: '-40px' }}
-                transition={{ duration: 0.35, delay: Math.min(idx * 0.04, 0.3) }}
-                className="mb-8 last:mb-0 relative pl-6"
+          <div className="max-w-3xl mx-auto space-y-3">
+            <div className="flex justify-end">
+              <button
+                type="button"
+                onClick={toggleAllYears}
+                className="text-xs font-bold text-teal-700 hover:text-teal-800 bg-teal-50 hover:bg-teal-100 border border-teal-200 rounded-full px-3 py-1.5 transition-colors"
               >
-                {/* 원형 동그라미 */}
-                <div className="absolute -left-[9px] top-1 w-4 h-4 rounded-full bg-white border-4 border-teal-600 shadow-md" />
-                {/* 연도 배지 */}
-                <div className="mb-2">
-                  <span className="text-xl font-black text-teal-700 font-mono">{milestone.year}</span>
-                </div>
-                <div className="bg-white p-4 rounded-xl border border-slate-100 shadow-sm">
-                  <ul className="space-y-3">
-                    {milestone.items.map((item, id) => (
-                      <li key={id} className={`text-left ${item.status === 'planned' ? 'opacity-70' : ''}`}>
-                        <div className="flex items-center gap-1.5 mb-1 flex-wrap">
-                          <span className="text-[13px] font-bold text-slate-400 font-mono">{item.date}</span>
-                          {item.status === 'planned' && (
-                            <span className="text-[11px] font-bold px-1.5 py-0.5 rounded-full border border-dashed border-slate-300 text-slate-400">예정</span>
-                          )}
-                        </div>
-                        <div className="text-[15px] font-medium text-slate-700 leading-snug break-keep">
-                          {item.emphasis ? (
-                            <span className="inline-flex flex-wrap items-center gap-1.5">
-                              <strong className="text-slate-900">{item.text}</strong>
-                              {item.newsUrl && (
-                                <a href={item.newsUrl} target="_blank" rel="noopener noreferrer"
-                                  className="inline-flex items-center space-x-0.5 bg-amber-50 border border-amber-200 text-amber-700 text-[12px] font-bold px-1.5 py-0.5 rounded-full">
-                                  <span>📰</span><span>기사</span>
-                                </a>
-                              )}
-                            </span>
-                          ) : (
-                            <span className="text-slate-600">{item.text}</span>
-                          )}
-                        </div>
-                        {item.impact && (
-                          <p className="text-emerald-700 text-[13px] font-semibold mt-0.5">{item.impact}</p>
-                        )}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </motion.div>
-            ))}
+                {allYearsOpen ? '모두 접기' : '모두 펼치기'}
+              </button>
+            </div>
+
+            <div className="divide-y divide-slate-100 border border-slate-100 rounded-2xl overflow-hidden bg-white shadow-sm">
+              {historyData.map((milestone) => {
+                const isOpen = openYears.has(milestone.year);
+                return (
+                  <div key={milestone.year}>
+                    <button
+                      type="button"
+                      onClick={() => toggleYear(milestone.year)}
+                      aria-expanded={isOpen}
+                      className="w-full flex items-center justify-between px-5 py-4 md:px-6 md:py-5 text-left hover:bg-slate-50 transition-colors"
+                    >
+                      <div className="flex items-baseline gap-3">
+                        <span className="text-xl md:text-2xl font-black text-slate-800 font-mono tracking-tight">{milestone.year}</span>
+                        <span className="text-xs text-slate-400 font-medium">{milestone.items.length}건</span>
+                      </div>
+                      <motion.span
+                        animate={{ rotate: isOpen ? 180 : 0 }}
+                        transition={{ duration: 0.2 }}
+                        className="text-slate-400 text-sm"
+                      >
+                        ▾
+                      </motion.span>
+                    </button>
+
+                    <AnimatePresence initial={false}>
+                      {isOpen && (
+                        <motion.div
+                          key="content"
+                          initial={{ height: 0, opacity: 0 }}
+                          animate={{ height: 'auto', opacity: 1 }}
+                          exit={{ height: 0, opacity: 0 }}
+                          transition={{ duration: 0.25 }}
+                          className="overflow-hidden"
+                        >
+                          <ul className="px-5 md:px-6 pb-5 md:pb-6 space-y-3.5">
+                            {milestone.items.map((item, id) => (
+                              <li key={id} className={`flex items-start gap-3 ${item.status === 'planned' ? 'opacity-70' : ''}`}>
+                                <span className="text-xs font-bold text-slate-400 font-mono tracking-wider w-12 pt-0.5 flex-shrink-0">{item.date}</span>
+                                <div className="flex-1 min-w-0 space-y-1">
+                                  <div className="flex flex-wrap items-center gap-1.5">
+                                    <span className={`text-[10px] font-bold px-2 py-0.5 rounded-full ${categoryStyle[item.category]}`}>{item.category}</span>
+                                    {item.status === 'planned' && (
+                                      <span className="text-[10px] font-bold px-2 py-0.5 rounded-full border border-dashed border-slate-300 text-slate-400">예정</span>
+                                    )}
+                                  </div>
+                                  <div>
+                                    {item.emphasis ? (
+                                      <span className="inline-flex flex-wrap items-center gap-2">
+                                        <strong className="text-slate-900 font-bold text-[15px] break-keep">{item.text}</strong>
+                                        {item.newsUrl && (
+                                          <a href={item.newsUrl} target="_blank" rel="noopener noreferrer"
+                                            className="inline-flex items-center gap-1 bg-amber-50 border border-amber-200 text-amber-700 hover:bg-amber-100 text-[10px] font-bold px-2 py-0.5 rounded-full transition-colors">
+                                            <span>📰</span><span>신문기사 보기</span>
+                                          </a>
+                                        )}
+                                      </span>
+                                    ) : (
+                                      <span className="text-slate-600 text-sm break-keep">{item.text}</span>
+                                    )}
+                                  </div>
+                                  {item.impact && (
+                                    <p className="text-emerald-700 text-xs font-semibold">{item.impact}</p>
+                                  )}
+                                </div>
+                              </li>
+                            ))}
+                          </ul>
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
+                  </div>
+                );
+              })}
+            </div>
           </div>
 
         </div>}
