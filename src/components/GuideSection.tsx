@@ -722,6 +722,43 @@ export default function GuideSection({ sectionId }: { sectionId?: string }) {
             </div>
           </div>
 
+          {/* 상품별 예상 필요서류 PDF */}
+          <div className="space-y-4">
+            <div>
+              <span className="text-[10px] font-black text-teal-600 tracking-widest uppercase">Product Document Checklist</span>
+              <h4 className="text-base md:text-lg font-black text-slate-900 tracking-tight mt-0.5">상품별 예상 필요서류 안내 (참고용)</h4>
+              <p className="text-slate-500 text-xs md:text-sm mt-1 leading-relaxed break-keep">
+                신청하시는 상품에 따라 필요한 서류가 조금씩 다릅니다. 아래 PDF에서 상품별로 필요할 수 있는 서류를 미리 확인하실 수 있습니다.<br />
+                <span className="text-slate-400">※ PDF는 참고자료이며, 실제 제출서류는 상담 후 개별 안내해 드립니다.</span>
+              </p>
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-sm">
+              {[
+                { label: '사업자 운영자금', file: '/docs/loan-docs-business.pdf', note: '온라인 교육 4과목 수료 안내 포함' },
+                { label: '청년미래이음', file: '/docs/loan-docs-youth.pdf', note: '재무진단보고서 출력 안내 포함' },
+                { label: '금융취약계층 생계자금', file: '/docs/loan-docs-vulnerable.pdf', note: '기초·차상위 수급자 증빙서류 안내 포함' },
+              ].map((doc) => (
+                <a
+                  key={doc.file}
+                  href={doc.file}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-start gap-3 bg-white p-5 rounded-2xl border border-slate-200 shadow-sm hover:shadow-md hover:border-teal-200 transition-all"
+                >
+                  <FileText className="w-5 h-5 text-teal-600 shrink-0 mt-0.5" />
+                  <div className="min-w-0">
+                    <span className="font-extrabold text-slate-800 block break-keep">{doc.label}</span>
+                    <span className="text-slate-400 text-[11px] block mt-0.5 break-keep">{doc.note}</span>
+                    <span className="text-teal-600 text-xs font-bold inline-block mt-2">PDF로 보기 · 인쇄하기 →</span>
+                  </div>
+                </a>
+              ))}
+            </div>
+            <p className="text-slate-400 text-[11px] leading-relaxed break-keep">
+              ※ 새 창에서 PDF가 열리며, 오른쪽 마우스 클릭(또는 브라우저 인쇄 기능)으로 저장·인쇄하실 수 있습니다.
+            </p>
+          </div>
+
           {/* 민원서류 발급 방법 안내 */}
           <div className="space-y-4">
             <div>
@@ -783,43 +820,6 @@ export default function GuideSection({ sectionId }: { sectionId?: string }) {
                 </div>
               </div>
             </div>
-          </div>
-
-          {/* 상품별 예상 필요서류 PDF */}
-          <div className="space-y-4">
-            <div>
-              <span className="text-[10px] font-black text-teal-600 tracking-widest uppercase">Product Document Checklist</span>
-              <h4 className="text-base md:text-lg font-black text-slate-900 tracking-tight mt-0.5">상품별 예상 필요서류 안내 (참고용)</h4>
-              <p className="text-slate-500 text-xs md:text-sm mt-1 leading-relaxed break-keep">
-                신청하시는 상품에 따라 필요한 서류가 조금씩 다릅니다. 아래 PDF에서 상품별로 필요할 수 있는 서류를 미리 확인하실 수 있습니다.<br />
-                <span className="text-slate-400">※ PDF는 참고자료이며, 실제 제출서류는 상담 후 개별 안내해 드립니다.</span>
-              </p>
-            </div>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-sm">
-              {[
-                { label: '사업자 운영자금', file: '/docs/loan-docs-business.pdf', note: '온라인 교육 4과목 수료 안내 포함' },
-                { label: '청년미래이음', file: '/docs/loan-docs-youth.pdf', note: '재무진단보고서 출력 안내 포함' },
-                { label: '금융취약계층 생계자금', file: '/docs/loan-docs-vulnerable.pdf', note: '기초·차상위 수급자 증빙서류 안내 포함' },
-              ].map((doc) => (
-                <a
-                  key={doc.file}
-                  href={doc.file}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-start gap-3 bg-white p-5 rounded-2xl border border-slate-200 shadow-sm hover:shadow-md hover:border-teal-200 transition-all"
-                >
-                  <FileText className="w-5 h-5 text-teal-600 shrink-0 mt-0.5" />
-                  <div className="min-w-0">
-                    <span className="font-extrabold text-slate-800 block break-keep">{doc.label}</span>
-                    <span className="text-slate-400 text-[11px] block mt-0.5 break-keep">{doc.note}</span>
-                    <span className="text-teal-600 text-xs font-bold inline-block mt-2">PDF로 보기 · 인쇄하기 →</span>
-                  </div>
-                </a>
-              ))}
-            </div>
-            <p className="text-slate-400 text-[11px] leading-relaxed break-keep">
-              ※ 새 창에서 PDF가 열리며, 오른쪽 마우스 클릭(또는 브라우저 인쇄 기능)으로 저장·인쇄하실 수 있습니다.
-            </p>
           </div>
         </div></>}
 
