@@ -165,6 +165,7 @@ export default function AboutSection({ sectionId }: { sectionId?: string }) {
     {
       year: '2026',
       items: [
+        { date: '04.28', text: '서민금융진흥원장 표창장(2025년 사업실적평가 우수상) 수상', category: '수상', emphasis: true },
         { date: '08.03', text: '미소금융대구중구법인 홈페이지 개설 예정', category: '기관운영', emphasis: true, status: 'planned' }
       ]
     },
@@ -261,7 +262,7 @@ export default function AboutSection({ sectionId }: { sectionId?: string }) {
     }
   ];
 
-  const [openYears, setOpenYears] = useState<Set<string>>(new Set([historyData[0]?.year]));
+  const [openYears, setOpenYears] = useState<Set<string>>(new Set(historyData.map((m) => m.year)));
   const toggleYear = (year: string) => {
     setOpenYears((prev) => {
       const next = new Set(prev);
@@ -486,7 +487,7 @@ export default function AboutSection({ sectionId }: { sectionId?: string }) {
             <span className="text-teal-600 font-bold text-sm tracking-widest uppercase">History Timeline</span>
             <h3 className="text-3xl font-extrabold text-slate-900 tracking-tight break-keep">지역과 함께한 미소금융의 발자취</h3>
             <p className="text-slate-500 text-sm max-w-2xl mx-auto break-keep">
-              2010년 설립 이후 금융취약계층과 영세자영업자의 자립을 지원해 온 주요 기록입니다.
+              2010년 설립 이후 미소금융 사업과 지역 서민경제 발전을 지원해 온 주요 기록입니다.
             </p>
           </div>
 
@@ -540,12 +541,9 @@ export default function AboutSection({ sectionId }: { sectionId?: string }) {
                               <li key={id} className={`flex items-start gap-3 ${item.status === 'planned' ? 'opacity-70' : ''}`}>
                                 <span className="text-xs font-bold text-slate-400 font-mono tracking-wider w-12 pt-0.5 flex-shrink-0">{item.date}</span>
                                 <div className="flex-1 min-w-0 space-y-1">
-                                  <div className="flex flex-wrap items-center gap-1.5">
-                                    <span className={`text-[10px] font-bold px-2 py-0.5 rounded-full ${categoryStyle[item.category]}`}>{item.category}</span>
-                                    {item.status === 'planned' && (
-                                      <span className="text-[10px] font-bold px-2 py-0.5 rounded-full border border-dashed border-slate-300 text-slate-400">예정</span>
-                                    )}
-                                  </div>
+                                  {item.status === 'planned' && (
+                                    <span className="inline-block text-[10px] font-bold px-2 py-0.5 rounded-full border border-dashed border-slate-300 text-slate-400">예정</span>
+                                  )}
                                   <div>
                                     {item.emphasis ? (
                                       <span className="inline-flex flex-wrap items-center gap-2">
