@@ -573,7 +573,7 @@ export default function ProductSection({ onScrollToSection, onOpenCalculator, in
                       className="mt-3 flex items-center gap-2 bg-rose-50 border border-rose-300 rounded-xl px-4 py-3"
                     >
                       <span className="text-base">⚠️</span>
-                      <p className="text-rose-700 font-black text-xs">자격유형 중 하나 + 공통 요건을 모두 충족해야 상담 신청이 가능합니다</p>
+                      <p className="text-rose-700 font-black text-xs">공통 요건 + 자격유형 중 하나를 모두 충족해야 상담 신청이 가능합니다</p>
                     </motion.div>
                   </div>
 
