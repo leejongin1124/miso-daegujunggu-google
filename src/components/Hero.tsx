@@ -304,12 +304,14 @@ export default function Hero({ onScrollToSection }: HeroProps) {
       {/* 오버레이 — 밝기 조정 */}
       <div className="absolute inset-0 bg-slate-900/5 md:bg-gradient-to-r md:from-slate-900/10 md:via-slate-900/5 md:to-transparent pointer-events-none" />
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-slate-900/5 pointer-events-none" />
+      {/* 텍스트 구간 국소 그라데이션 — 배경 동영상은 그대로 살리면서 문구 가독성만 보강 */}
+      <div className="absolute inset-0 bg-gradient-to-b from-slate-900/35 via-slate-900/10 to-transparent md:bg-gradient-to-r md:from-slate-900/40 md:via-slate-900/10 md:to-transparent pointer-events-none" />
 
       <div className="relative z-10 flex flex-col flex-1 pt-12 md:pt-16">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full flex flex-col flex-1">
 
-        {/* 텍스트 영역 — 모바일: 상단 고정(카드 접힘에 영향받지 않음), PC: 중앙 */}
-        <div className="flex-1 flex items-start md:items-center py-4 md:py-12">
+        {/* 텍스트 영역 — 모바일: 상단 고정(카드 접힘에 영향받지 않음), PC: 중앙보다 살짝 위로 이동해 배경 동영상 노출 확보 */}
+        <div className="flex-1 flex items-start md:items-center py-4 md:py-12 md:-translate-y-6">
 
           <div className="space-y-3 md:space-y-6 text-left w-full md:max-w-2xl">
 
@@ -346,7 +348,8 @@ export default function Hero({ onScrollToSection }: HeroProps) {
                 animate={titlePhase >= 1 ? { x: 0, opacity: 1 } : { x: -80, opacity: 0 }}
                 transition={{ duration: 0.55, ease: 'easeOut' }}
               >
-                금융위원회 허가 비영리 공익법인이자 서민금융진흥원 미소금융 사업수행기관입니다.
+                금융위원회 허가 비영리 공익법인<br />
+                서민금융진흥원 미소금융 사업수행기관입니다.
               </motion.div>
 
               {/* 2번: 슬라이드 + 밑줄 애니메이션 */}
