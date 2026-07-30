@@ -590,11 +590,11 @@ export default function ProductSection({ onScrollToSection, onOpenCalculator, in
                 <div className="bg-amber-50 border-2 border-amber-300 p-5 rounded-2xl">
                   <h4 className="font-black text-sm text-amber-700 flex items-center gap-2 break-keep">
                     <span className="animate-bounce inline-block">🔔</span>
-                    <span className="animate-pulse">② 자격 요건 충족자 필수 이수 절차</span>
+                    <span className="animate-pulse">② 신청자격요건 충족자 필수 이수 절차</span>
                   </h4>
                   <p className="text-slate-700 text-xs font-semibold mt-3 leading-relaxed break-keep">
-                    위 ① 자격 요건에 해당하는 분은, 신청 전 서민금융진흥원 홈페이지에서<br />
-                    <span className="text-amber-700 font-black">「청년 모두를 위한 재무상담」</span>을 이수하셔야 합니다.
+                    위 STEP 1과 STEP 2 요건에 모두 해당하는 분은, 신청 전 서민금융진흥원 홈페이지에서<br />
+                    <span className="text-amber-700 font-black">「청년 모두를 위한 재무상담」</span>을 이수해야 합니다.
                   </p>
                   <a
                     href="https://www.kinfa.or.kr/financialLife/youthFinancialCounseling.do"
