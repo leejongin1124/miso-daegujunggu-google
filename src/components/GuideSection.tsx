@@ -981,9 +981,9 @@ export default function GuideSection({ sectionId }: { sectionId?: string }) {
         {/* 대출 계산기 */}
         {show(['loan-calc-intro', 'loan-calc']) && <>
         <div id="loan-calc-intro" className="text-center space-y-4 max-w-4xl mx-auto">
-          <span className="text-xs font-black text-miso-blue-600 tracking-widest uppercase">Smart Loan Calculator</span>
+          <span className="text-xs font-black text-miso-blue-600 tracking-widest uppercase">Loan Calculator</span>
           <h2 className="text-3xl md:text-[2.6rem] font-black text-slate-900 tracking-tight leading-none">
-            스마트 대출 계산기
+            대출 상환액 계산기
           </h2>
           <div className="h-1.5 w-16 bg-miso-blue-600 rounded-full mx-auto" />
           <p className="text-slate-600 font-medium text-base md:text-lg max-w-2xl mx-auto leading-relaxed break-keep">
@@ -997,9 +997,9 @@ export default function GuideSection({ sectionId }: { sectionId?: string }) {
           <div className="bg-gradient-to-r from-miso-blue-700 to-miso-navy-700 p-8 text-white">
             <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
               <div className="space-y-2">
-                <span className="text-[10px] font-bold text-miso-blue-100 bg-white/20 px-2.5 py-1 rounded-md uppercase">Smart Interest Simulator</span>
-                <h3 className="text-xl md:text-2xl font-black tracking-tight leading-none whitespace-nowrap">대출 설계 계산기</h3>
-                <p className="text-miso-blue-100 text-xs font-semibold">비영리 공공수행 이율 연 4.5% 기준 매월 가상 상환액</p>
+                <span className="text-[10px] font-bold text-miso-blue-100 bg-white/20 px-2.5 py-1 rounded-md uppercase">Repayment Simulation</span>
+                <h3 className="text-xl md:text-2xl font-black tracking-tight leading-none whitespace-nowrap">상환 금액 계산기</h3>
+                <p className="text-miso-blue-100 text-xs font-semibold">정책금리 연 4.5% 기준 예상 월 상환액입니다</p>
               </div>
               <div className="flex flex-wrap gap-2">
                 <button
