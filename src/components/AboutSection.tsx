@@ -236,7 +236,7 @@ export default function AboutSection({ sectionId }: { sectionId?: string }) {
     {
       year: '2013',
       items: [
-        { date: '02.13', text: '대구신용보증재단과 서민금융지원 업무협약(MOU) 체결', category: '협약', emphasis: false, newsUrl: 'https://www.imaeil.com/page/view/2013021411365187544' },
+        { date: '02.13', text: '대구신용보증재단과 서민금융지원 업무협약(MOU) 체결', category: '협약', emphasis: false, newsUrl: 'https://www.idaegu.co.kr/news/articleView.html?idxno=89376' },
         { date: '04.02', text: '2012년도 미소금융 사업실적 평가 최우수등급 표창(미소금융중앙재단)', category: '수상', emphasis: false },
         { date: '06.06', text: '사무소 이전 (중구 경상감영길 제일은행 대구지점 4층)', category: '기관운영', emphasis: false }
       ]
