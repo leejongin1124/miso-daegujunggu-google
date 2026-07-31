@@ -215,7 +215,7 @@ export default function AboutSection({ sectionId }: { sectionId?: string }) {
       year: '2016',
       items: [
         { date: '01.15', text: '대출실적 100억원/1,000건 돌파 클럽 달성(미소금융중앙재단)', category: '지원성과', emphasis: false },
-        { date: '01.18', text: '서민금융진흥원 2015년 사업실적 우수법인 선정', category: '수상', emphasis: false }
+        { date: '03.20', text: '2015년 미소금융 사업실적 평가 우수등급(서민금융진흥원장)', category: '수상', emphasis: false }
       ]
     },
     {
