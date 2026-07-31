@@ -778,6 +778,18 @@ export default function GuideSection({ sectionId }: { sectionId?: string }) {
                 <p className="text-slate-600 text-[13px] leading-relaxed break-keep">
                   거주지 관할 행정복지센터(동 주민센터)를 방문하여 신분증을 제시하면 즉시 발급받으실 수 있습니다. 방문 전 발급 서류명을 미리 확인해 가시면 더욱 빠르게 처리됩니다.
                 </p>
+                <a
+                  href="https://www.myhome.go.kr/hws/portal/cont/selectAdministrativeWelfareCenter.do"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1.5 bg-teal-600 hover:bg-teal-700 text-white text-xs font-bold px-3 py-2 rounded-lg transition-colors"
+                >
+                  <MapPin className="w-3.5 h-3.5" />
+                  가까운 행정복지센터 찾기
+                </a>
+                <p className="text-slate-400 text-[11px] leading-relaxed break-keep">
+                  마이홈포털에서 시·도 → 시·군·구 → 읍·면·동을 선택하면 관할 행정복지센터의 주소와 전화번호를 확인할 수 있습니다.
+                </p>
                 <div className="flex flex-wrap gap-2 pt-1">
                   <a
                     href="https://map.naver.com/p/search/행정복지센터"
@@ -786,7 +798,7 @@ export default function GuideSection({ sectionId }: { sectionId?: string }) {
                     className="inline-flex items-center gap-1.5 bg-teal-50 hover:bg-teal-100 text-teal-700 text-xs font-bold px-3 py-2 rounded-lg transition-colors"
                   >
                     <MapPin className="w-3.5 h-3.5" />
-                    지도에서 가까운 행정복지센터 찾기 (네이버지도)
+                    네이버지도로 위치 찾기
                   </a>
                   <a
                     href="https://map.kakao.com/?q=행정복지센터"
@@ -795,11 +807,11 @@ export default function GuideSection({ sectionId }: { sectionId?: string }) {
                     className="inline-flex items-center gap-1.5 bg-teal-50 hover:bg-teal-100 text-teal-700 text-xs font-bold px-3 py-2 rounded-lg transition-colors"
                   >
                     <MapPin className="w-3.5 h-3.5" />
-                    카카오맵으로 찾기
+                    카카오맵으로 위치 찾기
                   </a>
                 </div>
                 <p className="text-slate-400 text-[11px] leading-relaxed break-keep">
-                  ※ 가장 가까운 센터와 주소지 관할 센터는 다를 수 있습니다. 전입신고 등 관할이 중요한 업무는 마이홈포털 또는 관할 구청에서 한 번 더 확인해 주세요.
+                  ※ 네이버지도·카카오맵은 현재 위치 주변 센터를 편리하게 확인할 때 유용하지만, 가장 가까운 센터와 주소지 관할 센터는 다를 수 있습니다. 전입신고 등 관할이 중요한 업무는 위 마이홈포털에서 한 번 더 확인해 주세요.
                 </p>
               </div>
 
