@@ -693,50 +693,20 @@ export default function GuideSection({ sectionId }: { sectionId?: string }) {
             </motion.div>
           </div>
 
-          {/* 상담 후 상품별 개별 안내 서류 */}
-          <div className="space-y-4">
-            <div>
-              <span className="text-[10px] font-black text-teal-600 tracking-widest uppercase">After Consultation</span>
-              <h4 className="text-base md:text-lg font-black text-slate-900 tracking-tight mt-0.5">상담 후 상품별로 안내드리는 서류</h4>
-              <p className="text-slate-500 text-xs md:text-sm mt-1 leading-relaxed break-keep">
-                상담 후 신청을 진행하기로 하시면, 신청 상품과 상황에 따라 아래와 같은 서류를 추가로 안내해 드립니다.
-              </p>
-            </div>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
-              <div className="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm space-y-2">
-                <span className="font-extrabold text-slate-800 block">청년미래이음</span>
-                <p className="text-slate-500 text-[11px] break-keep">취업 후 1년 이내 신청 시</p>
-                <ul className="space-y-1.5 text-slate-600 text-[13px] pt-1">
-                  <li className="flex items-start gap-2"><span className="text-teal-500 mt-0.5">✓</span><span>재직증명서</span></li>
-                  <li className="flex items-start gap-2"><span className="text-teal-500 mt-0.5">✓</span><span>급여통장 또는 최근 급여 입금내역 <span className="text-slate-400 text-[11px]">(소득금액 확인용)</span></span></li>
-                </ul>
-              </div>
-              <div className="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm space-y-2">
-                <span className="font-extrabold text-slate-800 block">금융취약계층 생계자금</span>
-                <p className="text-slate-500 text-[11px] break-keep">자격유형 1·2번 조건 충족자 중 직장인인 경우</p>
-                <ul className="space-y-1.5 text-slate-600 text-[13px] pt-1">
-                  <li className="flex items-start gap-2"><span className="text-teal-500 mt-0.5">✓</span><span>재직증명서</span></li>
-                  <li className="flex items-start gap-2"><span className="text-teal-500 mt-0.5">✓</span><span>급여통장 또는 최근 급여 입금내역</span></li>
-                </ul>
-              </div>
-            </div>
-          </div>
-
-          {/* 상품별 예상 필요서류 PDF */}
+          {/* 상품별 통합 안내서 */}
           <div className="space-y-4">
             <div>
               <span className="text-[10px] font-black text-teal-600 tracking-widest uppercase">Product Document Checklist</span>
-              <h4 className="text-base md:text-lg font-black text-slate-900 tracking-tight mt-0.5">상품별 예상 필요서류 안내 (참고용)</h4>
+              <h4 className="text-base md:text-lg font-black text-slate-900 tracking-tight mt-0.5">상품별 통합 안내서 (참고용)</h4>
               <p className="text-slate-500 text-xs md:text-sm mt-1 leading-relaxed break-keep">
-                신청하시는 상품에 따라 필요한 서류가 조금씩 다릅니다. 아래 PDF에서 상품별로 필요할 수 있는 서류를 미리 확인하실 수 있습니다.<br />
-                <span className="text-slate-400">※ PDF는 참고자료이며, 실제 제출서류는 상담 후 개별 안내해 드립니다.</span>
+                상품별 예상 서류를 PDF로 미리 확인하실 수 있습니다. 실제 제출서류는 상담 후 개별 안내해 드립니다.
               </p>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-sm">
               {[
                 { label: '사업자 운영자금', file: '/docs/loan-docs-business.pdf', note: '온라인 교육 4과목 수료 안내 포함' },
-                { label: '청년미래이음', file: '/docs/loan-docs-youth.pdf', note: '재무진단보고서 출력 안내 포함' },
-                { label: '금융취약계층 생계자금', file: '/docs/loan-docs-vulnerable.pdf', note: '기초·차상위 수급자 증빙서류 안내 포함' },
+                { label: '청년미래이음', file: '/docs/loan-docs-youth.pdf', note: '재무진단보고서 출력 안내 포함', extra: '취업 후 1년 이내 신청 시 재직증명서·급여통장 추가' },
+                { label: '금융취약계층 생계자금', file: '/docs/loan-docs-vulnerable.pdf', note: '기초·차상위 수급자 증빙서류 안내 포함', extra: '자격유형 1·2번 직장인은 재직증명서·급여통장 추가' },
               ].map((doc) => (
                 <a
                   key={doc.file}
@@ -749,6 +719,9 @@ export default function GuideSection({ sectionId }: { sectionId?: string }) {
                   <div className="min-w-0">
                     <span className="font-extrabold text-slate-800 block break-keep">{doc.label}</span>
                     <span className="text-slate-400 text-[11px] block mt-0.5 break-keep">{doc.note}</span>
+                    {doc.extra && (
+                      <span className="text-amber-600 text-[11px] block mt-0.5 break-keep">※ {doc.extra}</span>
+                    )}
                     <span className="text-teal-600 text-xs font-bold inline-block mt-2">PDF로 보기 · 인쇄하기 →</span>
                   </div>
                 </a>
