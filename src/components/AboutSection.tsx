@@ -148,6 +148,7 @@ export default function AboutSection({ sectionId }: { sectionId?: string }) {
     status?: 'planned';
     impact?: string;
     newsUrl?: string;
+    govHonor?: boolean;
   }
 
   // 2026.07 통합 정리 — 「미소금융16년_연혁」 원본 문서 기준 재구성 (32건)
@@ -201,7 +202,7 @@ export default function AboutSection({ sectionId }: { sectionId?: string }) {
         { date: '06.28', text: '법인 명칭 변경 (미소금융대구중구지점 → 미소금융대구중구법인)', category: '기관운영', emphasis: false },
         { date: '08.22', text: '서민금융진흥원장 표창장 (200/2000클럽) 수상', category: '수상', emphasis: false },
         { date: '08.31', text: '전국 미소금융 사회적경제기업 1호 대출 지원', category: '지원성과', emphasis: true, newsUrl: 'https://www.yna.co.kr/view/AKR20180831135900002' },
-        { date: '10.30', text: '제3회 금융의 날 서민금융부문 국민포장 수훈 (김석동 대표)', category: '수상', emphasis: true, newsUrl: 'https://www.skyedaily.com/news/news_view.html?ID=78486' }
+        { date: '10.30', text: '제3회 금융의 날 서민금융부문 국민포장 수훈 (김석동 대표)', category: '수상', emphasis: true, newsUrl: 'https://www.skyedaily.com/news/news_view.html?ID=78486', govHonor: true }
       ]
     },
     {
@@ -246,7 +247,7 @@ export default function AboutSection({ sectionId }: { sectionId?: string }) {
       items: [
         { date: '01.24', text: '2011년도 미소금융 사업실적 평가 최우수등급 표창(미소금융중앙재단)', category: '수상', emphasis: false },
         { date: '05.10', text: '대구광역시 지역 서민금융기관간 서민금융지원 업무협약(MOU) 체결', category: '협약', emphasis: false, newsUrl: 'https://www.newswire.co.kr/newsRead.php?no=622913' },
-        { date: '12.12', text: '서민금융지원 유공 대통령 표창 수상', category: '수상', emphasis: true, impact: '지원액 20억 9천만 원, 전년 대비 2.5배 증가', newsUrl: 'https://www.imaeil.com/page/view/2013010507401495165' }
+        { date: '12.12', text: '서민금융지원 유공 대통령 표창 수상', category: '수상', emphasis: true, impact: '지원액 20억 9천만 원, 전년 대비 2.5배 증가', newsUrl: 'https://www.imaeil.com/page/view/2013010507401495165', govHonor: true }
       ]
     },
     {
@@ -488,6 +489,14 @@ export default function AboutSection({ sectionId }: { sectionId?: string }) {
             <p className="text-slate-500 text-sm max-w-2xl mx-auto break-keep">
               2010년 설립 이후 미소금융 사업과 지역 서민경제 발전을 지원해 온 주요 기록입니다.
             </p>
+            <div className="flex flex-wrap items-center justify-center gap-2 pt-1">
+              <span className="inline-flex items-center gap-1.5 text-xs font-bold text-amber-700 bg-amber-50 border border-amber-200 rounded-full px-3 py-1.5">
+                🏆 사업실적 평가 등 수상 {historyData.flatMap((y) => y.items).filter((i) => i.category === '수상').length}회
+              </span>
+              <span className="inline-flex items-center gap-1.5 text-xs font-bold text-white bg-gradient-to-r from-amber-500 to-amber-600 rounded-full px-3 py-1.5 shadow-sm">
+                🎖️ 정부 훈격(대통령 표창·국민포장) {historyData.flatMap((y) => y.items).filter((i) => i.govHonor).length}회
+              </span>
+            </div>
           </div>
 
           <div className="max-w-3xl mx-auto space-y-3">
@@ -546,7 +555,10 @@ export default function AboutSection({ sectionId }: { sectionId?: string }) {
                                   <div>
                                     {item.emphasis ? (
                                       <span className="inline-flex flex-wrap items-center gap-2">
-                                        <strong className="text-slate-900 font-bold text-[15px] break-keep">{item.text}</strong>
+                                        <strong className="text-slate-900 font-bold text-[15px] break-keep">
+                                          {item.category === '수상' && <span aria-hidden="true">🏆 </span>}
+                                          {item.text}
+                                        </strong>
                                         {item.newsUrl && (
                                           <a href={item.newsUrl} target="_blank" rel="noopener noreferrer"
                                             className="inline-flex items-center gap-1 bg-amber-50 border border-amber-200 text-amber-700 hover:bg-amber-100 text-[10px] font-bold px-2 py-0.5 rounded-full transition-colors">
@@ -556,7 +568,10 @@ export default function AboutSection({ sectionId }: { sectionId?: string }) {
                                       </span>
                                     ) : (
                                       <span className="inline-flex flex-wrap items-center gap-2">
-                                        <span className="text-slate-600 text-sm break-keep">{item.text}</span>
+                                        <span className="text-slate-600 text-sm break-keep">
+                                          {item.category === '수상' && <span aria-hidden="true">🏆 </span>}
+                                          {item.text}
+                                        </span>
                                         {item.newsUrl && (
                                           <a href={item.newsUrl} target="_blank" rel="noopener noreferrer"
                                             className="inline-flex items-center gap-1 bg-amber-50 border border-amber-200 text-amber-700 hover:bg-amber-100 text-[10px] font-bold px-2 py-0.5 rounded-full transition-colors">
@@ -566,6 +581,11 @@ export default function AboutSection({ sectionId }: { sectionId?: string }) {
                                       </span>
                                     )}
                                   </div>
+                                  {item.govHonor && (
+                                    <span className="inline-flex items-center gap-1 text-[10px] font-bold text-white bg-gradient-to-r from-amber-500 to-amber-600 px-2 py-0.5 rounded-full">
+                                      🎖️ 정부 훈격
+                                    </span>
+                                  )}
                                   {item.impact && (
                                     <p className="text-emerald-700 text-xs font-semibold">{item.impact}</p>
                                   )}
