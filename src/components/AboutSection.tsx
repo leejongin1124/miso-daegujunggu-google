@@ -577,6 +577,7 @@ export default function AboutSection({ sectionId }: { sectionId?: string }) {
                                         alt={`${item.text} 관련 신문기사 사진`}
                                         className="w-20 h-20 object-cover rounded-lg border border-slate-200 shadow-sm hover:shadow-md transition-shadow"
                                         loading="lazy"
+                                        referrerPolicy="no-referrer"
                                         onError={(e) => { (e.target as HTMLImageElement).closest('a')?.style.setProperty('display', 'none'); }}
                                       />
                                     </a>
