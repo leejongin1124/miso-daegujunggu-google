@@ -245,8 +245,7 @@ export default function AboutSection({ sectionId }: { sectionId?: string }) {
       year: '2012',
       items: [
         { date: '01.24', text: '2011년도 미소금융 사업실적 평가 최우수등급 표창(미소금융중앙재단)', category: '수상', emphasis: false },
-        { date: '01.25', text: '대구광역시 예비사회적기업 정식 지정 (미소금융분야 전국 최초)', category: '기관운영', emphasis: false },
-        { date: '05.10', text: '대구광역시 서민금융지원 다자간 업무 협약(MOU) 체결', category: '협약', emphasis: false },
+        { date: '05.10', text: '대구광역시 지역 서민금융기관간 서민금융지원 업무협약(MOU) 체결', category: '협약', emphasis: false },
         { date: '12.12', text: '서민금융지원 유공 대통령 표창 수상', category: '수상', emphasis: true, impact: '지원액 20억 9천만 원, 전년 대비 2.5배 증가', newsUrl: 'https://www.imaeil.com/page/view/2013010507401495165' }
       ]
     },
@@ -254,10 +253,10 @@ export default function AboutSection({ sectionId }: { sectionId?: string }) {
       year: '2010',
       items: [
         { date: '04.06', text: '사단법인 미소금융 지역거점 대표자 공모 선정', category: '설립', emphasis: false },
-        { date: '04.27', text: '금융위원회로부터 비영리사단법인 설립 허가', category: '설립', emphasis: false },
+        { date: '04.27', text: '금융위원회로부터 비영리 사단법인 설립 허가', category: '설립', emphasis: false },
         { date: '04.28', text: '사무소 무상 임차 (중구 서문로 갑을빌딩 2층)', category: '설립', emphasis: false },
         { date: '05.06', text: '사단법인 미소금융대구중구법인 설립 등기 완료', category: '설립', emphasis: false },
-        { date: '05.28', text: '공식 영업 개시 및 서민금융대출 개시', category: '설립', emphasis: true }
+        { date: '05.28', text: '개소식(대구광역시 경제부시장 참석) 및 영업개시', category: '설립', emphasis: true }
       ]
     }
   ];
