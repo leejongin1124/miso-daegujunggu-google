@@ -284,7 +284,7 @@ export default function AboutSection({ sectionId }: { sectionId?: string }) {
     .map((milestone) => ({
       ...milestone,
       items: milestone.items.filter((item) => {
-        if (historyFilter === 'award') return item.category === '수상';
+        if (historyFilter === 'award') return item.category === '수상' && !item.govHonor;
         if (historyFilter === 'govHonor') return item.govHonor;
         return true;
       }),
@@ -530,7 +530,7 @@ export default function AboutSection({ sectionId }: { sectionId?: string }) {
                     : 'text-amber-700 bg-amber-50 border-amber-200 hover:bg-amber-100'
                 }`}
               >
-                🏆 사업실적 평가 등 수상 {historyData.flatMap((y) => y.items).filter((i) => i.category === '수상').length}회
+                🏆 사업실적 평가 등 수상 {historyData.flatMap((y) => y.items).filter((i) => i.category === '수상' && !i.govHonor).length}회
               </button>
               {historyFilter !== 'all' && (
                 <button
