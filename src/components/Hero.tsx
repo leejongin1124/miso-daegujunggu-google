@@ -357,20 +357,21 @@ export default function Hero({ onScrollToSection }: HeroProps) {
                 initial={{ x: -80, opacity: 0 }}
                 animate={titlePhase >= 2 ? { x: 0, opacity: 1 } : { x: -80, opacity: 0 }}
                 transition={{ duration: 0.55, ease: 'easeOut' }}
-                className="relative inline-block"
               >
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-teal-300 to-emerald-300">
                   청년·영세자영업자·금융취약계층을 위한<br />
-                  서민금융 상담을 제공합니다.
+                  <span className="relative inline-block">
+                    서민금융 상담을 제공합니다.
+                    {titlePhase >= 3 && (
+                      <motion.span
+                        initial={{ scaleX: 0 }}
+                        animate={{ scaleX: 1 }}
+                        transition={{ duration: 0.6, ease: 'easeOut' }}
+                        className="absolute left-0 -bottom-1 h-1 w-full bg-gradient-to-r from-teal-300 to-emerald-300 rounded-full origin-left"
+                      />
+                    )}
+                  </span>
                 </span>
-                {titlePhase >= 3 && (
-                  <motion.span
-                    initial={{ scaleX: 0 }}
-                    animate={{ scaleX: 1 }}
-                    transition={{ duration: 0.6, ease: 'easeOut' }}
-                    className="absolute left-0 -bottom-1 h-1 w-full bg-gradient-to-r from-teal-300 to-emerald-300 rounded-full origin-left"
-                  />
-                )}
               </motion.div>
             </h1>
 
