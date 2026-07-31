@@ -189,6 +189,21 @@ export default function Hero({ onScrollToSection }: HeroProps) {
     return () => { clearTimeout(t1); clearTimeout(t2); clearTimeout(t3); };
   }, []);
 
+  // 밑줄 너비를 실제 2번째 줄 텍스트 너비에 맞추기 위한 측정
+  // (position:relative를 텍스트 span에 직접 걸면 bg-clip-text 그라데이션이 깨지므로 JS로 측정)
+  // ResizeObserver는 display:inline 요소를 관찰하지 못하므로 폰트 로딩 완료·리사이즈 시점에 다시 잰다
+  const secondLineRef = useRef<HTMLSpanElement>(null);
+  const [secondLineWidth, setSecondLineWidth] = useState(0);
+  useEffect(() => {
+    const el = secondLineRef.current;
+    if (!el) return;
+    const update = () => setSecondLineWidth(el.getBoundingClientRect().width);
+    update();
+    window.addEventListener('resize', update);
+    document.fonts?.ready.then(update);
+    return () => window.removeEventListener('resize', update);
+  }, []);
+
   // 카드 정의 (사용자 지정 번호)
   // 1: 누적 대출 건수, 2: 누적 대출 금액, 3: 법인 방문 오시는 길,
   // 4: 전화 상담 문의, 5: 상품별 조건 확인, 6: 신청 절차 확인
@@ -357,21 +372,21 @@ export default function Hero({ onScrollToSection }: HeroProps) {
                 initial={{ x: -80, opacity: 0 }}
                 animate={titlePhase >= 2 ? { x: 0, opacity: 1 } : { x: -80, opacity: 0 }}
                 transition={{ duration: 0.55, ease: 'easeOut' }}
+                className="relative inline-block"
               >
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-teal-300 to-emerald-300">
                   청년·영세자영업자·금융취약계층을 위한<br />
-                  <span className="relative inline-block">
-                    서민금융 상담을 제공합니다.
-                    {titlePhase >= 3 && (
-                      <motion.span
-                        initial={{ scaleX: 0 }}
-                        animate={{ scaleX: 1 }}
-                        transition={{ duration: 0.6, ease: 'easeOut' }}
-                        className="absolute left-0 -bottom-1 h-1 w-full bg-gradient-to-r from-teal-300 to-emerald-300 rounded-full origin-left"
-                      />
-                    )}
-                  </span>
+                  <span ref={secondLineRef}>서민금융 상담을 제공합니다.</span>
                 </span>
+                {titlePhase >= 3 && secondLineWidth > 0 && (
+                  <motion.span
+                    initial={{ scaleX: 0 }}
+                    animate={{ scaleX: 1 }}
+                    transition={{ duration: 0.6, ease: 'easeOut' }}
+                    style={{ width: secondLineWidth }}
+                    className="absolute left-0 -bottom-1 h-1 bg-gradient-to-r from-teal-300 to-emerald-300 rounded-full origin-left"
+                  />
+                )}
               </motion.div>
             </h1>
 
