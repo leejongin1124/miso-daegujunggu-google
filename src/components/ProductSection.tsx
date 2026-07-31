@@ -308,6 +308,9 @@ export default function ProductSection({ onScrollToSection, onOpenCalculator, in
                   <div>
                     <span className="block text-slate-400 text-[10px] font-bold uppercase tracking-wider mb-1">대출 최대 한도</span>
                     <span className="block text-slate-800 font-black text-base leading-snug break-keep whitespace-pre-line">{activeProduct.limit}</span>
+                    {activeProduct.id === 'social' && (
+                      <span className="block text-slate-400 text-[10px] font-medium mt-0.5 break-keep">서민금융진흥원 사업수행기관 통합한도</span>
+                    )}
                   </div>
                 </div>
                 <div className="bg-teal-50 px-5 py-4 rounded-xl border border-teal-100 flex items-center gap-4 hover:shadow-md hover:border-teal-200 transition-all">
