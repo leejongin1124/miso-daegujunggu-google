@@ -214,14 +214,14 @@ export default function AboutSection({ sectionId }: { sectionId?: string }) {
     {
       year: '2016',
       items: [
-        { date: '01.15', text: '대출실적 100억원/1,000건 돌파 클럽 달성(미소금융중앙재단)', category: '지원성과', emphasis: false },
+        { date: '01.15', text: '미소금융중앙재단 표창장 (100/1,000클럽)', category: '수상', emphasis: false },
         { date: '03.20', text: '2015년 미소금융 사업실적 평가 우수등급(서민금융진흥원장)', category: '수상', emphasis: false }
       ]
     },
     {
       year: '2015',
       items: [
-        { date: '01.16', text: '대출실적 50억원/500건 돌파 클럽 달성(미소금융중앙재단)', category: '지원성과', emphasis: false },
+        { date: '01.16', text: '미소금융중앙재단 표창장 (50/500클럽)', category: '수상', emphasis: false },
         { date: '03.17', text: '2014년 미소금융 사업실적 평가 최우수등급 표창(미소금융중앙재단)', category: '수상', emphasis: false },
         { date: '11.05', text: '영남대학교 총장 감사패 (산학협력 우수인재양성·취업활성화 기여)', category: '수상', emphasis: false },
         { date: '12.28', text: '대구서민금융통합지원센터 유치 및 개소식 (금융위원장·대구광역시장 참석)', category: '협약', emphasis: true, newsUrl: 'https://www.iij.co.kr/news/articleView.html?idxno=138547' }
