@@ -148,6 +148,7 @@ export default function AboutSection({ sectionId }: { sectionId?: string }) {
     status?: 'planned';
     impact?: string;
     newsUrl?: string;
+    imageUrl?: string;
   }
 
   // 2026.07 통합 정리 — 「미소금융16년_연혁」 원본 문서 기준 재구성 (32건)
@@ -256,7 +257,7 @@ export default function AboutSection({ sectionId }: { sectionId?: string }) {
         { date: '04.27', text: '금융위원회로부터 비영리 사단법인 설립 허가', category: '설립', emphasis: false },
         { date: '04.28', text: '사무소 무상 임차 (중구 서문로 갑을빌딩 2층)', category: '설립', emphasis: false },
         { date: '05.06', text: '사단법인 미소금융대구중구법인 설립 등기 완료', category: '설립', emphasis: false },
-        { date: '05.28', text: '개소식(대구광역시 경제부시장 참석) 및 영업개시', category: '설립', emphasis: true, newsUrl: 'https://www.fntimes.com/html/view.php?ud=20100530194522102969_18' }
+        { date: '05.28', text: '개소식(대구광역시 경제부시장 참석) 및 영업개시', category: '설립', emphasis: true, newsUrl: 'https://www.fntimes.com/html/view.php?ud=20100530194522102969_18', imageUrl: 'https://cfnimage.commutil.kr/phpwas/restmb_allidxmake.php?pp=002&idx=3&simg=20100530194522102969fnimage_01.jpg&nmt=18' }
       ]
     }
   ];
@@ -568,6 +569,17 @@ export default function AboutSection({ sectionId }: { sectionId?: string }) {
                                   </div>
                                   {item.impact && (
                                     <p className="text-emerald-700 text-xs font-semibold">{item.impact}</p>
+                                  )}
+                                  {item.imageUrl && (
+                                    <a href={item.newsUrl} target="_blank" rel="noopener noreferrer" className="inline-block mt-1">
+                                      <img
+                                        src={item.imageUrl}
+                                        alt={`${item.text} 관련 신문기사 사진`}
+                                        className="w-20 h-20 object-cover rounded-lg border border-slate-200 shadow-sm hover:shadow-md transition-shadow"
+                                        loading="lazy"
+                                        onError={(e) => { (e.target as HTMLImageElement).closest('a')?.style.setProperty('display', 'none'); }}
+                                      />
+                                    </a>
                                   )}
                                 </div>
                               </li>
