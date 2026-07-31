@@ -801,9 +801,6 @@ export default function ProductSection({ onScrollToSection, onOpenCalculator, in
                     </motion.div>
                   ))}
                 </div>
-                <p className="text-xs text-slate-500 leading-normal">
-                  ※ 위 사항은 심사 참고를 돕기 위한 안내이며, 승인 요건이 아닙니다. 필요 서류와 심사 기준은 상담 시 확인하실 수 있습니다.
-                </p>
               </div>
 
               {/* 기대 효과 — PC/모바일 공통 */}
@@ -814,7 +811,7 @@ export default function ProductSection({ onScrollToSection, onOpenCalculator, in
                 </p>
                 <div className="pt-2">
                   <p className="text-xs text-teal-100 leading-normal">
-                    ※ 이 상품은 서민금융진흥원 심의 규정에 따른 심사를 거쳐 지원 여부가 결정되며, 연체 시 최고 연 9%의 연체이자율이 적용될 수 있습니다(서민금융진흥원 고시 기준). 상환능력에 비해 대출금이 과도할 경우 신용도 하락 등 부담이 커질 수 있으니 상환 계획을 충분히 검토하신 후 신청하시기 바랍니다.
+                    ※ 이 상품은 서민금융진흥원 심의 규정에 따른 심사를 거쳐 지원 여부가 결정되며, 필요 서류와 심사 기준은 상담을 통해 확인할 수 있습니다. 연체 시 최고 연 9%의 연체이자율이 적용될 수 있으며(서민금융진흥원 고시 기준), 상환능력에 비해 대출금이 과도할 경우 신용도 하락 등 부담이 커질 수 있으니 상환 계획을 충분히 검토한 후 신청하시기 바랍니다.
                   </p>
                 </div>
               </div>
