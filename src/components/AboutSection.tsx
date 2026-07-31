@@ -236,7 +236,7 @@ export default function AboutSection({ sectionId }: { sectionId?: string }) {
     {
       year: '2013',
       items: [
-        { date: '02.13', text: '대구신용보증재단과 서민금융지원 업무협약(MOU) 체결', category: '협약', emphasis: false },
+        { date: '02.13', text: '대구신용보증재단과 서민금융지원 업무협약(MOU) 체결', category: '협약', emphasis: false, newsUrl: 'https://www.imaeil.com/page/view/2013021411365187544' },
         { date: '04.02', text: '2012년도 미소금융 사업실적 평가 최우수등급 표창(미소금융중앙재단)', category: '수상', emphasis: false },
         { date: '06.06', text: '사무소 이전 (중구 경상감영길 제일은행 대구지점 4층)', category: '기관운영', emphasis: false }
       ]
@@ -245,7 +245,7 @@ export default function AboutSection({ sectionId }: { sectionId?: string }) {
       year: '2012',
       items: [
         { date: '01.24', text: '2011년도 미소금융 사업실적 평가 최우수등급 표창(미소금융중앙재단)', category: '수상', emphasis: false },
-        { date: '05.10', text: '대구광역시 지역 서민금융기관간 서민금융지원 업무협약(MOU) 체결', category: '협약', emphasis: false },
+        { date: '05.10', text: '대구광역시 지역 서민금융기관간 서민금융지원 업무협약(MOU) 체결', category: '협약', emphasis: false, newsUrl: 'https://www.newswire.co.kr/newsRead.php?no=622913' },
         { date: '12.12', text: '서민금융지원 유공 대통령 표창 수상', category: '수상', emphasis: true, impact: '지원액 20억 9천만 원, 전년 대비 2.5배 증가', newsUrl: 'https://www.imaeil.com/page/view/2013010507401495165' }
       ]
     },
@@ -555,7 +555,15 @@ export default function AboutSection({ sectionId }: { sectionId?: string }) {
                                         )}
                                       </span>
                                     ) : (
-                                      <span className="text-slate-600 text-sm break-keep">{item.text}</span>
+                                      <span className="inline-flex flex-wrap items-center gap-2">
+                                        <span className="text-slate-600 text-sm break-keep">{item.text}</span>
+                                        {item.newsUrl && (
+                                          <a href={item.newsUrl} target="_blank" rel="noopener noreferrer"
+                                            className="inline-flex items-center gap-1 bg-amber-50 border border-amber-200 text-amber-700 hover:bg-amber-100 text-[10px] font-bold px-2 py-0.5 rounded-full transition-colors">
+                                            <span>📰</span><span>신문기사 보기</span>
+                                          </a>
+                                        )}
+                                      </span>
                                     )}
                                   </div>
                                   {item.impact && (
