@@ -503,23 +503,11 @@ export default function AboutSection({ sectionId }: { sectionId?: string }) {
 
           <div className="text-center space-y-3">
             <span className="text-teal-600 font-bold text-sm tracking-widest uppercase">History Timeline</span>
-            <h3 className="text-3xl font-extrabold text-slate-900 tracking-tight break-keep">지역과 함께한 미소금융의 발자취</h3>
+            <h3 className="text-3xl font-extrabold text-slate-900 tracking-tight break-keep">지역과 함께한 대구중구법인의 발자취</h3>
             <p className="text-slate-500 text-sm max-w-2xl mx-auto break-keep">
               2010년 설립 이후 미소금융 사업과 지역 서민경제 발전을 지원해 온 주요 기록입니다.
             </p>
             <div className="flex flex-wrap items-center justify-center gap-2 pt-1">
-              <button
-                type="button"
-                onClick={() => toggleHistoryFilter('award')}
-                aria-pressed={historyFilter === 'award'}
-                className={`inline-flex items-center gap-1.5 text-xs font-bold rounded-full px-3 py-1.5 border transition-colors ${
-                  historyFilter === 'award'
-                    ? 'text-white bg-amber-600 border-amber-600 shadow-sm'
-                    : 'text-amber-700 bg-amber-50 border-amber-200 hover:bg-amber-100'
-                }`}
-              >
-                🏆 사업실적 평가 등 수상 {historyData.flatMap((y) => y.items).filter((i) => i.category === '수상').length}회
-              </button>
               <button
                 type="button"
                 onClick={() => toggleHistoryFilter('govHonor')}
@@ -531,6 +519,18 @@ export default function AboutSection({ sectionId }: { sectionId?: string }) {
                 }`}
               >
                 🎖️ 정부 훈격(대통령 표창·국민포장) {historyData.flatMap((y) => y.items).filter((i) => i.govHonor).length}회
+              </button>
+              <button
+                type="button"
+                onClick={() => toggleHistoryFilter('award')}
+                aria-pressed={historyFilter === 'award'}
+                className={`inline-flex items-center gap-1.5 text-xs font-bold rounded-full px-3 py-1.5 border transition-colors ${
+                  historyFilter === 'award'
+                    ? 'text-white bg-amber-600 border-amber-600 shadow-sm'
+                    : 'text-amber-700 bg-amber-50 border-amber-200 hover:bg-amber-100'
+                }`}
+              >
+                🏆 사업실적 평가 등 수상 {historyData.flatMap((y) => y.items).filter((i) => i.category === '수상').length}회
               </button>
               {historyFilter !== 'all' && (
                 <button
