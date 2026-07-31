@@ -633,9 +633,9 @@ export default function GuideSection({ sectionId }: { sectionId?: string }) {
           <div className="flex items-start gap-3 bg-amber-50 border border-amber-200 rounded-2xl px-5 py-4">
             <AlertTriangle className="w-5 h-5 text-amber-600 shrink-0 mt-0.5" />
             <ul className="text-amber-800 text-xs md:text-sm font-semibold leading-relaxed break-keep space-y-1.5 list-disc pl-4">
-              <li>서류 준비만으로 대출이 승인되지는 않으며, 지원 여부는 여신심사 결과에 따라 결정됩니다.</li>
-              <li>필요 서류는 <strong>상품과 신청인의 상황에 따라 다르며</strong>, 아래 목록에 없는 서류를 추가로 요청드릴 수 있습니다.</li>
-              <li>제출서류는 <strong>발급일로부터 1개월 이내</strong> 서류로 준비해 주세요.</li>
+              <li>서류 준비와 대출 승인은 별개이며, 지원 여부는 여신심사 결과로 결정됩니다.</li>
+              <li>필요 서류는 <strong>상품·상황별로 다르며</strong>, 목록 외 서류를 요청드릴 수 있습니다.</li>
+              <li>제출서류는 <strong>발급일로부터 1개월 이내</strong>여야 합니다.</li>
             </ul>
           </div>
 
