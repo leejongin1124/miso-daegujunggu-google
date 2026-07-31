@@ -256,7 +256,7 @@ export default function AboutSection({ sectionId }: { sectionId?: string }) {
         { date: '04.27', text: '금융위원회로부터 비영리 사단법인 설립 허가', category: '설립', emphasis: false },
         { date: '04.28', text: '사무소 무상 임차 (중구 서문로 갑을빌딩 2층)', category: '설립', emphasis: false },
         { date: '05.06', text: '사단법인 미소금융대구중구법인 설립 등기 완료', category: '설립', emphasis: false },
-        { date: '05.28', text: '개소식(대구광역시 경제부시장 참석) 및 영업개시', category: '설립', emphasis: true }
+        { date: '05.28', text: '개소식(대구광역시 경제부시장 참석) 및 영업개시', category: '설립', emphasis: true, newsUrl: 'https://www.fntimes.com/html/view.php?ud=20100530194522102969_18' }
       ]
     }
   ];
