@@ -273,6 +273,24 @@ export default function AboutSection({ sectionId }: { sectionId?: string }) {
   const allYearsOpen = openYears.size === historyData.length;
   const toggleAllYears = () => setOpenYears(allYearsOpen ? new Set() : new Set(historyData.map((m) => m.year)));
 
+  // 연혁 요약 배지 클릭 필터 — 수상/정부 훈격만 골라보기
+  const [historyFilter, setHistoryFilter] = useState<'all' | 'award' | 'govHonor'>('all');
+  const toggleHistoryFilter = (filter: 'award' | 'govHonor') => {
+    const next = historyFilter === filter ? 'all' : filter;
+    setHistoryFilter(next);
+    if (next !== 'all') setOpenYears(new Set(historyData.map((m) => m.year)));
+  };
+  const filteredHistoryData = historyData
+    .map((milestone) => ({
+      ...milestone,
+      items: milestone.items.filter((item) => {
+        if (historyFilter === 'award') return item.category === '수상';
+        if (historyFilter === 'govHonor') return item.govHonor;
+        return true;
+      }),
+    }))
+    .filter((milestone) => milestone.items.length > 0);
+
   return (
     <>
     <section className="pt-4 pb-20 md:py-20 bg-white">
@@ -490,12 +508,39 @@ export default function AboutSection({ sectionId }: { sectionId?: string }) {
               2010년 설립 이후 미소금융 사업과 지역 서민경제 발전을 지원해 온 주요 기록입니다.
             </p>
             <div className="flex flex-wrap items-center justify-center gap-2 pt-1">
-              <span className="inline-flex items-center gap-1.5 text-xs font-bold text-amber-700 bg-amber-50 border border-amber-200 rounded-full px-3 py-1.5">
+              <button
+                type="button"
+                onClick={() => toggleHistoryFilter('award')}
+                aria-pressed={historyFilter === 'award'}
+                className={`inline-flex items-center gap-1.5 text-xs font-bold rounded-full px-3 py-1.5 border transition-colors ${
+                  historyFilter === 'award'
+                    ? 'text-white bg-amber-600 border-amber-600 shadow-sm'
+                    : 'text-amber-700 bg-amber-50 border-amber-200 hover:bg-amber-100'
+                }`}
+              >
                 🏆 사업실적 평가 등 수상 {historyData.flatMap((y) => y.items).filter((i) => i.category === '수상').length}회
-              </span>
-              <span className="inline-flex items-center gap-1.5 text-xs font-bold text-white bg-gradient-to-r from-amber-500 to-amber-600 rounded-full px-3 py-1.5 shadow-sm">
+              </button>
+              <button
+                type="button"
+                onClick={() => toggleHistoryFilter('govHonor')}
+                aria-pressed={historyFilter === 'govHonor'}
+                className={`inline-flex items-center gap-1.5 text-xs font-bold rounded-full px-3 py-1.5 transition-colors shadow-sm ${
+                  historyFilter === 'govHonor'
+                    ? 'text-white bg-gradient-to-r from-amber-600 to-amber-700 ring-2 ring-amber-300'
+                    : 'text-white bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700'
+                }`}
+              >
                 🎖️ 정부 훈격(대통령 표창·국민포장) {historyData.flatMap((y) => y.items).filter((i) => i.govHonor).length}회
-              </span>
+              </button>
+              {historyFilter !== 'all' && (
+                <button
+                  type="button"
+                  onClick={() => setHistoryFilter('all')}
+                  className="inline-flex items-center gap-1 text-xs font-bold text-slate-400 hover:text-slate-600 rounded-full px-3 py-1.5 border border-slate-200 hover:border-slate-300 transition-colors"
+                >
+                  ✕ 전체보기
+                </button>
+              )}
             </div>
           </div>
 
@@ -511,7 +556,7 @@ export default function AboutSection({ sectionId }: { sectionId?: string }) {
             </div>
 
             <div className="divide-y divide-slate-100 border border-slate-100 rounded-2xl overflow-hidden bg-white shadow-sm">
-              {historyData.map((milestone) => {
+              {filteredHistoryData.map((milestone) => {
                 const isOpen = openYears.has(milestone.year);
                 return (
                   <div key={milestone.year}>
