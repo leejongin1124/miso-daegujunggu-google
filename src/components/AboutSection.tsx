@@ -271,9 +271,8 @@ export default function AboutSection({ sectionId }: { sectionId?: string }) {
     }
   ];
 
-  // 기본 화면은 전부 접힌 상태로 시작 — 32건을 한 번에 쏟아내지 않고, 아래 "핵심 지표·대표 연혁"으로 먼저 신뢰를 보여준 뒤
-  // 필요한 사람만 "전체 N건 보기"로 펼치게 한다.
-  const [openYears, setOpenYears] = useState<Set<string>>(new Set());
+  // 연혁 최초 조회 시에는 전체 연도가 펼쳐진 상태로 시작한다
+  const [openYears, setOpenYears] = useState<Set<string>>(new Set(historyData.map((m) => m.year)));
   const toggleYear = (year: string) => {
     setOpenYears((prev) => {
       const next = new Set(prev);
@@ -569,6 +568,12 @@ export default function AboutSection({ sectionId }: { sectionId?: string }) {
                 <span className="text-base md:text-lg font-black text-slate-800 font-mono w-14 shrink-0">{item.year}</span>
                 <span className={`shrink-0 text-[10px] font-bold px-2 py-0.5 rounded-full ${categoryStyle[item.category]}`}>{item.category}</span>
                 <span className="flex-1 min-w-0 text-sm text-slate-700 break-keep">{item.text}</span>
+                {item.newsUrl && (
+                  <a href={item.newsUrl} target="_blank" rel="noopener noreferrer"
+                    className="shrink-0 inline-flex items-center gap-1 bg-amber-50 border border-amber-200 text-amber-700 hover:bg-amber-100 text-[10px] font-bold px-2 py-1 rounded-full transition-colors">
+                    <Newspaper className="w-3 h-3" /><span className="hidden sm:inline">근거자료 보기</span>
+                  </a>
+                )}
               </div>
             ))}
           </div>
