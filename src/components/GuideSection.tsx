@@ -205,14 +205,35 @@ export default function GuideSection({ sectionId }: { sectionId?: string }) {
   const [gracePeriod, setGracePeriod] = useState<number>(6); // 디폴트 거치 6개월
   const [repaymentPeriod, setRepaymentPeriod] = useState<number>(60); // 디폴트 상환 60개월 (5년)
 
-  // 거치기간 중 적용금리는 상품별로 상이함 (사업자 운영자금 2.0% / 금융취약계층 생계자금 3.0% / 청년미래이음 4.5%)
+  // 거치기간 중 적용금리는 상품별로 상이함 (사업자 운영자금 2.0% / 금융취약계층 생계자금 3.0% / 청년미래이음 4.5% / 사회연대금융 4.0%)
   const GRACE_RATE_OPTIONS = [
     { id: 'business', label: '사업자 운영자금', rate: 2.0 },
     { id: 'vulnerable', label: '금융취약계층 생계자금', rate: 3.0 },
     { id: 'youth', label: '청년미래이음', rate: 4.5 },
+    { id: 'social', label: '사회연대금융', rate: 4.0 },
   ] as const;
   const [graceRateType, setGraceRateType] = useState<typeof GRACE_RATE_OPTIONS[number]['id']>('business');
   const gracePeriodRate = GRACE_RATE_OPTIONS.find((o) => o.id === graceRateType)!.rate;
+
+  // 상품별 실제 한도·금리·거치·상환기간 범위 — 계산기가 상품 규정과 무관한 조합을 허용하지 않도록 제한
+  const PRODUCT_CALC_LIMITS = {
+    business: { label: '사업자 운영자금', maxLoan: 30000000, minRate: 2.0, maxRate: 4.5, maxGrace: 24, maxRepay: 60 },
+    vulnerable: { label: '금융취약계층 생계자금', maxLoan: 5000000, minRate: 3.5, maxRate: 4.5, maxGrace: 12, maxRepay: 60 },
+    youth: { label: '청년미래이음', maxLoan: 5000000, minRate: 3.5, maxRate: 4.5, maxGrace: 72, maxRepay: 60 },
+    social: { label: '사회연대금융', maxLoan: 100000000, minRate: 4.0, maxRate: 4.5, maxGrace: 24, maxRepay: 48 },
+  } as const;
+  type ProductCalcId = keyof typeof PRODUCT_CALC_LIMITS;
+  const [selectedProduct, setSelectedProduct] = useState<ProductCalcId>('business');
+  const productLimits = PRODUCT_CALC_LIMITS[selectedProduct];
+  const applyProductLimits = (id: ProductCalcId) => {
+    const cfg = PRODUCT_CALC_LIMITS[id];
+    setSelectedProduct(id);
+    setGraceRateType(id);
+    setLoanAmount((prev) => Math.min(prev, cfg.maxLoan));
+    setInterestRate((prev) => Math.min(Math.max(prev, cfg.minRate), cfg.maxRate));
+    setGracePeriod((prev) => Math.min(prev, cfg.maxGrace));
+    setRepaymentPeriod((prev) => Math.min(prev, cfg.maxRepay));
+  };
 
   // 대출 계산 결과 저장
   const [calcResult, setCalcResult] = useState({
@@ -994,33 +1015,26 @@ export default function GuideSection({ sectionId }: { sectionId?: string }) {
         {/* 세련된 스마트 대출 이자 계산기 */}
         <div id="loan-calc" className="bg-white border border-slate-200/90 rounded-3xl shadow-xl overflow-hidden text-left">
           
-          <div className="bg-gradient-to-r from-miso-blue-700 to-miso-navy-700 p-8 text-white">
-            <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
-              <div className="space-y-2">
-                <span className="text-[10px] font-bold text-miso-blue-100 bg-white/20 px-2.5 py-1 rounded-md uppercase">Repayment Simulation</span>
-                <h3 className="text-xl md:text-2xl font-black tracking-tight leading-none whitespace-nowrap">상환 금액 계산기</h3>
-                <p className="text-miso-blue-100 text-xs font-semibold">정책금리 연 4.5% 기준 예상 월 상환액입니다</p>
-              </div>
-              <div className="flex flex-wrap gap-2">
+          <div className="bg-gradient-to-r from-miso-blue-700 to-miso-navy-700 p-8 text-white space-y-4">
+            <div>
+              <span className="text-[10px] font-bold text-miso-blue-100 bg-white/20 px-2.5 py-1 rounded-md uppercase">Repayment Simulation</span>
+              <h3 className="text-xl md:text-2xl font-black tracking-tight leading-none whitespace-nowrap mt-2">상환 금액 계산기</h3>
+              <p className="text-miso-blue-100 text-xs font-semibold mt-2">먼저 신청 상품을 선택하면 해당 상품의 한도·금리 범위 안에서만 계산됩니다.</p>
+            </div>
+            <div className="flex flex-wrap gap-2">
+              {(Object.entries(PRODUCT_CALC_LIMITS) as [ProductCalcId, typeof PRODUCT_CALC_LIMITS[ProductCalcId]][]).map(([id, cfg]) => (
                 <button
-                  onClick={() => { setLoanAmount(20000000); setInterestRate(4.5); setGracePeriod(6); setRepaymentPeriod(60); setGraceRateType('business'); }}
-                  className="bg-white/10 hover:bg-white/20 text-white text-xs font-bold px-3 py-2 rounded-lg transition-all"
+                  key={id}
+                  type="button"
+                  onClick={() => applyProductLimits(id)}
+                  aria-pressed={selectedProduct === id}
+                  className={`text-xs font-bold px-3 py-2 rounded-lg transition-all ${
+                    selectedProduct === id ? 'bg-white text-miso-blue-700 shadow' : 'bg-white/10 hover:bg-white/20 text-white'
+                  }`}
                 >
-                  🏪 사업자 표준 (2천만 / 거치6M)
+                  {cfg.label}
                 </button>
-                <button
-                  onClick={() => { setLoanAmount(5000000); setInterestRate(4.5); setGracePeriod(12); setRepaymentPeriod(60); setGraceRateType('vulnerable'); }}
-                  className="bg-white/10 hover:bg-white/20 text-white text-xs font-bold px-3 py-2 rounded-lg transition-all"
-                >
-                  🛡️ 금융취약계층 (5백만 / 거치1년)
-                </button>
-                <button
-                  onClick={() => { setLoanAmount(5000000); setInterestRate(4.5); setGracePeriod(72); setRepaymentPeriod(60); setGraceRateType('youth'); }}
-                  className="bg-white/10 hover:bg-white/20 text-white text-xs font-bold px-3 py-2 rounded-lg transition-all"
-                >
-                  🌱 청년 미래이음 (5백만 / 거치6년)
-                </button>
-              </div>
+              ))}
             </div>
           </div>
 
@@ -1035,11 +1049,12 @@ export default function GuideSection({ sectionId }: { sectionId?: string }) {
                   <label htmlFor="loan-amount" className="flex items-center gap-1">💰 대출 요청 원금 설정</label>
                   <output htmlFor="loan-amount" className="text-miso-blue-600 font-black text-lg whitespace-nowrap">{(loanAmount / 10000).toLocaleString()}만 원</output>
                 </div>
+                <p className="text-[11px] text-slate-400 font-semibold">{productLimits.label} 기준 최대 {(productLimits.maxLoan / 10000).toLocaleString()}만 원까지 신청 가능합니다.</p>
                 <input
                   id="loan-amount"
                   type="range"
                   min="1000000"
-                  max="100000000"
+                  max={productLimits.maxLoan}
                   step="500000"
                   value={loanAmount}
                   onChange={(e) => setLoanAmount(Number(e.target.value))}
@@ -1055,8 +1070,8 @@ export default function GuideSection({ sectionId }: { sectionId?: string }) {
                     { val: 30000000,  label: '3,000만', mobileHide: false },
                     { val: 50000000,  label: '5,000만', mobileHide: false },
                     { val: 100000000, label: '1억',     mobileHide: false },
-                  ].map(({ val, label, mobileHide }, i, arr) => {
-                    const pct = ((val - 1000000) / (100000000 - 1000000)) * 100;
+                  ].filter(({ val }) => val <= productLimits.maxLoan).map(({ val, label, mobileHide }, i, arr) => {
+                    const pct = ((val - 1000000) / (productLimits.maxLoan - 1000000)) * 100;
                     const isFirst = i === 0;
                     const isLast = i === arr.length - 1;
                     const top = i % 2 === 0 ? '0px' : '16px';
@@ -1084,8 +1099,8 @@ export default function GuideSection({ sectionId }: { sectionId?: string }) {
                 <input
                   id="interest-rate"
                   type="range"
-                  min="2.0"
-                  max="4.5"
+                  min={productLimits.minRate}
+                  max={productLimits.maxRate}
                   step="0.5"
                   value={interestRate}
                   onChange={(e) => setInterestRate(Number(e.target.value))}
@@ -1097,8 +1112,10 @@ export default function GuideSection({ sectionId }: { sectionId?: string }) {
                     { val: 2.0, label: '2.0%' },
                     { val: 3.5, label: '3.5%' },
                     { val: 4.5, label: '4.5%' },
-                  ].map(({ val, label }) => {
-                    const pct = ((val - 2.0) / (4.5 - 2.0)) * 100;
+                  ].filter(({ val }) => val >= productLimits.minRate && val <= productLimits.maxRate).map(({ val, label }) => {
+                    const pct = productLimits.maxRate === productLimits.minRate
+                      ? 0
+                      : ((val - productLimits.minRate) / (productLimits.maxRate - productLimits.minRate)) * 100;
                     return (
                       <span
                         key={val}
@@ -1112,11 +1129,19 @@ export default function GuideSection({ sectionId }: { sectionId?: string }) {
                 </div>
                 {/* 금리 안내 테이블 */}
                 <div className="grid grid-cols-4 gap-1.5 mt-2">
-                  <button onClick={() => setInterestRate(2.0)} className="bg-green-50 border border-green-200 rounded-xl p-2 text-center hover:bg-green-100 transition">
+                  <button
+                    onClick={() => setInterestRate(2.0)}
+                    disabled={productLimits.minRate > 2.0}
+                    className="bg-green-50 border border-green-200 rounded-xl p-2 text-center hover:bg-green-100 transition disabled:opacity-30 disabled:cursor-not-allowed disabled:hover:bg-green-50"
+                  >
                     <p className="text-green-700 font-black text-sm">2.0%</p>
                     <p className="text-[10px] text-green-600 font-semibold leading-tight mt-0.5">무등록사업자<br/>500만원</p>
                   </button>
-                  <button onClick={() => setInterestRate(3.5)} className="bg-blue-50 border border-blue-200 rounded-xl p-2 text-center hover:bg-blue-100 transition">
+                  <button
+                    onClick={() => setInterestRate(3.5)}
+                    disabled={productLimits.minRate > 3.5 || productLimits.maxRate < 3.5}
+                    className="bg-blue-50 border border-blue-200 rounded-xl p-2 text-center hover:bg-blue-100 transition disabled:opacity-30 disabled:cursor-not-allowed disabled:hover:bg-blue-50"
+                  >
                     <p className="text-blue-700 font-black text-sm">3.5%</p>
                     <p className="text-[10px] text-blue-600 font-semibold leading-tight mt-0.5">성실상환시<br/>이자율 감면</p>
                   </button>
@@ -1141,28 +1166,19 @@ export default function GuideSection({ sectionId }: { sectionId?: string }) {
                   <output htmlFor="grace-period" className="text-miso-blue-600 font-black text-lg whitespace-nowrap">{gracePeriod} 개월 {gracePeriod >= 12 && `(${Math.floor(gracePeriod / 12)}년)`}</output>
                 </div>
 
-                {/* 거치기간 적용금리는 상품별로 다름 */}
+                {/* 거치기간 중 적용금리는 상단에서 선택한 상품 기준으로 자동 적용됨 */}
                 <div className="flex flex-wrap items-center gap-1.5 text-xs">
-                  <span className="text-slate-400 font-semibold mr-1">거치기간 적용상품:</span>
-                  {GRACE_RATE_OPTIONS.map((opt) => (
-                    <button
-                      key={opt.id}
-                      onClick={() => setGraceRateType(opt.id)}
-                      className={`px-2.5 py-1 rounded-full font-bold transition-all ${
-                        graceRateType === opt.id
-                          ? 'bg-miso-blue-600 text-white shadow'
-                          : 'bg-slate-100 text-slate-500 hover:bg-slate-200'
-                      }`}
-                    >
-                      {opt.label} {opt.rate.toFixed(1)}%
-                    </button>
-                  ))}
+                  <span className="text-slate-400 font-semibold mr-1">거치기간 적용금리:</span>
+                  <span className="px-2.5 py-1 rounded-full font-bold bg-miso-blue-600 text-white shadow">
+                    {productLimits.label} {gracePeriodRate.toFixed(1)}%
+                  </span>
+                  <span className="text-slate-400">최대 {productLimits.maxGrace}개월까지 설정 가능</span>
                 </div>
                 <input
                   id="grace-period"
                   type="range"
                   min="0"
-                  max="72"
+                  max={productLimits.maxGrace}
                   step="6"
                   value={gracePeriod}
                   onChange={(e) => setGracePeriod(Number(e.target.value))}
@@ -1179,8 +1195,8 @@ export default function GuideSection({ sectionId }: { sectionId?: string }) {
                     { val: 48, label: '4년',   mobileHide: true  },
                     { val: 60, label: '5년',   mobileHide: true  },
                     { val: 72, label: '6년',   mobileHide: false },
-                  ].map(({ val, label, mobileHide }, i, arr) => {
-                    const pct = (val / 72) * 100;
+                  ].filter(({ val }) => val <= productLimits.maxGrace).map(({ val, label, mobileHide }, i, arr) => {
+                    const pct = (val / productLimits.maxGrace) * 100;
                     const isFirst = i === 0;
                     const isLast = i === arr.length - 1;
                     const top = i % 2 === 0 ? '0px' : '16px';
@@ -1208,8 +1224,8 @@ export default function GuideSection({ sectionId }: { sectionId?: string }) {
                 <input
                   id="repayment-period"
                   type="range"
-                  min="12" 
-                  max="60" 
+                  min="12"
+                  max={productLimits.maxRepay}
                   step="12"
                   value={repaymentPeriod}
                   onChange={(e) => setRepaymentPeriod(Number(e.target.value))}
@@ -1223,8 +1239,8 @@ export default function GuideSection({ sectionId }: { sectionId?: string }) {
                     { val: 36, label: '3년' },
                     { val: 48, label: '4년' },
                     { val: 60, label: '5년' },
-                  ].map(({ val, label }, i, arr) => {
-                    const pct = ((val - 12) / (60 - 12)) * 100;
+                  ].filter(({ val }) => val <= productLimits.maxRepay).map(({ val, label }, i, arr) => {
+                    const pct = ((val - 12) / (productLimits.maxRepay - 12)) * 100;
                     const isLast = i === arr.length - 1;
                     return (
                       <span
@@ -1317,7 +1333,7 @@ export default function GuideSection({ sectionId }: { sectionId?: string }) {
                   </div>
                 </div>
                 <p className="text-xs text-slate-500 leading-normal pt-1 font-bold">
-                  ※ 시중 사채 연 20% 이용 시 이자 부담만 약 4배 가량 늘어납니다. 비영리 제도 자금의 낮은 금리를 충분히 활용해 보세요.
+                  ※ 이 결과는 입력값을 기준으로 한 단순 예상치이며, 실제 약정금액·금리는 심사 결과에 따라 달라질 수 있습니다.
                 </p>
                 <a 
                   href="tel:053-252-6408"
