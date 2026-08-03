@@ -5,7 +5,7 @@
 
 import { motion, AnimatePresence } from 'motion/react';
 import { useState, useEffect } from 'react';
-import { Award, Briefcase, Calendar, MapPin, Bus, Train, Car, Phone, Share2, Printer, ExternalLink, FileText, Copy, Check, ShieldCheck, ArrowRight } from 'lucide-react';
+import { Award, Trophy, Newspaper, Briefcase, Calendar, MapPin, Bus, Train, Car, Phone, Share2, Printer, ExternalLink, FileText, Copy, Check, ShieldCheck, ArrowRight } from 'lucide-react';
 
 function useCountUp(target: number, duration: number, trigger: boolean) {
   const [count, setCount] = useState(0);
@@ -149,6 +149,7 @@ export default function AboutSection({ sectionId }: { sectionId?: string }) {
     impact?: string;
     newsUrl?: string;
     govHonor?: boolean;
+    honorScope?: '법인' | '대표자';
   }
 
   // 2026.07 통합 정리 — 「미소금융16년_연혁」 원본 문서 기준 재구성 (32건)
@@ -161,6 +162,14 @@ export default function AboutSection({ sectionId }: { sectionId?: string }) {
     '지원성과': 'bg-emerald-50 text-emerald-700 border border-emerald-200',
     '기관운영': 'bg-slate-100 text-slate-600 border border-slate-200',
   };
+  const categoryActiveStyle: Record<HistoryCategory, string> = {
+    '설립': 'bg-teal-600 text-white border border-teal-600',
+    '협약': 'bg-indigo-600 text-white border border-indigo-600',
+    '수상': 'bg-amber-600 text-white border border-amber-600',
+    '지원성과': 'bg-emerald-600 text-white border border-emerald-600',
+    '기관운영': 'bg-slate-600 text-white border border-slate-600',
+  };
+  const HISTORY_CATEGORIES: HistoryCategory[] = ['설립', '협약', '수상', '지원성과', '기관운영'];
 
   const historyData: { year: string; items: HistoryItem[] }[] = [
     {
@@ -202,7 +211,7 @@ export default function AboutSection({ sectionId }: { sectionId?: string }) {
         { date: '06.28', text: '법인 명칭 변경 (미소금융대구중구지점 → 미소금융대구중구법인)', category: '기관운영', emphasis: false },
         { date: '08.22', text: '서민금융진흥원장 표창장 (200/2000클럽) 수상', category: '수상', emphasis: false },
         { date: '08.31', text: '전국 미소금융 사회적경제기업 1호 대출 지원', category: '지원성과', emphasis: true, newsUrl: 'https://www.yna.co.kr/view/AKR20180831135900002' },
-        { date: '10.30', text: '제3회 금융의 날 서민금융부문 국민포장 수훈 (김석동 대표)', category: '수상', emphasis: true, newsUrl: 'https://www.skyedaily.com/news/news_view.html?ID=78486', govHonor: true }
+        { date: '10.30', text: '제3회 금융의 날 서민금융부문 국민포장 수훈 (김석동 대표)', category: '수상', emphasis: true, newsUrl: 'https://www.skyedaily.com/news/news_view.html?ID=78486', govHonor: true, honorScope: '대표자' }
       ]
     },
     {
@@ -247,7 +256,7 @@ export default function AboutSection({ sectionId }: { sectionId?: string }) {
       items: [
         { date: '01.24', text: '2011년도 미소금융 사업실적 평가 최우수등급 표창(미소금융중앙재단)', category: '수상', emphasis: false },
         { date: '05.10', text: '대구광역시 지역 서민금융기관간 서민금융지원 업무협약(MOU) 체결', category: '협약', emphasis: false, newsUrl: 'https://www.newswire.co.kr/newsRead.php?no=622913' },
-        { date: '12.12', text: '서민금융지원 유공 대통령 표창 수상', category: '수상', emphasis: true, impact: '지원액 20억 9천만 원, 전년 대비 2.5배 증가', newsUrl: 'https://www.imaeil.com/page/view/2013010507401495165', govHonor: true }
+        { date: '12.12', text: '서민금융지원 유공 대통령 표창 수상', category: '수상', emphasis: true, impact: '지원액 20억 9천만 원, 전년 대비 2.5배 증가', newsUrl: 'https://www.imaeil.com/page/view/2013010507401495165', govHonor: true, honorScope: '법인' }
       ]
     },
     {
@@ -262,6 +271,7 @@ export default function AboutSection({ sectionId }: { sectionId?: string }) {
     }
   ];
 
+  // 연혁 최초 조회 시에는 전체 연도가 펼쳐진 상태로 시작한다
   const [openYears, setOpenYears] = useState<Set<string>>(new Set(historyData.map((m) => m.year)));
   const toggleYear = (year: string) => {
     setOpenYears((prev) => {
@@ -273,23 +283,49 @@ export default function AboutSection({ sectionId }: { sectionId?: string }) {
   const allYearsOpen = openYears.size === historyData.length;
   const toggleAllYears = () => setOpenYears(allYearsOpen ? new Set() : new Set(historyData.map((m) => m.year)));
 
-  // 연혁 요약 배지 클릭 필터 — 수상/정부 훈격만 골라보기
-  const [historyFilter, setHistoryFilter] = useState<'all' | 'award' | 'govHonor'>('all');
-  const toggleHistoryFilter = (filter: 'award' | 'govHonor') => {
+  // 연혁 카테고리 필터(5종 단일 선택) + 언론보도 유무 별도 토글
+  const [historyFilter, setHistoryFilter] = useState<'all' | HistoryCategory>('all');
+  const [newsOnly, setNewsOnly] = useState(false);
+  const toggleHistoryFilter = (filter: HistoryCategory) => {
     const next = historyFilter === filter ? 'all' : filter;
     setHistoryFilter(next);
-    if (next !== 'all') setOpenYears(new Set(historyData.map((m) => m.year)));
+    if (next !== 'all' || newsOnly) setOpenYears(new Set(historyData.map((m) => m.year)));
   };
+  const toggleNewsOnly = () => {
+    const next = !newsOnly;
+    setNewsOnly(next);
+    if (next || historyFilter !== 'all') setOpenYears(new Set(historyData.map((m) => m.year)));
+  };
+  const clearHistoryFilters = () => { setHistoryFilter('all'); setNewsOnly(false); };
   const filteredHistoryData = historyData
     .map((milestone) => ({
       ...milestone,
       items: milestone.items.filter((item) => {
-        if (historyFilter === 'award') return item.category === '수상' && !item.govHonor;
-        if (historyFilter === 'govHonor') return item.govHonor;
+        if (historyFilter !== 'all' && item.category !== historyFilter) return false;
+        if (newsOnly && !item.newsUrl) return false;
         return true;
       }),
     }))
     .filter((milestone) => milestone.items.length > 0);
+
+  const allHistoryItems = historyData.flatMap((m) => m.items.map((item) => ({ ...item, year: m.year })));
+  const totalHistoryCount = allHistoryItems.length;
+  const awardCount = allHistoryItems.filter((i) => i.category === '수상' && !i.govHonor).length;
+  const foundingYear = historyData[historyData.length - 1].year;
+  const presidentialAward = allHistoryItems.find((i) => i.honorScope === '법인');
+  const individualHonor = allHistoryItems.find((i) => i.honorScope === '대표자');
+
+  // 대표 연혁 5개 — historyData를 복제하지 않고 연도·날짜 키로 원본을 그대로 참조한다
+  const HIGHLIGHT_KEYS: { year: string; date: string }[] = [
+    { year: '2010', date: '05.28' },
+    { year: '2012', date: '12.12' },
+    { year: '2015', date: '12.28' },
+    { year: '2018', date: '08.31' },
+    { year: '2022', date: '08.01' },
+  ];
+  const highlightItems = HIGHLIGHT_KEYS
+    .map(({ year, date }) => allHistoryItems.find((i) => i.year === year && i.date === date))
+    .filter((i): i is typeof allHistoryItems[number] => !!i);
 
   return (
     <>
@@ -507,54 +543,105 @@ export default function AboutSection({ sectionId }: { sectionId?: string }) {
             <p className="text-slate-500 text-sm max-w-2xl mx-auto break-keep">
               2010년 설립 이후 미소금융 사업과 지역 서민경제 발전을 지원해 온 주요 기록입니다.
             </p>
-            <div className="flex flex-wrap items-center justify-center gap-2 pt-1">
-              <button
-                type="button"
-                onClick={() => toggleHistoryFilter('govHonor')}
-                aria-pressed={historyFilter === 'govHonor'}
-                className={`inline-flex items-center gap-1.5 text-xs font-bold rounded-full px-3 py-1.5 transition-colors shadow-sm ${
-                  historyFilter === 'govHonor'
-                    ? 'text-white bg-gradient-to-r from-amber-600 to-amber-700 ring-2 ring-amber-300'
-                    : 'text-white bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700'
-                }`}
-              >
-                🎖️ 정부 훈격(대통령 표창·국민포장) {historyData.flatMap((y) => y.items).filter((i) => i.govHonor).length}회
-              </button>
-              <button
-                type="button"
-                onClick={() => toggleHistoryFilter('award')}
-                aria-pressed={historyFilter === 'award'}
-                className={`inline-flex items-center gap-1.5 text-xs font-bold rounded-full px-3 py-1.5 border transition-colors ${
-                  historyFilter === 'award'
-                    ? 'text-white bg-amber-600 border-amber-600 shadow-sm'
-                    : 'text-amber-700 bg-amber-50 border-amber-200 hover:bg-amber-100'
-                }`}
-              >
-                🏆 사업실적 평가 등 수상 {historyData.flatMap((y) => y.items).filter((i) => i.category === '수상' && !i.govHonor).length}회
-              </button>
-              {historyFilter !== 'all' && (
-                <button
-                  type="button"
-                  onClick={() => setHistoryFilter('all')}
-                  className="inline-flex items-center gap-1 text-xs font-bold text-slate-400 hover:text-slate-600 rounded-full px-3 py-1.5 border border-slate-200 hover:border-slate-300 transition-colors"
-                >
-                  ✕ 전체보기
-                </button>
-              )}
+          </div>
+
+          {/* 핵심 지표 3개 */}
+          <div className="max-w-2xl mx-auto grid grid-cols-3 divide-x divide-slate-200 border border-slate-200 rounded-2xl overflow-hidden bg-slate-50">
+            <div className="text-center py-4 px-2">
+              <p className="text-2xl md:text-3xl font-black text-slate-900 font-mono">{foundingYear}</p>
+              <p className="text-slate-500 text-[11px] md:text-xs font-semibold mt-1">법인 설립</p>
+            </div>
+            <div className="text-center py-4 px-2">
+              <p className="text-2xl md:text-3xl font-black text-slate-900 font-mono">{presidentialAward?.year}</p>
+              <p className="text-slate-500 text-[11px] md:text-xs font-semibold mt-1">대통령 표창</p>
+            </div>
+            <div className="text-center py-4 px-2">
+              <p className="text-2xl md:text-3xl font-black text-slate-900 font-mono">{awardCount}회</p>
+              <p className="text-slate-500 text-[11px] md:text-xs font-semibold mt-1">기관·사업실적 수상</p>
             </div>
           </div>
 
-          <div className="max-w-3xl mx-auto space-y-3">
-            <div className="flex justify-end">
+          {/* 대표 연혁 5개 — 32건 중 신뢰를 증명하는 핵심 기록만 먼저 보여준다 */}
+          <div className="max-w-2xl mx-auto space-y-2">
+            {highlightItems.map((item) => (
+              <div key={`${item.year}-${item.date}`} className="flex items-center gap-3 bg-white border border-slate-100 rounded-xl px-4 py-3 shadow-sm">
+                <span className="text-base md:text-lg font-black text-slate-800 font-mono w-14 shrink-0">{item.year}</span>
+                <span className={`shrink-0 text-[10px] font-bold px-2 py-0.5 rounded-full ${categoryStyle[item.category]}`}>{item.category}</span>
+                <span className="flex-1 min-w-0 text-sm text-slate-700 break-keep">{item.text}</span>
+                {item.newsUrl && (
+                  <a href={item.newsUrl} target="_blank" rel="noopener noreferrer"
+                    className="shrink-0 inline-flex items-center gap-1 bg-amber-50 border border-amber-200 text-amber-700 hover:bg-amber-100 text-[10px] font-bold px-2 py-1 rounded-full transition-colors">
+                    <Newspaper className="w-3 h-3" /><span className="hidden sm:inline">근거자료 보기</span>
+                  </a>
+                )}
+              </div>
+            ))}
+          </div>
+
+          {/* 대표자 개인 수훈 — 법인 수상과 성격이 다르므로 별도 카드로 분리 표시 */}
+          {individualHonor && (
+            <div className="max-w-2xl mx-auto flex items-center gap-3 bg-gradient-to-br from-amber-50 to-amber-100/60 border border-amber-200 rounded-2xl px-5 py-4">
+              <Award className="w-8 h-8 text-amber-600 shrink-0" aria-hidden="true" />
+              <div className="flex-1 min-w-0 space-y-1">
+                <p className="text-sm font-bold text-slate-800 break-keep">{individualHonor.text}</p>
+                <span className="inline-flex items-center gap-1 text-[10px] font-bold text-white bg-amber-600 px-2 py-0.5 rounded-full">대표자 수훈</span>
+              </div>
+              {individualHonor.newsUrl && (
+                <a href={individualHonor.newsUrl} target="_blank" rel="noopener noreferrer"
+                  className="shrink-0 inline-flex items-center gap-1 bg-white border border-amber-200 text-amber-700 hover:bg-amber-50 text-[11px] font-bold px-2.5 py-1.5 rounded-full transition-colors">
+                  <Newspaper className="w-3.5 h-3.5" />근거자료 보기
+                </a>
+              )}
+            </div>
+          )}
+
+          <div className="text-center">
+            <button
+              type="button"
+              onClick={toggleAllYears}
+              className="text-sm font-bold text-teal-700 hover:text-teal-800 bg-teal-50 hover:bg-teal-100 border border-teal-200 rounded-full px-5 py-2.5 transition-colors"
+            >
+              {allYearsOpen ? '대표 기록만 보기' : `전체 ${totalHistoryCount}건 보기`}
+            </button>
+          </div>
+
+          {/* 분야별 필터 — 5개 카테고리 단일 선택 + 언론보도 유무 별도 토글 */}
+          <div className="flex flex-wrap items-center justify-center gap-2 pt-1">
+            {HISTORY_CATEGORIES.map((cat) => (
+              <button
+                key={cat}
+                type="button"
+                onClick={() => toggleHistoryFilter(cat)}
+                aria-pressed={historyFilter === cat}
+                className={`text-xs font-bold rounded-full px-3 py-1.5 transition-colors ${
+                  historyFilter === cat ? categoryActiveStyle[cat] : categoryStyle[cat]
+                }`}
+              >
+                {cat}
+              </button>
+            ))}
+            <button
+              type="button"
+              onClick={toggleNewsOnly}
+              aria-pressed={newsOnly}
+              className={`inline-flex items-center gap-1 text-xs font-bold rounded-full px-3 py-1.5 border transition-colors ${
+                newsOnly ? 'bg-slate-700 text-white border-slate-700' : 'bg-white text-slate-500 border-slate-200 hover:bg-slate-50'
+              }`}
+            >
+              <Newspaper className="w-3 h-3" />언론보도만
+            </button>
+            {(historyFilter !== 'all' || newsOnly) && (
               <button
                 type="button"
-                onClick={toggleAllYears}
-                className="text-xs font-bold text-teal-700 hover:text-teal-800 bg-teal-50 hover:bg-teal-100 border border-teal-200 rounded-full px-3 py-1.5 transition-colors"
+                onClick={clearHistoryFilters}
+                className="inline-flex items-center gap-1 text-xs font-bold text-slate-400 hover:text-slate-600 rounded-full px-3 py-1.5 border border-slate-200 hover:border-slate-300 transition-colors"
               >
-                {allYearsOpen ? '모두 접기' : '모두 펼치기'}
+                ✕ 전체보기
               </button>
-            </div>
+            )}
+          </div>
 
+          <div className="max-w-3xl mx-auto space-y-3">
             <div className="divide-y divide-slate-100 border border-slate-100 rounded-2xl overflow-hidden bg-white shadow-sm">
               {filteredHistoryData.map((milestone) => {
                 const isOpen = openYears.has(milestone.year);
@@ -601,26 +688,26 @@ export default function AboutSection({ sectionId }: { sectionId?: string }) {
                                     {item.emphasis ? (
                                       <span className="inline-flex flex-wrap items-center gap-2">
                                         <strong className="text-slate-900 font-bold text-[15px] break-keep">
-                                          {item.category === '수상' && <span aria-hidden="true">🏆 </span>}
+                                          {item.category === '수상' && <Trophy className="inline w-3.5 h-3.5 text-amber-500 mr-1 -mt-0.5" aria-hidden="true" />}
                                           {item.text}
                                         </strong>
                                         {item.newsUrl && (
                                           <a href={item.newsUrl} target="_blank" rel="noopener noreferrer"
                                             className="inline-flex items-center gap-1 bg-amber-50 border border-amber-200 text-amber-700 hover:bg-amber-100 text-[10px] font-bold px-2 py-0.5 rounded-full transition-colors">
-                                            <span>📰</span><span>신문기사 보기</span>
+                                            <Newspaper className="w-3 h-3" /><span>근거자료 보기</span>
                                           </a>
                                         )}
                                       </span>
                                     ) : (
                                       <span className="inline-flex flex-wrap items-center gap-2">
                                         <span className="text-slate-600 text-sm break-keep">
-                                          {item.category === '수상' && <span aria-hidden="true">🏆 </span>}
+                                          {item.category === '수상' && <Trophy className="inline w-3.5 h-3.5 text-amber-500 mr-1 -mt-0.5" aria-hidden="true" />}
                                           {item.text}
                                         </span>
                                         {item.newsUrl && (
                                           <a href={item.newsUrl} target="_blank" rel="noopener noreferrer"
                                             className="inline-flex items-center gap-1 bg-amber-50 border border-amber-200 text-amber-700 hover:bg-amber-100 text-[10px] font-bold px-2 py-0.5 rounded-full transition-colors">
-                                            <span>📰</span><span>신문기사 보기</span>
+                                            <Newspaper className="w-3 h-3" /><span>근거자료 보기</span>
                                           </a>
                                         )}
                                       </span>
@@ -628,7 +715,8 @@ export default function AboutSection({ sectionId }: { sectionId?: string }) {
                                   </div>
                                   {item.govHonor && (
                                     <span className="inline-flex items-center gap-1 text-[10px] font-bold text-white bg-gradient-to-r from-amber-500 to-amber-600 px-2 py-0.5 rounded-full">
-                                      🎖️ 정부 훈격
+                                      <Award className="w-3 h-3" aria-hidden="true" />
+                                      {item.honorScope === '대표자' ? '대표자 수훈' : '법인 수상'}
                                     </span>
                                   )}
                                   {item.impact && (
