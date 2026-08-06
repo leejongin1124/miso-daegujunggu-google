@@ -226,7 +226,8 @@ export default function AboutSection({ sectionId }: { sectionId?: string }) {
       year: '2016',
       items: [
         { date: '01.15', text: '미소금융중앙재단 표창장 (100/1,000클럽)', category: '수상', emphasis: false },
-        { date: '03.20', text: '2015년 미소금융 사업실적 평가 우수등급(서민금융진흥원장)', category: '수상', emphasis: false }
+        { date: '03.20', text: '2015년 미소금융 사업실적 평가 우수등급(서민금융진흥원장)', category: '수상', emphasis: false },
+        { date: '09.23', text: '서민금융진흥원 출범으로 법인 기능·명칭 변경 (복지사업자 → 사업수행기관)', category: '기관운영', emphasis: true, newsUrl: 'https://www.yna.co.kr/view/AKR20160923070451002' }
       ]
     },
     {
