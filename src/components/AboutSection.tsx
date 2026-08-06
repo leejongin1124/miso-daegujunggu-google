@@ -263,6 +263,12 @@ export default function AboutSection({ sectionId }: { sectionId?: string }) {
       ]
     },
     {
+      year: '2011',
+      items: [
+        { date: '11.16', text: '미소금융 대구중구법인 대구동구청출장소 설치(동구청 민원실)', category: '기관운영', emphasis: false, newsUrl: 'https://www.imaeil.com/page/view/2011111616042014010' }
+      ]
+    },
+    {
       year: '2010',
       items: [
         { date: '04.06', text: '사단법인 미소금융 지역거점 대표자 공모 선정', category: '설립', emphasis: false },
