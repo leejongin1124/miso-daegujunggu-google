@@ -163,14 +163,28 @@ export default function AboutSection({ sectionId }: { sectionId?: string }) {
     '지원성과': 'bg-emerald-50 text-emerald-700 border border-emerald-200',
     '기관운영': 'bg-slate-100 text-slate-600 border border-slate-200',
   };
-  const categoryActiveStyle: Record<HistoryCategory, string> = {
-    '설립': 'bg-teal-600 text-white border border-teal-600',
-    '협약': 'bg-indigo-600 text-white border border-indigo-600',
-    '수상': 'bg-amber-600 text-white border border-amber-600',
-    '지원성과': 'bg-emerald-600 text-white border border-emerald-600',
-    '기관운영': 'bg-slate-600 text-white border border-slate-600',
+
+  // 연혁 화면 노출용 4대 그룹 — 법인 실적과 대표자 개인 수훈을 분리해 보여주기 위한 분류
+  type HistoryGroup = '기관 연혁' | '수상·인증' | '지원실적·활동' | '대표 대외활동';
+  const HISTORY_GROUPS: HistoryGroup[] = ['기관 연혁', '수상·인증', '지원실적·활동', '대표 대외활동'];
+  const groupOf = (item: HistoryItem): HistoryGroup => {
+    if (item.honorScope === '대표자') return '대표 대외활동';
+    if (item.category === '수상') return '수상·인증';
+    if (item.category === '설립' || item.category === '기관운영') return '기관 연혁';
+    return '지원실적·활동';
   };
-  const HISTORY_CATEGORIES: HistoryCategory[] = ['설립', '협약', '수상', '지원성과', '기관운영'];
+  const groupStyle: Record<HistoryGroup, string> = {
+    '기관 연혁': 'bg-teal-50 text-teal-700 border border-teal-200',
+    '수상·인증': 'bg-amber-50 text-amber-700 border border-amber-200',
+    '지원실적·활동': 'bg-emerald-50 text-emerald-700 border border-emerald-200',
+    '대표 대외활동': 'bg-indigo-50 text-indigo-700 border border-indigo-200',
+  };
+  const groupActiveStyle: Record<HistoryGroup, string> = {
+    '기관 연혁': 'bg-teal-600 text-white border border-teal-600',
+    '수상·인증': 'bg-amber-600 text-white border border-amber-600',
+    '지원실적·활동': 'bg-emerald-600 text-white border border-emerald-600',
+    '대표 대외활동': 'bg-indigo-600 text-white border border-indigo-600',
+  };
 
   const historyData: { year: string; items: HistoryItem[] }[] = [
     {
@@ -178,7 +192,7 @@ export default function AboutSection({ sectionId }: { sectionId?: string }) {
       items: [
         { date: '04.28', text: '서민금융진흥원장 표창장(2025년 사업실적평가 우수상) 수상', category: '수상', emphasis: true },
         { date: '07.15', text: '누적 대출건수 6,200건, 대출금액 600억 원 돌파', category: '지원성과', emphasis: true },
-        { date: '08.03', text: '미소금융대구중구법인 홈페이지 개설 예정', category: '기관운영', emphasis: true, status: 'planned' }
+        { date: '08.03', text: '미소금융대구중구법인 홈페이지 개설', category: '기관운영', emphasis: true }
       ]
     },
     {
@@ -298,10 +312,10 @@ export default function AboutSection({ sectionId }: { sectionId?: string }) {
   const allYearsOpen = openYears.size === historyData.length;
   const toggleAllYears = () => setOpenYears(allYearsOpen ? new Set() : new Set(historyData.map((m) => m.year)));
 
-  // 연혁 카테고리 필터(5종 단일 선택) + 언론보도 유무 별도 토글
-  const [historyFilter, setHistoryFilter] = useState<'all' | HistoryCategory>('all');
+  // 연혁 그룹 필터(4종 단일 선택) + 언론보도 유무 별도 토글
+  const [historyFilter, setHistoryFilter] = useState<'all' | HistoryGroup>('all');
   const [newsOnly, setNewsOnly] = useState(false);
-  const toggleHistoryFilter = (filter: HistoryCategory) => {
+  const toggleHistoryFilter = (filter: HistoryGroup) => {
     const next = historyFilter === filter ? 'all' : filter;
     setHistoryFilter(next);
     if (next !== 'all' || newsOnly) setOpenYears(new Set(historyData.map((m) => m.year)));
@@ -316,7 +330,7 @@ export default function AboutSection({ sectionId }: { sectionId?: string }) {
     .map((milestone) => ({
       ...milestone,
       items: milestone.items.filter((item) => {
-        if (historyFilter !== 'all' && item.category !== historyFilter) return false;
+        if (historyFilter !== 'all' && groupOf(item) !== historyFilter) return false;
         if (newsOnly && !item.newsUrl) return false;
         return true;
       }),
@@ -599,25 +613,28 @@ export default function AboutSection({ sectionId }: { sectionId?: string }) {
             ))}
           </div>
 
-          {/* 대표자 개인 수훈 — 법인 수상과 성격이 다르므로 별도 카드로 분리 표시 */}
+          {/* 대표 대외활동 — 법인 수상과 성격이 다른 이사장 개인 수훈을 별도 섹션으로 크게 전시 */}
           {individualHonor && (
-            <div className="max-w-2xl mx-auto flex items-center gap-3 bg-gradient-to-br from-amber-50 to-amber-100/60 border border-amber-200 rounded-2xl px-5 py-4">
-              <Award className="w-8 h-8 text-amber-600 shrink-0" aria-hidden="true" />
-              <div className="flex-1 min-w-0 space-y-1">
-                <p className="text-sm font-bold text-slate-800 break-keep">{individualHonor.text}</p>
-                <span className="inline-flex items-center gap-1 text-[10px] font-bold text-white bg-amber-600 px-2 py-0.5 rounded-full">대표자 수훈</span>
+            <div className="max-w-2xl mx-auto bg-gradient-to-br from-indigo-50 to-indigo-100/50 border border-indigo-200 rounded-2xl px-6 py-5 space-y-3">
+              <div className="flex items-center gap-2">
+                <Award className="w-5 h-5 text-indigo-600" aria-hidden="true" />
+                <span className="text-xs font-black text-indigo-700 tracking-wide uppercase">대표 대외활동</span>
               </div>
-              {individualHonor.newsUrl2 && (
-                <a href={individualHonor.newsUrl2} target="_blank" rel="noopener noreferrer"
-                  className="shrink-0 inline-flex items-center gap-1 bg-white border border-amber-200 text-amber-700 hover:bg-amber-50 text-[11px] font-bold px-2.5 py-1.5 rounded-full transition-colors">
-                  <Newspaper className="w-3.5 h-3.5" />관련기사 더보기</a>
-              )}
-              {individualHonor.newsUrl && (
-                <a href={individualHonor.newsUrl} target="_blank" rel="noopener noreferrer"
-                  className="shrink-0 inline-flex items-center gap-1 bg-white border border-amber-200 text-amber-700 hover:bg-amber-50 text-[11px] font-bold px-2.5 py-1.5 rounded-full transition-colors">
-                  <Newspaper className="w-3.5 h-3.5" />근거자료 보기
-                </a>
-              )}
+              <p className="text-base font-bold text-slate-900 break-keep leading-relaxed">{individualHonor.text}</p>
+              <div className="flex flex-wrap items-center gap-2">
+                <span className="inline-flex items-center gap-1 text-[10px] font-bold text-white bg-indigo-600 px-2.5 py-1 rounded-full">{individualHonor.year}년 · 대표자 수훈</span>
+                {individualHonor.newsUrl && (
+                  <a href={individualHonor.newsUrl} target="_blank" rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1 bg-white border border-indigo-200 text-indigo-700 hover:bg-indigo-50 text-[11px] font-bold px-2.5 py-1.5 rounded-full transition-colors">
+                    <Newspaper className="w-3.5 h-3.5" />근거자료 보기
+                  </a>
+                )}
+                {individualHonor.newsUrl2 && (
+                  <a href={individualHonor.newsUrl2} target="_blank" rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1 bg-white border border-indigo-200 text-indigo-700 hover:bg-indigo-50 text-[11px] font-bold px-2.5 py-1.5 rounded-full transition-colors">
+                    <Newspaper className="w-3.5 h-3.5" />관련기사 더보기</a>
+                )}
+              </div>
             </div>
           )}
 
@@ -631,19 +648,19 @@ export default function AboutSection({ sectionId }: { sectionId?: string }) {
             </button>
           </div>
 
-          {/* 분야별 필터 — 5개 카테고리 단일 선택 + 언론보도 유무 별도 토글 */}
+          {/* 분야별 필터 — 4개 그룹(기관 연혁·수상·인증·지원실적·활동·대표 대외활동) 단일 선택 + 언론보도 유무 별도 토글 */}
           <div className="flex flex-wrap items-center justify-center gap-2 pt-1">
-            {HISTORY_CATEGORIES.map((cat) => (
+            {HISTORY_GROUPS.map((group) => (
               <button
-                key={cat}
+                key={group}
                 type="button"
-                onClick={() => toggleHistoryFilter(cat)}
-                aria-pressed={historyFilter === cat}
+                onClick={() => toggleHistoryFilter(group)}
+                aria-pressed={historyFilter === group}
                 className={`text-xs font-bold rounded-full px-3 py-1.5 transition-colors ${
-                  historyFilter === cat ? categoryActiveStyle[cat] : categoryStyle[cat]
+                  historyFilter === group ? groupActiveStyle[group] : groupStyle[group]
                 }`}
               >
-                {cat}
+                {group}
               </button>
             ))}
             <button
