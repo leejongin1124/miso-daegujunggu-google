@@ -147,7 +147,7 @@ export default function Hero({ onScrollToSection }: HeroProps) {
     return () => clearTimeout(timer);
   }, []);
 
-  const { count: countPeople, done: peopleDone } = useCountUp(6300, 2500, statsInView);
+  const { count: countPeople, done: peopleDone } = useCountUp(6200, 2500, statsInView);
   const { count: countMoney, done: moneyDone } = useCountUp(600, 2500, statsInView);
 
   // 1·2번 숫자 카운팅이 모두 끝난 뒤 3초 뒤에 5·6번(상품별 조건 확인/신청 절차 확인) 카드로 전환
