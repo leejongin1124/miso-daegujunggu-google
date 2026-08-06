@@ -184,7 +184,8 @@ export default function AboutSection({ sectionId }: { sectionId?: string }) {
       year: '2023',
       items: [
         { date: '04.01', text: '신중년 사회공헌사업단 시범운영 개시', category: '지원성과', emphasis: false },
-        { date: '09.15', text: '영남대학교 기업연계기반 Capstone Design 현장 실습 프로그램 운영', category: '협약', emphasis: false }
+        { date: '09.15', text: '영남대학교 기업연계기반 Capstone Design 현장 실습 프로그램 운영', category: '협약', emphasis: false },
+        { date: '11.27', text: '누적 대출건수 5,200건, 대출금액 500억 원 돌파', category: '지원성과', emphasis: true }
       ]
     },
     {
@@ -228,6 +229,7 @@ export default function AboutSection({ sectionId }: { sectionId?: string }) {
       items: [
         { date: '01.15', text: '미소금융중앙재단 표창장 (100/1,000클럽)', category: '수상', emphasis: false },
         { date: '03.20', text: '2015년 미소금융 사업실적 평가 우수등급(서민금융진흥원장)', category: '수상', emphasis: false },
+        { date: '07.15', text: '누적 대출건수 6,200건, 대출금액 600억 원 돌파', category: '지원성과', emphasis: true },
         { date: '09.23', text: '서민금융진흥원 출범으로 법인 기능·명칭 변경 (복지사업자 → 사업수행기관)', category: '기관운영', emphasis: true, newsUrl: 'https://www.yna.co.kr/view/AKR20160923070451002' },
         { date: '12.14', text: '서문시장 화재 성금 전달 및 봉사활동 지원', category: '지원성과', emphasis: false, newsUrl: 'https://www.yeongnam.com/web/view.php?key=20161206.990011109310983' }
       ]
