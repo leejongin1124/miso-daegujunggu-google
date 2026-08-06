@@ -177,6 +177,7 @@ export default function AboutSection({ sectionId }: { sectionId?: string }) {
       year: '2026',
       items: [
         { date: '04.28', text: '서민금융진흥원장 표창장(2025년 사업실적평가 우수상) 수상', category: '수상', emphasis: true },
+        { date: '07.15', text: '누적 대출건수 6,200건, 대출금액 600억 원 돌파', category: '지원성과', emphasis: true },
         { date: '08.03', text: '미소금융대구중구법인 홈페이지 개설 예정', category: '기관운영', emphasis: true, status: 'planned' }
       ]
     },
@@ -197,6 +198,7 @@ export default function AboutSection({ sectionId }: { sectionId?: string }) {
     {
       year: '2020',
       items: [
+        { date: '03.19', text: '대구광역시 코로나 특별재난지역 선포로 직장인 포함 사업자 특별대출 지원', category: '지원성과', emphasis: true },
         { date: '04.21', text: '2019년 미소금융 사업실적 평가 최우수등급 표창(서민금융진흥원장)', category: '수상', emphasis: false }
       ]
     },
@@ -229,7 +231,6 @@ export default function AboutSection({ sectionId }: { sectionId?: string }) {
       items: [
         { date: '01.15', text: '미소금융중앙재단 표창장 (100/1,000클럽)', category: '수상', emphasis: false },
         { date: '03.20', text: '2015년 미소금융 사업실적 평가 우수등급(서민금융진흥원장)', category: '수상', emphasis: false },
-        { date: '07.15', text: '누적 대출건수 6,200건, 대출금액 600억 원 돌파', category: '지원성과', emphasis: true },
         { date: '09.23', text: '서민금융진흥원 출범으로 법인 기능·명칭 변경 (복지사업자 → 사업수행기관)', category: '기관운영', emphasis: true, newsUrl: 'https://www.yna.co.kr/view/AKR20160923070451002' },
         { date: '12.14', text: '서문시장 화재 성금 전달 및 봉사활동 지원', category: '지원성과', emphasis: false, newsUrl: 'https://www.yeongnam.com/web/view.php?key=20161206.990011109310983' }
       ]
