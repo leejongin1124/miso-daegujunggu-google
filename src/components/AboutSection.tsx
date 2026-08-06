@@ -148,6 +148,7 @@ export default function AboutSection({ sectionId }: { sectionId?: string }) {
     status?: 'planned';
     impact?: string;
     newsUrl?: string;
+    newsUrl2?: string;
     govHonor?: boolean;
     honorScope?: '법인' | '대표자';
   }
@@ -208,7 +209,7 @@ export default function AboutSection({ sectionId }: { sectionId?: string }) {
       year: '2018',
       items: [
         { date: '03.27', text: '2017년 미소금융 사업실적 평가 최우수등급 표창(서민금융진흥원장)', category: '수상', emphasis: false },
-        { date: '06.28', text: '법인 명칭 변경 (미소금융대구중구지점 → 미소금융대구중구법인)', category: '기관운영', emphasis: false },
+        { date: '06.28', text: '법인 명칭 변경 (미소금융대구중구지점 → 미소금융대구중구법인) 및 사업내용(사회적금융) 추가', category: '기관운영', emphasis: false },
         { date: '08.22', text: '서민금융진흥원장 표창장 (200/2000클럽) 수상', category: '수상', emphasis: false },
         { date: '08.31', text: '전국 미소금융 사회적경제기업 1호 대출 지원', category: '지원성과', emphasis: true, newsUrl: 'https://www.yna.co.kr/view/AKR20180831135900002' },
         { date: '10.30', text: '제3회 금융의 날 서민금융부문 국민포장 수훈 (김석동 대표)', category: '수상', emphasis: true, newsUrl: 'https://www.skyedaily.com/news/news_view.html?ID=78486', govHonor: true, honorScope: '대표자' }
@@ -258,7 +259,7 @@ export default function AboutSection({ sectionId }: { sectionId?: string }) {
       items: [
         { date: '01.24', text: '2011년도 미소금융 사업실적 평가 최우수등급 표창(미소금융중앙재단)', category: '수상', emphasis: false },
         { date: '05.10', text: '대구광역시 지역 서민금융기관간 서민금융지원 업무협약(MOU) 체결', category: '협약', emphasis: false, newsUrl: 'https://www.newswire.co.kr/newsRead.php?no=622913' },
-        { date: '12.12', text: "대통령 주재 '서민금융 보고대회' 참석(청와대 영빈관) 및 서민금융지원 유공 대통령 표창 수상", category: '수상', emphasis: true, impact: '지원액 20억 9천만 원, 전년 대비 2.5배 증가', newsUrl: 'https://www.korea.kr/news/policyNewsView.do?newsId=148753689', govHonor: true, honorScope: '법인' }
+        { date: '12.12', text: "대통령 주재 '서민금융 보고대회' 참석(청와대 영빈관) 및 서민금융지원 유공 대통령 표창 수상", category: '수상', emphasis: true, impact: '지원액 20억 9천만 원, 전년 대비 2.5배 증가', newsUrl: 'https://www.korea.kr/news/policyNewsView.do?newsId=148753689', newsUrl2: 'https://www.imaeil.com/page/view/2013010507401495165', govHonor: true, honorScope: '법인' }
       ]
     },
     {
@@ -576,6 +577,12 @@ export default function AboutSection({ sectionId }: { sectionId?: string }) {
                     <Newspaper className="w-3 h-3" /><span className="hidden sm:inline">근거자료 보기</span>
                   </a>
                 )}
+                {item.newsUrl2 && (
+                  <a href={item.newsUrl2} target="_blank" rel="noopener noreferrer"
+                    className="shrink-0 inline-flex items-center gap-1 bg-amber-50 border border-amber-200 text-amber-700 hover:bg-amber-100 text-[10px] font-bold px-2 py-1 rounded-full transition-colors">
+                    <Newspaper className="w-3 h-3" /><span className="hidden sm:inline">관련기사 더보기</span>
+                  </a>
+                )}
               </div>
             ))}
           </div>
@@ -588,6 +595,11 @@ export default function AboutSection({ sectionId }: { sectionId?: string }) {
                 <p className="text-sm font-bold text-slate-800 break-keep">{individualHonor.text}</p>
                 <span className="inline-flex items-center gap-1 text-[10px] font-bold text-white bg-amber-600 px-2 py-0.5 rounded-full">대표자 수훈</span>
               </div>
+              {individualHonor.newsUrl2 && (
+                <a href={individualHonor.newsUrl2} target="_blank" rel="noopener noreferrer"
+                  className="shrink-0 inline-flex items-center gap-1 bg-white border border-amber-200 text-amber-700 hover:bg-amber-50 text-[11px] font-bold px-2.5 py-1.5 rounded-full transition-colors">
+                  <Newspaper className="w-3.5 h-3.5" />관련기사 더보기</a>
+              )}
               {individualHonor.newsUrl && (
                 <a href={individualHonor.newsUrl} target="_blank" rel="noopener noreferrer"
                   className="shrink-0 inline-flex items-center gap-1 bg-white border border-amber-200 text-amber-700 hover:bg-amber-50 text-[11px] font-bold px-2.5 py-1.5 rounded-full transition-colors">
@@ -699,6 +711,12 @@ export default function AboutSection({ sectionId }: { sectionId?: string }) {
                                             <Newspaper className="w-3 h-3" /><span>근거자료 보기</span>
                                           </a>
                                         )}
+                                        {item.newsUrl2 && (
+                                          <a href={item.newsUrl2} target="_blank" rel="noopener noreferrer"
+                                            className="inline-flex items-center gap-1 bg-amber-50 border border-amber-200 text-amber-700 hover:bg-amber-100 text-[10px] font-bold px-2 py-0.5 rounded-full transition-colors">
+                                            <Newspaper className="w-3 h-3" /><span>관련기사 더보기</span>
+                                          </a>
+                                        )}
                                       </span>
                                     ) : (
                                       <span className="inline-flex flex-wrap items-center gap-2">
@@ -710,6 +728,12 @@ export default function AboutSection({ sectionId }: { sectionId?: string }) {
                                           <a href={item.newsUrl} target="_blank" rel="noopener noreferrer"
                                             className="inline-flex items-center gap-1 bg-amber-50 border border-amber-200 text-amber-700 hover:bg-amber-100 text-[10px] font-bold px-2 py-0.5 rounded-full transition-colors">
                                             <Newspaper className="w-3 h-3" /><span>근거자료 보기</span>
+                                          </a>
+                                        )}
+                                        {item.newsUrl2 && (
+                                          <a href={item.newsUrl2} target="_blank" rel="noopener noreferrer"
+                                            className="inline-flex items-center gap-1 bg-amber-50 border border-amber-200 text-amber-700 hover:bg-amber-100 text-[10px] font-bold px-2 py-0.5 rounded-full transition-colors">
+                                            <Newspaper className="w-3 h-3" /><span>관련기사 더보기</span>
                                           </a>
                                         )}
                                       </span>
