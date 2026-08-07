@@ -5,7 +5,7 @@
 
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { Quote, Sparkles, Star, MapPin, Heart, ChevronRight, HeartHandshake, TrendingUp, Users } from 'lucide-react';
+import { Quote, Sparkles, Star, MapPin, Heart, ChevronRight } from 'lucide-react';
 import { CaseStudy } from '../types';
 
 interface CaseSectionProps {
@@ -107,8 +107,7 @@ export default function CaseSection({ initialFilter, onFilterChange }: CaseSecti
       solution: '상담 과정에서 12회 이상 정상 납입한 성실상환자에게는 추가 생계자금 지원 제도가 있다는 안내를 받았습니다. 기존 상환 내역과 필요서류를 챙겨 상담·심사를 진행했고, 심사 결과에 따라 추가 자금을 지원받을 수 있었습니다.',
       effect: '병원비와 가게 운영비를 동시에 해결하며 가계와 사업 운영에 모두 숨통이 트였고, 지금도 두 대출 모두 밀림 없이 상환하고 있습니다.',
       author: '한○○ 고객 (50대, 성실상환 2년 차)',
-      location: '대구 수성구',
-      overlayIcons: ['handshake', 'growth', 'family']
+      location: '대구 수성구'
     }
   ];
 
@@ -206,28 +205,13 @@ export default function CaseSection({ initialFilter, onFilterChange }: CaseSecti
 
                   {/* 케이스 이미지 */}
                   {c.image && (
-                    <div className="relative w-full rounded-2xl overflow-hidden bg-slate-50">
+                    <div className="w-full rounded-2xl overflow-hidden bg-slate-50">
                       <img
                         src={c.image}
                         alt={c.title}
                         loading="lazy"
                         className="w-full h-auto object-contain transition-transform duration-500 group-hover:scale-105"
                       />
-                      {c.overlayIcons && c.overlayIcons.length > 0 && (
-                        <div className="absolute bottom-0 left-1/4 right-0 h-[28%] bg-white/95 rounded-tl-[48%]">
-                          <div className="h-full flex items-center justify-center gap-4 sm:gap-6 pl-6">
-                            {c.overlayIcons.includes('handshake') && (
-                              <HeartHandshake className="w-6 h-6 sm:w-8 sm:h-8 text-indigo-400" strokeWidth={1.75} />
-                            )}
-                            {c.overlayIcons.includes('growth') && (
-                              <TrendingUp className="w-6 h-6 sm:w-8 sm:h-8 text-emerald-400" strokeWidth={1.75} />
-                            )}
-                            {c.overlayIcons.includes('family') && (
-                              <Users className="w-6 h-6 sm:w-8 sm:h-8 text-rose-400" strokeWidth={1.75} />
-                            )}
-                          </div>
-                        </div>
-                      )}
                     </div>
                   )}
 

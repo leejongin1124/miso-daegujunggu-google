@@ -42,7 +42,6 @@ export interface CaseStudy {
   author: string;
   location: string;
   image?: string;
-  overlayIcons?: ('handshake' | 'growth' | 'family')[];
 }
 
 export enum TabType {
