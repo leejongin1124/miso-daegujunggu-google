@@ -191,7 +191,7 @@ export default function AboutSection({ sectionId }: { sectionId?: string }) {
       year: '2026',
       items: [
         { date: '04.28', text: '서민금융진흥원장 표창장(2025년 사업실적평가 우수상) 수상', category: '수상', emphasis: true },
-        { date: '07.15', text: '누적 대출건수 6,200건, 대출금액 600억 원 돌파', category: '지원성과', emphasis: true },
+        { date: '07.15', text: '미소금융 누적 대출건수 6,200건, 대출금액 600억 원 돌파', category: '지원성과', emphasis: true },
         { date: '08.03', text: '미소금융대구중구법인 홈페이지 개설', category: '기관운영', emphasis: true }
       ]
     },
@@ -200,7 +200,7 @@ export default function AboutSection({ sectionId }: { sectionId?: string }) {
       items: [
         { date: '04.01', text: '신중년 사회공헌사업단 시범운영 개시', category: '지원성과', emphasis: false },
         { date: '09.15', text: '영남대학교 기업연계기반 Capstone Design 현장 실습 프로그램 운영', category: '협약', emphasis: false },
-        { date: '11.27', text: '누적 대출건수 5,200건, 대출금액 500억 원 돌파', category: '지원성과', emphasis: true }
+        { date: '11.27', text: '미소금융 누적 대출건수 5,200건, 대출금액 500억 원 돌파', category: '지원성과', emphasis: true }
       ]
     },
     {
