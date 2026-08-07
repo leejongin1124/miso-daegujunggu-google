@@ -212,7 +212,7 @@ export default function AboutSection({ sectionId }: { sectionId?: string }) {
     {
       year: '2020',
       items: [
-        { date: '03.19', text: '대구광역시 코로나 특별재난지역 선포로 직장인 포함 사업자 특별대출 지원', category: '지원성과', emphasis: true, newsUrl: 'https://news.kbs.co.kr/news/pc/view/view.do?ncd=4401587' },
+        { date: '03.19', text: '대구광역시 코로나 특별재난지역 선포로 직장인 포함 사업자 특별대출 지원', category: '지원성과', emphasis: true, newsUrl: 'https://biz.chosun.com/site/data/html_dir/2020/04/29/2020042901566.html' },
         { date: '04.21', text: '2019년 미소금융 사업실적 평가 최우수등급 표창(서민금융진흥원장)', category: '수상', emphasis: false }
       ]
     },
