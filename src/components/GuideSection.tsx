@@ -6,7 +6,7 @@
 import { useState, useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { motion } from 'motion/react';
-import { CheckCircle2, AlertTriangle, Calculator, FileText, Info, HelpCircle, CornerDownRight, Landmark, FileCheck, ChevronDown, ChevronRight, Search, MapPin, Monitor, Smartphone } from 'lucide-react';
+import { CheckCircle2, AlertTriangle, Calculator, FileText, Info, HelpCircle, CornerDownRight, Landmark, FileCheck, ChevronDown, ChevronRight, Search, MapPin, Monitor, Smartphone, Gauge } from 'lucide-react';
 import MisoIntroSection from './MisoIntroSection';
 
 const GUIDE_CATEGORIES = [
@@ -15,6 +15,7 @@ const GUIDE_CATEGORIES = [
   { id: 'process-guide', label: '신청 절차·준비서류', desc: '상담부터 결과 안내까지의 절차', icon: FileCheck, path: '/guide/process-guide' },
   { id: 'faq-section', label: '자주 묻는 질문', desc: '신청 전 궁금한 점 모음', icon: HelpCircle, path: '/guide/faq-section' },
   { id: 'loan-calc-intro', label: '대출금 계산기', desc: '월 상환 예정액을 미리 계산', icon: Calculator, path: '/guide/loan-calc-intro' },
+  { id: 'runway-simulator', label: '자금생존 시뮬레이터', desc: '몇 개월을 버틸 수 있는지 진단', icon: Gauge, path: '/simulator' },
 ];
 
 export default function GuideSection({ sectionId }: { sectionId?: string }) {
@@ -320,7 +321,7 @@ export default function GuideSection({ sectionId }: { sectionId?: string }) {
 
         {/* 신청안내 카테고리 개요 (개요 화면에서만 노출, 4개 카드 1바퀴 자동 순환 강조) */}
         {!sectionId && (
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
             {GUIDE_CATEGORIES.map((cat, i) => (
               <motion.button
                 key={cat.id}

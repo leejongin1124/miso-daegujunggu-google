@@ -6,7 +6,7 @@
 import { useState, useRef, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'motion/react';
-import { Menu, X, ChevronDown, Phone, User, Clock, Network, MapPin, Info, Users, Briefcase, Rocket, Shield, Target, HelpCircle, Calculator, FileText, Award, Store, Zap, Heart, Bell, AlertTriangle } from 'lucide-react';
+import { Menu, X, ChevronDown, Phone, User, Clock, Network, MapPin, Info, Users, Briefcase, Rocket, Shield, Target, HelpCircle, Calculator, FileText, Award, Store, Zap, Heart, Bell, AlertTriangle, Gauge } from 'lucide-react';
 import { TabType } from '../types';
 
 interface HeaderProps {
@@ -62,7 +62,8 @@ export default function Header({ activeTab, getSectionPath, prepareAnchor }: Hea
         { name: '신청 전 확인사항', id: 'loan-target', icon: Target, color: 'text-red-500' },
         { name: '신청 절차·준비서류', id: 'process-guide', icon: FileText, color: 'text-amber-600' },
         { name: '자주 묻는 질문', id: 'faq-section', icon: HelpCircle, color: 'text-blue-500' },
-        { name: '대출금 계산기', id: 'loan-calc-intro', icon: Calculator, color: 'text-green-500' }
+        { name: '대출금 계산기', id: 'loan-calc-intro', icon: Calculator, color: 'text-green-500' },
+        { name: '자금생존 시뮬레이터', id: 'runway-simulator', icon: Gauge, color: 'text-teal-600' }
       ]
     },
     {

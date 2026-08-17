@@ -21,6 +21,7 @@ const CaseSection = lazy(() => import('./components/CaseSection'));
 const NoticeSection = lazy(() => import('./components/NoticeSection'));
 const MisoIntroSection = lazy(() => import('./components/MisoIntroSection'));
 const PrivacyPolicySection = lazy(() => import('./components/PrivacyPolicySection'));
+const RunwaySimulatorSection = lazy(() => import('./components/RunwaySimulatorSection'));
 
 // 섹션 ID(기존 앵커 스크롤 대상 DOM id와 동일) → 어느 라우트 컴포넌트에 속하는지 매핑
 const SECTION_MAP: Record<string, string> = {
@@ -169,6 +170,24 @@ function GuideRoute() {
   );
 }
 
+function SimulatorRoute() {
+  return (
+    <SectionPageShell
+      eyebrow="Small Business Runway Simulator"
+      title="골목생존 Target-Runway"
+      description={"내 돈으로 몇 개월을 버틸 수 있는지,\n대출을 받으면 그 시간이 얼마나 늘어나는지 함께 확인해 보세요."}
+      bgImage="/backgrounds/guide-bg.webp"
+    >
+      <RouteMeta
+        title="자금생존 시뮬레이터"
+        description="소상공인을 위한 자금생존 시뮬레이터. 현재 생존기간(Runway), 손익분기점(BEP), 대출 시뮬레이션, 회복경로를 계산해 보세요."
+        path="/simulator"
+      />
+      <RunwaySimulatorSection />
+    </SectionPageShell>
+  );
+}
+
 function CasesRoute() {
   const { filter } = useParams();
   const navigate = useNavigate();
@@ -237,6 +256,7 @@ function NotFoundRoute() {
 function getSectionPath(sectionId: string): string {
   if (sectionId === 'hero-section') return '/';
   if (sectionId === 'products-all') return '/products';
+  if (sectionId === 'runway-simulator') return '/simulator';
   if (sectionToProductTab[sectionId]) return `/products/${sectionToProductTab[sectionId]}`;
   if (sectionToCaseFilter[sectionId]) return `/cases/${sectionToCaseFilter[sectionId]}`;
   const component = SECTION_MAP[sectionId];
@@ -254,7 +274,7 @@ function getSectionAnchor(sectionId: string): string {
 // 현재 경로로부터 GNB 활성 탭을 계산 — 별도 state 없이 URL을 유일한 기준으로 사용
 function getActiveTabFromPath(pathname: string): TabType {
   if (pathname.startsWith('/products')) return TabType.PRODUCTS;
-  if (pathname.startsWith('/guide') || pathname.startsWith('/miso-intro')) return TabType.GUIDE;
+  if (pathname.startsWith('/guide') || pathname.startsWith('/miso-intro') || pathname.startsWith('/simulator')) return TabType.GUIDE;
   if (pathname.startsWith('/cases')) return TabType.CASES;
   if (pathname.startsWith('/notice')) return TabType.NOTICE;
   return TabType.ABOUT;
@@ -357,6 +377,7 @@ function AppShell() {
             <Route path="/about/:sectionId?" element={<AboutRoute />} />
             <Route path="/products/:tab?" element={<ProductsRoute onScrollToSection={handleScrollToSection} onOpenCalculator={handleOpenCalculator} />} />
             <Route path="/guide/:sectionId?" element={<GuideRoute />} />
+            <Route path="/simulator" element={<SimulatorRoute />} />
             <Route path="/cases/:filter?" element={<CasesRoute />} />
             <Route path="/notice/:sectionId?" element={<NoticeRoute />} />
             <Route path="/privacy-policy" element={<PrivacyRoute />} />
