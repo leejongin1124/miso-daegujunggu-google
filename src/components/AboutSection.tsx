@@ -92,7 +92,7 @@ const ASSET_GROWTH = [
   { year: 2025, amount: 10533341130 },
 ];
 const ASSET_MAX = Math.max(...ASSET_GROWTH.map(a => a.amount));
-const formatEok = (won: number) => `${(won / 100000000).toFixed(1)}억`;
+const formatEok = (won: number) => `${(won / 100000000).toFixed(1)}`;
 
 // 성장 추이 라인 차트 좌표 계산 (SVG viewBox 기준, 0을 기준선으로 유지)
 const CHART_W = 760;
@@ -813,7 +813,7 @@ export default function AboutSection({ sectionId }: { sectionId?: string }) {
             <span className="text-xs font-bold text-white/70 tracking-widest uppercase">Management Disclosure</span>
             <h3 className="text-2xl md:text-3xl font-extrabold tracking-tight">경영공시</h3>
             <p className="text-white/85 text-xs md:text-sm leading-relaxed max-w-xl mx-auto break-keep">
-              2010년부터 2025년까지, {financeYearCount}년 연속 결산서류를 공개합니다.<br />
+              2010년부터 2025년까지 결산서류를 공개합니다.<br />
               투명한 기관 운영을 위해 연도별 재무상태표와 손익계산서를 제공합니다.
             </p>
           </div>
