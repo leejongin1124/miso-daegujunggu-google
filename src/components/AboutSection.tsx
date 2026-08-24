@@ -5,7 +5,7 @@
 
 import { motion, AnimatePresence } from 'motion/react';
 import { useState, useEffect } from 'react';
-import { Award, Trophy, Newspaper, Briefcase, Calendar, MapPin, Bus, Train, Car, Phone, Share2, Printer, ExternalLink, FileText, Copy, Check, ShieldCheck, ArrowRight } from 'lucide-react';
+import { Award, Newspaper, Briefcase, Calendar, MapPin, Bus, Train, Car, Phone, Share2, Printer, ExternalLink, FileText, Copy, Check, ShieldCheck, ArrowRight } from 'lucide-react';
 
 function useCountUp(target: number, duration: number, trigger: boolean) {
   const [count, setCount] = useState(0);
@@ -297,7 +297,7 @@ export default function AboutSection({ sectionId }: { sectionId?: string }) {
       items: [
         { date: '01.24', text: '2011년도 미소금융 사업실적 평가 최우수등급 표창(미소금융중앙재단)', category: '수상', emphasis: false },
         { date: '05.10', text: '대구광역시 지역 서민금융기관간 서민금융지원 업무협약(MOU) 체결', category: '협약', emphasis: false, newsUrl: 'https://www.newswire.co.kr/newsRead.php?no=622913' },
-        { date: '12.12', text: "대통령 주재 '서민금융 보고대회' 참석(청와대 영빈관) 및 서민금융지원 유공 대통령 표창 수상", category: '수상', emphasis: true, newsUrl: 'https://www.korea.kr/news/policyNewsView.do?newsId=148753689', newsUrl2: 'https://www.imaeil.com/page/view/2013010507401495165', govHonor: true, honorScope: '법인' }
+        { date: '12.12', text: "대통령 주재 '서민금융 보고대회' 참석 및 서민금융지원 유공 대통령 표창 수상", category: '수상', emphasis: true, newsUrl: 'https://www.korea.kr/news/policyNewsView.do?newsId=148753689', newsUrl2: 'https://www.imaeil.com/page/view/2013010507401495165', govHonor: true, honorScope: '법인' }
       ]
     },
     {
@@ -749,7 +749,6 @@ export default function AboutSection({ sectionId }: { sectionId?: string }) {
                                     {item.emphasis ? (
                                       <span className="inline-flex flex-wrap items-center gap-2">
                                         <strong className="text-slate-900 font-bold text-[15px] break-keep">
-                                          {item.category === '수상' && <Trophy className="inline w-3.5 h-3.5 text-amber-500 mr-1 -mt-0.5" aria-hidden="true" />}
                                           {item.text}
                                         </strong>
                                         {item.newsUrl && (
@@ -768,7 +767,6 @@ export default function AboutSection({ sectionId }: { sectionId?: string }) {
                                     ) : (
                                       <span className="inline-flex flex-wrap items-center gap-2">
                                         <span className="text-slate-600 text-sm break-keep">
-                                          {item.category === '수상' && <Trophy className="inline w-3.5 h-3.5 text-amber-500 mr-1 -mt-0.5" aria-hidden="true" />}
                                           {item.text}
                                         </span>
                                         {item.newsUrl && (
