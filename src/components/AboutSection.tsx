@@ -196,6 +196,12 @@ export default function AboutSection({ sectionId }: { sectionId?: string }) {
       ]
     },
     {
+      year: '2025',
+      items: [
+        { date: '07.01', text: '대구신용보증재단 남지점 입주(하나은행 1층·신용보증재단 3층·미소금융 4층)에 따른 서민금융 지원 연계협약 체결', category: '협약', emphasis: false }
+      ]
+    },
+    {
       year: '2024',
       items: [
         { date: '02.01', text: '미소금융 누적 대출건수 5,200건, 대출금액 500억 원 돌파', category: '지원성과', emphasis: true }
