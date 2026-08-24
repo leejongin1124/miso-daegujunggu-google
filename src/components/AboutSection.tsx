@@ -396,7 +396,7 @@ export default function AboutSection({ sectionId }: { sectionId?: string }) {
 
             <div className="text-slate-600 text-base md:text-lg leading-relaxed space-y-4 break-keep">
               <p>
-                사단법인 미소금융 대구중구법인 홈페이지를 방문해주신 여러분께 진심으로 감사드립니다.
+                사단법인 미소금융 대구중구법인 홈페이지를 방문해 주신 여러분께 진심으로 감사드립니다.
               </p>
               <p>
                 미소금융은 저소득·저신용으로 제도권 금융을 이용하기 어려운 금융취약계층의 자립을 도와주기 위해 만들어진 대표적 정책서민금융이며, 우리 법인은 금융위원회의 허가를 받아 설립된 비영리 공익법인 및 미소금융 사업수행기관으로서 금융의 사회안전망 역할을 수행하고 있습니다.
