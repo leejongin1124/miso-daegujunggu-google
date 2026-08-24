@@ -222,6 +222,12 @@ export default function AboutSection({ sectionId }: { sectionId?: string }) {
       ]
     },
     {
+      year: '2021',
+      items: [
+        { date: '12.31', text: '대구서민금융통합지원센터 업무 운영 종료', category: '기관운영', emphasis: false }
+      ]
+    },
+    {
       year: '2020',
       items: [
         { date: '03.19', text: '대구광역시 코로나 특별재난지역 선포로 직장인 포함 사업자 특별대출 지원', category: '지원성과', emphasis: true, newsUrl: 'https://biz.chosun.com/site/data/html_dir/2020/04/29/2020042901566.html' },
