@@ -196,11 +196,16 @@ export default function AboutSection({ sectionId }: { sectionId?: string }) {
       ]
     },
     {
+      year: '2024',
+      items: [
+        { date: '02.01', text: '미소금융 누적 대출건수 5,200건, 대출금액 500억 원 돌파', category: '지원성과', emphasis: true }
+      ]
+    },
+    {
       year: '2023',
       items: [
         { date: '04.01', text: '신중년 사회공헌사업단 시범운영 개시', category: '지원성과', emphasis: false },
-        { date: '09.15', text: '영남대학교 기업연계기반 Capstone Design 현장 실습 프로그램 운영', category: '협약', emphasis: false },
-        { date: '11.27', text: '미소금융 누적 대출건수 5,200건, 대출금액 500억 원 돌파', category: '지원성과', emphasis: true }
+        { date: '09.15', text: '영남대학교 기업연계기반 Capstone Design 현장 실습 프로그램 운영', category: '협약', emphasis: false }
       ]
     },
     {
