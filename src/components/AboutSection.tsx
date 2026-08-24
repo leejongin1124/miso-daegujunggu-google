@@ -538,8 +538,7 @@ export default function AboutSection({ sectionId }: { sectionId?: string }) {
 
                 {/* 신중년 사회공헌단 — rose */}
                 <rect x="505" y="300" width="110" height="60" rx="8" fill="#FFF1F2" stroke="#FDA4AF" strokeWidth="1.5"/>
-                <text x="560" y="323" textAnchor="middle" fill="#9F1239" fontSize="11" fontWeight="bold">신중년</text>
-                <text x="560" y="344" textAnchor="middle" fill="#E11D48" fontSize="10">(사회공헌단)</text>
+                <text x="560" y="335" textAnchor="middle" fill="#9F1239" fontSize="11" fontWeight="bold">신중년사회공헌단</text>
 
               </svg>
             </div>
