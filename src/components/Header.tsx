@@ -216,19 +216,10 @@ export default function Header({ activeTab, getSectionPath, prepareAnchor }: Hea
           >
             <div className="px-4 py-6 space-y-4">
               
-              {/* 모바일 퀵 상담 배너 */}
-              <div className="bg-gradient-to-r from-teal-500 to-emerald-600 p-4 rounded-xl text-white shadow-sm flex justify-between items-center">
-                <div>
-                  <h4 className="font-bold text-sm">대구중구법인 든든 콜센터</h4>
-                  <p className="text-white/80 text-[11px] mt-0.5">평일 9시 ~ 18시 / 주말 휴무</p>
-                </div>
-                <a 
-                  href="tel:053-252-6408" 
-                  className="bg-white text-teal-700 px-3.5 py-1.5 rounded-lg text-xs font-bold shadow flex items-center space-x-1"
-                >
-                  <Phone className="w-3.5 h-3.5" />
-                  <span>전화걸기</span>
-                </a>
+              {/* 모바일 전화 상담 안내 배너 — 발신 버튼은 상단 헤더의 전화상담 버튼과 중복되어 제거, 운영시간 정보만 표시 */}
+              <div className="bg-gradient-to-r from-teal-500 to-emerald-600 p-4 rounded-xl text-white shadow-sm">
+                <h4 className="font-bold text-sm">전화 상담 안내</h4>
+                <p className="text-white/80 text-[11px] mt-0.5">평일 9시 ~ 18시 / 주말 휴무</p>
               </div>
 
               {/* GNB 리스트 */}
