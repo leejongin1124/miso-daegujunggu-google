@@ -610,21 +610,27 @@ export default function AboutSection({ sectionId }: { sectionId?: string }) {
           {/* 대표 연혁 5개 — 32건 중 신뢰를 증명하는 핵심 기록만 먼저 보여준다 */}
           <div className="max-w-2xl mx-auto space-y-2">
             {highlightItems.map((item) => (
-              <div key={`${item.year}-${item.date}`} className="flex items-center gap-3 bg-white border border-slate-100 rounded-xl px-4 py-3 shadow-sm">
-                <span className="text-base md:text-lg font-black text-slate-800 font-mono w-14 shrink-0">{item.year}</span>
-                <span className={`shrink-0 text-[10px] font-bold px-2 py-0.5 rounded-full ${categoryStyle[item.category]}`}>{item.category}</span>
-                <span className="flex-1 min-w-0 text-sm text-slate-700 break-keep">{item.text}</span>
-                {item.newsUrl && (
-                  <a href={item.newsUrl} target="_blank" rel="noopener noreferrer"
-                    className="shrink-0 inline-flex items-center gap-1 bg-amber-50 border border-amber-200 text-amber-700 hover:bg-amber-100 text-[10px] font-bold px-2 py-1 rounded-full transition-colors">
-                    <Newspaper className="w-3 h-3" /><span className="hidden sm:inline">근거자료 보기</span>
-                  </a>
-                )}
-                {item.newsUrl2 && (
-                  <a href={item.newsUrl2} target="_blank" rel="noopener noreferrer"
-                    className="shrink-0 inline-flex items-center gap-1 bg-amber-50 border border-amber-200 text-amber-700 hover:bg-amber-100 text-[10px] font-bold px-2 py-1 rounded-full transition-colors">
-                    <Newspaper className="w-3 h-3" /><span className="hidden sm:inline">관련기사 더보기</span>
-                  </a>
+              <div key={`${item.year}-${item.date}`} className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-3 bg-white border border-slate-100 rounded-xl px-4 py-3 shadow-sm">
+                <div className="flex items-center gap-2 sm:contents">
+                  <span className="text-base md:text-lg font-black text-slate-800 font-mono sm:w-14 shrink-0">{item.year}</span>
+                  <span className={`shrink-0 text-[10px] font-bold px-2 py-0.5 rounded-full ${categoryStyle[item.category]}`}>{item.category}</span>
+                </div>
+                <span className="flex-1 min-w-0 text-sm text-slate-700 break-keep leading-relaxed">{item.text}</span>
+                {(item.newsUrl || item.newsUrl2) && (
+                  <div className="flex flex-wrap items-center gap-1.5 sm:shrink-0">
+                    {item.newsUrl && (
+                      <a href={item.newsUrl} target="_blank" rel="noopener noreferrer"
+                        className="shrink-0 inline-flex items-center gap-1 bg-amber-50 border border-amber-200 text-amber-700 hover:bg-amber-100 text-[10px] font-bold px-2 py-1 rounded-full transition-colors">
+                        <Newspaper className="w-3 h-3" /><span className="hidden sm:inline">근거자료 보기</span>
+                      </a>
+                    )}
+                    {item.newsUrl2 && (
+                      <a href={item.newsUrl2} target="_blank" rel="noopener noreferrer"
+                        className="shrink-0 inline-flex items-center gap-1 bg-amber-50 border border-amber-200 text-amber-700 hover:bg-amber-100 text-[10px] font-bold px-2 py-1 rounded-full transition-colors">
+                        <Newspaper className="w-3 h-3" /><span className="hidden sm:inline">관련기사 더보기</span>
+                      </a>
+                    )}
+                  </div>
                 )}
               </div>
             ))}
