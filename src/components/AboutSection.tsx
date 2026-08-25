@@ -585,9 +585,9 @@ export default function AboutSection({ sectionId }: { sectionId?: string }) {
 
           <div className="text-center space-y-3">
             <span className="text-teal-600 font-bold text-sm tracking-widest uppercase">History Timeline</span>
-            <h3 className="text-3xl font-extrabold text-slate-900 tracking-tight break-keep">지역과 함께한 대구중구법인의 발자취</h3>
-            <p className="text-slate-500 text-sm max-w-2xl mx-auto break-keep">
-              2010년 설립 이후 미소금융 사업과 지역 서민경제 발전을 지원해 온 주요 기록입니다.
+            <h3 className="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight break-keep leading-snug">지역과 함께한 대구중구법인의 발자취</h3>
+            <p className="text-slate-500 text-sm max-w-2xl mx-auto break-keep leading-relaxed">
+              2010년 설립 이후 미소금융 사업과<br className="sm:hidden" /> 지역 서민경제 발전을 지원해 온 주요 기록입니다.
             </p>
           </div>
 
