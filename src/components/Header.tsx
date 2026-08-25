@@ -194,9 +194,10 @@ export default function Header({ activeTab, getSectionPath, prepareAnchor }: Hea
               aria-label={mobileMenuOpen ? '메뉴 닫기' : '전체 메뉴 열기'}
               aria-expanded={mobileMenuOpen}
               aria-controls="mobile-menu-panel"
-              className="p-2 rounded-lg text-slate-600 hover:text-slate-900 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-teal-500"
+              className="flex items-center space-x-1 bg-slate-100 border border-slate-200 text-slate-700 hover:bg-slate-200 text-xs font-bold px-2.5 min-[360px]:px-3 py-1.5 rounded-full transition-colors shrink-0 whitespace-nowrap focus:outline-none focus-visible:ring-2 focus-visible:ring-teal-500"
             >
-              {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+              {mobileMenuOpen ? <X className="w-3.5 h-3.5 shrink-0" /> : <Menu className="w-3.5 h-3.5 shrink-0" />}
+              <span>메뉴</span>
             </button>
           </div>
 
