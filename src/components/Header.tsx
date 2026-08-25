@@ -19,7 +19,7 @@ export default function Header({ activeTab, getSectionPath, prepareAnchor }: Hea
   const [openMenu, setOpenMenu] = useState<string | null>(null);
   const [clickedSublink, setClickedSublink] = useState<string | null>(null);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [mobileAccordion, setMobileAccordion] = useState<string | null>(null);
+  const [mobileAccordion, setMobileAccordion] = useState<string | null>(TabType.ABOUT);
   const navRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
