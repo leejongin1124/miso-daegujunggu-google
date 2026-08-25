@@ -208,9 +208,10 @@ export default function Header({ activeTab, getSectionPath, prepareAnchor }: Hea
       <AnimatePresence>
         {mobileMenuOpen && (
           <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: 'auto' }}
-            exit={{ opacity: 0, height: 0 }}
+            initial={{ opacity: 0, height: 0, y: -8 }}
+            animate={{ opacity: 1, height: 'auto', y: 0 }}
+            exit={{ opacity: 0, height: 0, y: -8 }}
+            transition={{ duration: 0.25, ease: 'easeOut' }}
             id="mobile-menu-panel"
             className="lg:hidden border-t border-slate-100 bg-white overflow-y-auto max-h-[calc(100vh-56px)] shadow-lg"
           >
