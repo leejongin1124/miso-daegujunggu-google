@@ -621,13 +621,13 @@ export default function AboutSection({ sectionId }: { sectionId?: string }) {
                     {item.newsUrl && (
                       <a href={item.newsUrl} target="_blank" rel="noopener noreferrer"
                         className="shrink-0 inline-flex items-center gap-1 bg-amber-50 border border-amber-200 text-amber-700 hover:bg-amber-100 text-[10px] font-bold px-2 py-1 rounded-full transition-colors">
-                        <Newspaper className="w-3 h-3" /><span className="hidden sm:inline">근거자료 보기</span>
+                        <Newspaper className="w-3 h-3" /><span>근거자료 보기</span>
                       </a>
                     )}
                     {item.newsUrl2 && (
                       <a href={item.newsUrl2} target="_blank" rel="noopener noreferrer"
                         className="shrink-0 inline-flex items-center gap-1 bg-amber-50 border border-amber-200 text-amber-700 hover:bg-amber-100 text-[10px] font-bold px-2 py-1 rounded-full transition-colors">
-                        <Newspaper className="w-3 h-3" /><span className="hidden sm:inline">관련기사 더보기</span>
+                        <Newspaper className="w-3 h-3" /><span>관련기사 더보기</span>
                       </a>
                     )}
                   </div>
