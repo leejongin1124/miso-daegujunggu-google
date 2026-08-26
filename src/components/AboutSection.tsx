@@ -931,7 +931,7 @@ export default function AboutSection({ sectionId }: { sectionId?: string }) {
                 {/* 조회용 정보 복사 칩 */}
                 <div className="flex flex-wrap items-center justify-center gap-2">
                   {[
-                    { field: 'name', label: '단체명', value: '(사)미소금융대구중구법인' },
+                    { field: 'name', label: '단체명', value: '미소금융대구중구법인' },
                     { field: 'bizno', label: '사업자번호', value: '504-82-13565' },
                   ].map((item) => (
                     <button
