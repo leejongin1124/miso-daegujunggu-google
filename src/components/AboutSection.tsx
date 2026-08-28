@@ -1141,44 +1141,6 @@ export default function AboutSection({ sectionId }: { sectionId?: string }) {
                   <p className="text-slate-500 font-medium mt-0.5">
                     대구광역시 남구 중앙대로 146, 4층<br className="md:hidden" /> <span className="md:inline">(봉덕동, 하나은행 봉덕지점)</span>
                   </p>
-                  {/* 지도앱 바로가기 — 티맵은 앱 전용 딥링크라 모바일에서만 노출 */}
-                  <p className="text-slate-400 text-xs font-semibold mt-2 mb-1">지도앱으로 길찾기</p>
-                  <div className="flex items-center gap-2">
-                    <a
-                      href="https://map.naver.com/p/search/미소금융대구중구법인"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      aria-label="네이버지도로 길찾기"
-                      className="w-7 h-7 rounded-full bg-[#03C75A] text-white text-[11px] font-black flex items-center justify-center hover:opacity-90 transition-opacity"
-                    >
-                      N
-                    </a>
-                    <a
-                      href="https://map.kakao.com/?q=미소금융대구중구법인"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      aria-label="카카오맵으로 길찾기"
-                      className="w-7 h-7 rounded-full bg-[#FEE500] text-slate-900 text-[11px] font-black flex items-center justify-center hover:opacity-90 transition-opacity"
-                    >
-                      K
-                    </a>
-                    <a
-                      href="https://www.google.com/maps/search/?api=1&query=미소금융대구중구법인"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      aria-label="구글지도로 길찾기"
-                      className="w-7 h-7 rounded-full bg-[#4285F4] text-white text-[11px] font-black flex items-center justify-center hover:opacity-90 transition-opacity"
-                    >
-                      G
-                    </a>
-                    <a
-                      href="tmap://search?name=미소금융대구중구법인"
-                      aria-label="티맵으로 길찾기"
-                      className="md:hidden w-7 h-7 rounded-full bg-[#1A237E] text-white text-[11px] font-black flex items-center justify-center hover:opacity-90 transition-opacity"
-                    >
-                      T
-                    </a>
-                  </div>
                 </div>
               </div>
 
@@ -1282,6 +1244,53 @@ export default function AboutSection({ sectionId }: { sectionId?: string }) {
                       >무료 주차</motion.strong> 가능합니다
                     </span>
                   </p>
+
+                  {/* 지도앱 바로가기 — 차량 운전자용 내비게이션 연동, 티맵은 앱 전용 딥링크라 모바일에서만 노출 */}
+                  <p className="text-slate-400 text-xs font-semibold mt-2 mb-1">차량 내비게이션 앱으로 길찾기</p>
+                  <div className="flex items-center gap-2">
+                    <motion.a
+                      href="https://map.naver.com/p/search/미소금융대구중구법인"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label="네이버지도로 길찾기"
+                      animate={{ boxShadow: ['0 0 0 0 rgba(3,199,90,0.5)', '0 0 0 6px rgba(3,199,90,0)', '0 0 0 0 rgba(3,199,90,0)'] }}
+                      transition={{ duration: 1.8, repeat: Infinity, ease: 'easeOut' }}
+                      className="w-7 h-7 rounded-full bg-[#03C75A] text-white text-[11px] font-black flex items-center justify-center hover:opacity-90 transition-opacity"
+                    >
+                      N
+                    </motion.a>
+                    <motion.a
+                      href="https://map.kakao.com/?q=미소금융대구중구법인"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label="카카오맵으로 길찾기"
+                      animate={{ boxShadow: ['0 0 0 0 rgba(254,229,0,0.6)', '0 0 0 6px rgba(254,229,0,0)', '0 0 0 0 rgba(254,229,0,0)'] }}
+                      transition={{ duration: 1.8, repeat: Infinity, ease: 'easeOut', delay: 0.15 }}
+                      className="w-7 h-7 rounded-full bg-[#FEE500] text-slate-900 text-[11px] font-black flex items-center justify-center hover:opacity-90 transition-opacity"
+                    >
+                      K
+                    </motion.a>
+                    <motion.a
+                      href="https://www.google.com/maps/search/?api=1&query=미소금융대구중구법인"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label="구글지도로 길찾기"
+                      animate={{ boxShadow: ['0 0 0 0 rgba(66,133,244,0.5)', '0 0 0 6px rgba(66,133,244,0)', '0 0 0 0 rgba(66,133,244,0)'] }}
+                      transition={{ duration: 1.8, repeat: Infinity, ease: 'easeOut', delay: 0.3 }}
+                      className="w-7 h-7 rounded-full bg-[#4285F4] text-white text-[11px] font-black flex items-center justify-center hover:opacity-90 transition-opacity"
+                    >
+                      G
+                    </motion.a>
+                    <motion.a
+                      href="tmap://search?name=미소금융대구중구법인"
+                      aria-label="티맵으로 길찾기"
+                      animate={{ boxShadow: ['0 0 0 0 rgba(26,35,126,0.5)', '0 0 0 6px rgba(26,35,126,0)', '0 0 0 0 rgba(26,35,126,0)'] }}
+                      transition={{ duration: 1.8, repeat: Infinity, ease: 'easeOut', delay: 0.45 }}
+                      className="md:hidden w-7 h-7 rounded-full bg-[#1A237E] text-white text-[11px] font-black flex items-center justify-center hover:opacity-90 transition-opacity"
+                    >
+                      T
+                    </motion.a>
+                  </div>
                 </div>
               </div>
 
