@@ -1144,7 +1144,7 @@ export default function AboutSection({ sectionId }: { sectionId?: string }) {
                   {/* 지도앱 바로가기 — 티맵은 앱 전용 딥링크라 모바일에서만 노출 */}
                   <div className="flex items-center gap-2 mt-2">
                     <a
-                      href="https://map.naver.com/p/search/대구광역시 남구 중앙대로 146"
+                      href="https://map.naver.com/p/search/미소금융대구중구법인"
                       target="_blank"
                       rel="noopener noreferrer"
                       aria-label="네이버지도로 길찾기"
@@ -1153,7 +1153,7 @@ export default function AboutSection({ sectionId }: { sectionId?: string }) {
                       N
                     </a>
                     <a
-                      href="https://map.kakao.com/?q=대구광역시 남구 중앙대로 146"
+                      href="https://map.kakao.com/?q=미소금융대구중구법인"
                       target="_blank"
                       rel="noopener noreferrer"
                       aria-label="카카오맵으로 길찾기"
@@ -1162,7 +1162,7 @@ export default function AboutSection({ sectionId }: { sectionId?: string }) {
                       K
                     </a>
                     <a
-                      href="https://www.google.com/maps/search/?api=1&query=대구광역시 남구 중앙대로 146"
+                      href="https://www.google.com/maps/search/?api=1&query=미소금융대구중구법인"
                       target="_blank"
                       rel="noopener noreferrer"
                       aria-label="구글지도로 길찾기"
@@ -1171,7 +1171,7 @@ export default function AboutSection({ sectionId }: { sectionId?: string }) {
                       G
                     </a>
                     <a
-                      href="tmap://search?name=대구광역시 남구 중앙대로 146"
+                      href="tmap://search?name=미소금융대구중구법인"
                       aria-label="티맵으로 길찾기"
                       className="md:hidden w-7 h-7 rounded-full bg-[#1A237E] text-white text-[11px] font-black flex items-center justify-center hover:opacity-90 transition-opacity"
                     >
