@@ -1142,7 +1142,8 @@ export default function AboutSection({ sectionId }: { sectionId?: string }) {
                     대구광역시 남구 중앙대로 146, 4층<br className="md:hidden" /> <span className="md:inline">(봉덕동, 하나은행 봉덕지점)</span>
                   </p>
                   {/* 지도앱 바로가기 — 티맵은 앱 전용 딥링크라 모바일에서만 노출 */}
-                  <div className="flex items-center gap-2 mt-2">
+                  <p className="text-slate-400 text-xs font-semibold mt-2 mb-1">지도앱으로 길찾기</p>
+                  <div className="flex items-center gap-2">
                     <a
                       href="https://map.naver.com/p/search/미소금융대구중구법인"
                       target="_blank"
