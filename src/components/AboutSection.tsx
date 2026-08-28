@@ -1141,6 +1141,43 @@ export default function AboutSection({ sectionId }: { sectionId?: string }) {
                   <p className="text-slate-500 font-medium mt-0.5">
                     대구광역시 남구 중앙대로 146, 4층<br className="md:hidden" /> <span className="md:inline">(봉덕동, 하나은행 봉덕지점)</span>
                   </p>
+                  {/* 지도앱 바로가기 — 티맵은 앱 전용 딥링크라 모바일에서만 노출 */}
+                  <div className="flex items-center gap-2 mt-2">
+                    <a
+                      href="https://map.naver.com/p/search/대구광역시 남구 중앙대로 146"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label="네이버지도로 길찾기"
+                      className="w-7 h-7 rounded-full bg-[#03C75A] text-white text-[11px] font-black flex items-center justify-center hover:opacity-90 transition-opacity"
+                    >
+                      N
+                    </a>
+                    <a
+                      href="https://map.kakao.com/?q=대구광역시 남구 중앙대로 146"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label="카카오맵으로 길찾기"
+                      className="w-7 h-7 rounded-full bg-[#FEE500] text-slate-900 text-[11px] font-black flex items-center justify-center hover:opacity-90 transition-opacity"
+                    >
+                      K
+                    </a>
+                    <a
+                      href="https://www.google.com/maps/search/?api=1&query=대구광역시 남구 중앙대로 146"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label="구글지도로 길찾기"
+                      className="w-7 h-7 rounded-full bg-[#4285F4] text-white text-[11px] font-black flex items-center justify-center hover:opacity-90 transition-opacity"
+                    >
+                      G
+                    </a>
+                    <a
+                      href="tmap://search?name=대구광역시 남구 중앙대로 146"
+                      aria-label="티맵으로 길찾기"
+                      className="md:hidden w-7 h-7 rounded-full bg-[#1A237E] text-white text-[11px] font-black flex items-center justify-center hover:opacity-90 transition-opacity"
+                    >
+                      T
+                    </a>
+                  </div>
                 </div>
               </div>
 
