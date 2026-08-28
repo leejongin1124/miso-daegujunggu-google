@@ -355,10 +355,10 @@ export default function GuideSection({ sectionId }: { sectionId?: string }) {
           <div className="text-center space-y-3">
             <span className="text-teal-600 font-bold text-sm tracking-widest uppercase">Before You Apply</span>
             <h3 className="text-2xl md:text-3xl font-extrabold text-slate-900 tracking-tight">신청 전 확인사항</h3>
-            <p className="text-slate-500 text-sm">개인 또는 개인사업자는 상담을 신청하기 전에 아래 기준을 먼저 확인해 주세요.</p>
+            <p className="text-slate-500 text-sm break-keep">개인 또는 개인사업자는 상담을 신청하기 전에 아래 기준을 먼저 확인해 주세요.</p>
           </div>
 
-          <div className="bg-amber-50 border border-amber-200 rounded-2xl px-5 py-4 text-sm text-amber-800 font-semibold text-center">
+          <div className="bg-amber-50 border border-amber-200 rounded-2xl px-5 py-4 text-sm text-amber-800 font-semibold text-center break-keep">
             아래 기준에 해당하더라도 대출이 자동으로 승인되는 것은 아닙니다. 지원 여부와 한도는 상담과 심사를 거쳐 결정됩니다.
           </div>
 

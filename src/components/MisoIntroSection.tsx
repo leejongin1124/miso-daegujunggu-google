@@ -50,13 +50,12 @@ export default function MisoIntroSection() {
           className="text-center space-y-4 max-w-3xl mx-auto"
         >
           <span className="text-xs font-black text-teal-600 tracking-widest uppercase">What is Miso Microcredit?</span>
-          <h2 className="text-3xl md:text-4xl font-black text-slate-900 tracking-tight leading-tight">
+          <h2 className="text-3xl md:text-4xl font-black text-slate-900 tracking-tight leading-tight break-keep">
             미소금융은 무엇이 다른가요?
           </h2>
           <div className="h-1.5 w-16 bg-teal-600 rounded-full mx-auto" />
           <p className="text-slate-600 font-medium text-base md:text-lg leading-relaxed break-keep">
-            일반 금융기관을 이용하기 어려운 분께 저금리 대출을 지원하며,<br className="hidden md:inline" />
-            수수료와 담보는 없습니다.
+            일반 금융기관을 이용하기 어려운 분께 저금리 대출을 지원하며, 수수료와 담보는 없습니다.
           </p>
         </motion.div>
 
