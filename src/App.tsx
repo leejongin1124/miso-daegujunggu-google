@@ -6,6 +6,7 @@
 import { useEffect, useRef, Suspense, lazy } from 'react';
 import { BrowserRouter, Routes, Route, Link, Navigate, useNavigate, useLocation, useParams } from 'react-router-dom';
 import { MotionConfig } from 'motion/react';
+import { Analytics } from '@vercel/analytics/react';
 import { TabType } from './types';
 import Header from './components/Header';
 import Hero from './components/Hero';
@@ -370,6 +371,7 @@ function AppShell() {
 
       <ScrollToTopButton />
 
+      <Analytics />
 
     </div>
     </MotionConfig>
