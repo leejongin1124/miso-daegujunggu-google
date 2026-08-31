@@ -463,7 +463,7 @@ export default function AboutSection({ sectionId }: { sectionId?: string }) {
               </div>
               <div className="bg-indigo-50 border border-indigo-200 rounded-lg py-2.5 text-center">
                 <div className="text-indigo-800 font-bold text-xs">전문위원</div>
-                <div className="text-indigo-600 text-[11px]">(사업 행정기획)</div>
+                <div className="text-indigo-600 text-[11px]">(회계 상담 홍보팀)</div>
               </div>
               <div className="col-span-2 bg-rose-50 border border-rose-200 rounded-lg py-2.5 text-center">
                 <div className="text-rose-800 font-bold text-xs">신중년 사회공헌단</div>
@@ -540,7 +540,7 @@ export default function AboutSection({ sectionId }: { sectionId?: string }) {
                 {/* 전문위원 사업 행정기획 — indigo */}
                 <rect x="380" y="300" width="110" height="60" rx="8" fill="#EEF2FF" stroke="#A5B4FC" strokeWidth="1.5"/>
                 <text x="435" y="323" textAnchor="middle" fill="#3730A3" fontSize="11" fontWeight="bold">전문위원</text>
-                <text x="435" y="344" textAnchor="middle" fill="#4F46E5" fontSize="10">(사업 행정기획)</text>
+                <text x="435" y="344" textAnchor="middle" fill="#4F46E5" fontSize="9">(회계 상담 홍보팀)</text>
 
                 {/* 신중년 사회공헌단 — rose */}
                 <rect x="505" y="300" width="110" height="60" rx="8" fill="#FFF1F2" stroke="#FDA4AF" strokeWidth="1.5"/>
