@@ -363,8 +363,8 @@ export default function Hero({ onScrollToSection }: HeroProps) {
                 animate={titlePhase >= 1 ? { x: 0, opacity: 1 } : { x: -80, opacity: 0 }}
                 transition={{ duration: 0.55, ease: 'easeOut' }}
               >
-                금융위원회 허가 비영리 공익법인<br />
-                서민금융진흥원 미소금융 사업수행기관입니다.
+                금융위원회 허가를 받은 비영리공익법인<br />
+                서민금융진흥원 사업수행기관입니다.
               </motion.div>
 
               {/* 2번: 슬라이드 + 밑줄 애니메이션 */}
@@ -375,8 +375,8 @@ export default function Hero({ onScrollToSection }: HeroProps) {
                 className="relative inline-block"
               >
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-teal-300 to-emerald-300">
-                  청년·영세자영업자·금융취약계층을 위한<br />
-                  <span ref={secondLineRef}>서민금융 상담을 제공합니다.</span>
+                  영세자영업자 청년 금융취약계층을 위한<br />
+                  <span ref={secondLineRef}>정책 서민금융을 제공합니다.</span>
                 </span>
                 {titlePhase >= 3 && secondLineWidth > 0 && (
                   <motion.span
