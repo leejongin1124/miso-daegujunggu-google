@@ -35,6 +35,9 @@ const PHONES = [
 // 이사진 소개는 요청 시까지 비공개 — 콘텐츠는 삭제하지 않고 렌더링만 끈다 (조직도 자체는 공개)
 const SHOW_BOARD_MEMBERS = false;
 
+// 경영공시(재무자료 공개)는 요청 시까지 비공개 — 콘텐츠는 삭제하지 않고 렌더링만 끈다
+const SHOW_FINANCE_REPORT = false;
+
 const BOARD_MEMBERS = [
   { role: '이사장', name: '김석동', affiliation: '(前) 한국산업은행 부장' },
   { role: '이사', name: '박정희', affiliation: '(現) 영남대학교 경제금융학부 교수' },
@@ -814,7 +817,7 @@ export default function AboutSection({ sectionId }: { sectionId?: string }) {
         </div>}
 
         {/* 경영공시 — 연도별 재무상태표·손익계산서 */}
-        {show('finance-report') && <div id="finance-report" className="bg-white rounded-3xl border border-slate-100 shadow-sm overflow-hidden">
+        {SHOW_FINANCE_REPORT && show('finance-report') && <div id="finance-report" className="bg-white rounded-3xl border border-slate-100 shadow-sm overflow-hidden">
           <div className="bg-gradient-to-r from-teal-600 to-emerald-600 px-6 py-8 md:px-12 md:py-10 text-white text-center space-y-2">
             <span className="text-xs font-bold text-white/70 tracking-widest uppercase">Management Disclosure</span>
             <h3 className="text-2xl md:text-3xl font-extrabold tracking-tight">경영공시</h3>

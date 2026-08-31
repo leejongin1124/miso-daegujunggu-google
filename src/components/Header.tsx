@@ -32,6 +32,9 @@ export default function Header({ activeTab, getSectionPath, prepareAnchor }: Hea
     return () => document.removeEventListener('mousedown', handleClickOutside);
   }, []);
 
+  // 경영공시 메뉴는 요청 시까지 비공개 — 항목은 삭제하지 않고 메뉴 노출만 끈다 (AboutSection.tsx의 SHOW_FINANCE_REPORT와 함께 관리)
+  const SHOW_FINANCE_REPORT_MENU = false;
+
   const menuItems = [
     {
       type: TabType.ABOUT,
@@ -40,7 +43,7 @@ export default function Header({ activeTab, getSectionPath, prepareAnchor }: Hea
         { name: '인사말', id: 'ceo-greeting', icon: User, color: 'text-blue-500' },
         { name: '법인 연혁', id: 'history', icon: Clock, color: 'text-amber-500' },
         { name: '조직도', id: 'organization', icon: Network, color: 'text-violet-500' },
-        { name: '경영공시', id: 'finance-report', icon: FileText, color: 'text-emerald-500' },
+        ...(SHOW_FINANCE_REPORT_MENU ? [{ name: '경영공시', id: 'finance-report', icon: FileText, color: 'text-emerald-500' }] : []),
         { name: '오시는 길', id: 'location', icon: MapPin, color: 'text-rose-500' }
       ]
     },
