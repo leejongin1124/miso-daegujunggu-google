@@ -612,7 +612,6 @@ export default function AboutSection({ sectionId }: { sectionId?: string }) {
                     >
                       <div className="flex items-baseline gap-3">
                         <span className="text-xl md:text-2xl font-black text-slate-800 font-mono tracking-tight">{milestone.year}</span>
-                        <span className="text-xs text-slate-400 font-medium">{milestone.items.length}건</span>
                       </div>
                       <motion.span
                         animate={{ rotate: isOpen ? 180 : 0 }}
