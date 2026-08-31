@@ -363,7 +363,7 @@ export default function Hero({ onScrollToSection }: HeroProps) {
                 animate={titlePhase >= 1 ? { x: 0, opacity: 1 } : { x: -80, opacity: 0 }}
                 transition={{ duration: 0.55, ease: 'easeOut' }}
               >
-                금융위원회 허가를 받은 비영리공익법인<br />
+                금융위원회의 허가를 받은 비영리공익법인<br />
                 서민금융진흥원 사업수행기관입니다.
               </motion.div>
 
