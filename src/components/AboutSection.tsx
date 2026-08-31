@@ -196,7 +196,7 @@ export default function AboutSection({ sectionId }: { sectionId?: string }) {
     {
       year: '2026',
       items: [
-        { date: '08.03', text: '미소금융대구중구법인 홈페이지 개설', category: '기관운영', emphasis: true },
+        { date: '09.01', text: '미소금융 대구중구법인 홈페이지 개설', category: '기관운영', emphasis: true },
         { date: '07.15', text: '미소금융 누적 대출건수 6,200건, 대출금액 600억 원 돌파', category: '지원성과', emphasis: true },
         { date: '04.28', text: '서민금융진흥원장 표창장(2025년 사업실적평가 우수상) 수상', category: '수상', emphasis: true }
       ]
