@@ -112,7 +112,7 @@ export default function Header({ activeTab, getSectionPath, prepareAnchor }: Hea
             <img src="/miso_symbol.png" alt="미소금융 로고" className="w-7 h-7 lg:w-10 lg:h-10 object-contain flex-shrink-0" />
             <div className="text-center min-w-0 leading-none">
               <span className="text-slate-900 font-bold text-xs sm:text-sm lg:text-lg tracking-tight leading-none whitespace-nowrap block">(사)미소금융대구중구법인</span>
-              <span className="text-[10px] sm:text-[11px] lg:text-xs font-semibold text-slate-500 tracking-wide uppercase block whitespace-nowrap mt-0.5">서민금융진흥원 미소금융 사업수행기관</span>
+              <span className="text-[10px] sm:text-[11px] lg:text-xs font-semibold text-slate-500 tracking-wide uppercase block whitespace-nowrap mt-0.5">서민금융진흥원 사업수행기관</span>
             </div>
           </Link>
 

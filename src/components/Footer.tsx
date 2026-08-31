@@ -19,7 +19,7 @@ export default function Footer() {
           <img src="/miso_symbol.png" alt="미소금융 로고" className="w-9 h-9 object-contain" />
           <div className="text-center leading-none">
             <div className="text-white font-bold text-base tracking-tight leading-none">(사)미소금융대구중구법인</div>
-            <div className="text-xs font-semibold text-slate-300 tracking-wide uppercase mt-0.5 whitespace-nowrap">서민금융진흥원 미소금융 사업수행기관</div>
+            <div className="text-xs font-semibold text-slate-300 tracking-wide uppercase mt-0.5 whitespace-nowrap">서민금융진흥원 사업수행기관</div>
           </div>
         </Link>
 
