@@ -103,10 +103,10 @@ function AboutRoute() {
     <SectionPageShell
       eyebrow="About Foundation"
       title="법인소개"
-      description={"금융위원회 허가 비영리 공익법인으로서\n대구·경북 서민과 영세자영업자의 자립을 지원합니다."}
+      description={"금융위원회 허가 비영리 공익법인으로서\n대구·경북지역 영세자영업자의 자립을 지원합니다."}
       bgImage="/backgrounds/about-bg.webp"
     >
-      <RouteMeta title="법인소개" description="금융위원회 허가 비영리 공익법인으로서 대구·경북 서민과 영세자영업자의 자립을 지원하는 미소금융대구중구법인을 소개합니다." path="/about" />
+      <RouteMeta title="법인소개" description="금융위원회 허가 비영리 공익법인으로서 대구·경북지역 영세자영업자의 자립을 지원하는 미소금융대구중구법인을 소개합니다." path="/about" />
       <AboutSection sectionId={sectionId} />
     </SectionPageShell>
   );
