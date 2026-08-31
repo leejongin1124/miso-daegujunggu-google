@@ -70,6 +70,9 @@ const DISCLOSURES = [
   { year: 2010, file: '/disclosures/2010.pdf' as string | null },
 ];
 
+// 요약 재무제표 — 최신(전년도) 결산서류를 한 장으로 간략 재구성한 참고용 자료 (재무상태표+손익계산서, 당기분만)
+const FINANCE_SUMMARY = { year: 2025, file: '/disclosures/2025-summary.pdf' as string | null };
+
 // 공시 아카이브 그룹핑 — 최근 5개년은 별도로, 나머지는 연대별로 묶어 표시
 const RECENT_DISCLOSURES = DISCLOSURES.slice(0, 6);
 const OLDER_DISCLOSURES_BY_DECADE = DISCLOSURES.slice(6).reduce<Record<string, typeof DISCLOSURES>>((acc, d) => {
@@ -303,7 +306,7 @@ export default function AboutSection({ sectionId }: { sectionId?: string }) {
       items: [
         { date: '12.12', text: "대통령 주재 '서민금융 보고대회' 참석 및 서민금융지원 유공 대통령 표창 수상", category: '수상', emphasis: true, newsUrl: 'https://www.korea.kr/news/policyNewsView.do?newsId=148753689', newsUrl2: 'https://www.imaeil.com/page/view/2013010507401495165', govHonor: true, honorScope: '법인' },
         { date: '05.10', text: '대구광역시 지역 서민금융기관간 서민금융지원 업무협약(MOU) 체결', category: '협약', emphasis: false, newsUrl: 'https://www.newswire.co.kr/newsRead.php?no=622913' },
-        { date: '03.20', text: '대학생·청년 햇살론 신상품 출시 업무협약 체결', category: '협약', emphasis: false, newsUrl: 'https://www.imaeil.com/print?code=2012032111045033850' },
+        { date: '03.20', text: '대학생·청년 햇살론 신상품 출시 업무협약 체결', category: '협약', emphasis: false, newsUrl: 'https://www.imaeil.com/page/view/2012032111045033850' },
         { date: '01.24', text: '2011년도 미소금융 사업실적 평가 최우수등급 표창(미소금융중앙재단)', category: '수상', emphasis: false }
       ]
     },
@@ -852,6 +855,27 @@ export default function AboutSection({ sectionId }: { sectionId?: string }) {
                   <span className="text-teal-700">2025</span>
                 </div>
               </motion.div>
+
+              {/* 최신(전년도) 요약 재무제표 — 재무상태표·손익계산서를 한 장으로 재구성한 참고 자료 바로 보기 */}
+              {FINANCE_SUMMARY.file && (
+                <>
+                  <div className="border-t border-slate-200" />
+                  <div className="flex flex-col items-center gap-2 pt-1">
+                    <p className="text-slate-400 text-xs">{FINANCE_SUMMARY.year}년도 결산 요약본을 한 장으로 확인하세요</p>
+                    <motion.a
+                      href={FINANCE_SUMMARY.file}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      whileHover={{ y: -2 }}
+                      whileTap={{ scale: 0.97 }}
+                      className="inline-flex items-center gap-2 bg-teal-600 hover:bg-teal-700 text-white text-sm font-bold px-5 py-3 rounded-xl transition-colors"
+                    >
+                      <FileText className="w-4 h-4" />
+                      {FINANCE_SUMMARY.year}년도 요약 재무제표 보기
+                    </motion.a>
+                  </div>
+                </>
+              )}
             </div>
 
             {/* 최신 공시자료 강조 카드 */}
