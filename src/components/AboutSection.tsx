@@ -197,21 +197,21 @@ export default function AboutSection({ sectionId }: { sectionId?: string }) {
       year: '2026',
       items: [
         { date: '09.01', text: '미소금융 대구중구법인 홈페이지 개설', category: '기관운영', emphasis: true },
-        { date: '07.15', text: '미소금융 누적 대출건수 6,200건, 대출금액 600억 원 돌파', category: '지원성과', emphasis: true },
+        { date: '07.15', text: '미소금융 누적 대출금액 600억 원 돌파 (대출건수 6,200건)', category: '지원성과', emphasis: true },
         { date: '04.28', text: '서민금융진흥원장 표창장(2025년 사업실적평가 우수상) 수상', category: '수상', emphasis: true }
       ]
     },
     {
       year: '2025',
       items: [
-        { date: '12.31', text: '임대주택보증금대출 387건(63억 원) 상환 종료', category: '지원성과', emphasis: false },
+        { date: '12.31', text: '임대주택보증금 대출 사업 종료 (63억 원, 387건, 전액회수)', category: '지원성과', emphasis: false },
         { date: '07.01', text: '대구신용보증재단 남지점 입주(하나은행 1층·신용보증재단 3층·미소금융 4층)에 따른 서민금융 지원 연계협약 체결', category: '협약', emphasis: false }
       ]
     },
     {
       year: '2024',
       items: [
-        { date: '02.01', text: '미소금융 누적 대출건수 5,200건, 대출금액 500억 원 돌파', category: '지원성과', emphasis: true }
+        { date: '02.01', text: '미소금융 누적 대출금액 500억 원 돌파 (대출건수 5,200건)', category: '지원성과', emphasis: true }
       ]
     },
     {
@@ -230,14 +230,14 @@ export default function AboutSection({ sectionId }: { sectionId?: string }) {
     {
       year: '2021',
       items: [
-        { date: '12.31', text: '대구서민금융통합지원센터 업무 운영 종료', category: '기관운영', emphasis: false }
+        { date: '12.31', text: '대구서민금융통합지원센터 운영 종료', category: '기관운영', emphasis: false }
       ]
     },
     {
       year: '2020',
       items: [
         { date: '04.21', text: '2019년 미소금융 사업실적 평가 최우수등급 표창(서민금융진흥원장)', category: '수상', emphasis: false },
-        { date: '03.19', text: '대구광역시 코로나 특별재난지역 선포로 직장인 포함 사업자 특별대출 지원', category: '지원성과', emphasis: true, newsUrl: 'https://biz.chosun.com/site/data/html_dir/2020/04/29/2020042901566.html' }
+        { date: '03.19', text: '대구광역시 코로나 특별재난지역 선포에 따른 직장인·사업자 미소금융특별자금 대출 실시', category: '지원성과', emphasis: true, newsUrl: 'https://biz.chosun.com/site/data/html_dir/2020/04/29/2020042901566.html' }
       ]
     },
     {
@@ -277,7 +277,7 @@ export default function AboutSection({ sectionId }: { sectionId?: string }) {
       year: '2015',
       items: [
         { date: '12.28', text: '대구서민금융통합지원센터 유치 및 개소식 (금융위원장·대구광역시장 참석)', category: '협약', emphasis: true, newsUrl: 'https://www.iij.co.kr/news/articleView.html?idxno=138547' },
-        { date: '11.05', text: '영남대학교 총장 감사패 (산학협력 우수인재양성·취업활성화 기여)', category: '수상', emphasis: false },
+        { date: '11.05', text: '영남대학교 총장 감사패 수상 (산학협력 우수인재양성·취업 활성화 기여)', category: '수상', emphasis: false },
         { date: '10.27', text: "'2015 Asia-Pacific Financial Inclusion Summit' 국제회의(필리핀 마닐라) 우수 지역법인 대표 참가", category: '기관운영', emphasis: false },
         { date: '09.18', text: '영남대학교 LINC사업단과 창업지원 업무협약 체결 및 Capstone Design 프로그램 운영', category: '협약', emphasis: false },
         { date: '03.17', text: '2014년 미소금융 사업실적 평가 최우수등급 표창(미소금융중앙재단)', category: '수상', emphasis: false },
@@ -612,7 +612,6 @@ export default function AboutSection({ sectionId }: { sectionId?: string }) {
                     >
                       <div className="flex items-baseline gap-3">
                         <span className="text-xl md:text-2xl font-black text-slate-800 font-mono tracking-tight">{milestone.year}</span>
-                        <span className="text-xs text-slate-400 font-medium">{milestone.items.length}건</span>
                       </div>
                       <motion.span
                         animate={{ rotate: isOpen ? 180 : 0 }}
