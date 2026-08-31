@@ -196,16 +196,16 @@ export default function AboutSection({ sectionId }: { sectionId?: string }) {
     {
       year: '2026',
       items: [
-        { date: '04.28', text: '서민금융진흥원장 표창장(2025년 사업실적평가 우수상) 수상', category: '수상', emphasis: true },
+        { date: '08.03', text: '미소금융대구중구법인 홈페이지 개설', category: '기관운영', emphasis: true },
         { date: '07.15', text: '미소금융 누적 대출건수 6,200건, 대출금액 600억 원 돌파', category: '지원성과', emphasis: true },
-        { date: '08.03', text: '미소금융대구중구법인 홈페이지 개설', category: '기관운영', emphasis: true }
+        { date: '04.28', text: '서민금융진흥원장 표창장(2025년 사업실적평가 우수상) 수상', category: '수상', emphasis: true }
       ]
     },
     {
       year: '2025',
       items: [
-        { date: '07.01', text: '대구신용보증재단 남지점 입주(하나은행 1층·신용보증재단 3층·미소금융 4층)에 따른 서민금융 지원 연계협약 체결', category: '협약', emphasis: false },
-        { date: '12.31', text: '임대주택보증금대출 387건(63억 원) 상환 종료', category: '지원성과', emphasis: false }
+        { date: '12.31', text: '임대주택보증금대출 387건(63억 원) 상환 종료', category: '지원성과', emphasis: false },
+        { date: '07.01', text: '대구신용보증재단 남지점 입주(하나은행 1층·신용보증재단 3층·미소금융 4층)에 따른 서민금융 지원 연계협약 체결', category: '협약', emphasis: false }
       ]
     },
     {
@@ -217,8 +217,8 @@ export default function AboutSection({ sectionId }: { sectionId?: string }) {
     {
       year: '2023',
       items: [
-        { date: '04.01', text: '신중년 사회공헌사업단 시범운영 개시', category: '지원성과', emphasis: false },
-        { date: '09.15', text: '영남대학교 기업연계기반 Capstone Design 현장 실습 프로그램 운영', category: '협약', emphasis: false }
+        { date: '09.15', text: '영남대학교 기업연계기반 Capstone Design 현장 실습 프로그램 운영', category: '협약', emphasis: false },
+        { date: '04.01', text: '신중년 사회공헌사업단 시범운영 개시', category: '지원성과', emphasis: false }
       ]
     },
     {
@@ -236,52 +236,52 @@ export default function AboutSection({ sectionId }: { sectionId?: string }) {
     {
       year: '2020',
       items: [
-        { date: '03.19', text: '대구광역시 코로나 특별재난지역 선포로 직장인 포함 사업자 특별대출 지원', category: '지원성과', emphasis: true, newsUrl: 'https://biz.chosun.com/site/data/html_dir/2020/04/29/2020042901566.html' },
-        { date: '04.21', text: '2019년 미소금융 사업실적 평가 최우수등급 표창(서민금융진흥원장)', category: '수상', emphasis: false }
+        { date: '04.21', text: '2019년 미소금융 사업실적 평가 최우수등급 표창(서민금융진흥원장)', category: '수상', emphasis: false },
+        { date: '03.19', text: '대구광역시 코로나 특별재난지역 선포로 직장인 포함 사업자 특별대출 지원', category: '지원성과', emphasis: true, newsUrl: 'https://biz.chosun.com/site/data/html_dir/2020/04/29/2020042901566.html' }
       ]
     },
     {
       year: '2019',
       items: [
-        { date: '03.27', text: '2018년 미소금융 사업실적 평가 최우수등급 표창(서민금융진흥원장)', category: '수상', emphasis: false },
-        { date: '06.17', text: '대구서민금융통합지원센터 지역협의체 출범 참가', category: '협약', emphasis: true, newsUrl: 'https://www.yeongnam.com/web/view.php?key=20190618.010170750260001' }
+        { date: '06.17', text: '대구서민금융통합지원센터 지역협의체 출범 참가', category: '협약', emphasis: true, newsUrl: 'https://www.yeongnam.com/web/view.php?key=20190618.010170750260001' },
+        { date: '03.27', text: '2018년 미소금융 사업실적 평가 최우수등급 표창(서민금융진흥원장)', category: '수상', emphasis: false }
       ]
     },
     {
       year: '2018',
       items: [
-        { date: '03.27', text: '2017년 미소금융 사업실적 평가 최우수등급 표창(서민금융진흥원장)', category: '수상', emphasis: false },
-        { date: '06.28', text: '법인 명칭 변경 (미소금융대구중구지점 → 미소금융대구중구법인) 및 사업내용(사회적금융) 추가', category: '기관운영', emphasis: false },
-        { date: '08.22', text: '서민금융진흥원장 표창장 (200/2000클럽) 수상', category: '수상', emphasis: false },
+        { date: '10.30', text: '제3회 금융의 날 서민금융부문 국민포장 수훈 (김석동 대표)', category: '수상', emphasis: true, newsUrl: 'https://www.skyedaily.com/news/news_view.html?ID=78486', govHonor: true, honorScope: '대표자' },
         { date: '08.31', text: '전국 미소금융 사회적경제기업 1호 대출 지원', category: '지원성과', emphasis: true, newsUrl: 'https://www.yna.co.kr/view/AKR20180831135900002' },
-        { date: '10.30', text: '제3회 금융의 날 서민금융부문 국민포장 수훈 (김석동 대표)', category: '수상', emphasis: true, newsUrl: 'https://www.skyedaily.com/news/news_view.html?ID=78486', govHonor: true, honorScope: '대표자' }
+        { date: '08.22', text: '서민금융진흥원장 표창장 (200/2000클럽) 수상', category: '수상', emphasis: false },
+        { date: '06.28', text: '법인 명칭 변경 (미소금융대구중구지점 → 미소금융대구중구법인) 및 사업내용(사회적금융) 추가', category: '기관운영', emphasis: false },
+        { date: '03.27', text: '2017년 미소금융 사업실적 평가 최우수등급 표창(서민금융진흥원장)', category: '수상', emphasis: false }
       ]
     },
     {
       year: '2017',
       items: [
-        { date: '02.17', text: '서민금융진흥원장 표창장 (찾아가는 서비스 최우수상) 수상', category: '수상', emphasis: false },
-        { date: '03.21', text: '2016년 미소금융 사업실적 평가 최우수등급 표창(서민금융진흥원장)', category: '수상', emphasis: false }
+        { date: '03.21', text: '2016년 미소금융 사업실적 평가 최우수등급 표창(서민금융진흥원장)', category: '수상', emphasis: false },
+        { date: '02.17', text: '서민금융진흥원장 표창장 (찾아가는 서비스 최우수상) 수상', category: '수상', emphasis: false }
       ]
     },
     {
       year: '2016',
       items: [
-        { date: '01.15', text: '미소금융중앙재단 표창장 (100/1,000클럽)', category: '수상', emphasis: false },
-        { date: '03.20', text: '2015년 미소금융 사업실적 평가 우수등급(서민금융진흥원장)', category: '수상', emphasis: false },
+        { date: '12.14', text: '서문시장 화재 성금 전달 및 봉사활동 지원', category: '지원성과', emphasis: false, newsUrl: 'https://www.yeongnam.com/web/view.php?key=20161206.990011109310983' },
         { date: '09.23', text: '서민금융진흥원 출범으로 법인 기능·명칭 변경 (복지사업자 → 사업수행기관)', category: '기관운영', emphasis: true, newsUrl: 'https://www.yna.co.kr/view/AKR20160923070451002' },
-        { date: '12.14', text: '서문시장 화재 성금 전달 및 봉사활동 지원', category: '지원성과', emphasis: false, newsUrl: 'https://www.yeongnam.com/web/view.php?key=20161206.990011109310983' }
+        { date: '03.20', text: '2015년 미소금융 사업실적 평가 우수등급(서민금융진흥원장)', category: '수상', emphasis: false },
+        { date: '01.15', text: '미소금융중앙재단 표창장 (100/1,000클럽)', category: '수상', emphasis: false }
       ]
     },
     {
       year: '2015',
       items: [
-        { date: '01.16', text: '미소금융중앙재단 표창장 (50/500클럽)', category: '수상', emphasis: false },
-        { date: '03.17', text: '2014년 미소금융 사업실적 평가 최우수등급 표창(미소금융중앙재단)', category: '수상', emphasis: false },
-        { date: '09.18', text: '영남대학교 LINC사업단과 창업지원 업무협약 체결 및 Capstone Design 프로그램 운영', category: '협약', emphasis: false },
-        { date: '10.27', text: "'2015 Asia-Pacific Financial Inclusion Summit' 국제회의(필리핀 마닐라) 우수 지역법인 대표 참가", category: '기관운영', emphasis: false },
+        { date: '12.28', text: '대구서민금융통합지원센터 유치 및 개소식 (금융위원장·대구광역시장 참석)', category: '협약', emphasis: true, newsUrl: 'https://www.iij.co.kr/news/articleView.html?idxno=138547' },
         { date: '11.05', text: '영남대학교 총장 감사패 (산학협력 우수인재양성·취업활성화 기여)', category: '수상', emphasis: false },
-        { date: '12.28', text: '대구서민금융통합지원센터 유치 및 개소식 (금융위원장·대구광역시장 참석)', category: '협약', emphasis: true, newsUrl: 'https://www.iij.co.kr/news/articleView.html?idxno=138547' }
+        { date: '10.27', text: "'2015 Asia-Pacific Financial Inclusion Summit' 국제회의(필리핀 마닐라) 우수 지역법인 대표 참가", category: '기관운영', emphasis: false },
+        { date: '09.18', text: '영남대학교 LINC사업단과 창업지원 업무협약 체결 및 Capstone Design 프로그램 운영', category: '협약', emphasis: false },
+        { date: '03.17', text: '2014년 미소금융 사업실적 평가 최우수등급 표창(미소금융중앙재단)', category: '수상', emphasis: false },
+        { date: '01.16', text: '미소금융중앙재단 표창장 (50/500클럽)', category: '수상', emphasis: false }
       ]
     },
     {
@@ -293,17 +293,17 @@ export default function AboutSection({ sectionId }: { sectionId?: string }) {
     {
       year: '2013',
       items: [
-        { date: '01.17', text: '2012년도 미소금융 사업실적 평가 최우수등급 표창(미소금융중앙재단)', category: '수상', emphasis: false, newsUrl: 'https://www.idaegu.co.kr/news/articleView.html?idxno=85600' },
+        { date: '06.06', text: '사무소 이전 (중구 경상감영길 제일은행 대구지점 4층)', category: '기관운영', emphasis: false },
         { date: '02.13', text: '대구신용보증재단과 서민금융지원 업무협약(MOU) 체결', category: '협약', emphasis: false, newsUrl: 'https://www.idaegu.co.kr/news/articleView.html?idxno=89376' },
-        { date: '06.06', text: '사무소 이전 (중구 경상감영길 제일은행 대구지점 4층)', category: '기관운영', emphasis: false }
+        { date: '01.17', text: '2012년도 미소금융 사업실적 평가 최우수등급 표창(미소금융중앙재단)', category: '수상', emphasis: false, newsUrl: 'https://www.idaegu.co.kr/news/articleView.html?idxno=85600' }
       ]
     },
     {
       year: '2012',
       items: [
-        { date: '01.24', text: '2011년도 미소금융 사업실적 평가 최우수등급 표창(미소금융중앙재단)', category: '수상', emphasis: false },
+        { date: '12.12', text: "대통령 주재 '서민금융 보고대회' 참석 및 서민금융지원 유공 대통령 표창 수상", category: '수상', emphasis: true, newsUrl: 'https://www.korea.kr/news/policyNewsView.do?newsId=148753689', newsUrl2: 'https://www.imaeil.com/page/view/2013010507401495165', govHonor: true, honorScope: '법인' },
         { date: '05.10', text: '대구광역시 지역 서민금융기관간 서민금융지원 업무협약(MOU) 체결', category: '협약', emphasis: false, newsUrl: 'https://www.newswire.co.kr/newsRead.php?no=622913' },
-        { date: '12.12', text: "대통령 주재 '서민금융 보고대회' 참석 및 서민금융지원 유공 대통령 표창 수상", category: '수상', emphasis: true, newsUrl: 'https://www.korea.kr/news/policyNewsView.do?newsId=148753689', newsUrl2: 'https://www.imaeil.com/page/view/2013010507401495165', govHonor: true, honorScope: '법인' }
+        { date: '01.24', text: '2011년도 미소금융 사업실적 평가 최우수등급 표창(미소금융중앙재단)', category: '수상', emphasis: false }
       ]
     },
     {
@@ -315,11 +315,11 @@ export default function AboutSection({ sectionId }: { sectionId?: string }) {
     {
       year: '2010',
       items: [
-        { date: '04.06', text: '사단법인 미소금융 지역거점 대표자 공모 선정', category: '설립', emphasis: false },
-        { date: '04.27', text: '금융위원회로부터 비영리 사단법인 설립 허가', category: '설립', emphasis: false },
-        { date: '04.28', text: '사무소 무상 임차 (중구 서문로 갑을빌딩 2층)', category: '설립', emphasis: false },
+        { date: '05.28', text: '개소식(대구광역시 정무부시장 참석) 및 영업개시', category: '설립', emphasis: true, newsUrl: 'https://www.fntimes.com/html/view.php?ud=20100530194522102969_18' },
         { date: '05.06', text: '사단법인 미소금융대구중구법인 설립 등기 완료', category: '설립', emphasis: false },
-        { date: '05.28', text: '개소식(대구광역시 정무부시장 참석) 및 영업개시', category: '설립', emphasis: true, newsUrl: 'https://www.fntimes.com/html/view.php?ud=20100530194522102969_18' }
+        { date: '04.28', text: '사무소 무상 임차 (중구 서문로 갑을빌딩 2층)', category: '설립', emphasis: false },
+        { date: '04.27', text: '금융위원회로부터 비영리 사단법인 설립 허가', category: '설립', emphasis: false },
+        { date: '04.06', text: '사단법인 미소금융 지역거점 대표자 공모 선정', category: '설립', emphasis: false }
       ]
     }
   ];
