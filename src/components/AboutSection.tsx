@@ -38,6 +38,9 @@ const SHOW_BOARD_MEMBERS = false;
 // 경영공시(재무자료 공개)는 요청 시까지 비공개 — 콘텐츠는 삭제하지 않고 렌더링만 끈다
 const SHOW_FINANCE_REPORT = true;
 
+// 연도별 결산서류(PDF) 공시 아카이브는 요청 시까지 비공개 — 경영공시 섹션 자체(성장 추이·국세청 조회)는 유지, 목록만 렌더링을 끈다
+const SHOW_DISCLOSURE_ARCHIVE = false;
+
 const BOARD_MEMBERS = [
   { role: '이사장', name: '김석동', affiliation: '(前) 한국산업은행 부장' },
   { role: '이사', name: '박정희', affiliation: '(現) 영남대학교 경제금융학부 교수' },
@@ -994,7 +997,7 @@ export default function AboutSection({ sectionId }: { sectionId?: string }) {
             </div>
 
             {/* 최신 공시자료 강조 카드 */}
-            <div className="space-y-3">
+            {SHOW_DISCLOSURE_ARCHIVE && <div className="space-y-3">
               <h4 className="font-extrabold text-slate-900 text-base md:text-lg text-center">최신 공시자료</h4>
               <div className="bg-gradient-to-br from-teal-50 to-emerald-50 border border-teal-200 rounded-2xl px-5 py-5 md:px-8 md:py-6 flex flex-wrap items-center justify-between gap-4">
                 <div className="flex items-center gap-3 min-w-0">
@@ -1022,10 +1025,10 @@ export default function AboutSection({ sectionId }: { sectionId?: string }) {
                   <span className="shrink-0 text-xs font-semibold text-slate-400">등록 예정</span>
                 )}
               </div>
-            </div>
+            </div>}
 
             {/* 공시 아카이브 — 연도별 카드 그리드 */}
-            <div className="space-y-6">
+            {SHOW_DISCLOSURE_ARCHIVE && <div className="space-y-6">
               {[
                 { label: '최근 공시', items: RECENT_DISCLOSURES },
                 ...Object.entries(OLDER_DISCLOSURES_BY_DECADE).map(([label, items]) => ({ label, items })),
@@ -1067,7 +1070,7 @@ export default function AboutSection({ sectionId }: { sectionId?: string }) {
                   </div>
                 </div>
               ))}
-            </div>
+            </div>}
 
           </div>
         </div>}
