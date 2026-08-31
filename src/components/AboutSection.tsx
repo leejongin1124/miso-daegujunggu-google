@@ -5,7 +5,7 @@
 
 import { motion, AnimatePresence } from 'motion/react';
 import { useState, useEffect } from 'react';
-import { Award, Newspaper, Briefcase, Calendar, MapPin, Bus, Train, Car, Phone, Share2, Printer, ExternalLink, FileText, Copy, Check, ShieldCheck, ArrowRight } from 'lucide-react';
+import { Newspaper, Briefcase, Calendar, MapPin, Bus, Train, Car, Phone, Share2, Printer, ExternalLink, FileText, Copy, Check, ShieldCheck, ArrowRight } from 'lucide-react';
 
 function useCountUp(target: number, duration: number, trigger: boolean) {
   const [count, setCount] = useState(0);
@@ -649,7 +649,7 @@ export default function AboutSection({ sectionId }: { sectionId?: string }) {
                                         {item.newsUrl && (
                                           <a href={item.newsUrl} target="_blank" rel="noopener noreferrer"
                                             className="inline-flex items-center gap-1 bg-amber-50 border border-amber-200 text-amber-700 hover:bg-amber-100 text-[10px] font-bold px-2 py-0.5 rounded-full transition-colors">
-                                            <Newspaper className="w-3 h-3" /><span>근거자료 보기</span>
+                                            <Newspaper className="w-3 h-3" /><span>언론기사</span>
                                           </a>
                                         )}
                                         {item.newsUrl2 && (
@@ -667,7 +667,7 @@ export default function AboutSection({ sectionId }: { sectionId?: string }) {
                                         {item.newsUrl && (
                                           <a href={item.newsUrl} target="_blank" rel="noopener noreferrer"
                                             className="inline-flex items-center gap-1 bg-amber-50 border border-amber-200 text-amber-700 hover:bg-amber-100 text-[10px] font-bold px-2 py-0.5 rounded-full transition-colors">
-                                            <Newspaper className="w-3 h-3" /><span>근거자료 보기</span>
+                                            <Newspaper className="w-3 h-3" /><span>언론기사</span>
                                           </a>
                                         )}
                                         {item.newsUrl2 && (
@@ -679,12 +679,6 @@ export default function AboutSection({ sectionId }: { sectionId?: string }) {
                                       </span>
                                     )}
                                   </div>
-                                  {item.govHonor && (
-                                    <span className="inline-flex items-center gap-1 text-[10px] font-bold text-white bg-gradient-to-r from-amber-500 to-amber-600 px-2 py-0.5 rounded-full">
-                                      <Award className="w-3 h-3" aria-hidden="true" />
-                                      {item.honorScope === '대표자' ? '대표자 수훈' : '법인 수상'}
-                                    </span>
-                                  )}
                                   {item.impact && (
                                     <p className="text-emerald-700 text-xs font-semibold">{item.impact}</p>
                                   )}
