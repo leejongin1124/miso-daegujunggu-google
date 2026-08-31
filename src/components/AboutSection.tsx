@@ -388,7 +388,7 @@ export default function AboutSection({ sectionId }: { sectionId?: string }) {
         {/* 이사장 인사말 */}
         {show(['ceo-greeting', 'about-miso']) && <div id="ceo-greeting" className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center bg-slate-50 p-8 md:p-14 rounded-3xl border border-slate-100">
           <div className="lg:col-span-4 text-center">
-            <div className="w-52 sm:w-64 md:w-72 aspect-[7/9] bg-slate-100 rounded-2xl mx-auto overflow-hidden shadow-md border-4 border-white">
+            <div className="w-36 sm:w-44 md:w-56 aspect-[7/9] bg-slate-100 rounded-2xl mx-auto overflow-hidden shadow-md border-4 border-white">
               <img src="/ceo-photo.jpg" alt="미소금융대구중구법인 대표 김석동" className="w-full h-full object-cover" onError={(e) => { (e.target as HTMLImageElement).style.display = 'none'; }} />
             </div>
           </div>
