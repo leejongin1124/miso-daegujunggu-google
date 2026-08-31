@@ -70,6 +70,9 @@ const DISCLOSURES = [
   { year: 2010, file: '/disclosures/2010.pdf' as string | null },
 ];
 
+// 요약 재무제표 — 최신(전년도) 결산서류를 한 장으로 간략 재구성한 참고용 자료 (재무상태표+손익계산서, 당기분만)
+const FINANCE_SUMMARY = { year: 2025, file: '/disclosures/2025-summary.pdf' as string | null };
+
 // 공시 아카이브 그룹핑 — 최근 5개년은 별도로, 나머지는 연대별로 묶어 표시
 const RECENT_DISCLOSURES = DISCLOSURES.slice(0, 6);
 const OLDER_DISCLOSURES_BY_DECADE = DISCLOSURES.slice(6).reduce<Record<string, typeof DISCLOSURES>>((acc, d) => {
@@ -852,6 +855,27 @@ export default function AboutSection({ sectionId }: { sectionId?: string }) {
                   <span className="text-teal-700">2025</span>
                 </div>
               </motion.div>
+
+              {/* 최신(전년도) 요약 재무제표 — 재무상태표·손익계산서를 한 장으로 재구성한 참고 자료 바로 보기 */}
+              {FINANCE_SUMMARY.file && (
+                <>
+                  <div className="border-t border-slate-200" />
+                  <div className="flex flex-col items-center gap-2 pt-1">
+                    <p className="text-slate-400 text-xs">{FINANCE_SUMMARY.year}년도 결산 요약본을 한 장으로 확인하세요</p>
+                    <motion.a
+                      href={FINANCE_SUMMARY.file}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      whileHover={{ y: -2 }}
+                      whileTap={{ scale: 0.97 }}
+                      className="inline-flex items-center gap-2 bg-teal-600 hover:bg-teal-700 text-white text-sm font-bold px-5 py-3 rounded-xl transition-colors"
+                    >
+                      <FileText className="w-4 h-4" />
+                      {FINANCE_SUMMARY.year}년도 요약 재무제표 보기
+                    </motion.a>
+                  </div>
+                </>
+              )}
             </div>
 
             {/* 최신 공시자료 강조 카드 */}
