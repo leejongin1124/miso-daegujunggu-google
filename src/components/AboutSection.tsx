@@ -243,7 +243,7 @@ export default function AboutSection({ sectionId }: { sectionId?: string }) {
     {
       year: '2019',
       items: [
-        { date: '06.17', text: '대구서민금융통합지원센터 지역협의체 출범 참가', category: '협약', emphasis: true, newsUrl: 'https://www.yeongnam.com/web/view.php?key=20190618.010170750260001' },
+        { date: '06.17', text: '대구서민금융통합지원센터 지역협의체 출범', category: '협약', emphasis: true, newsUrl: 'https://www.yeongnam.com/web/view.php?key=20190618.010170750260001' },
         { date: '03.27', text: '2018년 미소금융 사업실적 평가 최우수등급 표창(서민금융진흥원장)', category: '수상', emphasis: false }
       ]
     },
