@@ -394,7 +394,7 @@ export default function AboutSection({ sectionId }: { sectionId?: string }) {
           </div>
 
           <div className="lg:col-span-8 text-left space-y-6">
-            <span className="text-sm md:text-base font-black tracking-widest text-teal-600 uppercase">Ceo Greeting</span>
+            <span className="text-base md:text-lg font-black tracking-widest text-teal-600 uppercase">Ceo Greeting</span>
             <h3 className="text-2xl md:text-3xl font-extrabold text-slate-900 tracking-tight leading-snug break-keep">
               &ldquo;영세자영업자의 든든한 버팀목이 되겠습니다.&rdquo;
             </h3>
