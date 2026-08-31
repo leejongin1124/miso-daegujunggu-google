@@ -230,7 +230,7 @@ export default function AboutSection({ sectionId }: { sectionId?: string }) {
     {
       year: '2021',
       items: [
-        { date: '12.31', text: '대구서민금융통합지원센터 업무 운영 종료', category: '기관운영', emphasis: false }
+        { date: '12.31', text: '대구서민금융통합지원센터 운영 종료', category: '기관운영', emphasis: false }
       ]
     },
     {
