@@ -36,7 +36,7 @@ const PHONES = [
 const SHOW_BOARD_MEMBERS = false;
 
 // 경영공시(재무자료 공개)는 요청 시까지 비공개 — 콘텐츠는 삭제하지 않고 렌더링만 끈다
-const SHOW_FINANCE_REPORT = false;
+const SHOW_FINANCE_REPORT = true;
 
 const BOARD_MEMBERS = [
   { role: '이사장', name: '김석동', affiliation: '(前) 한국산업은행 부장' },

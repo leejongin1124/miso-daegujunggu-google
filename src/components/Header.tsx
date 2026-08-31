@@ -33,7 +33,7 @@ export default function Header({ activeTab, getSectionPath, prepareAnchor }: Hea
   }, []);
 
   // 경영공시 메뉴는 요청 시까지 비공개 — 항목은 삭제하지 않고 메뉴 노출만 끈다 (AboutSection.tsx의 SHOW_FINANCE_REPORT와 함께 관리)
-  const SHOW_FINANCE_REPORT_MENU = false;
+  const SHOW_FINANCE_REPORT_MENU = true;
 
   const menuItems = [
     {
