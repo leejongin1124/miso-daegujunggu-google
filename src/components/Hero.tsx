@@ -375,7 +375,7 @@ export default function Hero({ onScrollToSection }: HeroProps) {
                 className="relative inline-block"
               >
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-teal-300 to-emerald-300">
-                  영세자영업자 청년 금융취약계층을 위한<br />
+                  영세자영업자·청년·금융취약계층을 위한<br />
                   <span ref={secondLineRef}>정책 서민금융을 제공합니다.</span>
                 </span>
                 {titlePhase >= 3 && secondLineWidth > 0 && (
