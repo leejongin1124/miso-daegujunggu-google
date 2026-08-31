@@ -641,43 +641,23 @@ export default function AboutSection({ sectionId }: { sectionId?: string }) {
                                     <span className="inline-block text-[10px] font-bold px-2 py-0.5 rounded-full border border-dashed border-slate-300 text-slate-400">예정</span>
                                   )}
                                   <div>
-                                    {item.emphasis ? (
-                                      <span className="inline-flex flex-wrap items-center gap-2">
-                                        <strong className="text-slate-900 font-bold text-[15px] break-keep">
-                                          {item.text}
-                                        </strong>
-                                        {item.newsUrl && (
-                                          <a href={item.newsUrl} target="_blank" rel="noopener noreferrer"
-                                            className="inline-flex items-center gap-1 bg-amber-50 border border-amber-200 text-amber-700 hover:bg-amber-100 text-[10px] font-bold px-2 py-0.5 rounded-full transition-colors">
-                                            <Newspaper className="w-3 h-3" /><span>언론기사</span>
-                                          </a>
-                                        )}
-                                        {item.newsUrl2 && (
-                                          <a href={item.newsUrl2} target="_blank" rel="noopener noreferrer"
-                                            className="inline-flex items-center gap-1 bg-amber-50 border border-amber-200 text-amber-700 hover:bg-amber-100 text-[10px] font-bold px-2 py-0.5 rounded-full transition-colors">
-                                            <Newspaper className="w-3 h-3" /><span>관련기사 더보기</span>
-                                          </a>
-                                        )}
+                                    <span className="inline-flex flex-wrap items-center gap-2">
+                                      <span className="text-slate-600 text-sm break-keep">
+                                        {item.text}
                                       </span>
-                                    ) : (
-                                      <span className="inline-flex flex-wrap items-center gap-2">
-                                        <span className="text-slate-600 text-sm break-keep">
-                                          {item.text}
-                                        </span>
-                                        {item.newsUrl && (
-                                          <a href={item.newsUrl} target="_blank" rel="noopener noreferrer"
-                                            className="inline-flex items-center gap-1 bg-amber-50 border border-amber-200 text-amber-700 hover:bg-amber-100 text-[10px] font-bold px-2 py-0.5 rounded-full transition-colors">
-                                            <Newspaper className="w-3 h-3" /><span>언론기사</span>
-                                          </a>
-                                        )}
-                                        {item.newsUrl2 && (
-                                          <a href={item.newsUrl2} target="_blank" rel="noopener noreferrer"
-                                            className="inline-flex items-center gap-1 bg-amber-50 border border-amber-200 text-amber-700 hover:bg-amber-100 text-[10px] font-bold px-2 py-0.5 rounded-full transition-colors">
-                                            <Newspaper className="w-3 h-3" /><span>관련기사 더보기</span>
-                                          </a>
-                                        )}
-                                      </span>
-                                    )}
+                                      {item.newsUrl && (
+                                        <a href={item.newsUrl} target="_blank" rel="noopener noreferrer"
+                                          className="inline-flex items-center gap-1 bg-amber-50 border border-amber-200 text-amber-700 hover:bg-amber-100 text-[10px] font-bold px-2 py-0.5 rounded-full transition-colors">
+                                          <Newspaper className="w-3 h-3" /><span>언론기사</span>
+                                        </a>
+                                      )}
+                                      {item.newsUrl2 && (
+                                        <a href={item.newsUrl2} target="_blank" rel="noopener noreferrer"
+                                          className="inline-flex items-center gap-1 bg-amber-50 border border-amber-200 text-amber-700 hover:bg-amber-100 text-[10px] font-bold px-2 py-0.5 rounded-full transition-colors">
+                                          <Newspaper className="w-3 h-3" /><span>관련기사 더보기</span>
+                                        </a>
+                                      )}
+                                    </span>
                                   </div>
                                   {item.impact && (
                                     <p className="text-emerald-700 text-xs font-semibold">{item.impact}</p>
