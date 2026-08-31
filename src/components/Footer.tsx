@@ -26,7 +26,7 @@ export default function Footer() {
         {/* 퀵링크 */}
         <div className="flex flex-wrap items-center gap-x-5 gap-y-0.5 py-0.5 border-b border-slate-800 text-xs font-semibold">
           <Link to="/products" className="text-slate-400 hover:text-white transition-colors">
-            상품안내
+            대출상품
           </Link>
           <Link to="/guide" className="text-slate-400 hover:text-white transition-colors">
             신청안내
