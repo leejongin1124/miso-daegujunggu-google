@@ -204,7 +204,7 @@ export default function AboutSection({ sectionId }: { sectionId?: string }) {
     {
       year: '2025',
       items: [
-        { date: '12.31', text: '임대주택보증금대출 387건(63억 원) 상환 종료', category: '지원성과', emphasis: false },
+        { date: '12.31', text: '임대주택보증금 대출 사업 종료 (63억 원, 387건, 전액회수)', category: '지원성과', emphasis: false },
         { date: '07.01', text: '대구신용보증재단 남지점 입주(하나은행 1층·신용보증재단 3층·미소금융 4층)에 따른 서민금융 지원 연계협약 체결', category: '협약', emphasis: false }
       ]
     },
