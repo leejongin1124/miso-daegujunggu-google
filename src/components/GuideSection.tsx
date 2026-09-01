@@ -78,7 +78,7 @@ export default function GuideSection({ sectionId }: { sectionId?: string }) {
       id: 3,
       category: '신청 자격',
       question: "담보나 보증인이 필요한가요?",
-      answer: "담보나 보증인 없이 신청할 수 있습니다. 신용도와 상환 의지를 바탕으로 여신심사를 진행해 지원 여부를 결정합니다."
+      answer: "담보나 보증인 없이 신청할 수 있습니다. 신용도와 상환능력을 바탕으로 여신심사를 진행해 지원 여부를 결정합니다."
     },
     {
       id: 4,
