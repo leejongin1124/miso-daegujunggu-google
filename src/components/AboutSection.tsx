@@ -70,6 +70,9 @@ const DISCLOSURES = [
   { year: 2010, file: '/disclosures/2010.pdf' as string | null },
 ];
 
+// 요약 재무제표 — 최신(전년도) 결산서류를 한 장으로 간략 재구성한 참고용 자료 (재무상태표+손익계산서, 당기분만)
+const FINANCE_SUMMARY = { year: 2025, file: '/disclosures/2025-summary.pdf' as string | null };
+
 // 공시 아카이브 그룹핑 — 최근 5개년은 별도로, 나머지는 연대별로 묶어 표시
 const RECENT_DISCLOSURES = DISCLOSURES.slice(0, 6);
 const OLDER_DISCLOSURES_BY_DECADE = DISCLOSURES.slice(6).reduce<Record<string, typeof DISCLOSURES>>((acc, d) => {
@@ -197,21 +200,21 @@ export default function AboutSection({ sectionId }: { sectionId?: string }) {
       year: '2026',
       items: [
         { date: '09.01', text: '미소금융 대구중구법인 홈페이지 개설', category: '기관운영', emphasis: true },
-        { date: '07.15', text: '미소금융 누적 대출건수 6,200건, 대출금액 600억 원 돌파', category: '지원성과', emphasis: true },
+        { date: '07.15', text: '미소금융 누적 대출금액 600억 원 돌파 (대출건수 6,200건)', category: '지원성과', emphasis: true },
         { date: '04.28', text: '서민금융진흥원장 표창장(2025년 사업실적평가 우수상) 수상', category: '수상', emphasis: true }
       ]
     },
     {
       year: '2025',
       items: [
-        { date: '12.31', text: '임대주택보증금대출 387건(63억 원) 상환 종료', category: '지원성과', emphasis: false },
+        { date: '12.31', text: '임대주택보증금 대출 사업 종료 (63억 원, 387건, 전액회수)', category: '지원성과', emphasis: false },
         { date: '07.01', text: '대구신용보증재단 남지점 입주(하나은행 1층·신용보증재단 3층·미소금융 4층)에 따른 서민금융 지원 연계협약 체결', category: '협약', emphasis: false }
       ]
     },
     {
       year: '2024',
       items: [
-        { date: '02.01', text: '미소금융 누적 대출건수 5,200건, 대출금액 500억 원 돌파', category: '지원성과', emphasis: true }
+        { date: '02.01', text: '미소금융 누적 대출금액 500억 원 돌파 (대출건수 5,200건)', category: '지원성과', emphasis: true }
       ]
     },
     {
@@ -230,20 +233,20 @@ export default function AboutSection({ sectionId }: { sectionId?: string }) {
     {
       year: '2021',
       items: [
-        { date: '12.31', text: '대구서민금융통합지원센터 업무 운영 종료', category: '기관운영', emphasis: false }
+        { date: '12.31', text: '대구서민금융통합지원센터 운영 종료', category: '기관운영', emphasis: false }
       ]
     },
     {
       year: '2020',
       items: [
         { date: '04.21', text: '2019년 미소금융 사업실적 평가 최우수등급 표창(서민금융진흥원장)', category: '수상', emphasis: false },
-        { date: '03.19', text: '대구광역시 코로나 특별재난지역 선포로 직장인 포함 사업자 특별대출 지원', category: '지원성과', emphasis: true, newsUrl: 'https://biz.chosun.com/site/data/html_dir/2020/04/29/2020042901566.html' }
+        { date: '03.19', text: '대구광역시 코로나 특별재난지역 선포에 따른 직장인·사업자 미소금융특별자금 대출 실시', category: '지원성과', emphasis: true, newsUrl: 'https://biz.chosun.com/site/data/html_dir/2020/04/29/2020042901566.html' }
       ]
     },
     {
       year: '2019',
       items: [
-        { date: '06.17', text: '대구서민금융통합지원센터 지역협의체 출범 참가', category: '협약', emphasis: true, newsUrl: 'https://www.yeongnam.com/web/view.php?key=20190618.010170750260001' },
+        { date: '06.17', text: '대구서민금융통합지원센터 지역협의체 출범', category: '협약', emphasis: true, newsUrl: 'https://www.yeongnam.com/web/view.php?key=20190618.010170750260001' },
         { date: '03.27', text: '2018년 미소금융 사업실적 평가 최우수등급 표창(서민금융진흥원장)', category: '수상', emphasis: false }
       ]
     },
@@ -278,7 +281,7 @@ export default function AboutSection({ sectionId }: { sectionId?: string }) {
       year: '2015',
       items: [
         { date: '12.28', text: '대구서민금융통합지원센터 유치 및 개소식 (금융위원장·대구광역시장 참석)', category: '협약', emphasis: true, newsUrl: 'https://www.iij.co.kr/news/articleView.html?idxno=138547' },
-        { date: '11.05', text: '영남대학교 총장 감사패 (산학협력 우수인재양성·취업활성화 기여)', category: '수상', emphasis: false },
+        { date: '11.05', text: '영남대학교 총장 감사패 수상 (산학협력 우수인재양성·취업 활성화 기여)', category: '수상', emphasis: false },
         { date: '10.27', text: "'2015 Asia-Pacific Financial Inclusion Summit' 국제회의(필리핀 마닐라) 우수 지역법인 대표 참가", category: '기관운영', emphasis: false },
         { date: '09.18', text: '영남대학교 LINC사업단과 창업지원 업무협약 체결 및 Capstone Design 프로그램 운영', category: '협약', emphasis: false },
         { date: '03.17', text: '2014년 미소금융 사업실적 평가 최우수등급 표창(미소금융중앙재단)', category: '수상', emphasis: false },
@@ -304,7 +307,7 @@ export default function AboutSection({ sectionId }: { sectionId?: string }) {
       items: [
         { date: '12.12', text: "대통령 주재 '서민금융 보고대회' 참석 및 서민금융지원 유공 대통령 표창 수상", category: '수상', emphasis: true, newsUrl: 'https://www.korea.kr/news/policyNewsView.do?newsId=148753689', newsUrl2: 'https://www.imaeil.com/page/view/2013010507401495165', govHonor: true, honorScope: '법인' },
         { date: '05.10', text: '대구광역시 지역 서민금융기관간 서민금융지원 업무협약(MOU) 체결', category: '협약', emphasis: false, newsUrl: 'https://www.newswire.co.kr/newsRead.php?no=622913' },
-        { date: '03.20', text: '대학생·청년 햇살론 신상품 출시 업무협약 체결', category: '협약', emphasis: false },
+        { date: '03.20', text: '대학생·청년 햇살론 신상품 출시 업무협약 체결', category: '협약', emphasis: false, newsUrl: 'https://www.imaeil.com/page/view/2012032111045033850' },
         { date: '01.24', text: '2011년도 미소금융 사업실적 평가 최우수등급 표창(미소금융중앙재단)', category: '수상', emphasis: false }
       ]
     },
@@ -613,7 +616,6 @@ export default function AboutSection({ sectionId }: { sectionId?: string }) {
                     >
                       <div className="flex items-baseline gap-3">
                         <span className="text-xl md:text-2xl font-black text-slate-800 font-mono tracking-tight">{milestone.year}</span>
-                        <span className="text-xs text-slate-400 font-medium">{milestone.items.length}건</span>
                       </div>
                       <motion.span
                         animate={{ rotate: isOpen ? 180 : 0 }}
@@ -854,6 +856,27 @@ export default function AboutSection({ sectionId }: { sectionId?: string }) {
                   <span className="text-teal-700">2025</span>
                 </div>
               </motion.div>
+
+              {/* 최신(전년도) 요약 재무제표 — 재무상태표·손익계산서를 한 장으로 재구성한 참고 자료 바로 보기 */}
+              {FINANCE_SUMMARY.file && (
+                <>
+                  <div className="border-t border-slate-200" />
+                  <div className="flex flex-col items-center gap-2 pt-1">
+                    <p className="text-slate-400 text-xs">{FINANCE_SUMMARY.year}년도 결산 요약본을 한 장으로 확인하세요</p>
+                    <motion.a
+                      href={FINANCE_SUMMARY.file}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      whileHover={{ y: -2 }}
+                      whileTap={{ scale: 0.97 }}
+                      className="inline-flex items-center gap-2 bg-teal-600 hover:bg-teal-700 text-white text-sm font-bold px-5 py-3 rounded-xl transition-colors"
+                    >
+                      <FileText className="w-4 h-4" />
+                      {FINANCE_SUMMARY.year}년도 요약 재무제표 보기
+                    </motion.a>
+                  </div>
+                </>
+              )}
             </div>
 
             {/* 최신 공시자료 강조 카드 */}
