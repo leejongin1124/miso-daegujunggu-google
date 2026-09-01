@@ -162,7 +162,7 @@ export default function GuideSection({ sectionId }: { sectionId?: string }) {
       id: 18,
       category: '상품별 특별 조건',
       question: "사회적연대금융은 어떤 기업이 신청할 수 있나요?",
-      answer: "사회적기업, 예비사회적기업, 협동조합, 사회적협동조합, 마을기업, 자활기업 등 관계 법령이 정한 사회적경제기업이 대상입니다."
+      answer: "사회적기업, 예비사회적기업, 협동조합, 사회적협동조합 등 관계 법령이 정한 사회적경제기업이 대상입니다."
     },
     {
       id: 19,
