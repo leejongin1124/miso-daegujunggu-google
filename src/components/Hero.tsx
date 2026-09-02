@@ -251,16 +251,16 @@ export default function Hero({ onScrollToSection }: HeroProps) {
   const card5Products: CardContent = {
     icon: <Landmark className="w-6 h-6 text-indigo-600" />,
     title: '대출상품 안내',
-    value: '상품별 조건 확인',
+    value: '나에게 맞는 상품 찾기',
     valueClass: 'text-sm md:text-2xl whitespace-nowrap',
-    desc: '내게 맞는 상품을 확인하세요',
+    desc: '한도·금리 조건 비교',
     to: '/products'
   };
 
   const card6Apply: CardContent = {
     icon: <ClipboardList className="w-6 h-6 text-emerald-600" />,
     title: '신청안내',
-    value: '신청 절차 확인',
+    value: '신청은 이렇게 진행돼요',
     valueClass: 'text-sm md:text-2xl whitespace-nowrap',
     desc: '상담부터 결과 안내까지',
     to: '/guide'
