@@ -296,7 +296,7 @@ export default function CaseSection({ initialFilter, onFilterChange }: CaseSecti
             <p className="text-slate-400 text-xs md:text-sm leading-relaxed break-keep font-medium">
               저희 법인의 대출 재원은 서민금융진흥원이 조성한 공익 자금입니다. <br />
               성실히 갚아 주신 원금은 서민금융진흥원으로 돌아가, <br />
-              경제적으로 어려운 다른 대구 시민의 자립 지원을 위한 대출 재원으로 활용됩니다.
+              대구·경북지역 영세자영업자·청년의 자립 지원을 위한 대출 재원으로 활용됩니다.
             </p>
           </div>
         </div>
