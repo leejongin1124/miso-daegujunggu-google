@@ -253,7 +253,7 @@ export default function Hero({ onScrollToSection }: HeroProps) {
     title: '대출상품 안내',
     value: '상품별 조건 확인',
     valueClass: 'text-sm md:text-2xl whitespace-nowrap',
-    desc: '상품 비교 후 신청 가능',
+    desc: '내게 맞는 상품을 확인하세요',
     to: '/products'
   };
 
