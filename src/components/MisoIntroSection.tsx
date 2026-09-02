@@ -18,7 +18,7 @@ export default function MisoIntroSection() {
       icon: <BadgePercent className="w-10 h-10 text-emerald-600" />,
       bg: 'bg-emerald-50',
       title: '제도권 비영리 법인',
-      desc: '금융위원회의 허가를 받은 공익법인이자 서민금융진흥원의 미소금융 사업수행기관입니다. 무허가 사금융과 엄격히 구분되는 제도권 금융기관입니다.'
+      desc: '금융위원회의 허가를 받은 공익법인이자 서민금융진흥원의 사업수행기관입니다. 무허가 사금융과 엄격히 구분되는 제도권 금융기관입니다.'
     },
     {
       icon: <TrendingDown className="w-10 h-10 text-indigo-600" />,
