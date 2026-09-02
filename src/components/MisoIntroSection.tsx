@@ -24,7 +24,7 @@ export default function MisoIntroSection() {
       icon: <TrendingDown className="w-10 h-10 text-indigo-600" />,
       bg: 'bg-indigo-50',
       title: '상품별 정책금리 적용',
-      desc: '금리와 한도는 상품별 대상 요건, 우대 조건, 심사 결과에 따라 달라질 수 있습니다. 상담을 통해 본인에게 맞는 지원 가능 여부를 확인해 보시기 바랍니다.'
+      desc: '금리와 한도는 상품별 대상 요건, 우대 조건, 심사 결과에 따라 달라질 수 있습니다. 상담을 통해 본인에게 맞는 승인 가능 여부를 확인해 보시기 바랍니다.'
     }
   ];
 
@@ -96,7 +96,7 @@ export default function MisoIntroSection() {
             <strong className="text-indigo-600 font-extrabold">'미소금융'</strong>은 <strong className="text-teal-700 font-extrabold">「서민의 금융생활 지원에 관한 법률」 및 관련 규정에 따라 보호되는 정책서민금융상품 명칭</strong>입니다. 대출상품·광고·상호 등에 이 명칭을 사용하는 자는 서민금융진흥원과 사업수행기관 등 법령상 허용된 자여야 하며, 이를 위반하면 관련 법령에 따라 과태료가 부과될 수 있습니다.
           </p>
           <p className="text-slate-600 text-xs md:text-sm leading-relaxed break-keep">
-            미소금융 지원 여부는 상품별 지원요건과 심사기준에 따라 결정되므로 상담 또는 신청만으로 대출이 승인되는 것은 아닙니다. 미소금융은 상담·대출 진행을 이유로 중개 수수료, 선납금, 보증 비용 등 어떠한 명목의 비용도 요구하지 않습니다. 비용을 요구받으셨다면 사기가 강하게 의심되므로 송금·앱 설치를 중단하고 공식 대표번호로 확인·신고해 주시기 바랍니다.
+            미소금융 승인 여부는 상품별 지원요건과 심사기준에 따라 결정되므로 상담 또는 신청만으로 대출이 승인되는 것은 아닙니다. 미소금융은 상담·대출 진행을 이유로 중개 수수료, 선납금, 보증 비용 등 어떠한 명목의 비용도 요구하지 않습니다. 비용을 요구받으셨다면 사기가 강하게 의심되므로 송금·앱 설치를 중단하고 공식 대표번호로 확인·신고해 주시기 바랍니다.
           </p>
           <p className="text-slate-500 text-xs md:text-sm leading-relaxed break-keep">
             현재 지정된 서민금융진흥원 미소금융 사업수행기관은{' '}

@@ -60,7 +60,7 @@ export default function GuideSection({ sectionId }: { sectionId?: string }) {
       id: 1,
       category: '신청 자격',
       question: "미소금융은 누가 신청할 수 있나요?",
-      answer: "개인신용평점 하위 20%(KCB 700점 이하, NICE 749점 이하 기준)에 해당하거나 기초생활수급자, 차상위계층, 근로장려금 신청자격 요건에 해당하는 청년, 영세자영업자가 신청할 수 있습니다. 요건 충족이 곧 승인을 의미하지는 않으며, 최종 지원 여부는 여신심사 결과에 따라 결정됩니다."
+      answer: "개인신용평점 하위 20%(KCB 700점 이하, NICE 749점 이하 기준)에 해당하거나 기초생활수급자, 차상위계층, 근로장려금 신청자격 요건에 해당하는 청년, 영세자영업자가 신청할 수 있습니다. 요건 충족이 곧 승인을 의미하지는 않으며, 최종 승인 여부는 여신심사 결과에 따라 결정됩니다."
     },
     {
       id: 22,
@@ -78,7 +78,7 @@ export default function GuideSection({ sectionId }: { sectionId?: string }) {
       id: 3,
       category: '신청 자격',
       question: "담보나 보증인이 필요한가요?",
-      answer: "담보나 보증인 없이 신청할 수 있습니다. 신용도와 상환능력을 바탕으로 여신심사를 진행해 지원 여부를 결정합니다."
+      answer: "담보나 보증인 없이 신청할 수 있습니다. 신용도와 상환능력을 바탕으로 여신심사를 진행해 승인 여부를 결정합니다."
     },
     {
       id: 4,
@@ -144,13 +144,13 @@ export default function GuideSection({ sectionId }: { sectionId?: string }) {
       id: 14,
       category: '상환·금리',
       question: "대출 가능 횟수에 제한이 있나요?",
-      answer: "횟수 자체에 제한은 없습니다. 상품별 한도금액 범위 내에서 신청 자격을 다시 충족하면 재신청하실 수 있으며, 최종 지원 여부는 심사 결과에 따라 결정됩니다."
+      answer: "횟수 자체에 제한은 없습니다. 상품별 한도금액 범위 내에서 신청 자격을 다시 충족하면 재신청하실 수 있으며, 최종 승인 여부는 심사 결과에 따라 결정됩니다."
     },
     {
       id: 15,
       category: '상품별 특별 조건',
       question: "운영자금 지원이 제한되는 업종이 있나요?",
-      answer: "중소벤처기업부가 정한 소상공인 정책자금 융자제외 업종 기준을 적용합니다. 도박·사행성 기구 제조·판매업, 유흥주점업, 무도장 운영업, 성인 관련 업종, 금융·보험업, 일부 부동산업 등이 해당하며, 최종 판단은 표준산업분류코드(KSIC)와 실제 영위 업종을 기준으로 합니다. 업종명이 같더라도 분류코드와 실제 영업 형태에 따라 지원 가능 여부가 달라질 수 있어, 정확한 확인은 상담을 통해 안내해 드립니다."
+      answer: "중소벤처기업부가 정한 소상공인 정책자금 융자제외 업종 기준을 적용합니다. 도박·사행성 기구 제조·판매업, 유흥주점업, 무도장 운영업, 성인 관련 업종, 금융·보험업, 일부 부동산업 등이 해당하며, 최종 판단은 표준산업분류코드(KSIC)와 실제 영위 업종을 기준으로 합니다. 업종명이 같더라도 분류코드와 실제 영업 형태에 따라 승인 가능 여부가 달라질 수 있어, 정확한 확인은 상담을 통해 안내해 드립니다."
     },
     {
       id: 16,
@@ -180,7 +180,7 @@ export default function GuideSection({ sectionId }: { sectionId?: string }) {
       id: 20,
       category: '상품별 특별 조건',
       question: "공동대표도 신청할 수 있나요?",
-      answer: "공동대표라는 사실만으로 지원 여부가 결정되지는 않으며, 신청 상품과 기업 형태 등을 종합적으로 심사해 판단합니다."
+      answer: "공동대표라는 사실만으로 승인 여부가 결정되지는 않으며, 신청 상품과 기업 형태 등을 종합적으로 심사해 판단합니다."
     },
     {
       id: 21,
@@ -654,7 +654,7 @@ export default function GuideSection({ sectionId }: { sectionId?: string }) {
           <div className="flex items-start gap-3 bg-amber-50 border border-amber-200 rounded-2xl px-5 py-4">
             <AlertTriangle className="w-5 h-5 text-amber-600 shrink-0 mt-0.5" />
             <ul className="text-amber-800 text-xs md:text-sm font-semibold leading-relaxed break-keep space-y-1.5 list-disc pl-4">
-              <li>서류 준비와 대출 승인은 별개이며, 지원 여부는 여신심사 결과로 결정됩니다.</li>
+              <li>서류 준비와 대출 승인은 별개이며, 승인 여부는 여신심사 결과로 결정됩니다.</li>
               <li>필요 서류는 <strong>상품·상황별로 다르며</strong>, 목록 외 서류를 요청드릴 수 있습니다.</li>
               <li>제출서류는 <strong>발급일로부터 1개월 이내</strong>여야 합니다.</li>
             </ul>
