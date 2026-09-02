@@ -136,7 +136,7 @@ function ProductsRoute({ onScrollToSection, onOpenCalculator }: RouteProps) {
     <SectionPageShell
       eyebrow="Miso Finance Products"
       title="대출상품"
-      description={"상품별 대상 요건과 증빙서류를 확인한 뒤\n심사 절차에 따라 지원 가능 여부를 안내합니다."}
+      description={"상품별 대상 요건과 증빙서류를 확인한 뒤\n심사 절차에 따라 대출 가능 여부를 안내합니다."}
       bgImage="/backgrounds/products-bg.webp"
     >
       <RouteMeta title="대출상품" description="사회연대금융, 사업자 운영자금, 청년 미래이음, 금융취약계층 생계자금 등 미소금융대구중구법인 대출상품을 안내합니다." path={tab ? `/products/${tab}` : '/products'} />
