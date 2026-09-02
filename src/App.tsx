@@ -179,10 +179,10 @@ function CasesRoute() {
     <SectionPageShell
       eyebrow="Support Cases"
       title="상담사례"
-      description={"상담과 심사를 통해 다시 일어선\n이웃들의 자립 이야기를 소개합니다."}
+      description={"미소금융과 함께 다시 일어선\n이웃들의 자립 이야기를 소개합니다."}
       bgImage="/backgrounds/cases-bg.webp"
     >
-      <RouteMeta title="상담사례" description="상담과 심사를 통해 다시 일어선 이웃들의 자립 이야기를 소개합니다. (이해를 돕기 위해 재구성한 예시입니다)" path={filter ? `/cases/${filter}` : '/cases'} />
+      <RouteMeta title="상담사례" description="미소금융과 함께 다시 일어선 이웃들의 자립 이야기를 소개합니다. (이해를 돕기 위해 재구성한 예시입니다)" path={filter ? `/cases/${filter}` : '/cases'} />
       <CaseSection
         initialFilter={filter ?? 'all'}
         onFilterChange={(nextFilter) => navigate(nextFilter === 'all' ? '/cases' : `/cases/${nextFilter}`, { replace: true })}
