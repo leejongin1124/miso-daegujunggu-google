@@ -128,7 +128,7 @@ export default function ProductSection({ onScrollToSection, onOpenCalculator, in
       id: 'vulnerable',
       name: '금융취약계층 생계자금',
       subtitle: '기초수급자 · 차상위 · 다문화 · 보이스피싱 피해자 등',
-      description: '갑작스러운 질병·사고·주거 위기 등으로 생계가 어려운 금융취약계층이 담보 없이 신청할 수 있는, 서민금융진흥원 미소금융 사업수행기관이 취급하는 대출상품입니다.',
+      description: '갑작스러운 질병·사고·주거 위기 등으로 생계가 어려운 금융취약계층이 담보 없이 신청할 수 있는, 서민금융진흥원 사업수행기관이 취급하는 대출상품입니다.',
       limit: '최대 500만 원',
       interestRate: '연 4.5%\n연 3.5%(우대금리 적용시)',
       repaymentPeriod: '최대 6년 : 거치 1년 + 상환 5년',
