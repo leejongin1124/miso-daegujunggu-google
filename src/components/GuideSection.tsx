@@ -359,7 +359,7 @@ export default function GuideSection({ sectionId }: { sectionId?: string }) {
           </div>
 
           <div className="bg-amber-50 border border-amber-200 rounded-2xl px-5 py-4 text-sm text-amber-800 font-semibold text-center break-keep">
-            아래 기준에 해당하더라도 대출이 자동으로 승인되는 것은 아닙니다. 지원 여부와 한도는 상담과 심사를 거쳐 결정됩니다.
+            아래 기준을 충족해도 대출이 자동으로 승인되지는 않으며, 승인 여부와 한도는 상담·심사를 거쳐 결정됩니다.
           </div>
 
           {/* 지원대상 3가지 */}
