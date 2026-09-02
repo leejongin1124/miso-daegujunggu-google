@@ -117,7 +117,7 @@ function MisoIntroRoute() {
     <SectionPageShell
       eyebrow="Application Guide"
       title="신청안내"
-      description={"상담 신청부터 서류 준비, 심사, 결과 안내까지\n전체 절차를 차분히 확인하실 수 있습니다."}
+      description={"상담 신청부터 서류 준비, 심사, 결과 안내까지의\n절차를 안내합니다."}
       bgImage="/backgrounds/guide-bg.webp"
     >
       <RouteMeta title="미소금융이란" description="서민금융진흥원 미소금융 사업수행기관인 미소금융대구중구법인이 안내하는 미소금융 제도 소개입니다." path="/miso-intro" />
@@ -160,7 +160,7 @@ function GuideRoute() {
     <SectionPageShell
       eyebrow="Application Guide"
       title="신청안내"
-      description={"상담 신청부터 서류 준비, 심사, 결과 안내까지\n전체 절차를 차분히 확인하실 수 있습니다."}
+      description={"상담 신청부터 서류 준비, 심사, 결과 안내까지의\n절차를 안내합니다."}
       bgImage="/backgrounds/guide-bg.webp"
     >
       <RouteMeta title="신청안내" description="상담 신청부터 서류 준비, 심사, 결과 안내까지 전체 절차와 자주 묻는 질문을 확인하실 수 있습니다." path={sectionId ? `/guide/${sectionId}` : '/guide'} />
