@@ -314,7 +314,7 @@ export default function AboutSection({ sectionId }: { sectionId?: string }) {
     {
       year: '2011',
       items: [
-        { date: '11.16', text: '미소금융 대구중구법인 대구동구청출장소 설치(동구청 민원실)', category: '기관운영', emphasis: false, newsUrl: 'https://www.imaeil.com/page/view/2011111616042014010' }
+        { date: '11.16', text: '미소금융 대구동구청출장소 설치(동구청 민원실)', category: '기관운영', emphasis: false, newsUrl: 'https://www.imaeil.com/page/view/2011111616042014010' }
       ]
     },
     {
