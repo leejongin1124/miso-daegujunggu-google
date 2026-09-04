@@ -863,7 +863,7 @@ export default function AboutSection({ sectionId }: { sectionId?: string }) {
                 </div>
               </motion.div>
 
-              {/* 최신(전년도) 요약 재무제표 — 재무상태표·손익계산서를 한 장으로 재구성한 참고 자료 바로 보기 */}
+              {/* 최신(전년도) 요약 재무상태표 — 재무상태표를 한 장으로 재구성한 참고 자료 바로 보기 */}
               {FINANCE_SUMMARY.file && (
                 <>
                   <div className="border-t border-slate-200" />
@@ -878,7 +878,7 @@ export default function AboutSection({ sectionId }: { sectionId?: string }) {
                       className="inline-flex items-center gap-2 bg-teal-600 hover:bg-teal-700 text-white text-sm font-bold px-5 py-3 rounded-xl transition-colors"
                     >
                       <FileText className="w-4 h-4" />
-                      {FINANCE_SUMMARY.year}년도 요약 재무제표 보기
+                      {FINANCE_SUMMARY.year}년 요약 재무상태표
                     </motion.a>
                   </div>
                 </>
