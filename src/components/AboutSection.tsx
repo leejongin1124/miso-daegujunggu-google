@@ -311,7 +311,7 @@ export default function AboutSection({ sectionId }: { sectionId?: string }) {
         { date: '12.17', text: '대통령상 수상 기념 법인 활동보고대회 개최(대구광역시 경제통상국장 및 서민금융기관장 참석)', category: '기관운영', emphasis: false },
         { date: '12.12', text: "대통령 주재 '서민금융 보고대회' 참석 및 서민금융지원 유공 대통령 표창 수상", category: '수상', emphasis: true, newsUrl: 'https://www.korea.kr/news/policyNewsView.do?newsId=148753689', newsUrl2: 'https://www.imaeil.com/page/view/2013010507401495165', govHonor: true, honorScope: '법인' },
         { date: '05.10', text: '대구광역시 지역 서민금융기관간 서민금융지원 업무협약(MOU) 체결', category: '협약', emphasis: false, newsUrl: 'https://www.newswire.co.kr/newsRead.php?no=622913' },
-        { date: '04.23', text: '대구광역시 일자리 창출사업 선정 (5개 상담소 운영)', category: '지원성과', emphasis: false },
+        { date: '04.23', text: '대구광역시 일자리 창출사업 선정 (5개 상담소 운영)', category: '지원성과', emphasis: false, newsUrl: 'https://www.idaegu.co.kr/news/articleView.html?idxno=85600' },
         { date: '03.20', text: '대학생·청년 햇살론 신상품 출시 기념 영남대학교-서민금융기관 간 상호협력을 위한 업무협약(MOU) 체결', category: '협약', emphasis: false, newsUrl: 'https://www.imaeil.com/page/view/2012032111045033850' },
         { date: '01.25', text: '대구광역시 예비사회적기업 지정 (미소금융 분야 전국 최초)', category: '기관운영', emphasis: false, newsUrl: 'https://www.idaegu.co.kr/news/articleView.html?idxno=85600' },
         { date: '01.24', text: '2011년도 미소금융 사업실적 평가 최우수등급 표창(미소금융중앙재단)', category: '수상', emphasis: false }
