@@ -266,7 +266,7 @@ export default function AboutSection({ sectionId }: { sectionId?: string }) {
       year: '2017',
       items: [
         { date: '03.21', text: '2016년 미소금융 사업실적 평가 최우수등급 표창(서민금융진흥원장)', category: '수상', emphasis: false },
-        { date: '02.17', text: '서민금융진흥원장 표창장 (찾아가는 서비스 최우수상) 수상', category: '수상', emphasis: false }
+        { date: '02.17', text: '서민금융진흥원장 표창장 수상(찾아가는 서비스 최우수상)', category: '수상', emphasis: false }
       ]
     },
     {
