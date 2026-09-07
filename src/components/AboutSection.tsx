@@ -454,7 +454,7 @@ export default function AboutSection({ sectionId }: { sectionId?: string }) {
             </div>
             <div className="flex justify-center"><div className="w-0.5 h-4 bg-slate-300"/></div>
             {/* 이사장 */}
-            <div className="w-[70%] mx-auto bg-teal-600 text-white text-center py-3 rounded-xl font-extrabold text-base flex items-center justify-center h-12">이사장 (대표)</div>
+            <div className="w-[70%] mx-auto bg-teal-600 text-white text-center py-3 rounded-xl font-extrabold text-base flex items-center justify-center h-12">이사장 (CEO)</div>
             <div className="flex justify-center"><div className="w-0.5 h-4 bg-slate-300"/></div>
             {/* 융자위원회 */}
             <div className="w-[55%] mx-auto bg-indigo-600 text-white text-center py-2 rounded-lg font-bold text-sm">융자위원회</div>
@@ -528,7 +528,7 @@ export default function AboutSection({ sectionId }: { sectionId?: string }) {
 
                 {/* 이사장 */}
                 <rect x="220" y="178" width="180" height="44" rx="10" fill="#0D9488"/>
-                <text x="310" y="205" textAnchor="middle" fill="white" fontSize="14" fontWeight="bold">이 사 장 (대표)</text>
+                <text x="310" y="205" textAnchor="middle" fill="white" fontSize="14" fontWeight="bold">이 사 장 (CEO)</text>
 
                 {/* 융자위원회 — 신중년(right=615)과 간격 확보: x=635 */}
                 <rect x="635" y="260" width="160" height="42" rx="8" fill="#4F46E5"/>
