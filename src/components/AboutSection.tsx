@@ -4,7 +4,7 @@
  */
 
 import { motion, AnimatePresence } from 'motion/react';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, type ReactNode } from 'react';
 import { Newspaper, Briefcase, Calendar, MapPin, Bus, Train, Car, Phone, Share2, Printer, ExternalLink, FileText, Copy, Check, ShieldCheck, ArrowRight } from 'lucide-react';
 
 function useCountUp(target: number, duration: number, trigger: boolean) {
@@ -151,7 +151,7 @@ export default function AboutSection({ sectionId }: { sectionId?: string }) {
 
   interface HistoryItem {
     date: string;
-    text: string;
+    text: string | ReactNode;
     category: HistoryCategory;
     emphasis: boolean;
     status?: 'planned';
@@ -257,7 +257,7 @@ export default function AboutSection({ sectionId }: { sectionId?: string }) {
         { date: '10.30', text: '제3회 금융의 날 서민금융부문 국민포장 수훈 (김석동 대표)', category: '수상', emphasis: true, newsUrl: 'https://www.skyedaily.com/news/news_view.html?ID=78486', govHonor: true, honorScope: '대표자' },
         { date: '08.31', text: '전국 미소금융 사회적경제기업 1호 대출 지원', category: '지원성과', emphasis: true, newsUrl: 'https://www.yna.co.kr/view/AKR20180831135900002' },
         { date: '08.22', text: '서민금융진흥원장 표창장(누적대출 200억 원·2,000건 달성 클럽) 수상', category: '수상', emphasis: false },
-        { date: '06.28', text: '법인 명칭 변경 (미소금융대구중구지점 → 미소금융대구중구법인) 및 사업내용(사회적금융) 추가', category: '기관운영', emphasis: false },
+        { date: '06.28', text: <>법인 명칭 변경 (대구중구지점 → 대구중구<u className="underline decoration-2">법인</u>) 및 사업내용(사회적금융) 추가</>, category: '기관운영', emphasis: false },
         { date: '03.27', text: '2017년 미소금융 사업실적 평가 최우수등급 표창(서민금융진흥원장)', category: '수상', emphasis: false },
         { date: '01.29', text: '공익법인 외부회계감사 의무대상 지정(회계법인 감사보고서 국세청 제출)', category: '기관운영', emphasis: false }
       ]
