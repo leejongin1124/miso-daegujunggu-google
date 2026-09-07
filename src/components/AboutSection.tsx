@@ -330,7 +330,7 @@ export default function AboutSection({ sectionId }: { sectionId?: string }) {
         { date: '05.06', text: '사단법인 미소금융대구중구법인 설립 등기 완료(대구지방법원)', category: '설립', emphasis: false },
         { date: '04.28', text: '사무소 무상 임차 (중구 서문로 갑을빌딩 2층)', category: '설립', emphasis: false },
         { date: '04.27', text: '금융위원회로부터 비영리 사단법인 설립 허가', category: '설립', emphasis: false },
-        { date: '04.06', text: '사단법인 미소금융 지역거점 대표자 공모 선정', category: '설립', emphasis: false }
+        { date: '04.06', text: '사단법인 미소금융 지역거점 대표자 공모 선정(초대 CEO 김석동)', category: '설립', emphasis: false }
       ]
     }
   ];
