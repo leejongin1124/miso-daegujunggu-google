@@ -36,7 +36,7 @@ interface HeroProps {
 
 const AUDIENCE = ['청년', '영세자영업자', '취약계층'];
 
-const PHONE_NUMBER = '053-252-6408';
+const PHONES = ['053-252-6408', '053-252-6409', '053-252-6479', '053-252-6480'];
 
 // 카드 슬롯 공통 껍데기. 슬롯 자체는 항상 마운트된 채로 유지되고,
 // 슬롯 안의 콘텐츠(icon/title/value/desc/링크)만 부모에서 바꿔 끼운다.
@@ -133,6 +133,14 @@ export default function Hero({ onScrollToSection }: HeroProps) {
   // 어디에도 없다(리렌더 시 재계산되지 않는 단순 불리언 상태).
   const [showNavCards, setShowNavCards] = useState(false);
 
+  const [phoneIdx, setPhoneIdx] = useState(0);
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setPhoneIdx(prev => (prev + 1) % PHONES.length);
+    }, 3000);
+    return () => clearInterval(interval);
+  }, []);
+
   useEffect(() => {
     const interval = setInterval(() => {
       setAudienceIdx(prev => (prev + 1) % AUDIENCE.length);
@@ -219,10 +227,10 @@ export default function Hero({ onScrollToSection }: HeroProps) {
   const card4Call: CardContent = {
     icon: <Phone className="w-6 h-6 text-rose-600" />,
     title: '전화 상담 문의',
-    value: PHONE_NUMBER,
+    value: PHONES[phoneIdx],
     valueClass: 'text-lg md:text-3xl tabular-nums',
     desc: '평일 09시 ~ 18시 운영',
-    href: `tel:${PHONE_NUMBER}`
+    href: `tel:${PHONES[phoneIdx]}`
   };
 
   const card1StatsCount: CardContent = {
