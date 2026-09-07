@@ -228,7 +228,7 @@ export default function AboutSection({ sectionId }: { sectionId?: string }) {
     {
       year: '2022',
       items: [
-        { date: '08.01', text: '현 사무소 이전 (남구 중앙대로 146, 하나은행 봉덕지점 4층)', category: '기관운영', emphasis: false }
+        { date: '08.01', text: '현 사무소 이전 (대구광역시 남구 중앙대로 146, 하나은행 봉덕지점 4층)', category: '기관운영', emphasis: false }
       ]
     },
     {
