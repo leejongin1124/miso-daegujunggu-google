@@ -256,7 +256,7 @@ export default function AboutSection({ sectionId }: { sectionId?: string }) {
       items: [
         { date: '10.30', text: '제3회 금융의 날 서민금융부문 국민포장 수훈 (김석동 대표)', category: '수상', emphasis: true, newsUrl: 'https://www.skyedaily.com/news/news_view.html?ID=78486', govHonor: true, honorScope: '대표자' },
         { date: '08.31', text: '전국 미소금융 사회적경제기업 1호 대출 지원', category: '지원성과', emphasis: true, newsUrl: 'https://www.yna.co.kr/view/AKR20180831135900002' },
-        { date: '08.22', text: '서민금융진흥원장 표창장 (200/2000클럽) 수상', category: '수상', emphasis: false },
+        { date: '08.22', text: '서민금융진흥원장 표창장(누적대출 200억 원·2,000건 달성 클럽) 수상', category: '수상', emphasis: false },
         { date: '06.28', text: '법인 명칭 변경 (미소금융대구중구지점 → 미소금융대구중구법인) 및 사업내용(사회적금융) 추가', category: '기관운영', emphasis: false },
         { date: '03.27', text: '2017년 미소금융 사업실적 평가 최우수등급 표창(서민금융진흥원장)', category: '수상', emphasis: false },
         { date: '01.29', text: '공익법인 외부회계감사 의무대상 지정(회계법인 감사보고서 국세청 제출)', category: '기관운영', emphasis: false }
@@ -275,7 +275,7 @@ export default function AboutSection({ sectionId }: { sectionId?: string }) {
         { date: '12.14', text: '서문시장 화재 성금 전달 및 봉사활동 지원', category: '지원성과', emphasis: false, newsUrl: 'https://www.yeongnam.com/web/view.php?key=20161206.990011109310983' },
         { date: '09.23', text: '서민금융진흥원 출범으로 법인 기능·명칭 변경 (복지사업자 → 사업수행기관)', category: '기관운영', emphasis: true, newsUrl: 'https://www.yna.co.kr/view/AKR20160923070451002' },
         { date: '03.20', text: '2015년 미소금융 사업실적 평가 우수등급 표창(서민금융진흥원장)', category: '수상', emphasis: false },
-        { date: '01.15', text: '미소금융중앙재단 표창장 (100/1,000클럽)', category: '수상', emphasis: false }
+        { date: '01.15', text: '미소금융중앙재단 표창장(누적대출 100억 원·1,000건 달성 클럽)', category: '수상', emphasis: false }
       ]
     },
     {
@@ -286,7 +286,7 @@ export default function AboutSection({ sectionId }: { sectionId?: string }) {
         { date: '10.27', text: "'2015 Asia-Pacific Financial Inclusion Summit' 국제회의(필리핀 마닐라) 우수 지역법인 대표 참가", category: '기관운영', emphasis: false },
         { date: '09.18', text: '영남대학교 LINC사업단과 창업지원 업무협약 체결 및 Capstone Design 프로그램 운영', category: '협약', emphasis: false },
         { date: '03.17', text: '2014년 미소금융 사업실적 평가 최우수등급 표창(미소금융중앙재단)', category: '수상', emphasis: false },
-        { date: '01.16', text: '미소금융중앙재단 표창장 (50/500클럽)', category: '수상', emphasis: false }
+        { date: '01.16', text: '미소금융중앙재단 표창장(누적대출 50억 원·500건 달성 클럽)', category: '수상', emphasis: false }
       ]
     },
     {
