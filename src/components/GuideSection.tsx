@@ -1391,7 +1391,11 @@ export default function GuideSection({ sectionId }: { sectionId?: string }) {
           </div>
 
           <div className="bg-white border border-slate-200 rounded-2xl p-6 overflow-x-auto">
-            <h3 className="font-black text-slate-900 mb-3">가입기간별 금리</h3>
+            <div className="flex items-baseline gap-2 mb-3">
+              <span className="text-xs font-black text-miso-blue-600 tracking-widest uppercase">가입기간</span>
+              <span className="text-slate-300">·</span>
+              <h3 className="font-black text-slate-900">금리</h3>
+            </div>
             <table className="w-full text-sm text-center min-w-[480px]">
               <thead>
                 <tr className="text-slate-400 text-xs">
@@ -1410,6 +1414,14 @@ export default function GuideSection({ sectionId }: { sectionId?: string }) {
               </tbody>
             </table>
             <p className="text-xs text-slate-400 mt-3">※ 괄호는 만기까지 유지 시 우대금리 1%p 적용된 금리이며, 중도해지 시 취급은행별 중도해지 이율이 적용됩니다. 적금 금리는 기준금리 변동에 따라 달라질 수 있습니다.</p>
+
+            <div className="mt-4 bg-amber-50 border border-amber-300 rounded-xl p-4 flex items-start gap-2.5">
+              <AlertTriangle className="w-5 h-5 text-amber-600 flex-shrink-0 mt-0.5" />
+              <ul className="text-sm font-bold text-amber-800 space-y-1 break-keep">
+                <li>계좌개설은 1인당 평생 1회만 가능합니다.</li>
+                <li>서민금융진흥원 이자지원금은 최대 3년, 50만 원 미만까지만 지원됩니다.</li>
+              </ul>
+            </div>
           </div>
 
           <div className="bg-white border border-slate-200 rounded-2xl p-6 space-y-3">
