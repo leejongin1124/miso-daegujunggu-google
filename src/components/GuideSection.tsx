@@ -1498,7 +1498,7 @@ export default function GuideSection({ sectionId }: { sectionId?: string }) {
               <Info className="w-5 h-5 text-sky-600 flex-shrink-0 mt-0.5" />
               <ul className="text-sm font-semibold text-sky-900 space-y-1.5 break-keep">
                 <li>지점을 방문해 신청하실 경우, 확인서류를 발급받기 위해 행정복지센터나 신용회복위원회를 직접 방문하셔야 할 수 있습니다.</li>
-                <li>반면 잇다 앱으로 비대면 신청하시면 온라인으로 대상자 확인서류만 제출하면 되고, 서민금융진흥원의 승인 안내(카카오톡·문자)를 받은 즉시 은행을 방문해 적금에 바로 가입하실 수 있어 절차가 더 간편합니다.</li>
+                <li>반면 잇다 앱으로 비대면 신청하시면 대상자 확인이 전산으로 자동 확인되어, 서민금융진흥원의 승인 안내(카카오톡·문자)를 받은 즉시 은행을 방문해 적금에 바로 가입하실 수 있어 절차가 더 간편합니다.</li>
                 <li>적금을 해지하신 뒤 이자지원금을 다시 신청하실 때도 사무실 방문 없이 잇다 앱에서 바로 신청하실 수 있습니다.</li>
               </ul>
             </div>
@@ -1510,7 +1510,7 @@ export default function GuideSection({ sectionId }: { sectionId?: string }) {
                 <a href="https://loan.kinfa.or.kr/main.ke" target="_blank" rel="noopener noreferrer" className="text-miso-blue-600 hover:text-miso-blue-700 font-bold underline underline-offset-2">
                   잇다 앱
                 </a>
-                에서 신청, 지원대상 확인 서류 첨부)
+                에서 신청)
               </li>
               <li>적금통장 개설 (추천서에 기재된 은행 지점 방문)</li>
               <li>적금 만기 시 청구 (잇다 앱에서 이자지원금 신청)</li>
@@ -1518,7 +1518,7 @@ export default function GuideSection({ sectionId }: { sectionId?: string }) {
             </ol>
             <h3 className="font-black text-slate-900 pt-2">② 지점 방문 신청절차</h3>
             <ol className="text-sm text-slate-600 space-y-1 list-decimal list-inside">
-              <li>추천서 발급 (미소금융 지점 방문, 신청서 작성)</li>
+              <li>추천서 발급 (미소금융 지점 방문, 신청서 작성 및 지원대상 확인서류 지참)</li>
               <li>적금통장 개설 (추천서에 기재된 은행 지점 방문)</li>
               <li>약정체결 (지원금 지급 관련 거래약정서 작성)</li>
               <li>적금 만기 시 청구 (이자 확인서 첨부)</li>
