@@ -20,11 +20,11 @@ const GUIDE_CATEGORIES = [
 
 // 미소드림적금 취급은행 5곳 — 공식 홈페이지 링크 연결
 const DREAM_SAVINGS_BANKS = [
-  { name: '우리은행', url: 'https://www.wooribank.com', logo: '/logos/bank_woori.jpg' },
-  { name: '신한은행', url: 'https://www.shinhan.com', logo: '/logos/bank_shinhan.jpg' },
-  { name: '국민은행', url: 'https://www.kbstar.com', logo: '/logos/bank_kb.jpg' },
-  { name: 'KEB하나은행', url: 'https://www.kebhana.com', logo: '/logos/bank_hana.jpg' },
-  { name: '기업은행', url: 'https://www.ibk.co.kr', logo: '/logos/bank_ibk.jpg' },
+  { name: '우리은행', url: 'https://www.wooribank.com', logo: '/logos/bank_woori.png' },
+  { name: '신한은행', url: 'https://www.shinhan.com', logo: '/logos/bank_shinhan.png' },
+  { name: '국민은행', url: 'https://www.kbstar.com', logo: '/logos/bank_kb.png' },
+  { name: 'KEB하나은행', url: 'https://www.kebhana.com', logo: '/logos/bank_hana.png' },
+  { name: '기업은행', url: 'https://www.ibk.co.kr', logo: '/logos/bank_ibk.png' },
 ];
 
 export default function GuideSection({ sectionId }: { sectionId?: string }) {
