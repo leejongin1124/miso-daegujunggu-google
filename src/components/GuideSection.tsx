@@ -1519,10 +1519,10 @@ export default function GuideSection({ sectionId }: { sectionId?: string }) {
             </ol>
             <h3 className="font-black text-slate-900 pt-2">② 지점 방문 신청절차</h3>
             <ol className="text-sm text-slate-600 space-y-1 list-decimal list-inside">
-              <li>추천서 발급 (미소금융 지점 방문, 지원대상 확인서류 지참, 신청서 작성)</li>
+              <li>추천서 발급 (미소금융 지점 방문, <strong className="font-black text-amber-700">지원대상 확인서류 지참</strong>, 신청서 작성)</li>
               <li>적금통장 개설 (은행 지점 방문, 추천서 지참)</li>
-              <li>약정체결 (미소금융 지점 방문, 지원금 지급 관련 거래약정서 작성)</li>
-              <li>적금 만기 시 청구 (미소금융 지점 방문, 해지 이자 영수증 지참)</li>
+              <li>약정체결 (미소금융 지점 방문, <strong className="font-black text-amber-700">신규 적금통장 지참</strong>, 지원금 지급 관련 거래약정서 작성)</li>
+              <li>적금 만기 시 청구 (미소금융 지점 방문, <strong className="font-black text-amber-700">해지 이자 영수증 지참</strong>)</li>
               <li>지원금 지급 (서민금융진흥원이 계좌로 송금)</li>
             </ol>
           </div>
