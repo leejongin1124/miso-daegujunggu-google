@@ -1471,8 +1471,11 @@ export default function GuideSection({ sectionId }: { sectionId?: string }) {
             <div className="mt-4 bg-amber-50 border border-amber-300 rounded-xl p-4 flex items-start gap-2.5">
               <AlertTriangle className="w-5 h-5 text-amber-600 flex-shrink-0 mt-0.5" />
               <ul className="text-sm font-bold text-amber-800 space-y-1 break-keep">
-                <li>적금 신규는 1인당 평생 1회만 가능하며, 최초 가입한 적금을 해지하신 이후에는 다시 가입하실 수 없습니다. 신규 가입 시 적금 기간을 신중히 선택하시기 바랍니다.</li>
-                <li>서민금융진흥원 이자지원금은 최대 3년, 50만 원 미만까지만 지원됩니다.</li>
+                <li>
+                  적금 신규는 1인당 평생 1회만 가능하며, 최초 가입한 적금을 해지하신 이후에는 다시 가입하실 수 없습니다.
+                  <br />
+                  신규 가입 시 적금 기간을 신중히 선택하시기 바랍니다. 서민금융진흥원 이자지원금은 최대 3년, 50만 원 미만까지만 지원됩니다.
+                </li>
               </ul>
             </div>
           </div>
