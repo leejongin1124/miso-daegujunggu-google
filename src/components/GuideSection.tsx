@@ -18,6 +18,15 @@ const GUIDE_CATEGORIES = [
   { id: 'miso-dream-savings', label: '미소드림적금', desc: '성실상환자 대상 자산형성 적금', icon: PiggyBank, path: '/guide/miso-dream-savings' },
 ];
 
+// 미소드림적금 취급은행 5곳 — 공식 홈페이지 링크 연결
+const DREAM_SAVINGS_BANKS = [
+  { name: '우리은행', url: 'https://www.wooribank.com', color: 'text-blue-600' },
+  { name: '신한은행', url: 'https://www.shinhan.com', color: 'text-sky-600' },
+  { name: '국민은행', url: 'https://www.kbstar.com', color: 'text-amber-600' },
+  { name: 'KEB하나은행', url: 'https://www.kebhana.com', color: 'text-green-600' },
+  { name: '기업은행', url: 'https://www.ibk.co.kr', color: 'text-blue-700' },
+];
+
 export default function GuideSection({ sectionId }: { sectionId?: string }) {
   const navigate = useNavigate();
   const show = (ids: string | string[]) =>
@@ -1405,7 +1414,21 @@ export default function GuideSection({ sectionId }: { sectionId?: string }) {
 
           <div className="bg-white border border-slate-200 rounded-2xl p-6 space-y-3">
             <h3 className="font-black text-slate-900">거래방법</h3>
-            <p className="text-sm text-slate-600">5개 은행(우리·신한·국민·KEB하나·기업은행) 영업점 창구</p>
+            <p className="text-sm text-slate-600">5개 은행 영업점 창구 (은행명을 누르면 홈페이지로 이동합니다)</p>
+            <div className="grid grid-cols-2 sm:grid-cols-5 gap-2 pt-1">
+              {DREAM_SAVINGS_BANKS.map((bank) => (
+                <a
+                  key={bank.name}
+                  href={bank.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex flex-col items-center gap-1.5 bg-slate-50 hover:bg-miso-blue-50 border border-slate-200 hover:border-miso-blue-300 rounded-xl px-3 py-3 transition-colors text-center"
+                >
+                  <Landmark className={`w-5 h-5 ${bank.color}`} />
+                  <span className="text-xs font-bold text-slate-700">{bank.name}</span>
+                </a>
+              ))}
+            </div>
             <h3 className="font-black text-slate-900 pt-2">① 비대면 신청절차 (서민금융진흥원 잇다 앱)</h3>
             <ol className="text-sm text-slate-600 space-y-1 list-decimal list-inside">
               <li>추천서 발급 및 사전약정 체결 (잇다 앱에서 신청, 지원대상 확인 서류 첨부)</li>
