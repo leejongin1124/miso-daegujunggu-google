@@ -1465,7 +1465,8 @@ export default function GuideSection({ sectionId }: { sectionId?: string }) {
                 </tr>
               </tbody>
             </table>
-            <p className="text-xs text-slate-400 mt-3">※ 괄호는 만기까지 유지 시 우대금리 1%p 적용된 금리이며, 중도해지 시 취급은행별 중도해지 이율이 적용됩니다. 적금 금리는 기준금리 변동에 따라 달라질 수 있습니다.</p>
+            <p className="text-xs text-slate-400 mt-3">※ 괄호는 만기까지 유지 시 우대금리 1%p 적용된 금리이며, 중도해지 시 취급은행별 중도해지 이율이 적용됩니다.</p>
+            <p className="text-xs font-bold text-amber-700 mt-1">※ 적용금리는 기준금리 변동에 따라 달라질 수 있습니다.</p>
 
             <div className="mt-4 bg-amber-50 border border-amber-300 rounded-xl p-4 flex items-start gap-2.5">
               <AlertTriangle className="w-5 h-5 text-amber-600 flex-shrink-0 mt-0.5" />
