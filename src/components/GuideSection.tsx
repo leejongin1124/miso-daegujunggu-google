@@ -6,7 +6,7 @@
 import { useState, useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { motion } from 'motion/react';
-import { CheckCircle2, AlertTriangle, Calculator, FileText, Info, HelpCircle, CornerDownRight, Landmark, FileCheck, ChevronDown, ChevronRight, Search, MapPin, Monitor, Smartphone } from 'lucide-react';
+import { CheckCircle2, AlertTriangle, Calculator, FileText, Info, HelpCircle, CornerDownRight, Landmark, FileCheck, ChevronDown, ChevronRight, Search, MapPin, Monitor, Smartphone, PiggyBank } from 'lucide-react';
 import MisoIntroSection from './MisoIntroSection';
 
 const GUIDE_CATEGORIES = [
@@ -15,6 +15,7 @@ const GUIDE_CATEGORIES = [
   { id: 'process-guide', label: '신청 절차·준비서류', desc: '상담부터 결과 안내까지의 절차', icon: FileCheck, path: '/guide/process-guide' },
   { id: 'faq-section', label: '자주 묻는 질문', desc: '신청 전 궁금한 점 모음', icon: HelpCircle, path: '/guide/faq-section' },
   { id: 'loan-calc-intro', label: '대출금 계산기', desc: '월 상환 예정액을 미리 계산', icon: Calculator, path: '/guide/loan-calc-intro' },
+  { id: 'miso-dream-savings', label: '미소드림적금', desc: '성실상환자 대상 자산형성 적금', icon: PiggyBank, path: '/guide/miso-dream-savings' },
 ];
 
 export default function GuideSection({ sectionId }: { sectionId?: string }) {
@@ -1348,6 +1349,80 @@ export default function GuideSection({ sectionId }: { sectionId?: string }) {
           </div>
 
         </div></>}
+
+        {/* 미소드림적금 */}
+        {show('miso-dream-savings') && <div id="miso-dream-savings" className="max-w-4xl mx-auto space-y-8">
+          <div className="text-center space-y-4">
+            <span className="text-xs font-black text-miso-blue-600 tracking-widest uppercase">Asset-Building Savings</span>
+            <h2 className="text-3xl md:text-[2.6rem] font-black text-slate-900 tracking-tight leading-none">
+              미소드림적금
+            </h2>
+            <div className="h-1.5 w-16 bg-miso-blue-600 rounded-full mx-auto" />
+            <p className="text-slate-600 font-medium text-base md:text-lg max-w-2xl mx-auto leading-relaxed break-keep">
+              서민의 경제적 자립기반 마련을 위해 자산형성을 지원하는 서민금융진흥원 적금 상품입니다.
+            </p>
+            <p className="text-xs text-slate-400 font-semibold">
+              본 상품은 서민금융진흥원이 운영하며, 미소금융대구중구법인은 안내만 제공합니다. 실제 가입·상담은 서민금융진흥원 잇다 앱 또는 제휴은행에서 진행됩니다.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+            <div className="bg-white border border-slate-200 rounded-2xl p-5">
+              <p className="text-xs font-bold text-slate-400">지원대상</p>
+              <p className="mt-1 font-black text-slate-900 text-sm break-keep">미소금융·채무조정 성실상환자</p>
+            </div>
+            <div className="bg-white border border-slate-200 rounded-2xl p-5">
+              <p className="text-xs font-bold text-slate-400">가입금액</p>
+              <p className="mt-1 font-black text-slate-900 text-sm">자유적립식, 월 1만~20만 원</p>
+            </div>
+            <div className="bg-white border border-slate-200 rounded-2xl p-5">
+              <p className="text-xs font-bold text-slate-400">금리</p>
+              <p className="mt-1 font-black text-slate-900 text-sm">최대 연 10% 수준<br /><span className="text-slate-400 font-semibold text-xs">(은행이자 최대 5% + 서금원 이자지원금 최대 5%)</span></p>
+            </div>
+          </div>
+
+          <div className="bg-white border border-slate-200 rounded-2xl p-6 overflow-x-auto">
+            <h3 className="font-black text-slate-900 mb-3">가입기간별 금리</h3>
+            <table className="w-full text-sm text-center min-w-[480px]">
+              <thead>
+                <tr className="text-slate-400 text-xs">
+                  <th className="py-2">가입기간</th><th>1년</th><th>2년</th><th>3년</th><th>4년</th><th>5년</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr className="font-bold text-slate-800">
+                  <td className="py-2">연이율(만기 시)</td>
+                  <td>3.6%<br /><span className="text-miso-blue-600 text-xs">(4.6%)</span></td>
+                  <td>3.8%<br /><span className="text-miso-blue-600 text-xs">(4.8%)</span></td>
+                  <td>4.0%<br /><span className="text-miso-blue-600 text-xs">(5.0%)</span></td>
+                  <td>4.0%<br /><span className="text-miso-blue-600 text-xs">(5.0%)</span></td>
+                  <td>4.0%<br /><span className="text-miso-blue-600 text-xs">(5.0%)</span></td>
+                </tr>
+              </tbody>
+            </table>
+            <p className="text-xs text-slate-400 mt-3">※ 괄호는 만기까지 유지 시 우대금리 1%p 적용된 금리이며, 중도해지 시 취급은행별 중도해지 이율이 적용됩니다. 적금 금리는 기준금리 변동에 따라 달라질 수 있습니다.</p>
+          </div>
+
+          <div className="bg-white border border-slate-200 rounded-2xl p-6 space-y-3">
+            <h3 className="font-black text-slate-900">거래방법</h3>
+            <p className="text-sm text-slate-600">5개 은행(우리·신한·국민·KEB하나·기업은행) 영업점 창구, 또는 서민금융진흥원 잇다 앱 비대면 신청</p>
+            <h3 className="font-black text-slate-900 pt-2">신청절차 (지점 방문 시)</h3>
+            <ol className="text-sm text-slate-600 space-y-1 list-decimal list-inside">
+              <li>추천서 발급 (미소금융 지점 방문, 신청서 작성)</li>
+              <li>적금통장 개설 (추천서에 기재된 은행 지점 방문)</li>
+              <li>약정체결 (지원금 지급 관련 거래약정서 작성)</li>
+              <li>적금 만기 시 청구 (이자 확인서 첨부)</li>
+              <li>지원금 지급 (서민금융진흥원이 계좌로 송금)</li>
+            </ol>
+          </div>
+
+          <div className="text-center">
+            <a href="tel:053-252-6408" className="inline-flex items-center gap-2 bg-miso-blue-600 hover:bg-miso-blue-700 text-white font-black px-6 py-3 rounded-xl text-sm transition shadow">
+              📞 미소드림적금 상담 문의 (053-252-6408)
+            </a>
+            <p className="text-xs text-slate-400 mt-2">정확한 최신 조건은 서민금융진흥원(대표전화 1397) 공식 안내를 따릅니다.</p>
+          </div>
+        </div>}
 
       </div>
     </section>

@@ -30,7 +30,7 @@ const SECTION_MAP: Record<string, string> = {
   'social-finance': 'products', 'business-fund': 'products',
   'youth-fund': 'products', 'vulnerable-fund': 'products', 'products-all': 'products',
   'loan-target': 'guide', 'faq-section': 'guide',
-  'loan-calc-intro': 'guide', 'loan-calc': 'guide', 'process-guide': 'guide',
+  'loan-calc-intro': 'guide', 'loan-calc': 'guide', 'process-guide': 'guide', 'miso-dream-savings': 'guide',
   'case-social': 'cases', 'case-business': 'cases',
   'case-youth': 'cases', 'case-vulnerable': 'cases',
   'notice': 'notice', 'anti-fraud': 'notice',
@@ -50,7 +50,7 @@ const ROUTE_FOR_COMPONENT: Record<string, (sectionId: string) => string> = {
 const PRODUCT_TABS = ['social', 'business', 'youth', 'vulnerable'];
 const CASE_FILTERS = ['social', 'business', 'youth', 'vulnerable'];
 const ABOUT_SECTIONS = ['ceo-greeting', 'about-miso', 'history', 'organization', 'finance-report', 'location'];
-const GUIDE_SECTIONS = ['loan-target', 'faq-section', 'loan-calc-intro', 'loan-calc', 'process-guide'];
+const GUIDE_SECTIONS = ['loan-target', 'faq-section', 'loan-calc-intro', 'loan-calc', 'process-guide', 'miso-dream-savings'];
 const NOTICE_SECTIONS = ['notice', 'anti-fraud'];
 
 const sectionToProductTab: Record<string, string> = {
