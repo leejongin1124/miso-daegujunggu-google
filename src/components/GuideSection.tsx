@@ -1431,6 +1431,17 @@ export default function GuideSection({ sectionId }: { sectionId?: string }) {
                 서민금융진흥원 미소드림적금 공식 안내 바로가기
               </a>
             </div>
+            <div>
+              <a
+                href="https://m.blog.naver.com/PostView.naver?blogId=eornwndrn1&logNo=223866662723&navType=by"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1.5 text-slate-500 hover:text-slate-700 font-semibold text-xs underline underline-offset-2"
+              >
+                <ExternalLink className="w-3.5 h-3.5" />
+                미소드림적금 후기 블로그 보러가기
+              </a>
+            </div>
             <p className="text-xs text-slate-400">정확한 최신 조건은 서민금융진흥원(대표전화 1397) 공식 안내를 따릅니다.</p>
           </div>
         </div>}
