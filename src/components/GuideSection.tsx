@@ -1480,6 +1480,16 @@ export default function GuideSection({ sectionId }: { sectionId?: string }) {
                 </a>
               ))}
             </div>
+
+            <div className="bg-sky-50 border border-sky-200 rounded-xl p-4 flex items-start gap-2.5">
+              <Info className="w-5 h-5 text-sky-600 flex-shrink-0 mt-0.5" />
+              <ul className="text-sm font-semibold text-sky-900 space-y-1.5 break-keep">
+                <li>지점을 방문해 신청하실 경우, 확인서류를 발급받기 위해 행정복지센터나 신용회복위원회를 직접 방문하셔야 할 수 있습니다.</li>
+                <li>반면 잇다 앱으로 비대면 신청하시면 온라인으로 대상자 확인서류만 제출하면 되고, 서민금융진흥원의 승인 안내(카카오톡·문자)를 받은 즉시 은행을 방문해 적금에 바로 가입하실 수 있어 절차가 더 간편합니다.</li>
+                <li>적금을 해지하신 뒤 이자지원금을 다시 신청하실 때도 사무실 방문 없이 잇다 앱에서 바로 신청하실 수 있습니다.</li>
+              </ul>
+            </div>
+
             <h3 className="font-black text-slate-900 pt-2">① 비대면 신청절차 (서민금융진흥원 잇다 앱)</h3>
             <ol className="text-sm text-slate-600 space-y-1 list-decimal list-inside">
               <li>
