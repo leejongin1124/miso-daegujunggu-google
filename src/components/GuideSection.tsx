@@ -1518,7 +1518,7 @@ export default function GuideSection({ sectionId }: { sectionId?: string }) {
             </ol>
             <h3 className="font-black text-slate-900 pt-2">② 지점 방문 신청절차</h3>
             <ol className="text-sm text-slate-600 space-y-1 list-decimal list-inside">
-              <li>추천서 발급 (미소금융 지점 방문, 신청서 작성 및 지원대상 확인서류 지참)</li>
+              <li>추천서 발급 (지원대상 확인서류 지참, 미소금융 지점 방문, 신청서 작성)</li>
               <li>적금통장 개설 (추천서에 기재된 은행 지점 방문)</li>
               <li>약정체결 (지원금 지급 관련 거래약정서 작성)</li>
               <li>적금 만기 시 청구 (이자 확인서 첨부)</li>
