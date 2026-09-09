@@ -33,6 +33,8 @@ export default function GuideSection({ sectionId }: { sectionId?: string }) {
     !sectionId || (Array.isArray(ids) ? ids.includes(sectionId) : sectionId === ids);
   // FAQ 아코디언 상태 변수
   const [openFaqId, setOpenFaqId] = useState<number | null>(null);
+  // 미소드림적금 지원대상 세부 기준표 펼침 상태
+  const [dreamTargetOpen, setDreamTargetOpen] = useState(false);
   // FAQ 카테고리 필터 · 검색어 상태
   const [faqCategory, setFaqCategory] = useState('전체');
   const [faqQuery, setFaqQuery] = useState('');
@@ -1390,9 +1392,19 @@ export default function GuideSection({ sectionId }: { sectionId?: string }) {
             </div>
           </div>
 
-          <div className="bg-white border border-slate-200 rounded-2xl p-6 overflow-x-auto">
-            <h3 className="font-black text-slate-900 mb-1">지원대상 세부 기준</h3>
-            <p className="text-xs text-slate-400 mb-4 break-keep">가입대상 구분에 따라 제출 서류가 다르므로 아래 기준을 확인하시기 바랍니다.</p>
+          <div className="bg-white border border-slate-200 rounded-2xl p-6">
+            <button
+              type="button"
+              onClick={() => setDreamTargetOpen((prev) => !prev)}
+              className="w-full flex items-center justify-between gap-2 text-left"
+            >
+              <div>
+                <h3 className="font-black text-slate-900 mb-1">지원대상 세부 기준</h3>
+                <p className="text-xs text-slate-400 break-keep">가입대상 구분에 따라 제출 서류가 다르므로 아래 기준을 확인하시기 바랍니다.</p>
+              </div>
+              <ChevronDown className={`w-5 h-5 text-slate-400 flex-shrink-0 transition-transform ${dreamTargetOpen ? 'rotate-180' : ''}`} />
+            </button>
+            {dreamTargetOpen && <div className="overflow-x-auto mt-4">
             <table className="w-full text-sm text-left min-w-[640px] border-collapse">
               <thead>
                 <tr className="text-slate-500 text-xs">
@@ -1427,6 +1439,7 @@ export default function GuideSection({ sectionId }: { sectionId?: string }) {
               </tbody>
             </table>
             <p className="text-xs text-slate-400 mt-3">※ 채무조정 성실상환자의 확인서류는 차상위계층 이하 서류만 인정됩니다. 세부 서류 및 발급 방법은 서민금융진흥원(1397) 또는 지점 상담 시 안내받으실 수 있습니다.</p>
+            </div>}
           </div>
 
           <div className="bg-white border border-slate-200 rounded-2xl p-6 overflow-x-auto">
