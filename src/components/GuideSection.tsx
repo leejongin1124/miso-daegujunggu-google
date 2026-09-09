@@ -1482,7 +1482,7 @@ export default function GuideSection({ sectionId }: { sectionId?: string }) {
 
           <div className="bg-white border border-slate-200 rounded-2xl p-6 space-y-3">
             <h3 className="font-black text-slate-900">거래방법</h3>
-            <p className="text-sm text-slate-600 break-keep">5개 은행 영업점 창구</p>
+            <p className="text-sm text-slate-600 break-keep">5개 은행 영업점 창구 방문 신규</p>
             <div className="grid grid-cols-2 sm:grid-cols-3 gap-2 pt-1">
               {DREAM_SAVINGS_BANKS.map((bank) => (
                 <a
