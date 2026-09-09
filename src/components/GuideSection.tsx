@@ -1443,7 +1443,13 @@ export default function GuideSection({ sectionId }: { sectionId?: string }) {
             </div>
             <h3 className="font-black text-slate-900 pt-2">① 비대면 신청절차 (서민금융진흥원 잇다 앱)</h3>
             <ol className="text-sm text-slate-600 space-y-1 list-decimal list-inside">
-              <li>추천서 발급 및 사전약정 체결 (잇다 앱에서 신청, 지원대상 확인 서류 첨부)</li>
+              <li>
+                추천서 발급 및 사전약정 체결 (
+                <a href="https://loan.kinfa.or.kr/main.ke" target="_blank" rel="noopener noreferrer" className="text-miso-blue-600 hover:text-miso-blue-700 font-bold underline underline-offset-2">
+                  잇다 앱
+                </a>
+                에서 신청, 지원대상 확인 서류 첨부)
+              </li>
               <li>적금통장 개설 (추천서에 기재된 은행 지점 방문)</li>
               <li>적금 만기 시 청구 (잇다 앱에서 이자지원금 신청)</li>
               <li>지원금 지급 (서민금융진흥원이 계좌로 송금)</li>
