@@ -1438,7 +1438,7 @@ export default function GuideSection({ sectionId }: { sectionId?: string }) {
                 </tr>
               </tbody>
             </table>
-            <p className="text-xs text-slate-400 mt-3">※ 채무조정 성실상환자의 확인서류는 차상위계층 이하 서류만 인정됩니다. 세부 서류 및 발급 방법은 서민금융진흥원(1397) 또는 지점 상담 시 안내받으실 수 있습니다.</p>
+            <p className="text-xs text-slate-400 mt-3 break-keep">※ 채무조정 성실상환자의 확인서류는 차상위계층 이하 서류만 인정됩니다. 세부 서류 및 발급 방법은 서민금융진흥원(1397) 또는 지점 상담 시 안내받으실 수 있습니다.</p>
             </div>}
           </div>
 
@@ -1465,8 +1465,8 @@ export default function GuideSection({ sectionId }: { sectionId?: string }) {
                 </tr>
               </tbody>
             </table>
-            <p className="text-xs text-slate-400 mt-3">※ 괄호는 만기까지 유지 시 우대금리 1%p 적용된 금리이며, 중도해지 시 취급은행별 중도해지 이율이 적용됩니다.</p>
-            <p className="text-xs font-bold text-amber-700 mt-1">※ 적용금리는 기준금리 변동에 따라 달라질 수 있습니다.</p>
+            <p className="text-xs text-slate-400 mt-3 break-keep">※ 괄호는 만기까지 유지 시 우대금리 1%p 적용된 금리이며, 중도해지 시 취급은행별 중도해지 이율이 적용됩니다.</p>
+            <p className="text-xs font-bold text-amber-700 mt-1 break-keep">※ 적용금리는 기준금리 변동에 따라 달라질 수 있습니다.</p>
 
             <div className="mt-4 bg-amber-50 border border-amber-300 rounded-xl p-4 flex items-start gap-2.5">
               <AlertTriangle className="w-5 h-5 text-amber-600 flex-shrink-0 mt-0.5" />
@@ -1479,7 +1479,7 @@ export default function GuideSection({ sectionId }: { sectionId?: string }) {
 
           <div className="bg-white border border-slate-200 rounded-2xl p-6 space-y-3">
             <h3 className="font-black text-slate-900">거래방법</h3>
-            <p className="text-sm text-slate-600">5개 은행 영업점 창구 (은행명을 누르면 홈페이지로 이동합니다)</p>
+            <p className="text-sm text-slate-600 break-keep">5개 은행 영업점 창구 (은행명을 누르면 홈페이지로 이동합니다)</p>
             <div className="grid grid-cols-2 sm:grid-cols-5 gap-2 pt-1">
               {DREAM_SAVINGS_BANKS.map((bank) => (
                 <a
@@ -1504,8 +1504,8 @@ export default function GuideSection({ sectionId }: { sectionId?: string }) {
               </ul>
             </div>
 
-            <h3 className="font-black text-slate-900 pt-2">① 비대면 신청절차 (서민금융진흥원 잇다 앱)</h3>
-            <ol className="text-sm text-slate-600 space-y-1 list-decimal list-inside">
+            <h3 className="font-black text-slate-900 pt-2 break-keep">① 비대면 신청절차 (서민금융진흥원 잇다 앱)</h3>
+            <ol className="text-sm text-slate-600 space-y-1 list-decimal list-inside break-keep">
               <li>
                 추천서 발급 및 사전약정 체결 (
                 <a href="https://loan.kinfa.or.kr/main.ke" target="_blank" rel="noopener noreferrer" className="text-miso-blue-600 hover:text-miso-blue-700 font-bold underline underline-offset-2">
@@ -1518,7 +1518,7 @@ export default function GuideSection({ sectionId }: { sectionId?: string }) {
               <li>지원금 지급 (서민금융진흥원이 계좌로 송금)</li>
             </ol>
             <h3 className="font-black text-slate-900 pt-2">② 지점 방문 신청절차</h3>
-            <ol className="text-sm text-slate-600 space-y-1 list-decimal list-inside">
+            <ol className="text-sm text-slate-600 space-y-1 list-decimal list-inside break-keep">
               <li>추천서 발급 (미소금융 지점 방문, <strong className="font-black text-amber-700">지원대상 확인서류 지참</strong>, 신청서 작성)</li>
               <li>적금통장 개설 (은행 지점 방문, 추천서 지참)</li>
               <li>약정체결 (미소금융 지점 방문, <strong className="font-black text-amber-700">신규 적금통장 지참</strong>, 지원금 지급 관련 거래약정서 작성)</li>
