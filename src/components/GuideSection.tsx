@@ -1620,8 +1620,8 @@ export default function GuideSection({ sectionId }: { sectionId?: string }) {
                 미소드림적금 후기 블로그 보러가기
               </a>
             </div>
-            <a href="tel:053-252-7479" className="inline-flex items-center gap-2 bg-miso-blue-600 hover:bg-miso-blue-700 text-white font-black px-6 py-3 rounded-xl text-sm transition shadow">
-              📞 미소드림적금 상담 문의 (053-252-7479)
+            <a href="tel:053-252-6479" className="inline-flex items-center gap-2 bg-miso-blue-600 hover:bg-miso-blue-700 text-white font-black px-6 py-3 rounded-xl text-sm transition shadow">
+              📞 미소드림적금 상담 문의 (053-252-6479)
             </a>
             <p className="text-xs text-slate-400">정확한 최신 조건은 서민금융진흥원(대표전화 1397) 공식 안내를 따릅니다.</p>
           </div>
