@@ -1391,6 +1391,45 @@ export default function GuideSection({ sectionId }: { sectionId?: string }) {
           </div>
 
           <div className="bg-white border border-slate-200 rounded-2xl p-6 overflow-x-auto">
+            <h3 className="font-black text-slate-900 mb-1">지원대상 세부 기준</h3>
+            <p className="text-xs text-slate-400 mb-4 break-keep">가입대상 구분에 따라 제출 서류가 다르므로 아래 기준을 확인하시기 바랍니다.</p>
+            <table className="w-full text-sm text-left min-w-[640px] border-collapse">
+              <thead>
+                <tr className="text-slate-500 text-xs">
+                  <th className="py-2 pr-3 w-28">구분</th>
+                  <th className="py-2 px-3 border-l border-slate-100">미소금융 성실상환자</th>
+                  <th className="py-2 px-3 border-l border-slate-100">채무조정 성실상환자</th>
+                </tr>
+              </thead>
+              <tbody className="align-top">
+                <tr className="border-t border-slate-100">
+                  <td className="py-3 pr-3 font-bold text-slate-700">성실상환자<br />구분기준</td>
+                  <td className="py-3 px-3 border-l border-slate-100 text-slate-600 break-keep">신청일 현재 연체 중이지 않은 자로서, 연체일수 1일 이상인 계좌가 1건도 없는 자</td>
+                  <td className="py-3 px-3 border-l border-slate-100 text-slate-600 break-keep">신용회복위원회 및 국민행복기금 채무조정자 중 신청일 현재 채무변제계획 확정일(약정체결일)로부터 6개월이 경과하고, 납입금을 연체 없이 6회차 이상 상환한 자</td>
+                </tr>
+                <tr className="border-t border-slate-100">
+                  <td className="py-3 pr-3 font-bold text-slate-700">대상자</td>
+                  <td className="py-3 px-3 border-l border-slate-100 text-slate-600 break-keep">차상위계층 이하인 자, 근로장려금 신청자격 요건 해당자, 취약계층 생계자금 대출대상자 중 미소드림적금 지원대상자</td>
+                  <td className="py-3 px-3 border-l border-slate-100 text-slate-600 break-keep">차상위계층 이하인 자</td>
+                </tr>
+                <tr className="border-t border-slate-100">
+                  <td className="py-3 pr-3 font-bold text-slate-700">확인서류<br />(택1)</td>
+                  <td className="py-3 px-3 border-l border-slate-100 text-slate-600 space-y-2 break-keep">
+                    <p>· (차상위계층 이하) 차상위 본인부담경감대상자 증명서, 차상위계층 확인서, 자활근로자확인서, 장애수당대상자확인서, 국민기초생활수급자 증명서</p>
+                    <p>· (근로장려금 신청자격요건 해당자) 근로·자녀장려금 수급사실 증명</p>
+                    <p>· (취약계층자립자금 대상자) 한부모가족증명서, 가족관계증명서(다문화가족), 북한이탈주민등록확인서, 장애인등록증, 선포 또는 공고·고시일 현재 특별재난지역 등에 거주하거나 사업을 영위하고 있음을 확인할 수 있는 서류</p>
+                  </td>
+                  <td className="py-3 px-3 border-l border-slate-100 text-slate-600 space-y-2 break-keep">
+                    <p>· 채무변제 상환내역 확인서(신용회복위원회 등 발급)</p>
+                    <p>· (차상위계층 이하) 차상위 본인부담경감대상자 증명서, 차상위계층 확인서, 자활근로자확인서, 장애수당대상자확인서, 국민기초생활수급자 증명서</p>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            <p className="text-xs text-slate-400 mt-3">※ 채무조정 성실상환자의 확인서류는 차상위계층 이하 서류만 인정됩니다. 세부 서류 및 발급 방법은 서민금융진흥원(1397) 또는 지점 상담 시 안내받으실 수 있습니다.</p>
+          </div>
+
+          <div className="bg-white border border-slate-200 rounded-2xl p-6 overflow-x-auto">
             <div className="flex items-baseline gap-2 mb-3">
               <span className="text-xs font-black text-miso-blue-600 tracking-widest uppercase">가입기간</span>
               <span className="text-slate-300">·</span>
