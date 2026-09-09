@@ -288,6 +288,21 @@ export default function GuideSection({ sectionId }: { sectionId?: string }) {
     });
   }, [loanAmount, interestRate, gracePeriod, repaymentPeriod, gracePeriodRate]);
 
+  const dreamSavingsOnlineSteps = [
+    { step: '01', icon: '📱', label: '추천서 신청', title: '추천서 발급·사전약정 체결', desc: '잇다 앱에서 신청', link: { text: '잇다 앱', url: 'https://loan.kinfa.or.kr/main.ke' } },
+    { step: '02', icon: '🏦', label: '통장 개설', title: '적금통장 개설', desc: '추천서에 기재된 은행 지점 방문' },
+    { step: '03', icon: '💰', label: '만기 청구', title: '적금 만기 시 청구', desc: '잇다 앱에서 이자지원금 신청' },
+    { step: '04', icon: '📬', label: '지원금 지급', title: '지원금 지급', desc: '서민금융진흥원이 계좌로 송금' },
+  ];
+
+  const dreamSavingsBranchSteps = [
+    { step: '01', icon: '🪪', label: '추천서 발급', title: '미소금융 지점 방문·신청서 작성', desc: '지원대상 확인서류·신분증 필수 지참', emphasis: '지원대상 확인서류·신분증 필수 지참' },
+    { step: '02', icon: '🏦', label: '통장 개설', title: '적금통장 개설', desc: '은행 지점 방문, 추천서 지참' },
+    { step: '03', icon: '📝', label: '약정체결', title: '거래약정서 작성', desc: '미소금융 지점 방문, 신규 적금통장 지참', emphasis: '신규 적금통장 지참' },
+    { step: '04', icon: '💳', label: '만기 청구', title: '적금 만기 시 청구', desc: '미소금융 지점 방문, 해지 이자 영수증 지참', emphasis: '해지 이자 영수증 지참' },
+    { step: '05', icon: '📬', label: '지원금 지급', title: '지원금 지급', desc: '서민금융진흥원이 계좌로 송금' },
+  ];
+
   const processSteps = [
     {
       step: '01',
@@ -1506,27 +1521,80 @@ export default function GuideSection({ sectionId }: { sectionId?: string }) {
               </ul>
             </div>
 
-            <h3 className="font-black text-slate-900 pt-2 break-keep">① 비대면 신청절차 (서민금융진흥원 잇다 앱)</h3>
-            <ol className="text-sm text-slate-600 space-y-1 list-decimal list-inside break-keep">
-              <li>
-                추천서 발급 및 사전약정 체결 (
-                <a href="https://loan.kinfa.or.kr/main.ke" target="_blank" rel="noopener noreferrer" className="text-miso-blue-600 hover:text-miso-blue-700 font-bold underline underline-offset-2">
-                  잇다 앱
-                </a>
-                에서 신청)
-              </li>
-              <li>적금통장 개설 (추천서에 기재된 은행 지점 방문)</li>
-              <li>적금 만기 시 청구 (잇다 앱에서 이자지원금 신청)</li>
-              <li>지원금 지급 (서민금융진흥원이 계좌로 송금)</li>
-            </ol>
-            <h3 className="font-black text-slate-900 pt-2">② 지점 방문 신청절차</h3>
-            <ol className="text-sm text-slate-600 space-y-1 list-decimal list-inside break-keep">
-              <li>추천서 발급 (미소금융 지점 방문, <strong className="font-black text-amber-700">지원대상 확인서류 지참</strong>, 신청서 작성, <strong className="font-black text-amber-700">신분증 필수 지참</strong>)</li>
-              <li>적금통장 개설 (은행 지점 방문, 추천서 지참)</li>
-              <li>약정체결 (미소금융 지점 방문, <strong className="font-black text-amber-700">신규 적금통장 지참</strong>, 지원금 지급 관련 거래약정서 작성)</li>
-              <li>적금 만기 시 청구 (미소금융 지점 방문, <strong className="font-black text-amber-700">해지 이자 영수증 지참</strong>)</li>
-              <li>지원금 지급 (서민금융진흥원이 계좌로 송금)</li>
-            </ol>
+            <div className="pt-2">
+              <h3 className="font-black text-slate-900 break-keep">① 비대면 신청절차 (서민금융진흥원 잇다 앱)</h3>
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-3 mt-4">
+                {dreamSavingsOnlineSteps.map((s, idx) => (
+                  <motion.div
+                    key={s.step}
+                    initial={{ opacity: 0, y: 14 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.35, delay: idx * 0.08 }}
+                    whileHover={{ y: -4 }}
+                    className="bg-white p-4 rounded-2xl border border-slate-100 shadow-sm hover:border-miso-blue-200 hover:shadow-md transition duration-300 flex flex-col"
+                  >
+                    <div className="flex items-center justify-between mb-2">
+                      <div className="w-7 h-7 rounded-lg bg-miso-blue-50 text-miso-blue-700 font-black text-[11px] flex items-center justify-center">
+                        {s.step}
+                      </div>
+                      <span className="text-xl">{s.icon}</span>
+                    </div>
+                    <span className="inline-block text-[10px] font-black text-miso-blue-600 bg-miso-blue-50 px-2 py-0.5 rounded-full mb-1.5 w-fit">
+                      {s.label}
+                    </span>
+                    <h4 className="font-extrabold text-slate-800 text-xs leading-snug break-keep">{s.title}</h4>
+                    <p className="text-slate-500 text-[11px] mt-1.5 leading-relaxed font-semibold break-keep">
+                      {s.link ? (
+                        <>
+                          <a href={s.link.url} target="_blank" rel="noopener noreferrer" className="text-miso-blue-600 hover:text-miso-blue-700 font-bold underline underline-offset-2">
+                            {s.link.text}
+                          </a>
+                          에서 신청
+                        </>
+                      ) : s.desc}
+                    </p>
+                  </motion.div>
+                ))}
+              </div>
+            </div>
+
+            <div className="pt-2">
+              <h3 className="font-black text-slate-900 break-keep">② 지점 방문 신청절차</h3>
+              <div className="grid grid-cols-2 md:grid-cols-5 gap-3 mt-4">
+                {dreamSavingsBranchSteps.map((s, idx) => (
+                  <motion.div
+                    key={s.step}
+                    initial={{ opacity: 0, y: 14 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.35, delay: idx * 0.08 }}
+                    whileHover={{ y: -4 }}
+                    className="bg-white p-4 rounded-2xl border border-slate-100 shadow-sm hover:border-amber-200 hover:shadow-md transition duration-300 flex flex-col"
+                  >
+                    <div className="flex items-center justify-between mb-2">
+                      <div className="w-7 h-7 rounded-lg bg-amber-50 text-amber-700 font-black text-[11px] flex items-center justify-center">
+                        {s.step}
+                      </div>
+                      <span className="text-xl">{s.icon}</span>
+                    </div>
+                    <span className="inline-block text-[10px] font-black text-amber-700 bg-amber-50 px-2 py-0.5 rounded-full mb-1.5 w-fit">
+                      {s.label}
+                    </span>
+                    <h4 className="font-extrabold text-slate-800 text-xs leading-snug break-keep">{s.title}</h4>
+                    <p className="text-slate-500 text-[11px] mt-1.5 leading-relaxed font-semibold break-keep">
+                      {s.emphasis ? (
+                        <>
+                          {s.desc.slice(0, s.desc.indexOf(s.emphasis))}
+                          <strong className="font-black text-amber-700">{s.emphasis}</strong>
+                          {s.desc.slice(s.desc.indexOf(s.emphasis) + s.emphasis.length)}
+                        </>
+                      ) : s.desc}
+                    </p>
+                  </motion.div>
+                ))}
+              </div>
+            </div>
           </div>
 
           <div className="text-center space-y-3">
