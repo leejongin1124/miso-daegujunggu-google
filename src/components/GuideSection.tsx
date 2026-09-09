@@ -6,7 +6,7 @@
 import { useState, useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { motion } from 'motion/react';
-import { CheckCircle2, AlertTriangle, Calculator, FileText, Info, HelpCircle, CornerDownRight, Landmark, FileCheck, ChevronDown, ChevronRight, Search, MapPin, Monitor, Smartphone, PiggyBank, ExternalLink } from 'lucide-react';
+import { CheckCircle2, AlertTriangle, Calculator, FileText, Info, HelpCircle, CornerDownRight, FileCheck, ChevronDown, ChevronRight, Search, MapPin, Monitor, Smartphone, PiggyBank, ExternalLink } from 'lucide-react';
 import MisoIntroSection from './MisoIntroSection';
 
 const GUIDE_CATEGORIES = [
@@ -20,11 +20,11 @@ const GUIDE_CATEGORIES = [
 
 // 미소드림적금 취급은행 5곳 — 공식 홈페이지 링크 연결
 const DREAM_SAVINGS_BANKS = [
-  { name: '우리은행', url: 'https://www.wooribank.com', color: 'text-blue-600' },
-  { name: '신한은행', url: 'https://www.shinhan.com', color: 'text-sky-600' },
-  { name: '국민은행', url: 'https://www.kbstar.com', color: 'text-amber-600' },
-  { name: 'KEB하나은행', url: 'https://www.kebhana.com', color: 'text-green-600' },
-  { name: '기업은행', url: 'https://www.ibk.co.kr', color: 'text-blue-700' },
+  { name: '우리은행', url: 'https://www.wooribank.com', logo: '/logos/bank_woori.jpg' },
+  { name: '신한은행', url: 'https://www.shinhan.com', logo: '/logos/bank_shinhan.jpg' },
+  { name: '국민은행', url: 'https://www.kbstar.com', logo: '/logos/bank_kb.jpg' },
+  { name: 'KEB하나은행', url: 'https://www.kebhana.com', logo: '/logos/bank_hana.jpg' },
+  { name: '기업은행', url: 'https://www.ibk.co.kr', logo: '/logos/bank_ibk.jpg' },
 ];
 
 export default function GuideSection({ sectionId }: { sectionId?: string }) {
@@ -1479,7 +1479,7 @@ export default function GuideSection({ sectionId }: { sectionId?: string }) {
 
           <div className="bg-white border border-slate-200 rounded-2xl p-6 space-y-3">
             <h3 className="font-black text-slate-900">거래방법</h3>
-            <p className="text-sm text-slate-600 break-keep">5개 은행 영업점 창구 (은행명을 누르면 홈페이지로 이동합니다)</p>
+            <p className="text-sm text-slate-600 break-keep">5개 은행 영업점 창구</p>
             <div className="grid grid-cols-2 sm:grid-cols-5 gap-2 pt-1">
               {DREAM_SAVINGS_BANKS.map((bank) => (
                 <a
@@ -1487,10 +1487,9 @@ export default function GuideSection({ sectionId }: { sectionId?: string }) {
                   href={bank.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex flex-col items-center gap-1.5 bg-slate-50 hover:bg-miso-blue-50 border border-slate-200 hover:border-miso-blue-300 rounded-xl px-3 py-3 transition-colors text-center"
+                  className="flex flex-col items-center justify-center gap-1.5 bg-white hover:bg-miso-blue-50 border border-slate-200 hover:border-miso-blue-300 rounded-xl px-3 py-3 transition-colors text-center min-h-[64px]"
                 >
-                  <Landmark className={`w-5 h-5 ${bank.color}`} />
-                  <span className="text-xs font-bold text-slate-700">{bank.name}</span>
+                  <img src={bank.logo} alt={bank.name} className="h-6 w-auto object-contain" />
                 </a>
               ))}
             </div>
@@ -1499,7 +1498,7 @@ export default function GuideSection({ sectionId }: { sectionId?: string }) {
               <Info className="w-5 h-5 text-sky-600 flex-shrink-0 mt-0.5" />
               <ul className="text-sm font-semibold text-sky-900 space-y-1.5 break-keep">
                 <li>지점 방문 신청은 확인서류 발급을 위해 행정복지센터나 신용회복위원회를 별도로 방문하셔야 할 수 있습니다.</li>
-                <li>잇다 앱 비대면 신청은 대상자 확인이 전산으로 자동 처리되어, 행정복지센터·신용회복위원회·미소금융 지점 방문 없이 은행만 방문하시면 됩니다. 서민금융진흥원 승인 안내(카카오톡·문자)를 받으신 즉시 은행에서 바로 적금 가입이 가능합니다.</li>
+                <li>잇다 앱 비대면 신청은 대상자 확인이 전산으로 자동 처리되어, 행정복지센터·신용회복위원회·미소금융 지점 방문 없이 은행만 방문하시면 됩니다. 서민금융진흥원 승인 안내(카카오톡·문자)를 받으신 후 은행에서 바로 적금 가입이 가능합니다.</li>
                 <li>적금 해지 후 이자지원금을 다시 신청하실 때도 방문 없이 잇다 앱에서 바로 하실 수 있습니다.</li>
               </ul>
             </div>
