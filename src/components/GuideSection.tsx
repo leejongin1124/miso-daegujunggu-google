@@ -1451,7 +1451,7 @@ export default function GuideSection({ sectionId }: { sectionId?: string }) {
             <table className="w-full text-sm text-center min-w-[480px]">
               <thead>
                 <tr className="text-slate-400 text-xs">
-                  <th className="py-2">가입기간</th><th>1년</th><th>2년</th><th>3년</th><th>4년</th><th>5년</th>
+                  <th className="py-2">가입기간</th><th className="font-black text-slate-700">1년</th><th className="font-black text-slate-700">2년</th><th className="font-black text-slate-700">3년</th><th>4년</th><th>5년</th>
                 </tr>
               </thead>
               <tbody>
@@ -1471,7 +1471,7 @@ export default function GuideSection({ sectionId }: { sectionId?: string }) {
             <div className="mt-4 bg-amber-50 border border-amber-300 rounded-xl p-4 flex items-start gap-2.5">
               <AlertTriangle className="w-5 h-5 text-amber-600 flex-shrink-0 mt-0.5" />
               <ul className="text-sm font-bold text-amber-800 space-y-1 break-keep">
-                <li>계좌개설은 1인당 평생 1회만 가능합니다.</li>
+                <li>적금 신규는 1인당 평생 1회만 가능하며, 최초 가입한 적금을 해지하신 이후에는 다시 가입하실 수 없습니다. 신규 가입 시 적금 기간을 신중히 선택하시기 바랍니다.</li>
                 <li>서민금융진흥원 이자지원금은 최대 3년, 50만 원 미만까지만 지원됩니다.</li>
               </ul>
             </div>
