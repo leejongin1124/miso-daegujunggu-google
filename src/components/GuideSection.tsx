@@ -1417,8 +1417,8 @@ export default function GuideSection({ sectionId }: { sectionId?: string }) {
           </div>
 
           <div className="text-center space-y-3">
-            <a href="tel:053-252-6408" className="inline-flex items-center gap-2 bg-miso-blue-600 hover:bg-miso-blue-700 text-white font-black px-6 py-3 rounded-xl text-sm transition shadow">
-              📞 미소드림적금 상담 문의 (053-252-6408)
+            <a href="tel:053-252-7479" className="inline-flex items-center gap-2 bg-miso-blue-600 hover:bg-miso-blue-700 text-white font-black px-6 py-3 rounded-xl text-sm transition shadow">
+              📞 미소드림적금 상담 문의 (053-252-7479)
             </a>
             <div>
               <a
