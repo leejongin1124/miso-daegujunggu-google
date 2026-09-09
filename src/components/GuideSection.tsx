@@ -1405,7 +1405,7 @@ export default function GuideSection({ sectionId }: { sectionId?: string }) {
 
           <div className="bg-white border border-slate-200 rounded-2xl p-6 space-y-3">
             <h3 className="font-black text-slate-900">거래방법</h3>
-            <p className="text-sm text-slate-600">5개 은행(우리·신한·국민·KEB하나·기업은행) 영업점 창구, 또는 서민금융진흥원 잇다 앱 비대면 신청</p>
+            <p className="text-sm text-slate-600">5개 은행(우리·신한·국민·KEB하나·기업은행) 영업점 창구</p>
             <h3 className="font-black text-slate-900 pt-2">① 비대면 신청절차 (서민금융진흥원 잇다 앱)</h3>
             <ol className="text-sm text-slate-600 space-y-1 list-decimal list-inside">
               <li>추천서 발급 및 사전약정 체결 (잇다 앱에서 신청, 지원대상 확인 서류 첨부)</li>
