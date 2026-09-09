@@ -6,7 +6,7 @@
 import { useState, useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { motion } from 'motion/react';
-import { CheckCircle2, AlertTriangle, Calculator, FileText, Info, HelpCircle, CornerDownRight, Landmark, FileCheck, ChevronDown, ChevronRight, Search, MapPin, Monitor, Smartphone, PiggyBank } from 'lucide-react';
+import { CheckCircle2, AlertTriangle, Calculator, FileText, Info, HelpCircle, CornerDownRight, Landmark, FileCheck, ChevronDown, ChevronRight, Search, MapPin, Monitor, Smartphone, PiggyBank, ExternalLink } from 'lucide-react';
 import MisoIntroSection from './MisoIntroSection';
 
 const GUIDE_CATEGORIES = [
@@ -1416,11 +1416,22 @@ export default function GuideSection({ sectionId }: { sectionId?: string }) {
             </ol>
           </div>
 
-          <div className="text-center">
+          <div className="text-center space-y-3">
             <a href="tel:053-252-6408" className="inline-flex items-center gap-2 bg-miso-blue-600 hover:bg-miso-blue-700 text-white font-black px-6 py-3 rounded-xl text-sm transition shadow">
               📞 미소드림적금 상담 문의 (053-252-6408)
             </a>
-            <p className="text-xs text-slate-400 mt-2">정확한 최신 조건은 서민금융진흥원(대표전화 1397) 공식 안내를 따릅니다.</p>
+            <div>
+              <a
+                href="https://www.kinfa.or.kr/financialProduct/smileDreamSavings.do"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1.5 text-miso-blue-600 hover:text-miso-blue-700 font-bold text-sm underline underline-offset-2"
+              >
+                <ExternalLink className="w-4 h-4" />
+                서민금융진흥원 미소드림적금 공식 안내 바로가기
+              </a>
+            </div>
+            <p className="text-xs text-slate-400">정확한 최신 조건은 서민금융진흥원(대표전화 1397) 공식 안내를 따릅니다.</p>
           </div>
         </div>}
 
