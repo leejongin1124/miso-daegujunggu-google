@@ -1151,9 +1151,9 @@ export default function AboutSection({ sectionId }: { sectionId?: string }) {
                       aria-label="네이버지도로 길찾기"
                       animate={{ boxShadow: ['0 0 0 0 rgba(3,199,90,0.5)', '0 0 0 6px rgba(3,199,90,0)', '0 0 0 0 rgba(3,199,90,0)'] }}
                       transition={{ duration: 1.8, repeat: Infinity, ease: 'easeOut' }}
-                      className="w-7 h-7 rounded-full bg-white border border-slate-200 flex items-center justify-center overflow-hidden hover:opacity-90 transition-opacity"
+                      className="w-10 h-10 rounded-full bg-white border border-slate-200 flex items-center justify-center overflow-hidden hover:opacity-90 transition-opacity"
                     >
-                      <img src="/logos/map_naver.png" alt="네이버지도" className="w-5 h-5 object-contain" />
+                      <img src="/logos/map_naver.png" alt="네이버지도" className="w-8 h-8 object-contain" />
                     </motion.a>
                     <motion.a
                       href="https://map.kakao.com/?q=미소금융대구중구법인"
@@ -1162,9 +1162,9 @@ export default function AboutSection({ sectionId }: { sectionId?: string }) {
                       aria-label="카카오맵으로 길찾기"
                       animate={{ boxShadow: ['0 0 0 0 rgba(254,229,0,0.6)', '0 0 0 6px rgba(254,229,0,0)', '0 0 0 0 rgba(254,229,0,0)'] }}
                       transition={{ duration: 1.8, repeat: Infinity, ease: 'easeOut', delay: 0.15 }}
-                      className="w-7 h-7 rounded-full bg-white border border-slate-200 flex items-center justify-center overflow-hidden hover:opacity-90 transition-opacity"
+                      className="w-10 h-10 rounded-full bg-white border border-slate-200 flex items-center justify-center overflow-hidden hover:opacity-90 transition-opacity"
                     >
-                      <img src="/logos/map_kakao.png" alt="카카오맵" className="w-5 h-5 object-contain" />
+                      <img src="/logos/map_kakao.png" alt="카카오맵" className="w-8 h-8 object-contain" />
                     </motion.a>
                     <motion.a
                       href="https://www.google.com/maps/search/?api=1&query=미소금융대구중구법인"
@@ -1173,18 +1173,18 @@ export default function AboutSection({ sectionId }: { sectionId?: string }) {
                       aria-label="구글지도로 길찾기"
                       animate={{ boxShadow: ['0 0 0 0 rgba(66,133,244,0.5)', '0 0 0 6px rgba(66,133,244,0)', '0 0 0 0 rgba(66,133,244,0)'] }}
                       transition={{ duration: 1.8, repeat: Infinity, ease: 'easeOut', delay: 0.3 }}
-                      className="w-7 h-7 rounded-full bg-white border border-slate-200 flex items-center justify-center overflow-hidden hover:opacity-90 transition-opacity"
+                      className="w-10 h-10 rounded-full bg-white border border-slate-200 flex items-center justify-center overflow-hidden hover:opacity-90 transition-opacity"
                     >
-                      <img src="/logos/map_google.png" alt="구글지도" className="w-5 h-5 object-contain" />
+                      <img src="/logos/map_google.png" alt="구글지도" className="w-8 h-8 object-contain" />
                     </motion.a>
                     <motion.a
                       href="tmap://search?name=미소금융대구중구법인"
                       aria-label="티맵으로 길찾기"
                       animate={{ boxShadow: ['0 0 0 0 rgba(26,35,126,0.5)', '0 0 0 6px rgba(26,35,126,0)', '0 0 0 0 rgba(26,35,126,0)'] }}
                       transition={{ duration: 1.8, repeat: Infinity, ease: 'easeOut', delay: 0.45 }}
-                      className="md:hidden w-7 h-7 rounded-full bg-white border border-slate-200 flex items-center justify-center overflow-hidden hover:opacity-90 transition-opacity"
+                      className="md:hidden w-10 h-10 rounded-full bg-white border border-slate-200 flex items-center justify-center overflow-hidden hover:opacity-90 transition-opacity"
                     >
-                      <img src="/logos/map_tmap.png" alt="티맵" className="w-5 h-5 object-contain" />
+                      <img src="/logos/map_tmap.png" alt="티맵" className="w-8 h-8 object-contain" />
                     </motion.a>
                   </div>
                 </div>
