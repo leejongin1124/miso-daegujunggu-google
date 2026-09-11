@@ -1617,7 +1617,7 @@ export default function GuideSection({ sectionId }: { sectionId?: string }) {
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-1.5 text-slate-500 hover:text-slate-700 font-semibold text-xs underline underline-offset-2"
               >
-                <ExternalLink className="w-3.5 h-3.5" />
+                <img src="/logos/naver_blog_logo.png" alt="" className="w-3.5 h-3.5 rounded-full" />
                 미소드림적금 후기 블로그 보러가기
               </a>
             </div>
