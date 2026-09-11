@@ -1522,7 +1522,13 @@ export default function GuideSection({ sectionId }: { sectionId?: string }) {
             </div>
 
             <div className="pt-2">
-              <h3 className="font-black text-slate-900 break-keep">① 비대면 신청절차 (서민금융진흥원 잇다 앱)</h3>
+              <h3 className="font-black text-slate-900 break-keep">
+                ① 비대면 신청절차 (스마트폰·PC, 서민금융진흥원{' '}
+                <a href="https://loan.kinfa.or.kr/main.ke" target="_blank" rel="noopener noreferrer" className="text-miso-blue-600 hover:text-miso-blue-700 underline underline-offset-2">
+                  잇다 앱
+                </a>
+                )
+              </h3>
               <div className="grid grid-cols-2 md:grid-cols-4 gap-3 mt-4">
                 {dreamSavingsOnlineSteps.map((s, idx) => (
                   <motion.div
@@ -1535,10 +1541,20 @@ export default function GuideSection({ sectionId }: { sectionId?: string }) {
                     className="bg-white p-4 rounded-2xl border border-slate-100 shadow-sm hover:border-miso-blue-200 hover:shadow-md transition duration-300 flex flex-col"
                   >
                     <div className="flex items-center justify-between mb-2">
-                      <div className="w-7 h-7 rounded-lg bg-miso-blue-50 text-miso-blue-700 font-black text-[11px] flex items-center justify-center">
+                      <motion.div
+                        animate={{ boxShadow: ['0 0 0 0 rgba(59,130,246,0.5)', '0 0 0 6px rgba(59,130,246,0)', '0 0 0 0 rgba(59,130,246,0)'] }}
+                        transition={{ duration: 1.8, repeat: Infinity, ease: 'easeOut', delay: idx * 0.35 }}
+                        className="w-7 h-7 rounded-lg bg-miso-blue-50 text-miso-blue-700 font-black text-[11px] flex items-center justify-center"
+                      >
                         {s.step}
-                      </div>
-                      <span className="text-xl">{s.icon}</span>
+                      </motion.div>
+                      <motion.span
+                        className="text-xl"
+                        animate={{ y: [0, -3, 0] }}
+                        transition={{ duration: 1.6, repeat: Infinity, ease: 'easeInOut', delay: idx * 0.35 }}
+                      >
+                        {s.icon}
+                      </motion.span>
                     </div>
                     <span className="inline-block text-[10px] font-black text-miso-blue-600 bg-miso-blue-50 px-2 py-0.5 rounded-full mb-1.5 w-fit">
                       {s.label}
