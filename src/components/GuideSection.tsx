@@ -291,7 +291,7 @@ export default function GuideSection({ sectionId }: { sectionId?: string }) {
   const dreamSavingsOnlineSteps = [
     { step: '01', icon: '📱', label: '추천서 신청', title: '추천서 발급·사전약정 체결', desc: '잇다 앱에서 신청', link: { text: '잇다 앱', url: 'https://loan.kinfa.or.kr/main.ke' } },
     { step: '02', icon: '🏦', label: '통장 개설', title: '적금통장 개설', desc: '추천서에 기재된 은행 지점 방문' },
-    { step: '03', icon: '💰', label: '만기 청구', title: '적금 만기 시 청구', desc: '잇다 앱에서 이자지원금 신청' },
+    { step: '03', icon: '💰', label: '만기 청구', title: '적금 만기 시 청구', desc: '잇다 앱에서 이자지원금 신청', link: { text: '잇다 앱', url: 'https://loan.kinfa.or.kr/main.ke' } },
     { step: '04', icon: '📬', label: '지원금 지급', title: '지원금 지급', desc: '서민금융진흥원이 계좌로 송금' },
   ];
 
@@ -1547,10 +1547,11 @@ export default function GuideSection({ sectionId }: { sectionId?: string }) {
                     <p className="text-slate-500 text-[11px] mt-1.5 leading-relaxed font-semibold break-keep">
                       {s.link ? (
                         <>
+                          {s.desc.slice(0, s.desc.indexOf(s.link.text))}
                           <a href={s.link.url} target="_blank" rel="noopener noreferrer" className="text-miso-blue-600 hover:text-miso-blue-700 font-bold underline underline-offset-2">
                             {s.link.text}
                           </a>
-                          에서 신청
+                          {s.desc.slice(s.desc.indexOf(s.link.text) + s.link.text.length)}
                         </>
                       ) : s.desc}
                     </p>
