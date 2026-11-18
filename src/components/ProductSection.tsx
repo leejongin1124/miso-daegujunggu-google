@@ -54,7 +54,6 @@ export default function ProductSection({ onScrollToSection, onOpenCalculator, in
     {
       id: 'social',
       name: '사회연대금융',
-      subtitle: '전국 최초, 누적 37건 / 15억 원 대출 실행 완료',
       description: '사회적기업·협동조합 등 사회적경제 조직의 안정적 운영을 지원하는 정부 정책 기반 운영자금입니다.',
       limit: '최대 1억 원',
       interestRate: '연 4.5%\n연 4.0% (사회적가치등급 S6등급이상)',
@@ -219,35 +218,15 @@ export default function ProductSection({ onScrollToSection, onOpenCalculator, in
                 <h3 className="text-2xl md:text-[2rem] font-black text-slate-900 tracking-tight break-keep">
                   {activeProduct.name}
                 </h3>
-                {activeProduct.id === 'social' ? (
-                  <motion.p
-                    key="social-subtitle"
-                    initial={{ opacity: 0, y: 6 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.4 }}
-                    className="inline-flex items-center gap-1.5 bg-gradient-to-r from-amber-400 to-orange-500 text-white font-black text-xs md:text-sm px-3 py-1.5 rounded-full shadow-md"
-                  >
-                    <motion.span
-                      animate={{ scale: [1, 1.3, 1] }}
-                      transition={{ duration: 1.2, repeat: Infinity, repeatDelay: 1.5 }}
-                    >🏆</motion.span>
-                    <motion.span
-                      animate={{ opacity: [1, 0.6, 1] }}
-                      transition={{ duration: 1.8, repeat: Infinity }}
-                    >
-                      <span className="hidden md:inline">{activeProduct.subtitle}</span>
-                      <span className="md:hidden">전국 최초, 누적 37건 / 15억 원<br/>대출 실행 완료</span>
-                    </motion.span>
-                  </motion.p>
-                ) : activeProduct.id === 'business' ? (
+                {activeProduct.id === 'business' ? (
                   <p className="text-teal-600 font-bold text-xs md:text-sm break-keep">
                     실제 운영 <span className="text-base md:text-lg text-orange-600 font-black">3개월 이상</span> 영세자영업자·개인 사업자 (무등록사업자 포함)
                   </p>
-                ) : (
+                ) : activeProduct.id !== 'social' ? (
                   <p className="text-teal-600 font-bold text-xs md:text-sm">
                     {activeProduct.subtitle}
                   </p>
-                )}
+                ) : null}
                 <p className="text-slate-500 font-medium text-xs md:text-sm leading-relaxed break-keep pt-2">
                   {activeProduct.description}
                 </p>

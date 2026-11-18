@@ -298,7 +298,6 @@ export default function AboutSection({ sectionId }: { sectionId?: string }) {
     {
       year: '2013',
       items: [
-        { date: '10.18', text: '사회적기업 한마음체육대회 참가 및 지역사회 네트워크 구축', category: '지원성과', emphasis: false, newsUrl: 'https://ksen.co.kr/mobile/article.html?no=3852' },
         { date: '06.21', text: '미소금융 지역법인 대표자 회의 개최 (전국 최초 행사)', category: '기관운영', emphasis: false },
         { date: '06.06', text: '사무소 이전 (대구광역시 중구 경상감영길 제일은행 대구지점 4층)', category: '기관운영', emphasis: false },
         { date: '02.13', text: '대구신용보증재단과 서민금융지원 업무협약(MOU) 체결', category: '협약', emphasis: false, newsUrl: 'https://www.idaegu.co.kr/news/articleView.html?idxno=89376' },

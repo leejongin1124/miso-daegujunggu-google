@@ -6,7 +6,7 @@
 export interface Product {
   id: string;
   name: string;
-  subtitle: string;
+  subtitle?: string;
   description: string;
   limit: string;
   interestRate: string;
